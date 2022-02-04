@@ -735,7 +735,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **sendMessage**
-> SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage sendMessage()
+> SendBirdMessageResponse sendMessage()
 
 ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
 
@@ -795,7 +795,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage**
+**SendBirdMessageResponse**
 
 ### Authorization
 
@@ -815,7 +815,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **translateMessageIntoOtherLanguages**
-> SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage translateMessageIntoOtherLanguages()
+> SendBirdMessageResponse translateMessageIntoOtherLanguages()
 
 ## Translate a message into other languages  Translates a message into specific languages. Only text messages of which type is MESG can be translated into other languages.  > __Note__: Message translation is powered by [Google Cloud Translation API recognition engine](https://cloud.google.com/translate/). Find language codes supported by the engine in the [Miscellaneous](https://sendbird.com/docs/chat/v3/platform-api/guides/Miscellaneous) page or visit the [Language Support](https://cloud.google.com/translate/docs/languages) for Google Cloud Translation.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-translate-a-message-into-other-languages ----------------------------
 
@@ -861,7 +861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage**
+**SendBirdMessageResponse**
 
 ### Authorization
 
@@ -955,7 +955,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateMessageById**
-> SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage updateMessageById()
+> SendBirdMessageResponse updateMessageById()
 
 ## Update a message  Updates information on a message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-a-message ----------------------------
 
@@ -1013,7 +1013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage**
+**SendBirdMessageResponse**
 
 ### Authorization
 
@@ -1033,7 +1033,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewMessageById**
-> SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage viewMessageById()
+> SendBirdMessageResponse viewMessageById()
 
 ## View a message  Retrieves information on a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
 
@@ -1082,7 +1082,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage**
+**SendBirdMessageResponse**
 
 ### Authorization
 

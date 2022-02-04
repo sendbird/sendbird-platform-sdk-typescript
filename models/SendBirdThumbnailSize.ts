@@ -21,13 +21,13 @@ export class SendBirdThumbnailSize {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "maxHeight",
-            "baseName": "maxHeight",
+            "baseName": "max_height",
             "type": "number",
             "format": ""
         },
         {
             "name": "maxWidth",
-            "baseName": "maxWidth",
+            "baseName": "max_width",
             "type": "number",
             "format": ""
         }    ];

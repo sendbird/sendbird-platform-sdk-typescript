@@ -10,24 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdSendBirdInstanceBaseMessageReplyType } from './SendBirdSendBirdInstanceBaseMessageReplyType';
 import { HttpFile } from '../http/http';
 
-export class SendBirdSendBirdInstanceBaseMessage {
-    'replyType'?: SendBirdSendBirdInstanceBaseMessageReplyType;
+export class SendBirdAdditionalProperties {
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "replyType",
-            "baseName": "ReplyType",
-            "type": "SendBirdSendBirdInstanceBaseMessageReplyType",
-            "format": ""
-        }    ];
+    ];
 
     static getAttributeTypeMap() {
-        return SendBirdSendBirdInstanceBaseMessage.attributeTypeMap;
+        return SendBirdAdditionalProperties.attributeTypeMap;
     }
 
     public constructor() {

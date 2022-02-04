@@ -22,13 +22,13 @@ export class SendBirdGroupChannelCollection {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "channelList",
-            "baseName": "channelList",
+            "baseName": "channel_list",
             "type": "Array<SendBirdGroupChannel>",
             "format": ""
         },
         {
             "name": "hasMore",
-            "baseName": "hasMore",
+            "baseName": "has_more",
             "type": "boolean",
             "format": ""
         }    ];

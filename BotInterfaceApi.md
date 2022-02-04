@@ -385,7 +385,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **sendBotsMessage**
-> SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage sendBotsMessage()
+> SendBirdMessageResponse sendBotsMessage()
 
 ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage**
+**SendBirdMessageResponse**
 
 ### Authorization
 

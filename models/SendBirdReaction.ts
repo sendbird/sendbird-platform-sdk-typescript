@@ -28,13 +28,13 @@ export class SendBirdReaction {
         },
         {
             "name": "updatedAt",
-            "baseName": "updatedAt",
+            "baseName": "updated_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "userIds",
-            "baseName": "userIds",
+            "baseName": "user_ids",
             "type": "Array<string>",
             "format": ""
         }    ];

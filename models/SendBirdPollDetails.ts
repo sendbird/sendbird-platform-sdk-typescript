@@ -30,37 +30,37 @@ export class SendBirdPollDetails {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "allowMultipleVotes",
-            "baseName": "allowMultipleVotes",
+            "baseName": "allow_multiple_votes",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "allowUserSuggestion",
-            "baseName": "allowUserSuggestion",
+            "baseName": "allow_user_suggestion",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "closeAt",
-            "baseName": "closeAt",
+            "baseName": "close_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "createdAt",
-            "baseName": "createdAt",
+            "baseName": "created_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "createdBy",
-            "baseName": "createdBy",
+            "baseName": "created_by",
             "type": "string",
             "format": ""
         },
         {
             "name": "isAnonymous",
-            "baseName": "isAnonymous",
+            "baseName": "is_anonymous",
             "type": "boolean",
             "format": ""
         },
@@ -78,13 +78,13 @@ export class SendBirdPollDetails {
         },
         {
             "name": "updatedAt",
-            "baseName": "updatedAt",
+            "baseName": "updated_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "voterCount",
-            "baseName": "voterCount",
+            "baseName": "voter_count",
             "type": "number",
             "format": ""
         }    ];

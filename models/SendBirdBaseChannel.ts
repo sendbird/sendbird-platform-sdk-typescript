@@ -29,13 +29,13 @@ export class SendBirdBaseChannel {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "coverUrl",
-            "baseName": "coverUrl",
+            "baseName": "cover_url",
             "type": "string",
             "format": ""
         },
         {
             "name": "createdAt",
-            "baseName": "createdAt",
+            "baseName": "created_at",
             "type": "number",
             "format": ""
         },
@@ -47,7 +47,7 @@ export class SendBirdBaseChannel {
         },
         {
             "name": "customType",
-            "baseName": "customType",
+            "baseName": "custom_type",
             "type": "string",
             "format": ""
         },
@@ -59,13 +59,13 @@ export class SendBirdBaseChannel {
         },
         {
             "name": "isEphemeral",
-            "baseName": "isEphemeral",
+            "baseName": "is_ephemeral",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "isFrozen",
-            "baseName": "isFrozen",
+            "baseName": "is_frozen",
             "type": "boolean",
             "format": ""
         },

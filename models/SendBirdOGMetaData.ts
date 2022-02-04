@@ -24,7 +24,7 @@ export class SendBirdOGMetaData {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "defaultImage",
-            "baseName": "defaultImage",
+            "baseName": "default_image",
             "type": "SendBirdOGImage",
             "format": ""
         },

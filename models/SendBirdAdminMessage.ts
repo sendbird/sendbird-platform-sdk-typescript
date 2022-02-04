@@ -12,13 +12,12 @@
 
 import { ModelObject } from './ModelObject';
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
-import { SendBirdFileMessage } from './SendBirdFileMessage';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
+import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdOGMetaData } from './SendBirdOGMetaData';
 import { SendBirdReaction } from './SendBirdReaction';
 import { SendBirdThreadInfo } from './SendBirdThreadInfo';
 import { SendBirdUser } from './SendBirdUser';
-import { SendBirdUserMessage } from './SendBirdUserMessage';
 import { HttpFile } from '../http/http';
 
 export class SendBirdAdminMessage {
@@ -37,7 +36,7 @@ export class SendBirdAdminMessage {
     'metaArray'?: ModelObject;
     'metaArrays'?: Array<SendBirdMessageMetaArray>;
     'ogMetaData'?: SendBirdOGMetaData;
-    'parentMessage'?: SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage;
+    'parentMessage'?: SendBirdMessageResponse;
     'parentMessageId'?: number;
     'parentMessageText'?: string;
     'reactions'?: Array<SendBirdReaction>;
@@ -52,31 +51,31 @@ export class SendBirdAdminMessage {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "appleCriticalAlertOptions",
-            "baseName": "appleCriticalAlertOptions",
+            "baseName": "apple_critical_alert_options",
             "type": "SendBirdAppleCriticalAlertOptions",
             "format": ""
         },
         {
             "name": "channelType",
-            "baseName": "channelType",
+            "baseName": "channel_type",
             "type": "string",
             "format": ""
         },
         {
             "name": "channelUrl",
-            "baseName": "channelUrl",
+            "baseName": "channel_url",
             "type": "string",
             "format": ""
         },
         {
             "name": "createdAt",
-            "baseName": "createdAt",
+            "baseName": "created_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "customType",
-            "baseName": "customType",
+            "baseName": "custom_type",
             "type": "string",
             "format": ""
         },
@@ -88,19 +87,19 @@ export class SendBirdAdminMessage {
         },
         {
             "name": "isReplyToChannel",
-            "baseName": "isReplyToChannel",
+            "baseName": "is_reply_to_channel",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "mentionType",
-            "baseName": "mentionType",
+            "baseName": "mention_type",
             "type": "string",
             "format": ""
         },
         {
             "name": "mentionedUsers",
-            "baseName": "mentionedUsers",
+            "baseName": "mentioned_users",
             "type": "Array<SendBirdUser>",
             "format": ""
         },
@@ -112,49 +111,49 @@ export class SendBirdAdminMessage {
         },
         {
             "name": "messageId",
-            "baseName": "messageId",
+            "baseName": "message_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "messageType",
-            "baseName": "messageType",
+            "baseName": "message_type",
             "type": "SendBirdAdminMessageMessageTypeEnum",
             "format": ""
         },
         {
             "name": "metaArray",
-            "baseName": "metaArray",
+            "baseName": "meta_array",
             "type": "ModelObject",
             "format": ""
         },
         {
             "name": "metaArrays",
-            "baseName": "metaArrays",
+            "baseName": "meta_arrays",
             "type": "Array<SendBirdMessageMetaArray>",
             "format": ""
         },
         {
             "name": "ogMetaData",
-            "baseName": "ogMetaData",
+            "baseName": "og_meta_data",
             "type": "SendBirdOGMetaData",
             "format": ""
         },
         {
             "name": "parentMessage",
-            "baseName": "parentMessage",
-            "type": "SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage",
+            "baseName": "parent_message",
+            "type": "SendBirdMessageResponse",
             "format": ""
         },
         {
             "name": "parentMessageId",
-            "baseName": "parentMessageId",
+            "baseName": "parent_message_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "parentMessageText",
-            "baseName": "parentMessageText",
+            "baseName": "parent_message_text",
             "type": "string",
             "format": ""
         },
@@ -166,7 +165,7 @@ export class SendBirdAdminMessage {
         },
         {
             "name": "sendingStatus",
-            "baseName": "sendingStatus",
+            "baseName": "sending_status",
             "type": "SendBirdAdminMessageSendingStatusEnum",
             "format": ""
         },
@@ -178,7 +177,7 @@ export class SendBirdAdminMessage {
         },
         {
             "name": "threadInfo",
-            "baseName": "threadInfo",
+            "baseName": "thread_info",
             "type": "SendBirdThreadInfo",
             "format": ""
         },
@@ -190,7 +189,7 @@ export class SendBirdAdminMessage {
         },
         {
             "name": "updatedAt",
-            "baseName": "updatedAt",
+            "baseName": "updated_at",
             "type": "number",
             "format": ""
         }    ];

@@ -37,7 +37,7 @@ export class SendBirdOGImage {
         },
         {
             "name": "secureUrl",
-            "baseName": "secureUrl",
+            "baseName": "secure_url",
             "type": "string",
             "format": ""
         },

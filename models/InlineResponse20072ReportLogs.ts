@@ -10,12 +10,9 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdAdminMessage } from './SendBirdAdminMessage';
-import { SendBirdFileMessage } from './SendBirdFileMessage';
-import { SendBirdGroupChannel } from './SendBirdGroupChannel';
-import { SendBirdOpenChannel } from './SendBirdOpenChannel';
+import { SendBirdChannelResponse } from './SendBirdChannelResponse';
+import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdUser } from './SendBirdUser';
-import { SendBirdUserMessage } from './SendBirdUserMessage';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20072ReportLogs {
@@ -23,8 +20,8 @@ export class InlineResponse20072ReportLogs {
     'reportCategory'?: string;
     'reportingUser'?: SendBirdUser;
     'offendingUser'?: SendBirdUser;
-    'reportedMessage'?: SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage;
-    'channel'?: SendBirdOpenChannel | SendBirdGroupChannel;
+    'reportedMessage'?: SendBirdMessageResponse;
+    'channel'?: SendBirdChannelResponse;
     'reportDescription'?: string;
     'createdAt'?: number;
 
@@ -58,13 +55,13 @@ export class InlineResponse20072ReportLogs {
         {
             "name": "reportedMessage",
             "baseName": "reported_message",
-            "type": "SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage",
+            "type": "SendBirdMessageResponse",
             "format": ""
         },
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "SendBirdOpenChannel | SendBirdGroupChannel",
+            "type": "SendBirdChannelResponse",
             "format": ""
         },
         {

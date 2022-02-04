@@ -37,13 +37,13 @@ export class SendBirdUserMessageParams {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "appleCriticalAlertOptions",
-            "baseName": "appleCriticalAlertOptions",
+            "baseName": "apple_critical_alert_options",
             "type": "SendBirdAppleCriticalAlertOptions",
             "format": ""
         },
         {
             "name": "customType",
-            "baseName": "customType",
+            "baseName": "custom_type",
             "type": "string",
             "format": ""
         },
@@ -55,25 +55,25 @@ export class SendBirdUserMessageParams {
         },
         {
             "name": "isReplyToChannel",
-            "baseName": "isReplyToChannel",
+            "baseName": "is_reply_to_channel",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "mentionType",
-            "baseName": "mentionType",
+            "baseName": "mention_type",
             "type": "SendBirdUserMessageParamsMentionTypeEnum",
             "format": ""
         },
         {
             "name": "mentionedUserIds",
-            "baseName": "mentionedUserIds",
+            "baseName": "mentioned_user_ids",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "mentionedUsers",
-            "baseName": "mentionedUsers",
+            "baseName": "mentioned_users",
             "type": "Array<SendBirdUser>",
             "format": ""
         },
@@ -85,43 +85,43 @@ export class SendBirdUserMessageParams {
         },
         {
             "name": "metaArrayKeys",
-            "baseName": "metaArrayKeys",
+            "baseName": "meta_array_keys",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "metaArrays",
-            "baseName": "metaArrays",
+            "baseName": "meta_arrays",
             "type": "Array<SendBirdMessageMetaArray>",
             "format": ""
         },
         {
             "name": "parentMessageId",
-            "baseName": "parentMessageId",
+            "baseName": "parent_message_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "pollId",
-            "baseName": "pollId",
+            "baseName": "poll_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "pushNotificationDeliveryOption",
-            "baseName": "pushNotificationDeliveryOption",
+            "baseName": "push_notification_delivery_option",
             "type": "SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum",
             "format": ""
         },
         {
             "name": "targetLanguages",
-            "baseName": "targetLanguages",
+            "baseName": "target_languages",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "translationTargetLanguages",
-            "baseName": "translationTargetLanguages",
+            "baseName": "translation_target_languages",
             "type": "Array<string>",
             "format": ""
         }    ];

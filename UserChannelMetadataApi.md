@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **createChannelMetacounter**
-> { [key: string]: string | number; } createChannelMetacounter()
+> { [key: string]: SendBirdAdditionalProperties; } createChannelMetacounter()
 
 ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{ [key: string]: string | number; }**
+**{ [key: string]: SendBirdAdditionalProperties; }**
 
 ### Authorization
 
@@ -595,7 +595,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateChannelMetacounter**
-> { [key: string]: string | number; } updateChannelMetacounter()
+> { [key: string]: SendBirdAdditionalProperties; } updateChannelMetacounter()
 
 ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
 
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{ [key: string]: string | number; }**
+**{ [key: string]: SendBirdAdditionalProperties; }**
 
 ### Authorization
 
@@ -986,7 +986,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewChannelMetacounter**
-> { [key: string]: string | number; } viewChannelMetacounter()
+> { [key: string]: SendBirdAdditionalProperties; } viewChannelMetacounter()
 
 ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{ [key: string]: string | number; }**
+**{ [key: string]: SendBirdAdditionalProperties; }**
 
 ### Authorization
 
@@ -1054,7 +1054,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewChannelMetacounterByKey**
-> { [key: string]: string | number; } viewChannelMetacounterByKey()
+> { [key: string]: SendBirdAdditionalProperties; } viewChannelMetacounterByKey()
 
 ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
 
@@ -1097,7 +1097,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{ [key: string]: string | number; }**
+**{ [key: string]: SendBirdAdditionalProperties; }**
 
 ### Authorization
 

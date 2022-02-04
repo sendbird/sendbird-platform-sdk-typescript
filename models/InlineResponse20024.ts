@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdGroupChannel } from './SendBirdGroupChannel';
-import { SendBirdOpenChannel } from './SendBirdOpenChannel';
+import { SendBirdChannelResponse } from './SendBirdChannelResponse';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20024 {
-    'mutedChannels'?: Array<SendBirdGroupChannel | SendBirdOpenChannel>;
+    'mutedChannels'?: Array<SendBirdChannelResponse>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -24,7 +23,7 @@ export class InlineResponse20024 {
         {
             "name": "mutedChannels",
             "baseName": "muted_channels",
-            "type": "Array<SendBirdGroupChannel | SendBirdOpenChannel>",
+            "type": "Array<SendBirdChannelResponse>",
             "format": ""
         },
         {

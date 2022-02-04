@@ -12,7 +12,7 @@ import { InlineResponse20066 } from '../models/InlineResponse20066';
 import { InlineResponse20066Bots } from '../models/InlineResponse20066Bots';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
-import { SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage } from '../models/SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage';
+import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { UpdateBotByIdData } from '../models/UpdateBotByIdData';
 
@@ -547,22 +547,22 @@ export class BotInterfaceApiResponseProcessor {
      * @params response Response returned by the server for a request to sendBotsMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async sendBotsMessage(response: ResponseContext): Promise<SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage > {
+     public async sendBotsMessage(response: ResponseContext): Promise<SendBirdMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage = ObjectSerializer.deserialize(
+            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage", ""
-            ) as SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage;
+                "SendBirdMessageResponse", ""
+            ) as SendBirdMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage = ObjectSerializer.deserialize(
+            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage", ""
-            ) as SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage;
+                "SendBirdMessageResponse", ""
+            ) as SendBirdMessageResponse;
             return body;
         }
 

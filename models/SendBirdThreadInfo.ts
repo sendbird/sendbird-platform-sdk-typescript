@@ -24,25 +24,25 @@ export class SendBirdThreadInfo {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "lastRepliedAt",
-            "baseName": "lastRepliedAt",
+            "baseName": "last_replied_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "mostRepliedUsers",
-            "baseName": "mostRepliedUsers",
+            "baseName": "most_replied_users",
             "type": "Array<SendBirdUser>",
             "format": ""
         },
         {
             "name": "replyCount",
-            "baseName": "replyCount",
+            "baseName": "reply_count",
             "type": "number",
             "format": ""
         },
         {
             "name": "updatedAt",
-            "baseName": "updatedAt",
+            "baseName": "updated_at",
             "type": "number",
             "format": ""
         }    ];

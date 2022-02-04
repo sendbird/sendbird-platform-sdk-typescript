@@ -31,7 +31,7 @@ export class SendBirdThumbnailObject {
         },
         {
             "name": "plainUrl",
-            "baseName": "plainUrl",
+            "baseName": "plain_url",
             "type": "string",
             "format": ""
         },

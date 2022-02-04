@@ -28,13 +28,13 @@ export class SendBirdRestrictionInfo {
         },
         {
             "name": "endAt",
-            "baseName": "endAt",
+            "baseName": "end_at",
             "type": "number",
             "format": ""
         },
         {
             "name": "restrictionType",
-            "baseName": "restrictionType",
+            "baseName": "restriction_type",
             "type": "SendBirdRestrictionInfoRestrictionTypeEnum",
             "format": ""
         }    ];

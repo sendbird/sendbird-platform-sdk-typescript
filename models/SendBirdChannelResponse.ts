@@ -10,18 +10,20 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdGroupChannel } from './SendBirdGroupChannel';
 import { SendBirdMember } from './SendBirdMember';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
+import { SendBirdOpenChannel } from './SendBirdOpenChannel';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class SendBirdGroupChannel {
+export class SendBirdChannelResponse {
     'coverUrl'?: string;
     'createdAt'?: number;
     'creator'?: SendBirdUser;
     'customType'?: string;
     'data'?: string;
-    'hiddenState'?: SendBirdGroupChannelHiddenStateEnum;
+    'hiddenState'?: SendBirdChannelResponseHiddenStateEnum;
     'invitedAt'?: number;
     'inviter'?: SendBirdUser;
     'isAccessCodeRequired'?: boolean;
@@ -43,14 +45,16 @@ export class SendBirdGroupChannel {
     'messageSurvivalSeconds'?: number;
     'myCountPreference'?: string;
     'myLastRead'?: number;
-    'myMemberState'?: SendBirdGroupChannelMyMemberStateEnum;
-    'myMutedState'?: SendBirdGroupChannelMyMutedStateEnum;
-    'myPushTriggerOption'?: SendBirdGroupChannelMyPushTriggerOptionEnum;
-    'myRole'?: SendBirdGroupChannelMyRoleEnum;
+    'myMemberState'?: SendBirdChannelResponseMyMemberStateEnum;
+    'myMutedState'?: SendBirdChannelResponseMyMutedStateEnum;
+    'myPushTriggerOption'?: SendBirdChannelResponseMyPushTriggerOptionEnum;
+    'myRole'?: SendBirdChannelResponseMyRoleEnum;
     'name'?: string;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
     'url'?: string;
+    'operators'?: Array<SendBirdUser>;
+    'participantCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -88,7 +92,7 @@ export class SendBirdGroupChannel {
         {
             "name": "hiddenState",
             "baseName": "hidden_state",
-            "type": "SendBirdGroupChannelHiddenStateEnum",
+            "type": "SendBirdChannelResponseHiddenStateEnum",
             "format": ""
         },
         {
@@ -220,25 +224,25 @@ export class SendBirdGroupChannel {
         {
             "name": "myMemberState",
             "baseName": "my_member_state",
-            "type": "SendBirdGroupChannelMyMemberStateEnum",
+            "type": "SendBirdChannelResponseMyMemberStateEnum",
             "format": ""
         },
         {
             "name": "myMutedState",
             "baseName": "my_muted_state",
-            "type": "SendBirdGroupChannelMyMutedStateEnum",
+            "type": "SendBirdChannelResponseMyMutedStateEnum",
             "format": ""
         },
         {
             "name": "myPushTriggerOption",
             "baseName": "my_push_trigger_option",
-            "type": "SendBirdGroupChannelMyPushTriggerOptionEnum",
+            "type": "SendBirdChannelResponseMyPushTriggerOptionEnum",
             "format": ""
         },
         {
             "name": "myRole",
             "baseName": "my_role",
-            "type": "SendBirdGroupChannelMyRoleEnum",
+            "type": "SendBirdChannelResponseMyRoleEnum",
             "format": ""
         },
         {
@@ -264,10 +268,22 @@ export class SendBirdGroupChannel {
             "baseName": "url",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "operators",
+            "baseName": "operators",
+            "type": "Array<SendBirdUser>",
+            "format": ""
+        },
+        {
+            "name": "participantCount",
+            "baseName": "participant_count",
+            "type": "number",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdGroupChannel.attributeTypeMap;
+        return SendBirdChannelResponse.attributeTypeMap;
     }
 
     public constructor() {
@@ -275,9 +291,9 @@ export class SendBirdGroupChannel {
 }
 
 
-export type SendBirdGroupChannelHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
-export type SendBirdGroupChannelMyMemberStateEnum = "invited" | "joined" | "none" ;
-export type SendBirdGroupChannelMyMutedStateEnum = "muted" | "unmuted" ;
-export type SendBirdGroupChannelMyPushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
-export type SendBirdGroupChannelMyRoleEnum = "none" | "operator" ;
+export type SendBirdChannelResponseHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
+export type SendBirdChannelResponseMyMemberStateEnum = "invited" | "joined" | "none" ;
+export type SendBirdChannelResponseMyMutedStateEnum = "muted" | "unmuted" ;
+export type SendBirdChannelResponseMyPushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
+export type SendBirdChannelResponseMyRoleEnum = "none" | "operator" ;
 

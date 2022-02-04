@@ -24,7 +24,7 @@ export class ModelFile {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "lastModified",
-            "baseName": "lastModified",
+            "baseName": "last_modified",
             "type": "number",
             "format": ""
         },
@@ -48,7 +48,7 @@ export class ModelFile {
         },
         {
             "name": "webkitRelativePath",
-            "baseName": "webkitRelativePath",
+            "baseName": "webkit_relative_path",
             "type": "string",
             "format": ""
         }    ];

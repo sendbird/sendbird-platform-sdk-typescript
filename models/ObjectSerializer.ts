@@ -164,133 +164,35 @@ export * from './ReportChannelByUrlData';
 export * from './ReportMessageByIdData';
 export * from './ReportUserByIdData';
 export * from './ScheduleAnnouncementData';
+export * from './SendBirdAdditionalProperties';
 export * from './SendBirdAdminMessage';
-export * from './SendBirdAppInfo';
 export * from './SendBirdAppleCriticalAlertOptions';
-export * from './SendBirdApplicationUserListQuery';
-export * from './SendBirdBannedUserListQuery';
 export * from './SendBirdBaseChannel';
 export * from './SendBirdBaseMessageInstance';
-export * from './SendBirdBaseMessageParams';
-export * from './SendBirdBlockedUserListQuery';
-export * from './SendBirdCollectionEventSource';
-export * from './SendBirdDiscoveryObject';
-export * from './SendBirdDistinctGroupChannelResponse';
+export * from './SendBirdChannelResponse';
 export * from './SendBirdEmoji';
 export * from './SendBirdEmojiCategory';
-export * from './SendBirdEmojiContainer';
-export * from './SendBirdFileMessage';
 export * from './SendBirdFileMessageParams';
-export * from './SendBirdFileMessagesCallbackObject';
-export * from './SendBirdFriendListQuery';
-export * from './SendBirdGetFriendChangeLogs';
 export * from './SendBirdGroupChannel';
-export * from './SendBirdGroupChannelChangeLogs';
-export * from './SendBirdGroupChannelChangeLogsParams';
 export * from './SendBirdGroupChannelCollection';
-export * from './SendBirdGroupChannelCollectionHandler';
-export * from './SendBirdGroupChannelCollectionStatic';
-export * from './SendBirdGroupChannelCollectionStaticGroupChannelOrder';
-export * from './SendBirdGroupChannelContext';
-export * from './SendBirdGroupChannelContextSource';
-export * from './SendBirdGroupChannelFilter';
-export * from './SendBirdGroupChannelFilterSearchFilter';
-export * from './SendBirdGroupChannelFilterStatic';
-export * from './SendBirdGroupChannelFilterStaticHiddenChannelFilter';
-export * from './SendBirdGroupChannelFilterStaticMemberStateFilter';
-export * from './SendBirdGroupChannelFilterStaticPublicChannelFilter';
-export * from './SendBirdGroupChannelFilterStaticQueryType';
-export * from './SendBirdGroupChannelFilterStaticSearchField';
-export * from './SendBirdGroupChannelFilterStaticSuperChannelFilter';
-export * from './SendBirdGroupChannelFilterStaticUnreadChannelFilter';
-export * from './SendBirdGroupChannelFilterUserIdsFilter';
-export * from './SendBirdGroupChannelListQuery';
-export * from './SendBirdGroupChannelMemberListQuery';
-export * from './SendBirdGroupChannelOrder';
-export * from './SendBirdGroupChannelParams';
-export * from './SendBirdGroupChannelTotalUnreadMessageCountParams';
-export * from './SendBirdHiddenChannelFilter';
-export * from './SendBirdLogLevel';
 export * from './SendBirdMember';
-export * from './SendBirdMemberStateFilter';
-export * from './SendBirdMessageChangeLogs';
-export * from './SendBirdMessageChangeLogsParams';
-export * from './SendBirdMessageCollection';
-export * from './SendBirdMessageCollectionHandler';
-export * from './SendBirdMessageCollectionInitPolicy';
-export * from './SendBirdMessageCollectionStatic';
-export * from './SendBirdMessageCollectionStaticMessageCollectionInitPolicy';
-export * from './SendBirdMessageContext';
-export * from './SendBirdMessageFilter';
-export * from './SendBirdMessageListParams';
 export * from './SendBirdMessageMetaArray';
-export * from './SendBirdMessageRetrievalParams';
-export * from './SendBirdMessageSearchQuery';
-export * from './SendBirdMessageSearchQueryOptions';
-export * from './SendBirdMessageSendingStatus';
-export * from './SendBirdMessageTypeFilter';
-export * from './SendBirdMutedInfo';
-export * from './SendBirdMutedUserListQuery';
+export * from './SendBirdMessageResponse';
 export * from './SendBirdOGImage';
 export * from './SendBirdOGMetaData';
 export * from './SendBirdOpenChannel';
-export * from './SendBirdOpenChannelListQuery';
-export * from './SendBirdOpenChannelParams';
-export * from './SendBirdOperatorListQuery';
-export * from './SendBirdOptions';
-export * from './SendBirdParticipantListQuery';
 export * from './SendBirdPlugin';
 export * from './SendBirdPoll';
 export * from './SendBirdPollDetails';
-export * from './SendBirdPollListQuery';
 export * from './SendBirdPollOption';
-export * from './SendBirdPollParams';
-export * from './SendBirdPollRetrievalParams';
-export * from './SendBirdPollStatic';
-export * from './SendBirdPollStaticStatus';
-export * from './SendBirdPollStatus';
-export * from './SendBirdPollUpdateEvent';
 export * from './SendBirdPollUpdatedVoteCount';
-export * from './SendBirdPollVoteEvent';
-export * from './SendBirdPollVoterListQuery';
-export * from './SendBirdPreviousMessageListQuery';
-export * from './SendBirdPublicChannelFilter';
-export * from './SendBirdPublicGroupChannelListQuery';
-export * from './SendBirdPushTokens';
-export * from './SendBirdQueryType';
 export * from './SendBirdReaction';
-export * from './SendBirdReactionEvent';
-export * from './SendBirdReplyType';
-export * from './SendBirdRestrictedUser';
-export * from './SendBirdRestrictedUserStatic';
-export * from './SendBirdRestrictedUserStaticRestrictionType';
 export * from './SendBirdRestrictionInfo';
-export * from './SendBirdRestrictionType';
-export * from './SendBirdScheduledUserMessage';
-export * from './SendBirdScheduledUserMessageParams';
-export * from './SendBirdSearchField';
-export * from './SendBirdSearchFilterParams';
-export * from './SendBirdSendBirdError';
-export * from './SendBirdSendBirdInstance';
-export * from './SendBirdSendBirdInstanceBaseChannel';
-export * from './SendBirdSendBirdInstanceBaseChannelMessageTypeFilter';
-export * from './SendBirdSendBirdInstanceBaseMessage';
-export * from './SendBirdSendBirdInstanceBaseMessageReplyType';
 export * from './SendBirdSender';
-export * from './SendBirdStatic';
-export * from './SendBirdStaticLogLevel';
-export * from './SendBirdSuperChannelFilter';
 export * from './SendBirdThreadInfo';
-export * from './SendBirdThreadInfoUpdateEvent';
-export * from './SendBirdThreadedMessageListInfo';
-export * from './SendBirdThreadedMessageListParams';
 export * from './SendBirdThumbnailObject';
 export * from './SendBirdThumbnailSize';
-export * from './SendBirdUnreadChannelFilter';
 export * from './SendBirdUser';
-export * from './SendBirdUserIdsFilterParams';
-export * from './SendBirdUserListQuery';
-export * from './SendBirdUserMessage';
 export * from './SendBirdUserMessageParams';
 export * from './SendBotSMessageData';
 export * from './SendMessageData';
@@ -481,133 +383,35 @@ import { ReportChannelByUrlData } from './ReportChannelByUrlData';
 import { ReportMessageByIdData } from './ReportMessageByIdData';
 import { ReportUserByIdData } from './ReportUserByIdData';
 import { ScheduleAnnouncementData } from './ScheduleAnnouncementData';
+import { SendBirdAdditionalProperties } from './SendBirdAdditionalProperties';
 import { SendBirdAdminMessage           , SendBirdAdminMessageMessageTypeEnum         , SendBirdAdminMessageSendingStatusEnum       } from './SendBirdAdminMessage';
-import { SendBirdAppInfo } from './SendBirdAppInfo';
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
-import { SendBirdApplicationUserListQuery } from './SendBirdApplicationUserListQuery';
-import { SendBirdBannedUserListQuery } from './SendBirdBannedUserListQuery';
 import { SendBirdBaseChannel } from './SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance          , SendBirdBaseMessageInstanceMessageTypeEnum         , SendBirdBaseMessageInstanceSendingStatusEnum      } from './SendBirdBaseMessageInstance';
-import { SendBirdBaseMessageParams    , SendBirdBaseMessageParamsMentionTypeEnum       , SendBirdBaseMessageParamsPushNotificationDeliveryOptionEnum   } from './SendBirdBaseMessageParams';
-import { SendBirdBlockedUserListQuery } from './SendBirdBlockedUserListQuery';
-import { SendBirdCollectionEventSource, SendBirdCollectionEventSourceCHANNELBACKGROUNDEnum  , SendBirdCollectionEventSourceCHANNELCHANGELOGEnum  , SendBirdCollectionEventSourceEVENTCHANNELCHANGEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELDELETEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELENTEREnum  , SendBirdCollectionEventSourceEVENTCHANNELEXITEnum  , SendBirdCollectionEventSourceEVENTCHANNELFROZENEnum  , SendBirdCollectionEventSourceEVENTCHANNELHIDDENEnum  , SendBirdCollectionEventSourceEVENTCHANNELMETACOUNTERDELETEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELMETACOUNTERUPDATEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELMETADATADELETEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELMETADATAUPDATEDEnum  , SendBirdCollectionEventSourceEVENTCHANNELUNFROZENEnum  , SendBirdCollectionEventSourceEVENTCHANNELUNHIDDENEnum  , SendBirdCollectionEventSourceEVENTDELIVERYRECEIPTUPDATEDEnum  , SendBirdCollectionEventSourceEVENTMENTIONEnum  , SendBirdCollectionEventSourceEVENTMESSAGEDELETEDEnum  , SendBirdCollectionEventSourceEVENTMESSAGERECEIVEDEnum  , SendBirdCollectionEventSourceEVENTMESSAGESENTEnum  , SendBirdCollectionEventSourceEVENTMESSAGEUPDATEDEnum  , SendBirdCollectionEventSourceEVENTOPERATORUPDATEDEnum  , SendBirdCollectionEventSourceEVENTREACTIONUPDATEDEnum  , SendBirdCollectionEventSourceEVENTREADRECEIPTUPDATEDEnum  , SendBirdCollectionEventSourceEVENTTHREADINFOUPDATEDEnum  , SendBirdCollectionEventSourceEVENTTYPINGSTATUSUPDATEDEnum  , SendBirdCollectionEventSourceEVENTUSERBANNEDEnum  , SendBirdCollectionEventSourceEVENTUSERDECLINEDINVITATIONEnum  , SendBirdCollectionEventSourceEVENTUSERJOINEDEnum  , SendBirdCollectionEventSourceEVENTUSERLEFTEnum  , SendBirdCollectionEventSourceEVENTUSERMUTEDEnum  , SendBirdCollectionEventSourceEVENTUSERRECEIVEDINVITATIONEnum  , SendBirdCollectionEventSourceEVENTUSERUNBANNEDEnum  , SendBirdCollectionEventSourceEVENTUSERUNMUTEDEnum  , SendBirdCollectionEventSourceLOCALMESSAGECANCELEDEnum  , SendBirdCollectionEventSourceLOCALMESSAGEFAILEDEnum  , SendBirdCollectionEventSourceLOCALMESSAGEPENDINGCREATEDEnum  , SendBirdCollectionEventSourceLOCALMESSAGERESENDSTARTEDEnum  , SendBirdCollectionEventSourceMESSAGEBACKGROUNDEnum  , SendBirdCollectionEventSourceMESSAGECHANGELOGEnum  , SendBirdCollectionEventSourceMESSAGECOLLECTIONFILTERMISMATCHEnum  , SendBirdCollectionEventSourceMESSAGEFILLEnum   } from './SendBirdCollectionEventSource';
-import { SendBirdDiscoveryObject } from './SendBirdDiscoveryObject';
-import { SendBirdDistinctGroupChannelResponse } from './SendBirdDistinctGroupChannelResponse';
+import { SendBirdChannelResponse     , SendBirdChannelResponseHiddenStateEnum                       , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum         } from './SendBirdChannelResponse';
 import { SendBirdEmoji } from './SendBirdEmoji';
 import { SendBirdEmojiCategory } from './SendBirdEmojiCategory';
-import { SendBirdEmojiContainer } from './SendBirdEmojiContainer';
-import { SendBirdFileMessage             , SendBirdFileMessageMessageTypeEnum            , SendBirdFileMessageRequestStateEnum    , SendBirdFileMessageSendingStatusEnum          } from './SendBirdFileMessage';
 import { SendBirdFileMessageParams        , SendBirdFileMessageParamsMentionTypeEnum        , SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum    } from './SendBirdFileMessageParams';
-import { SendBirdFileMessagesCallbackObject } from './SendBirdFileMessagesCallbackObject';
-import { SendBirdFriendListQuery } from './SendBirdFriendListQuery';
-import { SendBirdGetFriendChangeLogs } from './SendBirdGetFriendChangeLogs';
 import { SendBirdGroupChannel     , SendBirdGroupChannelHiddenStateEnum                       , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum       } from './SendBirdGroupChannel';
-import { SendBirdGroupChannelChangeLogs } from './SendBirdGroupChannelChangeLogs';
-import { SendBirdGroupChannelChangeLogsParams } from './SendBirdGroupChannelChangeLogsParams';
 import { SendBirdGroupChannelCollection } from './SendBirdGroupChannelCollection';
-import { SendBirdGroupChannelCollectionHandler } from './SendBirdGroupChannelCollectionHandler';
-import { SendBirdGroupChannelCollectionStatic } from './SendBirdGroupChannelCollectionStatic';
-import { SendBirdGroupChannelCollectionStaticGroupChannelOrder, SendBirdGroupChannelCollectionStaticGroupChannelOrderCHANNELNAMEALPHABETICALEnum  , SendBirdGroupChannelCollectionStaticGroupChannelOrderCHRONOLOGICALEnum  , SendBirdGroupChannelCollectionStaticGroupChannelOrderLATESTLASTMESSAGEEnum   } from './SendBirdGroupChannelCollectionStaticGroupChannelOrder';
-import { SendBirdGroupChannelContext } from './SendBirdGroupChannelContext';
-import { SendBirdGroupChannelContextSource, SendBirdGroupChannelContextSourceCHANNELBACKGROUNDEnum  , SendBirdGroupChannelContextSourceCHANNELCHANGELOGEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELCHANGEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELDELETEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELENTEREnum  , SendBirdGroupChannelContextSourceEVENTCHANNELEXITEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELFROZENEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELHIDDENEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELMETACOUNTERDELETEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELMETACOUNTERUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELMETADATADELETEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELMETADATAUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELUNFROZENEnum  , SendBirdGroupChannelContextSourceEVENTCHANNELUNHIDDENEnum  , SendBirdGroupChannelContextSourceEVENTDELIVERYRECEIPTUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTMENTIONEnum  , SendBirdGroupChannelContextSourceEVENTMESSAGEDELETEDEnum  , SendBirdGroupChannelContextSourceEVENTMESSAGERECEIVEDEnum  , SendBirdGroupChannelContextSourceEVENTMESSAGESENTEnum  , SendBirdGroupChannelContextSourceEVENTMESSAGEUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTOPERATORUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTREACTIONUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTREADRECEIPTUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTTHREADINFOUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTTYPINGSTATUSUPDATEDEnum  , SendBirdGroupChannelContextSourceEVENTUSERBANNEDEnum  , SendBirdGroupChannelContextSourceEVENTUSERDECLINEDINVITATIONEnum  , SendBirdGroupChannelContextSourceEVENTUSERJOINEDEnum  , SendBirdGroupChannelContextSourceEVENTUSERLEFTEnum  , SendBirdGroupChannelContextSourceEVENTUSERMUTEDEnum  , SendBirdGroupChannelContextSourceEVENTUSERRECEIVEDINVITATIONEnum  , SendBirdGroupChannelContextSourceEVENTUSERUNBANNEDEnum  , SendBirdGroupChannelContextSourceEVENTUSERUNMUTEDEnum  , SendBirdGroupChannelContextSourceLOCALMESSAGECANCELEDEnum  , SendBirdGroupChannelContextSourceLOCALMESSAGEFAILEDEnum  , SendBirdGroupChannelContextSourceLOCALMESSAGEPENDINGCREATEDEnum  , SendBirdGroupChannelContextSourceLOCALMESSAGERESENDSTARTEDEnum  , SendBirdGroupChannelContextSourceMESSAGEBACKGROUNDEnum  , SendBirdGroupChannelContextSourceMESSAGECHANGELOGEnum  , SendBirdGroupChannelContextSourceMESSAGECOLLECTIONFILTERMISMATCHEnum  , SendBirdGroupChannelContextSourceMESSAGEFILLEnum   } from './SendBirdGroupChannelContextSource';
-import { SendBirdGroupChannelFilter    , SendBirdGroupChannelFilterHiddenChannelFilterEnum     , SendBirdGroupChannelFilterMemberStateFilterEnum   , SendBirdGroupChannelFilterPublicChannelFilterEnum   , SendBirdGroupChannelFilterSuperChannelFilterEnum  , SendBirdGroupChannelFilterUnreadChannelFilterEnum    } from './SendBirdGroupChannelFilter';
-import { SendBirdGroupChannelFilterSearchFilter, SendBirdGroupChannelFilterSearchFilterSearchFieldsEnum    } from './SendBirdGroupChannelFilterSearchFilter';
-import { SendBirdGroupChannelFilterStatic } from './SendBirdGroupChannelFilterStatic';
-import { SendBirdGroupChannelFilterStaticHiddenChannelFilter, SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENEnum  , SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENALLOWAUTOUNHIDEEnum  , SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENPREVENTAUTOUNHIDEEnum  , SendBirdGroupChannelFilterStaticHiddenChannelFilterUNHIDDENEnum   } from './SendBirdGroupChannelFilterStaticHiddenChannelFilter';
-import { SendBirdGroupChannelFilterStaticMemberStateFilter, SendBirdGroupChannelFilterStaticMemberStateFilterALLEnum  , SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDEnum  , SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDBYFRIENDEnum  , SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDBYNONFRIENDEnum  , SendBirdGroupChannelFilterStaticMemberStateFilterJOINEDEnum   } from './SendBirdGroupChannelFilterStaticMemberStateFilter';
-import { SendBirdGroupChannelFilterStaticPublicChannelFilter, SendBirdGroupChannelFilterStaticPublicChannelFilterALLEnum  , SendBirdGroupChannelFilterStaticPublicChannelFilterPRIVATEEnum  , SendBirdGroupChannelFilterStaticPublicChannelFilterPUBLICEnum   } from './SendBirdGroupChannelFilterStaticPublicChannelFilter';
-import { SendBirdGroupChannelFilterStaticQueryType, SendBirdGroupChannelFilterStaticQueryTypeANDEnum  , SendBirdGroupChannelFilterStaticQueryTypeOREnum   } from './SendBirdGroupChannelFilterStaticQueryType';
-import { SendBirdGroupChannelFilterStaticSearchField, SendBirdGroupChannelFilterStaticSearchFieldCHANNELNAMEEnum  , SendBirdGroupChannelFilterStaticSearchFieldMEMBERNICKNAMEEnum   } from './SendBirdGroupChannelFilterStaticSearchField';
-import { SendBirdGroupChannelFilterStaticSuperChannelFilter, SendBirdGroupChannelFilterStaticSuperChannelFilterALLEnum  , SendBirdGroupChannelFilterStaticSuperChannelFilterNONSUPEREnum  , SendBirdGroupChannelFilterStaticSuperChannelFilterSUPEREnum   } from './SendBirdGroupChannelFilterStaticSuperChannelFilter';
-import { SendBirdGroupChannelFilterStaticUnreadChannelFilter, SendBirdGroupChannelFilterStaticUnreadChannelFilterALLEnum  , SendBirdGroupChannelFilterStaticUnreadChannelFilterUNREADMESSAGEEnum   } from './SendBirdGroupChannelFilterStaticUnreadChannelFilter';
-import { SendBirdGroupChannelFilterUserIdsFilter , SendBirdGroupChannelFilterUserIdsFilterQueryTypeEnum    } from './SendBirdGroupChannelFilterUserIdsFilter';
-import { SendBirdGroupChannelListQuery      , SendBirdGroupChannelListQueryHiddenChannelFilterEnum      , SendBirdGroupChannelListQueryMemberStateFilterEnum       , SendBirdGroupChannelListQueryOrderEnum  , SendBirdGroupChannelListQueryPublicChannelFilterEnum  , SendBirdGroupChannelListQueryQueryTypeEnum  , SendBirdGroupChannelListQuerySuperChannelFilterEnum  , SendBirdGroupChannelListQueryUnreadChannelFilterEnum      , SendBirdGroupChannelListQueryUserIdsIncludeFilterQueryTypeEnum   } from './SendBirdGroupChannelListQuery';
-import { SendBirdGroupChannelMemberListQuery   , SendBirdGroupChannelMemberListQueryMemberStateFilterEnum  , SendBirdGroupChannelMemberListQueryMutedMemberFilterEnum   , SendBirdGroupChannelMemberListQueryOperatorFilterEnum  , SendBirdGroupChannelMemberListQueryOrderEnum   } from './SendBirdGroupChannelMemberListQuery';
-import { SendBirdGroupChannelOrder, SendBirdGroupChannelOrderCHANNELNAMEALPHABETICALEnum  , SendBirdGroupChannelOrderCHRONOLOGICALEnum  , SendBirdGroupChannelOrderLATESTLASTMESSAGEEnum   } from './SendBirdGroupChannelOrder';
-import { SendBirdGroupChannelParams } from './SendBirdGroupChannelParams';
-import { SendBirdGroupChannelTotalUnreadMessageCountParams , SendBirdGroupChannelTotalUnreadMessageCountParamsSuperChannelFilterEnum   } from './SendBirdGroupChannelTotalUnreadMessageCountParams';
-import { SendBirdHiddenChannelFilter, SendBirdHiddenChannelFilterHIDDENEnum  , SendBirdHiddenChannelFilterHIDDENALLOWAUTOUNHIDEEnum  , SendBirdHiddenChannelFilterHIDDENPREVENTAUTOUNHIDEEnum  , SendBirdHiddenChannelFilterUNHIDDENEnum   } from './SendBirdHiddenChannelFilter';
-import { SendBirdLogLevel, SendBirdLogLevelDEBUGEnum  , SendBirdLogLevelERROREnum  , SendBirdLogLevelINFOEnum  , SendBirdLogLevelNONEEnum  , SendBirdLogLevelVERBOSEEnum  , SendBirdLogLevelWARNEnum   } from './SendBirdLogLevel';
 import { SendBirdMember               , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
-import { SendBirdMemberStateFilter, SendBirdMemberStateFilterALLEnum  , SendBirdMemberStateFilterINVITEDEnum  , SendBirdMemberStateFilterINVITEDBYFRIENDEnum  , SendBirdMemberStateFilterINVITEDBYNONFRIENDEnum  , SendBirdMemberStateFilterJOINEDEnum   } from './SendBirdMemberStateFilter';
-import { SendBirdMessageChangeLogs } from './SendBirdMessageChangeLogs';
-import { SendBirdMessageChangeLogsParams        , SendBirdMessageChangeLogsParamsReplyTypeEnum   } from './SendBirdMessageChangeLogsParams';
-import { SendBirdMessageCollection } from './SendBirdMessageCollection';
-import { SendBirdMessageCollectionHandler } from './SendBirdMessageCollectionHandler';
-import { SendBirdMessageCollectionInitPolicy, SendBirdMessageCollectionInitPolicyCACHEANDREPLACEBYAPIEnum   } from './SendBirdMessageCollectionInitPolicy';
-import { SendBirdMessageCollectionStatic } from './SendBirdMessageCollectionStatic';
-import { SendBirdMessageCollectionStaticMessageCollectionInitPolicy, SendBirdMessageCollectionStaticMessageCollectionInitPolicyCACHEANDREPLACEBYAPIEnum   } from './SendBirdMessageCollectionStaticMessageCollectionInitPolicy';
-import { SendBirdMessageContext , SendBirdMessageContextSendingStatusEnum    } from './SendBirdMessageContext';
-import { SendBirdMessageFilter } from './SendBirdMessageFilter';
-import { SendBirdMessageListParams              , SendBirdMessageListParamsReplyTypeEnum      } from './SendBirdMessageListParams';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
-import { SendBirdMessageRetrievalParams } from './SendBirdMessageRetrievalParams';
-import { SendBirdMessageSearchQuery } from './SendBirdMessageSearchQuery';
-import { SendBirdMessageSearchQueryOptions       , SendBirdMessageSearchQueryOptionsOrderEnum     } from './SendBirdMessageSearchQueryOptions';
-import { SendBirdMessageSendingStatus, SendBirdMessageSendingStatusCANCELEDEnum  , SendBirdMessageSendingStatusFAILEDEnum  , SendBirdMessageSendingStatusNONEEnum  , SendBirdMessageSendingStatusPENDINGEnum  , SendBirdMessageSendingStatusSUCCEEDEDEnum   } from './SendBirdMessageSendingStatus';
-import { SendBirdMessageTypeFilter, SendBirdMessageTypeFilterADMINEnum  , SendBirdMessageTypeFilterALLEnum  , SendBirdMessageTypeFilterFILEEnum  , SendBirdMessageTypeFilterUSEREnum   } from './SendBirdMessageTypeFilter';
-import { SendBirdMutedInfo } from './SendBirdMutedInfo';
-import { SendBirdMutedUserListQuery } from './SendBirdMutedUserListQuery';
+import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdOGImage } from './SendBirdOGImage';
 import { SendBirdOGMetaData } from './SendBirdOGMetaData';
 import { SendBirdOpenChannel } from './SendBirdOpenChannel';
-import { SendBirdOpenChannelListQuery } from './SendBirdOpenChannelListQuery';
-import { SendBirdOpenChannelParams } from './SendBirdOpenChannelParams';
-import { SendBirdOperatorListQuery } from './SendBirdOperatorListQuery';
-import { SendBirdOptions } from './SendBirdOptions';
-import { SendBirdParticipantListQuery } from './SendBirdParticipantListQuery';
 import { SendBirdPlugin } from './SendBirdPlugin';
 import { SendBirdPoll } from './SendBirdPoll';
 import { SendBirdPollDetails       , SendBirdPollDetailsStatusEnum     } from './SendBirdPollDetails';
-import { SendBirdPollListQuery } from './SendBirdPollListQuery';
 import { SendBirdPollOption } from './SendBirdPollOption';
-import { SendBirdPollParams } from './SendBirdPollParams';
-import { SendBirdPollRetrievalParams } from './SendBirdPollRetrievalParams';
-import { SendBirdPollStatic } from './SendBirdPollStatic';
-import { SendBirdPollStaticStatus, SendBirdPollStaticStatusCLOSEDEnum  , SendBirdPollStaticStatusOPENEnum  , SendBirdPollStaticStatusREMOVEDEnum   } from './SendBirdPollStaticStatus';
-import { SendBirdPollStatus, SendBirdPollStatusCLOSEDEnum  , SendBirdPollStatusOPENEnum  , SendBirdPollStatusREMOVEDEnum   } from './SendBirdPollStatus';
-import { SendBirdPollUpdateEvent , SendBirdPollUpdateEventStatusEnum   } from './SendBirdPollUpdateEvent';
 import { SendBirdPollUpdatedVoteCount } from './SendBirdPollUpdatedVoteCount';
-import { SendBirdPollVoteEvent } from './SendBirdPollVoteEvent';
-import { SendBirdPollVoterListQuery } from './SendBirdPollVoterListQuery';
-import { SendBirdPreviousMessageListQuery            , SendBirdPreviousMessageListQueryMessageTypeFilterEnum      } from './SendBirdPreviousMessageListQuery';
-import { SendBirdPublicChannelFilter, SendBirdPublicChannelFilterALLEnum  , SendBirdPublicChannelFilterPRIVATEEnum  , SendBirdPublicChannelFilterPUBLICEnum   } from './SendBirdPublicChannelFilter';
-import { SendBirdPublicGroupChannelListQuery         , SendBirdPublicGroupChannelListQueryMembershipFilterEnum      , SendBirdPublicGroupChannelListQueryOrderEnum  , SendBirdPublicGroupChannelListQuerySuperChannelFilterEnum   } from './SendBirdPublicGroupChannelListQuery';
-import { SendBirdPushTokens   , SendBirdPushTokensTypeEnum   } from './SendBirdPushTokens';
-import { SendBirdQueryType, SendBirdQueryTypeANDEnum  , SendBirdQueryTypeOREnum   } from './SendBirdQueryType';
 import { SendBirdReaction } from './SendBirdReaction';
-import { SendBirdReactionEvent  , SendBirdReactionEventOperationEnum     } from './SendBirdReactionEvent';
-import { SendBirdReplyType, SendBirdReplyTypeALLEnum  , SendBirdReplyTypeNONEEnum  , SendBirdReplyTypeONLYREPLYTOCHANNELEnum   } from './SendBirdReplyType';
-import { SendBirdRestrictedUser } from './SendBirdRestrictedUser';
-import { SendBirdRestrictedUserStatic } from './SendBirdRestrictedUserStatic';
-import { SendBirdRestrictedUserStaticRestrictionType, SendBirdRestrictedUserStaticRestrictionTypeBANNEDEnum  , SendBirdRestrictedUserStaticRestrictionTypeMUTEDEnum   } from './SendBirdRestrictedUserStaticRestrictionType';
 import { SendBirdRestrictionInfo  , SendBirdRestrictionInfoRestrictionTypeEnum   } from './SendBirdRestrictionInfo';
-import { SendBirdRestrictionType, SendBirdRestrictionTypeBANNEDEnum  , SendBirdRestrictionTypeMUTEDEnum   } from './SendBirdRestrictionType';
-import { SendBirdScheduledUserMessage       , SendBirdScheduledUserMessageMentionTypeEnum      , SendBirdScheduledUserMessagePushNotificationDeliveryOptionEnum      , SendBirdScheduledUserMessageStatusEnum     } from './SendBirdScheduledUserMessage';
-import { SendBirdScheduledUserMessageParams     , SendBirdScheduledUserMessageParamsMentionTypeEnum        , SendBirdScheduledUserMessageParamsPushNotificationDeliveryOptionEnum       } from './SendBirdScheduledUserMessageParams';
-import { SendBirdSearchField, SendBirdSearchFieldCHANNELNAMEEnum  , SendBirdSearchFieldMEMBERNICKNAMEEnum   } from './SendBirdSearchField';
-import { SendBirdSearchFilterParams, SendBirdSearchFilterParamsSearchFieldsEnum    } from './SendBirdSearchFilterParams';
-import { SendBirdSendBirdError } from './SendBirdSendBirdError';
-import { SendBirdSendBirdInstance } from './SendBirdSendBirdInstance';
-import { SendBirdSendBirdInstanceBaseChannel } from './SendBirdSendBirdInstanceBaseChannel';
-import { SendBirdSendBirdInstanceBaseChannelMessageTypeFilter, SendBirdSendBirdInstanceBaseChannelMessageTypeFilterADMINEnum  , SendBirdSendBirdInstanceBaseChannelMessageTypeFilterALLEnum  , SendBirdSendBirdInstanceBaseChannelMessageTypeFilterFILEEnum  , SendBirdSendBirdInstanceBaseChannelMessageTypeFilterUSEREnum   } from './SendBirdSendBirdInstanceBaseChannelMessageTypeFilter';
-import { SendBirdSendBirdInstanceBaseMessage } from './SendBirdSendBirdInstanceBaseMessage';
-import { SendBirdSendBirdInstanceBaseMessageReplyType, SendBirdSendBirdInstanceBaseMessageReplyTypeALLEnum  , SendBirdSendBirdInstanceBaseMessageReplyTypeNONEEnum  , SendBirdSendBirdInstanceBaseMessageReplyTypeONLYREPLYTOCHANNELEnum   } from './SendBirdSendBirdInstanceBaseMessageReplyType';
 import { SendBirdSender } from './SendBirdSender';
-import { SendBirdStatic } from './SendBirdStatic';
-import { SendBirdStaticLogLevel, SendBirdStaticLogLevelDEBUGEnum  , SendBirdStaticLogLevelERROREnum  , SendBirdStaticLogLevelINFOEnum  , SendBirdStaticLogLevelNONEEnum  , SendBirdStaticLogLevelVERBOSEEnum  , SendBirdStaticLogLevelWARNEnum   } from './SendBirdStaticLogLevel';
-import { SendBirdSuperChannelFilter, SendBirdSuperChannelFilterALLEnum  , SendBirdSuperChannelFilterNONSUPEREnum  , SendBirdSuperChannelFilterSUPEREnum   } from './SendBirdSuperChannelFilter';
 import { SendBirdThreadInfo } from './SendBirdThreadInfo';
-import { SendBirdThreadInfoUpdateEvent } from './SendBirdThreadInfoUpdateEvent';
-import { SendBirdThreadedMessageListInfo } from './SendBirdThreadedMessageListInfo';
-import { SendBirdThreadedMessageListParams } from './SendBirdThreadedMessageListParams';
 import { SendBirdThumbnailObject } from './SendBirdThumbnailObject';
 import { SendBirdThumbnailSize } from './SendBirdThumbnailSize';
-import { SendBirdUnreadChannelFilter, SendBirdUnreadChannelFilterALLEnum  , SendBirdUnreadChannelFilterUNREADMESSAGEEnum   } from './SendBirdUnreadChannelFilter';
 import { SendBirdUser } from './SendBirdUser';
-import { SendBirdUserIdsFilterParams , SendBirdUserIdsFilterParamsQueryTypeEnum    } from './SendBirdUserIdsFilterParams';
-import { SendBirdUserListQuery } from './SendBirdUserListQuery';
-import { SendBirdUserMessage              , SendBirdUserMessageMessageTypeEnum           , SendBirdUserMessageRequestStateEnum    , SendBirdUserMessageSendingStatusEnum       } from './SendBirdUserMessage';
 import { SendBirdUserMessageParams    , SendBirdUserMessageParamsMentionTypeEnum         , SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum     } from './SendBirdUserMessageParams';
 import { SendBotSMessageData } from './SendBotSMessageData';
 import { SendMessageData } from './SendMessageData';
@@ -656,52 +460,11 @@ let enumsMap: Set<string> = new Set<string>([
     "SendBirdAdminMessageSendingStatusEnum",
     "SendBirdBaseMessageInstanceMessageTypeEnum",
     "SendBirdBaseMessageInstanceSendingStatusEnum",
-    "SendBirdBaseMessageParamsMentionTypeEnum",
-    "SendBirdBaseMessageParamsPushNotificationDeliveryOptionEnum",
-    "SendBirdCollectionEventSourceCHANNELBACKGROUNDEnum",
-    "SendBirdCollectionEventSourceCHANNELCHANGELOGEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELCHANGEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELDELETEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELENTEREnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELEXITEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELFROZENEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELHIDDENEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELMETACOUNTERDELETEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELMETACOUNTERUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELMETADATADELETEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELMETADATAUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELUNFROZENEnum",
-    "SendBirdCollectionEventSourceEVENTCHANNELUNHIDDENEnum",
-    "SendBirdCollectionEventSourceEVENTDELIVERYRECEIPTUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTMENTIONEnum",
-    "SendBirdCollectionEventSourceEVENTMESSAGEDELETEDEnum",
-    "SendBirdCollectionEventSourceEVENTMESSAGERECEIVEDEnum",
-    "SendBirdCollectionEventSourceEVENTMESSAGESENTEnum",
-    "SendBirdCollectionEventSourceEVENTMESSAGEUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTOPERATORUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTREACTIONUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTREADRECEIPTUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTTHREADINFOUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTTYPINGSTATUSUPDATEDEnum",
-    "SendBirdCollectionEventSourceEVENTUSERBANNEDEnum",
-    "SendBirdCollectionEventSourceEVENTUSERDECLINEDINVITATIONEnum",
-    "SendBirdCollectionEventSourceEVENTUSERJOINEDEnum",
-    "SendBirdCollectionEventSourceEVENTUSERLEFTEnum",
-    "SendBirdCollectionEventSourceEVENTUSERMUTEDEnum",
-    "SendBirdCollectionEventSourceEVENTUSERRECEIVEDINVITATIONEnum",
-    "SendBirdCollectionEventSourceEVENTUSERUNBANNEDEnum",
-    "SendBirdCollectionEventSourceEVENTUSERUNMUTEDEnum",
-    "SendBirdCollectionEventSourceLOCALMESSAGECANCELEDEnum",
-    "SendBirdCollectionEventSourceLOCALMESSAGEFAILEDEnum",
-    "SendBirdCollectionEventSourceLOCALMESSAGEPENDINGCREATEDEnum",
-    "SendBirdCollectionEventSourceLOCALMESSAGERESENDSTARTEDEnum",
-    "SendBirdCollectionEventSourceMESSAGEBACKGROUNDEnum",
-    "SendBirdCollectionEventSourceMESSAGECHANGELOGEnum",
-    "SendBirdCollectionEventSourceMESSAGECOLLECTIONFILTERMISMATCHEnum",
-    "SendBirdCollectionEventSourceMESSAGEFILLEnum",
-    "SendBirdFileMessageMessageTypeEnum",
-    "SendBirdFileMessageRequestStateEnum",
-    "SendBirdFileMessageSendingStatusEnum",
+    "SendBirdChannelResponseHiddenStateEnum",
+    "SendBirdChannelResponseMyMemberStateEnum",
+    "SendBirdChannelResponseMyMutedStateEnum",
+    "SendBirdChannelResponseMyPushTriggerOptionEnum",
+    "SendBirdChannelResponseMyRoleEnum",
     "SendBirdFileMessageParamsMentionTypeEnum",
     "SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum",
     "SendBirdGroupChannelHiddenStateEnum",
@@ -709,183 +472,10 @@ let enumsMap: Set<string> = new Set<string>([
     "SendBirdGroupChannelMyMutedStateEnum",
     "SendBirdGroupChannelMyPushTriggerOptionEnum",
     "SendBirdGroupChannelMyRoleEnum",
-    "SendBirdGroupChannelCollectionStaticGroupChannelOrderCHANNELNAMEALPHABETICALEnum",
-    "SendBirdGroupChannelCollectionStaticGroupChannelOrderCHRONOLOGICALEnum",
-    "SendBirdGroupChannelCollectionStaticGroupChannelOrderLATESTLASTMESSAGEEnum",
-    "SendBirdGroupChannelContextSourceCHANNELBACKGROUNDEnum",
-    "SendBirdGroupChannelContextSourceCHANNELCHANGELOGEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELCHANGEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELDELETEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELENTEREnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELEXITEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELFROZENEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELHIDDENEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELMETACOUNTERDELETEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELMETACOUNTERUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELMETADATADELETEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELMETADATAUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELUNFROZENEnum",
-    "SendBirdGroupChannelContextSourceEVENTCHANNELUNHIDDENEnum",
-    "SendBirdGroupChannelContextSourceEVENTDELIVERYRECEIPTUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTMENTIONEnum",
-    "SendBirdGroupChannelContextSourceEVENTMESSAGEDELETEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTMESSAGERECEIVEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTMESSAGESENTEnum",
-    "SendBirdGroupChannelContextSourceEVENTMESSAGEUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTOPERATORUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTREACTIONUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTREADRECEIPTUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTTHREADINFOUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTTYPINGSTATUSUPDATEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERBANNEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERDECLINEDINVITATIONEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERJOINEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERLEFTEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERMUTEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERRECEIVEDINVITATIONEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERUNBANNEDEnum",
-    "SendBirdGroupChannelContextSourceEVENTUSERUNMUTEDEnum",
-    "SendBirdGroupChannelContextSourceLOCALMESSAGECANCELEDEnum",
-    "SendBirdGroupChannelContextSourceLOCALMESSAGEFAILEDEnum",
-    "SendBirdGroupChannelContextSourceLOCALMESSAGEPENDINGCREATEDEnum",
-    "SendBirdGroupChannelContextSourceLOCALMESSAGERESENDSTARTEDEnum",
-    "SendBirdGroupChannelContextSourceMESSAGEBACKGROUNDEnum",
-    "SendBirdGroupChannelContextSourceMESSAGECHANGELOGEnum",
-    "SendBirdGroupChannelContextSourceMESSAGECOLLECTIONFILTERMISMATCHEnum",
-    "SendBirdGroupChannelContextSourceMESSAGEFILLEnum",
-    "SendBirdGroupChannelFilterHiddenChannelFilterEnum",
-    "SendBirdGroupChannelFilterMemberStateFilterEnum",
-    "SendBirdGroupChannelFilterPublicChannelFilterEnum",
-    "SendBirdGroupChannelFilterSuperChannelFilterEnum",
-    "SendBirdGroupChannelFilterUnreadChannelFilterEnum",
-    "SendBirdGroupChannelFilterSearchFilterSearchFieldsEnum",
-    "SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENEnum",
-    "SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENALLOWAUTOUNHIDEEnum",
-    "SendBirdGroupChannelFilterStaticHiddenChannelFilterHIDDENPREVENTAUTOUNHIDEEnum",
-    "SendBirdGroupChannelFilterStaticHiddenChannelFilterUNHIDDENEnum",
-    "SendBirdGroupChannelFilterStaticMemberStateFilterALLEnum",
-    "SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDEnum",
-    "SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDBYFRIENDEnum",
-    "SendBirdGroupChannelFilterStaticMemberStateFilterINVITEDBYNONFRIENDEnum",
-    "SendBirdGroupChannelFilterStaticMemberStateFilterJOINEDEnum",
-    "SendBirdGroupChannelFilterStaticPublicChannelFilterALLEnum",
-    "SendBirdGroupChannelFilterStaticPublicChannelFilterPRIVATEEnum",
-    "SendBirdGroupChannelFilterStaticPublicChannelFilterPUBLICEnum",
-    "SendBirdGroupChannelFilterStaticQueryTypeANDEnum",
-    "SendBirdGroupChannelFilterStaticQueryTypeOREnum",
-    "SendBirdGroupChannelFilterStaticSearchFieldCHANNELNAMEEnum",
-    "SendBirdGroupChannelFilterStaticSearchFieldMEMBERNICKNAMEEnum",
-    "SendBirdGroupChannelFilterStaticSuperChannelFilterALLEnum",
-    "SendBirdGroupChannelFilterStaticSuperChannelFilterNONSUPEREnum",
-    "SendBirdGroupChannelFilterStaticSuperChannelFilterSUPEREnum",
-    "SendBirdGroupChannelFilterStaticUnreadChannelFilterALLEnum",
-    "SendBirdGroupChannelFilterStaticUnreadChannelFilterUNREADMESSAGEEnum",
-    "SendBirdGroupChannelFilterUserIdsFilterQueryTypeEnum",
-    "SendBirdGroupChannelListQueryHiddenChannelFilterEnum",
-    "SendBirdGroupChannelListQueryMemberStateFilterEnum",
-    "SendBirdGroupChannelListQueryOrderEnum",
-    "SendBirdGroupChannelListQueryPublicChannelFilterEnum",
-    "SendBirdGroupChannelListQueryQueryTypeEnum",
-    "SendBirdGroupChannelListQuerySuperChannelFilterEnum",
-    "SendBirdGroupChannelListQueryUnreadChannelFilterEnum",
-    "SendBirdGroupChannelListQueryUserIdsIncludeFilterQueryTypeEnum",
-    "SendBirdGroupChannelMemberListQueryMemberStateFilterEnum",
-    "SendBirdGroupChannelMemberListQueryMutedMemberFilterEnum",
-    "SendBirdGroupChannelMemberListQueryOperatorFilterEnum",
-    "SendBirdGroupChannelMemberListQueryOrderEnum",
-    "SendBirdGroupChannelOrderCHANNELNAMEALPHABETICALEnum",
-    "SendBirdGroupChannelOrderCHRONOLOGICALEnum",
-    "SendBirdGroupChannelOrderLATESTLASTMESSAGEEnum",
-    "SendBirdGroupChannelTotalUnreadMessageCountParamsSuperChannelFilterEnum",
-    "SendBirdHiddenChannelFilterHIDDENEnum",
-    "SendBirdHiddenChannelFilterHIDDENALLOWAUTOUNHIDEEnum",
-    "SendBirdHiddenChannelFilterHIDDENPREVENTAUTOUNHIDEEnum",
-    "SendBirdHiddenChannelFilterUNHIDDENEnum",
-    "SendBirdLogLevelDEBUGEnum",
-    "SendBirdLogLevelERROREnum",
-    "SendBirdLogLevelINFOEnum",
-    "SendBirdLogLevelNONEEnum",
-    "SendBirdLogLevelVERBOSEEnum",
-    "SendBirdLogLevelWARNEnum",
     "SendBirdMemberRoleEnum",
     "SendBirdMemberStateEnum",
-    "SendBirdMemberStateFilterALLEnum",
-    "SendBirdMemberStateFilterINVITEDEnum",
-    "SendBirdMemberStateFilterINVITEDBYFRIENDEnum",
-    "SendBirdMemberStateFilterINVITEDBYNONFRIENDEnum",
-    "SendBirdMemberStateFilterJOINEDEnum",
-    "SendBirdMessageChangeLogsParamsReplyTypeEnum",
-    "SendBirdMessageCollectionInitPolicyCACHEANDREPLACEBYAPIEnum",
-    "SendBirdMessageCollectionStaticMessageCollectionInitPolicyCACHEANDREPLACEBYAPIEnum",
-    "SendBirdMessageContextSendingStatusEnum",
-    "SendBirdMessageListParamsReplyTypeEnum",
-    "SendBirdMessageSearchQueryOptionsOrderEnum",
-    "SendBirdMessageSendingStatusCANCELEDEnum",
-    "SendBirdMessageSendingStatusFAILEDEnum",
-    "SendBirdMessageSendingStatusNONEEnum",
-    "SendBirdMessageSendingStatusPENDINGEnum",
-    "SendBirdMessageSendingStatusSUCCEEDEDEnum",
-    "SendBirdMessageTypeFilterADMINEnum",
-    "SendBirdMessageTypeFilterALLEnum",
-    "SendBirdMessageTypeFilterFILEEnum",
-    "SendBirdMessageTypeFilterUSEREnum",
     "SendBirdPollDetailsStatusEnum",
-    "SendBirdPollStaticStatusCLOSEDEnum",
-    "SendBirdPollStaticStatusOPENEnum",
-    "SendBirdPollStaticStatusREMOVEDEnum",
-    "SendBirdPollStatusCLOSEDEnum",
-    "SendBirdPollStatusOPENEnum",
-    "SendBirdPollStatusREMOVEDEnum",
-    "SendBirdPollUpdateEventStatusEnum",
-    "SendBirdPreviousMessageListQueryMessageTypeFilterEnum",
-    "SendBirdPublicChannelFilterALLEnum",
-    "SendBirdPublicChannelFilterPRIVATEEnum",
-    "SendBirdPublicChannelFilterPUBLICEnum",
-    "SendBirdPublicGroupChannelListQueryMembershipFilterEnum",
-    "SendBirdPublicGroupChannelListQueryOrderEnum",
-    "SendBirdPublicGroupChannelListQuerySuperChannelFilterEnum",
-    "SendBirdPushTokensTypeEnum",
-    "SendBirdQueryTypeANDEnum",
-    "SendBirdQueryTypeOREnum",
-    "SendBirdReactionEventOperationEnum",
-    "SendBirdReplyTypeALLEnum",
-    "SendBirdReplyTypeNONEEnum",
-    "SendBirdReplyTypeONLYREPLYTOCHANNELEnum",
-    "SendBirdRestrictedUserStaticRestrictionTypeBANNEDEnum",
-    "SendBirdRestrictedUserStaticRestrictionTypeMUTEDEnum",
     "SendBirdRestrictionInfoRestrictionTypeEnum",
-    "SendBirdRestrictionTypeBANNEDEnum",
-    "SendBirdRestrictionTypeMUTEDEnum",
-    "SendBirdScheduledUserMessageMentionTypeEnum",
-    "SendBirdScheduledUserMessagePushNotificationDeliveryOptionEnum",
-    "SendBirdScheduledUserMessageStatusEnum",
-    "SendBirdScheduledUserMessageParamsMentionTypeEnum",
-    "SendBirdScheduledUserMessageParamsPushNotificationDeliveryOptionEnum",
-    "SendBirdSearchFieldCHANNELNAMEEnum",
-    "SendBirdSearchFieldMEMBERNICKNAMEEnum",
-    "SendBirdSearchFilterParamsSearchFieldsEnum",
-    "SendBirdSendBirdInstanceBaseChannelMessageTypeFilterADMINEnum",
-    "SendBirdSendBirdInstanceBaseChannelMessageTypeFilterALLEnum",
-    "SendBirdSendBirdInstanceBaseChannelMessageTypeFilterFILEEnum",
-    "SendBirdSendBirdInstanceBaseChannelMessageTypeFilterUSEREnum",
-    "SendBirdSendBirdInstanceBaseMessageReplyTypeALLEnum",
-    "SendBirdSendBirdInstanceBaseMessageReplyTypeNONEEnum",
-    "SendBirdSendBirdInstanceBaseMessageReplyTypeONLYREPLYTOCHANNELEnum",
-    "SendBirdStaticLogLevelDEBUGEnum",
-    "SendBirdStaticLogLevelERROREnum",
-    "SendBirdStaticLogLevelINFOEnum",
-    "SendBirdStaticLogLevelNONEEnum",
-    "SendBirdStaticLogLevelVERBOSEEnum",
-    "SendBirdStaticLogLevelWARNEnum",
-    "SendBirdSuperChannelFilterALLEnum",
-    "SendBirdSuperChannelFilterNONSUPEREnum",
-    "SendBirdSuperChannelFilterSUPEREnum",
-    "SendBirdUnreadChannelFilterALLEnum",
-    "SendBirdUnreadChannelFilterUNREADMESSAGEEnum",
-    "SendBirdUserIdsFilterParamsQueryTypeEnum",
-    "SendBirdUserMessageMessageTypeEnum",
-    "SendBirdUserMessageRequestStateEnum",
-    "SendBirdUserMessageSendingStatusEnum",
     "SendBirdUserMessageParamsMentionTypeEnum",
     "SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum",
 ]);
@@ -1057,133 +647,35 @@ let typeMap: {[index: string]: any} = {
     "ReportMessageByIdData": ReportMessageByIdData,
     "ReportUserByIdData": ReportUserByIdData,
     "ScheduleAnnouncementData": ScheduleAnnouncementData,
+    "SendBirdAdditionalProperties": SendBirdAdditionalProperties,
     "SendBirdAdminMessage": SendBirdAdminMessage,
-    "SendBirdAppInfo": SendBirdAppInfo,
     "SendBirdAppleCriticalAlertOptions": SendBirdAppleCriticalAlertOptions,
-    "SendBirdApplicationUserListQuery": SendBirdApplicationUserListQuery,
-    "SendBirdBannedUserListQuery": SendBirdBannedUserListQuery,
     "SendBirdBaseChannel": SendBirdBaseChannel,
     "SendBirdBaseMessageInstance": SendBirdBaseMessageInstance,
-    "SendBirdBaseMessageParams": SendBirdBaseMessageParams,
-    "SendBirdBlockedUserListQuery": SendBirdBlockedUserListQuery,
-    "SendBirdCollectionEventSource": SendBirdCollectionEventSource,
-    "SendBirdDiscoveryObject": SendBirdDiscoveryObject,
-    "SendBirdDistinctGroupChannelResponse": SendBirdDistinctGroupChannelResponse,
+    "SendBirdChannelResponse": SendBirdChannelResponse,
     "SendBirdEmoji": SendBirdEmoji,
     "SendBirdEmojiCategory": SendBirdEmojiCategory,
-    "SendBirdEmojiContainer": SendBirdEmojiContainer,
-    "SendBirdFileMessage": SendBirdFileMessage,
     "SendBirdFileMessageParams": SendBirdFileMessageParams,
-    "SendBirdFileMessagesCallbackObject": SendBirdFileMessagesCallbackObject,
-    "SendBirdFriendListQuery": SendBirdFriendListQuery,
-    "SendBirdGetFriendChangeLogs": SendBirdGetFriendChangeLogs,
     "SendBirdGroupChannel": SendBirdGroupChannel,
-    "SendBirdGroupChannelChangeLogs": SendBirdGroupChannelChangeLogs,
-    "SendBirdGroupChannelChangeLogsParams": SendBirdGroupChannelChangeLogsParams,
     "SendBirdGroupChannelCollection": SendBirdGroupChannelCollection,
-    "SendBirdGroupChannelCollectionHandler": SendBirdGroupChannelCollectionHandler,
-    "SendBirdGroupChannelCollectionStatic": SendBirdGroupChannelCollectionStatic,
-    "SendBirdGroupChannelCollectionStaticGroupChannelOrder": SendBirdGroupChannelCollectionStaticGroupChannelOrder,
-    "SendBirdGroupChannelContext": SendBirdGroupChannelContext,
-    "SendBirdGroupChannelContextSource": SendBirdGroupChannelContextSource,
-    "SendBirdGroupChannelFilter": SendBirdGroupChannelFilter,
-    "SendBirdGroupChannelFilterSearchFilter": SendBirdGroupChannelFilterSearchFilter,
-    "SendBirdGroupChannelFilterStatic": SendBirdGroupChannelFilterStatic,
-    "SendBirdGroupChannelFilterStaticHiddenChannelFilter": SendBirdGroupChannelFilterStaticHiddenChannelFilter,
-    "SendBirdGroupChannelFilterStaticMemberStateFilter": SendBirdGroupChannelFilterStaticMemberStateFilter,
-    "SendBirdGroupChannelFilterStaticPublicChannelFilter": SendBirdGroupChannelFilterStaticPublicChannelFilter,
-    "SendBirdGroupChannelFilterStaticQueryType": SendBirdGroupChannelFilterStaticQueryType,
-    "SendBirdGroupChannelFilterStaticSearchField": SendBirdGroupChannelFilterStaticSearchField,
-    "SendBirdGroupChannelFilterStaticSuperChannelFilter": SendBirdGroupChannelFilterStaticSuperChannelFilter,
-    "SendBirdGroupChannelFilterStaticUnreadChannelFilter": SendBirdGroupChannelFilterStaticUnreadChannelFilter,
-    "SendBirdGroupChannelFilterUserIdsFilter": SendBirdGroupChannelFilterUserIdsFilter,
-    "SendBirdGroupChannelListQuery": SendBirdGroupChannelListQuery,
-    "SendBirdGroupChannelMemberListQuery": SendBirdGroupChannelMemberListQuery,
-    "SendBirdGroupChannelOrder": SendBirdGroupChannelOrder,
-    "SendBirdGroupChannelParams": SendBirdGroupChannelParams,
-    "SendBirdGroupChannelTotalUnreadMessageCountParams": SendBirdGroupChannelTotalUnreadMessageCountParams,
-    "SendBirdHiddenChannelFilter": SendBirdHiddenChannelFilter,
-    "SendBirdLogLevel": SendBirdLogLevel,
     "SendBirdMember": SendBirdMember,
-    "SendBirdMemberStateFilter": SendBirdMemberStateFilter,
-    "SendBirdMessageChangeLogs": SendBirdMessageChangeLogs,
-    "SendBirdMessageChangeLogsParams": SendBirdMessageChangeLogsParams,
-    "SendBirdMessageCollection": SendBirdMessageCollection,
-    "SendBirdMessageCollectionHandler": SendBirdMessageCollectionHandler,
-    "SendBirdMessageCollectionInitPolicy": SendBirdMessageCollectionInitPolicy,
-    "SendBirdMessageCollectionStatic": SendBirdMessageCollectionStatic,
-    "SendBirdMessageCollectionStaticMessageCollectionInitPolicy": SendBirdMessageCollectionStaticMessageCollectionInitPolicy,
-    "SendBirdMessageContext": SendBirdMessageContext,
-    "SendBirdMessageFilter": SendBirdMessageFilter,
-    "SendBirdMessageListParams": SendBirdMessageListParams,
     "SendBirdMessageMetaArray": SendBirdMessageMetaArray,
-    "SendBirdMessageRetrievalParams": SendBirdMessageRetrievalParams,
-    "SendBirdMessageSearchQuery": SendBirdMessageSearchQuery,
-    "SendBirdMessageSearchQueryOptions": SendBirdMessageSearchQueryOptions,
-    "SendBirdMessageSendingStatus": SendBirdMessageSendingStatus,
-    "SendBirdMessageTypeFilter": SendBirdMessageTypeFilter,
-    "SendBirdMutedInfo": SendBirdMutedInfo,
-    "SendBirdMutedUserListQuery": SendBirdMutedUserListQuery,
+    "SendBirdMessageResponse": SendBirdMessageResponse,
     "SendBirdOGImage": SendBirdOGImage,
     "SendBirdOGMetaData": SendBirdOGMetaData,
     "SendBirdOpenChannel": SendBirdOpenChannel,
-    "SendBirdOpenChannelListQuery": SendBirdOpenChannelListQuery,
-    "SendBirdOpenChannelParams": SendBirdOpenChannelParams,
-    "SendBirdOperatorListQuery": SendBirdOperatorListQuery,
-    "SendBirdOptions": SendBirdOptions,
-    "SendBirdParticipantListQuery": SendBirdParticipantListQuery,
     "SendBirdPlugin": SendBirdPlugin,
     "SendBirdPoll": SendBirdPoll,
     "SendBirdPollDetails": SendBirdPollDetails,
-    "SendBirdPollListQuery": SendBirdPollListQuery,
     "SendBirdPollOption": SendBirdPollOption,
-    "SendBirdPollParams": SendBirdPollParams,
-    "SendBirdPollRetrievalParams": SendBirdPollRetrievalParams,
-    "SendBirdPollStatic": SendBirdPollStatic,
-    "SendBirdPollStaticStatus": SendBirdPollStaticStatus,
-    "SendBirdPollStatus": SendBirdPollStatus,
-    "SendBirdPollUpdateEvent": SendBirdPollUpdateEvent,
     "SendBirdPollUpdatedVoteCount": SendBirdPollUpdatedVoteCount,
-    "SendBirdPollVoteEvent": SendBirdPollVoteEvent,
-    "SendBirdPollVoterListQuery": SendBirdPollVoterListQuery,
-    "SendBirdPreviousMessageListQuery": SendBirdPreviousMessageListQuery,
-    "SendBirdPublicChannelFilter": SendBirdPublicChannelFilter,
-    "SendBirdPublicGroupChannelListQuery": SendBirdPublicGroupChannelListQuery,
-    "SendBirdPushTokens": SendBirdPushTokens,
-    "SendBirdQueryType": SendBirdQueryType,
     "SendBirdReaction": SendBirdReaction,
-    "SendBirdReactionEvent": SendBirdReactionEvent,
-    "SendBirdReplyType": SendBirdReplyType,
-    "SendBirdRestrictedUser": SendBirdRestrictedUser,
-    "SendBirdRestrictedUserStatic": SendBirdRestrictedUserStatic,
-    "SendBirdRestrictedUserStaticRestrictionType": SendBirdRestrictedUserStaticRestrictionType,
     "SendBirdRestrictionInfo": SendBirdRestrictionInfo,
-    "SendBirdRestrictionType": SendBirdRestrictionType,
-    "SendBirdScheduledUserMessage": SendBirdScheduledUserMessage,
-    "SendBirdScheduledUserMessageParams": SendBirdScheduledUserMessageParams,
-    "SendBirdSearchField": SendBirdSearchField,
-    "SendBirdSearchFilterParams": SendBirdSearchFilterParams,
-    "SendBirdSendBirdError": SendBirdSendBirdError,
-    "SendBirdSendBirdInstance": SendBirdSendBirdInstance,
-    "SendBirdSendBirdInstanceBaseChannel": SendBirdSendBirdInstanceBaseChannel,
-    "SendBirdSendBirdInstanceBaseChannelMessageTypeFilter": SendBirdSendBirdInstanceBaseChannelMessageTypeFilter,
-    "SendBirdSendBirdInstanceBaseMessage": SendBirdSendBirdInstanceBaseMessage,
-    "SendBirdSendBirdInstanceBaseMessageReplyType": SendBirdSendBirdInstanceBaseMessageReplyType,
     "SendBirdSender": SendBirdSender,
-    "SendBirdStatic": SendBirdStatic,
-    "SendBirdStaticLogLevel": SendBirdStaticLogLevel,
-    "SendBirdSuperChannelFilter": SendBirdSuperChannelFilter,
     "SendBirdThreadInfo": SendBirdThreadInfo,
-    "SendBirdThreadInfoUpdateEvent": SendBirdThreadInfoUpdateEvent,
-    "SendBirdThreadedMessageListInfo": SendBirdThreadedMessageListInfo,
-    "SendBirdThreadedMessageListParams": SendBirdThreadedMessageListParams,
     "SendBirdThumbnailObject": SendBirdThumbnailObject,
     "SendBirdThumbnailSize": SendBirdThumbnailSize,
-    "SendBirdUnreadChannelFilter": SendBirdUnreadChannelFilter,
     "SendBirdUser": SendBirdUser,
-    "SendBirdUserIdsFilterParams": SendBirdUserIdsFilterParams,
-    "SendBirdUserListQuery": SendBirdUserListQuery,
-    "SendBirdUserMessage": SendBirdUserMessage,
     "SendBirdUserMessageParams": SendBirdUserMessageParams,
     "SendBotSMessageData": SendBotSMessageData,
     "SendMessageData": SendMessageData,

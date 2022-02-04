@@ -41,13 +41,13 @@ export class SendBirdFileMessageParams {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "appleCriticalAlertOptions",
-            "baseName": "appleCriticalAlertOptions",
+            "baseName": "apple_critical_alert_options",
             "type": "SendBirdAppleCriticalAlertOptions",
             "format": ""
         },
         {
             "name": "customType",
-            "baseName": "customType",
+            "baseName": "custom_type",
             "type": "string",
             "format": ""
         },
@@ -65,79 +65,79 @@ export class SendBirdFileMessageParams {
         },
         {
             "name": "fileName",
-            "baseName": "fileName",
+            "baseName": "file_name",
             "type": "string",
             "format": ""
         },
         {
             "name": "fileSize",
-            "baseName": "fileSize",
+            "baseName": "file_size",
             "type": "number",
             "format": ""
         },
         {
             "name": "fileUrl",
-            "baseName": "fileUrl",
+            "baseName": "file_url",
             "type": "string",
             "format": ""
         },
         {
             "name": "isReplyToChannel",
-            "baseName": "isReplyToChannel",
+            "baseName": "is_reply_to_channel",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "mentionType",
-            "baseName": "mentionType",
+            "baseName": "mention_type",
             "type": "SendBirdFileMessageParamsMentionTypeEnum",
             "format": ""
         },
         {
             "name": "mentionedUserIds",
-            "baseName": "mentionedUserIds",
+            "baseName": "mentioned_user_ids",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "mentionedUsers",
-            "baseName": "mentionedUsers",
+            "baseName": "mentioned_users",
             "type": "Array<SendBirdUser>",
             "format": ""
         },
         {
             "name": "metaArrayKeys",
-            "baseName": "metaArrayKeys",
+            "baseName": "meta_array_keys",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "metaArrays",
-            "baseName": "metaArrays",
+            "baseName": "meta_arrays",
             "type": "Array<SendBirdMessageMetaArray>",
             "format": ""
         },
         {
             "name": "mimeType",
-            "baseName": "mimeType",
+            "baseName": "mime_type",
             "type": "string",
             "format": ""
         },
         {
             "name": "parentMessageId",
-            "baseName": "parentMessageId",
+            "baseName": "parent_message_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "pushNotificationDeliveryOption",
-            "baseName": "pushNotificationDeliveryOption",
+            "baseName": "push_notification_delivery_option",
             "type": "SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum",
             "format": ""
         },
         {
             "name": "thumbnailSizes",
-            "baseName": "thumbnailSizes",
+            "baseName": "thumbnail_sizes",
             "type": "Array<SendBirdThumbnailSize>",
             "format": ""
         }    ];

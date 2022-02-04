@@ -13,10 +13,10 @@ import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
 import { InlineResponse20048UserMetadata } from '../models/InlineResponse20048UserMetadata';
 import { InlineResponse20061 } from '../models/InlineResponse20061';
 import { InlineResponse20062 } from '../models/InlineResponse20062';
+import { SendBirdAdditionalProperties } from '../models/SendBirdAdditionalProperties';
 import { UpdateChannelMetacounterData } from '../models/UpdateChannelMetacounterData';
 import { UpdateChannelMetadataData } from '../models/UpdateChannelMetadataData';
 import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
-import { String | number } from '../models/string | number';
 
 /**
  * no description
@@ -1063,22 +1063,22 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to createChannelMetacounter
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: string | number; } > {
+     public async createChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: SendBirdAdditionalProperties; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
@@ -1300,22 +1300,22 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateChannelMetacounter
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: string | number; } > {
+     public async updateChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: SendBirdAdditionalProperties; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
@@ -1474,22 +1474,22 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelMetacounter
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: string | number; } > {
+     public async viewChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: SendBirdAdditionalProperties; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
@@ -1503,22 +1503,22 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelMetacounterByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelMetacounterByKey(response: ResponseContext): Promise<{ [key: string]: string | number; } > {
+     public async viewChannelMetacounterByKey(response: ResponseContext): Promise<{ [key: string]: SendBirdAdditionalProperties; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: { [key: string]: string | number; } = ObjectSerializer.deserialize(
+            const body: { [key: string]: SendBirdAdditionalProperties; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{ [key: string]: string | number; }", ""
-            ) as { [key: string]: string | number; };
+                "{ [key: string]: SendBirdAdditionalProperties; }", ""
+            ) as { [key: string]: SendBirdAdditionalProperties; };
             return body;
         }
 

@@ -12,35 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class SendBirdOperatorListQuery {
-    'hasNext'?: boolean;
-    'isLoading'?: boolean;
-    'limit'?: number;
+export class SendBirdMessageResponse {
+    'size'?: number;
+    'type'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "hasNext",
-            "baseName": "hasNext",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isLoading",
-            "baseName": "isLoading",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "limit",
-            "baseName": "limit",
+            "name": "size",
+            "baseName": "size",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdOperatorListQuery.attributeTypeMap;
+        return SendBirdMessageResponse.attributeTypeMap;
     }
 
     public constructor() {

@@ -168,133 +168,35 @@ import { ReportChannelByUrlData } from '../models/ReportChannelByUrlData';
 import { ReportMessageByIdData } from '../models/ReportMessageByIdData';
 import { ReportUserByIdData } from '../models/ReportUserByIdData';
 import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
+import { SendBirdAdditionalProperties } from '../models/SendBirdAdditionalProperties';
 import { SendBirdAdminMessage } from '../models/SendBirdAdminMessage';
-import { SendBirdAppInfo } from '../models/SendBirdAppInfo';
 import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCriticalAlertOptions';
-import { SendBirdApplicationUserListQuery } from '../models/SendBirdApplicationUserListQuery';
-import { SendBirdBannedUserListQuery } from '../models/SendBirdBannedUserListQuery';
 import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance } from '../models/SendBirdBaseMessageInstance';
-import { SendBirdBaseMessageParams } from '../models/SendBirdBaseMessageParams';
-import { SendBirdBlockedUserListQuery } from '../models/SendBirdBlockedUserListQuery';
-import { SendBirdCollectionEventSource } from '../models/SendBirdCollectionEventSource';
-import { SendBirdDiscoveryObject } from '../models/SendBirdDiscoveryObject';
-import { SendBirdDistinctGroupChannelResponse } from '../models/SendBirdDistinctGroupChannelResponse';
+import { SendBirdChannelResponse } from '../models/SendBirdChannelResponse';
 import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
-import { SendBirdEmojiContainer } from '../models/SendBirdEmojiContainer';
-import { SendBirdFileMessage } from '../models/SendBirdFileMessage';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
-import { SendBirdFileMessagesCallbackObject } from '../models/SendBirdFileMessagesCallbackObject';
-import { SendBirdFriendListQuery } from '../models/SendBirdFriendListQuery';
-import { SendBirdGetFriendChangeLogs } from '../models/SendBirdGetFriendChangeLogs';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
-import { SendBirdGroupChannelChangeLogs } from '../models/SendBirdGroupChannelChangeLogs';
-import { SendBirdGroupChannelChangeLogsParams } from '../models/SendBirdGroupChannelChangeLogsParams';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
-import { SendBirdGroupChannelCollectionHandler } from '../models/SendBirdGroupChannelCollectionHandler';
-import { SendBirdGroupChannelCollectionStatic } from '../models/SendBirdGroupChannelCollectionStatic';
-import { SendBirdGroupChannelCollectionStaticGroupChannelOrder } from '../models/SendBirdGroupChannelCollectionStaticGroupChannelOrder';
-import { SendBirdGroupChannelContext } from '../models/SendBirdGroupChannelContext';
-import { SendBirdGroupChannelContextSource } from '../models/SendBirdGroupChannelContextSource';
-import { SendBirdGroupChannelFilter } from '../models/SendBirdGroupChannelFilter';
-import { SendBirdGroupChannelFilterSearchFilter } from '../models/SendBirdGroupChannelFilterSearchFilter';
-import { SendBirdGroupChannelFilterStatic } from '../models/SendBirdGroupChannelFilterStatic';
-import { SendBirdGroupChannelFilterStaticHiddenChannelFilter } from '../models/SendBirdGroupChannelFilterStaticHiddenChannelFilter';
-import { SendBirdGroupChannelFilterStaticMemberStateFilter } from '../models/SendBirdGroupChannelFilterStaticMemberStateFilter';
-import { SendBirdGroupChannelFilterStaticPublicChannelFilter } from '../models/SendBirdGroupChannelFilterStaticPublicChannelFilter';
-import { SendBirdGroupChannelFilterStaticQueryType } from '../models/SendBirdGroupChannelFilterStaticQueryType';
-import { SendBirdGroupChannelFilterStaticSearchField } from '../models/SendBirdGroupChannelFilterStaticSearchField';
-import { SendBirdGroupChannelFilterStaticSuperChannelFilter } from '../models/SendBirdGroupChannelFilterStaticSuperChannelFilter';
-import { SendBirdGroupChannelFilterStaticUnreadChannelFilter } from '../models/SendBirdGroupChannelFilterStaticUnreadChannelFilter';
-import { SendBirdGroupChannelFilterUserIdsFilter } from '../models/SendBirdGroupChannelFilterUserIdsFilter';
-import { SendBirdGroupChannelListQuery } from '../models/SendBirdGroupChannelListQuery';
-import { SendBirdGroupChannelMemberListQuery } from '../models/SendBirdGroupChannelMemberListQuery';
-import { SendBirdGroupChannelOrder } from '../models/SendBirdGroupChannelOrder';
-import { SendBirdGroupChannelParams } from '../models/SendBirdGroupChannelParams';
-import { SendBirdGroupChannelTotalUnreadMessageCountParams } from '../models/SendBirdGroupChannelTotalUnreadMessageCountParams';
-import { SendBirdHiddenChannelFilter } from '../models/SendBirdHiddenChannelFilter';
-import { SendBirdLogLevel } from '../models/SendBirdLogLevel';
 import { SendBirdMember } from '../models/SendBirdMember';
-import { SendBirdMemberStateFilter } from '../models/SendBirdMemberStateFilter';
-import { SendBirdMessageChangeLogs } from '../models/SendBirdMessageChangeLogs';
-import { SendBirdMessageChangeLogsParams } from '../models/SendBirdMessageChangeLogsParams';
-import { SendBirdMessageCollection } from '../models/SendBirdMessageCollection';
-import { SendBirdMessageCollectionHandler } from '../models/SendBirdMessageCollectionHandler';
-import { SendBirdMessageCollectionInitPolicy } from '../models/SendBirdMessageCollectionInitPolicy';
-import { SendBirdMessageCollectionStatic } from '../models/SendBirdMessageCollectionStatic';
-import { SendBirdMessageCollectionStaticMessageCollectionInitPolicy } from '../models/SendBirdMessageCollectionStaticMessageCollectionInitPolicy';
-import { SendBirdMessageContext } from '../models/SendBirdMessageContext';
-import { SendBirdMessageFilter } from '../models/SendBirdMessageFilter';
-import { SendBirdMessageListParams } from '../models/SendBirdMessageListParams';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
-import { SendBirdMessageRetrievalParams } from '../models/SendBirdMessageRetrievalParams';
-import { SendBirdMessageSearchQuery } from '../models/SendBirdMessageSearchQuery';
-import { SendBirdMessageSearchQueryOptions } from '../models/SendBirdMessageSearchQueryOptions';
-import { SendBirdMessageSendingStatus } from '../models/SendBirdMessageSendingStatus';
-import { SendBirdMessageTypeFilter } from '../models/SendBirdMessageTypeFilter';
-import { SendBirdMutedInfo } from '../models/SendBirdMutedInfo';
-import { SendBirdMutedUserListQuery } from '../models/SendBirdMutedUserListQuery';
+import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
-import { SendBirdOpenChannelListQuery } from '../models/SendBirdOpenChannelListQuery';
-import { SendBirdOpenChannelParams } from '../models/SendBirdOpenChannelParams';
-import { SendBirdOperatorListQuery } from '../models/SendBirdOperatorListQuery';
-import { SendBirdOptions } from '../models/SendBirdOptions';
-import { SendBirdParticipantListQuery } from '../models/SendBirdParticipantListQuery';
 import { SendBirdPlugin } from '../models/SendBirdPlugin';
 import { SendBirdPoll } from '../models/SendBirdPoll';
 import { SendBirdPollDetails } from '../models/SendBirdPollDetails';
-import { SendBirdPollListQuery } from '../models/SendBirdPollListQuery';
 import { SendBirdPollOption } from '../models/SendBirdPollOption';
-import { SendBirdPollParams } from '../models/SendBirdPollParams';
-import { SendBirdPollRetrievalParams } from '../models/SendBirdPollRetrievalParams';
-import { SendBirdPollStatic } from '../models/SendBirdPollStatic';
-import { SendBirdPollStaticStatus } from '../models/SendBirdPollStaticStatus';
-import { SendBirdPollStatus } from '../models/SendBirdPollStatus';
-import { SendBirdPollUpdateEvent } from '../models/SendBirdPollUpdateEvent';
 import { SendBirdPollUpdatedVoteCount } from '../models/SendBirdPollUpdatedVoteCount';
-import { SendBirdPollVoteEvent } from '../models/SendBirdPollVoteEvent';
-import { SendBirdPollVoterListQuery } from '../models/SendBirdPollVoterListQuery';
-import { SendBirdPreviousMessageListQuery } from '../models/SendBirdPreviousMessageListQuery';
-import { SendBirdPublicChannelFilter } from '../models/SendBirdPublicChannelFilter';
-import { SendBirdPublicGroupChannelListQuery } from '../models/SendBirdPublicGroupChannelListQuery';
-import { SendBirdPushTokens } from '../models/SendBirdPushTokens';
-import { SendBirdQueryType } from '../models/SendBirdQueryType';
 import { SendBirdReaction } from '../models/SendBirdReaction';
-import { SendBirdReactionEvent } from '../models/SendBirdReactionEvent';
-import { SendBirdReplyType } from '../models/SendBirdReplyType';
-import { SendBirdRestrictedUser } from '../models/SendBirdRestrictedUser';
-import { SendBirdRestrictedUserStatic } from '../models/SendBirdRestrictedUserStatic';
-import { SendBirdRestrictedUserStaticRestrictionType } from '../models/SendBirdRestrictedUserStaticRestrictionType';
 import { SendBirdRestrictionInfo } from '../models/SendBirdRestrictionInfo';
-import { SendBirdRestrictionType } from '../models/SendBirdRestrictionType';
-import { SendBirdScheduledUserMessage } from '../models/SendBirdScheduledUserMessage';
-import { SendBirdScheduledUserMessageParams } from '../models/SendBirdScheduledUserMessageParams';
-import { SendBirdSearchField } from '../models/SendBirdSearchField';
-import { SendBirdSearchFilterParams } from '../models/SendBirdSearchFilterParams';
-import { SendBirdSendBirdError } from '../models/SendBirdSendBirdError';
-import { SendBirdSendBirdInstance } from '../models/SendBirdSendBirdInstance';
-import { SendBirdSendBirdInstanceBaseChannel } from '../models/SendBirdSendBirdInstanceBaseChannel';
-import { SendBirdSendBirdInstanceBaseChannelMessageTypeFilter } from '../models/SendBirdSendBirdInstanceBaseChannelMessageTypeFilter';
-import { SendBirdSendBirdInstanceBaseMessage } from '../models/SendBirdSendBirdInstanceBaseMessage';
-import { SendBirdSendBirdInstanceBaseMessageReplyType } from '../models/SendBirdSendBirdInstanceBaseMessageReplyType';
 import { SendBirdSender } from '../models/SendBirdSender';
-import { SendBirdStatic } from '../models/SendBirdStatic';
-import { SendBirdStaticLogLevel } from '../models/SendBirdStaticLogLevel';
-import { SendBirdSuperChannelFilter } from '../models/SendBirdSuperChannelFilter';
 import { SendBirdThreadInfo } from '../models/SendBirdThreadInfo';
-import { SendBirdThreadInfoUpdateEvent } from '../models/SendBirdThreadInfoUpdateEvent';
-import { SendBirdThreadedMessageListInfo } from '../models/SendBirdThreadedMessageListInfo';
-import { SendBirdThreadedMessageListParams } from '../models/SendBirdThreadedMessageListParams';
 import { SendBirdThumbnailObject } from '../models/SendBirdThumbnailObject';
 import { SendBirdThumbnailSize } from '../models/SendBirdThumbnailSize';
-import { SendBirdUnreadChannelFilter } from '../models/SendBirdUnreadChannelFilter';
 import { SendBirdUser } from '../models/SendBirdUser';
-import { SendBirdUserIdsFilterParams } from '../models/SendBirdUserIdsFilterParams';
-import { SendBirdUserListQuery } from '../models/SendBirdUserListQuery';
-import { SendBirdUserMessage } from '../models/SendBirdUserMessage';
 import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { SendMessageData } from '../models/SendMessageData';
@@ -1633,7 +1535,7 @@ export class ObjectBotInterfaceApi {
      * Send a bot's message
      * @param param the request object
      */
-    public sendBotsMessage(param: BotInterfaceApiSendBotsMessageRequest, options?: Configuration): Promise<SendBirdUserMessage | SendBirdAdminMessage | SendBirdFileMessage> {
+    public sendBotsMessage(param: BotInterfaceApiSendBotsMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.sendBotsMessage(param.botUserid, param.apiToken, param.sendBotSMessageData,  options).toPromise();
     }
 
@@ -4048,7 +3950,7 @@ export class ObjectMessagesApi {
      * Send a message
      * @param param the request object
      */
-    public sendMessage(param: MessagesApiSendMessageRequest, options?: Configuration): Promise<SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage> {
+    public sendMessage(param: MessagesApiSendMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.sendMessage(param.channelType, param.channelUrl, param.apiToken, param.sendMessageData,  options).toPromise();
     }
 
@@ -4057,7 +3959,7 @@ export class ObjectMessagesApi {
      * Translate a message into other languages
      * @param param the request object
      */
-    public translateMessageIntoOtherLanguages(param: MessagesApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage> {
+    public translateMessageIntoOtherLanguages(param: MessagesApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.translateMessageIntoOtherLanguages(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.body,  options).toPromise();
     }
 
@@ -4075,7 +3977,7 @@ export class ObjectMessagesApi {
      * Update a message
      * @param param the request object
      */
-    public updateMessageById(param: MessagesApiUpdateMessageByIdRequest, options?: Configuration): Promise<SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage> {
+    public updateMessageById(param: MessagesApiUpdateMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.updateMessageById(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.updateMessageByIdData,  options).toPromise();
     }
 
@@ -4084,7 +3986,7 @@ export class ObjectMessagesApi {
      * View a message
      * @param param the request object
      */
-    public viewMessageById(param: MessagesApiViewMessageByIdRequest, options?: Configuration): Promise<SendBirdAdminMessage | SendBirdUserMessage | SendBirdFileMessage> {
+    public viewMessageById(param: MessagesApiViewMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.viewMessageById(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.withSortedMetaArray, param.withMetaArray,  options).toPromise();
     }
 
@@ -7195,7 +7097,7 @@ export class ObjectUserChannelMetadataApi {
      * Create a channel metacounter
      * @param param the request object
      */
-    public createChannelMetacounter(param: UserChannelMetadataApiCreateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: string | number; }> {
+    public createChannelMetacounter(param: UserChannelMetadataApiCreateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
         return this.api.createChannelMetacounter(param.channelType, param.channelUrl, param.apiToken, param.createChannelMetacounterData,  options).toPromise();
     }
 
@@ -7276,7 +7178,7 @@ export class ObjectUserChannelMetadataApi {
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      * @param param the request object
      */
-    public updateChannelMetacounter(param: UserChannelMetadataApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: string | number; }> {
+    public updateChannelMetacounter(param: UserChannelMetadataApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
         return this.api.updateChannelMetacounter(param.channelType, param.channelUrl, param.apiToken, param.updateChannelMetacounterData,  options).toPromise();
     }
 
@@ -7330,7 +7232,7 @@ export class ObjectUserChannelMetadataApi {
      * View a channel metacounter - When retrieving all items of a channel metacounter
      * @param param the request object
      */
-    public viewChannelMetacounter(param: UserChannelMetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: string | number; }> {
+    public viewChannelMetacounter(param: UserChannelMetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
         return this.api.viewChannelMetacounter(param.channelType, param.channelUrl, param.apiToken, param.key, param.keys,  options).toPromise();
     }
 
@@ -7339,7 +7241,7 @@ export class ObjectUserChannelMetadataApi {
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      * @param param the request object
      */
-    public viewChannelMetacounterByKey(param: UserChannelMetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: string | number; }> {
+    public viewChannelMetacounterByKey(param: UserChannelMetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
         return this.api.viewChannelMetacounterByKey(param.channelType, param.channelUrl, param.key, param.apiToken,  options).toPromise();
     }
 

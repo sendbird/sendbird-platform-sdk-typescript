@@ -33,43 +33,43 @@ export class SendBirdSender {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "connectionStatus",
-            "baseName": "connectionStatus",
+            "baseName": "connection_status",
             "type": "string",
             "format": ""
         },
         {
             "name": "friendDiscoveryKey",
-            "baseName": "friendDiscoveryKey",
+            "baseName": "friend_discovery_key",
             "type": "string",
             "format": ""
         },
         {
             "name": "friendName",
-            "baseName": "friendName",
+            "baseName": "friend_name",
             "type": "string",
             "format": ""
         },
         {
             "name": "isActive",
-            "baseName": "isActive",
+            "baseName": "is_active",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "isBlockedByMe",
-            "baseName": "isBlockedByMe",
+            "baseName": "is_blocked_by_me",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "lastSeenAt",
-            "baseName": "lastSeenAt",
+            "baseName": "last_seen_at",
             "type": "string",
             "format": ""
         },
         {
             "name": "metaData",
-            "baseName": "metaData",
+            "baseName": "meta_data",
             "type": "ModelObject",
             "format": ""
         },
@@ -81,31 +81,31 @@ export class SendBirdSender {
         },
         {
             "name": "plainProfileUrl",
-            "baseName": "plainProfileUrl",
+            "baseName": "plain_profile_url",
             "type": "string",
             "format": ""
         },
         {
             "name": "preferredLanguages",
-            "baseName": "preferredLanguages",
+            "baseName": "preferred_languages",
             "type": "Array<string>",
             "format": ""
         },
         {
             "name": "profileUrl",
-            "baseName": "profileUrl",
+            "baseName": "profile_url",
             "type": "string",
             "format": ""
         },
         {
             "name": "requireAuth",
-            "baseName": "requireAuth",
+            "baseName": "require_auth",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "userId",
-            "baseName": "userId",
+            "baseName": "user_id",
             "type": "string",
             "format": ""
         }    ];

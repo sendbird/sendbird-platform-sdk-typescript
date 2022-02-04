@@ -10,15 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdGroupChannel } from './SendBirdGroupChannel';
-import { SendBirdOpenChannel } from './SendBirdOpenChannel';
+import { SendBirdChannelResponse } from './SendBirdChannelResponse';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20023BannedChannels {
     'startAt'?: number;
     'endAt'?: number;
     'description'?: string;
-    'channel'?: SendBirdGroupChannel | SendBirdOpenChannel;
+    'channel'?: SendBirdChannelResponse;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -44,7 +43,7 @@ export class InlineResponse20023BannedChannels {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "SendBirdGroupChannel | SendBirdOpenChannel",
+            "type": "SendBirdChannelResponse",
             "format": ""
         }    ];
 

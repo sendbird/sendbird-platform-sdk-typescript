@@ -21,13 +21,13 @@ export class SendBirdPollUpdatedVoteCount {
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
             "name": "optionId",
-            "baseName": "optionId",
+            "baseName": "option_id",
             "type": "number",
             "format": ""
         },
         {
             "name": "voteCount",
-            "baseName": "voteCount",
+            "baseName": "vote_count",
             "type": "number",
             "format": ""
         }    ];

@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class InlineResponse20061 {
     'metadata'?: { [key: string]: string; };
-    'upsert'?: boolean;
+    'includeTs'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,9 +26,9 @@ export class InlineResponse20061 {
             "format": ""
         },
         {
-            "name": "upsert",
-            "baseName": "upsert",
-            "type": "boolean",
+            "name": "includeTs",
+            "baseName": "include_ts",
+            "type": "number",
             "format": ""
         }    ];
 

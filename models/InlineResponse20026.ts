@@ -14,8 +14,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20026 {
-    'token'?: string;
-    'type'?: string;
+    'token'?: Array<string>;
     'user'?: SendBirdUser;
 
     static readonly discriminator: string | undefined = undefined;
@@ -24,13 +23,7 @@ export class InlineResponse20026 {
         {
             "name": "token",
             "baseName": "token",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
+            "type": "Array<string>",
             "format": ""
         },
         {

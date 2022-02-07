@@ -21,7 +21,7 @@ export class SendBirdUser {
     'friendDiscoveryKey'?: string;
     'friendName'?: string;
     'isActive'?: boolean;
-    'lastSeenAt'?: string;
+    'lastSeenAt'?: number;
     'metaData'?: ModelObject;
     'nickname'?: string;
     'plainProfileUrl'?: string;
@@ -60,7 +60,7 @@ export class SendBirdUser {
         {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
-            "type": "string",
+            "type": "number",
             "format": ""
         },
         {

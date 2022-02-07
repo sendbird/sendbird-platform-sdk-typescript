@@ -19,7 +19,7 @@ export class SendBirdSender {
     'friendName'?: string;
     'isActive'?: boolean;
     'isBlockedByMe'?: boolean;
-    'lastSeenAt'?: string;
+    'lastSeenAt'?: number;
     'metaData'?: ModelObject;
     'nickname'?: string;
     'plainProfileUrl'?: string;
@@ -64,7 +64,7 @@ export class SendBirdSender {
         {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
-            "type": "string",
+            "type": "number",
             "format": ""
         },
         {

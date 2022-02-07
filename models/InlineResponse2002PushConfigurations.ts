@@ -15,7 +15,8 @@ import { HttpFile } from '../http/http';
 export class InlineResponse2002PushConfigurations {
     'id'?: string;
     'pushType'?: string;
-    'apiKey'?: string;
+    'huaweiAppId'?: string;
+    'huaweiAppSecret'?: string;
     'pushSound'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -34,8 +35,14 @@ export class InlineResponse2002PushConfigurations {
             "format": ""
         },
         {
-            "name": "apiKey",
-            "baseName": "api_key",
+            "name": "huaweiAppId",
+            "baseName": "huawei_app_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "huaweiAppSecret",
+            "baseName": "huawei_app_secret",
             "type": "string",
             "format": ""
         },

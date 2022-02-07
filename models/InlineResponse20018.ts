@@ -10,26 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdGroupChannel } from './SendBirdGroupChannel';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20018 {
-    'channels'?: Array<SendBirdGroupChannel>;
-    'next'?: string;
+    'unreadCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "channels",
-            "baseName": "channels",
-            "type": "Array<SendBirdGroupChannel>",
-            "format": ""
-        },
-        {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "unreadCount",
+            "baseName": "unread_count",
+            "type": "number",
             "format": ""
         }    ];
 

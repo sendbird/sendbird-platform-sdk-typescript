@@ -18,6 +18,7 @@ import { HttpFile } from '../http/http';
 export class InlineResponse20071ReportLogs {
     'reportType'?: string;
     'reportCategory'?: string;
+    'reportingUser'?: SendBirdUser;
     'offendingUser'?: SendBirdUser;
     'reportedMessage'?: SendBirdMessageResponse;
     'channel'?: SendBirdChannelResponse;
@@ -37,6 +38,12 @@ export class InlineResponse20071ReportLogs {
             "name": "reportCategory",
             "baseName": "report_category",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "reportingUser",
+            "baseName": "reporting_user",
+            "type": "SendBirdUser",
             "format": ""
         },
         {

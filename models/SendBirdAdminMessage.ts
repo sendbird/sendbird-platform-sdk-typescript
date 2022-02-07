@@ -203,6 +203,6 @@ export class SendBirdAdminMessage {
 }
 
 
-export type SendBirdAdminMessageMessageTypeEnum = "admin" ;
+export type SendBirdAdminMessageMessageTypeEnum = "MESG" | "ADMM" | "FILE" ;
 export type SendBirdAdminMessageSendingStatusEnum = "canceled" | "failed" | "none" | "pending" | "succeeded" ;
 

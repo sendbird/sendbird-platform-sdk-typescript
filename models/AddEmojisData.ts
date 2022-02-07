@@ -21,14 +21,6 @@ export class AddEmojisData {
     * Specifies a list of one or more new emojis to register.
     */
     'emojis': Array<string>;
-    /**
-    * Specifies the string key of each new emoji.
-    */
-    'emojiKey': string;
-    /**
-    * Specifies the image URL of each new emoji.
-    */
-    'emojiUrl': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,18 +35,6 @@ export class AddEmojisData {
             "name": "emojis",
             "baseName": "emojis",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "emojiKey",
-            "baseName": "(emoji).key",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "emojiUrl",
-            "baseName": "(emoji).url",
-            "type": "string",
             "format": ""
         }    ];
 

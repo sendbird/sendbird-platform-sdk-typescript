@@ -52,7 +52,7 @@ export class SendBirdChannelResponse {
     'name'?: string;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
-    'url'?: string;
+    'channelUrl'?: string;
     'operators'?: Array<SendBirdUser>;
     'participantCount'?: number;
 
@@ -264,8 +264,8 @@ export class SendBirdChannelResponse {
             "format": ""
         },
         {
-            "name": "url",
-            "baseName": "url",
+            "name": "channelUrl",
+            "baseName": "channel_url",
             "type": "string",
             "format": ""
         },

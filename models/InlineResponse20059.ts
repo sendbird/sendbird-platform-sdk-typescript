@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdEmoji } from './SendBirdEmoji';
+import { InlineResponse20056Emojis } from './InlineResponse20056Emojis';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20059 {
-    'emojis'?: Array<SendBirdEmoji>;
+    'emojis'?: Array<InlineResponse20056Emojis>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class InlineResponse20059 {
         {
             "name": "emojis",
             "baseName": "emojis",
-            "type": "Array<SendBirdEmoji>",
+            "type": "Array<InlineResponse20056Emojis>",
             "format": ""
         }    ];
 

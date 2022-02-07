@@ -2,6 +2,8 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 import {Configuration} from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import * as FormData from "form-data";
+import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
@@ -11,6 +13,7 @@ import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDev
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
 import { BlockUserData } from '../models/BlockUserData';
 import { CreateUserData } from '../models/CreateUserData';
+import { InlineResponse20016 } from '../models/InlineResponse20016';
 import { InlineResponse20017 } from '../models/InlineResponse20017';
 import { InlineResponse20018 } from '../models/InlineResponse20018';
 import { InlineResponse20019 } from '../models/InlineResponse20019';
@@ -24,8 +27,7 @@ import { InlineResponse20026 } from '../models/InlineResponse20026';
 import { InlineResponse20027 } from '../models/InlineResponse20027';
 import { InlineResponse20028 } from '../models/InlineResponse20028';
 import { InlineResponse20029 } from '../models/InlineResponse20029';
-import { InlineResponse20030 } from '../models/InlineResponse20030';
-import { InlineResponse2006 } from '../models/InlineResponse2006';
+import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
 import { MuteInChannelsWithCustomChannelTypesData } from '../models/MuteInChannelsWithCustomChannelTypesData';
@@ -1935,26 +1937,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to addRegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addRegistrationOrDeviceToken(response: ResponseContext): Promise<InlineResponse20026 > {
+     public async addRegistrationOrDeviceToken(response: ResponseContext): Promise<InlineResponse20025 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20026 = ObjectSerializer.deserialize(
+            const body: InlineResponse20025 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20026", ""
-            ) as InlineResponse20026;
+                "InlineResponse20025", ""
+            ) as InlineResponse20025;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20026 = ObjectSerializer.deserialize(
+            const body: InlineResponse20025 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20026", ""
-            ) as InlineResponse20026;
+                "InlineResponse20025", ""
+            ) as InlineResponse20025;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1979,7 +1981,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2008,7 +2010,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2018,26 +2020,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to choosePushNotificationContentTemplate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async choosePushNotificationContentTemplate(response: ResponseContext): Promise<InlineResponse20030 > {
+     public async choosePushNotificationContentTemplate(response: ResponseContext): Promise<InlineResponse20029 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20030 = ObjectSerializer.deserialize(
+            const body: InlineResponse20029 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20030", ""
-            ) as InlineResponse20030;
+                "InlineResponse20029", ""
+            ) as InlineResponse20029;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20030 = ObjectSerializer.deserialize(
+            const body: InlineResponse20029 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20030", ""
-            ) as InlineResponse20030;
+                "InlineResponse20029", ""
+            ) as InlineResponse20029;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2066,7 +2068,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2091,7 +2093,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2116,7 +2118,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2126,26 +2128,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listBannedChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listBannedChannels(response: ResponseContext): Promise<InlineResponse20023 > {
+     public async listBannedChannels(response: ResponseContext): Promise<InlineResponse20022 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20023 = ObjectSerializer.deserialize(
+            const body: InlineResponse20022 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20023", ""
-            ) as InlineResponse20023;
+                "InlineResponse20022", ""
+            ) as InlineResponse20022;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20023 = ObjectSerializer.deserialize(
+            const body: InlineResponse20022 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20023", ""
-            ) as InlineResponse20023;
+                "InlineResponse20022", ""
+            ) as InlineResponse20022;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2155,26 +2157,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listBlockedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listBlockedUsers(response: ResponseContext): Promise<InlineResponse20017 > {
+     public async listBlockedUsers(response: ResponseContext): Promise<InlineResponse20016 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse20016 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse20016", ""
+            ) as InlineResponse20016;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse20016 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse20016", ""
+            ) as InlineResponse20016;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2184,26 +2186,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listMutedChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listMutedChannels(response: ResponseContext): Promise<InlineResponse20024 > {
+     public async listMutedChannels(response: ResponseContext): Promise<InlineResponse20023 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20024 = ObjectSerializer.deserialize(
+            const body: InlineResponse20023 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20024", ""
-            ) as InlineResponse20024;
+                "InlineResponse20023", ""
+            ) as InlineResponse20023;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20024 = ObjectSerializer.deserialize(
+            const body: InlineResponse20023 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20024", ""
-            ) as InlineResponse20024;
+                "InlineResponse20023", ""
+            ) as InlineResponse20023;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2213,26 +2215,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listMyGroupChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listMyGroupChannels(response: ResponseContext): Promise<InlineResponse20018 > {
+     public async listMyGroupChannels(response: ResponseContext): Promise<InlineResponse20017 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: InlineResponse20017 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "InlineResponse20017", ""
+            ) as InlineResponse20017;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: InlineResponse20017 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "InlineResponse20017", ""
+            ) as InlineResponse20017;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2242,26 +2244,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listRegistrationOrDeviceTokens
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listRegistrationOrDeviceTokens(response: ResponseContext): Promise<InlineResponse20025 > {
+     public async listRegistrationOrDeviceTokens(response: ResponseContext): Promise<InlineResponse20024 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20025 = ObjectSerializer.deserialize(
+            const body: InlineResponse20024 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20025", ""
-            ) as InlineResponse20025;
+                "InlineResponse20024", ""
+            ) as InlineResponse20024;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20025 = ObjectSerializer.deserialize(
+            const body: InlineResponse20024 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20025", ""
-            ) as InlineResponse20025;
+                "InlineResponse20024", ""
+            ) as InlineResponse20024;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2271,26 +2273,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to listUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listUsers(response: ResponseContext): Promise<InlineResponse20017 > {
+     public async listUsers(response: ResponseContext): Promise<InlineResponse20016 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse20016 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse20016", ""
+            ) as InlineResponse20016;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse20016 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse20016", ""
+            ) as InlineResponse20016;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2315,7 +2317,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2340,7 +2342,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2365,7 +2367,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2375,26 +2377,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to removeRegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeRegistrationOrDeviceToken(response: ResponseContext): Promise<InlineResponse20027 > {
+     public async removeRegistrationOrDeviceToken(response: ResponseContext): Promise<InlineResponse20026 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20027 = ObjectSerializer.deserialize(
+            const body: InlineResponse20026 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20027", ""
-            ) as InlineResponse20027;
+                "InlineResponse20026", ""
+            ) as InlineResponse20026;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20027 = ObjectSerializer.deserialize(
+            const body: InlineResponse20026 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20027", ""
-            ) as InlineResponse20027;
+                "InlineResponse20026", ""
+            ) as InlineResponse20026;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2404,26 +2406,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to removeRegistrationOrDeviceTokenByToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<InlineResponse20027 > {
+     public async removeRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<InlineResponse20026 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20027 = ObjectSerializer.deserialize(
+            const body: InlineResponse20026 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20027", ""
-            ) as InlineResponse20027;
+                "InlineResponse20026", ""
+            ) as InlineResponse20026;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20027 = ObjectSerializer.deserialize(
+            const body: InlineResponse20026 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20027", ""
-            ) as InlineResponse20027;
+                "InlineResponse20026", ""
+            ) as InlineResponse20026;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2433,26 +2435,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to removeRegistrationOrDeviceTokenFromOwnerByToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeRegistrationOrDeviceTokenFromOwnerByToken(response: ResponseContext): Promise<InlineResponse20028 > {
+     public async removeRegistrationOrDeviceTokenFromOwnerByToken(response: ResponseContext): Promise<InlineResponse20027 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20028 = ObjectSerializer.deserialize(
+            const body: InlineResponse20027 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20028", ""
-            ) as InlineResponse20028;
+                "InlineResponse20027", ""
+            ) as InlineResponse20027;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20028 = ObjectSerializer.deserialize(
+            const body: InlineResponse20027 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20028", ""
-            ) as InlineResponse20028;
+                "InlineResponse20027", ""
+            ) as InlineResponse20027;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2477,7 +2479,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2502,7 +2504,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2512,26 +2514,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to updateChannelInvitationPreference
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateChannelInvitationPreference(response: ResponseContext): Promise<InlineResponse2006 > {
+     public async updateChannelInvitationPreference(response: ResponseContext): Promise<InlineResponse2005 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2541,26 +2543,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to updateCountPreferenceOfChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<InlineResponse20022 > {
+     public async updateCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<InlineResponse20021 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20022 = ObjectSerializer.deserialize(
+            const body: InlineResponse20021 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20022", ""
-            ) as InlineResponse20022;
+                "InlineResponse20021", ""
+            ) as InlineResponse20021;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20022 = ObjectSerializer.deserialize(
+            const body: InlineResponse20021 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20022", ""
-            ) as InlineResponse20022;
+                "InlineResponse20021", ""
+            ) as InlineResponse20021;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2570,26 +2572,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to updatePushPreferences
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updatePushPreferences(response: ResponseContext): Promise<InlineResponse20029 > {
+     public async updatePushPreferences(response: ResponseContext): Promise<InlineResponse20028 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2599,26 +2601,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to updatePushPreferencesForChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updatePushPreferencesForChannelByUrl(response: ResponseContext): Promise<InlineResponse20029 > {
+     public async updatePushPreferencesForChannelByUrl(response: ResponseContext): Promise<InlineResponse20028 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2647,7 +2649,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2657,26 +2659,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelInvitationPreference
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelInvitationPreference(response: ResponseContext): Promise<InlineResponse2006 > {
+     public async viewChannelInvitationPreference(response: ResponseContext): Promise<InlineResponse2005 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2686,26 +2688,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewCountPreferenceOfChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<InlineResponse20022 > {
+     public async viewCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<InlineResponse20021 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20022 = ObjectSerializer.deserialize(
+            const body: InlineResponse20021 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20022", ""
-            ) as InlineResponse20022;
+                "InlineResponse20021", ""
+            ) as InlineResponse20021;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20022 = ObjectSerializer.deserialize(
+            const body: InlineResponse20021 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20022", ""
-            ) as InlineResponse20022;
+                "InlineResponse20021", ""
+            ) as InlineResponse20021;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2715,26 +2717,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewNumberOfChannelsByJoinStatus
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewNumberOfChannelsByJoinStatus(response: ResponseContext): Promise<InlineResponse20021 > {
+     public async viewNumberOfChannelsByJoinStatus(response: ResponseContext): Promise<InlineResponse20020 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20021 = ObjectSerializer.deserialize(
+            const body: InlineResponse20020 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20021", ""
-            ) as InlineResponse20021;
+                "InlineResponse20020", ""
+            ) as InlineResponse20020;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20021 = ObjectSerializer.deserialize(
+            const body: InlineResponse20020 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20021", ""
-            ) as InlineResponse20021;
+                "InlineResponse20020", ""
+            ) as InlineResponse20020;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2744,26 +2746,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewNumberOfChannelsWithUnreadMessages
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewNumberOfChannelsWithUnreadMessages(response: ResponseContext): Promise<InlineResponse20019 > {
+     public async viewNumberOfChannelsWithUnreadMessages(response: ResponseContext): Promise<InlineResponse20018 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse20018 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse20018", ""
+            ) as InlineResponse20018;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse20018 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse20018", ""
+            ) as InlineResponse20018;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2773,26 +2775,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewNumberOfUnreadItems
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewNumberOfUnreadItems(response: ResponseContext): Promise<InlineResponse20020 > {
+     public async viewNumberOfUnreadItems(response: ResponseContext): Promise<InlineResponse20019 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: InlineResponse20019 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "InlineResponse20019", ""
+            ) as InlineResponse20019;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: InlineResponse20019 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "InlineResponse20019", ""
+            ) as InlineResponse20019;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2802,26 +2804,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewNumberOfUnreadMessages
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewNumberOfUnreadMessages(response: ResponseContext): Promise<InlineResponse20019 > {
+     public async viewNumberOfUnreadMessages(response: ResponseContext): Promise<InlineResponse20018 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse20018 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse20018", ""
+            ) as InlineResponse20018;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse20018 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse20018", ""
+            ) as InlineResponse20018;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2831,26 +2833,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewPushPreferences
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewPushPreferences(response: ResponseContext): Promise<InlineResponse20029 > {
+     public async viewPushPreferences(response: ResponseContext): Promise<InlineResponse20028 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2860,26 +2862,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewPushPreferencesForChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewPushPreferencesForChannelByUrl(response: ResponseContext): Promise<InlineResponse20029 > {
+     public async viewPushPreferencesForChannelByUrl(response: ResponseContext): Promise<InlineResponse20028 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20029 = ObjectSerializer.deserialize(
+            const body: InlineResponse20028 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20029", ""
-            ) as InlineResponse20029;
+                "InlineResponse20028", ""
+            ) as InlineResponse20028;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2908,7 +2910,7 @@ export class UserApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2918,26 +2920,26 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewWhoOwnsRegistrationOrDeviceTokenByToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewWhoOwnsRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<InlineResponse20028 > {
+     public async viewWhoOwnsRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<InlineResponse20027 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20028 = ObjectSerializer.deserialize(
+            const body: InlineResponse20027 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20028", ""
-            ) as InlineResponse20028;
+                "InlineResponse20027", ""
+            ) as InlineResponse20027;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20028 = ObjectSerializer.deserialize(
+            const body: InlineResponse20027 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20028", ""
-            ) as InlineResponse20028;
+                "InlineResponse20027", ""
+            ) as InlineResponse20027;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
 }

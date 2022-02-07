@@ -13,14 +13,14 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20011 {
-    'mau'?: number;
+    'dau'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "mau",
-            "baseName": "mau",
+            "name": "dau",
+            "baseName": "dau",
             "type": "number",
             "format": ""
         }    ];

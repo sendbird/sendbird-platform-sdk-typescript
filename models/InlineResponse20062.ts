@@ -13,22 +13,50 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20062 {
-    'metadata'?: { [key: string]: string; };
-    'includeTs'?: number;
+    'segments'?: string;
+    'date'?: string;
+    'value'?: number;
+    'channelType'?: string;
+    'customChannelType'?: string;
+    'customMessageType'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: string; }",
+            "name": "segments",
+            "baseName": "segments",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "includeTs",
-            "baseName": "include_ts",
+            "name": "date",
+            "baseName": "date",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "value",
+            "baseName": "value",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "channelType",
+            "baseName": "channel_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customChannelType",
+            "baseName": "custom_channel_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customMessageType",
+            "baseName": "custom_message_type",
+            "type": "string",
             "format": ""
         }    ];
 

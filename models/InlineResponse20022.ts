@@ -10,17 +10,25 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20022BannedChannels } from './InlineResponse20022BannedChannels';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20022 {
-    'countPreference'?: string;
+    'bannedChannels'?: Array<InlineResponse20022BannedChannels>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "countPreference",
-            "baseName": "count_preference",
+            "name": "bannedChannels",
+            "baseName": "banned_channels",
+            "type": "Array<InlineResponse20022BannedChannels>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
             "type": "string",
             "format": ""
         }    ];

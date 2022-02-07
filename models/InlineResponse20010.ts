@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20010PeakConnections } from './InlineResponse20010PeakConnections';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20010 {
-    'peakConnections'?: Array<InlineResponse20010PeakConnections>;
+    'mau'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "peakConnections",
-            "baseName": "peak_connections",
-            "type": "Array<InlineResponse20010PeakConnections>",
+            "name": "mau",
+            "baseName": "mau",
+            "type": "number",
             "format": ""
         }    ];
 

@@ -50,7 +50,7 @@ export class SendBirdGroupChannel {
     'name'?: string;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
-    'url'?: string;
+    'channelUrl'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -260,8 +260,8 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "url",
-            "baseName": "url",
+            "name": "channelUrl",
+            "baseName": "channel_url",
             "type": "string",
             "format": ""
         }    ];

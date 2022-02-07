@@ -10,27 +10,20 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20034BannedList } from './InlineResponse20034BannedList';
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20034 {
-    'bannedList'?: Array<InlineResponse20034BannedList>;
-    'totalBanCount'?: number;
+    'operators'?: Array<SendBirdUser>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "bannedList",
-            "baseName": "banned_list",
-            "type": "Array<InlineResponse20034BannedList>",
-            "format": ""
-        },
-        {
-            "name": "totalBanCount",
-            "baseName": "total_ban_count",
-            "type": "number",
+            "name": "operators",
+            "baseName": "operators",
+            "type": "Array<SendBirdUser>",
             "format": ""
         },
         {

@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2005PushMessageTemplates } from './InlineResponse2005PushMessageTemplates';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2005 {
-    'pushMessageTemplates'?: Array<InlineResponse2005PushMessageTemplates>;
+    'autoAccept'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "pushMessageTemplates",
-            "baseName": "push_message_templates",
-            "type": "Array<InlineResponse2005PushMessageTemplates>",
+            "name": "autoAccept",
+            "baseName": "auto_accept",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **listDataExportsByMessageChannelOrUser**
-> InlineResponse20064 listDataExportsByMessageChannelOrUser()
+> InlineResponse20063 listDataExportsByMessageChannelOrUser()
 
 ## List data exports by message, channel, or user  Retrieves a list of message, channel or user data exports  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-list-data-exports-by-message,-channel,-or-user ----------------------------   `data_type`      Type: string      Description: Specifies the type of a data export to retrieve. Acceptable values are messages, channels, users, and failed_webhooks.
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20064**
+**InlineResponse20063**
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **registerAndScheduleDataExport**
-> InlineResponse20064ExportedData registerAndScheduleDataExport()
+> InlineResponse20063ExportedData registerAndScheduleDataExport()
 
 ## Register and schedule a data export  Registers and schedules a message, channel, or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-register-and-schedule-a-data-export ----------------------------
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20064ExportedData**
+**InlineResponse20063ExportedData**
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewDataExportById**
-> InlineResponse20065 viewDataExportById()
+> InlineResponse20064 viewDataExportById()
 
 ## View a data export  Retrieves information on a message, channel or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-view-a-data-export ----------------------------   `data_type`      Type: string      Description: Specifies the type of a targeted data export. Acceptable values are messages, channels,  users, and failed_webhooks.  `request_id`      Type: string      Description: Specifies the unique ID of a data export to retrieve.
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20065**
+**InlineResponse20064**
 
 ### Authorization
 

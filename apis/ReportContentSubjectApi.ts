@@ -2,14 +2,16 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 import {Configuration} from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import * as FormData from "form-data";
+import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
+import { InlineResponse20070 } from '../models/InlineResponse20070';
 import { InlineResponse20071 } from '../models/InlineResponse20071';
-import { InlineResponse20072 } from '../models/InlineResponse20072';
-import { InlineResponse20072ReportLogs } from '../models/InlineResponse20072ReportLogs';
+import { InlineResponse20071ReportLogs } from '../models/InlineResponse20071ReportLogs';
 import { ReportChannelByUrlData } from '../models/ReportChannelByUrlData';
 import { ReportMessageByIdData } from '../models/ReportMessageByIdData';
 import { ReportUserByIdData } from '../models/ReportUserByIdData';
@@ -451,26 +453,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to listReports
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReports(response: ResponseContext): Promise<InlineResponse20071 > {
+     public async listReports(response: ResponseContext): Promise<InlineResponse20070 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20071 = ObjectSerializer.deserialize(
+            const body: InlineResponse20070 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20071", ""
-            ) as InlineResponse20071;
+                "InlineResponse20070", ""
+            ) as InlineResponse20070;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20071 = ObjectSerializer.deserialize(
+            const body: InlineResponse20070 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20071", ""
-            ) as InlineResponse20071;
+                "InlineResponse20070", ""
+            ) as InlineResponse20070;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -480,26 +482,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to listReportsOnChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReportsOnChannelByUrl(response: ResponseContext): Promise<InlineResponse20072 > {
+     public async listReportsOnChannelByUrl(response: ResponseContext): Promise<InlineResponse20071 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -509,26 +511,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to listReportsOnMessageById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReportsOnMessageById(response: ResponseContext): Promise<InlineResponse20072 > {
+     public async listReportsOnMessageById(response: ResponseContext): Promise<InlineResponse20071 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -538,26 +540,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to listReportsOnUserById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReportsOnUserById(response: ResponseContext): Promise<InlineResponse20072 > {
+     public async listReportsOnUserById(response: ResponseContext): Promise<InlineResponse20071 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072 = ObjectSerializer.deserialize(
+            const body: InlineResponse20071 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072", ""
-            ) as InlineResponse20072;
+                "InlineResponse20071", ""
+            ) as InlineResponse20071;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -567,26 +569,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to reportChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async reportChannelByUrl(response: ResponseContext): Promise<InlineResponse20072ReportLogs > {
+     public async reportChannelByUrl(response: ResponseContext): Promise<InlineResponse20071ReportLogs > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -596,26 +598,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to reportMessageById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async reportMessageById(response: ResponseContext): Promise<InlineResponse20072ReportLogs > {
+     public async reportMessageById(response: ResponseContext): Promise<InlineResponse20071ReportLogs > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -625,26 +627,26 @@ export class ReportContentSubjectApiResponseProcessor {
      * @params response Response returned by the server for a request to reportUserById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async reportUserById(response: ResponseContext): Promise<InlineResponse20072ReportLogs > {
+     public async reportUserById(response: ResponseContext): Promise<InlineResponse20071ReportLogs > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20072ReportLogs = ObjectSerializer.deserialize(
+            const body: InlineResponse20071ReportLogs = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20072ReportLogs", ""
-            ) as InlineResponse20072ReportLogs;
+                "InlineResponse20071ReportLogs", ""
+            ) as InlineResponse20071ReportLogs;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -673,7 +675,7 @@ export class ReportContentSubjectApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
 }

@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20014 {
-    'pushConfigurations'?: Array<string>;
+    'pushConfigurations'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -21,7 +21,7 @@ export class InlineResponse20014 {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<string>",
+            "type": "string",
             "format": ""
         }    ];
 

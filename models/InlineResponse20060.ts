@@ -10,19 +10,25 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20057Emojis } from './InlineResponse20057Emojis';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20060 {
-    'emojis'?: Array<InlineResponse20057Emojis>;
+    'metadata'?: { [key: string]: string; };
+    'upsert'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "emojis",
-            "baseName": "emojis",
-            "type": "Array<InlineResponse20057Emojis>",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: string; }",
+            "format": ""
+        },
+        {
+            "name": "upsert",
+            "baseName": "upsert",
+            "type": "boolean",
             "format": ""
         }    ];
 

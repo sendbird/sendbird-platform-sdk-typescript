@@ -10,25 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse2007 } from './InlineResponse2007';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2008 {
-    'token'?: string;
-    'createdAt'?: number;
+    'apiTokens'?: Array<InlineResponse2007>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "token",
-            "baseName": "token",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "created_at",
-            "type": "number",
+            "name": "apiTokens",
+            "baseName": "api_tokens",
+            "type": "Array<InlineResponse2007>",
             "format": ""
         }    ];
 

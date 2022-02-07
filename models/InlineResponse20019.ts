@@ -13,14 +13,70 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20019 {
-    'unreadCount'?: number;
+    'nonSuperGroupChannelUnreadMessageCount'?: number;
+    'superGroupChannelUnreadMessageCount'?: number;
+    'groupChannelUnreadMessageCount'?: number;
+    'superGroupChannelInvitationCount'?: number;
+    'groupChannelInvitationCount'?: number;
+    'superGroupChannelUnreadMentionCount'?: number;
+    'groupChannelUnreadMentionCount'?: number;
+    'nonSuperGroupChannelUnreadMentionCount'?: number;
+    'nonSuperGroupChannelInvitationCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "unreadCount",
-            "baseName": "unread_count",
+            "name": "nonSuperGroupChannelUnreadMessageCount",
+            "baseName": "non_super_group_channel_unread_message_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "superGroupChannelUnreadMessageCount",
+            "baseName": "super_group_channel_unread_message_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "groupChannelUnreadMessageCount",
+            "baseName": "group_channel_unread_message_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "superGroupChannelInvitationCount",
+            "baseName": "super_group_channel_invitation_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "groupChannelInvitationCount",
+            "baseName": "group_channel_invitation_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "superGroupChannelUnreadMentionCount",
+            "baseName": "super_group_channel_unread_mention_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "groupChannelUnreadMentionCount",
+            "baseName": "group_channel_unread_mention_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "nonSuperGroupChannelUnreadMentionCount",
+            "baseName": "non_super_group_channel_unread_mention_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "nonSuperGroupChannelInvitationCount",
+            "baseName": "non_super_group_channel_invitation_count",
             "type": "number",
             "format": ""
         }    ];

@@ -2,6 +2,8 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 import {Configuration} from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import * as FormData from "form-data";
+import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
@@ -21,15 +23,15 @@ import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
-import { InlineResponse20018 } from '../models/InlineResponse20018';
-import { InlineResponse20032 } from '../models/InlineResponse20032';
+import { InlineResponse20017 } from '../models/InlineResponse20017';
+import { InlineResponse20031 } from '../models/InlineResponse20031';
+import { InlineResponse20033 } from '../models/InlineResponse20033';
+import { InlineResponse20033BannedList } from '../models/InlineResponse20033BannedList';
 import { InlineResponse20034 } from '../models/InlineResponse20034';
-import { InlineResponse20034BannedList } from '../models/InlineResponse20034BannedList';
 import { InlineResponse20035 } from '../models/InlineResponse20035';
 import { InlineResponse20036 } from '../models/InlineResponse20036';
 import { InlineResponse20037 } from '../models/InlineResponse20037';
 import { InlineResponse20038 } from '../models/InlineResponse20038';
-import { InlineResponse20039 } from '../models/InlineResponse20039';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 import { SendBirdUser } from '../models/SendBirdUser';
 
@@ -1650,7 +1652,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1660,26 +1662,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcBanUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcBanUser(response: ResponseContext): Promise<InlineResponse20034BannedList > {
+     public async gcBanUser(response: ResponseContext): Promise<InlineResponse20033BannedList > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20034BannedList = ObjectSerializer.deserialize(
+            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034BannedList", ""
-            ) as InlineResponse20034BannedList;
+                "InlineResponse20033BannedList", ""
+            ) as InlineResponse20033BannedList;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20034BannedList = ObjectSerializer.deserialize(
+            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034BannedList", ""
-            ) as InlineResponse20034BannedList;
+                "InlineResponse20033BannedList", ""
+            ) as InlineResponse20033BannedList;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1704,7 +1706,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1714,26 +1716,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcCheckIfMemberById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcCheckIfMemberById(response: ResponseContext): Promise<InlineResponse20038 > {
+     public async gcCheckIfMemberById(response: ResponseContext): Promise<InlineResponse20037 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20038 = ObjectSerializer.deserialize(
+            const body: InlineResponse20037 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20038", ""
-            ) as InlineResponse20038;
+                "InlineResponse20037", ""
+            ) as InlineResponse20037;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20038 = ObjectSerializer.deserialize(
+            const body: InlineResponse20037 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20038", ""
-            ) as InlineResponse20038;
+                "InlineResponse20037", ""
+            ) as InlineResponse20037;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1762,7 +1764,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1787,7 +1789,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1812,7 +1814,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1841,7 +1843,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1866,7 +1868,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1895,7 +1897,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1920,7 +1922,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1945,7 +1947,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1955,26 +1957,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListBannedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListBannedUsers(response: ResponseContext): Promise<InlineResponse20034 > {
+     public async gcListBannedUsers(response: ResponseContext): Promise<InlineResponse20033 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: InlineResponse20033 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "InlineResponse20033", ""
+            ) as InlineResponse20033;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: InlineResponse20033 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "InlineResponse20033", ""
+            ) as InlineResponse20033;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1984,26 +1986,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListChannels(response: ResponseContext): Promise<InlineResponse20018 > {
+     public async gcListChannels(response: ResponseContext): Promise<InlineResponse20017 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: InlineResponse20017 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "InlineResponse20017", ""
+            ) as InlineResponse20017;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: InlineResponse20017 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "InlineResponse20017", ""
+            ) as InlineResponse20017;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2013,26 +2015,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListMembers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListMembers(response: ResponseContext): Promise<InlineResponse20037 > {
+     public async gcListMembers(response: ResponseContext): Promise<InlineResponse20036 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20037 = ObjectSerializer.deserialize(
+            const body: InlineResponse20036 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20037", ""
-            ) as InlineResponse20037;
+                "InlineResponse20036", ""
+            ) as InlineResponse20036;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20037 = ObjectSerializer.deserialize(
+            const body: InlineResponse20036 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20037", ""
-            ) as InlineResponse20037;
+                "InlineResponse20036", ""
+            ) as InlineResponse20036;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2042,26 +2044,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListMutedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListMutedUsers(response: ResponseContext): Promise<InlineResponse20032 > {
+     public async gcListMutedUsers(response: ResponseContext): Promise<InlineResponse20031 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20032 = ObjectSerializer.deserialize(
+            const body: InlineResponse20031 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20032", ""
-            ) as InlineResponse20032;
+                "InlineResponse20031", ""
+            ) as InlineResponse20031;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20032 = ObjectSerializer.deserialize(
+            const body: InlineResponse20031 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20032", ""
-            ) as InlineResponse20032;
+                "InlineResponse20031", ""
+            ) as InlineResponse20031;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2071,26 +2073,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListOperators(response: ResponseContext): Promise<InlineResponse20035 > {
+     public async gcListOperators(response: ResponseContext): Promise<InlineResponse20034 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: InlineResponse20034 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "InlineResponse20034", ""
+            ) as InlineResponse20034;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: InlineResponse20034 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "InlineResponse20034", ""
+            ) as InlineResponse20034;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2119,7 +2121,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2129,26 +2131,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcRegisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcRegisterOperators(response: ResponseContext): Promise<InlineResponse20039 > {
+     public async gcRegisterOperators(response: ResponseContext): Promise<InlineResponse20038 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20039 = ObjectSerializer.deserialize(
+            const body: InlineResponse20038 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039", ""
-            ) as InlineResponse20039;
+                "InlineResponse20038", ""
+            ) as InlineResponse20038;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20039 = ObjectSerializer.deserialize(
+            const body: InlineResponse20038 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039", ""
-            ) as InlineResponse20039;
+                "InlineResponse20038", ""
+            ) as InlineResponse20038;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2173,7 +2175,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2198,7 +2200,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2223,7 +2225,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2248,7 +2250,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2277,7 +2279,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2306,7 +2308,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2335,7 +2337,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2364,7 +2366,7 @@ export class GroupChannelApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -2374,26 +2376,26 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcViewMuteById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcViewMuteById(response: ResponseContext): Promise<InlineResponse20036 > {
+     public async gcViewMuteById(response: ResponseContext): Promise<InlineResponse20035 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20036 = ObjectSerializer.deserialize(
+            const body: InlineResponse20035 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20036", ""
-            ) as InlineResponse20036;
+                "InlineResponse20035", ""
+            ) as InlineResponse20035;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20036 = ObjectSerializer.deserialize(
+            const body: InlineResponse20035 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20036", ""
-            ) as InlineResponse20036;
+                "InlineResponse20035", ""
+            ) as InlineResponse20035;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
 }

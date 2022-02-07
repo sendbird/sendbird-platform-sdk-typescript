@@ -16,15 +16,15 @@ export class ReportMessageByIdData {
     /**
     * Specifies the type of the channel. Either open_channels or group_channels.
     */
-    'channelType': string;
+    'channelType'?: string;
     /**
     * Specifies the URL of the channel where the message to report is in.
     */
-    'channelUrl': string;
+    'channelUrl'?: string;
     /**
     * Specifies the unique ID of the message to report.
     */
-    'messageId': string;
+    'messageId'?: string;
     /**
     * Specifies the category which indicates the reason for reporting. Acceptable values are suspicious, harassing, inappropriate, and spam.
     */
@@ -36,11 +36,11 @@ export class ReportMessageByIdData {
     /**
     * Specifies the unique ID of the user who reports the message.
     */
-    'reportingUserId': string;
+    'reportingUserId'?: string;
     /**
     * Specifies additional information to be included in the report.
     */
-    'reportDescription': string;
+    'reportDescription'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 

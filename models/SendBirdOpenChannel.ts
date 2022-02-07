@@ -24,7 +24,7 @@ export class SendBirdOpenChannel {
     'name'?: string;
     'operators'?: Array<SendBirdUser>;
     'participantCount'?: number;
-    'url'?: string;
+    'channelUrl'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -90,8 +90,8 @@ export class SendBirdOpenChannel {
             "format": ""
         },
         {
-            "name": "url",
-            "baseName": "url",
+            "name": "channelUrl",
+            "baseName": "channel_url",
             "type": "string",
             "format": ""
         }    ];

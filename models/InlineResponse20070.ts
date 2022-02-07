@@ -10,60 +10,26 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20070ReportLogs } from './InlineResponse20070ReportLogs';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20070 {
-    'requestId'?: string;
-    'action'?: string;
-    'status'?: string;
-    'userId'?: string;
-    'userIds'?: Array<string>;
-    'channelDeleteOption'?: string;
-    'createdAt'?: number;
+    'reportLogs'?: Array<InlineResponse20070ReportLogs>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "requestId",
-            "baseName": "request_id",
+            "name": "reportLogs",
+            "baseName": "report_logs",
+            "type": "Array<InlineResponse20070ReportLogs>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "action",
-            "baseName": "action",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "userIds",
-            "baseName": "user_ids",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "channelDeleteOption",
-            "baseName": "channel_delete_option",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "created_at",
-            "type": "number",
             "format": ""
         }    ];
 

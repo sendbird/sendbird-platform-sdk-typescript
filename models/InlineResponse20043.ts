@@ -10,46 +10,26 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20043OpenStatus } from './InlineResponse20043OpenStatus';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20043 {
-    'uniqueId'?: string;
-    'openCounts'?: Array<number>;
-    'openRates'?: Array<number>;
-    'cumulativeOpenCounts'?: Array<number>;
-    'cumulativeOpenRates'?: Array<number>;
+    'openStatus'?: Array<InlineResponse20043OpenStatus>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "uniqueId",
-            "baseName": "unique_id",
+            "name": "openStatus",
+            "baseName": "open_status",
+            "type": "Array<InlineResponse20043OpenStatus>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "openCounts",
-            "baseName": "open_counts",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "openRates",
-            "baseName": "open_rates",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "cumulativeOpenCounts",
-            "baseName": "cumulative_open_counts",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "cumulativeOpenRates",
-            "baseName": "cumulative_open_rates",
-            "type": "Array<number>",
             "format": ""
         }    ];
 

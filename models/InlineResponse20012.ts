@@ -10,18 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20012PushConfigurations } from './InlineResponse20012PushConfigurations';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20012 {
-    'dau'?: number;
+    'pushConfigurations'?: Array<InlineResponse20012PushConfigurations>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "dau",
-            "baseName": "dau",
-            "type": "number",
+            "name": "pushConfigurations",
+            "baseName": "push_configurations",
+            "type": "Array<InlineResponse20012PushConfigurations>",
             "format": ""
         }    ];
 

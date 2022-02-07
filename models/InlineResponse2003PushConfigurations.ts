@@ -15,8 +15,13 @@ import { HttpFile } from '../http/http';
 export class InlineResponse2003PushConfigurations {
     'id'?: string;
     'pushType'?: string;
-    'huaweiAppId'?: string;
-    'huaweiAppSecret'?: string;
+    'createdAt'?: number;
+    'apnsCerEnvType'?: string;
+    'apnsExpiration'?: number;
+    'apnsName'?: string;
+    'hasUnreadCountBadge'?: number;
+    'contentAvailable'?: boolean;
+    'mutableContent'?: boolean;
     'pushSound'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -35,15 +40,45 @@ export class InlineResponse2003PushConfigurations {
             "format": ""
         },
         {
-            "name": "huaweiAppId",
-            "baseName": "huawei_app_id",
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "apnsCerEnvType",
+            "baseName": "apns_cer_env_type",
             "type": "string",
             "format": ""
         },
         {
-            "name": "huaweiAppSecret",
-            "baseName": "huawei_app_secret",
+            "name": "apnsExpiration",
+            "baseName": "apns_expiration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "apnsName",
+            "baseName": "apns_name",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "hasUnreadCountBadge",
+            "baseName": "has_unread_count_badge",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "contentAvailable",
+            "baseName": "content_available",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "mutableContent",
+            "baseName": "mutable_content",
+            "type": "boolean",
             "format": ""
         },
         {

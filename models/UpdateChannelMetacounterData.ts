@@ -20,8 +20,8 @@ export class UpdateChannelMetacounterData {
     /**
     * Specifies how to calculate the item value of the metacounter. Acceptable values are increase, decrease, and set. If set to increase, increments the item value of the metacounter by the value specified in the metacounter property, while decrease decrements. set sets the item value to the specified value exactly. (Default: set)
     */
-    'mode': string;
-    'upsert': boolean;
+    'mode'?: string;
+    'upsert'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 

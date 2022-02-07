@@ -2,12 +2,14 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 import {Configuration} from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import * as FormData from "form-data";
+import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20063 } from '../models/InlineResponse20063';
+import { InlineResponse20062 } from '../models/InlineResponse20062';
 
 /**
  * no description
@@ -49,26 +51,26 @@ export class AdvancedAnalyticsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieveAdvancedAnalyticsMetrics
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieveAdvancedAnalyticsMetrics(response: ResponseContext): Promise<InlineResponse20063 > {
+     public async retrieveAdvancedAnalyticsMetrics(response: ResponseContext): Promise<InlineResponse20062 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20063 = ObjectSerializer.deserialize(
+            const body: InlineResponse20062 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063", ""
-            ) as InlineResponse20063;
+                "InlineResponse20062", ""
+            ) as InlineResponse20062;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20063 = ObjectSerializer.deserialize(
+            const body: InlineResponse20062 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063", ""
-            ) as InlineResponse20063;
+                "InlineResponse20062", ""
+            ) as InlineResponse20062;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
 }

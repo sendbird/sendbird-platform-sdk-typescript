@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20048SortedMetaarray } from './InlineResponse20048SortedMetaarray';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20055 {
-    'sortedMetaarray'?: Array<InlineResponse20048SortedMetaarray>;
+    'useDefaultEmoji'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "sortedMetaarray",
-            "baseName": "sorted_metaarray",
-            "type": "Array<InlineResponse20048SortedMetaarray>",
+            "name": "useDefaultEmoji",
+            "baseName": "use_default_emoji",
+            "type": "boolean",
             "format": ""
         }    ];
 

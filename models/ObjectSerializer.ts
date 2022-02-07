@@ -37,24 +37,24 @@ export * from './GenerateSecondaryApiTokenData';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse20010';
-export * from './InlineResponse20010PeakConnections';
 export * from './InlineResponse20011';
 export * from './InlineResponse20012';
+export * from './InlineResponse20012PushConfigurations';
 export * from './InlineResponse20013';
-export * from './InlineResponse20013PushConfigurations';
 export * from './InlineResponse20014';
 export * from './InlineResponse20015';
+export * from './InlineResponse20015PushMessageTemplates';
 export * from './InlineResponse20016';
-export * from './InlineResponse20016PushMessageTemplates';
 export * from './InlineResponse20017';
 export * from './InlineResponse20018';
 export * from './InlineResponse20019';
+export * from './InlineResponse2001PushConfigurations';
 export * from './InlineResponse2002';
 export * from './InlineResponse20020';
 export * from './InlineResponse20021';
 export * from './InlineResponse20022';
+export * from './InlineResponse20022BannedChannels';
 export * from './InlineResponse20023';
-export * from './InlineResponse20023BannedChannels';
 export * from './InlineResponse20024';
 export * from './InlineResponse20025';
 export * from './InlineResponse20026';
@@ -67,83 +67,80 @@ export * from './InlineResponse20030';
 export * from './InlineResponse20031';
 export * from './InlineResponse20032';
 export * from './InlineResponse20033';
+export * from './InlineResponse20033BannedList';
 export * from './InlineResponse20034';
-export * from './InlineResponse20034BannedList';
 export * from './InlineResponse20035';
 export * from './InlineResponse20036';
 export * from './InlineResponse20037';
 export * from './InlineResponse20038';
 export * from './InlineResponse20039';
+export * from './InlineResponse20039Announcements';
+export * from './InlineResponse20039Message';
 export * from './InlineResponse2003PushConfigurations';
 export * from './InlineResponse2004';
 export * from './InlineResponse20040';
-export * from './InlineResponse20040Announcements';
-export * from './InlineResponse20040Message';
+export * from './InlineResponse20040CreateChannelOptions';
 export * from './InlineResponse20041';
-export * from './InlineResponse20041CreateChannelOptions';
+export * from './InlineResponse20041Message';
 export * from './InlineResponse20042';
-export * from './InlineResponse20042Message';
 export * from './InlineResponse20043';
+export * from './InlineResponse20043OpenStatus';
 export * from './InlineResponse20044';
-export * from './InlineResponse20044OpenStatus';
+export * from './InlineResponse20044Statistics';
 export * from './InlineResponse20045';
-export * from './InlineResponse20045Statistics';
 export * from './InlineResponse20046';
 export * from './InlineResponse20047';
+export * from './InlineResponse20047Messages';
+export * from './InlineResponse20047OgTag';
+export * from './InlineResponse20047OgTagOgImage';
+export * from './InlineResponse20047SortedMetaarray';
+export * from './InlineResponse20047User';
+export * from './InlineResponse20047UserMetadata';
 export * from './InlineResponse20048';
-export * from './InlineResponse20048Messages';
-export * from './InlineResponse20048OgTag';
-export * from './InlineResponse20048OgTagOgImage';
-export * from './InlineResponse20048SortedMetaarray';
-export * from './InlineResponse20048User';
-export * from './InlineResponse20048UserMetadata';
 export * from './InlineResponse20049';
-export * from './InlineResponse2004PushConfigurations';
+export * from './InlineResponse20049Unread';
+export * from './InlineResponse2004PushMessageTemplates';
+export * from './InlineResponse2004Template';
 export * from './InlineResponse2005';
 export * from './InlineResponse20050';
-export * from './InlineResponse20050Unread';
 export * from './InlineResponse20051';
 export * from './InlineResponse20052';
 export * from './InlineResponse20053';
 export * from './InlineResponse20054';
 export * from './InlineResponse20055';
 export * from './InlineResponse20056';
+export * from './InlineResponse20056EmojiCategories';
+export * from './InlineResponse20056Emojis';
 export * from './InlineResponse20057';
 export * from './InlineResponse20057EmojiCategories';
-export * from './InlineResponse20057Emojis';
 export * from './InlineResponse20058';
-export * from './InlineResponse20058EmojiCategories';
 export * from './InlineResponse20059';
-export * from './InlineResponse2005PushMessageTemplates';
-export * from './InlineResponse2005Template';
 export * from './InlineResponse2006';
 export * from './InlineResponse20060';
 export * from './InlineResponse20061';
 export * from './InlineResponse20062';
 export * from './InlineResponse20063';
+export * from './InlineResponse20063ExportedData';
+export * from './InlineResponse20063File';
 export * from './InlineResponse20064';
-export * from './InlineResponse20064ExportedData';
-export * from './InlineResponse20064File';
 export * from './InlineResponse20065';
+export * from './InlineResponse20065Bot';
+export * from './InlineResponse20065Bots';
 export * from './InlineResponse20066';
-export * from './InlineResponse20066Bot';
-export * from './InlineResponse20066Bots';
+export * from './InlineResponse20066Webhook';
 export * from './InlineResponse20067';
 export * from './InlineResponse20067Webhook';
 export * from './InlineResponse20068';
-export * from './InlineResponse20068Webhook';
+export * from './InlineResponse20068Requests';
 export * from './InlineResponse20069';
-export * from './InlineResponse20069Requests';
 export * from './InlineResponse2007';
 export * from './InlineResponse20070';
+export * from './InlineResponse20070ReportLogs';
 export * from './InlineResponse20071';
 export * from './InlineResponse20071ReportLogs';
-export * from './InlineResponse20072';
-export * from './InlineResponse20072ReportLogs';
 export * from './InlineResponse2008';
 export * from './InlineResponse2009';
-export * from './InlineResponse200Region';
-export * from './InlineResponse200Results';
+export * from './InlineResponse2009PeakConnections';
 export * from './JoinChannelsData';
 export * from './LeaveMyGroupChannelsData';
 export * from './MarkAllMessagesAsReadData';
@@ -256,24 +253,24 @@ import { GenerateSecondaryApiTokenData } from './GenerateSecondaryApiTokenData';
 import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse20010 } from './InlineResponse20010';
-import { InlineResponse20010PeakConnections } from './InlineResponse20010PeakConnections';
 import { InlineResponse20011 } from './InlineResponse20011';
 import { InlineResponse20012 } from './InlineResponse20012';
+import { InlineResponse20012PushConfigurations } from './InlineResponse20012PushConfigurations';
 import { InlineResponse20013 } from './InlineResponse20013';
-import { InlineResponse20013PushConfigurations } from './InlineResponse20013PushConfigurations';
 import { InlineResponse20014 } from './InlineResponse20014';
 import { InlineResponse20015 } from './InlineResponse20015';
+import { InlineResponse20015PushMessageTemplates } from './InlineResponse20015PushMessageTemplates';
 import { InlineResponse20016 } from './InlineResponse20016';
-import { InlineResponse20016PushMessageTemplates } from './InlineResponse20016PushMessageTemplates';
 import { InlineResponse20017 } from './InlineResponse20017';
 import { InlineResponse20018 } from './InlineResponse20018';
 import { InlineResponse20019 } from './InlineResponse20019';
+import { InlineResponse2001PushConfigurations } from './InlineResponse2001PushConfigurations';
 import { InlineResponse2002 } from './InlineResponse2002';
 import { InlineResponse20020 } from './InlineResponse20020';
 import { InlineResponse20021 } from './InlineResponse20021';
 import { InlineResponse20022 } from './InlineResponse20022';
+import { InlineResponse20022BannedChannels } from './InlineResponse20022BannedChannels';
 import { InlineResponse20023 } from './InlineResponse20023';
-import { InlineResponse20023BannedChannels } from './InlineResponse20023BannedChannels';
 import { InlineResponse20024 } from './InlineResponse20024';
 import { InlineResponse20025 } from './InlineResponse20025';
 import { InlineResponse20026 } from './InlineResponse20026';
@@ -286,83 +283,80 @@ import { InlineResponse20030 } from './InlineResponse20030';
 import { InlineResponse20031 } from './InlineResponse20031';
 import { InlineResponse20032 } from './InlineResponse20032';
 import { InlineResponse20033 } from './InlineResponse20033';
+import { InlineResponse20033BannedList } from './InlineResponse20033BannedList';
 import { InlineResponse20034 } from './InlineResponse20034';
-import { InlineResponse20034BannedList } from './InlineResponse20034BannedList';
 import { InlineResponse20035 } from './InlineResponse20035';
 import { InlineResponse20036 } from './InlineResponse20036';
 import { InlineResponse20037 } from './InlineResponse20037';
 import { InlineResponse20038 } from './InlineResponse20038';
 import { InlineResponse20039 } from './InlineResponse20039';
+import { InlineResponse20039Announcements } from './InlineResponse20039Announcements';
+import { InlineResponse20039Message } from './InlineResponse20039Message';
 import { InlineResponse2003PushConfigurations } from './InlineResponse2003PushConfigurations';
 import { InlineResponse2004 } from './InlineResponse2004';
 import { InlineResponse20040 } from './InlineResponse20040';
-import { InlineResponse20040Announcements } from './InlineResponse20040Announcements';
-import { InlineResponse20040Message } from './InlineResponse20040Message';
+import { InlineResponse20040CreateChannelOptions } from './InlineResponse20040CreateChannelOptions';
 import { InlineResponse20041 } from './InlineResponse20041';
-import { InlineResponse20041CreateChannelOptions } from './InlineResponse20041CreateChannelOptions';
+import { InlineResponse20041Message } from './InlineResponse20041Message';
 import { InlineResponse20042 } from './InlineResponse20042';
-import { InlineResponse20042Message } from './InlineResponse20042Message';
 import { InlineResponse20043 } from './InlineResponse20043';
+import { InlineResponse20043OpenStatus } from './InlineResponse20043OpenStatus';
 import { InlineResponse20044 } from './InlineResponse20044';
-import { InlineResponse20044OpenStatus } from './InlineResponse20044OpenStatus';
+import { InlineResponse20044Statistics } from './InlineResponse20044Statistics';
 import { InlineResponse20045 } from './InlineResponse20045';
-import { InlineResponse20045Statistics } from './InlineResponse20045Statistics';
 import { InlineResponse20046 } from './InlineResponse20046';
 import { InlineResponse20047 } from './InlineResponse20047';
+import { InlineResponse20047Messages } from './InlineResponse20047Messages';
+import { InlineResponse20047OgTag } from './InlineResponse20047OgTag';
+import { InlineResponse20047OgTagOgImage } from './InlineResponse20047OgTagOgImage';
+import { InlineResponse20047SortedMetaarray } from './InlineResponse20047SortedMetaarray';
+import { InlineResponse20047User } from './InlineResponse20047User';
+import { InlineResponse20047UserMetadata } from './InlineResponse20047UserMetadata';
 import { InlineResponse20048 } from './InlineResponse20048';
-import { InlineResponse20048Messages } from './InlineResponse20048Messages';
-import { InlineResponse20048OgTag } from './InlineResponse20048OgTag';
-import { InlineResponse20048OgTagOgImage } from './InlineResponse20048OgTagOgImage';
-import { InlineResponse20048SortedMetaarray } from './InlineResponse20048SortedMetaarray';
-import { InlineResponse20048User } from './InlineResponse20048User';
-import { InlineResponse20048UserMetadata } from './InlineResponse20048UserMetadata';
 import { InlineResponse20049 } from './InlineResponse20049';
-import { InlineResponse2004PushConfigurations } from './InlineResponse2004PushConfigurations';
+import { InlineResponse20049Unread } from './InlineResponse20049Unread';
+import { InlineResponse2004PushMessageTemplates } from './InlineResponse2004PushMessageTemplates';
+import { InlineResponse2004Template } from './InlineResponse2004Template';
 import { InlineResponse2005 } from './InlineResponse2005';
 import { InlineResponse20050 } from './InlineResponse20050';
-import { InlineResponse20050Unread } from './InlineResponse20050Unread';
 import { InlineResponse20051 } from './InlineResponse20051';
 import { InlineResponse20052 } from './InlineResponse20052';
 import { InlineResponse20053 } from './InlineResponse20053';
 import { InlineResponse20054 } from './InlineResponse20054';
 import { InlineResponse20055 } from './InlineResponse20055';
 import { InlineResponse20056 } from './InlineResponse20056';
+import { InlineResponse20056EmojiCategories } from './InlineResponse20056EmojiCategories';
+import { InlineResponse20056Emojis } from './InlineResponse20056Emojis';
 import { InlineResponse20057 } from './InlineResponse20057';
 import { InlineResponse20057EmojiCategories } from './InlineResponse20057EmojiCategories';
-import { InlineResponse20057Emojis } from './InlineResponse20057Emojis';
 import { InlineResponse20058 } from './InlineResponse20058';
-import { InlineResponse20058EmojiCategories } from './InlineResponse20058EmojiCategories';
 import { InlineResponse20059 } from './InlineResponse20059';
-import { InlineResponse2005PushMessageTemplates } from './InlineResponse2005PushMessageTemplates';
-import { InlineResponse2005Template } from './InlineResponse2005Template';
 import { InlineResponse2006 } from './InlineResponse2006';
 import { InlineResponse20060 } from './InlineResponse20060';
 import { InlineResponse20061 } from './InlineResponse20061';
 import { InlineResponse20062 } from './InlineResponse20062';
 import { InlineResponse20063 } from './InlineResponse20063';
+import { InlineResponse20063ExportedData } from './InlineResponse20063ExportedData';
+import { InlineResponse20063File } from './InlineResponse20063File';
 import { InlineResponse20064 } from './InlineResponse20064';
-import { InlineResponse20064ExportedData } from './InlineResponse20064ExportedData';
-import { InlineResponse20064File } from './InlineResponse20064File';
 import { InlineResponse20065 } from './InlineResponse20065';
+import { InlineResponse20065Bot } from './InlineResponse20065Bot';
+import { InlineResponse20065Bots } from './InlineResponse20065Bots';
 import { InlineResponse20066 } from './InlineResponse20066';
-import { InlineResponse20066Bot } from './InlineResponse20066Bot';
-import { InlineResponse20066Bots } from './InlineResponse20066Bots';
+import { InlineResponse20066Webhook } from './InlineResponse20066Webhook';
 import { InlineResponse20067 } from './InlineResponse20067';
 import { InlineResponse20067Webhook } from './InlineResponse20067Webhook';
 import { InlineResponse20068 } from './InlineResponse20068';
-import { InlineResponse20068Webhook } from './InlineResponse20068Webhook';
+import { InlineResponse20068Requests } from './InlineResponse20068Requests';
 import { InlineResponse20069 } from './InlineResponse20069';
-import { InlineResponse20069Requests } from './InlineResponse20069Requests';
 import { InlineResponse2007 } from './InlineResponse2007';
 import { InlineResponse20070 } from './InlineResponse20070';
+import { InlineResponse20070ReportLogs } from './InlineResponse20070ReportLogs';
 import { InlineResponse20071 } from './InlineResponse20071';
 import { InlineResponse20071ReportLogs } from './InlineResponse20071ReportLogs';
-import { InlineResponse20072 } from './InlineResponse20072';
-import { InlineResponse20072ReportLogs } from './InlineResponse20072ReportLogs';
 import { InlineResponse2008 } from './InlineResponse2008';
 import { InlineResponse2009 } from './InlineResponse2009';
-import { InlineResponse200Region } from './InlineResponse200Region';
-import { InlineResponse200Results } from './InlineResponse200Results';
+import { InlineResponse2009PeakConnections } from './InlineResponse2009PeakConnections';
 import { JoinChannelsData } from './JoinChannelsData';
 import { LeaveMyGroupChannelsData } from './LeaveMyGroupChannelsData';
 import { MarkAllMessagesAsReadData } from './MarkAllMessagesAsReadData';
@@ -520,24 +514,24 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse20010": InlineResponse20010,
-    "InlineResponse20010PeakConnections": InlineResponse20010PeakConnections,
     "InlineResponse20011": InlineResponse20011,
     "InlineResponse20012": InlineResponse20012,
+    "InlineResponse20012PushConfigurations": InlineResponse20012PushConfigurations,
     "InlineResponse20013": InlineResponse20013,
-    "InlineResponse20013PushConfigurations": InlineResponse20013PushConfigurations,
     "InlineResponse20014": InlineResponse20014,
     "InlineResponse20015": InlineResponse20015,
+    "InlineResponse20015PushMessageTemplates": InlineResponse20015PushMessageTemplates,
     "InlineResponse20016": InlineResponse20016,
-    "InlineResponse20016PushMessageTemplates": InlineResponse20016PushMessageTemplates,
     "InlineResponse20017": InlineResponse20017,
     "InlineResponse20018": InlineResponse20018,
     "InlineResponse20019": InlineResponse20019,
+    "InlineResponse2001PushConfigurations": InlineResponse2001PushConfigurations,
     "InlineResponse2002": InlineResponse2002,
     "InlineResponse20020": InlineResponse20020,
     "InlineResponse20021": InlineResponse20021,
     "InlineResponse20022": InlineResponse20022,
+    "InlineResponse20022BannedChannels": InlineResponse20022BannedChannels,
     "InlineResponse20023": InlineResponse20023,
-    "InlineResponse20023BannedChannels": InlineResponse20023BannedChannels,
     "InlineResponse20024": InlineResponse20024,
     "InlineResponse20025": InlineResponse20025,
     "InlineResponse20026": InlineResponse20026,
@@ -550,83 +544,80 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse20031": InlineResponse20031,
     "InlineResponse20032": InlineResponse20032,
     "InlineResponse20033": InlineResponse20033,
+    "InlineResponse20033BannedList": InlineResponse20033BannedList,
     "InlineResponse20034": InlineResponse20034,
-    "InlineResponse20034BannedList": InlineResponse20034BannedList,
     "InlineResponse20035": InlineResponse20035,
     "InlineResponse20036": InlineResponse20036,
     "InlineResponse20037": InlineResponse20037,
     "InlineResponse20038": InlineResponse20038,
     "InlineResponse20039": InlineResponse20039,
+    "InlineResponse20039Announcements": InlineResponse20039Announcements,
+    "InlineResponse20039Message": InlineResponse20039Message,
     "InlineResponse2003PushConfigurations": InlineResponse2003PushConfigurations,
     "InlineResponse2004": InlineResponse2004,
     "InlineResponse20040": InlineResponse20040,
-    "InlineResponse20040Announcements": InlineResponse20040Announcements,
-    "InlineResponse20040Message": InlineResponse20040Message,
+    "InlineResponse20040CreateChannelOptions": InlineResponse20040CreateChannelOptions,
     "InlineResponse20041": InlineResponse20041,
-    "InlineResponse20041CreateChannelOptions": InlineResponse20041CreateChannelOptions,
+    "InlineResponse20041Message": InlineResponse20041Message,
     "InlineResponse20042": InlineResponse20042,
-    "InlineResponse20042Message": InlineResponse20042Message,
     "InlineResponse20043": InlineResponse20043,
+    "InlineResponse20043OpenStatus": InlineResponse20043OpenStatus,
     "InlineResponse20044": InlineResponse20044,
-    "InlineResponse20044OpenStatus": InlineResponse20044OpenStatus,
+    "InlineResponse20044Statistics": InlineResponse20044Statistics,
     "InlineResponse20045": InlineResponse20045,
-    "InlineResponse20045Statistics": InlineResponse20045Statistics,
     "InlineResponse20046": InlineResponse20046,
     "InlineResponse20047": InlineResponse20047,
+    "InlineResponse20047Messages": InlineResponse20047Messages,
+    "InlineResponse20047OgTag": InlineResponse20047OgTag,
+    "InlineResponse20047OgTagOgImage": InlineResponse20047OgTagOgImage,
+    "InlineResponse20047SortedMetaarray": InlineResponse20047SortedMetaarray,
+    "InlineResponse20047User": InlineResponse20047User,
+    "InlineResponse20047UserMetadata": InlineResponse20047UserMetadata,
     "InlineResponse20048": InlineResponse20048,
-    "InlineResponse20048Messages": InlineResponse20048Messages,
-    "InlineResponse20048OgTag": InlineResponse20048OgTag,
-    "InlineResponse20048OgTagOgImage": InlineResponse20048OgTagOgImage,
-    "InlineResponse20048SortedMetaarray": InlineResponse20048SortedMetaarray,
-    "InlineResponse20048User": InlineResponse20048User,
-    "InlineResponse20048UserMetadata": InlineResponse20048UserMetadata,
     "InlineResponse20049": InlineResponse20049,
-    "InlineResponse2004PushConfigurations": InlineResponse2004PushConfigurations,
+    "InlineResponse20049Unread": InlineResponse20049Unread,
+    "InlineResponse2004PushMessageTemplates": InlineResponse2004PushMessageTemplates,
+    "InlineResponse2004Template": InlineResponse2004Template,
     "InlineResponse2005": InlineResponse2005,
     "InlineResponse20050": InlineResponse20050,
-    "InlineResponse20050Unread": InlineResponse20050Unread,
     "InlineResponse20051": InlineResponse20051,
     "InlineResponse20052": InlineResponse20052,
     "InlineResponse20053": InlineResponse20053,
     "InlineResponse20054": InlineResponse20054,
     "InlineResponse20055": InlineResponse20055,
     "InlineResponse20056": InlineResponse20056,
+    "InlineResponse20056EmojiCategories": InlineResponse20056EmojiCategories,
+    "InlineResponse20056Emojis": InlineResponse20056Emojis,
     "InlineResponse20057": InlineResponse20057,
     "InlineResponse20057EmojiCategories": InlineResponse20057EmojiCategories,
-    "InlineResponse20057Emojis": InlineResponse20057Emojis,
     "InlineResponse20058": InlineResponse20058,
-    "InlineResponse20058EmojiCategories": InlineResponse20058EmojiCategories,
     "InlineResponse20059": InlineResponse20059,
-    "InlineResponse2005PushMessageTemplates": InlineResponse2005PushMessageTemplates,
-    "InlineResponse2005Template": InlineResponse2005Template,
     "InlineResponse2006": InlineResponse2006,
     "InlineResponse20060": InlineResponse20060,
     "InlineResponse20061": InlineResponse20061,
     "InlineResponse20062": InlineResponse20062,
     "InlineResponse20063": InlineResponse20063,
+    "InlineResponse20063ExportedData": InlineResponse20063ExportedData,
+    "InlineResponse20063File": InlineResponse20063File,
     "InlineResponse20064": InlineResponse20064,
-    "InlineResponse20064ExportedData": InlineResponse20064ExportedData,
-    "InlineResponse20064File": InlineResponse20064File,
     "InlineResponse20065": InlineResponse20065,
+    "InlineResponse20065Bot": InlineResponse20065Bot,
+    "InlineResponse20065Bots": InlineResponse20065Bots,
     "InlineResponse20066": InlineResponse20066,
-    "InlineResponse20066Bot": InlineResponse20066Bot,
-    "InlineResponse20066Bots": InlineResponse20066Bots,
+    "InlineResponse20066Webhook": InlineResponse20066Webhook,
     "InlineResponse20067": InlineResponse20067,
     "InlineResponse20067Webhook": InlineResponse20067Webhook,
     "InlineResponse20068": InlineResponse20068,
-    "InlineResponse20068Webhook": InlineResponse20068Webhook,
+    "InlineResponse20068Requests": InlineResponse20068Requests,
     "InlineResponse20069": InlineResponse20069,
-    "InlineResponse20069Requests": InlineResponse20069Requests,
     "InlineResponse2007": InlineResponse2007,
     "InlineResponse20070": InlineResponse20070,
+    "InlineResponse20070ReportLogs": InlineResponse20070ReportLogs,
     "InlineResponse20071": InlineResponse20071,
     "InlineResponse20071ReportLogs": InlineResponse20071ReportLogs,
-    "InlineResponse20072": InlineResponse20072,
-    "InlineResponse20072ReportLogs": InlineResponse20072ReportLogs,
     "InlineResponse2008": InlineResponse2008,
     "InlineResponse2009": InlineResponse2009,
-    "InlineResponse200Region": InlineResponse200Region,
-    "InlineResponse200Results": InlineResponse200Results,
+    "InlineResponse2009PeakConnections": InlineResponse2009PeakConnections,
     "JoinChannelsData": JoinChannelsData,
     "LeaveMyGroupChannelsData": LeaveMyGroupChannelsData,
     "MarkAllMessagesAsReadData": MarkAllMessagesAsReadData,

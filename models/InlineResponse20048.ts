@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20048Messages } from './InlineResponse20048Messages';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20048 {
-    'messages'?: Array<InlineResponse20048Messages>;
+    'total'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "messages",
-            "baseName": "messages",
-            "type": "Array<InlineResponse20048Messages>",
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
             "format": ""
         }    ];
 

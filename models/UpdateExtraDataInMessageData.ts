@@ -37,10 +37,6 @@ export class UpdateExtraDataInMessageData {
     * Determines whether to add new items in addition to updating existing items. If true, new key-values items are added when there are no items with the keys. The existing items are updated with new values when there are already items with the keys. If false, only the items of which keys match the ones you specify are updated with new values. (Default: false)
     */
     'upsert': boolean;
-    /**
-    * (Deprecated) Specifies a `JSON` object of one or more key-values items which store additional message information. The item consists of a key and the values in an array.
-    */
-    'metaarray': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -79,12 +75,6 @@ export class UpdateExtraDataInMessageData {
             "name": "upsert",
             "baseName": "upsert",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "metaarray",
-            "baseName": "metaarray",
-            "type": "string",
             "format": ""
         }    ];
 

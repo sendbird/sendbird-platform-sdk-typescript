@@ -14,23 +14,16 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20032 {
-    'mutedList'?: Array<SendBirdUser>;
-    'totalMuteCount'?: number;
+    'participants'?: Array<SendBirdUser>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "mutedList",
-            "baseName": "muted_list",
+            "name": "participants",
+            "baseName": "participants",
             "type": "Array<SendBirdUser>",
-            "format": ""
-        },
-        {
-            "name": "totalMuteCount",
-            "baseName": "total_mute_count",
-            "type": "number",
             "format": ""
         },
         {

@@ -13,15 +13,22 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2007 {
-    'ipWhitelistAddresses'?: Array<string>;
+    'token'?: string;
+    'createdAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "ipWhitelistAddresses",
-            "baseName": "ip_whitelist_addresses",
-            "type": "Array<string>",
+            "name": "token",
+            "baseName": "token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
             "format": ""
         }    ];
 

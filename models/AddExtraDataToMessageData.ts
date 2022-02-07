@@ -29,10 +29,6 @@ export class AddExtraDataToMessageData {
     * Specifies a `JSON` object of one or more key-values items which store additional message information. Each item consists of a key and the values in an array. Items are saved and will be returned in the exact order they've been specified.
     */
     'sortedMetaarray': string;
-    /**
-    * (Deprecated) Specifies a `JSON` object of one or more key-values items which store additional message information. The item consists of a key and the values in an array.
-    */
-    'metaarray': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -58,12 +54,6 @@ export class AddExtraDataToMessageData {
         {
             "name": "sortedMetaarray",
             "baseName": "sorted_metaarray",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "metaarray",
-            "baseName": "metaarray",
             "type": "string",
             "format": ""
         }    ];

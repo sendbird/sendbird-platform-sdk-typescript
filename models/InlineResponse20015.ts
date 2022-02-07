@@ -10,18 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20015PushMessageTemplates } from './InlineResponse20015PushMessageTemplates';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20015 {
-    'pushConfigurations'?: string;
+    'pushMessageTemplates'?: Array<InlineResponse20015PushMessageTemplates>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "pushConfigurations",
-            "baseName": "push_configurations",
-            "type": "string",
+            "name": "pushMessageTemplates",
+            "baseName": "push_message_templates",
+            "type": "Array<InlineResponse20015PushMessageTemplates>",
             "format": ""
         }    ];
 

@@ -13,15 +13,43 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20053 {
-    'key'?: Array<string>;
+    'userId'?: string;
+    'operation'?: string;
+    'success'?: boolean;
+    'reaction'?: string;
+    'updatedAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "key",
-            "baseName": "key",
-            "type": "Array<string>",
+            "name": "userId",
+            "baseName": "user_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "operation",
+            "baseName": "operation",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "success",
+            "baseName": "success",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "reaction",
+            "baseName": "reaction",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "updatedAt",
+            "baseName": "updated_at",
+            "type": "number",
             "format": ""
         }    ];
 

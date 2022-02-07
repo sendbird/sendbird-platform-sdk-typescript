@@ -20,11 +20,11 @@ export class ReportUserByIdData {
     /**
     * Specifies the type of the channel. Either open_channels or group_channels.
     */
-    'channelType': string;
+    'channelType'?: string;
     /**
     * Specifies the URL of the channel where the user to report is in.
     */
-    'channelUrl': string;
+    'channelUrl'?: string;
     /**
     * Specifies the category which indicates the reason for reporting. Acceptable values are suspicious, harassing, inappropriate, and spam.
     */
@@ -32,11 +32,11 @@ export class ReportUserByIdData {
     /**
     * Specifies the unique ID of the user who reports the offending user.
     */
-    'reportingUserId': string;
+    'reportingUserId'?: string;
     /**
     * Specifies additional information to be included in the report.
     */
-    'reportDescription': string;
+    'reportDescription'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 

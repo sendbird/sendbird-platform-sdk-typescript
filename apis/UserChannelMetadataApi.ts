@@ -2,6 +2,8 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 import {Configuration} from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import * as FormData from "form-data";
+import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
@@ -10,9 +12,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import { CreateChannelMetacounterData } from '../models/CreateChannelMetacounterData';
 import { CreateChannelMetadataData } from '../models/CreateChannelMetadataData';
 import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
-import { InlineResponse20048UserMetadata } from '../models/InlineResponse20048UserMetadata';
+import { InlineResponse20047UserMetadata } from '../models/InlineResponse20047UserMetadata';
+import { InlineResponse20060 } from '../models/InlineResponse20060';
 import { InlineResponse20061 } from '../models/InlineResponse20061';
-import { InlineResponse20062 } from '../models/InlineResponse20062';
 import { SendBirdAdditionalProperties } from '../models/SendBirdAdditionalProperties';
 import { UpdateChannelMetacounterData } from '../models/UpdateChannelMetacounterData';
 import { UpdateChannelMetadataData } from '../models/UpdateChannelMetadataData';
@@ -1082,7 +1084,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1092,26 +1094,26 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to createChannelMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createChannelMetadata(response: ResponseContext): Promise<InlineResponse20062 > {
+     public async createChannelMetadata(response: ResponseContext): Promise<InlineResponse20061 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20062 = ObjectSerializer.deserialize(
+            const body: InlineResponse20061 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20062", ""
-            ) as InlineResponse20062;
+                "InlineResponse20061", ""
+            ) as InlineResponse20061;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20062 = ObjectSerializer.deserialize(
+            const body: InlineResponse20061 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20062", ""
-            ) as InlineResponse20062;
+                "InlineResponse20061", ""
+            ) as InlineResponse20061;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1121,26 +1123,26 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to createUserMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createUserMetadata(response: ResponseContext): Promise<InlineResponse20048UserMetadata > {
+     public async createUserMetadata(response: ResponseContext): Promise<InlineResponse20047UserMetadata > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20048UserMetadata = ObjectSerializer.deserialize(
+            const body: InlineResponse20047UserMetadata = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048UserMetadata", ""
-            ) as InlineResponse20048UserMetadata;
+                "InlineResponse20047UserMetadata", ""
+            ) as InlineResponse20047UserMetadata;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20048UserMetadata = ObjectSerializer.deserialize(
+            const body: InlineResponse20047UserMetadata = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048UserMetadata", ""
-            ) as InlineResponse20048UserMetadata;
+                "InlineResponse20047UserMetadata", ""
+            ) as InlineResponse20047UserMetadata;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1165,7 +1167,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1190,7 +1192,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1215,7 +1217,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1240,7 +1242,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1265,7 +1267,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1290,7 +1292,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1319,7 +1321,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1348,7 +1350,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1377,7 +1379,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1406,7 +1408,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1416,26 +1418,26 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateUserMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateUserMetadata(response: ResponseContext): Promise<InlineResponse20061 > {
+     public async updateUserMetadata(response: ResponseContext): Promise<InlineResponse20060 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20061 = ObjectSerializer.deserialize(
+            const body: InlineResponse20060 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20061", ""
-            ) as InlineResponse20061;
+                "InlineResponse20060", ""
+            ) as InlineResponse20060;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20061 = ObjectSerializer.deserialize(
+            const body: InlineResponse20060 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20061", ""
-            ) as InlineResponse20061;
+                "InlineResponse20060", ""
+            ) as InlineResponse20060;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1464,7 +1466,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1493,7 +1495,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1522,7 +1524,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1551,7 +1553,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1580,7 +1582,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1590,26 +1592,26 @@ export class UserChannelMetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewUserMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewUserMetadata(response: ResponseContext): Promise<InlineResponse20048UserMetadata > {
+     public async viewUserMetadata(response: ResponseContext): Promise<InlineResponse20047UserMetadata > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20048UserMetadata = ObjectSerializer.deserialize(
+            const body: InlineResponse20047UserMetadata = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048UserMetadata", ""
-            ) as InlineResponse20048UserMetadata;
+                "InlineResponse20047UserMetadata", ""
+            ) as InlineResponse20047UserMetadata;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20048UserMetadata = ObjectSerializer.deserialize(
+            const body: InlineResponse20047UserMetadata = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048UserMetadata", ""
-            ) as InlineResponse20048UserMetadata;
+                "InlineResponse20047UserMetadata", ""
+            ) as InlineResponse20047UserMetadata;
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
     /**
@@ -1638,7 +1640,7 @@ export class UserChannelMetadataApiResponseProcessor {
             return body;
         }
 
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
     }
 
 }

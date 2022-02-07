@@ -42,24 +42,24 @@ import { GenerateSecondaryApiTokenData } from '../models/GenerateSecondaryApiTok
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse20010 } from '../models/InlineResponse20010';
-import { InlineResponse20010PeakConnections } from '../models/InlineResponse20010PeakConnections';
 import { InlineResponse20011 } from '../models/InlineResponse20011';
 import { InlineResponse20012 } from '../models/InlineResponse20012';
+import { InlineResponse20012PushConfigurations } from '../models/InlineResponse20012PushConfigurations';
 import { InlineResponse20013 } from '../models/InlineResponse20013';
-import { InlineResponse20013PushConfigurations } from '../models/InlineResponse20013PushConfigurations';
 import { InlineResponse20014 } from '../models/InlineResponse20014';
 import { InlineResponse20015 } from '../models/InlineResponse20015';
+import { InlineResponse20015PushMessageTemplates } from '../models/InlineResponse20015PushMessageTemplates';
 import { InlineResponse20016 } from '../models/InlineResponse20016';
-import { InlineResponse20016PushMessageTemplates } from '../models/InlineResponse20016PushMessageTemplates';
 import { InlineResponse20017 } from '../models/InlineResponse20017';
 import { InlineResponse20018 } from '../models/InlineResponse20018';
 import { InlineResponse20019 } from '../models/InlineResponse20019';
+import { InlineResponse2001PushConfigurations } from '../models/InlineResponse2001PushConfigurations';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse20020 } from '../models/InlineResponse20020';
 import { InlineResponse20021 } from '../models/InlineResponse20021';
 import { InlineResponse20022 } from '../models/InlineResponse20022';
+import { InlineResponse20022BannedChannels } from '../models/InlineResponse20022BannedChannels';
 import { InlineResponse20023 } from '../models/InlineResponse20023';
-import { InlineResponse20023BannedChannels } from '../models/InlineResponse20023BannedChannels';
 import { InlineResponse20024 } from '../models/InlineResponse20024';
 import { InlineResponse20025 } from '../models/InlineResponse20025';
 import { InlineResponse20026 } from '../models/InlineResponse20026';
@@ -72,83 +72,80 @@ import { InlineResponse20030 } from '../models/InlineResponse20030';
 import { InlineResponse20031 } from '../models/InlineResponse20031';
 import { InlineResponse20032 } from '../models/InlineResponse20032';
 import { InlineResponse20033 } from '../models/InlineResponse20033';
+import { InlineResponse20033BannedList } from '../models/InlineResponse20033BannedList';
 import { InlineResponse20034 } from '../models/InlineResponse20034';
-import { InlineResponse20034BannedList } from '../models/InlineResponse20034BannedList';
 import { InlineResponse20035 } from '../models/InlineResponse20035';
 import { InlineResponse20036 } from '../models/InlineResponse20036';
 import { InlineResponse20037 } from '../models/InlineResponse20037';
 import { InlineResponse20038 } from '../models/InlineResponse20038';
 import { InlineResponse20039 } from '../models/InlineResponse20039';
+import { InlineResponse20039Announcements } from '../models/InlineResponse20039Announcements';
+import { InlineResponse20039Message } from '../models/InlineResponse20039Message';
 import { InlineResponse2003PushConfigurations } from '../models/InlineResponse2003PushConfigurations';
 import { InlineResponse2004 } from '../models/InlineResponse2004';
 import { InlineResponse20040 } from '../models/InlineResponse20040';
-import { InlineResponse20040Announcements } from '../models/InlineResponse20040Announcements';
-import { InlineResponse20040Message } from '../models/InlineResponse20040Message';
+import { InlineResponse20040CreateChannelOptions } from '../models/InlineResponse20040CreateChannelOptions';
 import { InlineResponse20041 } from '../models/InlineResponse20041';
-import { InlineResponse20041CreateChannelOptions } from '../models/InlineResponse20041CreateChannelOptions';
+import { InlineResponse20041Message } from '../models/InlineResponse20041Message';
 import { InlineResponse20042 } from '../models/InlineResponse20042';
-import { InlineResponse20042Message } from '../models/InlineResponse20042Message';
 import { InlineResponse20043 } from '../models/InlineResponse20043';
+import { InlineResponse20043OpenStatus } from '../models/InlineResponse20043OpenStatus';
 import { InlineResponse20044 } from '../models/InlineResponse20044';
-import { InlineResponse20044OpenStatus } from '../models/InlineResponse20044OpenStatus';
+import { InlineResponse20044Statistics } from '../models/InlineResponse20044Statistics';
 import { InlineResponse20045 } from '../models/InlineResponse20045';
-import { InlineResponse20045Statistics } from '../models/InlineResponse20045Statistics';
 import { InlineResponse20046 } from '../models/InlineResponse20046';
 import { InlineResponse20047 } from '../models/InlineResponse20047';
+import { InlineResponse20047Messages } from '../models/InlineResponse20047Messages';
+import { InlineResponse20047OgTag } from '../models/InlineResponse20047OgTag';
+import { InlineResponse20047OgTagOgImage } from '../models/InlineResponse20047OgTagOgImage';
+import { InlineResponse20047SortedMetaarray } from '../models/InlineResponse20047SortedMetaarray';
+import { InlineResponse20047User } from '../models/InlineResponse20047User';
+import { InlineResponse20047UserMetadata } from '../models/InlineResponse20047UserMetadata';
 import { InlineResponse20048 } from '../models/InlineResponse20048';
-import { InlineResponse20048Messages } from '../models/InlineResponse20048Messages';
-import { InlineResponse20048OgTag } from '../models/InlineResponse20048OgTag';
-import { InlineResponse20048OgTagOgImage } from '../models/InlineResponse20048OgTagOgImage';
-import { InlineResponse20048SortedMetaarray } from '../models/InlineResponse20048SortedMetaarray';
-import { InlineResponse20048User } from '../models/InlineResponse20048User';
-import { InlineResponse20048UserMetadata } from '../models/InlineResponse20048UserMetadata';
 import { InlineResponse20049 } from '../models/InlineResponse20049';
-import { InlineResponse2004PushConfigurations } from '../models/InlineResponse2004PushConfigurations';
+import { InlineResponse20049Unread } from '../models/InlineResponse20049Unread';
+import { InlineResponse2004PushMessageTemplates } from '../models/InlineResponse2004PushMessageTemplates';
+import { InlineResponse2004Template } from '../models/InlineResponse2004Template';
 import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { InlineResponse20050 } from '../models/InlineResponse20050';
-import { InlineResponse20050Unread } from '../models/InlineResponse20050Unread';
 import { InlineResponse20051 } from '../models/InlineResponse20051';
 import { InlineResponse20052 } from '../models/InlineResponse20052';
 import { InlineResponse20053 } from '../models/InlineResponse20053';
 import { InlineResponse20054 } from '../models/InlineResponse20054';
 import { InlineResponse20055 } from '../models/InlineResponse20055';
 import { InlineResponse20056 } from '../models/InlineResponse20056';
+import { InlineResponse20056EmojiCategories } from '../models/InlineResponse20056EmojiCategories';
+import { InlineResponse20056Emojis } from '../models/InlineResponse20056Emojis';
 import { InlineResponse20057 } from '../models/InlineResponse20057';
 import { InlineResponse20057EmojiCategories } from '../models/InlineResponse20057EmojiCategories';
-import { InlineResponse20057Emojis } from '../models/InlineResponse20057Emojis';
 import { InlineResponse20058 } from '../models/InlineResponse20058';
-import { InlineResponse20058EmojiCategories } from '../models/InlineResponse20058EmojiCategories';
 import { InlineResponse20059 } from '../models/InlineResponse20059';
-import { InlineResponse2005PushMessageTemplates } from '../models/InlineResponse2005PushMessageTemplates';
-import { InlineResponse2005Template } from '../models/InlineResponse2005Template';
 import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse20060 } from '../models/InlineResponse20060';
 import { InlineResponse20061 } from '../models/InlineResponse20061';
 import { InlineResponse20062 } from '../models/InlineResponse20062';
 import { InlineResponse20063 } from '../models/InlineResponse20063';
+import { InlineResponse20063ExportedData } from '../models/InlineResponse20063ExportedData';
+import { InlineResponse20063File } from '../models/InlineResponse20063File';
 import { InlineResponse20064 } from '../models/InlineResponse20064';
-import { InlineResponse20064ExportedData } from '../models/InlineResponse20064ExportedData';
-import { InlineResponse20064File } from '../models/InlineResponse20064File';
 import { InlineResponse20065 } from '../models/InlineResponse20065';
+import { InlineResponse20065Bot } from '../models/InlineResponse20065Bot';
+import { InlineResponse20065Bots } from '../models/InlineResponse20065Bots';
 import { InlineResponse20066 } from '../models/InlineResponse20066';
-import { InlineResponse20066Bot } from '../models/InlineResponse20066Bot';
-import { InlineResponse20066Bots } from '../models/InlineResponse20066Bots';
+import { InlineResponse20066Webhook } from '../models/InlineResponse20066Webhook';
 import { InlineResponse20067 } from '../models/InlineResponse20067';
 import { InlineResponse20067Webhook } from '../models/InlineResponse20067Webhook';
 import { InlineResponse20068 } from '../models/InlineResponse20068';
-import { InlineResponse20068Webhook } from '../models/InlineResponse20068Webhook';
+import { InlineResponse20068Requests } from '../models/InlineResponse20068Requests';
 import { InlineResponse20069 } from '../models/InlineResponse20069';
-import { InlineResponse20069Requests } from '../models/InlineResponse20069Requests';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { InlineResponse20070 } from '../models/InlineResponse20070';
+import { InlineResponse20070ReportLogs } from '../models/InlineResponse20070ReportLogs';
 import { InlineResponse20071 } from '../models/InlineResponse20071';
 import { InlineResponse20071ReportLogs } from '../models/InlineResponse20071ReportLogs';
-import { InlineResponse20072 } from '../models/InlineResponse20072';
-import { InlineResponse20072ReportLogs } from '../models/InlineResponse20072ReportLogs';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { InlineResponse2009 } from '../models/InlineResponse2009';
-import { InlineResponse200Region } from '../models/InlineResponse200Region';
-import { InlineResponse200Results } from '../models/InlineResponse200Results';
+import { InlineResponse2009PeakConnections } from '../models/InlineResponse2009PeakConnections';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
@@ -243,7 +240,7 @@ export class ObservableAdvancedAnalyticsApi {
      * Retrieve Advanced analytics metrics
      * @param apiToken 
      */
-    public retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Observable<InlineResponse20063> {
+    public retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Observable<InlineResponse20062> {
         const requestContextPromise = this.requestFactory.retrieveAdvancedAnalyticsMetrics(apiToken, _options);
 
         // build promise chain
@@ -286,7 +283,7 @@ export class ObservableAnnouncementsApi {
      * @param uniqueId 
      * @param apiToken 
      */
-    public getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20043> {
+    public getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20042> {
         const requestContextPromise = this.requestFactory.getDetailedOpenRateOfAnnouncementById(uniqueId, apiToken, _options);
 
         // build promise chain
@@ -311,7 +308,7 @@ export class ObservableAnnouncementsApi {
      * @param announcementGroup 
      * @param apiToken 
      */
-    public getDetailedOpenRateOfAnnouncementGroup(announcementGroup: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20047> {
+    public getDetailedOpenRateOfAnnouncementGroup(announcementGroup: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20046> {
         const requestContextPromise = this.requestFactory.getDetailedOpenRateOfAnnouncementGroup(announcementGroup, apiToken, _options);
 
         // build promise chain
@@ -341,7 +338,7 @@ export class ObservableAnnouncementsApi {
      * @param channelUrls 
      * @param hasOpened 
      */
-    public getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Observable<InlineResponse20044> {
+    public getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Observable<InlineResponse20043> {
         const requestContextPromise = this.requestFactory.getDetailedOpenStatusOfAnnouncementById(uniqueId, apiToken, limit, next, uniqueIds, channelUrls, hasOpened, _options);
 
         // build promise chain
@@ -365,7 +362,7 @@ export class ObservableAnnouncementsApi {
      * Get statistics - weekly
      * @param apiToken 
      */
-    public getStatistics(apiToken?: string, _options?: Configuration): Observable<InlineResponse20045> {
+    public getStatistics(apiToken?: string, _options?: Configuration): Observable<InlineResponse20044> {
         const requestContextPromise = this.requestFactory.getStatistics(apiToken, _options);
 
         // build promise chain
@@ -396,7 +393,7 @@ export class ObservableAnnouncementsApi {
      * @param apiToken 
      * @param announcementGroup 
      */
-    public getStatisticsDaily(startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, apiToken?: string, announcementGroup?: string, _options?: Configuration): Observable<InlineResponse20045> {
+    public getStatisticsDaily(startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, apiToken?: string, announcementGroup?: string, _options?: Configuration): Observable<InlineResponse20044> {
         const requestContextPromise = this.requestFactory.getStatisticsDaily(startDate, endDate, startWeek, endWeek, startMonth, endMonth, apiToken, announcementGroup, _options);
 
         // build promise chain
@@ -420,7 +417,7 @@ export class ObservableAnnouncementsApi {
      * Get statistics - monthly
      * @param apiToken 
      */
-    public getStatisticsMonthly(apiToken?: string, _options?: Configuration): Observable<InlineResponse20045> {
+    public getStatisticsMonthly(apiToken?: string, _options?: Configuration): Observable<InlineResponse20044> {
         const requestContextPromise = this.requestFactory.getStatisticsMonthly(apiToken, _options);
 
         // build promise chain
@@ -446,7 +443,7 @@ export class ObservableAnnouncementsApi {
      * @param token 
      * @param limit 
      */
-    public listAnnouncementGroups(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20046> {
+    public listAnnouncementGroups(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20045> {
         const requestContextPromise = this.requestFactory.listAnnouncementGroups(apiToken, token, limit, _options);
 
         // build promise chain
@@ -475,7 +472,7 @@ export class ObservableAnnouncementsApi {
      * @param status 
      * @param announcementGroup 
      */
-    public listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Observable<InlineResponse20040> {
+    public listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Observable<InlineResponse20039> {
         const requestContextPromise = this.requestFactory.listAnnouncements(apiToken, token, limit, order, status, announcementGroup, _options);
 
         // build promise chain
@@ -500,7 +497,7 @@ export class ObservableAnnouncementsApi {
      * @param apiToken 
      * @param scheduleAnnouncementData 
      */
-    public scheduleAnnouncement(apiToken?: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Observable<InlineResponse20041> {
+    public scheduleAnnouncement(apiToken?: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Observable<InlineResponse20040> {
         const requestContextPromise = this.requestFactory.scheduleAnnouncement(apiToken, scheduleAnnouncementData, _options);
 
         // build promise chain
@@ -526,7 +523,7 @@ export class ObservableAnnouncementsApi {
      * @param apiToken 
      * @param updateAnnouncementByIdData 
      */
-    public updateAnnouncementById(uniqueId: string, apiToken?: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Observable<InlineResponse20042> {
+    public updateAnnouncementById(uniqueId: string, apiToken?: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Observable<InlineResponse20041> {
         const requestContextPromise = this.requestFactory.updateAnnouncementById(uniqueId, apiToken, updateAnnouncementByIdData, _options);
 
         // build promise chain
@@ -551,7 +548,7 @@ export class ObservableAnnouncementsApi {
      * @param uniqueId 
      * @param apiToken 
      */
-    public viewAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20040Announcements> {
+    public viewAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20039Announcements> {
         const requestContextPromise = this.requestFactory.viewAnnouncementById(uniqueId, apiToken, _options);
 
         // build promise chain
@@ -594,7 +591,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param addApnsPushConfigurationData 
      */
-    public addApnsPushConfiguration(apiToken?: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Observable<InlineResponse2004> {
+    public addApnsPushConfiguration(apiToken?: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Observable<InlineResponse2003> {
         const requestContextPromise = this.requestFactory.addApnsPushConfiguration(apiToken, addApnsPushConfigurationData, _options);
 
         // build promise chain
@@ -619,7 +616,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param addFcmPushConfigurationData 
      */
-    public addFcmPushConfiguration(apiToken?: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Observable<InlineResponse2002> {
+    public addFcmPushConfiguration(apiToken?: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Observable<InlineResponse2001> {
         const requestContextPromise = this.requestFactory.addFcmPushConfiguration(apiToken, addFcmPushConfigurationData, _options);
 
         // build promise chain
@@ -644,7 +641,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param addHmsPushConfigurationData 
      */
-    public addHmsPushConfiguration(apiToken?: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Observable<InlineResponse2003> {
+    public addHmsPushConfiguration(apiToken?: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Observable<InlineResponse2002> {
         const requestContextPromise = this.requestFactory.addHmsPushConfiguration(apiToken, addHmsPushConfigurationData, _options);
 
         // build promise chain
@@ -669,7 +666,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param addIpToWhitelistData 
      */
-    public addIpToWhitelist(apiToken?: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Observable<InlineResponse2007> {
+    public addIpToWhitelist(apiToken?: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Observable<InlineResponse2006> {
         const requestContextPromise = this.requestFactory.addIpToWhitelist(apiToken, addIpToWhitelistData, _options);
 
         // build promise chain
@@ -694,7 +691,7 @@ export class ObservableApplicationApi {
      * @param ipWhitelistAddresses 
      * @param apiToken 
      */
-    public deleteAllowedIpsFromWhitelist(ipWhitelistAddresses: Array<string>, apiToken?: string, _options?: Configuration): Observable<InlineResponse2007> {
+    public deleteAllowedIpsFromWhitelist(ipWhitelistAddresses: Array<string>, apiToken?: string, _options?: Configuration): Observable<InlineResponse2006> {
         const requestContextPromise = this.requestFactory.deleteAllowedIpsFromWhitelist(ipWhitelistAddresses, apiToken, _options);
 
         // build promise chain
@@ -719,7 +716,7 @@ export class ObservableApplicationApi {
      * @param providerId 
      * @param apiToken 
      */
-    public deleteApnsCertificateById(providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20014> {
+    public deleteApnsCertificateById(providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20013> {
         const requestContextPromise = this.requestFactory.deleteApnsCertificateById(providerId, apiToken, _options);
 
         // build promise chain
@@ -744,7 +741,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param generateSecondaryApiTokenData 
      */
-    public generateSecondaryApiToken(apiToken?: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Observable<InlineResponse2008> {
+    public generateSecondaryApiToken(apiToken?: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Observable<InlineResponse2007> {
         const requestContextPromise = this.requestFactory.generateSecondaryApiToken(apiToken, generateSecondaryApiTokenData, _options);
 
         // build promise chain
@@ -769,7 +766,7 @@ export class ObservableApplicationApi {
      * @param pushType 
      * @param apiToken 
      */
-    public listPushConfigurations(pushType: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20013> {
+    public listPushConfigurations(pushType: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20012> {
         const requestContextPromise = this.requestFactory.listPushConfigurations(pushType, apiToken, _options);
 
         // build promise chain
@@ -793,7 +790,7 @@ export class ObservableApplicationApi {
      * List push notification content templates
      * @param apiToken 
      */
-    public listPushNotificationContentTemplates(apiToken?: string, _options?: Configuration): Observable<InlineResponse2005> {
+    public listPushNotificationContentTemplates(apiToken?: string, _options?: Configuration): Observable<InlineResponse2004> {
         const requestContextPromise = this.requestFactory.listPushNotificationContentTemplates(apiToken, _options);
 
         // build promise chain
@@ -817,7 +814,7 @@ export class ObservableApplicationApi {
      * List secondary API tokens
      * @param apiToken 
      */
-    public listSecondaryApiTokens(apiToken?: string, _options?: Configuration): Observable<InlineResponse2009> {
+    public listSecondaryApiTokens(apiToken?: string, _options?: Configuration): Observable<InlineResponse2008> {
         const requestContextPromise = this.requestFactory.listSecondaryApiTokens(apiToken, _options);
 
         // build promise chain
@@ -843,7 +840,7 @@ export class ObservableApplicationApi {
      * @param providerId 
      * @param apiToken 
      */
-    public removePushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20014> {
+    public removePushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20013> {
         const requestContextPromise = this.requestFactory.removePushConfigurationById(pushType, providerId, apiToken, _options);
 
         // build promise chain
@@ -867,7 +864,7 @@ export class ObservableApplicationApi {
      * Retrieve an IP whitelist
      * @param apiToken 
      */
-    public retrieveIpWhitelist(apiToken?: string, _options?: Configuration): Observable<InlineResponse2007> {
+    public retrieveIpWhitelist(apiToken?: string, _options?: Configuration): Observable<InlineResponse2006> {
         const requestContextPromise = this.requestFactory.retrieveIpWhitelist(apiToken, _options);
 
         // build promise chain
@@ -892,7 +889,7 @@ export class ObservableApplicationApi {
      * @param apiToken2 
      * @param apiToken 
      */
-    public revokeSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<void> {
+    public revokeSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse2007> {
         const requestContextPromise = this.requestFactory.revokeSecondaryApiTokenByToken(apiToken2, apiToken, _options);
 
         // build promise chain
@@ -918,7 +915,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param updateApnsPushConfigurationByIdData 
      */
-    public updateApnsPushConfigurationById(providerId: string, apiToken?: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20015> {
+    public updateApnsPushConfigurationById(providerId: string, apiToken?: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20014> {
         const requestContextPromise = this.requestFactory.updateApnsPushConfigurationById(providerId, apiToken, updateApnsPushConfigurationByIdData, _options);
 
         // build promise chain
@@ -943,7 +940,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param updateDefaultChannelInvitationPreferenceData 
      */
-    public updateDefaultChannelInvitationPreference(apiToken?: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Observable<InlineResponse2006> {
+    public updateDefaultChannelInvitationPreference(apiToken?: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Observable<InlineResponse2005> {
         const requestContextPromise = this.requestFactory.updateDefaultChannelInvitationPreference(apiToken, updateDefaultChannelInvitationPreferenceData, _options);
 
         // build promise chain
@@ -969,7 +966,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param updateFcmPushConfigurationByIdData 
      */
-    public updateFcmPushConfigurationById(providerId: string, apiToken?: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20015> {
+    public updateFcmPushConfigurationById(providerId: string, apiToken?: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20014> {
         const requestContextPromise = this.requestFactory.updateFcmPushConfigurationById(providerId, apiToken, updateFcmPushConfigurationByIdData, _options);
 
         // build promise chain
@@ -995,7 +992,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param updateHmsPushConfigurationByIdData 
      */
-    public updateHmsPushConfigurationById(providerId: string, apiToken?: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20015> {
+    public updateHmsPushConfigurationById(providerId: string, apiToken?: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Observable<InlineResponse20014> {
         const requestContextPromise = this.requestFactory.updateHmsPushConfigurationById(providerId, apiToken, updateHmsPushConfigurationByIdData, _options);
 
         // build promise chain
@@ -1021,7 +1018,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param updatePushNotificationContentTemplateData 
      */
-    public updatePushNotificationContentTemplate(templateName: string, apiToken?: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Observable<InlineResponse20016> {
+    public updatePushNotificationContentTemplate(templateName: string, apiToken?: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Observable<InlineResponse20015> {
         const requestContextPromise = this.requestFactory.updatePushNotificationContentTemplate(templateName, apiToken, updatePushNotificationContentTemplateData, _options);
 
         // build promise chain
@@ -1045,7 +1042,7 @@ export class ObservableApplicationApi {
      * View default channel invitation preference
      * @param apiToken 
      */
-    public viewDefaultChannelInvitationPreference(apiToken?: string, _options?: Configuration): Observable<InlineResponse2006> {
+    public viewDefaultChannelInvitationPreference(apiToken?: string, _options?: Configuration): Observable<InlineResponse2005> {
         const requestContextPromise = this.requestFactory.viewDefaultChannelInvitationPreference(apiToken, _options);
 
         // build promise chain
@@ -1069,7 +1066,7 @@ export class ObservableApplicationApi {
      * View number of concurrent connections
      * @param apiToken 
      */
-    public viewNumberOfConcurrentConnections(apiToken?: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public viewNumberOfConcurrentConnections(apiToken?: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.viewNumberOfConcurrentConnections(apiToken, _options);
 
         // build promise chain
@@ -1094,7 +1091,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param date 
      */
-    public viewNumberOfDailyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<InlineResponse20012> {
+    public viewNumberOfDailyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<InlineResponse20011> {
         const requestContextPromise = this.requestFactory.viewNumberOfDailyActiveUsers(apiToken, date, _options);
 
         // build promise chain
@@ -1119,7 +1116,7 @@ export class ObservableApplicationApi {
      * @param apiToken 
      * @param date 
      */
-    public viewNumberOfMonthlyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<InlineResponse20011> {
+    public viewNumberOfMonthlyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<InlineResponse20010> {
         const requestContextPromise = this.requestFactory.viewNumberOfMonthlyActiveUsers(apiToken, date, _options);
 
         // build promise chain
@@ -1150,7 +1147,7 @@ export class ObservableApplicationApi {
      * @param startDay 
      * @param endDay 
      */
-    public viewNumberOfPeakConnections(timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, apiToken?: string, startDay?: number, endDay?: number, _options?: Configuration): Observable<InlineResponse20010> {
+    public viewNumberOfPeakConnections(timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, apiToken?: string, startDay?: number, endDay?: number, _options?: Configuration): Observable<InlineResponse2009> {
         const requestContextPromise = this.requestFactory.viewNumberOfPeakConnections(timeDimension, startYear, startMonth, endYear, endMonth, apiToken, startDay, endDay, _options);
 
         // build promise chain
@@ -1176,7 +1173,7 @@ export class ObservableApplicationApi {
      * @param providerId 
      * @param apiToken 
      */
-    public viewPushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20013> {
+    public viewPushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20012> {
         const requestContextPromise = this.requestFactory.viewPushConfigurationById(pushType, providerId, apiToken, _options);
 
         // build promise chain
@@ -1201,7 +1198,7 @@ export class ObservableApplicationApi {
      * @param templateName 
      * @param apiToken 
      */
-    public viewPushNotificationContentTemplate(templateName: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20016> {
+    public viewPushNotificationContentTemplate(templateName: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20015> {
         const requestContextPromise = this.requestFactory.viewPushNotificationContentTemplate(templateName, apiToken, _options);
 
         // build promise chain
@@ -1226,7 +1223,7 @@ export class ObservableApplicationApi {
      * @param apiToken2 
      * @param apiToken 
      */
-    public viewSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse2008> {
+    public viewSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse2007> {
         const requestContextPromise = this.requestFactory.viewSecondaryApiTokenByToken(apiToken2, apiToken, _options);
 
         // build promise chain
@@ -1269,7 +1266,7 @@ export class ObservableBotInterfaceApi {
      * @param apiToken 
      * @param createBotData 
      */
-    public createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Observable<InlineResponse20066Bots> {
+    public createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Observable<InlineResponse20065Bots> {
         const requestContextPromise = this.requestFactory.createBot(apiToken, createBotData, _options);
 
         // build promise chain
@@ -1398,7 +1395,7 @@ export class ObservableBotInterfaceApi {
      * @param token 
      * @param limit 
      */
-    public listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20066> {
+    public listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20065> {
         const requestContextPromise = this.requestFactory.listBots(apiToken, token, limit, _options);
 
         // build promise chain
@@ -1450,7 +1447,7 @@ export class ObservableBotInterfaceApi {
      * @param apiToken 
      * @param updateBotByIdData 
      */
-    public updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Observable<InlineResponse20066Bots> {
+    public updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Observable<InlineResponse20065Bots> {
         const requestContextPromise = this.requestFactory.updateBotById(botUserid, apiToken, updateBotByIdData, _options);
 
         // build promise chain
@@ -1475,7 +1472,7 @@ export class ObservableBotInterfaceApi {
      * @param botUserid 
      * @param apiToken 
      */
-    public viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20066Bots> {
+    public viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20065Bots> {
         const requestContextPromise = this.requestFactory.viewBotById(botUserid, apiToken, _options);
 
         // build promise chain
@@ -1520,7 +1517,7 @@ export class ObservableDataExportApi {
      * @param token 
      * @param limit 
      */
-    public listDataExportsByMessageChannelOrUser(dataType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20064> {
+    public listDataExportsByMessageChannelOrUser(dataType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20063> {
         const requestContextPromise = this.requestFactory.listDataExportsByMessageChannelOrUser(dataType, apiToken, token, limit, _options);
 
         // build promise chain
@@ -1546,7 +1543,7 @@ export class ObservableDataExportApi {
      * @param apiToken 
      * @param registerAndScheduleDataExportData 
      */
-    public registerAndScheduleDataExport(dataType: string, apiToken?: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Observable<InlineResponse20064ExportedData> {
+    public registerAndScheduleDataExport(dataType: string, apiToken?: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Observable<InlineResponse20063ExportedData> {
         const requestContextPromise = this.requestFactory.registerAndScheduleDataExport(dataType, apiToken, registerAndScheduleDataExportData, _options);
 
         // build promise chain
@@ -1572,7 +1569,7 @@ export class ObservableDataExportApi {
      * @param requestId 
      * @param apiToken 
      */
-    public viewDataExportById(dataType: string, requestId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20065> {
+    public viewDataExportById(dataType: string, requestId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20064> {
         const requestContextPromise = this.requestFactory.viewDataExportById(dataType, requestId, apiToken, _options);
 
         // build promise chain
@@ -1641,7 +1638,7 @@ export class ObservableDataPrivacyApi {
      * @param token 
      * @param limit 
      */
-    public listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20069> {
+    public listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20068> {
         const requestContextPromise = this.requestFactory.listGdprRequests(apiToken, token, limit, _options);
 
         // build promise chain
@@ -1666,7 +1663,7 @@ export class ObservableDataPrivacyApi {
      * @param apiToken 
      * @param registerGdprRequestData 
      */
-    public registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Observable<InlineResponse20070> {
+    public registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Observable<InlineResponse20069> {
         const requestContextPromise = this.requestFactory.registerGdprRequest(apiToken, registerGdprRequestData, _options);
 
         // build promise chain
@@ -1691,7 +1688,7 @@ export class ObservableDataPrivacyApi {
      * @param requestId 
      * @param apiToken 
      */
-    public viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20069Requests> {
+    public viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20068Requests> {
         const requestContextPromise = this.requestFactory.viewGdprRequestById(requestId, apiToken, _options);
 
         // build promise chain
@@ -1734,7 +1731,7 @@ export class ObservableEmojisApi {
      * @param apiToken 
      * @param body 
      */
-    public addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Observable<InlineResponse20058> {
+    public addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Observable<InlineResponse20057> {
         const requestContextPromise = this.requestFactory.addEmojiCategories(apiToken, body, _options);
 
         // build promise chain
@@ -1759,7 +1756,7 @@ export class ObservableEmojisApi {
      * @param apiToken 
      * @param addEmojisData 
      */
-    public addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Observable<InlineResponse20060> {
+    public addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Observable<InlineResponse20059> {
         const requestContextPromise = this.requestFactory.addEmojis(apiToken, addEmojisData, _options);
 
         // build promise chain
@@ -1834,7 +1831,7 @@ export class ObservableEmojisApi {
      * @param apiToken 
      * @param enableReactionsData 
      */
-    public enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Observable<InlineResponse20052> {
+    public enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Observable<InlineResponse20051> {
         const requestContextPromise = this.requestFactory.enableReactions(apiToken, enableReactionsData, _options);
 
         // build promise chain
@@ -1908,7 +1905,7 @@ export class ObservableEmojisApi {
      * List all emojis and emoji categories
      * @param apiToken 
      */
-    public listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Observable<InlineResponse20057> {
+    public listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Observable<InlineResponse20056> {
         const requestContextPromise = this.requestFactory.listAllEmojisAndEmojiCategories(apiToken, _options);
 
         // build promise chain
@@ -1932,7 +1929,7 @@ export class ObservableEmojisApi {
      * List emojis
      * @param apiToken 
      */
-    public listEmojis(apiToken?: string, _options?: Configuration): Observable<InlineResponse20059> {
+    public listEmojis(apiToken?: string, _options?: Configuration): Observable<InlineResponse20058> {
         const requestContextPromise = this.requestFactory.listEmojis(apiToken, _options);
 
         // build promise chain
@@ -2009,7 +2006,7 @@ export class ObservableEmojisApi {
      * @param apiToken 
      * @param useDefaultEmojisData 
      */
-    public useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Observable<InlineResponse20056> {
+    public useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Observable<InlineResponse20055> {
         const requestContextPromise = this.requestFactory.useDefaultEmojis(apiToken, useDefaultEmojisData, _options);
 
         // build promise chain
@@ -2079,7 +2076,7 @@ export class ObservableGroupChannelApi {
      * @param apiToken 
      * @param gcBanUserData 
      */
-    public gcBanUser(channelUrl: string, apiToken?: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Observable<InlineResponse20034BannedList> {
+    public gcBanUser(channelUrl: string, apiToken?: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Observable<InlineResponse20033BannedList> {
         const requestContextPromise = this.requestFactory.gcBanUser(channelUrl, apiToken, gcBanUserData, _options);
 
         // build promise chain
@@ -2132,7 +2129,7 @@ export class ObservableGroupChannelApi {
      * @param userId 
      * @param apiToken 
      */
-    public gcCheckIfMemberById(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20038> {
+    public gcCheckIfMemberById(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20037> {
         const requestContextPromise = this.requestFactory.gcCheckIfMemberById(channelUrl, userId, apiToken, _options);
 
         // build promise chain
@@ -2365,7 +2362,7 @@ export class ObservableGroupChannelApi {
      * @param token 
      * @param limit 
      */
-    public gcListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20034> {
+    public gcListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20033> {
         const requestContextPromise = this.requestFactory.gcListBannedUsers(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -2431,7 +2428,7 @@ export class ObservableGroupChannelApi {
      * @param membersIn 
      * @param userId 
      */
-    public gcListChannels(apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Observable<InlineResponse20018> {
+    public gcListChannels(apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Observable<InlineResponse20017> {
         const requestContextPromise = this.requestFactory.gcListChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, customType, readReceipt, member, isDistinct, membersIn, userId, _options);
 
         // build promise chain
@@ -2465,7 +2462,7 @@ export class ObservableGroupChannelApi {
      * @param mutedMemberFilter 
      * @param nicknameStartswith 
      */
-    public gcListMembers(channelUrl: string, apiToken?: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Observable<InlineResponse20037> {
+    public gcListMembers(channelUrl: string, apiToken?: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Observable<InlineResponse20036> {
         const requestContextPromise = this.requestFactory.gcListMembers(channelUrl, apiToken, token, limit, showDeliveryReceipt, showReadReceipt, order, operatorFilter, memberStateFilter, mutedMemberFilter, nicknameStartswith, _options);
 
         // build promise chain
@@ -2492,7 +2489,7 @@ export class ObservableGroupChannelApi {
      * @param token 
      * @param limit 
      */
-    public gcListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20032> {
+    public gcListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20031> {
         const requestContextPromise = this.requestFactory.gcListMutedUsers(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -2519,7 +2516,7 @@ export class ObservableGroupChannelApi {
      * @param token 
      * @param limit 
      */
-    public gcListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20035> {
+    public gcListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20034> {
         const requestContextPromise = this.requestFactory.gcListOperators(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -2571,7 +2568,7 @@ export class ObservableGroupChannelApi {
      * @param apiToken 
      * @param gcRegisterOperatorsData 
      */
-    public gcRegisterOperators(channelUrl: string, apiToken?: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Observable<InlineResponse20039> {
+    public gcRegisterOperators(channelUrl: string, apiToken?: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Observable<InlineResponse20038> {
         const requestContextPromise = this.requestFactory.gcRegisterOperators(channelUrl, apiToken, gcRegisterOperatorsData, _options);
 
         // build promise chain
@@ -2811,7 +2808,7 @@ export class ObservableGroupChannelApi {
      * @param mutedUserId 
      * @param apiToken 
      */
-    public gcViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20036> {
+    public gcViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20035> {
         const requestContextPromise = this.requestFactory.gcViewMuteById(channelUrl, mutedUserId, apiToken, _options);
 
         // build promise chain
@@ -2857,7 +2854,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param addExtraDataToMessageData 
      */
-    public addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Observable<InlineResponse20055> {
+    public addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Observable<InlineResponse20054> {
         const requestContextPromise = this.requestFactory.addExtraDataToMessage(channelType, channelUrl, messageId, apiToken, addExtraDataToMessageData, _options);
 
         // build promise chain
@@ -2885,7 +2882,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param addReactionToAMessageData 
      */
-    public addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Observable<InlineResponse20054> {
+    public addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Observable<InlineResponse20053> {
         const requestContextPromise = this.requestFactory.addReactionToAMessage(channelType, channelUrl, messageId, apiToken, addReactionToAMessageData, _options);
 
         // build promise chain
@@ -2938,7 +2935,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param gcMarkAllMessagesAsDeliveredData 
      */
-    public gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Observable<InlineResponse20051> {
+    public gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Observable<InlineResponse20050> {
         const requestContextPromise = this.requestFactory.gcMarkAllMessagesAsDelivered(channelUrl, apiToken, gcMarkAllMessagesAsDeliveredData, _options);
 
         // build promise chain
@@ -2990,7 +2987,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param userIds 
      */
-    public gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: string, _options?: Configuration): Observable<InlineResponse20050> {
+    public gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: string, _options?: Configuration): Observable<InlineResponse20049> {
         const requestContextPromise = this.requestFactory.gcViewNumberOfEachMembersUnreadMessages(channelUrl, apiToken, userIds, _options);
 
         // build promise chain
@@ -3034,7 +3031,7 @@ export class ObservableMessagesApi {
      * @param customType 
      * @param withMetaArray 
      */
-    public listMessages(channelType: string, channelUrl: string, messageTs: number, messageId: number, apiToken?: string, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Observable<InlineResponse20048> {
+    public listMessages(channelType: string, channelUrl: string, messageTs: number, messageId: number, apiToken?: string, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Observable<InlineResponse20047> {
         const requestContextPromise = this.requestFactory.listMessages(channelType, channelUrl, messageTs, messageId, apiToken, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
 
         // build promise chain
@@ -3062,7 +3059,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param listUsers 
      */
-    public listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Observable<InlineResponse20053> {
+    public listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Observable<InlineResponse20052> {
         const requestContextPromise = this.requestFactory.listReactionsOfMessage(channelType, channelUrl, messageId, apiToken, listUsers, _options);
 
         // build promise chain
@@ -3119,7 +3116,7 @@ export class ObservableMessagesApi {
      * @param userId 
      * @param reaction 
      */
-    public removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Observable<InlineResponse20054> {
+    public removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Observable<InlineResponse20053> {
         const requestContextPromise = this.requestFactory.removeReactionFromAMessage(channelType, channelUrl, messageId, apiToken, userId, reaction, _options);
 
         // build promise chain
@@ -3202,7 +3199,7 @@ export class ObservableMessagesApi {
      * @param apiToken 
      * @param updateExtraDataInMessageData 
      */
-    public updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Observable<InlineResponse20055> {
+    public updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Observable<InlineResponse20054> {
         const requestContextPromise = this.requestFactory.updateExtraDataInMessage(channelType, channelUrl, messageId, apiToken, updateExtraDataInMessageData, _options);
 
         // build promise chain
@@ -3285,7 +3282,7 @@ export class ObservableMessagesApi {
      * @param channelUrl 
      * @param apiToken 
      */
-    public viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20049> {
+    public viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20048> {
         const requestContextPromise = this.requestFactory.viewTotalNumberOfMessagesInChannel(channelType, channelUrl, apiToken, _options);
 
         // build promise chain
@@ -3373,7 +3370,7 @@ export class ObservableOpenChannelApi {
      * @param apiToken 
      * @param ocBanUserData 
      */
-    public ocBanUser(channelUrl: string, apiToken?: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Observable<InlineResponse20034BannedList> {
+    public ocBanUser(channelUrl: string, apiToken?: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Observable<InlineResponse20033BannedList> {
         const requestContextPromise = this.requestFactory.ocBanUser(channelUrl, apiToken, ocBanUserData, _options);
 
         // build promise chain
@@ -3503,7 +3500,7 @@ export class ObservableOpenChannelApi {
      * @param token 
      * @param limit 
      */
-    public ocListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20034> {
+    public ocListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20033> {
         const requestContextPromise = this.requestFactory.ocListBannedUsers(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -3535,7 +3532,7 @@ export class ObservableOpenChannelApi {
      * @param showMetadata 
      * @param customType 
      */
-    public ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Observable<InlineResponse20031> {
+    public ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Observable<InlineResponse20030> {
         const requestContextPromise = this.requestFactory.ocListChannels(apiToken, token, limit, customTypes, nameContains, urlContains, showFrozen, showMetadata, customType, _options);
 
         // build promise chain
@@ -3562,7 +3559,7 @@ export class ObservableOpenChannelApi {
      * @param token 
      * @param limit 
      */
-    public ocListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20032> {
+    public ocListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20031> {
         const requestContextPromise = this.requestFactory.ocListMutedUsers(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -3589,7 +3586,7 @@ export class ObservableOpenChannelApi {
      * @param token 
      * @param limit 
      */
-    public ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20035> {
+    public ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20034> {
         const requestContextPromise = this.requestFactory.ocListOperators(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -3616,7 +3613,7 @@ export class ObservableOpenChannelApi {
      * @param token 
      * @param limit 
      */
-    public ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20033> {
+    public ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20032> {
         const requestContextPromise = this.requestFactory.ocListParticipants(channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -3850,7 +3847,7 @@ export class ObservableOpenChannelApi {
      * @param mutedUserId 
      * @param apiToken 
      */
-    public ocViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20036> {
+    public ocViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20035> {
         const requestContextPromise = this.requestFactory.ocViewMuteById(channelUrl, mutedUserId, apiToken, _options);
 
         // build promise chain
@@ -3866,123 +3863,6 @@ export class ObservableOpenChannelApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocViewMuteById(rsp)));
-            }));
-    }
-
-}
-
-import { OrganizationAPIApiRequestFactory, OrganizationAPIApiResponseProcessor} from "../apis/OrganizationAPIApi";
-export class ObservableOrganizationAPIApi {
-    private requestFactory: OrganizationAPIApiRequestFactory;
-    private responseProcessor: OrganizationAPIApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: OrganizationAPIApiRequestFactory,
-        responseProcessor?: OrganizationAPIApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new OrganizationAPIApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new OrganizationAPIApiResponseProcessor();
-    }
-
-    /**
-     * ## Create an application  Creates a new application under your organization.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-create-an-application
-     * Create an application
-     * @param SENDBIRDORGANIZATIONAPITOKEN 
-     * @param body 
-     */
-    public createApplication(SENDBIRDORGANIZATIONAPITOKEN?: string, body?: any, _options?: Configuration): Observable<InlineResponse200Results> {
-        const requestContextPromise = this.requestFactory.createApplication(SENDBIRDORGANIZATIONAPITOKEN, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createApplication(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete an application  Deletes the specified application.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-delete-an-application ----------------------------
-     * Delete an application
-     * @param appId 
-     * @param SENDBIRDORGANIZATIONAPITOKEN 
-     */
-    public deleteApplicationById(appId: string, SENDBIRDORGANIZATIONAPITOKEN?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteApplicationById(appId, SENDBIRDORGANIZATIONAPITOKEN, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteApplicationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## List applications  Retrieves a list of applications of your organization.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-list-applications ----------------------------
-     * List applications
-     * @param SENDBIRDORGANIZATIONAPITOKEN 
-     */
-    public listApplications(SENDBIRDORGANIZATIONAPITOKEN?: string, _options?: Configuration): Observable<InlineResponse200> {
-        const requestContextPromise = this.requestFactory.listApplications(SENDBIRDORGANIZATIONAPITOKEN, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listApplications(rsp)));
-            }));
-    }
-
-    /**
-     * ## View an application  Retrieves information about an application with a specified application ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-view-an-application ----------------------------
-     * View an application
-     * @param appId 
-     * @param SENDBIRDORGANIZATIONAPITOKEN 
-     */
-    public viewApplicationById(appId: string, SENDBIRDORGANIZATIONAPITOKEN?: string, _options?: Configuration): Observable<InlineResponse200Results> {
-        const requestContextPromise = this.requestFactory.viewApplicationById(appId, SENDBIRDORGANIZATIONAPITOKEN, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewApplicationById(rsp)));
             }));
     }
 
@@ -4013,7 +3893,7 @@ export class ObservableReportContentSubjectApi {
      * @param startTs 
      * @param endTs 
      */
-    public listReports(apiToken?: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Observable<InlineResponse20071> {
+    public listReports(apiToken?: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Observable<InlineResponse20070> {
         const requestContextPromise = this.requestFactory.listReports(apiToken, token, limit, startTs, endTs, _options);
 
         // build promise chain
@@ -4041,7 +3921,7 @@ export class ObservableReportContentSubjectApi {
      * @param token 
      * @param limit 
      */
-    public listReportsOnChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20072> {
+    public listReportsOnChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20071> {
         const requestContextPromise = this.requestFactory.listReportsOnChannelByUrl(channelType, channelUrl, apiToken, token, limit, _options);
 
         // build promise chain
@@ -4070,7 +3950,7 @@ export class ObservableReportContentSubjectApi {
      * @param token 
      * @param limit 
      */
-    public listReportsOnMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20072> {
+    public listReportsOnMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20071> {
         const requestContextPromise = this.requestFactory.listReportsOnMessageById(channelType, channelUrl, messageId, apiToken, token, limit, _options);
 
         // build promise chain
@@ -4097,7 +3977,7 @@ export class ObservableReportContentSubjectApi {
      * @param token 
      * @param limit 
      */
-    public listReportsOnUserById(offendingUserId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20072> {
+    public listReportsOnUserById(offendingUserId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20071> {
         const requestContextPromise = this.requestFactory.listReportsOnUserById(offendingUserId, apiToken, token, limit, _options);
 
         // build promise chain
@@ -4124,7 +4004,7 @@ export class ObservableReportContentSubjectApi {
      * @param apiToken 
      * @param reportChannelByUrlData 
      */
-    public reportChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Observable<InlineResponse20072ReportLogs> {
+    public reportChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Observable<InlineResponse20071ReportLogs> {
         const requestContextPromise = this.requestFactory.reportChannelByUrl(channelType, channelUrl, apiToken, reportChannelByUrlData, _options);
 
         // build promise chain
@@ -4152,7 +4032,7 @@ export class ObservableReportContentSubjectApi {
      * @param apiToken 
      * @param reportMessageByIdData 
      */
-    public reportMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Observable<InlineResponse20072ReportLogs> {
+    public reportMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Observable<InlineResponse20071ReportLogs> {
         const requestContextPromise = this.requestFactory.reportMessageById(channelType, channelUrl, messageId, apiToken, reportMessageByIdData, _options);
 
         // build promise chain
@@ -4178,7 +4058,7 @@ export class ObservableReportContentSubjectApi {
      * @param apiToken 
      * @param reportUserByIdData 
      */
-    public reportUserById(offendingUserId: string, apiToken?: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Observable<InlineResponse20072ReportLogs> {
+    public reportUserById(offendingUserId: string, apiToken?: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Observable<InlineResponse20071ReportLogs> {
         const requestContextPromise = this.requestFactory.reportUserById(offendingUserId, apiToken, reportUserByIdData, _options);
 
         // build promise chain
@@ -4250,7 +4130,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param addRegistrationOrDeviceTokenData 
      */
-    public addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Observable<InlineResponse20026> {
+    public addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Observable<InlineResponse20025> {
         const requestContextPromise = this.requestFactory.addRegistrationOrDeviceToken(userId, tokenType, apiToken, addRegistrationOrDeviceTokenData, _options);
 
         // build promise chain
@@ -4328,7 +4208,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param body 
      */
-    public choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Observable<InlineResponse20030> {
+    public choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Observable<InlineResponse20029> {
         const requestContextPromise = this.requestFactory.choosePushNotificationContentTemplate(userId, apiToken, body, _options);
 
         // build promise chain
@@ -4431,7 +4311,7 @@ export class ObservableUserApi {
      * @param token 
      * @param limit 
      */
-    public listBannedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20023> {
+    public listBannedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20022> {
         const requestContextPromise = this.requestFactory.listBannedChannels(userId, apiToken, token, limit, _options);
 
         // build promise chain
@@ -4461,7 +4341,7 @@ export class ObservableUserApi {
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public listBlockedUsers(userId: string, apiToken?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<InlineResponse20017> {
+    public listBlockedUsers(userId: string, apiToken?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<InlineResponse20016> {
         const requestContextPromise = this.requestFactory.listBlockedUsers(userId, apiToken, token, limit, userIds, metadatakey, metadatavaluesIn, _options);
 
         // build promise chain
@@ -4488,7 +4368,7 @@ export class ObservableUserApi {
      * @param token 
      * @param limit 
      */
-    public listMutedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20024> {
+    public listMutedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse20023> {
         const requestContextPromise = this.requestFactory.listMutedChannels(userId, apiToken, token, limit, _options);
 
         // build promise chain
@@ -4553,7 +4433,7 @@ export class ObservableUserApi {
      * @param metacounterValueLte 
      * @param customType 
      */
-    public listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Observable<InlineResponse20018> {
+    public listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Observable<InlineResponse20017> {
         const requestContextPromise = this.requestFactory.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, hiddenMode, memberStateFilter, unreadFilter, createdAfter, createdBefore, showEmpty, showFrozen, showMember, showDeliveryReceipt, showReadReceipt, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, customType, _options);
 
         // build promise chain
@@ -4579,7 +4459,7 @@ export class ObservableUserApi {
      * @param tokenType 
      * @param apiToken 
      */
-    public listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20025> {
+    public listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20024> {
         const requestContextPromise = this.requestFactory.listRegistrationOrDeviceTokens(userId, tokenType, apiToken, _options);
 
         // build promise chain
@@ -4612,7 +4492,7 @@ export class ObservableUserApi {
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<InlineResponse20017> {
+    public listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<InlineResponse20016> {
         const requestContextPromise = this.requestFactory.listUsers(apiToken, token, limit, activeMode, showBot, userIds, nickname, nicknameStartswith, metadatakey, metadatavaluesIn, _options);
 
         // build promise chain
@@ -4715,7 +4595,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param apiToken 
      */
-    public removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20027> {
+    public removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20026> {
         const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceToken(userId, apiToken, _options);
 
         // build promise chain
@@ -4742,7 +4622,7 @@ export class ObservableUserApi {
      * @param token 
      * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20027> {
+    public removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20026> {
         const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceTokenByToken(userId, tokenType, token, apiToken, _options);
 
         // build promise chain
@@ -4768,7 +4648,7 @@ export class ObservableUserApi {
      * @param token 
      * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20028> {
+    public removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20027> {
         const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType, token, apiToken, _options);
 
         // build promise chain
@@ -4845,7 +4725,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param updateChannelInvitationPreferenceData 
      */
-    public updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Observable<InlineResponse2006> {
+    public updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Observable<InlineResponse2005> {
         const requestContextPromise = this.requestFactory.updateChannelInvitationPreference(userId, apiToken, updateChannelInvitationPreferenceData, _options);
 
         // build promise chain
@@ -4872,7 +4752,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param updateCountPreferenceOfChannelByUrlData 
      */
-    public updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Observable<InlineResponse20022> {
+    public updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Observable<InlineResponse20021> {
         const requestContextPromise = this.requestFactory.updateCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, updateCountPreferenceOfChannelByUrlData, _options);
 
         // build promise chain
@@ -4898,7 +4778,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param updatePushPreferencesData 
      */
-    public updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Observable<InlineResponse20029> {
+    public updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Observable<InlineResponse20028> {
         const requestContextPromise = this.requestFactory.updatePushPreferences(userId, apiToken, updatePushPreferencesData, _options);
 
         // build promise chain
@@ -4925,7 +4805,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param updatePushPreferencesForChannelByUrlData 
      */
-    public updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Observable<InlineResponse20029> {
+    public updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Observable<InlineResponse20028> {
         const requestContextPromise = this.requestFactory.updatePushPreferencesForChannelByUrl(userId, channelUrl, apiToken, updatePushPreferencesForChannelByUrlData, _options);
 
         // build promise chain
@@ -4976,7 +4856,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param apiToken 
      */
-    public viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse2006> {
+    public viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse2005> {
         const requestContextPromise = this.requestFactory.viewChannelInvitationPreference(userId, apiToken, _options);
 
         // build promise chain
@@ -5002,7 +4882,7 @@ export class ObservableUserApi {
      * @param channelUrl 
      * @param apiToken 
      */
-    public viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20022> {
+    public viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20021> {
         const requestContextPromise = this.requestFactory.viewCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, _options);
 
         // build promise chain
@@ -5028,7 +4908,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param state 
      */
-    public viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Observable<InlineResponse20021> {
+    public viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Observable<InlineResponse20020> {
         const requestContextPromise = this.requestFactory.viewNumberOfChannelsByJoinStatus(userId, apiToken, state, _options);
 
         // build promise chain
@@ -5055,7 +4935,7 @@ export class ObservableUserApi {
      * @param customTypes 
      * @param superMode 
      */
-    public viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Observable<InlineResponse20019> {
+    public viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Observable<InlineResponse20018> {
         const requestContextPromise = this.requestFactory.viewNumberOfChannelsWithUnreadMessages(userId, apiToken, customTypes, superMode, _options);
 
         // build promise chain
@@ -5082,7 +4962,7 @@ export class ObservableUserApi {
      * @param customType 
      * @param itemKeys 
      */
-    public viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Observable<InlineResponse20020> {
+    public viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Observable<InlineResponse20019> {
         const requestContextPromise = this.requestFactory.viewNumberOfUnreadItems(userId, apiToken, customType, itemKeys, _options);
 
         // build promise chain
@@ -5109,7 +4989,7 @@ export class ObservableUserApi {
      * @param customTypes 
      * @param superMode 
      */
-    public viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Observable<InlineResponse20019> {
+    public viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Observable<InlineResponse20018> {
         const requestContextPromise = this.requestFactory.viewNumberOfUnreadMessages(userId, apiToken, customTypes, superMode, _options);
 
         // build promise chain
@@ -5134,7 +5014,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param apiToken 
      */
-    public viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20029> {
+    public viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20028> {
         const requestContextPromise = this.requestFactory.viewPushPreferences(userId, apiToken, _options);
 
         // build promise chain
@@ -5160,7 +5040,7 @@ export class ObservableUserApi {
      * @param channelUrl 
      * @param apiToken 
      */
-    public viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20029> {
+    public viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20028> {
         const requestContextPromise = this.requestFactory.viewPushPreferencesForChannelByUrl(userId, channelUrl, apiToken, _options);
 
         // build promise chain
@@ -5214,7 +5094,7 @@ export class ObservableUserApi {
      * @param token 
      * @param apiToken 
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20028> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<InlineResponse20027> {
         const requestContextPromise = this.requestFactory.viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType, token, apiToken, _options);
 
         // build promise chain
@@ -5286,7 +5166,7 @@ export class ObservableUserChannelMetadataApi {
      * @param apiToken 
      * @param createChannelMetadataData 
      */
-    public createChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Observable<InlineResponse20062> {
+    public createChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Observable<InlineResponse20061> {
         const requestContextPromise = this.requestFactory.createChannelMetadata(channelType, channelUrl, apiToken, createChannelMetadataData, _options);
 
         // build promise chain
@@ -5312,7 +5192,7 @@ export class ObservableUserChannelMetadataApi {
      * @param apiToken 
      * @param createUserMetadataData 
      */
-    public createUserMetadata(userId: string, apiToken?: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Observable<InlineResponse20048UserMetadata> {
+    public createUserMetadata(userId: string, apiToken?: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Observable<InlineResponse20047UserMetadata> {
         const requestContextPromise = this.requestFactory.createUserMetadata(userId, apiToken, createUserMetadataData, _options);
 
         // build promise chain
@@ -5607,7 +5487,7 @@ export class ObservableUserChannelMetadataApi {
      * @param apiToken 
      * @param updateUserMetadataData 
      */
-    public updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Observable<InlineResponse20061> {
+    public updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Observable<InlineResponse20060> {
         const requestContextPromise = this.requestFactory.updateUserMetadata(userId, apiToken, updateUserMetadataData, _options);
 
         // build promise chain
@@ -5771,7 +5651,7 @@ export class ObservableUserChannelMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewUserMetadata(userId: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<InlineResponse20048UserMetadata> {
+    public viewUserMetadata(userId: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<InlineResponse20047UserMetadata> {
         const requestContextPromise = this.requestFactory.viewUserMetadata(userId, apiToken, key, keys, _options);
 
         // build promise chain
@@ -5840,7 +5720,7 @@ export class ObservableWebhooksApi {
      * @param apiToken 
      * @param chooseWhichEventsToSubscribeToData 
      */
-    public chooseWhichEventsToSubscribeTo(apiToken?: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Observable<InlineResponse20068> {
+    public chooseWhichEventsToSubscribeTo(apiToken?: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Observable<InlineResponse20067> {
         const requestContextPromise = this.requestFactory.chooseWhichEventsToSubscribeTo(apiToken, chooseWhichEventsToSubscribeToData, _options);
 
         // build promise chain
@@ -5865,7 +5745,7 @@ export class ObservableWebhooksApi {
      * @param apiToken 
      * @param displayAllWebhookCategories 
      */
-    public retrieveListOfSubscribedEvents(apiToken?: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Observable<InlineResponse20067> {
+    public retrieveListOfSubscribedEvents(apiToken?: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Observable<InlineResponse20066> {
         const requestContextPromise = this.requestFactory.retrieveListOfSubscribedEvents(apiToken, displayAllWebhookCategories, _options);
 
         // build promise chain

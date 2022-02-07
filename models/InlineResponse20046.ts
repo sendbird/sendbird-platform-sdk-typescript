@@ -13,22 +13,50 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20046 {
-    'announcementGroup'?: Array<string>;
-    'next'?: string;
+    'uniqueId'?: string;
+    'announcementGroup'?: string;
+    'openCounts'?: Array<number>;
+    'openRates'?: Array<number>;
+    'cumulativeOpenCounts'?: Array<number>;
+    'cumulativeOpenRates'?: Array<number>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroup",
-            "baseName": "announcement_group",
-            "type": "Array<string>",
+            "name": "uniqueId",
+            "baseName": "unique_id",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "announcementGroup",
+            "baseName": "announcement_group",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "openCounts",
+            "baseName": "open_counts",
+            "type": "Array<number>",
+            "format": ""
+        },
+        {
+            "name": "openRates",
+            "baseName": "open_rates",
+            "type": "Array<number>",
+            "format": ""
+        },
+        {
+            "name": "cumulativeOpenCounts",
+            "baseName": "cumulative_open_counts",
+            "type": "Array<number>",
+            "format": ""
+        },
+        {
+            "name": "cumulativeOpenRates",
+            "baseName": "cumulative_open_rates",
+            "type": "Array<number>",
             "format": ""
         }    ];
 

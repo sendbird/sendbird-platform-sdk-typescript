@@ -10,53 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20047Messages } from './InlineResponse20047Messages';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20047 {
-    'uniqueId'?: string;
-    'announcementGroup'?: string;
-    'openCounts'?: Array<number>;
-    'openRates'?: Array<number>;
-    'cumulativeOpenCounts'?: Array<number>;
-    'cumulativeOpenRates'?: Array<number>;
+    'messages'?: Array<InlineResponse20047Messages>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "uniqueId",
-            "baseName": "unique_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "announcementGroup",
-            "baseName": "announcement_group",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "openCounts",
-            "baseName": "open_counts",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "openRates",
-            "baseName": "open_rates",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "cumulativeOpenCounts",
-            "baseName": "cumulative_open_counts",
-            "type": "Array<number>",
-            "format": ""
-        },
-        {
-            "name": "cumulativeOpenRates",
-            "baseName": "cumulative_open_rates",
-            "type": "Array<number>",
+            "name": "messages",
+            "baseName": "messages",
+            "type": "Array<InlineResponse20047Messages>",
             "format": ""
         }    ];
 

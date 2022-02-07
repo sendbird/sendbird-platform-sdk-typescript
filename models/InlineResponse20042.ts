@@ -10,13 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20042Message } from './InlineResponse20042Message';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20042 {
     'uniqueId'?: string;
-    'announcementGroup'?: string;
-    'message'?: InlineResponse20042Message;
+    'openCounts'?: Array<number>;
+    'openRates'?: Array<number>;
+    'cumulativeOpenCounts'?: Array<number>;
+    'cumulativeOpenRates'?: Array<number>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,15 +29,27 @@ export class InlineResponse20042 {
             "format": ""
         },
         {
-            "name": "announcementGroup",
-            "baseName": "announcement_group",
-            "type": "string",
+            "name": "openCounts",
+            "baseName": "open_counts",
+            "type": "Array<number>",
             "format": ""
         },
         {
-            "name": "message",
-            "baseName": "message",
-            "type": "InlineResponse20042Message",
+            "name": "openRates",
+            "baseName": "open_rates",
+            "type": "Array<number>",
+            "format": ""
+        },
+        {
+            "name": "cumulativeOpenCounts",
+            "baseName": "cumulative_open_counts",
+            "type": "Array<number>",
+            "format": ""
+        },
+        {
+            "name": "cumulativeOpenRates",
+            "baseName": "cumulative_open_rates",
+            "type": "Array<number>",
             "format": ""
         }    ];
 

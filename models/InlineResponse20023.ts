@@ -10,20 +10,20 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20023BannedChannels } from './InlineResponse20023BannedChannels';
+import { SendBirdChannelResponse } from './SendBirdChannelResponse';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20023 {
-    'bannedChannels'?: Array<InlineResponse20023BannedChannels>;
+    'mutedChannels'?: Array<SendBirdChannelResponse>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "bannedChannels",
-            "baseName": "banned_channels",
-            "type": "Array<InlineResponse20023BannedChannels>",
+            "name": "mutedChannels",
+            "baseName": "muted_channels",
+            "type": "Array<SendBirdChannelResponse>",
             "format": ""
         },
         {

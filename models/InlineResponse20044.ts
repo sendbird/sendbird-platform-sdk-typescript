@@ -10,26 +10,26 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20044OpenStatus } from './InlineResponse20044OpenStatus';
+import { InlineResponse20044Statistics } from './InlineResponse20044Statistics';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20044 {
-    'openStatus'?: Array<InlineResponse20044OpenStatus>;
-    'next'?: string;
+    'statistics'?: Array<InlineResponse20044Statistics>;
+    'week'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "openStatus",
-            "baseName": "open_status",
-            "type": "Array<InlineResponse20044OpenStatus>",
+            "name": "statistics",
+            "baseName": "statistics",
+            "type": "Array<InlineResponse20044Statistics>",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "week",
+            "baseName": "week",
+            "type": "number",
             "format": ""
         }    ];
 

@@ -10,14 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20057Emojis } from './InlineResponse20057Emojis';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20057EmojiCategories {
     'id'?: number;
     'name'?: string;
     'url'?: string;
-    'emojis'?: Array<InlineResponse20057Emojis>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,12 +36,6 @@ export class InlineResponse20057EmojiCategories {
             "name": "url",
             "baseName": "url",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "emojis",
-            "baseName": "emojis",
-            "type": "Array<InlineResponse20057Emojis>",
             "format": ""
         }    ];
 

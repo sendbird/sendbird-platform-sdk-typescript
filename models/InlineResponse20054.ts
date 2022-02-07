@@ -10,46 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20047SortedMetaarray } from './InlineResponse20047SortedMetaarray';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20054 {
-    'userId'?: string;
-    'operation'?: string;
-    'success'?: boolean;
-    'reaction'?: string;
-    'updatedAt'?: number;
+    'sortedMetaarray'?: Array<InlineResponse20047SortedMetaarray>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "operation",
-            "baseName": "operation",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "success",
-            "baseName": "success",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "reaction",
-            "baseName": "reaction",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updated_at",
-            "type": "number",
+            "name": "sortedMetaarray",
+            "baseName": "sorted_metaarray",
+            "type": "Array<InlineResponse20047SortedMetaarray>",
             "format": ""
         }    ];
 

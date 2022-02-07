@@ -10,52 +10,25 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20063ExportedData } from './InlineResponse20063ExportedData';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20063 {
-    'segments'?: string;
-    'date'?: string;
-    'value'?: number;
-    'channelType'?: string;
-    'customChannelType'?: string;
-    'customMessageType'?: string;
+    'exportedData'?: Array<InlineResponse20063ExportedData>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "segments",
-            "baseName": "segments",
-            "type": "string",
+            "name": "exportedData",
+            "baseName": "exported_data",
+            "type": "Array<InlineResponse20063ExportedData>",
             "format": ""
         },
         {
-            "name": "date",
-            "baseName": "date",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "value",
-            "baseName": "value",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "channelType",
-            "baseName": "channel_type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customChannelType",
-            "baseName": "custom_channel_type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customMessageType",
-            "baseName": "custom_message_type",
+            "name": "next",
+            "baseName": "next",
             "type": "string",
             "format": ""
         }    ];

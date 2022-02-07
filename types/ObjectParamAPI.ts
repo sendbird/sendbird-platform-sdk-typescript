@@ -41,24 +41,24 @@ import { GenerateSecondaryApiTokenData } from '../models/GenerateSecondaryApiTok
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse20010 } from '../models/InlineResponse20010';
-import { InlineResponse20010PeakConnections } from '../models/InlineResponse20010PeakConnections';
 import { InlineResponse20011 } from '../models/InlineResponse20011';
 import { InlineResponse20012 } from '../models/InlineResponse20012';
+import { InlineResponse20012PushConfigurations } from '../models/InlineResponse20012PushConfigurations';
 import { InlineResponse20013 } from '../models/InlineResponse20013';
-import { InlineResponse20013PushConfigurations } from '../models/InlineResponse20013PushConfigurations';
 import { InlineResponse20014 } from '../models/InlineResponse20014';
 import { InlineResponse20015 } from '../models/InlineResponse20015';
+import { InlineResponse20015PushMessageTemplates } from '../models/InlineResponse20015PushMessageTemplates';
 import { InlineResponse20016 } from '../models/InlineResponse20016';
-import { InlineResponse20016PushMessageTemplates } from '../models/InlineResponse20016PushMessageTemplates';
 import { InlineResponse20017 } from '../models/InlineResponse20017';
 import { InlineResponse20018 } from '../models/InlineResponse20018';
 import { InlineResponse20019 } from '../models/InlineResponse20019';
+import { InlineResponse2001PushConfigurations } from '../models/InlineResponse2001PushConfigurations';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse20020 } from '../models/InlineResponse20020';
 import { InlineResponse20021 } from '../models/InlineResponse20021';
 import { InlineResponse20022 } from '../models/InlineResponse20022';
+import { InlineResponse20022BannedChannels } from '../models/InlineResponse20022BannedChannels';
 import { InlineResponse20023 } from '../models/InlineResponse20023';
-import { InlineResponse20023BannedChannels } from '../models/InlineResponse20023BannedChannels';
 import { InlineResponse20024 } from '../models/InlineResponse20024';
 import { InlineResponse20025 } from '../models/InlineResponse20025';
 import { InlineResponse20026 } from '../models/InlineResponse20026';
@@ -71,83 +71,80 @@ import { InlineResponse20030 } from '../models/InlineResponse20030';
 import { InlineResponse20031 } from '../models/InlineResponse20031';
 import { InlineResponse20032 } from '../models/InlineResponse20032';
 import { InlineResponse20033 } from '../models/InlineResponse20033';
+import { InlineResponse20033BannedList } from '../models/InlineResponse20033BannedList';
 import { InlineResponse20034 } from '../models/InlineResponse20034';
-import { InlineResponse20034BannedList } from '../models/InlineResponse20034BannedList';
 import { InlineResponse20035 } from '../models/InlineResponse20035';
 import { InlineResponse20036 } from '../models/InlineResponse20036';
 import { InlineResponse20037 } from '../models/InlineResponse20037';
 import { InlineResponse20038 } from '../models/InlineResponse20038';
 import { InlineResponse20039 } from '../models/InlineResponse20039';
+import { InlineResponse20039Announcements } from '../models/InlineResponse20039Announcements';
+import { InlineResponse20039Message } from '../models/InlineResponse20039Message';
 import { InlineResponse2003PushConfigurations } from '../models/InlineResponse2003PushConfigurations';
 import { InlineResponse2004 } from '../models/InlineResponse2004';
 import { InlineResponse20040 } from '../models/InlineResponse20040';
-import { InlineResponse20040Announcements } from '../models/InlineResponse20040Announcements';
-import { InlineResponse20040Message } from '../models/InlineResponse20040Message';
+import { InlineResponse20040CreateChannelOptions } from '../models/InlineResponse20040CreateChannelOptions';
 import { InlineResponse20041 } from '../models/InlineResponse20041';
-import { InlineResponse20041CreateChannelOptions } from '../models/InlineResponse20041CreateChannelOptions';
+import { InlineResponse20041Message } from '../models/InlineResponse20041Message';
 import { InlineResponse20042 } from '../models/InlineResponse20042';
-import { InlineResponse20042Message } from '../models/InlineResponse20042Message';
 import { InlineResponse20043 } from '../models/InlineResponse20043';
+import { InlineResponse20043OpenStatus } from '../models/InlineResponse20043OpenStatus';
 import { InlineResponse20044 } from '../models/InlineResponse20044';
-import { InlineResponse20044OpenStatus } from '../models/InlineResponse20044OpenStatus';
+import { InlineResponse20044Statistics } from '../models/InlineResponse20044Statistics';
 import { InlineResponse20045 } from '../models/InlineResponse20045';
-import { InlineResponse20045Statistics } from '../models/InlineResponse20045Statistics';
 import { InlineResponse20046 } from '../models/InlineResponse20046';
 import { InlineResponse20047 } from '../models/InlineResponse20047';
+import { InlineResponse20047Messages } from '../models/InlineResponse20047Messages';
+import { InlineResponse20047OgTag } from '../models/InlineResponse20047OgTag';
+import { InlineResponse20047OgTagOgImage } from '../models/InlineResponse20047OgTagOgImage';
+import { InlineResponse20047SortedMetaarray } from '../models/InlineResponse20047SortedMetaarray';
+import { InlineResponse20047User } from '../models/InlineResponse20047User';
+import { InlineResponse20047UserMetadata } from '../models/InlineResponse20047UserMetadata';
 import { InlineResponse20048 } from '../models/InlineResponse20048';
-import { InlineResponse20048Messages } from '../models/InlineResponse20048Messages';
-import { InlineResponse20048OgTag } from '../models/InlineResponse20048OgTag';
-import { InlineResponse20048OgTagOgImage } from '../models/InlineResponse20048OgTagOgImage';
-import { InlineResponse20048SortedMetaarray } from '../models/InlineResponse20048SortedMetaarray';
-import { InlineResponse20048User } from '../models/InlineResponse20048User';
-import { InlineResponse20048UserMetadata } from '../models/InlineResponse20048UserMetadata';
 import { InlineResponse20049 } from '../models/InlineResponse20049';
-import { InlineResponse2004PushConfigurations } from '../models/InlineResponse2004PushConfigurations';
+import { InlineResponse20049Unread } from '../models/InlineResponse20049Unread';
+import { InlineResponse2004PushMessageTemplates } from '../models/InlineResponse2004PushMessageTemplates';
+import { InlineResponse2004Template } from '../models/InlineResponse2004Template';
 import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { InlineResponse20050 } from '../models/InlineResponse20050';
-import { InlineResponse20050Unread } from '../models/InlineResponse20050Unread';
 import { InlineResponse20051 } from '../models/InlineResponse20051';
 import { InlineResponse20052 } from '../models/InlineResponse20052';
 import { InlineResponse20053 } from '../models/InlineResponse20053';
 import { InlineResponse20054 } from '../models/InlineResponse20054';
 import { InlineResponse20055 } from '../models/InlineResponse20055';
 import { InlineResponse20056 } from '../models/InlineResponse20056';
+import { InlineResponse20056EmojiCategories } from '../models/InlineResponse20056EmojiCategories';
+import { InlineResponse20056Emojis } from '../models/InlineResponse20056Emojis';
 import { InlineResponse20057 } from '../models/InlineResponse20057';
 import { InlineResponse20057EmojiCategories } from '../models/InlineResponse20057EmojiCategories';
-import { InlineResponse20057Emojis } from '../models/InlineResponse20057Emojis';
 import { InlineResponse20058 } from '../models/InlineResponse20058';
-import { InlineResponse20058EmojiCategories } from '../models/InlineResponse20058EmojiCategories';
 import { InlineResponse20059 } from '../models/InlineResponse20059';
-import { InlineResponse2005PushMessageTemplates } from '../models/InlineResponse2005PushMessageTemplates';
-import { InlineResponse2005Template } from '../models/InlineResponse2005Template';
 import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse20060 } from '../models/InlineResponse20060';
 import { InlineResponse20061 } from '../models/InlineResponse20061';
 import { InlineResponse20062 } from '../models/InlineResponse20062';
 import { InlineResponse20063 } from '../models/InlineResponse20063';
+import { InlineResponse20063ExportedData } from '../models/InlineResponse20063ExportedData';
+import { InlineResponse20063File } from '../models/InlineResponse20063File';
 import { InlineResponse20064 } from '../models/InlineResponse20064';
-import { InlineResponse20064ExportedData } from '../models/InlineResponse20064ExportedData';
-import { InlineResponse20064File } from '../models/InlineResponse20064File';
 import { InlineResponse20065 } from '../models/InlineResponse20065';
+import { InlineResponse20065Bot } from '../models/InlineResponse20065Bot';
+import { InlineResponse20065Bots } from '../models/InlineResponse20065Bots';
 import { InlineResponse20066 } from '../models/InlineResponse20066';
-import { InlineResponse20066Bot } from '../models/InlineResponse20066Bot';
-import { InlineResponse20066Bots } from '../models/InlineResponse20066Bots';
+import { InlineResponse20066Webhook } from '../models/InlineResponse20066Webhook';
 import { InlineResponse20067 } from '../models/InlineResponse20067';
 import { InlineResponse20067Webhook } from '../models/InlineResponse20067Webhook';
 import { InlineResponse20068 } from '../models/InlineResponse20068';
-import { InlineResponse20068Webhook } from '../models/InlineResponse20068Webhook';
+import { InlineResponse20068Requests } from '../models/InlineResponse20068Requests';
 import { InlineResponse20069 } from '../models/InlineResponse20069';
-import { InlineResponse20069Requests } from '../models/InlineResponse20069Requests';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { InlineResponse20070 } from '../models/InlineResponse20070';
+import { InlineResponse20070ReportLogs } from '../models/InlineResponse20070ReportLogs';
 import { InlineResponse20071 } from '../models/InlineResponse20071';
 import { InlineResponse20071ReportLogs } from '../models/InlineResponse20071ReportLogs';
-import { InlineResponse20072 } from '../models/InlineResponse20072';
-import { InlineResponse20072ReportLogs } from '../models/InlineResponse20072ReportLogs';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { InlineResponse2009 } from '../models/InlineResponse2009';
-import { InlineResponse200Region } from '../models/InlineResponse200Region';
-import { InlineResponse200Results } from '../models/InlineResponse200Results';
+import { InlineResponse2009PeakConnections } from '../models/InlineResponse2009PeakConnections';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
@@ -245,7 +242,7 @@ export class ObjectAdvancedAnalyticsApi {
      * Retrieve Advanced analytics metrics
      * @param param the request object
      */
-    public retrieveAdvancedAnalyticsMetrics(param: AdvancedAnalyticsApiRetrieveAdvancedAnalyticsMetricsRequest, options?: Configuration): Promise<InlineResponse20063> {
+    public retrieveAdvancedAnalyticsMetrics(param: AdvancedAnalyticsApiRetrieveAdvancedAnalyticsMetricsRequest, options?: Configuration): Promise<InlineResponse20062> {
         return this.api.retrieveAdvancedAnalyticsMetrics(param.apiToken,  options).toPromise();
     }
 
@@ -521,7 +518,7 @@ export class ObjectAnnouncementsApi {
      * Get detailed open rate of an announcement
      * @param param the request object
      */
-    public getDetailedOpenRateOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20043> {
+    public getDetailedOpenRateOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20042> {
         return this.api.getDetailedOpenRateOfAnnouncementById(param.uniqueId, param.apiToken,  options).toPromise();
     }
 
@@ -530,7 +527,7 @@ export class ObjectAnnouncementsApi {
      * Get detailed open rate of an announcement group
      * @param param the request object
      */
-    public getDetailedOpenRateOfAnnouncementGroup(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementGroupRequest, options?: Configuration): Promise<InlineResponse20047> {
+    public getDetailedOpenRateOfAnnouncementGroup(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementGroupRequest, options?: Configuration): Promise<InlineResponse20046> {
         return this.api.getDetailedOpenRateOfAnnouncementGroup(param.announcementGroup, param.apiToken,  options).toPromise();
     }
 
@@ -539,7 +536,7 @@ export class ObjectAnnouncementsApi {
      * Get detailed open status of an announcement
      * @param param the request object
      */
-    public getDetailedOpenStatusOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20044> {
+    public getDetailedOpenStatusOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20043> {
         return this.api.getDetailedOpenStatusOfAnnouncementById(param.uniqueId, param.apiToken, param.limit, param.next, param.uniqueIds, param.channelUrls, param.hasOpened,  options).toPromise();
     }
 
@@ -548,7 +545,7 @@ export class ObjectAnnouncementsApi {
      * Get statistics - weekly
      * @param param the request object
      */
-    public getStatistics(param: AnnouncementsApiGetStatisticsRequest, options?: Configuration): Promise<InlineResponse20045> {
+    public getStatistics(param: AnnouncementsApiGetStatisticsRequest, options?: Configuration): Promise<InlineResponse20044> {
         return this.api.getStatistics(param.apiToken,  options).toPromise();
     }
 
@@ -557,7 +554,7 @@ export class ObjectAnnouncementsApi {
      * Get statistics - daily
      * @param param the request object
      */
-    public getStatisticsDaily(param: AnnouncementsApiGetStatisticsDailyRequest, options?: Configuration): Promise<InlineResponse20045> {
+    public getStatisticsDaily(param: AnnouncementsApiGetStatisticsDailyRequest, options?: Configuration): Promise<InlineResponse20044> {
         return this.api.getStatisticsDaily(param.startDate, param.endDate, param.startWeek, param.endWeek, param.startMonth, param.endMonth, param.apiToken, param.announcementGroup,  options).toPromise();
     }
 
@@ -566,7 +563,7 @@ export class ObjectAnnouncementsApi {
      * Get statistics - monthly
      * @param param the request object
      */
-    public getStatisticsMonthly(param: AnnouncementsApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<InlineResponse20045> {
+    public getStatisticsMonthly(param: AnnouncementsApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<InlineResponse20044> {
         return this.api.getStatisticsMonthly(param.apiToken,  options).toPromise();
     }
 
@@ -575,7 +572,7 @@ export class ObjectAnnouncementsApi {
      * List announcement groups
      * @param param the request object
      */
-    public listAnnouncementGroups(param: AnnouncementsApiListAnnouncementGroupsRequest, options?: Configuration): Promise<InlineResponse20046> {
+    public listAnnouncementGroups(param: AnnouncementsApiListAnnouncementGroupsRequest, options?: Configuration): Promise<InlineResponse20045> {
         return this.api.listAnnouncementGroups(param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -584,7 +581,7 @@ export class ObjectAnnouncementsApi {
      * List announcements
      * @param param the request object
      */
-    public listAnnouncements(param: AnnouncementsApiListAnnouncementsRequest, options?: Configuration): Promise<InlineResponse20040> {
+    public listAnnouncements(param: AnnouncementsApiListAnnouncementsRequest, options?: Configuration): Promise<InlineResponse20039> {
         return this.api.listAnnouncements(param.apiToken, param.token, param.limit, param.order, param.status, param.announcementGroup,  options).toPromise();
     }
 
@@ -593,7 +590,7 @@ export class ObjectAnnouncementsApi {
      * Schedule an announcement
      * @param param the request object
      */
-    public scheduleAnnouncement(param: AnnouncementsApiScheduleAnnouncementRequest, options?: Configuration): Promise<InlineResponse20041> {
+    public scheduleAnnouncement(param: AnnouncementsApiScheduleAnnouncementRequest, options?: Configuration): Promise<InlineResponse20040> {
         return this.api.scheduleAnnouncement(param.apiToken, param.scheduleAnnouncementData,  options).toPromise();
     }
 
@@ -602,7 +599,7 @@ export class ObjectAnnouncementsApi {
      * Update an announcement
      * @param param the request object
      */
-    public updateAnnouncementById(param: AnnouncementsApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20042> {
+    public updateAnnouncementById(param: AnnouncementsApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20041> {
         return this.api.updateAnnouncementById(param.uniqueId, param.apiToken, param.updateAnnouncementByIdData,  options).toPromise();
     }
 
@@ -611,7 +608,7 @@ export class ObjectAnnouncementsApi {
      * View an announcement
      * @param param the request object
      */
-    public viewAnnouncementById(param: AnnouncementsApiViewAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20040Announcements> {
+    public viewAnnouncementById(param: AnnouncementsApiViewAnnouncementByIdRequest, options?: Configuration): Promise<InlineResponse20039Announcements> {
         return this.api.viewAnnouncementById(param.uniqueId, param.apiToken,  options).toPromise();
     }
 
@@ -1064,7 +1061,7 @@ export class ObjectApplicationApi {
      * Add an APNs push configuration
      * @param param the request object
      */
-    public addApnsPushConfiguration(param: ApplicationApiAddApnsPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2004> {
+    public addApnsPushConfiguration(param: ApplicationApiAddApnsPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2003> {
         return this.api.addApnsPushConfiguration(param.apiToken, param.addApnsPushConfigurationData,  options).toPromise();
     }
 
@@ -1073,7 +1070,7 @@ export class ObjectApplicationApi {
      * Add a FCM push configuration
      * @param param the request object
      */
-    public addFcmPushConfiguration(param: ApplicationApiAddFcmPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2002> {
+    public addFcmPushConfiguration(param: ApplicationApiAddFcmPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.addFcmPushConfiguration(param.apiToken, param.addFcmPushConfigurationData,  options).toPromise();
     }
 
@@ -1082,7 +1079,7 @@ export class ObjectApplicationApi {
      * Add an HMS push configuration
      * @param param the request object
      */
-    public addHmsPushConfiguration(param: ApplicationApiAddHmsPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2003> {
+    public addHmsPushConfiguration(param: ApplicationApiAddHmsPushConfigurationRequest, options?: Configuration): Promise<InlineResponse2002> {
         return this.api.addHmsPushConfiguration(param.apiToken, param.addHmsPushConfigurationData,  options).toPromise();
     }
 
@@ -1091,7 +1088,7 @@ export class ObjectApplicationApi {
      * Add an IP to a whitelist
      * @param param the request object
      */
-    public addIpToWhitelist(param: ApplicationApiAddIpToWhitelistRequest, options?: Configuration): Promise<InlineResponse2007> {
+    public addIpToWhitelist(param: ApplicationApiAddIpToWhitelistRequest, options?: Configuration): Promise<InlineResponse2006> {
         return this.api.addIpToWhitelist(param.apiToken, param.addIpToWhitelistData,  options).toPromise();
     }
 
@@ -1100,7 +1097,7 @@ export class ObjectApplicationApi {
      * Delete allowed IPs from a whitelist
      * @param param the request object
      */
-    public deleteAllowedIpsFromWhitelist(param: ApplicationApiDeleteAllowedIpsFromWhitelistRequest, options?: Configuration): Promise<InlineResponse2007> {
+    public deleteAllowedIpsFromWhitelist(param: ApplicationApiDeleteAllowedIpsFromWhitelistRequest, options?: Configuration): Promise<InlineResponse2006> {
         return this.api.deleteAllowedIpsFromWhitelist(param.ipWhitelistAddresses, param.apiToken,  options).toPromise();
     }
 
@@ -1109,7 +1106,7 @@ export class ObjectApplicationApi {
      * Delete an APNs certificate
      * @param param the request object
      */
-    public deleteApnsCertificateById(param: ApplicationApiDeleteApnsCertificateByIdRequest, options?: Configuration): Promise<InlineResponse20014> {
+    public deleteApnsCertificateById(param: ApplicationApiDeleteApnsCertificateByIdRequest, options?: Configuration): Promise<InlineResponse20013> {
         return this.api.deleteApnsCertificateById(param.providerId, param.apiToken,  options).toPromise();
     }
 
@@ -1118,7 +1115,7 @@ export class ObjectApplicationApi {
      * Generate a secondary API token
      * @param param the request object
      */
-    public generateSecondaryApiToken(param: ApplicationApiGenerateSecondaryApiTokenRequest, options?: Configuration): Promise<InlineResponse2008> {
+    public generateSecondaryApiToken(param: ApplicationApiGenerateSecondaryApiTokenRequest, options?: Configuration): Promise<InlineResponse2007> {
         return this.api.generateSecondaryApiToken(param.apiToken, param.generateSecondaryApiTokenData,  options).toPromise();
     }
 
@@ -1127,7 +1124,7 @@ export class ObjectApplicationApi {
      * List push configurations
      * @param param the request object
      */
-    public listPushConfigurations(param: ApplicationApiListPushConfigurationsRequest, options?: Configuration): Promise<InlineResponse20013> {
+    public listPushConfigurations(param: ApplicationApiListPushConfigurationsRequest, options?: Configuration): Promise<InlineResponse20012> {
         return this.api.listPushConfigurations(param.pushType, param.apiToken,  options).toPromise();
     }
 
@@ -1136,7 +1133,7 @@ export class ObjectApplicationApi {
      * List push notification content templates
      * @param param the request object
      */
-    public listPushNotificationContentTemplates(param: ApplicationApiListPushNotificationContentTemplatesRequest, options?: Configuration): Promise<InlineResponse2005> {
+    public listPushNotificationContentTemplates(param: ApplicationApiListPushNotificationContentTemplatesRequest, options?: Configuration): Promise<InlineResponse2004> {
         return this.api.listPushNotificationContentTemplates(param.apiToken,  options).toPromise();
     }
 
@@ -1145,7 +1142,7 @@ export class ObjectApplicationApi {
      * List secondary API tokens
      * @param param the request object
      */
-    public listSecondaryApiTokens(param: ApplicationApiListSecondaryApiTokensRequest, options?: Configuration): Promise<InlineResponse2009> {
+    public listSecondaryApiTokens(param: ApplicationApiListSecondaryApiTokensRequest, options?: Configuration): Promise<InlineResponse2008> {
         return this.api.listSecondaryApiTokens(param.apiToken,  options).toPromise();
     }
 
@@ -1154,7 +1151,7 @@ export class ObjectApplicationApi {
      * Remove a push configuration
      * @param param the request object
      */
-    public removePushConfigurationById(param: ApplicationApiRemovePushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20014> {
+    public removePushConfigurationById(param: ApplicationApiRemovePushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20013> {
         return this.api.removePushConfigurationById(param.pushType, param.providerId, param.apiToken,  options).toPromise();
     }
 
@@ -1163,7 +1160,7 @@ export class ObjectApplicationApi {
      * Retrieve an IP whitelist
      * @param param the request object
      */
-    public retrieveIpWhitelist(param: ApplicationApiRetrieveIpWhitelistRequest, options?: Configuration): Promise<InlineResponse2007> {
+    public retrieveIpWhitelist(param: ApplicationApiRetrieveIpWhitelistRequest, options?: Configuration): Promise<InlineResponse2006> {
         return this.api.retrieveIpWhitelist(param.apiToken,  options).toPromise();
     }
 
@@ -1172,7 +1169,7 @@ export class ObjectApplicationApi {
      * Revoke a secondary API token
      * @param param the request object
      */
-    public revokeSecondaryApiTokenByToken(param: ApplicationApiRevokeSecondaryApiTokenByTokenRequest, options?: Configuration): Promise<void> {
+    public revokeSecondaryApiTokenByToken(param: ApplicationApiRevokeSecondaryApiTokenByTokenRequest, options?: Configuration): Promise<InlineResponse2007> {
         return this.api.revokeSecondaryApiTokenByToken(param.apiToken2, param.apiToken,  options).toPromise();
     }
 
@@ -1181,7 +1178,7 @@ export class ObjectApplicationApi {
      * Update an APNs push configuration
      * @param param the request object
      */
-    public updateApnsPushConfigurationById(param: ApplicationApiUpdateApnsPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20015> {
+    public updateApnsPushConfigurationById(param: ApplicationApiUpdateApnsPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20014> {
         return this.api.updateApnsPushConfigurationById(param.providerId, param.apiToken, param.updateApnsPushConfigurationByIdData,  options).toPromise();
     }
 
@@ -1190,7 +1187,7 @@ export class ObjectApplicationApi {
      * Update default channel invitation preference
      * @param param the request object
      */
-    public updateDefaultChannelInvitationPreference(param: ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2006> {
+    public updateDefaultChannelInvitationPreference(param: ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2005> {
         return this.api.updateDefaultChannelInvitationPreference(param.apiToken, param.updateDefaultChannelInvitationPreferenceData,  options).toPromise();
     }
 
@@ -1199,7 +1196,7 @@ export class ObjectApplicationApi {
      * Update a FCM push configuration
      * @param param the request object
      */
-    public updateFcmPushConfigurationById(param: ApplicationApiUpdateFcmPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20015> {
+    public updateFcmPushConfigurationById(param: ApplicationApiUpdateFcmPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20014> {
         return this.api.updateFcmPushConfigurationById(param.providerId, param.apiToken, param.updateFcmPushConfigurationByIdData,  options).toPromise();
     }
 
@@ -1208,7 +1205,7 @@ export class ObjectApplicationApi {
      * Update an HMS push configuration
      * @param param the request object
      */
-    public updateHmsPushConfigurationById(param: ApplicationApiUpdateHmsPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20015> {
+    public updateHmsPushConfigurationById(param: ApplicationApiUpdateHmsPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20014> {
         return this.api.updateHmsPushConfigurationById(param.providerId, param.apiToken, param.updateHmsPushConfigurationByIdData,  options).toPromise();
     }
 
@@ -1217,7 +1214,7 @@ export class ObjectApplicationApi {
      * Update a push notification content template
      * @param param the request object
      */
-    public updatePushNotificationContentTemplate(param: ApplicationApiUpdatePushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20016> {
+    public updatePushNotificationContentTemplate(param: ApplicationApiUpdatePushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20015> {
         return this.api.updatePushNotificationContentTemplate(param.templateName, param.apiToken, param.updatePushNotificationContentTemplateData,  options).toPromise();
     }
 
@@ -1226,7 +1223,7 @@ export class ObjectApplicationApi {
      * View default channel invitation preference
      * @param param the request object
      */
-    public viewDefaultChannelInvitationPreference(param: ApplicationApiViewDefaultChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2006> {
+    public viewDefaultChannelInvitationPreference(param: ApplicationApiViewDefaultChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2005> {
         return this.api.viewDefaultChannelInvitationPreference(param.apiToken,  options).toPromise();
     }
 
@@ -1235,7 +1232,7 @@ export class ObjectApplicationApi {
      * View number of concurrent connections
      * @param param the request object
      */
-    public viewNumberOfConcurrentConnections(param: ApplicationApiViewNumberOfConcurrentConnectionsRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public viewNumberOfConcurrentConnections(param: ApplicationApiViewNumberOfConcurrentConnectionsRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.viewNumberOfConcurrentConnections(param.apiToken,  options).toPromise();
     }
 
@@ -1244,7 +1241,7 @@ export class ObjectApplicationApi {
      * View number of daily active users
      * @param param the request object
      */
-    public viewNumberOfDailyActiveUsers(param: ApplicationApiViewNumberOfDailyActiveUsersRequest, options?: Configuration): Promise<InlineResponse20012> {
+    public viewNumberOfDailyActiveUsers(param: ApplicationApiViewNumberOfDailyActiveUsersRequest, options?: Configuration): Promise<InlineResponse20011> {
         return this.api.viewNumberOfDailyActiveUsers(param.apiToken, param.date,  options).toPromise();
     }
 
@@ -1253,7 +1250,7 @@ export class ObjectApplicationApi {
      * View number of monthly active users
      * @param param the request object
      */
-    public viewNumberOfMonthlyActiveUsers(param: ApplicationApiViewNumberOfMonthlyActiveUsersRequest, options?: Configuration): Promise<InlineResponse20011> {
+    public viewNumberOfMonthlyActiveUsers(param: ApplicationApiViewNumberOfMonthlyActiveUsersRequest, options?: Configuration): Promise<InlineResponse20010> {
         return this.api.viewNumberOfMonthlyActiveUsers(param.apiToken, param.date,  options).toPromise();
     }
 
@@ -1262,7 +1259,7 @@ export class ObjectApplicationApi {
      * View number of peak connections
      * @param param the request object
      */
-    public viewNumberOfPeakConnections(param: ApplicationApiViewNumberOfPeakConnectionsRequest, options?: Configuration): Promise<InlineResponse20010> {
+    public viewNumberOfPeakConnections(param: ApplicationApiViewNumberOfPeakConnectionsRequest, options?: Configuration): Promise<InlineResponse2009> {
         return this.api.viewNumberOfPeakConnections(param.timeDimension, param.startYear, param.startMonth, param.endYear, param.endMonth, param.apiToken, param.startDay, param.endDay,  options).toPromise();
     }
 
@@ -1271,7 +1268,7 @@ export class ObjectApplicationApi {
      * View a push configuration
      * @param param the request object
      */
-    public viewPushConfigurationById(param: ApplicationApiViewPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20013> {
+    public viewPushConfigurationById(param: ApplicationApiViewPushConfigurationByIdRequest, options?: Configuration): Promise<InlineResponse20012> {
         return this.api.viewPushConfigurationById(param.pushType, param.providerId, param.apiToken,  options).toPromise();
     }
 
@@ -1280,7 +1277,7 @@ export class ObjectApplicationApi {
      * View a push notification content template
      * @param param the request object
      */
-    public viewPushNotificationContentTemplate(param: ApplicationApiViewPushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20016> {
+    public viewPushNotificationContentTemplate(param: ApplicationApiViewPushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20015> {
         return this.api.viewPushNotificationContentTemplate(param.templateName, param.apiToken,  options).toPromise();
     }
 
@@ -1289,7 +1286,7 @@ export class ObjectApplicationApi {
      * View a secondary API token
      * @param param the request object
      */
-    public viewSecondaryApiTokenByToken(param: ApplicationApiViewSecondaryApiTokenByTokenRequest, options?: Configuration): Promise<InlineResponse2008> {
+    public viewSecondaryApiTokenByToken(param: ApplicationApiViewSecondaryApiTokenByTokenRequest, options?: Configuration): Promise<InlineResponse2007> {
         return this.api.viewSecondaryApiTokenByToken(param.apiToken2, param.apiToken,  options).toPromise();
     }
 
@@ -1481,7 +1478,7 @@ export class ObjectBotInterfaceApi {
      * Create a bot
      * @param param the request object
      */
-    public createBot(param: BotInterfaceApiCreateBotRequest, options?: Configuration): Promise<InlineResponse20066Bots> {
+    public createBot(param: BotInterfaceApiCreateBotRequest, options?: Configuration): Promise<InlineResponse20065Bots> {
         return this.api.createBot(param.apiToken, param.createBotData,  options).toPromise();
     }
 
@@ -1526,7 +1523,7 @@ export class ObjectBotInterfaceApi {
      * List bots
      * @param param the request object
      */
-    public listBots(param: BotInterfaceApiListBotsRequest, options?: Configuration): Promise<InlineResponse20066> {
+    public listBots(param: BotInterfaceApiListBotsRequest, options?: Configuration): Promise<InlineResponse20065> {
         return this.api.listBots(param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -1544,7 +1541,7 @@ export class ObjectBotInterfaceApi {
      * Update a bot
      * @param param the request object
      */
-    public updateBotById(param: BotInterfaceApiUpdateBotByIdRequest, options?: Configuration): Promise<InlineResponse20066Bots> {
+    public updateBotById(param: BotInterfaceApiUpdateBotByIdRequest, options?: Configuration): Promise<InlineResponse20065Bots> {
         return this.api.updateBotById(param.botUserid, param.apiToken, param.updateBotByIdData,  options).toPromise();
     }
 
@@ -1553,7 +1550,7 @@ export class ObjectBotInterfaceApi {
      * View a bot
      * @param param the request object
      */
-    public viewBotById(param: BotInterfaceApiViewBotByIdRequest, options?: Configuration): Promise<InlineResponse20066Bots> {
+    public viewBotById(param: BotInterfaceApiViewBotByIdRequest, options?: Configuration): Promise<InlineResponse20065Bots> {
         return this.api.viewBotById(param.botUserid, param.apiToken,  options).toPromise();
     }
 
@@ -1643,7 +1640,7 @@ export class ObjectDataExportApi {
      * List data exports by message, channel, or user
      * @param param the request object
      */
-    public listDataExportsByMessageChannelOrUser(param: DataExportApiListDataExportsByMessageChannelOrUserRequest, options?: Configuration): Promise<InlineResponse20064> {
+    public listDataExportsByMessageChannelOrUser(param: DataExportApiListDataExportsByMessageChannelOrUserRequest, options?: Configuration): Promise<InlineResponse20063> {
         return this.api.listDataExportsByMessageChannelOrUser(param.dataType, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -1652,7 +1649,7 @@ export class ObjectDataExportApi {
      * Register and schedule a data export
      * @param param the request object
      */
-    public registerAndScheduleDataExport(param: DataExportApiRegisterAndScheduleDataExportRequest, options?: Configuration): Promise<InlineResponse20064ExportedData> {
+    public registerAndScheduleDataExport(param: DataExportApiRegisterAndScheduleDataExportRequest, options?: Configuration): Promise<InlineResponse20063ExportedData> {
         return this.api.registerAndScheduleDataExport(param.dataType, param.apiToken, param.registerAndScheduleDataExportData,  options).toPromise();
     }
 
@@ -1661,7 +1658,7 @@ export class ObjectDataExportApi {
      * View a data export
      * @param param the request object
      */
-    public viewDataExportById(param: DataExportApiViewDataExportByIdRequest, options?: Configuration): Promise<InlineResponse20065> {
+    public viewDataExportById(param: DataExportApiViewDataExportByIdRequest, options?: Configuration): Promise<InlineResponse20064> {
         return this.api.viewDataExportById(param.dataType, param.requestId, param.apiToken,  options).toPromise();
     }
 
@@ -1757,7 +1754,7 @@ export class ObjectDataPrivacyApi {
      * List GDPR requests
      * @param param the request object
      */
-    public listGdprRequests(param: DataPrivacyApiListGdprRequestsRequest, options?: Configuration): Promise<InlineResponse20069> {
+    public listGdprRequests(param: DataPrivacyApiListGdprRequestsRequest, options?: Configuration): Promise<InlineResponse20068> {
         return this.api.listGdprRequests(param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -1766,7 +1763,7 @@ export class ObjectDataPrivacyApi {
      * Register a GDPR request
      * @param param the request object
      */
-    public registerGdprRequest(param: DataPrivacyApiRegisterGdprRequestRequest, options?: Configuration): Promise<InlineResponse20070> {
+    public registerGdprRequest(param: DataPrivacyApiRegisterGdprRequestRequest, options?: Configuration): Promise<InlineResponse20069> {
         return this.api.registerGdprRequest(param.apiToken, param.registerGdprRequestData,  options).toPromise();
     }
 
@@ -1775,7 +1772,7 @@ export class ObjectDataPrivacyApi {
      * View a GDPR request
      * @param param the request object
      */
-    public viewGdprRequestById(param: DataPrivacyApiViewGdprRequestByIdRequest, options?: Configuration): Promise<InlineResponse20069Requests> {
+    public viewGdprRequestById(param: DataPrivacyApiViewGdprRequestByIdRequest, options?: Configuration): Promise<InlineResponse20068Requests> {
         return this.api.viewGdprRequestById(param.requestId, param.apiToken,  options).toPromise();
     }
 
@@ -1976,7 +1973,7 @@ export class ObjectEmojisApi {
      * Add emoji categories
      * @param param the request object
      */
-    public addEmojiCategories(param: EmojisApiAddEmojiCategoriesRequest, options?: Configuration): Promise<InlineResponse20058> {
+    public addEmojiCategories(param: EmojisApiAddEmojiCategoriesRequest, options?: Configuration): Promise<InlineResponse20057> {
         return this.api.addEmojiCategories(param.apiToken, param.body,  options).toPromise();
     }
 
@@ -1985,7 +1982,7 @@ export class ObjectEmojisApi {
      * Add emojis
      * @param param the request object
      */
-    public addEmojis(param: EmojisApiAddEmojisRequest, options?: Configuration): Promise<InlineResponse20060> {
+    public addEmojis(param: EmojisApiAddEmojisRequest, options?: Configuration): Promise<InlineResponse20059> {
         return this.api.addEmojis(param.apiToken, param.addEmojisData,  options).toPromise();
     }
 
@@ -2012,7 +2009,7 @@ export class ObjectEmojisApi {
      * Enable reactions
      * @param param the request object
      */
-    public enableReactions(param: EmojisApiEnableReactionsRequest, options?: Configuration): Promise<InlineResponse20052> {
+    public enableReactions(param: EmojisApiEnableReactionsRequest, options?: Configuration): Promise<InlineResponse20051> {
         return this.api.enableReactions(param.apiToken, param.enableReactionsData,  options).toPromise();
     }
 
@@ -2039,7 +2036,7 @@ export class ObjectEmojisApi {
      * List all emojis and emoji categories
      * @param param the request object
      */
-    public listAllEmojisAndEmojiCategories(param: EmojisApiListAllEmojisAndEmojiCategoriesRequest, options?: Configuration): Promise<InlineResponse20057> {
+    public listAllEmojisAndEmojiCategories(param: EmojisApiListAllEmojisAndEmojiCategoriesRequest, options?: Configuration): Promise<InlineResponse20056> {
         return this.api.listAllEmojisAndEmojiCategories(param.apiToken,  options).toPromise();
     }
 
@@ -2048,7 +2045,7 @@ export class ObjectEmojisApi {
      * List emojis
      * @param param the request object
      */
-    public listEmojis(param: EmojisApiListEmojisRequest, options?: Configuration): Promise<InlineResponse20059> {
+    public listEmojis(param: EmojisApiListEmojisRequest, options?: Configuration): Promise<InlineResponse20058> {
         return this.api.listEmojis(param.apiToken,  options).toPromise();
     }
 
@@ -2075,7 +2072,7 @@ export class ObjectEmojisApi {
      * Use default emojis
      * @param param the request object
      */
-    public useDefaultEmojis(param: EmojisApiUseDefaultEmojisRequest, options?: Configuration): Promise<InlineResponse20056> {
+    public useDefaultEmojis(param: EmojisApiUseDefaultEmojisRequest, options?: Configuration): Promise<InlineResponse20055> {
         return this.api.useDefaultEmojis(param.apiToken, param.useDefaultEmojisData,  options).toPromise();
     }
 
@@ -3029,7 +3026,7 @@ export class ObjectGroupChannelApi {
      * Ban a user
      * @param param the request object
      */
-    public gcBanUser(param: GroupChannelApiGcBanUserRequest, options?: Configuration): Promise<InlineResponse20034BannedList> {
+    public gcBanUser(param: GroupChannelApiGcBanUserRequest, options?: Configuration): Promise<InlineResponse20033BannedList> {
         return this.api.gcBanUser(param.channelUrl, param.apiToken, param.gcBanUserData,  options).toPromise();
     }
 
@@ -3047,7 +3044,7 @@ export class ObjectGroupChannelApi {
      * Check if member
      * @param param the request object
      */
-    public gcCheckIfMemberById(param: GroupChannelApiGcCheckIfMemberByIdRequest, options?: Configuration): Promise<InlineResponse20038> {
+    public gcCheckIfMemberById(param: GroupChannelApiGcCheckIfMemberByIdRequest, options?: Configuration): Promise<InlineResponse20037> {
         return this.api.gcCheckIfMemberById(param.channelUrl, param.userId, param.apiToken,  options).toPromise();
     }
 
@@ -3128,7 +3125,7 @@ export class ObjectGroupChannelApi {
      * List banned users
      * @param param the request object
      */
-    public gcListBannedUsers(param: GroupChannelApiGcListBannedUsersRequest, options?: Configuration): Promise<InlineResponse20034> {
+    public gcListBannedUsers(param: GroupChannelApiGcListBannedUsersRequest, options?: Configuration): Promise<InlineResponse20033> {
         return this.api.gcListBannedUsers(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -3137,7 +3134,7 @@ export class ObjectGroupChannelApi {
      * List channels
      * @param param the request object
      */
-    public gcListChannels(param: GroupChannelApiGcListChannelsRequest, options?: Configuration): Promise<InlineResponse20018> {
+    public gcListChannels(param: GroupChannelApiGcListChannelsRequest, options?: Configuration): Promise<InlineResponse20017> {
         return this.api.gcListChannels(param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId,  options).toPromise();
     }
 
@@ -3146,7 +3143,7 @@ export class ObjectGroupChannelApi {
      * List members
      * @param param the request object
      */
-    public gcListMembers(param: GroupChannelApiGcListMembersRequest, options?: Configuration): Promise<InlineResponse20037> {
+    public gcListMembers(param: GroupChannelApiGcListMembersRequest, options?: Configuration): Promise<InlineResponse20036> {
         return this.api.gcListMembers(param.channelUrl, param.apiToken, param.token, param.limit, param.showDeliveryReceipt, param.showReadReceipt, param.order, param.operatorFilter, param.memberStateFilter, param.mutedMemberFilter, param.nicknameStartswith,  options).toPromise();
     }
 
@@ -3155,7 +3152,7 @@ export class ObjectGroupChannelApi {
      * List muted users
      * @param param the request object
      */
-    public gcListMutedUsers(param: GroupChannelApiGcListMutedUsersRequest, options?: Configuration): Promise<InlineResponse20032> {
+    public gcListMutedUsers(param: GroupChannelApiGcListMutedUsersRequest, options?: Configuration): Promise<InlineResponse20031> {
         return this.api.gcListMutedUsers(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -3164,7 +3161,7 @@ export class ObjectGroupChannelApi {
      * List operators
      * @param param the request object
      */
-    public gcListOperators(param: GroupChannelApiGcListOperatorsRequest, options?: Configuration): Promise<InlineResponse20035> {
+    public gcListOperators(param: GroupChannelApiGcListOperatorsRequest, options?: Configuration): Promise<InlineResponse20034> {
         return this.api.gcListOperators(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -3182,7 +3179,7 @@ export class ObjectGroupChannelApi {
      * Register operators
      * @param param the request object
      */
-    public gcRegisterOperators(param: GroupChannelApiGcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse20039> {
+    public gcRegisterOperators(param: GroupChannelApiGcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse20038> {
         return this.api.gcRegisterOperators(param.channelUrl, param.apiToken, param.gcRegisterOperatorsData,  options).toPromise();
     }
 
@@ -3263,7 +3260,7 @@ export class ObjectGroupChannelApi {
      * View a mute
      * @param param the request object
      */
-    public gcViewMuteById(param: GroupChannelApiGcViewMuteByIdRequest, options?: Configuration): Promise<InlineResponse20036> {
+    public gcViewMuteById(param: GroupChannelApiGcViewMuteByIdRequest, options?: Configuration): Promise<InlineResponse20035> {
         return this.api.gcViewMuteById(param.channelUrl, param.mutedUserId, param.apiToken,  options).toPromise();
     }
 
@@ -3860,7 +3857,7 @@ export class ObjectMessagesApi {
      * Add extra data to a message
      * @param param the request object
      */
-    public addExtraDataToMessage(param: MessagesApiAddExtraDataToMessageRequest, options?: Configuration): Promise<InlineResponse20055> {
+    public addExtraDataToMessage(param: MessagesApiAddExtraDataToMessageRequest, options?: Configuration): Promise<InlineResponse20054> {
         return this.api.addExtraDataToMessage(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.addExtraDataToMessageData,  options).toPromise();
     }
 
@@ -3869,7 +3866,7 @@ export class ObjectMessagesApi {
      * Add a reaction to a message
      * @param param the request object
      */
-    public addReactionToAMessage(param: MessagesApiAddReactionToAMessageRequest, options?: Configuration): Promise<InlineResponse20054> {
+    public addReactionToAMessage(param: MessagesApiAddReactionToAMessageRequest, options?: Configuration): Promise<InlineResponse20053> {
         return this.api.addReactionToAMessage(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.addReactionToAMessageData,  options).toPromise();
     }
 
@@ -3887,7 +3884,7 @@ export class ObjectMessagesApi {
      * Mark all messages as delivered
      * @param param the request object
      */
-    public gcMarkAllMessagesAsDelivered(param: MessagesApiGcMarkAllMessagesAsDeliveredRequest, options?: Configuration): Promise<InlineResponse20051> {
+    public gcMarkAllMessagesAsDelivered(param: MessagesApiGcMarkAllMessagesAsDeliveredRequest, options?: Configuration): Promise<InlineResponse20050> {
         return this.api.gcMarkAllMessagesAsDelivered(param.channelUrl, param.apiToken, param.gcMarkAllMessagesAsDeliveredData,  options).toPromise();
     }
 
@@ -3905,7 +3902,7 @@ export class ObjectMessagesApi {
      * View number of each member's unread messages
      * @param param the request object
      */
-    public gcViewNumberOfEachMembersUnreadMessages(param: MessagesApiGcViewNumberOfEachMembersUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20050> {
+    public gcViewNumberOfEachMembersUnreadMessages(param: MessagesApiGcViewNumberOfEachMembersUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20049> {
         return this.api.gcViewNumberOfEachMembersUnreadMessages(param.channelUrl, param.apiToken, param.userIds,  options).toPromise();
     }
 
@@ -3914,7 +3911,7 @@ export class ObjectMessagesApi {
      * List messages
      * @param param the request object
      */
-    public listMessages(param: MessagesApiListMessagesRequest, options?: Configuration): Promise<InlineResponse20048> {
+    public listMessages(param: MessagesApiListMessagesRequest, options?: Configuration): Promise<InlineResponse20047> {
         return this.api.listMessages(param.channelType, param.channelUrl, param.messageTs, param.messageId, param.apiToken, param.prevLimit, param.nextLimit, param.include, param.reverse, param.senderId, param.senderIds, param.operatorFilter, param.customTypes, param.messageType, param.includingRemoved, param.includeReactions, param.withSortedMetaArray, param.showSubchannelMessagesOnly, param.userId, param.customType, param.withMetaArray,  options).toPromise();
     }
 
@@ -3923,7 +3920,7 @@ export class ObjectMessagesApi {
      * List reactions of a message
      * @param param the request object
      */
-    public listReactionsOfMessage(param: MessagesApiListReactionsOfMessageRequest, options?: Configuration): Promise<InlineResponse20053> {
+    public listReactionsOfMessage(param: MessagesApiListReactionsOfMessageRequest, options?: Configuration): Promise<InlineResponse20052> {
         return this.api.listReactionsOfMessage(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.listUsers,  options).toPromise();
     }
 
@@ -3941,7 +3938,7 @@ export class ObjectMessagesApi {
      * Remove a reaction from a message
      * @param param the request object
      */
-    public removeReactionFromAMessage(param: MessagesApiRemoveReactionFromAMessageRequest, options?: Configuration): Promise<InlineResponse20054> {
+    public removeReactionFromAMessage(param: MessagesApiRemoveReactionFromAMessageRequest, options?: Configuration): Promise<InlineResponse20053> {
         return this.api.removeReactionFromAMessage(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.userId, param.reaction,  options).toPromise();
     }
 
@@ -3968,7 +3965,7 @@ export class ObjectMessagesApi {
      * Update extra data in a message
      * @param param the request object
      */
-    public updateExtraDataInMessage(param: MessagesApiUpdateExtraDataInMessageRequest, options?: Configuration): Promise<InlineResponse20055> {
+    public updateExtraDataInMessage(param: MessagesApiUpdateExtraDataInMessageRequest, options?: Configuration): Promise<InlineResponse20054> {
         return this.api.updateExtraDataInMessage(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.updateExtraDataInMessageData,  options).toPromise();
     }
 
@@ -3995,7 +3992,7 @@ export class ObjectMessagesApi {
      * View total number of messages in a channel
      * @param param the request object
      */
-    public viewTotalNumberOfMessagesInChannel(param: MessagesApiViewTotalNumberOfMessagesInChannelRequest, options?: Configuration): Promise<InlineResponse20049> {
+    public viewTotalNumberOfMessagesInChannel(param: MessagesApiViewTotalNumberOfMessagesInChannelRequest, options?: Configuration): Promise<InlineResponse20048> {
         return this.api.viewTotalNumberOfMessagesInChannel(param.channelType, param.channelUrl, param.apiToken,  options).toPromise();
     }
 
@@ -4511,7 +4508,7 @@ export class ObjectOpenChannelApi {
      * Ban a user
      * @param param the request object
      */
-    public ocBanUser(param: OpenChannelApiOcBanUserRequest, options?: Configuration): Promise<InlineResponse20034BannedList> {
+    public ocBanUser(param: OpenChannelApiOcBanUserRequest, options?: Configuration): Promise<InlineResponse20033BannedList> {
         return this.api.ocBanUser(param.channelUrl, param.apiToken, param.ocBanUserData,  options).toPromise();
     }
 
@@ -4556,7 +4553,7 @@ export class ObjectOpenChannelApi {
      * List banned users
      * @param param the request object
      */
-    public ocListBannedUsers(param: OpenChannelApiOcListBannedUsersRequest, options?: Configuration): Promise<InlineResponse20034> {
+    public ocListBannedUsers(param: OpenChannelApiOcListBannedUsersRequest, options?: Configuration): Promise<InlineResponse20033> {
         return this.api.ocListBannedUsers(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -4565,7 +4562,7 @@ export class ObjectOpenChannelApi {
      * List channels
      * @param param the request object
      */
-    public ocListChannels(param: OpenChannelApiOcListChannelsRequest, options?: Configuration): Promise<InlineResponse20031> {
+    public ocListChannels(param: OpenChannelApiOcListChannelsRequest, options?: Configuration): Promise<InlineResponse20030> {
         return this.api.ocListChannels(param.apiToken, param.token, param.limit, param.customTypes, param.nameContains, param.urlContains, param.showFrozen, param.showMetadata, param.customType,  options).toPromise();
     }
 
@@ -4574,7 +4571,7 @@ export class ObjectOpenChannelApi {
      * List muted users
      * @param param the request object
      */
-    public ocListMutedUsers(param: OpenChannelApiOcListMutedUsersRequest, options?: Configuration): Promise<InlineResponse20032> {
+    public ocListMutedUsers(param: OpenChannelApiOcListMutedUsersRequest, options?: Configuration): Promise<InlineResponse20031> {
         return this.api.ocListMutedUsers(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -4583,7 +4580,7 @@ export class ObjectOpenChannelApi {
      * List operators
      * @param param the request object
      */
-    public ocListOperators(param: OpenChannelApiOcListOperatorsRequest, options?: Configuration): Promise<InlineResponse20035> {
+    public ocListOperators(param: OpenChannelApiOcListOperatorsRequest, options?: Configuration): Promise<InlineResponse20034> {
         return this.api.ocListOperators(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -4592,7 +4589,7 @@ export class ObjectOpenChannelApi {
      * List participants
      * @param param the request object
      */
-    public ocListParticipants(param: OpenChannelApiOcListParticipantsRequest, options?: Configuration): Promise<InlineResponse20033> {
+    public ocListParticipants(param: OpenChannelApiOcListParticipantsRequest, options?: Configuration): Promise<InlineResponse20032> {
         return this.api.ocListParticipants(param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -4673,110 +4670,8 @@ export class ObjectOpenChannelApi {
      * View a mute
      * @param param the request object
      */
-    public ocViewMuteById(param: OpenChannelApiOcViewMuteByIdRequest, options?: Configuration): Promise<InlineResponse20036> {
+    public ocViewMuteById(param: OpenChannelApiOcViewMuteByIdRequest, options?: Configuration): Promise<InlineResponse20035> {
         return this.api.ocViewMuteById(param.channelUrl, param.mutedUserId, param.apiToken,  options).toPromise();
-    }
-
-}
-
-import { ObservableOrganizationAPIApi } from "./ObservableAPI";
-import { OrganizationAPIApiRequestFactory, OrganizationAPIApiResponseProcessor} from "../apis/OrganizationAPIApi";
-
-export interface OrganizationAPIApiCreateApplicationRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApicreateApplication
-     */
-    SENDBIRDORGANIZATIONAPITOKEN?: string
-    /**
-     * 
-     * @type any
-     * @memberof OrganizationAPIApicreateApplication
-     */
-    body?: any
-}
-
-export interface OrganizationAPIApiDeleteApplicationByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApideleteApplicationById
-     */
-    appId: string
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApideleteApplicationById
-     */
-    SENDBIRDORGANIZATIONAPITOKEN?: string
-}
-
-export interface OrganizationAPIApiListApplicationsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApilistApplications
-     */
-    SENDBIRDORGANIZATIONAPITOKEN?: string
-}
-
-export interface OrganizationAPIApiViewApplicationByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApiviewApplicationById
-     */
-    appId: string
-    /**
-     * 
-     * @type string
-     * @memberof OrganizationAPIApiviewApplicationById
-     */
-    SENDBIRDORGANIZATIONAPITOKEN?: string
-}
-
-export class ObjectOrganizationAPIApi {
-    private api: ObservableOrganizationAPIApi
-
-    public constructor(configuration: Configuration, requestFactory?: OrganizationAPIApiRequestFactory, responseProcessor?: OrganizationAPIApiResponseProcessor) {
-        this.api = new ObservableOrganizationAPIApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Create an application  Creates a new application under your organization.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-create-an-application
-     * Create an application
-     * @param param the request object
-     */
-    public createApplication(param: OrganizationAPIApiCreateApplicationRequest, options?: Configuration): Promise<InlineResponse200Results> {
-        return this.api.createApplication(param.SENDBIRDORGANIZATIONAPITOKEN, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## Delete an application  Deletes the specified application.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-delete-an-application ----------------------------
-     * Delete an application
-     * @param param the request object
-     */
-    public deleteApplicationById(param: OrganizationAPIApiDeleteApplicationByIdRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteApplicationById(param.appId, param.SENDBIRDORGANIZATIONAPITOKEN,  options).toPromise();
-    }
-
-    /**
-     * ## List applications  Retrieves a list of applications of your organization.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-list-applications ----------------------------
-     * List applications
-     * @param param the request object
-     */
-    public listApplications(param: OrganizationAPIApiListApplicationsRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.listApplications(param.SENDBIRDORGANIZATIONAPITOKEN,  options).toPromise();
-    }
-
-    /**
-     * ## View an application  Retrieves information about an application with a specified application ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/organization-api#2-view-an-application ----------------------------
-     * View an application
-     * @param param the request object
-     */
-    public viewApplicationById(param: OrganizationAPIApiViewApplicationByIdRequest, options?: Configuration): Promise<InlineResponse200Results> {
-        return this.api.viewApplicationById(param.appId, param.SENDBIRDORGANIZATIONAPITOKEN,  options).toPromise();
     }
 
 }
@@ -5036,7 +4931,7 @@ export class ObjectReportContentSubjectApi {
      * List reports
      * @param param the request object
      */
-    public listReports(param: ReportContentSubjectApiListReportsRequest, options?: Configuration): Promise<InlineResponse20071> {
+    public listReports(param: ReportContentSubjectApiListReportsRequest, options?: Configuration): Promise<InlineResponse20070> {
         return this.api.listReports(param.apiToken, param.token, param.limit, param.startTs, param.endTs,  options).toPromise();
     }
 
@@ -5045,7 +4940,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a channel
      * @param param the request object
      */
-    public listReportsOnChannelByUrl(param: ReportContentSubjectApiListReportsOnChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20072> {
+    public listReportsOnChannelByUrl(param: ReportContentSubjectApiListReportsOnChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20071> {
         return this.api.listReportsOnChannelByUrl(param.channelType, param.channelUrl, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -5054,7 +4949,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a message
      * @param param the request object
      */
-    public listReportsOnMessageById(param: ReportContentSubjectApiListReportsOnMessageByIdRequest, options?: Configuration): Promise<InlineResponse20072> {
+    public listReportsOnMessageById(param: ReportContentSubjectApiListReportsOnMessageByIdRequest, options?: Configuration): Promise<InlineResponse20071> {
         return this.api.listReportsOnMessageById(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -5063,7 +4958,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a user
      * @param param the request object
      */
-    public listReportsOnUserById(param: ReportContentSubjectApiListReportsOnUserByIdRequest, options?: Configuration): Promise<InlineResponse20072> {
+    public listReportsOnUserById(param: ReportContentSubjectApiListReportsOnUserByIdRequest, options?: Configuration): Promise<InlineResponse20071> {
         return this.api.listReportsOnUserById(param.offendingUserId, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -5072,7 +4967,7 @@ export class ObjectReportContentSubjectApi {
      * Report a channel
      * @param param the request object
      */
-    public reportChannelByUrl(param: ReportContentSubjectApiReportChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20072ReportLogs> {
+    public reportChannelByUrl(param: ReportContentSubjectApiReportChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20071ReportLogs> {
         return this.api.reportChannelByUrl(param.channelType, param.channelUrl, param.apiToken, param.reportChannelByUrlData,  options).toPromise();
     }
 
@@ -5081,7 +4976,7 @@ export class ObjectReportContentSubjectApi {
      * Report a message
      * @param param the request object
      */
-    public reportMessageById(param: ReportContentSubjectApiReportMessageByIdRequest, options?: Configuration): Promise<InlineResponse20072ReportLogs> {
+    public reportMessageById(param: ReportContentSubjectApiReportMessageByIdRequest, options?: Configuration): Promise<InlineResponse20071ReportLogs> {
         return this.api.reportMessageById(param.channelType, param.channelUrl, param.messageId, param.apiToken, param.reportMessageByIdData,  options).toPromise();
     }
 
@@ -5090,7 +4985,7 @@ export class ObjectReportContentSubjectApi {
      * Report a user
      * @param param the request object
      */
-    public reportUserById(param: ReportContentSubjectApiReportUserByIdRequest, options?: Configuration): Promise<InlineResponse20072ReportLogs> {
+    public reportUserById(param: ReportContentSubjectApiReportUserByIdRequest, options?: Configuration): Promise<InlineResponse20071ReportLogs> {
         return this.api.reportUserById(param.offendingUserId, param.apiToken, param.reportUserByIdData,  options).toPromise();
     }
 
@@ -6206,7 +6101,7 @@ export class ObjectUserApi {
      * Add a registration or device token
      * @param param the request object
      */
-    public addRegistrationOrDeviceToken(param: UserApiAddRegistrationOrDeviceTokenRequest, options?: Configuration): Promise<InlineResponse20026> {
+    public addRegistrationOrDeviceToken(param: UserApiAddRegistrationOrDeviceTokenRequest, options?: Configuration): Promise<InlineResponse20025> {
         return this.api.addRegistrationOrDeviceToken(param.userId, param.tokenType, param.apiToken, param.addRegistrationOrDeviceTokenData,  options).toPromise();
     }
 
@@ -6233,7 +6128,7 @@ export class ObjectUserApi {
      * Choose a push notification content template
      * @param param the request object
      */
-    public choosePushNotificationContentTemplate(param: UserApiChoosePushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20030> {
+    public choosePushNotificationContentTemplate(param: UserApiChoosePushNotificationContentTemplateRequest, options?: Configuration): Promise<InlineResponse20029> {
         return this.api.choosePushNotificationContentTemplate(param.userId, param.apiToken, param.body,  options).toPromise();
     }
 
@@ -6269,7 +6164,7 @@ export class ObjectUserApi {
      * List banned channels
      * @param param the request object
      */
-    public listBannedChannels(param: UserApiListBannedChannelsRequest, options?: Configuration): Promise<InlineResponse20023> {
+    public listBannedChannels(param: UserApiListBannedChannelsRequest, options?: Configuration): Promise<InlineResponse20022> {
         return this.api.listBannedChannels(param.userId, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -6278,7 +6173,7 @@ export class ObjectUserApi {
      * List blocked users
      * @param param the request object
      */
-    public listBlockedUsers(param: UserApiListBlockedUsersRequest, options?: Configuration): Promise<InlineResponse20017> {
+    public listBlockedUsers(param: UserApiListBlockedUsersRequest, options?: Configuration): Promise<InlineResponse20016> {
         return this.api.listBlockedUsers(param.userId, param.apiToken, param.token, param.limit, param.userIds, param.metadatakey, param.metadatavaluesIn,  options).toPromise();
     }
 
@@ -6287,7 +6182,7 @@ export class ObjectUserApi {
      * List muted channels
      * @param param the request object
      */
-    public listMutedChannels(param: UserApiListMutedChannelsRequest, options?: Configuration): Promise<InlineResponse20024> {
+    public listMutedChannels(param: UserApiListMutedChannelsRequest, options?: Configuration): Promise<InlineResponse20023> {
         return this.api.listMutedChannels(param.userId, param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -6296,7 +6191,7 @@ export class ObjectUserApi {
      * List my group channels
      * @param param the request object
      */
-    public listMyGroupChannels(param: UserApiListMyGroupChannelsRequest, options?: Configuration): Promise<InlineResponse20018> {
+    public listMyGroupChannels(param: UserApiListMyGroupChannelsRequest, options?: Configuration): Promise<InlineResponse20017> {
         return this.api.listMyGroupChannels(param.userId, param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.hiddenMode, param.memberStateFilter, param.unreadFilter, param.createdAfter, param.createdBefore, param.showEmpty, param.showFrozen, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.searchQuery, param.searchFields, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.customType,  options).toPromise();
     }
 
@@ -6305,7 +6200,7 @@ export class ObjectUserApi {
      * List registration or device tokens
      * @param param the request object
      */
-    public listRegistrationOrDeviceTokens(param: UserApiListRegistrationOrDeviceTokensRequest, options?: Configuration): Promise<InlineResponse20025> {
+    public listRegistrationOrDeviceTokens(param: UserApiListRegistrationOrDeviceTokensRequest, options?: Configuration): Promise<InlineResponse20024> {
         return this.api.listRegistrationOrDeviceTokens(param.userId, param.tokenType, param.apiToken,  options).toPromise();
     }
 
@@ -6314,7 +6209,7 @@ export class ObjectUserApi {
      * List users
      * @param param the request object
      */
-    public listUsers(param: UserApiListUsersRequest, options?: Configuration): Promise<InlineResponse20017> {
+    public listUsers(param: UserApiListUsersRequest, options?: Configuration): Promise<InlineResponse20016> {
         return this.api.listUsers(param.apiToken, param.token, param.limit, param.activeMode, param.showBot, param.userIds, param.nickname, param.nicknameStartswith, param.metadatakey, param.metadatavaluesIn,  options).toPromise();
     }
 
@@ -6350,7 +6245,7 @@ export class ObjectUserApi {
      * Remove a registration or device token - When unregistering all device tokens
      * @param param the request object
      */
-    public removeRegistrationOrDeviceToken(param: UserApiRemoveRegistrationOrDeviceTokenRequest, options?: Configuration): Promise<InlineResponse20027> {
+    public removeRegistrationOrDeviceToken(param: UserApiRemoveRegistrationOrDeviceTokenRequest, options?: Configuration): Promise<InlineResponse20026> {
         return this.api.removeRegistrationOrDeviceToken(param.userId, param.apiToken,  options).toPromise();
     }
 
@@ -6359,7 +6254,7 @@ export class ObjectUserApi {
      * Remove a registration or device token - When unregistering a specific token
      * @param param the request object
      */
-    public removeRegistrationOrDeviceTokenByToken(param: UserApiRemoveRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<InlineResponse20027> {
+    public removeRegistrationOrDeviceTokenByToken(param: UserApiRemoveRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<InlineResponse20026> {
         return this.api.removeRegistrationOrDeviceTokenByToken(param.userId, param.tokenType, param.token, param.apiToken,  options).toPromise();
     }
 
@@ -6368,7 +6263,7 @@ export class ObjectUserApi {
      * Remove a registration or device token from an owner
      * @param param the request object
      */
-    public removeRegistrationOrDeviceTokenFromOwnerByToken(param: UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest, options?: Configuration): Promise<InlineResponse20028> {
+    public removeRegistrationOrDeviceTokenFromOwnerByToken(param: UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest, options?: Configuration): Promise<InlineResponse20027> {
         return this.api.removeRegistrationOrDeviceTokenFromOwnerByToken(param.tokenType, param.token, param.apiToken,  options).toPromise();
     }
 
@@ -6395,7 +6290,7 @@ export class ObjectUserApi {
      * Update channel invitation preference
      * @param param the request object
      */
-    public updateChannelInvitationPreference(param: UserApiUpdateChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2006> {
+    public updateChannelInvitationPreference(param: UserApiUpdateChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2005> {
         return this.api.updateChannelInvitationPreference(param.userId, param.apiToken, param.updateChannelInvitationPreferenceData,  options).toPromise();
     }
 
@@ -6404,7 +6299,7 @@ export class ObjectUserApi {
      * Update count preference of a channel
      * @param param the request object
      */
-    public updateCountPreferenceOfChannelByUrl(param: UserApiUpdateCountPreferenceOfChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20022> {
+    public updateCountPreferenceOfChannelByUrl(param: UserApiUpdateCountPreferenceOfChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20021> {
         return this.api.updateCountPreferenceOfChannelByUrl(param.userId, param.channelUrl, param.apiToken, param.updateCountPreferenceOfChannelByUrlData,  options).toPromise();
     }
 
@@ -6413,7 +6308,7 @@ export class ObjectUserApi {
      * Update push preferences
      * @param param the request object
      */
-    public updatePushPreferences(param: UserApiUpdatePushPreferencesRequest, options?: Configuration): Promise<InlineResponse20029> {
+    public updatePushPreferences(param: UserApiUpdatePushPreferencesRequest, options?: Configuration): Promise<InlineResponse20028> {
         return this.api.updatePushPreferences(param.userId, param.apiToken, param.updatePushPreferencesData,  options).toPromise();
     }
 
@@ -6422,7 +6317,7 @@ export class ObjectUserApi {
      * Update push preferences for a channel
      * @param param the request object
      */
-    public updatePushPreferencesForChannelByUrl(param: UserApiUpdatePushPreferencesForChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20029> {
+    public updatePushPreferencesForChannelByUrl(param: UserApiUpdatePushPreferencesForChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20028> {
         return this.api.updatePushPreferencesForChannelByUrl(param.userId, param.channelUrl, param.apiToken, param.updatePushPreferencesForChannelByUrlData,  options).toPromise();
     }
 
@@ -6440,7 +6335,7 @@ export class ObjectUserApi {
      * View channel invitation preference
      * @param param the request object
      */
-    public viewChannelInvitationPreference(param: UserApiViewChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2006> {
+    public viewChannelInvitationPreference(param: UserApiViewChannelInvitationPreferenceRequest, options?: Configuration): Promise<InlineResponse2005> {
         return this.api.viewChannelInvitationPreference(param.userId, param.apiToken,  options).toPromise();
     }
 
@@ -6449,7 +6344,7 @@ export class ObjectUserApi {
      * View count preference of a channel
      * @param param the request object
      */
-    public viewCountPreferenceOfChannelByUrl(param: UserApiViewCountPreferenceOfChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20022> {
+    public viewCountPreferenceOfChannelByUrl(param: UserApiViewCountPreferenceOfChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20021> {
         return this.api.viewCountPreferenceOfChannelByUrl(param.userId, param.channelUrl, param.apiToken,  options).toPromise();
     }
 
@@ -6458,7 +6353,7 @@ export class ObjectUserApi {
      * View number of channels by join status
      * @param param the request object
      */
-    public viewNumberOfChannelsByJoinStatus(param: UserApiViewNumberOfChannelsByJoinStatusRequest, options?: Configuration): Promise<InlineResponse20021> {
+    public viewNumberOfChannelsByJoinStatus(param: UserApiViewNumberOfChannelsByJoinStatusRequest, options?: Configuration): Promise<InlineResponse20020> {
         return this.api.viewNumberOfChannelsByJoinStatus(param.userId, param.apiToken, param.state,  options).toPromise();
     }
 
@@ -6467,7 +6362,7 @@ export class ObjectUserApi {
      * View number of channels with unread messages
      * @param param the request object
      */
-    public viewNumberOfChannelsWithUnreadMessages(param: UserApiViewNumberOfChannelsWithUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20019> {
+    public viewNumberOfChannelsWithUnreadMessages(param: UserApiViewNumberOfChannelsWithUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20018> {
         return this.api.viewNumberOfChannelsWithUnreadMessages(param.userId, param.apiToken, param.customTypes, param.superMode,  options).toPromise();
     }
 
@@ -6476,7 +6371,7 @@ export class ObjectUserApi {
      * View number of unread items
      * @param param the request object
      */
-    public viewNumberOfUnreadItems(param: UserApiViewNumberOfUnreadItemsRequest, options?: Configuration): Promise<InlineResponse20020> {
+    public viewNumberOfUnreadItems(param: UserApiViewNumberOfUnreadItemsRequest, options?: Configuration): Promise<InlineResponse20019> {
         return this.api.viewNumberOfUnreadItems(param.userId, param.apiToken, param.customType, param.itemKeys,  options).toPromise();
     }
 
@@ -6485,7 +6380,7 @@ export class ObjectUserApi {
      * View number of unread messages
      * @param param the request object
      */
-    public viewNumberOfUnreadMessages(param: UserApiViewNumberOfUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20019> {
+    public viewNumberOfUnreadMessages(param: UserApiViewNumberOfUnreadMessagesRequest, options?: Configuration): Promise<InlineResponse20018> {
         return this.api.viewNumberOfUnreadMessages(param.userId, param.apiToken, param.customTypes, param.superMode,  options).toPromise();
     }
 
@@ -6494,7 +6389,7 @@ export class ObjectUserApi {
      * View push preferences
      * @param param the request object
      */
-    public viewPushPreferences(param: UserApiViewPushPreferencesRequest, options?: Configuration): Promise<InlineResponse20029> {
+    public viewPushPreferences(param: UserApiViewPushPreferencesRequest, options?: Configuration): Promise<InlineResponse20028> {
         return this.api.viewPushPreferences(param.userId, param.apiToken,  options).toPromise();
     }
 
@@ -6503,7 +6398,7 @@ export class ObjectUserApi {
      * View push preferences for a channel
      * @param param the request object
      */
-    public viewPushPreferencesForChannelByUrl(param: UserApiViewPushPreferencesForChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20029> {
+    public viewPushPreferencesForChannelByUrl(param: UserApiViewPushPreferencesForChannelByUrlRequest, options?: Configuration): Promise<InlineResponse20028> {
         return this.api.viewPushPreferencesForChannelByUrl(param.userId, param.channelUrl, param.apiToken,  options).toPromise();
     }
 
@@ -6521,7 +6416,7 @@ export class ObjectUserApi {
      * View who owns a registration or device token
      * @param param the request object
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<InlineResponse20028> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<InlineResponse20027> {
         return this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(param.tokenType, param.token, param.apiToken,  options).toPromise();
     }
 
@@ -7106,7 +7001,7 @@ export class ObjectUserChannelMetadataApi {
      * Create a channel metadata
      * @param param the request object
      */
-    public createChannelMetadata(param: UserChannelMetadataApiCreateChannelMetadataRequest, options?: Configuration): Promise<InlineResponse20062> {
+    public createChannelMetadata(param: UserChannelMetadataApiCreateChannelMetadataRequest, options?: Configuration): Promise<InlineResponse20061> {
         return this.api.createChannelMetadata(param.channelType, param.channelUrl, param.apiToken, param.createChannelMetadataData,  options).toPromise();
     }
 
@@ -7115,7 +7010,7 @@ export class ObjectUserChannelMetadataApi {
      * Create a user metadata
      * @param param the request object
      */
-    public createUserMetadata(param: UserChannelMetadataApiCreateUserMetadataRequest, options?: Configuration): Promise<InlineResponse20048UserMetadata> {
+    public createUserMetadata(param: UserChannelMetadataApiCreateUserMetadataRequest, options?: Configuration): Promise<InlineResponse20047UserMetadata> {
         return this.api.createUserMetadata(param.userId, param.apiToken, param.createUserMetadataData,  options).toPromise();
     }
 
@@ -7214,7 +7109,7 @@ export class ObjectUserChannelMetadataApi {
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      * @param param the request object
      */
-    public updateUserMetadata(param: UserChannelMetadataApiUpdateUserMetadataRequest, options?: Configuration): Promise<InlineResponse20061> {
+    public updateUserMetadata(param: UserChannelMetadataApiUpdateUserMetadataRequest, options?: Configuration): Promise<InlineResponse20060> {
         return this.api.updateUserMetadata(param.userId, param.apiToken, param.updateUserMetadataData,  options).toPromise();
     }
 
@@ -7268,7 +7163,7 @@ export class ObjectUserChannelMetadataApi {
      * View a user metadata - When retrieving all items of a user metadata
      * @param param the request object
      */
-    public viewUserMetadata(param: UserChannelMetadataApiViewUserMetadataRequest, options?: Configuration): Promise<InlineResponse20048UserMetadata> {
+    public viewUserMetadata(param: UserChannelMetadataApiViewUserMetadataRequest, options?: Configuration): Promise<InlineResponse20047UserMetadata> {
         return this.api.viewUserMetadata(param.userId, param.apiToken, param.key, param.keys,  options).toPromise();
     }
 
@@ -7328,7 +7223,7 @@ export class ObjectWebhooksApi {
      * Choose which events to subscribe to
      * @param param the request object
      */
-    public chooseWhichEventsToSubscribeTo(param: WebhooksApiChooseWhichEventsToSubscribeToRequest, options?: Configuration): Promise<InlineResponse20068> {
+    public chooseWhichEventsToSubscribeTo(param: WebhooksApiChooseWhichEventsToSubscribeToRequest, options?: Configuration): Promise<InlineResponse20067> {
         return this.api.chooseWhichEventsToSubscribeTo(param.apiToken, param.chooseWhichEventsToSubscribeToData,  options).toPromise();
     }
 
@@ -7337,7 +7232,7 @@ export class ObjectWebhooksApi {
      * Retrieve a list of subscribed events
      * @param param the request object
      */
-    public retrieveListOfSubscribedEvents(param: WebhooksApiRetrieveListOfSubscribedEventsRequest, options?: Configuration): Promise<InlineResponse20067> {
+    public retrieveListOfSubscribedEvents(param: WebhooksApiRetrieveListOfSubscribedEventsRequest, options?: Configuration): Promise<InlineResponse20066> {
         return this.api.retrieveListOfSubscribedEvents(param.apiToken, param.displayAllWebhookCategories,  options).toPromise();
     }
 

@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20021 {
-    'groupChannelCount'?: number;
+    'countPreference'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "groupChannelCount",
-            "baseName": "group_channel_count",
-            "type": "number",
+            "name": "countPreference",
+            "baseName": "count_preference",
+            "type": "string",
             "format": ""
         }    ];
 

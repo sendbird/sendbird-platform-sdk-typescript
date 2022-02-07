@@ -10,25 +10,45 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20035 {
-    'operators'?: Array<SendBirdUser>;
-    'next'?: string;
+    'isMuted'?: boolean;
+    'remainingDuration'?: number;
+    'startAt'?: number;
+    'endAt'?: number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "operators",
-            "baseName": "operators",
-            "type": "Array<SendBirdUser>",
+            "name": "isMuted",
+            "baseName": "is_muted",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "remainingDuration",
+            "baseName": "remaining_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "startAt",
+            "baseName": "start_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         }    ];

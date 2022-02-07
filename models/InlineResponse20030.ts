@@ -10,17 +10,25 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdOpenChannel } from './SendBirdOpenChannel';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20030 {
-    'name'?: string;
+    'channels'?: Array<SendBirdOpenChannel>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "channels",
+            "baseName": "channels",
+            "type": "Array<SendBirdOpenChannel>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
             "type": "string",
             "format": ""
         }    ];

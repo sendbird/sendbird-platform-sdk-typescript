@@ -10,26 +10,19 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20066Bots } from './InlineResponse20066Bots';
+import { InlineResponse20066Webhook } from './InlineResponse20066Webhook';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20066 {
-    'bots'?: Array<InlineResponse20066Bots>;
-    'next'?: string;
+    'webhook'?: InlineResponse20066Webhook;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "bots",
-            "baseName": "bots",
-            "type": "Array<InlineResponse20066Bots>",
-            "format": ""
-        },
-        {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "webhook",
+            "baseName": "webhook",
+            "type": "InlineResponse20066Webhook",
             "format": ""
         }    ];
 

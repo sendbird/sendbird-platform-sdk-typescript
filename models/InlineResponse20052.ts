@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20052 {
-    'reactions'?: boolean;
+    'key'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "reactions",
-            "baseName": "reactions",
-            "type": "boolean",
+            "name": "key",
+            "baseName": "key",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

@@ -17,7 +17,6 @@ export class InlineResponse20067Webhook {
     'url'?: string;
     'includeMembers'?: boolean;
     'enabledEvents'?: Array<string>;
-    'allWebhookCategories'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,12 +42,6 @@ export class InlineResponse20067Webhook {
         {
             "name": "enabledEvents",
             "baseName": "enabled_events",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "allWebhookCategories",
-            "baseName": "all_webhook_categories",
             "type": "Array<string>",
             "format": ""
         }    ];

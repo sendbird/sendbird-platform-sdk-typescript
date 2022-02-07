@@ -44,71 +44,71 @@ export class ScheduleAnnouncementData {
     /**
     * Specifies the unique ID of the new announcement. The unique_id will be automatically created unless specified.
     */
-    'uniqueId': string;
+    'uniqueId'?: string;
     /**
     * Specifies the custom message type of the message of the new announcement.
     */
-    'messageCustomType': string;
+    'messageCustomType'?: string;
     /**
     * Specifies additional message information such as custom font size, font type or `JSON` formatted string.
     */
-    'messageData': string;
+    'messageData'?: string;
     /**
     * Determines whether to create a new channel if there is no existing channel that matches with the target options including target_at and target_list. By specifying the create_channel_options, you can configure the properties of newly created channels. (Default: false)
     */
-    'createChannel': boolean;
+    'createChannel'?: boolean;
     /**
     * Specifies the announcement group that the new announcement belongs to.<br/> <br/> This property is effective only when the target_at is either target_users_only_channels or target_users_included_channels.
     */
-    'announcementGroup': string;
+    'announcementGroup'?: string;
     /**
     * A newly created channel configuration.
     */
-    'createChannelOptions': string;
+    'createChannelOptions'?: string;
     /**
     * Specifies the name of channels to be created. (Default: Group Channel)
     */
-    'createChannelOptionsName': string;
+    'createChannelOptionsName'?: string;
     /**
     * Specifies the URL of the cover image for the new channels.
     */
-    'createChannelOptionsCoverUrl': string;
+    'createChannelOptionsCoverUrl'?: string;
     /**
     * Specifies the custom channel type of the new channels.
     */
-    'createChannelOptionsCustomType': string;
+    'createChannelOptionsCustomType'?: string;
     /**
     * Specifies additional channel information such as a long description of the channel or `JSON` formatted string.
     */
-    'createChannelOptionsData': string;
+    'createChannelOptionsData'?: string;
     /**
     * Determines whether to create a [distinct](/docs/chat/v3/platform-api/guides/channel-types#2-group-channel) channel. (Default: true)
     */
-    'createChannelOptionsDistinct': string;
+    'createChannelOptionsDistinct'?: string;
     /**
     * Specifies the time to start the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. If not specified, the default is the timestamp of when the request was delivered to Sendbird server. (Default: current timestamp)
     */
-    'scheduledAt': number;
+    'scheduledAt'?: number;
     /**
     * Specifies the time to temporarily put the announcement on hold in UTC. The string is represented in HHMM format. This should be specified in conjunction with the resume_at property.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
     */
-    'ceaseAt': string;
+    'ceaseAt'?: string;
     /**
     * Specifies the time to automatically resume the on-hold announcement in UTC. The string is represented in HHMM format. This should be specified in conjunction with the cease_at property above.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
     */
-    'resumeAt': string;
+    'resumeAt'?: string;
     /**
     * Specifies the time to permanently end the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous##2-timestamps) format. If this property is specified, the announcement ends even when the announcement is not sent to all its targets. <br/><br/> For the announcement to run safely, the end_at time should be set at least 10 minutes later than the scheduled_at time.
     */
-    'endAt': number;
+    'endAt'?: number;
     /**
     * Determines whether to turn on push notification for the announcement. If set to true, push notifications will be sent for the announcement. (Default: true)
     */
-    'enablePush': boolean;
+    'enablePush'?: boolean;
     /**
     * Determines whether to assign an announcement sender as an inviter of the newly created channels. (Default: false)
     */
-    'assignSenderAsChannelInviter': boolean;
+    'assignSenderAsChannelInviter'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 

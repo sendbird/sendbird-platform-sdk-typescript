@@ -28,27 +28,19 @@ export class CreateUserData {
     /**
     * Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
     */
-    'profileFile': HttpFile;
+    'profileFile'?: HttpFile;
     /**
     * Determines whether to create an access token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, an access token is not required when the user logs in. (Default: false)
     */
-    'issueAccessToken': boolean;
-    /**
-    * Determines whether to create a session token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, a session token is not required when the user logs in. (Default: false)
-    */
-    'issueSessionToken': boolean;
-    /**
-    * Specifies the time for the issued session token to expire in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. The length should be 13. If not specified and the issue_session_token property above is true, the value of this property is set to the sum of the current timestamp and 604800000 by default, which indicates that the token will be valid for the next 7 days starting from the current timestamp.
-    */
-    'sessionTokenExpiresAt': number;
+    'issueAccessToken'?: boolean;
     /**
     * Specifies an array of unique keys of the user which is provided to Sendbird server for discovering friends. By using the keys, the server can identify and match the user with other users.
     */
-    'discoveryKeys': Array<string>;
+    'discoveryKeys'?: Array<string>;
     /**
     * Specifies a `JSON` object to store key-value items for additional user information such as phone number, email or a long description of the user. The key must not have a comma (,) and its length is limited to 128 characters. The value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
     */
-    'metadata': string;
+    'metadata'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -81,18 +73,6 @@ export class CreateUserData {
             "name": "issueAccessToken",
             "baseName": "issue_access_token",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "issueSessionToken",
-            "baseName": "issue_session_token",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "sessionTokenExpiresAt",
-            "baseName": "session_token_expires_at",
-            "type": "number",
             "format": ""
         },
         {

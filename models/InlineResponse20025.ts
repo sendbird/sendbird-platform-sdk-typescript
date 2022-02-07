@@ -14,7 +14,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20025 {
-    'tokens'?: Array<string>;
+    'token'?: string;
     'type'?: string;
     'user'?: SendBirdUser;
 
@@ -22,9 +22,9 @@ export class InlineResponse20025 {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "tokens",
-            "baseName": "tokens",
-            "type": "Array<string>",
+            "name": "token",
+            "baseName": "token",
+            "type": "string",
             "format": ""
         },
         {

@@ -10,18 +10,26 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse20056EmojiCategories } from './InlineResponse20056EmojiCategories';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20056 {
-    'useDefaultEmoji'?: boolean;
+    'emojiHash'?: string;
+    'emojiCategories'?: Array<InlineResponse20056EmojiCategories>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "useDefaultEmoji",
-            "baseName": "use_default_emoji",
-            "type": "boolean",
+            "name": "emojiHash",
+            "baseName": "emoji_hash",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "emojiCategories",
+            "baseName": "emoji_categories",
+            "type": "Array<InlineResponse20056EmojiCategories>",
             "format": ""
         }    ];
 

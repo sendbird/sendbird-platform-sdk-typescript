@@ -10,20 +10,27 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdOpenChannel } from './SendBirdOpenChannel';
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20031 {
-    'channels'?: Array<SendBirdOpenChannel>;
+    'mutedList'?: Array<SendBirdUser>;
+    'totalMuteCount'?: number;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "channels",
-            "baseName": "channels",
-            "type": "Array<SendBirdOpenChannel>",
+            "name": "mutedList",
+            "baseName": "muted_list",
+            "type": "Array<SendBirdUser>",
+            "format": ""
+        },
+        {
+            "name": "totalMuteCount",
+            "baseName": "total_mute_count",
+            "type": "number",
             "format": ""
         },
         {

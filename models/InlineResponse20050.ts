@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20050Unread } from './InlineResponse20050Unread';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20050 {
-    'unread'?: InlineResponse20050Unread;
+    'ts'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "unread",
-            "baseName": "unread",
-            "type": "InlineResponse20050Unread",
+            "name": "ts",
+            "baseName": "ts",
+            "type": "number",
             "format": ""
         }    ];
 

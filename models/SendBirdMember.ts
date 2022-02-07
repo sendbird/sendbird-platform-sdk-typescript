@@ -22,7 +22,7 @@ export class SendBirdMember {
     'isBlockedByMe'?: boolean;
     'isBlockingMe'?: boolean;
     'isMuted'?: boolean;
-    'lastSeenAt'?: string;
+    'lastSeenAt'?: number;
     'metaData'?: ModelObject;
     'nickname'?: string;
     'plainProfileUrl'?: string;
@@ -82,7 +82,7 @@ export class SendBirdMember {
         {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
-            "type": "string",
+            "type": "number",
             "format": ""
         },
         {

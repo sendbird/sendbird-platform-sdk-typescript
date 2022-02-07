@@ -40,12 +40,12 @@ export class CreateBotData {
     /**
     * Determines whether to mark the bot's message as read upon sending it. (Default: true)
     */
-    'enableMarkAsRead': boolean;
+    'enableMarkAsRead'?: boolean;
     /**
     * Determines whether to include information about the members of each channel in a callback response. (Default: false)
     */
-    'showMember': boolean;
-    'channelInvitationPreference': number;
+    'showMember'?: boolean;
+    'channelInvitationPreference'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 

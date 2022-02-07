@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2006 {
-    'autoAccept'?: boolean;
+    'ipWhitelistAddresses'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "autoAccept",
-            "baseName": "auto_accept",
-            "type": "boolean",
+            "name": "ipWhitelistAddresses",
+            "baseName": "ip_whitelist_addresses",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

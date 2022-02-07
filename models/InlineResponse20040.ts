@@ -10,26 +10,139 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20040Announcements } from './InlineResponse20040Announcements';
+import { InlineResponse20039Message } from './InlineResponse20039Message';
+import { InlineResponse20040CreateChannelOptions } from './InlineResponse20040CreateChannelOptions';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20040 {
-    'announcements'?: Array<InlineResponse20040Announcements>;
-    'next'?: string;
+    'uniqueId'?: string;
+    'announcementGroup'?: string;
+    'message'?: InlineResponse20039Message;
+    'enablePush'?: boolean;
+    'targetAt'?: string;
+    'targetUserCount'?: number;
+    'targetChannelCount'?: number;
+    'targetChannelType'?: string;
+    'createChannelOptions'?: InlineResponse20040CreateChannelOptions;
+    'status'?: string;
+    'scheduledAt'?: number;
+    'ceaseAt'?: string;
+    'resumeAt'?: string;
+    'completedAt'?: number;
+    'sentUserCount'?: number;
+    'sentChannelCount'?: number;
+    'openCount'?: number;
+    'openRate'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcements",
-            "baseName": "announcements",
-            "type": "Array<InlineResponse20040Announcements>",
+            "name": "uniqueId",
+            "baseName": "unique_id",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "announcementGroup",
+            "baseName": "announcement_group",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "message",
+            "baseName": "message",
+            "type": "InlineResponse20039Message",
+            "format": ""
+        },
+        {
+            "name": "enablePush",
+            "baseName": "enable_push",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "targetAt",
+            "baseName": "target_at",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "targetUserCount",
+            "baseName": "target_user_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "targetChannelCount",
+            "baseName": "target_channel_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "targetChannelType",
+            "baseName": "target_channel_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createChannelOptions",
+            "baseName": "create_channel_options",
+            "type": "InlineResponse20040CreateChannelOptions",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scheduledAt",
+            "baseName": "scheduled_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "ceaseAt",
+            "baseName": "cease_at",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "resumeAt",
+            "baseName": "resume_at",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "completedAt",
+            "baseName": "completed_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "sentUserCount",
+            "baseName": "sent_user_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "sentChannelCount",
+            "baseName": "sent_channel_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "openCount",
+            "baseName": "open_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "openRate",
+            "baseName": "open_rate",
+            "type": "number",
             "format": ""
         }    ];
 

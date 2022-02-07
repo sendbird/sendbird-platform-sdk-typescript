@@ -10,26 +10,110 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20064ExportedData } from './InlineResponse20064ExportedData';
+import { InlineResponse20063File } from './InlineResponse20063File';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20064 {
-    'exportedData'?: Array<InlineResponse20064ExportedData>;
-    'next'?: string;
+    'requestId'?: string;
+    'dataType'?: string;
+    'status'?: string;
+    'format'?: string;
+    'csvDelimiter'?: string;
+    'timezone'?: string;
+    'createdAt'?: number;
+    'startTs'?: number;
+    'endTs'?: number;
+    'channelUrls'?: Array<string>;
+    'channelCustomTypes'?: Array<string>;
+    'senderIds'?: Array<string>;
+    'file'?: InlineResponse20063File;
+    'userIds'?: Array<number>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "exportedData",
-            "baseName": "exported_data",
-            "type": "Array<InlineResponse20064ExportedData>",
+            "name": "requestId",
+            "baseName": "request_id",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "dataType",
+            "baseName": "data_type",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "format",
+            "baseName": "format",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "csvDelimiter",
+            "baseName": "csv_delimiter",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "timezone",
+            "baseName": "timezone",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "startTs",
+            "baseName": "start_ts",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "endTs",
+            "baseName": "end_ts",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "channelUrls",
+            "baseName": "channel_urls",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "channelCustomTypes",
+            "baseName": "channel_custom_types",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "senderIds",
+            "baseName": "sender_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "file",
+            "baseName": "file",
+            "type": "InlineResponse20063File",
+            "format": ""
+        },
+        {
+            "name": "userIds",
+            "baseName": "user_ids",
+            "type": "Array<number>",
             "format": ""
         }    ];
 

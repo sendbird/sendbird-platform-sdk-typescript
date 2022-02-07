@@ -10,19 +10,26 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20016PushMessageTemplates } from './InlineResponse20016PushMessageTemplates';
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20016 {
-    'pushMessageTemplates'?: Array<InlineResponse20016PushMessageTemplates>;
+    'users'?: Array<SendBirdUser>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "pushMessageTemplates",
-            "baseName": "push_message_templates",
-            "type": "Array<InlineResponse20016PushMessageTemplates>",
+            "name": "users",
+            "baseName": "users",
+            "type": "Array<SendBirdUser>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
+            "type": "string",
             "format": ""
         }    ];
 

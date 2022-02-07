@@ -10,11 +10,10 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20013PushConfigurations } from './InlineResponse20013PushConfigurations';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20013 {
-    'pushConfigurations'?: Array<InlineResponse20013PushConfigurations>;
+    'pushConfigurations'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +21,7 @@ export class InlineResponse20013 {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<InlineResponse20013PushConfigurations>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

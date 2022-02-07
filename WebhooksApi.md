@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **chooseWhichEventsToSubscribeTo**
-> InlineResponse20068 chooseWhichEventsToSubscribeTo()
+> InlineResponse20067 chooseWhichEventsToSubscribeTo()
 
 ## Choose which events to subscribe to  Chooses which events for your webhook server to receive payloads for. By subscribing to specific events based on your own needs, you can control the number of HTTP requests to your webhook server.  https://sendbird.com/docs/chat/v3/platform-api/guides/webhooks#2-choose-which-events-to-subscribe-to
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20068**
+**InlineResponse20067**
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieveListOfSubscribedEvents**
-> InlineResponse20067 retrieveListOfSubscribedEvents()
+> InlineResponse20066 retrieveListOfSubscribedEvents()
 
 ## Retrieve a list of subscribed events  Retrieves a list of events for your webhook server to receive payloads for.  https://sendbird.com/docs/chat/v3/platform-api/guides/webhooks#2-retrieve-a-list-of-subscribed-events ----------------------------
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20067**
+**InlineResponse20066**
 
 ### Authorization
 

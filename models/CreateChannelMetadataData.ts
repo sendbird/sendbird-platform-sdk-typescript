@@ -28,7 +28,7 @@ export class CreateChannelMetadataData {
     /**
     * Determines whether to include the timestamp of when a metadata has been created in the response. (Default: false)
     */
-    'includeTs': boolean;
+    'includeTs'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 

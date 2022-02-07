@@ -14,18 +14,11 @@ import { InlineResponse20057EmojiCategories } from './InlineResponse20057EmojiCa
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20057 {
-    'emojiHash'?: string;
     'emojiCategories'?: Array<InlineResponse20057EmojiCategories>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "emojiHash",
-            "baseName": "emoji_hash",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "emojiCategories",
             "baseName": "emoji_categories",

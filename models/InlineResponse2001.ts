@@ -10,18 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse2001PushConfigurations } from './InlineResponse2001PushConfigurations';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2001 {
-    'ccu'?: number;
+    'pushConfigurations'?: Array<InlineResponse2001PushConfigurations>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "ccu",
-            "baseName": "ccu",
-            "type": "number",
+            "name": "pushConfigurations",
+            "baseName": "push_configurations",
+            "type": "Array<InlineResponse2001PushConfigurations>",
             "format": ""
         }    ];
 

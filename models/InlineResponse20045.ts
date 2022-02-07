@@ -10,26 +10,25 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20045Statistics } from './InlineResponse20045Statistics';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse20045 {
-    'statistics'?: Array<InlineResponse20045Statistics>;
-    'week'?: number;
+    'announcementGroup'?: Array<string>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "statistics",
-            "baseName": "statistics",
-            "type": "Array<InlineResponse20045Statistics>",
+            "name": "announcementGroup",
+            "baseName": "announcement_group",
+            "type": "Array<string>",
             "format": ""
         },
         {
-            "name": "week",
-            "baseName": "week",
-            "type": "number",
+            "name": "next",
+            "baseName": "next",
+            "type": "string",
             "format": ""
         }    ];
 

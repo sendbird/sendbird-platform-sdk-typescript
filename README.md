@@ -1,6 +1,6 @@
 ![Sendbird banner image](http://ww1.prweb.com/prfiles/2021/09/14/18371217/Sendbird_Logo_RGB_lg.png)
 
-# [Sendbird JavaScript Platform SDK](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)
+# [Sendbird Typescript Platform SDK](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)
 
 [![link to docs](https://img.shields.io/badge/SDK-docs-green)](/docs)
 This is a Node.js package written in Typescript  that makes talking to the [Sendbird Platform API](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api) easier.

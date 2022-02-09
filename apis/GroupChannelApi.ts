@@ -11,6 +11,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 import { GcAcceptInvitationData } from '../models/GcAcceptInvitationData';
 import { GcBanUserData } from '../models/GcBanUserData';
+import { GcBanUserResponse } from '../models/GcBanUserResponse';
+import { GcCheckIfMemberByIdResponse } from '../models/GcCheckIfMemberByIdResponse';
 import { GcCreateChannelData } from '../models/GcCreateChannelData';
 import { GcDeclineInvitationData } from '../models/GcDeclineInvitationData';
 import { GcFreezeChannelData } from '../models/GcFreezeChannelData';
@@ -18,20 +20,18 @@ import { GcHideOrArchiveChannelData } from '../models/GcHideOrArchiveChannelData
 import { GcInviteAsMembersData } from '../models/GcInviteAsMembersData';
 import { GcJoinChannelData } from '../models/GcJoinChannelData';
 import { GcLeaveChannelData } from '../models/GcLeaveChannelData';
+import { GcListBannedUsersResponse } from '../models/GcListBannedUsersResponse';
+import { GcListChannelsResponse } from '../models/GcListChannelsResponse';
+import { GcListMembersResponse } from '../models/GcListMembersResponse';
+import { GcListMutedUsersResponse } from '../models/GcListMutedUsersResponse';
+import { GcListOperatorsResponse } from '../models/GcListOperatorsResponse';
 import { GcMuteUserData } from '../models/GcMuteUserData';
 import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
+import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
-import { InlineResponse20017 } from '../models/InlineResponse20017';
-import { InlineResponse20031 } from '../models/InlineResponse20031';
-import { InlineResponse20033 } from '../models/InlineResponse20033';
-import { InlineResponse20033BannedList } from '../models/InlineResponse20033BannedList';
-import { InlineResponse20034 } from '../models/InlineResponse20034';
-import { InlineResponse20035 } from '../models/InlineResponse20035';
-import { InlineResponse20036 } from '../models/InlineResponse20036';
-import { InlineResponse20037 } from '../models/InlineResponse20037';
-import { InlineResponse20038 } from '../models/InlineResponse20038';
+import { GcViewMuteByIdResponse } from '../models/GcViewMuteByIdResponse';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 import { SendBirdUser } from '../models/SendBirdUser';
 
@@ -1662,22 +1662,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcBanUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcBanUser(response: ResponseContext): Promise<InlineResponse20033BannedList > {
+     public async gcBanUser(response: ResponseContext): Promise<GcBanUserResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
+            const body: GcBanUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033BannedList", ""
-            ) as InlineResponse20033BannedList;
+                "GcBanUserResponse", ""
+            ) as GcBanUserResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
+            const body: GcBanUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033BannedList", ""
-            ) as InlineResponse20033BannedList;
+                "GcBanUserResponse", ""
+            ) as GcBanUserResponse;
             return body;
         }
 
@@ -1716,22 +1716,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcCheckIfMemberById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcCheckIfMemberById(response: ResponseContext): Promise<InlineResponse20037 > {
+     public async gcCheckIfMemberById(response: ResponseContext): Promise<GcCheckIfMemberByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20037 = ObjectSerializer.deserialize(
+            const body: GcCheckIfMemberByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20037", ""
-            ) as InlineResponse20037;
+                "GcCheckIfMemberByIdResponse", ""
+            ) as GcCheckIfMemberByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20037 = ObjectSerializer.deserialize(
+            const body: GcCheckIfMemberByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20037", ""
-            ) as InlineResponse20037;
+                "GcCheckIfMemberByIdResponse", ""
+            ) as GcCheckIfMemberByIdResponse;
             return body;
         }
 
@@ -1957,22 +1957,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListBannedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListBannedUsers(response: ResponseContext): Promise<InlineResponse20033 > {
+     public async gcListBannedUsers(response: ResponseContext): Promise<GcListBannedUsersResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20033 = ObjectSerializer.deserialize(
+            const body: GcListBannedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033", ""
-            ) as InlineResponse20033;
+                "GcListBannedUsersResponse", ""
+            ) as GcListBannedUsersResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20033 = ObjectSerializer.deserialize(
+            const body: GcListBannedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033", ""
-            ) as InlineResponse20033;
+                "GcListBannedUsersResponse", ""
+            ) as GcListBannedUsersResponse;
             return body;
         }
 
@@ -1986,22 +1986,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListChannels(response: ResponseContext): Promise<InlineResponse20017 > {
+     public async gcListChannels(response: ResponseContext): Promise<GcListChannelsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: GcListChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "GcListChannelsResponse", ""
+            ) as GcListChannelsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: GcListChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "GcListChannelsResponse", ""
+            ) as GcListChannelsResponse;
             return body;
         }
 
@@ -2015,22 +2015,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListMembers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListMembers(response: ResponseContext): Promise<InlineResponse20036 > {
+     public async gcListMembers(response: ResponseContext): Promise<GcListMembersResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20036 = ObjectSerializer.deserialize(
+            const body: GcListMembersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20036", ""
-            ) as InlineResponse20036;
+                "GcListMembersResponse", ""
+            ) as GcListMembersResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20036 = ObjectSerializer.deserialize(
+            const body: GcListMembersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20036", ""
-            ) as InlineResponse20036;
+                "GcListMembersResponse", ""
+            ) as GcListMembersResponse;
             return body;
         }
 
@@ -2044,22 +2044,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListMutedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListMutedUsers(response: ResponseContext): Promise<InlineResponse20031 > {
+     public async gcListMutedUsers(response: ResponseContext): Promise<GcListMutedUsersResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20031 = ObjectSerializer.deserialize(
+            const body: GcListMutedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20031", ""
-            ) as InlineResponse20031;
+                "GcListMutedUsersResponse", ""
+            ) as GcListMutedUsersResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20031 = ObjectSerializer.deserialize(
+            const body: GcListMutedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20031", ""
-            ) as InlineResponse20031;
+                "GcListMutedUsersResponse", ""
+            ) as GcListMutedUsersResponse;
             return body;
         }
 
@@ -2073,22 +2073,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcListOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcListOperators(response: ResponseContext): Promise<InlineResponse20034 > {
+     public async gcListOperators(response: ResponseContext): Promise<GcListOperatorsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: GcListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "GcListOperatorsResponse", ""
+            ) as GcListOperatorsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: GcListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "GcListOperatorsResponse", ""
+            ) as GcListOperatorsResponse;
             return body;
         }
 
@@ -2131,22 +2131,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcRegisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcRegisterOperators(response: ResponseContext): Promise<InlineResponse20038 > {
+     public async gcRegisterOperators(response: ResponseContext): Promise<GcRegisterOperatorsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20038 = ObjectSerializer.deserialize(
+            const body: GcRegisterOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20038", ""
-            ) as InlineResponse20038;
+                "GcRegisterOperatorsResponse", ""
+            ) as GcRegisterOperatorsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20038 = ObjectSerializer.deserialize(
+            const body: GcRegisterOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20038", ""
-            ) as InlineResponse20038;
+                "GcRegisterOperatorsResponse", ""
+            ) as GcRegisterOperatorsResponse;
             return body;
         }
 
@@ -2376,22 +2376,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcViewMuteById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcViewMuteById(response: ResponseContext): Promise<InlineResponse20035 > {
+     public async gcViewMuteById(response: ResponseContext): Promise<GcViewMuteByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: GcViewMuteByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "GcViewMuteByIdResponse", ""
+            ) as GcViewMuteByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: GcViewMuteByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "GcViewMuteByIdResponse", ""
+            ) as GcViewMuteByIdResponse;
             return body;
         }
 

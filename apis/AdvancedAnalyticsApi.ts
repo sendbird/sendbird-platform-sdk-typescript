@@ -9,7 +9,7 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20062 } from '../models/InlineResponse20062';
+import { RetrieveAdvancedAnalyticsMetricsResponse } from '../models/RetrieveAdvancedAnalyticsMetricsResponse';
 
 /**
  * no description
@@ -51,22 +51,22 @@ export class AdvancedAnalyticsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieveAdvancedAnalyticsMetrics
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieveAdvancedAnalyticsMetrics(response: ResponseContext): Promise<InlineResponse20062 > {
+     public async retrieveAdvancedAnalyticsMetrics(response: ResponseContext): Promise<RetrieveAdvancedAnalyticsMetricsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20062 = ObjectSerializer.deserialize(
+            const body: RetrieveAdvancedAnalyticsMetricsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20062", ""
-            ) as InlineResponse20062;
+                "RetrieveAdvancedAnalyticsMetricsResponse", ""
+            ) as RetrieveAdvancedAnalyticsMetricsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20062 = ObjectSerializer.deserialize(
+            const body: RetrieveAdvancedAnalyticsMetricsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20062", ""
-            ) as InlineResponse20062;
+                "RetrieveAdvancedAnalyticsMetricsResponse", ""
+            ) as RetrieveAdvancedAnalyticsMetricsResponse;
             return body;
         }
 

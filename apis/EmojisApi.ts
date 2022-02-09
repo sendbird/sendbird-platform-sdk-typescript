@@ -9,19 +9,19 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
+import { AddEmojiCategoriesResponse } from '../models/AddEmojiCategoriesResponse';
 import { AddEmojisData } from '../models/AddEmojisData';
+import { AddEmojisResponse } from '../models/AddEmojisResponse';
 import { EnableReactionsData } from '../models/EnableReactionsData';
-import { InlineResponse20051 } from '../models/InlineResponse20051';
-import { InlineResponse20055 } from '../models/InlineResponse20055';
-import { InlineResponse20056 } from '../models/InlineResponse20056';
-import { InlineResponse20057 } from '../models/InlineResponse20057';
-import { InlineResponse20058 } from '../models/InlineResponse20058';
-import { InlineResponse20059 } from '../models/InlineResponse20059';
+import { EnableReactionsResponse } from '../models/EnableReactionsResponse';
+import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
+import { ListEmojisResponse } from '../models/ListEmojisResponse';
 import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrlByIdData';
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
+import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
 
 /**
  * no description
@@ -453,22 +453,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to addEmojiCategories
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addEmojiCategories(response: ResponseContext): Promise<InlineResponse20057 > {
+     public async addEmojiCategories(response: ResponseContext): Promise<AddEmojiCategoriesResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20057 = ObjectSerializer.deserialize(
+            const body: AddEmojiCategoriesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20057", ""
-            ) as InlineResponse20057;
+                "AddEmojiCategoriesResponse", ""
+            ) as AddEmojiCategoriesResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20057 = ObjectSerializer.deserialize(
+            const body: AddEmojiCategoriesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20057", ""
-            ) as InlineResponse20057;
+                "AddEmojiCategoriesResponse", ""
+            ) as AddEmojiCategoriesResponse;
             return body;
         }
 
@@ -482,22 +482,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to addEmojis
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addEmojis(response: ResponseContext): Promise<InlineResponse20059 > {
+     public async addEmojis(response: ResponseContext): Promise<AddEmojisResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20059 = ObjectSerializer.deserialize(
+            const body: AddEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20059", ""
-            ) as InlineResponse20059;
+                "AddEmojisResponse", ""
+            ) as AddEmojisResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20059 = ObjectSerializer.deserialize(
+            const body: AddEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20059", ""
-            ) as InlineResponse20059;
+                "AddEmojisResponse", ""
+            ) as AddEmojisResponse;
             return body;
         }
 
@@ -561,22 +561,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to enableReactions
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async enableReactions(response: ResponseContext): Promise<InlineResponse20051 > {
+     public async enableReactions(response: ResponseContext): Promise<EnableReactionsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20051 = ObjectSerializer.deserialize(
+            const body: EnableReactionsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20051", ""
-            ) as InlineResponse20051;
+                "EnableReactionsResponse", ""
+            ) as EnableReactionsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20051 = ObjectSerializer.deserialize(
+            const body: EnableReactionsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20051", ""
-            ) as InlineResponse20051;
+                "EnableReactionsResponse", ""
+            ) as EnableReactionsResponse;
             return body;
         }
 
@@ -648,22 +648,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to listAllEmojisAndEmojiCategories
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listAllEmojisAndEmojiCategories(response: ResponseContext): Promise<InlineResponse20056 > {
+     public async listAllEmojisAndEmojiCategories(response: ResponseContext): Promise<ListAllEmojisAndEmojiCategoriesResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20056 = ObjectSerializer.deserialize(
+            const body: ListAllEmojisAndEmojiCategoriesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20056", ""
-            ) as InlineResponse20056;
+                "ListAllEmojisAndEmojiCategoriesResponse", ""
+            ) as ListAllEmojisAndEmojiCategoriesResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20056 = ObjectSerializer.deserialize(
+            const body: ListAllEmojisAndEmojiCategoriesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20056", ""
-            ) as InlineResponse20056;
+                "ListAllEmojisAndEmojiCategoriesResponse", ""
+            ) as ListAllEmojisAndEmojiCategoriesResponse;
             return body;
         }
 
@@ -677,22 +677,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to listEmojis
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listEmojis(response: ResponseContext): Promise<InlineResponse20058 > {
+     public async listEmojis(response: ResponseContext): Promise<ListEmojisResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20058 = ObjectSerializer.deserialize(
+            const body: ListEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20058", ""
-            ) as InlineResponse20058;
+                "ListEmojisResponse", ""
+            ) as ListEmojisResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20058 = ObjectSerializer.deserialize(
+            const body: ListEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20058", ""
-            ) as InlineResponse20058;
+                "ListEmojisResponse", ""
+            ) as ListEmojisResponse;
             return body;
         }
 
@@ -764,22 +764,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to useDefaultEmojis
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async useDefaultEmojis(response: ResponseContext): Promise<InlineResponse20055 > {
+     public async useDefaultEmojis(response: ResponseContext): Promise<UseDefaultEmojisResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20055 = ObjectSerializer.deserialize(
+            const body: UseDefaultEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20055", ""
-            ) as InlineResponse20055;
+                "UseDefaultEmojisResponse", ""
+            ) as UseDefaultEmojisResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20055 = ObjectSerializer.deserialize(
+            const body: UseDefaultEmojisResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20055", ""
-            ) as InlineResponse20055;
+                "UseDefaultEmojisResponse", ""
+            ) as UseDefaultEmojisResponse;
             return body;
         }
 

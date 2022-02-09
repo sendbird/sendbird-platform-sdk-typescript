@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ModelObject } from './ModelObject';
+import { SBObject } from './SBObject';
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
@@ -35,7 +35,7 @@ export class SendBirdBaseMessageInstance {
     'mentionedUsers'?: Array<SendBirdUser>;
     'messageId'?: number;
     'messageType'?: SendBirdBaseMessageInstanceMessageTypeEnum;
-    'metaArray'?: ModelObject;
+    'metaArray'?: SBObject;
     'metaArrays'?: Array<SendBirdMessageMetaArray>;
     'ogMetaData'?: SendBirdOGMetaData;
     'parentMessage'?: SendBirdMessageResponse;
@@ -119,7 +119,7 @@ export class SendBirdBaseMessageInstance {
         {
             "name": "metaArray",
             "baseName": "meta_array",
-            "type": "ModelObject",
+            "type": "SBObject",
             "format": ""
         },
         {

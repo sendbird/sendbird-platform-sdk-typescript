@@ -9,20 +9,20 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20030 } from '../models/InlineResponse20030';
-import { InlineResponse20031 } from '../models/InlineResponse20031';
-import { InlineResponse20032 } from '../models/InlineResponse20032';
-import { InlineResponse20033 } from '../models/InlineResponse20033';
-import { InlineResponse20033BannedList } from '../models/InlineResponse20033BannedList';
-import { InlineResponse20034 } from '../models/InlineResponse20034';
-import { InlineResponse20035 } from '../models/InlineResponse20035';
 import { OcBanUserData } from '../models/OcBanUserData';
+import { OcBanUserResponse } from '../models/OcBanUserResponse';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
 import { OcFreezeChannelData } from '../models/OcFreezeChannelData';
+import { OcListBannedUsersResponse } from '../models/OcListBannedUsersResponse';
+import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
+import { OcListMutedUsersResponse } from '../models/OcListMutedUsersResponse';
+import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
+import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse';
 import { OcMuteUserData } from '../models/OcMuteUserData';
 import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
 import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
 import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
+import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
 import { SendBirdUser } from '../models/SendBirdUser';
 
@@ -896,22 +896,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocBanUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocBanUser(response: ResponseContext): Promise<InlineResponse20033BannedList > {
+     public async ocBanUser(response: ResponseContext): Promise<OcBanUserResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
+            const body: OcBanUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033BannedList", ""
-            ) as InlineResponse20033BannedList;
+                "OcBanUserResponse", ""
+            ) as OcBanUserResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20033BannedList = ObjectSerializer.deserialize(
+            const body: OcBanUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033BannedList", ""
-            ) as InlineResponse20033BannedList;
+                "OcBanUserResponse", ""
+            ) as OcBanUserResponse;
             return body;
         }
 
@@ -1033,22 +1033,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocListBannedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListBannedUsers(response: ResponseContext): Promise<InlineResponse20033 > {
+     public async ocListBannedUsers(response: ResponseContext): Promise<OcListBannedUsersResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20033 = ObjectSerializer.deserialize(
+            const body: OcListBannedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033", ""
-            ) as InlineResponse20033;
+                "OcListBannedUsersResponse", ""
+            ) as OcListBannedUsersResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20033 = ObjectSerializer.deserialize(
+            const body: OcListBannedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20033", ""
-            ) as InlineResponse20033;
+                "OcListBannedUsersResponse", ""
+            ) as OcListBannedUsersResponse;
             return body;
         }
 
@@ -1062,22 +1062,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocListChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListChannels(response: ResponseContext): Promise<InlineResponse20030 > {
+     public async ocListChannels(response: ResponseContext): Promise<OcListChannelsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20030 = ObjectSerializer.deserialize(
+            const body: OcListChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20030", ""
-            ) as InlineResponse20030;
+                "OcListChannelsResponse", ""
+            ) as OcListChannelsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20030 = ObjectSerializer.deserialize(
+            const body: OcListChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20030", ""
-            ) as InlineResponse20030;
+                "OcListChannelsResponse", ""
+            ) as OcListChannelsResponse;
             return body;
         }
 
@@ -1091,22 +1091,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocListMutedUsers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListMutedUsers(response: ResponseContext): Promise<InlineResponse20031 > {
+     public async ocListMutedUsers(response: ResponseContext): Promise<OcListMutedUsersResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20031 = ObjectSerializer.deserialize(
+            const body: OcListMutedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20031", ""
-            ) as InlineResponse20031;
+                "OcListMutedUsersResponse", ""
+            ) as OcListMutedUsersResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20031 = ObjectSerializer.deserialize(
+            const body: OcListMutedUsersResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20031", ""
-            ) as InlineResponse20031;
+                "OcListMutedUsersResponse", ""
+            ) as OcListMutedUsersResponse;
             return body;
         }
 
@@ -1120,22 +1120,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocListOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListOperators(response: ResponseContext): Promise<InlineResponse20034 > {
+     public async ocListOperators(response: ResponseContext): Promise<OcListOperatorsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: OcListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "OcListOperatorsResponse", ""
+            ) as OcListOperatorsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20034 = ObjectSerializer.deserialize(
+            const body: OcListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20034", ""
-            ) as InlineResponse20034;
+                "OcListOperatorsResponse", ""
+            ) as OcListOperatorsResponse;
             return body;
         }
 
@@ -1149,22 +1149,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocListParticipants
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListParticipants(response: ResponseContext): Promise<InlineResponse20032 > {
+     public async ocListParticipants(response: ResponseContext): Promise<OcListParticipantsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20032 = ObjectSerializer.deserialize(
+            const body: OcListParticipantsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20032", ""
-            ) as InlineResponse20032;
+                "OcListParticipantsResponse", ""
+            ) as OcListParticipantsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20032 = ObjectSerializer.deserialize(
+            const body: OcListParticipantsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20032", ""
-            ) as InlineResponse20032;
+                "OcListParticipantsResponse", ""
+            ) as OcListParticipantsResponse;
             return body;
         }
 
@@ -1398,22 +1398,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocViewMuteById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocViewMuteById(response: ResponseContext): Promise<InlineResponse20035 > {
+     public async ocViewMuteById(response: ResponseContext): Promise<OcViewMuteByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: OcViewMuteByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "OcViewMuteByIdResponse", ""
+            ) as OcViewMuteByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20035 = ObjectSerializer.deserialize(
+            const body: OcViewMuteByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20035", ""
-            ) as InlineResponse20035;
+                "OcViewMuteByIdResponse", ""
+            ) as OcViewMuteByIdResponse;
             return body;
         }
 

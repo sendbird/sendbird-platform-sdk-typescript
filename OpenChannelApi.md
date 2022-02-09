@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **ocBanUser**
-> InlineResponse20033BannedList ocBanUser()
+> OcBanUserResponse ocBanUser()
 
 ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20033BannedList**
+**OcBanUserResponse**
 
 ### Authorization
 
@@ -349,7 +349,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocListBannedUsers**
-> InlineResponse20033 ocListBannedUsers()
+> OcListBannedUsersResponse ocListBannedUsers()
 
 ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20033**
+**OcListBannedUsersResponse**
 
 ### Authorization
 
@@ -412,7 +412,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocListChannels**
-> InlineResponse20030 ocListChannels()
+> OcListChannelsResponse ocListChannels()
 
 ## List channels  Retrieves a list of open channels. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-channels ----------------------------
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20030**
+**OcListChannelsResponse**
 
 ### Authorization
 
@@ -490,7 +490,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocListMutedUsers**
-> InlineResponse20031 ocListMutedUsers()
+> OcListMutedUsersResponse ocListMutedUsers()
 
 ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20031**
+**OcListMutedUsersResponse**
 
 ### Authorization
 
@@ -553,7 +553,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocListOperators**
-> InlineResponse20034 ocListOperators()
+> OcListOperatorsResponse ocListOperators()
 
 ## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20034**
+**OcListOperatorsResponse**
 
 ### Authorization
 
@@ -616,7 +616,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocListParticipants**
-> InlineResponse20032 ocListParticipants()
+> OcListParticipantsResponse ocListParticipants()
 
 ## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20032**
+**OcListParticipantsResponse**
 
 ### Authorization
 
@@ -1186,7 +1186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocViewMuteById**
-> InlineResponse20035 ocViewMuteById()
+> OcViewMuteByIdResponse ocViewMuteById()
 
 ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
 
@@ -1226,7 +1226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20035**
+**OcViewMuteByIdResponse**
 
 ### Authorization
 

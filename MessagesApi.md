@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **addExtraDataToMessage**
-> InlineResponse20054 addExtraDataToMessage()
+> AddExtraDataToMessageResponse addExtraDataToMessage()
 
 ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-extra-data-to-a-message ----------------------------
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20054**
+**AddExtraDataToMessageResponse**
 
 ### Authorization
 
@@ -94,7 +94,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addReactionToAMessage**
-> InlineResponse20053 addReactionToAMessage()
+> AddReactionToAMessageResponse addReactionToAMessage()
 
 ## Add a reaction to a message  Adds a specific reaction to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-a-reaction-to-a-message ----------------------------
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20053**
+**AddReactionToAMessageResponse**
 
 ### Authorization
 
@@ -229,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcMarkAllMessagesAsDelivered**
-> InlineResponse20050 gcMarkAllMessagesAsDelivered()
+> GcMarkAllMessagesAsDeliveredResponse gcMarkAllMessagesAsDelivered()
 
 ## Mark all messages as delivered  Marks all messages in a group channel as delivered for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-delivered ----------------------------
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20050**
+**GcMarkAllMessagesAsDeliveredResponse**
 
 ### Authorization
 
@@ -357,7 +357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcViewNumberOfEachMembersUnreadMessages**
-> InlineResponse20049 gcViewNumberOfEachMembersUnreadMessages()
+> GcViewNumberOfEachMembersUnreadMessagesResponse gcViewNumberOfEachMembersUnreadMessages()
 
 ## View number of each member's unread messages  Retrieves the total number of each member's unread messages in a group channel. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-number-of-each-member-s-unread-messages ----------------------------
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20049**
+**GcViewNumberOfEachMembersUnreadMessagesResponse**
 
 ### Authorization
 
@@ -417,7 +417,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listMessages**
-> InlineResponse20047 listMessages()
+> ListMessagesResponse listMessages()
 
 ## List messages  Retrieves a list of past messages of a channel.  > This message retrieval is one of Sendbird's [premium features](https://sendbird.com/docs/chat/v3/platform-api/guides/application#-3-sendbird-s-premium-features). Contact our [sales team](https://get.sendbird.com/talk-to-sales.html) for further assistance.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-messages ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of past messages.
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20047**
+**ListMessagesResponse**
 
 ### Authorization
 
@@ -531,7 +531,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listReactionsOfMessage**
-> InlineResponse20052 listReactionsOfMessage()
+> ListReactionsOfMessageResponse listReactionsOfMessage()
 
 ## List reactions of a message  Retrieves a list of reactions made to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-reactions-of-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to add a reaction to.
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20052**
+**ListReactionsOfMessageResponse**
 
 ### Authorization
 
@@ -665,7 +665,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removeReactionFromAMessage**
-> InlineResponse20053 removeReactionFromAMessage()
+> RemoveReactionFromAMessageResponse removeReactionFromAMessage()
 
 ## Remove a reaction from a message  Removes a specific reaction from a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-a-reaction-from-a-message ----------------------------
 
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20053**
+**RemoveReactionFromAMessageResponse**
 
 ### Authorization
 
@@ -883,7 +883,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateExtraDataInMessage**
-> InlineResponse20054 updateExtraDataInMessage()
+> UpdateExtraDataInMessageResponse updateExtraDataInMessage()
 
 ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-extra-data-in-a-message ----------------------------
 
@@ -936,7 +936,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20054**
+**UpdateExtraDataInMessageResponse**
 
 ### Authorization
 
@@ -1103,7 +1103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewTotalNumberOfMessagesInChannel**
-> InlineResponse20048 viewTotalNumberOfMessagesInChannel()
+> ViewTotalNumberOfMessagesInChannelResponse viewTotalNumberOfMessagesInChannel()
 
 ## View total number of messages in a channel  Retrieves the total number of messages in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-total-number-of-messages-in-a-channel ----------------------------
 
@@ -1143,7 +1143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20048**
+**ViewTotalNumberOfMessagesInChannelResponse**
 
 ### Authorization
 

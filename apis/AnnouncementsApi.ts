@@ -9,17 +9,19 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20039 } from '../models/InlineResponse20039';
-import { InlineResponse20039Announcements } from '../models/InlineResponse20039Announcements';
-import { InlineResponse20040 } from '../models/InlineResponse20040';
-import { InlineResponse20041 } from '../models/InlineResponse20041';
-import { InlineResponse20042 } from '../models/InlineResponse20042';
-import { InlineResponse20043 } from '../models/InlineResponse20043';
-import { InlineResponse20044 } from '../models/InlineResponse20044';
-import { InlineResponse20045 } from '../models/InlineResponse20045';
-import { InlineResponse20046 } from '../models/InlineResponse20046';
+import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
+import { GetDetailedOpenRateOfAnnouncementGroupResponse } from '../models/GetDetailedOpenRateOfAnnouncementGroupResponse';
+import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponse';
+import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse';
+import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
+import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
+import { ListAnnouncementGroupsResponse } from '../models/ListAnnouncementGroupsResponse';
+import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
 import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
+import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
 import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
+import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
+import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
 
 /**
  * no description
@@ -530,22 +532,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getDetailedOpenRateOfAnnouncementById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getDetailedOpenRateOfAnnouncementById(response: ResponseContext): Promise<InlineResponse20042 > {
+     public async getDetailedOpenRateOfAnnouncementById(response: ResponseContext): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20042 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenRateOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20042", ""
-            ) as InlineResponse20042;
+                "GetDetailedOpenRateOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20042 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenRateOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20042", ""
-            ) as InlineResponse20042;
+                "GetDetailedOpenRateOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementByIdResponse;
             return body;
         }
 
@@ -559,22 +561,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getDetailedOpenRateOfAnnouncementGroup
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getDetailedOpenRateOfAnnouncementGroup(response: ResponseContext): Promise<InlineResponse20046 > {
+     public async getDetailedOpenRateOfAnnouncementGroup(response: ResponseContext): Promise<GetDetailedOpenRateOfAnnouncementGroupResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20046 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenRateOfAnnouncementGroupResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20046", ""
-            ) as InlineResponse20046;
+                "GetDetailedOpenRateOfAnnouncementGroupResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementGroupResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20046 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenRateOfAnnouncementGroupResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20046", ""
-            ) as InlineResponse20046;
+                "GetDetailedOpenRateOfAnnouncementGroupResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementGroupResponse;
             return body;
         }
 
@@ -588,22 +590,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getDetailedOpenStatusOfAnnouncementById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getDetailedOpenStatusOfAnnouncementById(response: ResponseContext): Promise<InlineResponse20043 > {
+     public async getDetailedOpenStatusOfAnnouncementById(response: ResponseContext): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20043 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenStatusOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20043", ""
-            ) as InlineResponse20043;
+                "GetDetailedOpenStatusOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenStatusOfAnnouncementByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20043 = ObjectSerializer.deserialize(
+            const body: GetDetailedOpenStatusOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20043", ""
-            ) as InlineResponse20043;
+                "GetDetailedOpenStatusOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenStatusOfAnnouncementByIdResponse;
             return body;
         }
 
@@ -617,22 +619,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getStatistics
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getStatistics(response: ResponseContext): Promise<InlineResponse20044 > {
+     public async getStatistics(response: ResponseContext): Promise<GetStatisticsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsResponse", ""
+            ) as GetStatisticsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsResponse", ""
+            ) as GetStatisticsResponse;
             return body;
         }
 
@@ -646,22 +648,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getStatisticsDaily
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getStatisticsDaily(response: ResponseContext): Promise<InlineResponse20044 > {
+     public async getStatisticsDaily(response: ResponseContext): Promise<GetStatisticsDailyResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsDailyResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsDailyResponse", ""
+            ) as GetStatisticsDailyResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsDailyResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsDailyResponse", ""
+            ) as GetStatisticsDailyResponse;
             return body;
         }
 
@@ -675,22 +677,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to getStatisticsMonthly
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getStatisticsMonthly(response: ResponseContext): Promise<InlineResponse20044 > {
+     public async getStatisticsMonthly(response: ResponseContext): Promise<GetStatisticsMonthlyResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsMonthlyResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsMonthlyResponse", ""
+            ) as GetStatisticsMonthlyResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20044 = ObjectSerializer.deserialize(
+            const body: GetStatisticsMonthlyResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20044", ""
-            ) as InlineResponse20044;
+                "GetStatisticsMonthlyResponse", ""
+            ) as GetStatisticsMonthlyResponse;
             return body;
         }
 
@@ -704,22 +706,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to listAnnouncementGroups
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listAnnouncementGroups(response: ResponseContext): Promise<InlineResponse20045 > {
+     public async listAnnouncementGroups(response: ResponseContext): Promise<ListAnnouncementGroupsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20045 = ObjectSerializer.deserialize(
+            const body: ListAnnouncementGroupsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20045", ""
-            ) as InlineResponse20045;
+                "ListAnnouncementGroupsResponse", ""
+            ) as ListAnnouncementGroupsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20045 = ObjectSerializer.deserialize(
+            const body: ListAnnouncementGroupsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20045", ""
-            ) as InlineResponse20045;
+                "ListAnnouncementGroupsResponse", ""
+            ) as ListAnnouncementGroupsResponse;
             return body;
         }
 
@@ -733,22 +735,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to listAnnouncements
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listAnnouncements(response: ResponseContext): Promise<InlineResponse20039 > {
+     public async listAnnouncements(response: ResponseContext): Promise<ListAnnouncementsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20039 = ObjectSerializer.deserialize(
+            const body: ListAnnouncementsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039", ""
-            ) as InlineResponse20039;
+                "ListAnnouncementsResponse", ""
+            ) as ListAnnouncementsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20039 = ObjectSerializer.deserialize(
+            const body: ListAnnouncementsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039", ""
-            ) as InlineResponse20039;
+                "ListAnnouncementsResponse", ""
+            ) as ListAnnouncementsResponse;
             return body;
         }
 
@@ -762,22 +764,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to scheduleAnnouncement
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async scheduleAnnouncement(response: ResponseContext): Promise<InlineResponse20040 > {
+     public async scheduleAnnouncement(response: ResponseContext): Promise<ScheduleAnnouncementResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20040 = ObjectSerializer.deserialize(
+            const body: ScheduleAnnouncementResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20040", ""
-            ) as InlineResponse20040;
+                "ScheduleAnnouncementResponse", ""
+            ) as ScheduleAnnouncementResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20040 = ObjectSerializer.deserialize(
+            const body: ScheduleAnnouncementResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20040", ""
-            ) as InlineResponse20040;
+                "ScheduleAnnouncementResponse", ""
+            ) as ScheduleAnnouncementResponse;
             return body;
         }
 
@@ -791,22 +793,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to updateAnnouncementById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateAnnouncementById(response: ResponseContext): Promise<InlineResponse20041 > {
+     public async updateAnnouncementById(response: ResponseContext): Promise<UpdateAnnouncementByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20041 = ObjectSerializer.deserialize(
+            const body: UpdateAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20041", ""
-            ) as InlineResponse20041;
+                "UpdateAnnouncementByIdResponse", ""
+            ) as UpdateAnnouncementByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20041 = ObjectSerializer.deserialize(
+            const body: UpdateAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20041", ""
-            ) as InlineResponse20041;
+                "UpdateAnnouncementByIdResponse", ""
+            ) as UpdateAnnouncementByIdResponse;
             return body;
         }
 
@@ -820,22 +822,22 @@ export class AnnouncementsApiResponseProcessor {
      * @params response Response returned by the server for a request to viewAnnouncementById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewAnnouncementById(response: ResponseContext): Promise<InlineResponse20039Announcements > {
+     public async viewAnnouncementById(response: ResponseContext): Promise<ViewAnnouncementByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20039Announcements = ObjectSerializer.deserialize(
+            const body: ViewAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039Announcements", ""
-            ) as InlineResponse20039Announcements;
+                "ViewAnnouncementByIdResponse", ""
+            ) as ViewAnnouncementByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20039Announcements = ObjectSerializer.deserialize(
+            const body: ViewAnnouncementByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20039Announcements", ""
-            ) as InlineResponse20039Announcements;
+                "ViewAnnouncementByIdResponse", ""
+            ) as ViewAnnouncementByIdResponse;
             return body;
         }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ModelObject } from './ModelObject';
+import { SBObject } from './SBObject';
 import { HttpFile } from '../http/http';
 
 /**
@@ -22,7 +22,7 @@ export class SendBirdUser {
     'friendName'?: string;
     'isActive'?: boolean;
     'lastSeenAt'?: number;
-    'metaData'?: ModelObject;
+    'metaData'?: SBObject;
     'nickname'?: string;
     'plainProfileUrl'?: string;
     'preferredLanguages'?: Array<string>;
@@ -66,7 +66,7 @@ export class SendBirdUser {
         {
             "name": "metaData",
             "baseName": "meta_data",
-            "type": "ModelObject",
+            "type": "SBObject",
             "format": ""
         },
         {

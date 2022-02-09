@@ -33,7 +33,7 @@ Method | HTTP request | Description
 
 
 # **addApnsPushConfiguration**
-> InlineResponse2003 addApnsPushConfiguration()
+> AddApnsPushConfigurationResponse addApnsPushConfiguration()
 
 ## Add an APNs push configuration  Registers an APNs (Apple Push Notification service) push configuration for your client app. To send push notifications to iOS devices, your should first register the APNs push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: To upload a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-apns-push-configuration
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2003**
+**AddApnsPushConfigurationResponse**
 
 ### Authorization
 
@@ -99,7 +99,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addFcmPushConfiguration**
-> InlineResponse2001 addFcmPushConfiguration()
+> AddFcmPushConfigurationResponse addFcmPushConfiguration()
 
 ## Add a FCM push configuration  Registers a FCM (Firebase Cloud Messaging) push configuration for your client app. To send push notifications to Android devices, you should first register the FCM push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-a-fcm-push-configuration
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**AddFcmPushConfigurationResponse**
 
 ### Authorization
 
@@ -159,7 +159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addHmsPushConfiguration**
-> InlineResponse2002 addHmsPushConfiguration()
+> AddHmsPushConfigurationResponse addHmsPushConfiguration()
 
 ## Add an HMS push configuration  Registers an HMS (Huawei Mobile Services) push configuration for your client app. To send push notifications to Android devices for HMS, you should first register the HMS push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-hms-push-configuration
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2002**
+**AddHmsPushConfigurationResponse**
 
 ### Authorization
 
@@ -220,7 +220,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addIpToWhitelist**
-> InlineResponse2006 addIpToWhitelist()
+> AddIpToWhitelistResponse addIpToWhitelist()
 
 ## Add an IP to a whitelist  Adds IP addresses and ranges to your Sendbird application settings. Both currently added and any previously added IPs are granted API access. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-ip-to-a-whitelist
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2006**
+**AddIpToWhitelistResponse**
 
 ### Authorization
 
@@ -281,7 +281,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteAllowedIpsFromWhitelist**
-> InlineResponse2006 deleteAllowedIpsFromWhitelist()
+> DeleteAllowedIpsFromWhitelistResponse deleteAllowedIpsFromWhitelist()
 
 ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2006**
+**DeleteAllowedIpsFromWhitelistResponse**
 
 ### Authorization
 
@@ -340,7 +340,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteApnsCertificateById**
-> InlineResponse20013 deleteApnsCertificateById()
+> DeleteApnsCertificateByIdResponse deleteApnsCertificateById()
 
 ## Delete an APNs certificate  Deletes a specific APNs certificate.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-an-apns-certificate ----------------------------
 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20013**
+**DeleteApnsCertificateByIdResponse**
 
 ### Authorization
 
@@ -397,7 +397,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **generateSecondaryApiToken**
-> InlineResponse2007 generateSecondaryApiToken()
+> GenerateSecondaryApiTokenResponse generateSecondaryApiToken()
 
 ## Generate a secondary API token  Generates a new secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-generate-a-secondary-api-token
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2007**
+**GenerateSecondaryApiTokenResponse**
 
 ### Authorization
 
@@ -456,7 +456,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listPushConfigurations**
-> InlineResponse20012 listPushConfigurations()
+> ListPushConfigurationsResponse listPushConfigurations()
 
 ## List push configurations  Retrieves a list of an application's registered push configurations.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-configurations ----------------------------
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20012**
+**ListPushConfigurationsResponse**
 
 ### Authorization
 
@@ -513,7 +513,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listPushNotificationContentTemplates**
-> InlineResponse2004 listPushNotificationContentTemplates()
+> ListPushNotificationContentTemplatesResponse listPushNotificationContentTemplates()
 
 ## List push notification content templates  Retrieves a list of push notification content templates of an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-notification-content-templates
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2004**
+**ListPushNotificationContentTemplatesResponse**
 
 ### Authorization
 
@@ -567,7 +567,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listSecondaryApiTokens**
-> InlineResponse2008 listSecondaryApiTokens()
+> ListSecondaryApiTokensResponse listSecondaryApiTokens()
 
 ## List secondary API tokens  Retrieves a list of secondary API tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-secondary-api-tokens
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2008**
+**ListSecondaryApiTokensResponse**
 
 ### Authorization
 
@@ -621,7 +621,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removePushConfigurationById**
-> InlineResponse20013 removePushConfigurationById()
+> RemovePushConfigurationByIdResponse removePushConfigurationById()
 
 ## Remove a push configuration  Removes a specific push configuration from an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-remove-a-push-configuration ----------------------------
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20013**
+**RemovePushConfigurationByIdResponse**
 
 ### Authorization
 
@@ -681,7 +681,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieveIpWhitelist**
-> InlineResponse2006 retrieveIpWhitelist()
+> RetrieveIpWhitelistResponse retrieveIpWhitelist()
 
 ## Retrieve an IP whitelist  Retrieves a list of all the IP ranges and addresses that have access to your Sendbird application. This list is called an IP whitelist and its addresses are granted API access when the IP whitelist API enables [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notations.  If you specify which IP addresses or ranges to include in the whitelist, any unlisted foreign IP addresses will be denied access. If you don't specify any IP address or range to include in the whitelist, all IP addresses will be granted API access. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-retrieve-an-ip-whitelist
 
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2006**
+**RetrieveIpWhitelistResponse**
 
 ### Authorization
 
@@ -735,7 +735,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **revokeSecondaryApiTokenByToken**
-> InlineResponse2007 revokeSecondaryApiTokenByToken()
+> RevokeSecondaryApiTokenByTokenResponse revokeSecondaryApiTokenByToken()
 
 ## Revoke a secondary API token  Revokes a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-revoke-a-secondary-api-token
 
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2007**
+**RevokeSecondaryApiTokenByTokenResponse**
 
 ### Authorization
 
@@ -792,7 +792,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateApnsPushConfigurationById**
-> InlineResponse20014 updateApnsPushConfigurationById()
+> UpdateApnsPushConfigurationByIdResponse updateApnsPushConfigurationById()
 
 ## Update an APNs push configuration  Updates a specific APNs (Apple Push Notification service) push configuration for your client app. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: If your HTTP request body contains a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to upload to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests) .  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-apns-push-configuration ----------------------------
 
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20014**
+**UpdateApnsPushConfigurationByIdResponse**
 
 ### Authorization
 
@@ -862,7 +862,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateDefaultChannelInvitationPreference**
-> InlineResponse2005 updateDefaultChannelInvitationPreference()
+> UpdateDefaultChannelInvitationPreferenceResponse updateDefaultChannelInvitationPreference()
 
 ## Update default channel invitation preference  Updates the default channel invitation preference of an application.  > __Note__: Using the [update channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can update the value of a specific user's channel invitation preference, which can be set individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference
 
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2005**
+**UpdateDefaultChannelInvitationPreferenceResponse**
 
 ### Authorization
 
@@ -921,7 +921,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateFcmPushConfigurationById**
-> InlineResponse20014 updateFcmPushConfigurationById()
+> UpdateFcmPushConfigurationByIdResponse updateFcmPushConfigurationById()
 
 ## Update a FCM push configuration  Updates a specific FCM (Firebase Cloud Messaging) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-fcm-push-configuration ----------------------------
 
@@ -965,7 +965,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20014**
+**UpdateFcmPushConfigurationByIdResponse**
 
 ### Authorization
 
@@ -985,7 +985,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateHmsPushConfigurationById**
-> InlineResponse20014 updateHmsPushConfigurationById()
+> UpdateHmsPushConfigurationByIdResponse updateHmsPushConfigurationById()
 
 ## Update an HMS push configuration  Updates a specific HMS (Huawei Mobile Services) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-hms-push-configuration ----------------------------
 
@@ -1030,7 +1030,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20014**
+**UpdateHmsPushConfigurationByIdResponse**
 
 ### Authorization
 
@@ -1050,7 +1050,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updatePushNotificationContentTemplate**
-> InlineResponse20015 updatePushNotificationContentTemplate()
+> UpdatePushNotificationContentTemplateResponse updatePushNotificationContentTemplate()
 
 ## Update a push notification content template  Updates a specific push notification content template of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-push-notification-content-template ----------------------------
 
@@ -1096,7 +1096,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20015**
+**UpdatePushNotificationContentTemplateResponse**
 
 ### Authorization
 
@@ -1116,7 +1116,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewDefaultChannelInvitationPreference**
-> InlineResponse2005 viewDefaultChannelInvitationPreference()
+> ViewDefaultChannelInvitationPreferenceResponse viewDefaultChannelInvitationPreference()
 
 ## View default channel invitation preference  Retrieves the default channel invitation preference of an application.  > __Note__: Using the [view channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference) action, you can retrieve the value of a specific user's channel invitation preference, which can be set individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference
 
@@ -1150,7 +1150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2005**
+**ViewDefaultChannelInvitationPreferenceResponse**
 
 ### Authorization
 
@@ -1170,7 +1170,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfConcurrentConnections**
-> InlineResponse200 viewNumberOfConcurrentConnections()
+> ViewNumberOfConcurrentConnectionsResponse viewNumberOfConcurrentConnections()
 
 ## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
 
@@ -1204,7 +1204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**ViewNumberOfConcurrentConnectionsResponse**
 
 ### Authorization
 
@@ -1224,7 +1224,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfDailyActiveUsers**
-> InlineResponse20011 viewNumberOfDailyActiveUsers()
+> ViewNumberOfDailyActiveUsersResponse viewNumberOfDailyActiveUsers()
 
 ## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
 
@@ -1261,7 +1261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20011**
+**ViewNumberOfDailyActiveUsersResponse**
 
 ### Authorization
 
@@ -1281,7 +1281,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfMonthlyActiveUsers**
-> InlineResponse20010 viewNumberOfMonthlyActiveUsers()
+> ViewNumberOfMonthlyActiveUsersResponse viewNumberOfMonthlyActiveUsers()
 
 ## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
 
@@ -1318,7 +1318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20010**
+**ViewNumberOfMonthlyActiveUsersResponse**
 
 ### Authorization
 
@@ -1338,7 +1338,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfPeakConnections**
-> InlineResponse2009 viewNumberOfPeakConnections()
+> ViewNumberOfPeakConnectionsResponse viewNumberOfPeakConnections()
 
 ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
 
@@ -1393,7 +1393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2009**
+**ViewNumberOfPeakConnectionsResponse**
 
 ### Authorization
 
@@ -1413,7 +1413,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewPushConfigurationById**
-> InlineResponse20012 viewPushConfigurationById()
+> ViewPushConfigurationByIdResponse viewPushConfigurationById()
 
 ## View a push configuration  Retrieves a specific push configuration of an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-configuration ----------------------------
 
@@ -1453,7 +1453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20012**
+**ViewPushConfigurationByIdResponse**
 
 ### Authorization
 
@@ -1473,7 +1473,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewPushNotificationContentTemplate**
-> InlineResponse20015 viewPushNotificationContentTemplate()
+> ViewPushNotificationContentTemplateResponse viewPushNotificationContentTemplate()
 
 ## View a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
 
@@ -1510,7 +1510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20015**
+**ViewPushNotificationContentTemplateResponse**
 
 ### Authorization
 
@@ -1530,7 +1530,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewSecondaryApiTokenByToken**
-> InlineResponse2007 viewSecondaryApiTokenByToken()
+> ViewSecondaryApiTokenByTokenResponse viewSecondaryApiTokenByToken()
 
 ## View a secondary API token  Retrieves the information on a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-secondary-api-token
 
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2007**
+**ViewSecondaryApiTokenByTokenResponse**
 
 ### Authorization
 

@@ -10,13 +10,15 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 
 import { CreateBotData } from '../models/CreateBotData';
-import { InlineResponse20065 } from '../models/InlineResponse20065';
-import { InlineResponse20065Bots } from '../models/InlineResponse20065Bots';
+import { CreateBotResponse } from '../models/CreateBotResponse';
 import { JoinChannelsData } from '../models/JoinChannelsData';
+import { ListBotsResponse } from '../models/ListBotsResponse';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { UpdateBotByIdData } from '../models/UpdateBotByIdData';
+import { UpdateBotByIdResponse } from '../models/UpdateBotByIdResponse';
+import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 
 /**
  * no description
@@ -387,22 +389,22 @@ export class BotInterfaceApiResponseProcessor {
      * @params response Response returned by the server for a request to createBot
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createBot(response: ResponseContext): Promise<InlineResponse20065Bots > {
+     public async createBot(response: ResponseContext): Promise<CreateBotResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: CreateBotResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "CreateBotResponse", ""
+            ) as CreateBotResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: CreateBotResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "CreateBotResponse", ""
+            ) as CreateBotResponse;
             return body;
         }
 
@@ -520,22 +522,22 @@ export class BotInterfaceApiResponseProcessor {
      * @params response Response returned by the server for a request to listBots
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listBots(response: ResponseContext): Promise<InlineResponse20065 > {
+     public async listBots(response: ResponseContext): Promise<ListBotsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20065 = ObjectSerializer.deserialize(
+            const body: ListBotsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065", ""
-            ) as InlineResponse20065;
+                "ListBotsResponse", ""
+            ) as ListBotsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20065 = ObjectSerializer.deserialize(
+            const body: ListBotsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065", ""
-            ) as InlineResponse20065;
+                "ListBotsResponse", ""
+            ) as ListBotsResponse;
             return body;
         }
 
@@ -578,22 +580,22 @@ export class BotInterfaceApiResponseProcessor {
      * @params response Response returned by the server for a request to updateBotById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateBotById(response: ResponseContext): Promise<InlineResponse20065Bots > {
+     public async updateBotById(response: ResponseContext): Promise<UpdateBotByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: UpdateBotByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "UpdateBotByIdResponse", ""
+            ) as UpdateBotByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: UpdateBotByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "UpdateBotByIdResponse", ""
+            ) as UpdateBotByIdResponse;
             return body;
         }
 
@@ -607,22 +609,22 @@ export class BotInterfaceApiResponseProcessor {
      * @params response Response returned by the server for a request to viewBotById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewBotById(response: ResponseContext): Promise<InlineResponse20065Bots > {
+     public async viewBotById(response: ResponseContext): Promise<ViewBotByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: ViewBotByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "ViewBotByIdResponse", ""
+            ) as ViewBotByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20065Bots = ObjectSerializer.deserialize(
+            const body: ViewBotByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20065Bots", ""
-            ) as InlineResponse20065Bots;
+                "ViewBotByIdResponse", ""
+            ) as ViewBotByIdResponse;
             return body;
         }
 

@@ -10,20 +10,22 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 
 import { AddExtraDataToMessageData } from '../models/AddExtraDataToMessageData';
+import { AddExtraDataToMessageResponse } from '../models/AddExtraDataToMessageResponse';
 import { AddReactionToAMessageData } from '../models/AddReactionToAMessageData';
+import { AddReactionToAMessageResponse } from '../models/AddReactionToAMessageResponse';
 import { GcMarkAllMessagesAsDeliveredData } from '../models/GcMarkAllMessagesAsDeliveredData';
+import { GcMarkAllMessagesAsDeliveredResponse } from '../models/GcMarkAllMessagesAsDeliveredResponse';
 import { GcMarkAllMessagesAsReadData } from '../models/GcMarkAllMessagesAsReadData';
-import { InlineResponse20047 } from '../models/InlineResponse20047';
-import { InlineResponse20048 } from '../models/InlineResponse20048';
-import { InlineResponse20049 } from '../models/InlineResponse20049';
-import { InlineResponse20050 } from '../models/InlineResponse20050';
-import { InlineResponse20052 } from '../models/InlineResponse20052';
-import { InlineResponse20053 } from '../models/InlineResponse20053';
-import { InlineResponse20054 } from '../models/InlineResponse20054';
+import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
+import { ListMessagesResponse } from '../models/ListMessagesResponse';
+import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
+import { RemoveReactionFromAMessageResponse } from '../models/RemoveReactionFromAMessageResponse';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
 import { SendMessageData } from '../models/SendMessageData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
+import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
 import { UpdateMessageByIdData } from '../models/UpdateMessageByIdData';
+import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 
 /**
  * no description
@@ -1026,22 +1028,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to addExtraDataToMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addExtraDataToMessage(response: ResponseContext): Promise<InlineResponse20054 > {
+     public async addExtraDataToMessage(response: ResponseContext): Promise<AddExtraDataToMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20054 = ObjectSerializer.deserialize(
+            const body: AddExtraDataToMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20054", ""
-            ) as InlineResponse20054;
+                "AddExtraDataToMessageResponse", ""
+            ) as AddExtraDataToMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20054 = ObjectSerializer.deserialize(
+            const body: AddExtraDataToMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20054", ""
-            ) as InlineResponse20054;
+                "AddExtraDataToMessageResponse", ""
+            ) as AddExtraDataToMessageResponse;
             return body;
         }
 
@@ -1055,22 +1057,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to addReactionToAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addReactionToAMessage(response: ResponseContext): Promise<InlineResponse20053 > {
+     public async addReactionToAMessage(response: ResponseContext): Promise<AddReactionToAMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20053 = ObjectSerializer.deserialize(
+            const body: AddReactionToAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20053", ""
-            ) as InlineResponse20053;
+                "AddReactionToAMessageResponse", ""
+            ) as AddReactionToAMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20053 = ObjectSerializer.deserialize(
+            const body: AddReactionToAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20053", ""
-            ) as InlineResponse20053;
+                "AddReactionToAMessageResponse", ""
+            ) as AddReactionToAMessageResponse;
             return body;
         }
 
@@ -1109,22 +1111,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to gcMarkAllMessagesAsDelivered
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcMarkAllMessagesAsDelivered(response: ResponseContext): Promise<InlineResponse20050 > {
+     public async gcMarkAllMessagesAsDelivered(response: ResponseContext): Promise<GcMarkAllMessagesAsDeliveredResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20050 = ObjectSerializer.deserialize(
+            const body: GcMarkAllMessagesAsDeliveredResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20050", ""
-            ) as InlineResponse20050;
+                "GcMarkAllMessagesAsDeliveredResponse", ""
+            ) as GcMarkAllMessagesAsDeliveredResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20050 = ObjectSerializer.deserialize(
+            const body: GcMarkAllMessagesAsDeliveredResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20050", ""
-            ) as InlineResponse20050;
+                "GcMarkAllMessagesAsDeliveredResponse", ""
+            ) as GcMarkAllMessagesAsDeliveredResponse;
             return body;
         }
 
@@ -1163,22 +1165,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to gcViewNumberOfEachMembersUnreadMessages
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcViewNumberOfEachMembersUnreadMessages(response: ResponseContext): Promise<InlineResponse20049 > {
+     public async gcViewNumberOfEachMembersUnreadMessages(response: ResponseContext): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20049 = ObjectSerializer.deserialize(
+            const body: GcViewNumberOfEachMembersUnreadMessagesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20049", ""
-            ) as InlineResponse20049;
+                "GcViewNumberOfEachMembersUnreadMessagesResponse", ""
+            ) as GcViewNumberOfEachMembersUnreadMessagesResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20049 = ObjectSerializer.deserialize(
+            const body: GcViewNumberOfEachMembersUnreadMessagesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20049", ""
-            ) as InlineResponse20049;
+                "GcViewNumberOfEachMembersUnreadMessagesResponse", ""
+            ) as GcViewNumberOfEachMembersUnreadMessagesResponse;
             return body;
         }
 
@@ -1192,22 +1194,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to listMessages
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listMessages(response: ResponseContext): Promise<InlineResponse20047 > {
+     public async listMessages(response: ResponseContext): Promise<ListMessagesResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20047 = ObjectSerializer.deserialize(
+            const body: ListMessagesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20047", ""
-            ) as InlineResponse20047;
+                "ListMessagesResponse", ""
+            ) as ListMessagesResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20047 = ObjectSerializer.deserialize(
+            const body: ListMessagesResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20047", ""
-            ) as InlineResponse20047;
+                "ListMessagesResponse", ""
+            ) as ListMessagesResponse;
             return body;
         }
 
@@ -1221,22 +1223,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to listReactionsOfMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReactionsOfMessage(response: ResponseContext): Promise<InlineResponse20052 > {
+     public async listReactionsOfMessage(response: ResponseContext): Promise<ListReactionsOfMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20052 = ObjectSerializer.deserialize(
+            const body: ListReactionsOfMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20052", ""
-            ) as InlineResponse20052;
+                "ListReactionsOfMessageResponse", ""
+            ) as ListReactionsOfMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20052 = ObjectSerializer.deserialize(
+            const body: ListReactionsOfMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20052", ""
-            ) as InlineResponse20052;
+                "ListReactionsOfMessageResponse", ""
+            ) as ListReactionsOfMessageResponse;
             return body;
         }
 
@@ -1275,22 +1277,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to removeReactionFromAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeReactionFromAMessage(response: ResponseContext): Promise<InlineResponse20053 > {
+     public async removeReactionFromAMessage(response: ResponseContext): Promise<RemoveReactionFromAMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20053 = ObjectSerializer.deserialize(
+            const body: RemoveReactionFromAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20053", ""
-            ) as InlineResponse20053;
+                "RemoveReactionFromAMessageResponse", ""
+            ) as RemoveReactionFromAMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20053 = ObjectSerializer.deserialize(
+            const body: RemoveReactionFromAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20053", ""
-            ) as InlineResponse20053;
+                "RemoveReactionFromAMessageResponse", ""
+            ) as RemoveReactionFromAMessageResponse;
             return body;
         }
 
@@ -1362,22 +1364,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to updateExtraDataInMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateExtraDataInMessage(response: ResponseContext): Promise<InlineResponse20054 > {
+     public async updateExtraDataInMessage(response: ResponseContext): Promise<UpdateExtraDataInMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20054 = ObjectSerializer.deserialize(
+            const body: UpdateExtraDataInMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20054", ""
-            ) as InlineResponse20054;
+                "UpdateExtraDataInMessageResponse", ""
+            ) as UpdateExtraDataInMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20054 = ObjectSerializer.deserialize(
+            const body: UpdateExtraDataInMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20054", ""
-            ) as InlineResponse20054;
+                "UpdateExtraDataInMessageResponse", ""
+            ) as UpdateExtraDataInMessageResponse;
             return body;
         }
 
@@ -1449,22 +1451,22 @@ export class MessagesApiResponseProcessor {
      * @params response Response returned by the server for a request to viewTotalNumberOfMessagesInChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewTotalNumberOfMessagesInChannel(response: ResponseContext): Promise<InlineResponse20048 > {
+     public async viewTotalNumberOfMessagesInChannel(response: ResponseContext): Promise<ViewTotalNumberOfMessagesInChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20048 = ObjectSerializer.deserialize(
+            const body: ViewTotalNumberOfMessagesInChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048", ""
-            ) as InlineResponse20048;
+                "ViewTotalNumberOfMessagesInChannelResponse", ""
+            ) as ViewTotalNumberOfMessagesInChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20048 = ObjectSerializer.deserialize(
+            const body: ViewTotalNumberOfMessagesInChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20048", ""
-            ) as InlineResponse20048;
+                "ViewTotalNumberOfMessagesInChannelResponse", ""
+            ) as ViewTotalNumberOfMessagesInChannelResponse;
             return body;
         }
 

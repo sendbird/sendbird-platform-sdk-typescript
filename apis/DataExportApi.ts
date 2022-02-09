@@ -9,10 +9,10 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20063 } from '../models/InlineResponse20063';
-import { InlineResponse20063ExportedData } from '../models/InlineResponse20063ExportedData';
-import { InlineResponse20064 } from '../models/InlineResponse20064';
+import { ListDataExportsByMessageChannelOrUserResponse } from '../models/ListDataExportsByMessageChannelOrUserResponse';
 import { RegisterAndScheduleDataExportData } from '../models/RegisterAndScheduleDataExportData';
+import { RegisterAndScheduleDataExportResponse } from '../models/RegisterAndScheduleDataExportResponse';
+import { ViewDataExportByIdResponse } from '../models/ViewDataExportByIdResponse';
 
 /**
  * no description
@@ -161,22 +161,22 @@ export class DataExportApiResponseProcessor {
      * @params response Response returned by the server for a request to listDataExportsByMessageChannelOrUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listDataExportsByMessageChannelOrUser(response: ResponseContext): Promise<InlineResponse20063 > {
+     public async listDataExportsByMessageChannelOrUser(response: ResponseContext): Promise<ListDataExportsByMessageChannelOrUserResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20063 = ObjectSerializer.deserialize(
+            const body: ListDataExportsByMessageChannelOrUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063", ""
-            ) as InlineResponse20063;
+                "ListDataExportsByMessageChannelOrUserResponse", ""
+            ) as ListDataExportsByMessageChannelOrUserResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20063 = ObjectSerializer.deserialize(
+            const body: ListDataExportsByMessageChannelOrUserResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063", ""
-            ) as InlineResponse20063;
+                "ListDataExportsByMessageChannelOrUserResponse", ""
+            ) as ListDataExportsByMessageChannelOrUserResponse;
             return body;
         }
 
@@ -190,22 +190,22 @@ export class DataExportApiResponseProcessor {
      * @params response Response returned by the server for a request to registerAndScheduleDataExport
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async registerAndScheduleDataExport(response: ResponseContext): Promise<InlineResponse20063ExportedData > {
+     public async registerAndScheduleDataExport(response: ResponseContext): Promise<RegisterAndScheduleDataExportResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20063ExportedData = ObjectSerializer.deserialize(
+            const body: RegisterAndScheduleDataExportResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063ExportedData", ""
-            ) as InlineResponse20063ExportedData;
+                "RegisterAndScheduleDataExportResponse", ""
+            ) as RegisterAndScheduleDataExportResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20063ExportedData = ObjectSerializer.deserialize(
+            const body: RegisterAndScheduleDataExportResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20063ExportedData", ""
-            ) as InlineResponse20063ExportedData;
+                "RegisterAndScheduleDataExportResponse", ""
+            ) as RegisterAndScheduleDataExportResponse;
             return body;
         }
 
@@ -219,22 +219,22 @@ export class DataExportApiResponseProcessor {
      * @params response Response returned by the server for a request to viewDataExportById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewDataExportById(response: ResponseContext): Promise<InlineResponse20064 > {
+     public async viewDataExportById(response: ResponseContext): Promise<ViewDataExportByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20064 = ObjectSerializer.deserialize(
+            const body: ViewDataExportByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20064", ""
-            ) as InlineResponse20064;
+                "ViewDataExportByIdResponse", ""
+            ) as ViewDataExportByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20064 = ObjectSerializer.deserialize(
+            const body: ViewDataExportByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20064", ""
-            ) as InlineResponse20064;
+                "ViewDataExportByIdResponse", ""
+            ) as ViewDataExportByIdResponse;
             return body;
         }
 

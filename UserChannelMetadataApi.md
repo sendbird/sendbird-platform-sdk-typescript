@@ -95,7 +95,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **createChannelMetadata**
-> InlineResponse20061 createChannelMetadata()
+> CreateChannelMetadataResponse createChannelMetadata()
 
 ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20061**
+**CreateChannelMetadataResponse**
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **createUserMetadata**
-> InlineResponse20047UserMetadata createUserMetadata()
+> CreateUserMetadataResponse createUserMetadata()
 
 ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20047UserMetadata**
+**CreateUserMetadataResponse**
 
 ### Authorization
 
@@ -860,7 +860,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateUserMetadata**
-> InlineResponse20060 updateUserMetadata()
+> UpdateUserMetadataResponse updateUserMetadata()
 
 ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
 
@@ -903,7 +903,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20060**
+**UpdateUserMetadataResponse**
 
 ### Authorization
 
@@ -1248,7 +1248,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewUserMetadata**
-> InlineResponse20047UserMetadata viewUserMetadata()
+> ViewUserMetadataResponse viewUserMetadata()
 
 ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
 
@@ -1293,7 +1293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20047UserMetadata**
+**ViewUserMetadataResponse**
 
 ### Authorization
 

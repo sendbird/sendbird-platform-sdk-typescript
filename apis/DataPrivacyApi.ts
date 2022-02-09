@@ -9,10 +9,10 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse20068 } from '../models/InlineResponse20068';
-import { InlineResponse20068Requests } from '../models/InlineResponse20068Requests';
-import { InlineResponse20069 } from '../models/InlineResponse20069';
+import { ListGdprRequestsResponse } from '../models/ListGdprRequestsResponse';
 import { RegisterGdprRequestData } from '../models/RegisterGdprRequestData';
+import { RegisterGdprRequestResponse } from '../models/RegisterGdprRequestResponse';
+import { ViewGdprRequestByIdResponse } from '../models/ViewGdprRequestByIdResponse';
 
 /**
  * no description
@@ -194,22 +194,22 @@ export class DataPrivacyApiResponseProcessor {
      * @params response Response returned by the server for a request to listGdprRequests
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listGdprRequests(response: ResponseContext): Promise<InlineResponse20068 > {
+     public async listGdprRequests(response: ResponseContext): Promise<ListGdprRequestsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20068 = ObjectSerializer.deserialize(
+            const body: ListGdprRequestsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20068", ""
-            ) as InlineResponse20068;
+                "ListGdprRequestsResponse", ""
+            ) as ListGdprRequestsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20068 = ObjectSerializer.deserialize(
+            const body: ListGdprRequestsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20068", ""
-            ) as InlineResponse20068;
+                "ListGdprRequestsResponse", ""
+            ) as ListGdprRequestsResponse;
             return body;
         }
 
@@ -223,22 +223,22 @@ export class DataPrivacyApiResponseProcessor {
      * @params response Response returned by the server for a request to registerGdprRequest
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async registerGdprRequest(response: ResponseContext): Promise<InlineResponse20069 > {
+     public async registerGdprRequest(response: ResponseContext): Promise<RegisterGdprRequestResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20069 = ObjectSerializer.deserialize(
+            const body: RegisterGdprRequestResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20069", ""
-            ) as InlineResponse20069;
+                "RegisterGdprRequestResponse", ""
+            ) as RegisterGdprRequestResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20069 = ObjectSerializer.deserialize(
+            const body: RegisterGdprRequestResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20069", ""
-            ) as InlineResponse20069;
+                "RegisterGdprRequestResponse", ""
+            ) as RegisterGdprRequestResponse;
             return body;
         }
 
@@ -252,22 +252,22 @@ export class DataPrivacyApiResponseProcessor {
      * @params response Response returned by the server for a request to viewGdprRequestById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewGdprRequestById(response: ResponseContext): Promise<InlineResponse20068Requests > {
+     public async viewGdprRequestById(response: ResponseContext): Promise<ViewGdprRequestByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20068Requests = ObjectSerializer.deserialize(
+            const body: ViewGdprRequestByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20068Requests", ""
-            ) as InlineResponse20068Requests;
+                "ViewGdprRequestByIdResponse", ""
+            ) as ViewGdprRequestByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20068Requests = ObjectSerializer.deserialize(
+            const body: ViewGdprRequestByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20068Requests", ""
-            ) as InlineResponse20068Requests;
+                "ViewGdprRequestByIdResponse", ""
+            ) as ViewGdprRequestByIdResponse;
             return body;
         }
 

@@ -99,7 +99,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcBanUser**
-> InlineResponse20033BannedList gcBanUser()
+> GcBanUserResponse gcBanUser()
 
 ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20033BannedList**
+**GcBanUserResponse**
 
 ### Authorization
 
@@ -230,7 +230,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcCheckIfMemberById**
-> InlineResponse20037 gcCheckIfMemberById()
+> GcCheckIfMemberByIdResponse gcCheckIfMemberById()
 
 ## Check if member  Checks whether the user is a member of the group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-check-if-member ----------------------------
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20037**
+**GcCheckIfMemberByIdResponse**
 
 ### Authorization
 
@@ -830,7 +830,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcListBannedUsers**
-> InlineResponse20033 gcListBannedUsers()
+> GcListBannedUsersResponse gcListBannedUsers()
 
 ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
 
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20033**
+**GcListBannedUsersResponse**
 
 ### Authorization
 
@@ -893,7 +893,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcListChannels**
-> InlineResponse20017 gcListChannels()
+> GcListChannelsResponse gcListChannels()
 
 ## List channels  Retrieves a list of group channels in the application.  > __Note__: If you want to get a list of a specific user's group channels, use the [list my group channels](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-channels ----------------------------
 
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20017**
+**GcListChannelsResponse**
 
 ### Authorization
 
@@ -1073,7 +1073,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcListMembers**
-> InlineResponse20036 gcListMembers()
+> GcListMembersResponse gcListMembers()
 
 ## List members  Retrieves a list of members of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-members ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of members of.
 
@@ -1137,7 +1137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20036**
+**GcListMembersResponse**
 
 ### Authorization
 
@@ -1157,7 +1157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcListMutedUsers**
-> InlineResponse20031 gcListMutedUsers()
+> GcListMutedUsersResponse gcListMutedUsers()
 
 ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
 
@@ -1200,7 +1200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20031**
+**GcListMutedUsersResponse**
 
 ### Authorization
 
@@ -1220,7 +1220,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcListOperators**
-> InlineResponse20034 gcListOperators()
+> GcListOperatorsResponse gcListOperators()
 
 ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
 
@@ -1263,7 +1263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20034**
+**GcListOperatorsResponse**
 
 ### Authorization
 
@@ -1348,7 +1348,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcRegisterOperators**
-> InlineResponse20038 gcRegisterOperators()
+> GcRegisterOperatorsResponse gcRegisterOperators()
 
 ## Register operators  Registers one or more operators to a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-register-operators ----------------------------
 
@@ -1393,7 +1393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20038**
+**GcRegisterOperatorsResponse**
 
 ### Authorization
 
@@ -1933,7 +1933,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcViewMuteById**
-> InlineResponse20035 gcViewMuteById()
+> GcViewMuteByIdResponse gcViewMuteById()
 
 ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
 
@@ -1973,7 +1973,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20035**
+**GcViewMuteByIdResponse**
 
 ### Authorization
 

@@ -10,8 +10,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 
 import { ChooseWhichEventsToSubscribeToData } from '../models/ChooseWhichEventsToSubscribeToData';
-import { InlineResponse20066 } from '../models/InlineResponse20066';
-import { InlineResponse20067 } from '../models/InlineResponse20067';
+import { ChooseWhichEventsToSubscribeToResponse } from '../models/ChooseWhichEventsToSubscribeToResponse';
+import { RetrieveListOfSubscribedEventsResponse } from '../models/RetrieveListOfSubscribedEventsResponse';
 
 /**
  * no description
@@ -97,22 +97,22 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to chooseWhichEventsToSubscribeTo
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async chooseWhichEventsToSubscribeTo(response: ResponseContext): Promise<InlineResponse20067 > {
+     public async chooseWhichEventsToSubscribeTo(response: ResponseContext): Promise<ChooseWhichEventsToSubscribeToResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20067 = ObjectSerializer.deserialize(
+            const body: ChooseWhichEventsToSubscribeToResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20067", ""
-            ) as InlineResponse20067;
+                "ChooseWhichEventsToSubscribeToResponse", ""
+            ) as ChooseWhichEventsToSubscribeToResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20067 = ObjectSerializer.deserialize(
+            const body: ChooseWhichEventsToSubscribeToResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20067", ""
-            ) as InlineResponse20067;
+                "ChooseWhichEventsToSubscribeToResponse", ""
+            ) as ChooseWhichEventsToSubscribeToResponse;
             return body;
         }
 
@@ -126,22 +126,22 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieveListOfSubscribedEvents
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieveListOfSubscribedEvents(response: ResponseContext): Promise<InlineResponse20066 > {
+     public async retrieveListOfSubscribedEvents(response: ResponseContext): Promise<RetrieveListOfSubscribedEventsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20066 = ObjectSerializer.deserialize(
+            const body: RetrieveListOfSubscribedEventsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20066", ""
-            ) as InlineResponse20066;
+                "RetrieveListOfSubscribedEventsResponse", ""
+            ) as RetrieveListOfSubscribedEventsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20066 = ObjectSerializer.deserialize(
+            const body: RetrieveListOfSubscribedEventsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20066", ""
-            ) as InlineResponse20066;
+                "RetrieveListOfSubscribedEventsResponse", ""
+            ) as RetrieveListOfSubscribedEventsResponse;
             return body;
         }
 

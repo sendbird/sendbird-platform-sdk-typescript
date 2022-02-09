@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **addEmojiCategories**
-> InlineResponse20057 addEmojiCategories()
+> AddEmojiCategoriesResponse addEmojiCategories()
 
 ## Add emoji categories  Adds a list of one or more new emoji categories to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emoji-categories
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20057**
+**AddEmojiCategoriesResponse**
 
 ### Authorization
 
@@ -76,7 +76,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addEmojis**
-> InlineResponse20059 addEmojis()
+> AddEmojisResponse addEmojis()
 
 ## Add emojis  Adds a list of one or more new emojis to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emojis
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20059**
+**AddEmojisResponse**
 
 ### Authorization
 
@@ -252,7 +252,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **enableReactions**
-> InlineResponse20051 enableReactions()
+> EnableReactionsResponse enableReactions()
 
 ## Enable reactions  Turn on or off reactions in a Sendbird application.  > __Note__: This action also allows reactions in UIKit.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-enable-reactions
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20051**
+**EnableReactionsResponse**
 
 ### Authorization
 
@@ -425,7 +425,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listAllEmojisAndEmojiCategories**
-> InlineResponse20056 listAllEmojisAndEmojiCategories()
+> ListAllEmojisAndEmojiCategoriesResponse listAllEmojisAndEmojiCategories()
 
 ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
 
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20056**
+**ListAllEmojisAndEmojiCategoriesResponse**
 
 ### Authorization
 
@@ -479,7 +479,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listEmojis**
-> InlineResponse20058 listEmojis()
+> ListEmojisResponse listEmojis()
 
 ## List emojis  Retrieves a list of all emojis registered to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-emojis
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20058**
+**ListEmojisResponse**
 
 ### Authorization
 
@@ -659,7 +659,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **useDefaultEmojis**
-> InlineResponse20055 useDefaultEmojis()
+> UseDefaultEmojisResponse useDefaultEmojis()
 
 ## Use default emojis  Determines whether to use the 7 default emojis initially provided.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-use-default-emojis
 
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20055**
+**UseDefaultEmojisResponse**
 
 ### Authorization
 

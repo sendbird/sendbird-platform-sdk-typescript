@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **listReports**
-> InlineResponse20070 listReports()
+> ListReportsResponse listReports()
 
 ## List reports  Retrieves a list of reports within an application regardless of object types.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports ----------------------------
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20070**
+**ListReportsResponse**
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listReportsOnChannelByUrl**
-> InlineResponse20071 listReportsOnChannelByUrl()
+> ListReportsOnChannelByUrlResponse listReportsOnChannelByUrl()
 
 ## List reports on a channel  Retrieves a list of reports on a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-channel ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which is reported for offensive messages or inappropriate activities.
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071**
+**ListReportsOnChannelByUrlResponse**
 
 ### Authorization
 
@@ -147,7 +147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listReportsOnMessageById**
-> InlineResponse20071 listReportsOnMessageById()
+> ListReportsOnMessageByIdResponse listReportsOnMessageById()
 
 ## List reports on a message  Retrieves a list of reports on a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel where the reported message is in.  `message_id`      Type: string      Description: Specifies the unique ID of the reported message.
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071**
+**ListReportsOnMessageByIdResponse**
 
 ### Authorization
 
@@ -216,7 +216,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listReportsOnUserById**
-> InlineResponse20071 listReportsOnUserById()
+> ListReportsOnUserByIdResponse listReportsOnUserById()
 
 ## List reports on a user  Retrieves a list of reports on a user who sends an offensive message.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-user ----------------------------   `offending_user_id`      Type: string      Description: Specifies the unique ID of the user who has sent the message to report.
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071**
+**ListReportsOnUserByIdResponse**
 
 ### Authorization
 
@@ -279,7 +279,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **reportChannelByUrl**
-> InlineResponse20071ReportLogs reportChannelByUrl()
+> ReportChannelByUrlResponse reportChannelByUrl()
 
 ## Report a channel  Reports a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-channel ----------------------------
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071ReportLogs**
+**ReportChannelByUrlResponse**
 
 ### Authorization
 
@@ -348,7 +348,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **reportMessageById**
-> InlineResponse20071ReportLogs reportMessageById()
+> ReportMessageByIdResponse reportMessageById()
 
 ## Report a message  Reports a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-message ----------------------------
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071ReportLogs**
+**ReportMessageByIdResponse**
 
 ### Authorization
 
@@ -422,7 +422,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **reportUserById**
-> InlineResponse20071ReportLogs reportUserById()
+> ReportUserByIdResponse reportUserById()
 
 ## Report a user  Reports a user who sends an offensive message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-user ----------------------------
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20071ReportLogs**
+**ReportUserByIdResponse**
 
 ### Authorization
 

@@ -43,7 +43,7 @@ Method | HTTP request | Description
 
 
 # **addRegistrationOrDeviceToken**
-> InlineResponse20025 addRegistrationOrDeviceToken()
+> AddRegistrationOrDeviceTokenResponse addRegistrationOrDeviceToken()
 
 ## Add a registration or device token  > __Note__: A user can have up to 20 FCM registration tokens, 20 HMS device tokens, and 20 APNs device tokens each. The oldest token will be deleted before a new token is added for a user who already has 20 registration or device tokens. Only the 20 newest tokens will be maintained for users who already have more than 20 of each token type.  To send notification requests to push notification services on behalf of your server, adds a specific user's FCM registration token, HMS device token, or APNs device token to Sendbird server. Depending on which push service you are using, you can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`.  A FCM registration token and an APNs device token allow identification of each client app instance on each device, and are generated and registered by Android and iOS apps through the corresponding SDKs. Use this method if you need to register a token via your own server.  > __Note__: For more information on the registration token and device token, visit the Google's [FCM](https://firebase.google.com/docs/auth/admin/verify-id-tokens) page, Huawei's [Push kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050040060) and Apple's [APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) page.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-add-a-registration-or-device-token ----------------------------
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20025**
+**AddRegistrationOrDeviceTokenResponse**
 
 ### Authorization
 
@@ -243,7 +243,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **choosePushNotificationContentTemplate**
-> InlineResponse20029 choosePushNotificationContentTemplate()
+> ChoosePushNotificationContentTemplateResponse choosePushNotificationContentTemplate()
 
 ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20029**
+**ChoosePushNotificationContentTemplateResponse**
 
 ### Authorization
 
@@ -490,7 +490,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listBannedChannels**
-> InlineResponse20022 listBannedChannels()
+> ListBannedChannelsResponse listBannedChannels()
 
 ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20022**
+**ListBannedChannelsResponse**
 
 ### Authorization
 
@@ -553,7 +553,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listBlockedUsers**
-> InlineResponse20016 listBlockedUsers()
+> ListBlockedUsersResponse listBlockedUsers()
 
 ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20016**
+**ListBlockedUsersResponse**
 
 ### Authorization
 
@@ -625,7 +625,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listMutedChannels**
-> InlineResponse20023 listMutedChannels()
+> ListMutedChannelsResponse listMutedChannels()
 
 ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
 
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20023**
+**ListMutedChannelsResponse**
 
 ### Authorization
 
@@ -688,7 +688,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listMyGroupChannels**
-> InlineResponse20017 listMyGroupChannels()
+> ListMyGroupChannelsResponse listMyGroupChannels()
 
 ## List my group channels  Retrieves all group channels that the user has joined. You can create a request based on various query parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
 
@@ -845,7 +845,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20017**
+**ListMyGroupChannelsResponse**
 
 ### Authorization
 
@@ -865,7 +865,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listRegistrationOrDeviceTokens**
-> InlineResponse20024 listRegistrationOrDeviceTokens()
+> ListRegistrationOrDeviceTokensResponse listRegistrationOrDeviceTokens()
 
 ## List registration or device tokens  Retrieves a list of a specific user's FCM registration tokens, HMS device tokens, or APNs device tokens. You can specify either `gcm`, `huawei`, or `apns` in the `token_type` parameter, depending on which push notification service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-registration-or-device-tokens ----------------------------
 
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20024**
+**ListRegistrationOrDeviceTokensResponse**
 
 ### Authorization
 
@@ -925,7 +925,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listUsers**
-> InlineResponse20016 listUsers()
+> ListUsersResponse listUsers()
 
 ## List users  Retrieves a list of users in your application. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-users ----------------------------
 
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20016**
+**ListUsersResponse**
 
 ### Authorization
 
@@ -1199,7 +1199,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removeRegistrationOrDeviceToken**
-> InlineResponse20026 removeRegistrationOrDeviceToken()
+> RemoveRegistrationOrDeviceTokenResponse removeRegistrationOrDeviceToken()
 
 ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
 
@@ -1236,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20026**
+**RemoveRegistrationOrDeviceTokenResponse**
 
 ### Authorization
 
@@ -1256,7 +1256,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removeRegistrationOrDeviceTokenByToken**
-> InlineResponse20026 removeRegistrationOrDeviceTokenByToken()
+> RemoveRegistrationOrDeviceTokenByTokenResponse removeRegistrationOrDeviceTokenByToken()
 
 ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
 
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20026**
+**RemoveRegistrationOrDeviceTokenByTokenResponse**
 
 ### Authorization
 
@@ -1319,7 +1319,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removeRegistrationOrDeviceTokenFromOwnerByToken**
-> InlineResponse20027 removeRegistrationOrDeviceTokenFromOwnerByToken()
+> RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse removeRegistrationOrDeviceTokenFromOwnerByToken()
 
 ## Remove a registration or device token from an owner  Removes a registration or device token from a user who owns it. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token-from-an-owner ----------------------------
 
@@ -1359,7 +1359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20027**
+**RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse**
 
 ### Authorization
 
@@ -1496,7 +1496,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateChannelInvitationPreference**
-> InlineResponse2005 updateChannelInvitationPreference()
+> UpdateChannelInvitationPreferenceResponse updateChannelInvitationPreference()
 
 ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
 
@@ -1538,7 +1538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2005**
+**UpdateChannelInvitationPreferenceResponse**
 
 ### Authorization
 
@@ -1558,7 +1558,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateCountPreferenceOfChannelByUrl**
-> InlineResponse20021 updateCountPreferenceOfChannelByUrl()
+> UpdateCountPreferenceOfChannelByUrlResponse updateCountPreferenceOfChannelByUrl()
 
 ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
 
@@ -1603,7 +1603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20021**
+**UpdateCountPreferenceOfChannelByUrlResponse**
 
 ### Authorization
 
@@ -1623,7 +1623,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updatePushPreferences**
-> InlineResponse20028 updatePushPreferences()
+> UpdatePushPreferencesResponse updatePushPreferences()
 
 ## Update push preferences  Updates a user's push preferences. Through this action, you can set `do_not_disturb` for a user, and update the time frame in which the setting applies.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences ----------------------------
 
@@ -1680,7 +1680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20028**
+**UpdatePushPreferencesResponse**
 
 ### Authorization
 
@@ -1700,7 +1700,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updatePushPreferencesForChannelByUrl**
-> InlineResponse20028 updatePushPreferencesForChannelByUrl()
+> UpdatePushPreferencesForChannelByUrlResponse updatePushPreferencesForChannelByUrl()
 
 ## Update push preferences for a channel  Updates push preferences for a user's specific group channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences-for-a-channel ----------------------------
 
@@ -1747,7 +1747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20028**
+**UpdatePushPreferencesForChannelByUrlResponse**
 
 ### Authorization
 
@@ -1844,7 +1844,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewChannelInvitationPreference**
-> InlineResponse2005 viewChannelInvitationPreference()
+> ViewChannelInvitationPreferenceResponse viewChannelInvitationPreference()
 
 ## View channel invitation preference  Retrieves channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [view default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference) action, you can retrieve the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference
 
@@ -1881,7 +1881,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2005**
+**ViewChannelInvitationPreferenceResponse**
 
 ### Authorization
 
@@ -1901,7 +1901,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewCountPreferenceOfChannelByUrl**
-> InlineResponse20021 viewCountPreferenceOfChannelByUrl()
+> ViewCountPreferenceOfChannelByUrlResponse viewCountPreferenceOfChannelByUrl()
 
 ## View count preference of a channel  Retrieves count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-count-preference-of-a-channel ----------------------------
 
@@ -1941,7 +1941,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20021**
+**ViewCountPreferenceOfChannelByUrlResponse**
 
 ### Authorization
 
@@ -1961,7 +1961,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfChannelsByJoinStatus**
-> InlineResponse20020 viewNumberOfChannelsByJoinStatus()
+> ViewNumberOfChannelsByJoinStatusResponse viewNumberOfChannelsByJoinStatus()
 
 ## View number of channels by join status  Retrieves the number of a user's group channels by their join status.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-by-join-status ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
 
@@ -2001,7 +2001,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20020**
+**ViewNumberOfChannelsByJoinStatusResponse**
 
 ### Authorization
 
@@ -2021,7 +2021,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfChannelsWithUnreadMessages**
-> InlineResponse20018 viewNumberOfChannelsWithUnreadMessages()
+> ViewNumberOfChannelsWithUnreadMessagesResponse viewNumberOfChannelsWithUnreadMessages()
 
 ## View number of channels with unread messages  Retrieves the total number of a user's group channels with unread messages.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-with-unread-messages ----------------------------
 
@@ -2066,7 +2066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20018**
+**ViewNumberOfChannelsWithUnreadMessagesResponse**
 
 ### Authorization
 
@@ -2086,7 +2086,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfUnreadItems**
-> InlineResponse20019 viewNumberOfUnreadItems()
+> ViewNumberOfUnreadItemsResponse viewNumberOfUnreadItems()
 
 ## View number of unread items  Retrieves a set of total numbers of a user's unread messages, unread mentioned messages, or received invitations in either super or non-super group channels. This action is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-items ----------------------------
 
@@ -2129,7 +2129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20019**
+**ViewNumberOfUnreadItemsResponse**
 
 ### Authorization
 
@@ -2149,7 +2149,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewNumberOfUnreadMessages**
-> InlineResponse20018 viewNumberOfUnreadMessages()
+> ViewNumberOfUnreadMessagesResponse viewNumberOfUnreadMessages()
 
 ## View number of unread messages  Retrieves the total number of a user's currently unread messages in the group channels. The unread counts feature is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-messages ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
 
@@ -2192,7 +2192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20018**
+**ViewNumberOfUnreadMessagesResponse**
 
 ### Authorization
 
@@ -2212,7 +2212,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewPushPreferences**
-> InlineResponse20028 viewPushPreferences()
+> ViewPushPreferencesResponse viewPushPreferences()
 
 ## View push preferences  Retrieves a user's push preferences about whether the user has set `do_not_disturb` to pause notifications for a certain period of time, and the time frame in which the user has applied the setting.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences ----------------------------
 
@@ -2249,7 +2249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20028**
+**ViewPushPreferencesResponse**
 
 ### Authorization
 
@@ -2269,7 +2269,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewPushPreferencesForChannelByUrl**
-> InlineResponse20028 viewPushPreferencesForChannelByUrl()
+> ViewPushPreferencesForChannelByUrlResponse viewPushPreferencesForChannelByUrl()
 
 ## View push preferences for a channel  Retrieves whether a user has turned on notification messages for a specific channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences-for-a-channel ----------------------------
 
@@ -2309,7 +2309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20028**
+**ViewPushPreferencesForChannelByUrlResponse**
 
 ### Authorization
 
@@ -2395,7 +2395,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewWhoOwnsRegistrationOrDeviceTokenByToken**
-> InlineResponse20027 viewWhoOwnsRegistrationOrDeviceTokenByToken()
+> ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse viewWhoOwnsRegistrationOrDeviceTokenByToken()
 
 ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
 
@@ -2435,7 +2435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20027**
+**ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse**
 
 ### Authorization
 

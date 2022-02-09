@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ModelObject } from './ModelObject';
+import { SBObject } from './SBObject';
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
@@ -33,7 +33,7 @@ export class SendBirdAdminMessage {
     'message'?: string;
     'messageId'?: number;
     'messageType'?: SendBirdAdminMessageMessageTypeEnum;
-    'metaArray'?: ModelObject;
+    'metaArray'?: SBObject;
     'metaArrays'?: Array<SendBirdMessageMetaArray>;
     'ogMetaData'?: SendBirdOGMetaData;
     'parentMessage'?: SendBirdMessageResponse;
@@ -43,7 +43,7 @@ export class SendBirdAdminMessage {
     'sendingStatus'?: SendBirdAdminMessageSendingStatusEnum;
     'silent'?: boolean;
     'threadInfo'?: SendBirdThreadInfo;
-    'translations'?: ModelObject;
+    'translations'?: SBObject;
     'updatedAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -124,7 +124,7 @@ export class SendBirdAdminMessage {
         {
             "name": "metaArray",
             "baseName": "meta_array",
-            "type": "ModelObject",
+            "type": "SBObject",
             "format": ""
         },
         {
@@ -184,7 +184,7 @@ export class SendBirdAdminMessage {
         {
             "name": "translations",
             "baseName": "translations",
-            "type": "ModelObject",
+            "type": "SBObject",
             "format": ""
         },
         {

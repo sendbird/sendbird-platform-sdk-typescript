@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **createBot**
-> InlineResponse20065Bots createBot()
+> CreateBotResponse createBot()
 
 ## Create a bot  Creates a new bot within the application. Creating a bot is similar to creating a normal user, except that a callback URL is specified in order for the bot to receive events.  > __Note__: The bot must [join](#2-join-channels) a group channel first to interact with users. In group channels, you can invite a bot through the [invite as members](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-create-a-bot
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20065Bots**
+**CreateBotResponse**
 
 ### Authorization
 
@@ -325,7 +325,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listBots**
-> InlineResponse20065 listBots()
+> ListBotsResponse listBots()
 
 ## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-list-bots ----------------------------
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20065**
+**ListBotsResponse**
 
 ### Authorization
 
@@ -457,7 +457,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateBotById**
-> InlineResponse20065Bots updateBotById()
+> UpdateBotByIdResponse updateBotById()
 
 ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
 
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20065Bots**
+**UpdateBotByIdResponse**
 
 ### Authorization
 
@@ -526,7 +526,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewBotById**
-> InlineResponse20065Bots viewBotById()
+> ViewBotByIdResponse viewBotById()
 
 ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
 
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20065Bots**
+**ViewBotByIdResponse**
 
 ### Authorization
 

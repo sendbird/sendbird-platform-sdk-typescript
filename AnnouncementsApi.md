@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **getDetailedOpenRateOfAnnouncementById**
-> InlineResponse20042 getDetailedOpenRateOfAnnouncementById()
+> GetDetailedOpenRateOfAnnouncementByIdResponse getDetailedOpenRateOfAnnouncementById()
 
 ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20042**
+**GetDetailedOpenRateOfAnnouncementByIdResponse**
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getDetailedOpenRateOfAnnouncementGroup**
-> InlineResponse20046 getDetailedOpenRateOfAnnouncementGroup()
+> GetDetailedOpenRateOfAnnouncementGroupResponse getDetailedOpenRateOfAnnouncementGroup()
 
 ## Get detailed open rate of an announcement group  Retrieves the detailed open rate information of an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement-group ----------------------------
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20046**
+**GetDetailedOpenRateOfAnnouncementGroupResponse**
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getDetailedOpenStatusOfAnnouncementById**
-> InlineResponse20043 getDetailedOpenStatusOfAnnouncementById()
+> GetDetailedOpenStatusOfAnnouncementByIdResponse getDetailedOpenStatusOfAnnouncementById()
 
 ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20043**
+**GetDetailedOpenStatusOfAnnouncementByIdResponse**
 
 ### Authorization
 
@@ -208,7 +208,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getStatistics**
-> InlineResponse20044 getStatistics()
+> GetStatisticsResponse getStatistics()
 
 ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20044**
+**GetStatisticsResponse**
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getStatisticsDaily**
-> InlineResponse20044 getStatisticsDaily()
+> GetStatisticsDailyResponse getStatisticsDaily()
 
 ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20044**
+**GetStatisticsDailyResponse**
 
 ### Authorization
 
@@ -337,7 +337,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getStatisticsMonthly**
-> InlineResponse20044 getStatisticsMonthly()
+> GetStatisticsMonthlyResponse getStatisticsMonthly()
 
 ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20044**
+**GetStatisticsMonthlyResponse**
 
 ### Authorization
 
@@ -391,7 +391,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listAnnouncementGroups**
-> InlineResponse20045 listAnnouncementGroups()
+> ListAnnouncementGroupsResponse listAnnouncementGroups()
 
 ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20045**
+**ListAnnouncementGroupsResponse**
 
 ### Authorization
 
@@ -451,7 +451,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listAnnouncements**
-> InlineResponse20039 listAnnouncements()
+> ListAnnouncementsResponse listAnnouncements()
 
 ## List announcements  Retrieves a list of announcements.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcements ----------------------------
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20039**
+**ListAnnouncementsResponse**
 
 ### Authorization
 
@@ -520,7 +520,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **scheduleAnnouncement**
-> InlineResponse20040 scheduleAnnouncement()
+> ScheduleAnnouncementResponse scheduleAnnouncement()
 
 ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20040**
+**ScheduleAnnouncementResponse**
 
 ### Authorization
 
@@ -604,7 +604,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **updateAnnouncementById**
-> InlineResponse20041 updateAnnouncementById()
+> UpdateAnnouncementByIdResponse updateAnnouncementById()
 
 ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
 
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20041**
+**UpdateAnnouncementByIdResponse**
 
 ### Authorization
 
@@ -682,7 +682,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewAnnouncementById**
-> InlineResponse20039Announcements viewAnnouncementById()
+> ViewAnnouncementByIdResponse viewAnnouncementById()
 
 ## View an announcement  Retrieves information on a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-view-an-announcement ----------------------------
 
@@ -719,7 +719,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20039Announcements**
+**ViewAnnouncementByIdResponse**
 
 ### Authorization
 

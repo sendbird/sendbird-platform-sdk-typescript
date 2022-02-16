@@ -59,11 +59,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiAddRegistrationOrDeviceTokenRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // AddRegistrationOrDeviceTokenData (optional)
   addRegistrationOrDeviceTokenData: {
     gcmRegToken: "gcmRegToken_example",
@@ -83,9 +83,9 @@ apiInstance.addRegistrationOrDeviceToken(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addRegistrationOrDeviceTokenData** | **AddRegistrationOrDeviceTokenData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -126,9 +126,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiBanFromChannelsWithCustomChannelTypesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // BanFromChannelsWithCustomChannelTypesData (optional)
   banFromChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -148,8 +148,8 @@ apiInstance.banFromChannelsWithCustomChannelTypes(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **banFromChannelsWithCustomChannelTypesData** | **BanFromChannelsWithCustomChannelTypesData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -190,9 +190,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiBlockUserRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // BlockUserData (optional)
   blockUserData: {
     userId: "userId_example",
@@ -217,8 +217,8 @@ apiInstance.blockUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockUserData** | **BlockUserData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -259,9 +259,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiChoosePushNotificationContentTemplateRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // any (optional)
   body: {},
 };
@@ -277,8 +277,8 @@ apiInstance.choosePushNotificationContentTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -318,7 +318,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiCreateUserRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // CreateUserData (optional)
   createUserData: {
@@ -345,7 +345,7 @@ apiInstance.createUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createUserData** | **CreateUserData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -386,9 +386,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiDeleteUserByIdRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
 };
 
 apiInstance.deleteUserById(body).then((data:any) => {
@@ -401,8 +401,8 @@ apiInstance.deleteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -443,9 +443,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiLeaveMyGroupChannelsRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // LeaveMyGroupChannelsData (optional)
   leaveMyGroupChannelsData: {
     userId: "userId_example",
@@ -464,8 +464,8 @@ apiInstance.leaveMyGroupChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **leaveMyGroupChannelsData** | **LeaveMyGroupChannelsData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -506,9 +506,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListBannedChannelsRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -525,8 +525,8 @@ apiInstance.listBannedChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -569,9 +569,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListBlockedUsersRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -594,8 +594,8 @@ apiInstance.listBlockedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **userIds** | [**string**] |  | (optional) defaults to undefined
@@ -641,9 +641,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListMutedChannelsRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -660,8 +660,8 @@ apiInstance.listMutedChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -704,9 +704,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListMyGroupChannelsRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -799,8 +799,8 @@ apiInstance.listMyGroupChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **distinctMode** | [**string**] |  | (optional) defaults to undefined
@@ -881,11 +881,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListRegistrationOrDeviceTokensRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.listRegistrationOrDeviceTokens(body).then((data:any) => {
@@ -898,9 +898,9 @@ apiInstance.listRegistrationOrDeviceTokens(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -940,7 +940,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiListUsersRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -972,7 +972,7 @@ apiInstance.listUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **activeMode** | [**string**] |  | (optional) defaults to undefined
@@ -1022,9 +1022,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiMarkAllMessagesAsReadRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // MarkAllMessagesAsReadData (optional)
   markAllMessagesAsReadData: {
     userId: "userId_example",
@@ -1045,8 +1045,8 @@ apiInstance.markAllMessagesAsRead(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markAllMessagesAsReadData** | **MarkAllMessagesAsReadData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1087,9 +1087,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiMuteInChannelsWithCustomChannelTypesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // MuteInChannelsWithCustomChannelTypesData (optional)
   muteInChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -1109,8 +1109,8 @@ apiInstance.muteInChannelsWithCustomChannelTypes(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteInChannelsWithCustomChannelTypesData** | **MuteInChannelsWithCustomChannelTypesData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1151,9 +1151,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // RegisterAsOperatorToChannelsWithCustomChannelTypesData (optional)
   registerAsOperatorToChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -1173,8 +1173,8 @@ apiInstance.registerAsOperatorToChannelsWithCustomChannelTypes(body).then((data:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registerAsOperatorToChannelsWithCustomChannelTypesData** | **RegisterAsOperatorToChannelsWithCustomChannelTypesData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1215,9 +1215,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiRemoveRegistrationOrDeviceTokenRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
 };
 
 apiInstance.removeRegistrationOrDeviceToken(body).then((data:any) => {
@@ -1230,8 +1230,8 @@ apiInstance.removeRegistrationOrDeviceToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1272,13 +1272,13 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiRemoveRegistrationOrDeviceTokenByTokenRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removeRegistrationOrDeviceTokenByToken(body).then((data:any) => {
@@ -1291,10 +1291,10 @@ apiInstance.removeRegistrationOrDeviceTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1335,11 +1335,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removeRegistrationOrDeviceTokenFromOwnerByToken(body).then((data:any) => {
@@ -1352,9 +1352,9 @@ apiInstance.removeRegistrationOrDeviceTokenFromOwnerByToken(body).then((data:any
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1395,9 +1395,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiResetPushPreferencesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
 };
 
 apiInstance.resetPushPreferences(body).then((data:any) => {
@@ -1410,8 +1410,8 @@ apiInstance.resetPushPreferences(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1452,11 +1452,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUnblockUserByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   targetId: "target_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.unblockUserById(body).then((data:any) => {
@@ -1469,9 +1469,9 @@ apiInstance.unblockUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **targetId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1512,9 +1512,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUpdateChannelInvitationPreferenceRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // UpdateChannelInvitationPreferenceData (optional)
   updateChannelInvitationPreferenceData: {
     autoAccept: true,
@@ -1532,8 +1532,8 @@ apiInstance.updateChannelInvitationPreference(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelInvitationPreferenceData** | **UpdateChannelInvitationPreferenceData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1574,11 +1574,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUpdateCountPreferenceOfChannelByUrlRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdateCountPreferenceOfChannelByUrlData (optional)
   updateCountPreferenceOfChannelByUrlData: {
     countPreference: "countPreference_example",
@@ -1596,9 +1596,9 @@ apiInstance.updateCountPreferenceOfChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCountPreferenceOfChannelByUrlData** | **UpdateCountPreferenceOfChannelByUrlData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1639,9 +1639,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUpdatePushPreferencesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // UpdatePushPreferencesData (optional)
   updatePushPreferencesData: {
     userId: "userId_example",
@@ -1674,8 +1674,8 @@ apiInstance.updatePushPreferences(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushPreferencesData** | **UpdatePushPreferencesData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1716,11 +1716,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUpdatePushPreferencesForChannelByUrlRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdatePushPreferencesForChannelByUrlData (optional)
   updatePushPreferencesForChannelByUrlData: {
     pushTriggerOption: "pushTriggerOption_example",
@@ -1740,9 +1740,9 @@ apiInstance.updatePushPreferencesForChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushPreferencesForChannelByUrlData** | **UpdatePushPreferencesForChannelByUrlData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1783,9 +1783,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiUpdateUserByIdRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // UpdateUserByIdData (optional)
   updateUserByIdData: {
     userId: "userId_example",
@@ -1818,8 +1818,8 @@ apiInstance.updateUserById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateUserByIdData** | **UpdateUserByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1860,9 +1860,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewChannelInvitationPreferenceRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
 };
 
 apiInstance.viewChannelInvitationPreference(body).then((data:any) => {
@@ -1875,8 +1875,8 @@ apiInstance.viewChannelInvitationPreference(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1917,11 +1917,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewCountPreferenceOfChannelByUrlRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewCountPreferenceOfChannelByUrl(body).then((data:any) => {
@@ -1934,9 +1934,9 @@ apiInstance.viewCountPreferenceOfChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1977,9 +1977,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewNumberOfChannelsByJoinStatusRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   state: "state_example",
 };
@@ -1994,8 +1994,8 @@ apiInstance.viewNumberOfChannelsByJoinStatus(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **state** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -2037,9 +2037,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewNumberOfChannelsWithUnreadMessagesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // Array<string> (optional)
   customTypes: [
     "custom_types_example",
@@ -2058,8 +2058,8 @@ apiInstance.viewNumberOfChannelsWithUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customTypes** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
 
@@ -2102,9 +2102,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewNumberOfUnreadItemsRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   customType: "custom_type_example",
   // string (optional)
@@ -2121,8 +2121,8 @@ apiInstance.viewNumberOfUnreadItems(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customType** | [**string**] |  | (optional) defaults to undefined
  **itemKeys** | [**string**] |  | (optional) defaults to undefined
 
@@ -2165,9 +2165,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewNumberOfUnreadMessagesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   customTypes: "custom_types_example",
   // string (optional)
@@ -2184,8 +2184,8 @@ apiInstance.viewNumberOfUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
 
@@ -2228,9 +2228,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewPushPreferencesRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
 };
 
 apiInstance.viewPushPreferences(body).then((data:any) => {
@@ -2243,8 +2243,8 @@ apiInstance.viewPushPreferences(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -2285,11 +2285,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewPushPreferencesForChannelByUrlRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushPreferencesForChannelByUrl(body).then((data:any) => {
@@ -2302,9 +2302,9 @@ apiInstance.viewPushPreferencesForChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -2345,9 +2345,9 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewUserByIdRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // boolean (optional)
   includeUnreadCount: true,
   // string (optional)
@@ -2366,8 +2366,8 @@ apiInstance.viewUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **includeUnreadCount** | [**boolean**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
@@ -2411,11 +2411,11 @@ const apiInstance = new .UserApi(configuration);
 
 let body:.UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewWhoOwnsRegistrationOrDeviceTokenByToken(body).then((data:any) => {
@@ -2428,9 +2428,9 @@ apiInstance.viewWhoOwnsRegistrationOrDeviceTokenByToken(body).then((data:any) =>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

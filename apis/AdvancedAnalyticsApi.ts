@@ -21,8 +21,13 @@ export class AdvancedAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
      * Retrieve Advanced analytics metrics
      * @param apiToken 
      */
-    public async retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieveAdvancedAnalyticsMetrics(apiToken: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AdvancedAnalyticsApi", "retrieveAdvancedAnalyticsMetrics", "apiToken");
+        }
 
 
         // Path Params

@@ -31,17 +31,22 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
      * Get detailed open rate of an announcement
-     * @param uniqueId 
      * @param apiToken 
+     * @param uniqueId 
      */
-    public async getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getDetailedOpenRateOfAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getDetailedOpenRateOfAnnouncementById", "apiToken");
+        }
+
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("AnnouncementsApi", "getDetailedOpenRateOfAnnouncementById", "uniqueId");
         }
-
 
 
         // Path Params
@@ -63,17 +68,22 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get detailed open rate of an announcement group  Retrieves the detailed open rate information of an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement-group ----------------------------
      * Get detailed open rate of an announcement group
-     * @param announcementGroup 
      * @param apiToken 
+     * @param announcementGroup 
      */
-    public async getDetailedOpenRateOfAnnouncementGroup(announcementGroup: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getDetailedOpenRateOfAnnouncementGroup(apiToken: string, announcementGroup: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getDetailedOpenRateOfAnnouncementGroup", "apiToken");
+        }
+
 
         // verify required parameter 'announcementGroup' is not null or undefined
         if (announcementGroup === null || announcementGroup === undefined) {
             throw new RequiredError("AnnouncementsApi", "getDetailedOpenRateOfAnnouncementGroup", "announcementGroup");
         }
-
 
 
         // Path Params
@@ -95,22 +105,27 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
      * Get detailed open status of an announcement
-     * @param uniqueId 
      * @param apiToken 
+     * @param uniqueId 
      * @param limit 
      * @param next 
      * @param uniqueIds 
      * @param channelUrls 
      * @param hasOpened 
      */
-    public async getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async getDetailedOpenStatusOfAnnouncementById(apiToken: string, uniqueId: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getDetailedOpenStatusOfAnnouncementById", "apiToken");
+        }
+
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("AnnouncementsApi", "getDetailedOpenStatusOfAnnouncementById", "uniqueId");
         }
-
 
 
 
@@ -164,8 +179,13 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
      * Get statistics - weekly
      * @param apiToken 
      */
-    public async getStatistics(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getStatistics(apiToken: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getStatistics", "apiToken");
+        }
 
 
         // Path Params
@@ -186,17 +206,23 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
      * Get statistics - daily
+     * @param apiToken 
      * @param startDate 
      * @param endDate 
      * @param startWeek 
      * @param endWeek 
      * @param startMonth 
      * @param endMonth 
-     * @param apiToken 
      * @param announcementGroup 
      */
-    public async getStatisticsDaily(startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, apiToken?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getStatisticsDaily(apiToken: string, startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getStatisticsDaily", "apiToken");
+        }
+
 
         // verify required parameter 'startDate' is not null or undefined
         if (startDate === null || startDate === undefined) {
@@ -232,7 +258,6 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
         if (endMonth === null || endMonth === undefined) {
             throw new RequiredError("AnnouncementsApi", "getStatisticsDaily", "endMonth");
         }
-
 
 
 
@@ -291,8 +316,13 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
      * Get statistics - monthly
      * @param apiToken 
      */
-    public async getStatisticsMonthly(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getStatisticsMonthly(apiToken: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "getStatisticsMonthly", "apiToken");
+        }
 
 
         // Path Params
@@ -317,8 +347,13 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
      * @param token 
      * @param limit 
      */
-    public async listAnnouncementGroups(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listAnnouncementGroups(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "listAnnouncementGroups", "apiToken");
+        }
 
 
 
@@ -358,8 +393,13 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
      * @param status 
      * @param announcementGroup 
      */
-    public async listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listAnnouncements(apiToken: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "listAnnouncements", "apiToken");
+        }
 
 
 
@@ -413,8 +453,13 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param scheduleAnnouncementData 
      */
-    public async scheduleAnnouncement(apiToken?: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Promise<RequestContext> {
+    public async scheduleAnnouncement(apiToken: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "scheduleAnnouncement", "apiToken");
+        }
 
 
 
@@ -447,18 +492,23 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
      * Update an announcement
-     * @param uniqueId 
      * @param apiToken 
+     * @param uniqueId 
      * @param updateAnnouncementByIdData 
      */
-    public async updateAnnouncementById(uniqueId: string, apiToken?: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateAnnouncementById(apiToken: string, uniqueId: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "updateAnnouncementById", "apiToken");
+        }
+
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("AnnouncementsApi", "updateAnnouncementById", "uniqueId");
         }
-
 
 
 
@@ -492,17 +542,22 @@ export class AnnouncementsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View an announcement  Retrieves information on a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-view-an-announcement ----------------------------
      * View an announcement
-     * @param uniqueId 
      * @param apiToken 
+     * @param uniqueId 
      */
-    public async viewAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("AnnouncementsApi", "viewAnnouncementById", "apiToken");
+        }
+
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("AnnouncementsApi", "viewAnnouncementById", "uniqueId");
         }
-
 
 
         // Path Params

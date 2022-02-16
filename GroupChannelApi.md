@@ -51,9 +51,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcAcceptInvitationRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcAcceptInvitationData (optional)
   gcAcceptInvitationData: {
     channelUrl: "channelUrl_example",
@@ -73,8 +73,8 @@ apiInstance.gcAcceptInvitation(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcAcceptInvitationData** | **GcAcceptInvitationData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -115,9 +115,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcBanUserRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcBanUserData (optional)
   gcBanUserData: {
     channelUrl: "channelUrl_example",
@@ -139,8 +139,8 @@ apiInstance.gcBanUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcBanUserData** | **GcBanUserData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -181,13 +181,13 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // Array<string>
   operatorIds: [
     "operator_ids_example",
   ],
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   deleteAll: true,
 };
@@ -202,9 +202,9 @@ apiInstance.gcCancelTheRegistrationOfOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **operatorIds** | **Array&lt;string&gt;** |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **deleteAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -246,11 +246,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcCheckIfMemberByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   userId: "user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcCheckIfMemberById(body).then((data:any) => {
@@ -263,9 +263,9 @@ apiInstance.gcCheckIfMemberById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -305,7 +305,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcCreateChannelRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // GcCreateChannelData (optional)
   gcCreateChannelData: {
@@ -352,7 +352,7 @@ apiInstance.gcCreateChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcCreateChannelData** | **GcCreateChannelData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -393,9 +393,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcDeclineInvitationRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcDeclineInvitationData (optional)
   gcDeclineInvitationData: {
     channelUrl: "channelUrl_example",
@@ -414,8 +414,8 @@ apiInstance.gcDeclineInvitation(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcDeclineInvitationData** | **GcDeclineInvitationData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -456,9 +456,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcDeleteChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
 };
 
 apiInstance.gcDeleteChannelByUrl(body).then((data:any) => {
@@ -471,8 +471,8 @@ apiInstance.gcDeleteChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -513,9 +513,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcFreezeChannelRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcFreezeChannelData (optional)
   gcFreezeChannelData: {
     channelUrl: "channelUrl_example",
@@ -534,8 +534,8 @@ apiInstance.gcFreezeChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcFreezeChannelData** | **GcFreezeChannelData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -576,9 +576,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcHideOrArchiveChannelRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcHideOrArchiveChannelData (optional)
   gcHideOrArchiveChannelData: {
     channelUrl: "channelUrl_example",
@@ -600,8 +600,8 @@ apiInstance.gcHideOrArchiveChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcHideOrArchiveChannelData** | **GcHideOrArchiveChannelData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -642,9 +642,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcInviteAsMembersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcInviteAsMembersData (optional)
   gcInviteAsMembersData: {
     channelUrl: "channelUrl_example",
@@ -674,8 +674,8 @@ apiInstance.gcInviteAsMembers(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcInviteAsMembersData** | **GcInviteAsMembersData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -716,9 +716,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcJoinChannelRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcJoinChannelData (optional)
   gcJoinChannelData: {
     channelUrl: "channelUrl_example",
@@ -738,8 +738,8 @@ apiInstance.gcJoinChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcJoinChannelData** | **GcJoinChannelData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -780,9 +780,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcLeaveChannelRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcLeaveChannelData (optional)
   gcLeaveChannelData: {
     channelUrl: "channelUrl_example",
@@ -804,8 +804,8 @@ apiInstance.gcLeaveChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcLeaveChannelData** | **GcLeaveChannelData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -846,9 +846,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcListBannedUsersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -865,8 +865,8 @@ apiInstance.gcListBannedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -908,7 +908,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcListChannelsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -1006,7 +1006,7 @@ apiInstance.gcListChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **distinctMode** | [**string**] |  | (optional) defaults to undefined
@@ -1089,9 +1089,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcListMembersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1122,8 +1122,8 @@ apiInstance.gcListMembers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
@@ -1173,9 +1173,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcListMutedUsersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1192,8 +1192,8 @@ apiInstance.gcListMutedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1236,9 +1236,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcListOperatorsRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1255,8 +1255,8 @@ apiInstance.gcListOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1299,9 +1299,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcMuteUserRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcMuteUserData (optional)
   gcMuteUserData: {
     channelUrl: "channelUrl_example",
@@ -1322,8 +1322,8 @@ apiInstance.gcMuteUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMuteUserData** | **GcMuteUserData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1364,9 +1364,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcRegisterOperatorsRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcRegisterOperatorsData (optional)
   gcRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
@@ -1387,8 +1387,8 @@ apiInstance.gcRegisterOperators(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcRegisterOperatorsData** | **GcRegisterOperatorsData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1429,9 +1429,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcResetChatHistoryRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcResetChatHistoryData (optional)
   gcResetChatHistoryData: {
     channelUrl: "channelUrl_example",
@@ -1451,8 +1451,8 @@ apiInstance.gcResetChatHistory(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcResetChatHistoryData** | **GcResetChatHistoryData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1493,11 +1493,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcUnbanUserByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcUnbanUserById(body).then((data:any) => {
@@ -1510,9 +1510,9 @@ apiInstance.gcUnbanUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1553,11 +1553,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcUnhideOrUnarchiveChannelRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   userId: "user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   shouldUnhideAll: true,
 };
@@ -1572,9 +1572,9 @@ apiInstance.gcUnhideOrUnarchiveChannel(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **shouldUnhideAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -1616,11 +1616,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcUnmuteUserByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcUnmuteUserById(body).then((data:any) => {
@@ -1633,9 +1633,9 @@ apiInstance.gcUnmuteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1676,11 +1676,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcUpdateBanByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // GcUpdateBanByIdData (optional)
   gcUpdateBanByIdData: {
     channelUrl: "channelUrl_example",
@@ -1701,9 +1701,9 @@ apiInstance.gcUpdateBanById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcUpdateBanByIdData** | **GcUpdateBanByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1744,9 +1744,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcUpdateChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcUpdateChannelByUrlData (optional)
   gcUpdateChannelByUrlData: {
     channelUrl: "channelUrl_example",
@@ -1775,8 +1775,8 @@ apiInstance.gcUpdateChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcUpdateChannelByUrlData** | **GcUpdateChannelByUrlData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1817,11 +1817,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcViewBanByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcViewBanById(body).then((data:any) => {
@@ -1834,9 +1834,9 @@ apiInstance.gcViewBanById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1877,9 +1877,9 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcViewChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // boolean (optional)
   showDeliveryReceipt: true,
   // boolean (optional)
@@ -1902,8 +1902,8 @@ apiInstance.gcViewChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
  **showReadReceipt** | [**boolean**] |  | (optional) defaults to undefined
  **showMember** | [**boolean**] |  | (optional) defaults to undefined
@@ -1949,11 +1949,11 @@ const apiInstance = new .GroupChannelApi(configuration);
 
 let body:.GroupChannelApiGcViewMuteByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcViewMuteById(body).then((data:any) => {
@@ -1966,9 +1966,9 @@ apiInstance.gcViewMuteById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

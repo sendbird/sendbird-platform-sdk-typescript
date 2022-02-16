@@ -34,9 +34,9 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetDetailedOpenRateOfAnnouncementByIdRequest = {
   // string
-  uniqueId: "unique_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  uniqueId: "unique_id_example",
 };
 
 apiInstance.getDetailedOpenRateOfAnnouncementById(body).then((data:any) => {
@@ -49,8 +49,8 @@ apiInstance.getDetailedOpenRateOfAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -91,9 +91,9 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetDetailedOpenRateOfAnnouncementGroupRequest = {
   // string
-  announcementGroup: "announcement_group_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  announcementGroup: "announcement_group_example",
 };
 
 apiInstance.getDetailedOpenRateOfAnnouncementGroup(body).then((data:any) => {
@@ -106,8 +106,8 @@ apiInstance.getDetailedOpenRateOfAnnouncementGroup(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **announcementGroup** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -148,9 +148,9 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetDetailedOpenStatusOfAnnouncementByIdRequest = {
   // string
-  uniqueId: "unique_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  uniqueId: "unique_id_example",
   // number (optional)
   limit: 1,
   // string (optional)
@@ -177,8 +177,8 @@ apiInstance.getDetailedOpenStatusOfAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **next** | [**string**] |  | (optional) defaults to undefined
  **uniqueIds** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
@@ -223,7 +223,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetStatisticsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -237,7 +237,7 @@ apiInstance.getStatistics(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -278,6 +278,8 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetStatisticsDailyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   startDate: "start_date_example",
   // string
   endDate: "end_date_example",
@@ -289,8 +291,6 @@ let body:.AnnouncementsApiGetStatisticsDailyRequest = {
   startMonth: "start_month_example",
   // string
   endMonth: "end_month_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // string (optional)
   announcementGroup: "announcement_group_example",
 };
@@ -305,13 +305,13 @@ apiInstance.getStatisticsDaily(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **startDate** | [**string**] |  | defaults to undefined
  **endDate** | [**string**] |  | defaults to undefined
  **startWeek** | [**string**] |  | defaults to undefined
  **endWeek** | [**string**] |  | defaults to undefined
  **startMonth** | [**string**] |  | defaults to undefined
  **endMonth** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **announcementGroup** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -352,7 +352,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiGetStatisticsMonthlyRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -366,7 +366,7 @@ apiInstance.getStatisticsMonthly(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -406,7 +406,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiListAnnouncementGroupsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -424,7 +424,7 @@ apiInstance.listAnnouncementGroups(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -466,7 +466,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiListAnnouncementsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -490,7 +490,7 @@ apiInstance.listAnnouncements(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **order** | [**string**] |  | (optional) defaults to undefined
@@ -535,7 +535,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiScheduleAnnouncementRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // ScheduleAnnouncementData (optional)
   scheduleAnnouncementData: {
@@ -579,7 +579,7 @@ apiInstance.scheduleAnnouncement(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scheduleAnnouncementData** | **ScheduleAnnouncementData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -620,9 +620,9 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiUpdateAnnouncementByIdRequest = {
   // string
-  uniqueId: "unique_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  uniqueId: "unique_id_example",
   // UpdateAnnouncementByIdData (optional)
   updateAnnouncementByIdData: {
     uniqueId: "uniqueId_example",
@@ -656,8 +656,8 @@ apiInstance.updateAnnouncementById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateAnnouncementByIdData** | **UpdateAnnouncementByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -698,9 +698,9 @@ const apiInstance = new .AnnouncementsApi(configuration);
 
 let body:.AnnouncementsApiViewAnnouncementByIdRequest = {
   // string
-  uniqueId: "unique_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  uniqueId: "unique_id_example",
 };
 
 apiInstance.viewAnnouncementById(body).then((data:any) => {
@@ -713,8 +713,8 @@ apiInstance.viewAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

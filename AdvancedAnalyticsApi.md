@@ -23,7 +23,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .AdvancedAnalyticsApi(configuration);
 
 let body:.AdvancedAnalyticsApiRetrieveAdvancedAnalyticsMetricsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -37,7 +37,7 @@ apiInstance.retrieveAdvancedAnalyticsMetrics(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type

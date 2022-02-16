@@ -29,13 +29,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
      * Create a channel metacounter
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param createChannelMetacounterData 
      */
-    public async createChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Promise<RequestContext> {
+    public async createChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "createChannelMetacounter", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -47,7 +53,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "createChannelMetacounter", "channelUrl");
         }
-
 
 
 
@@ -82,13 +87,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
      * Create a channel metadata
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param createChannelMetadataData 
      */
-    public async createChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Promise<RequestContext> {
+    public async createChannelMetadata(apiToken: string, channelType: string, channelUrl: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "createChannelMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -100,7 +111,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "createChannelMetadata", "channelUrl");
         }
-
 
 
 
@@ -135,18 +145,23 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
      * Create a user metadata
-     * @param userId 
      * @param apiToken 
+     * @param userId 
      * @param createUserMetadataData 
      */
-    public async createUserMetadata(userId: string, apiToken?: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Promise<RequestContext> {
+    public async createUserMetadata(apiToken: string, userId: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "createUserMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "createUserMetadata", "userId");
         }
-
 
 
 
@@ -180,12 +195,18 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
      * Delete a channel metacounter - When deleting all items of a channel metacounter
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      */
-    public async deleteChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetacounter", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -197,7 +218,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetacounter", "channelUrl");
         }
-
 
 
         // Path Params
@@ -220,13 +240,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      */
-    public async deleteChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetacounterByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -244,7 +270,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetacounterByKey", "key");
         }
-
 
 
         // Path Params
@@ -268,13 +293,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
      * Delete a channel metadata - When deleting all items of a channel metadata
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param key 
      */
-    public async deleteChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -286,7 +317,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetadata", "channelUrl");
         }
-
 
 
 
@@ -315,13 +345,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      */
-    public async deleteChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -339,7 +375,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteChannelMetadataByKey", "key");
         }
-
 
 
         // Path Params
@@ -363,18 +398,23 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
      * Delete a user metadata - When deleting all items of a user metadata
-     * @param userId 
      * @param apiToken 
+     * @param userId 
      * @param key 
      */
-    public async deleteUserMetadata(userId: string, apiToken?: string, key?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteUserMetadata(apiToken: string, userId: string, key?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteUserMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteUserMetadata", "userId");
         }
-
 
 
 
@@ -402,12 +442,18 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     * @param apiToken 
      * @param userId 
      * @param key 
-     * @param apiToken 
      */
-    public async deleteUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "deleteUserMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -419,7 +465,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "deleteUserMetadataByKey", "key");
         }
-
 
 
         // Path Params
@@ -442,13 +487,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param updateChannelMetacounterData 
      */
-    public async updateChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Promise<RequestContext> {
+    public async updateChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateChannelMetacounter", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -460,7 +511,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateChannelMetacounter", "channelUrl");
         }
-
 
 
 
@@ -495,14 +545,20 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      * @param body 
      */
-    public async updateChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateChannelMetacounterByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -520,7 +576,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateChannelMetacounterByKey", "key");
         }
-
 
 
 
@@ -556,13 +611,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param updateChannelMetadataData 
      */
-    public async updateChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<RequestContext> {
+    public async updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateChannelMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -574,7 +635,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateChannelMetadata", "channelUrl");
         }
-
 
 
 
@@ -609,14 +669,20 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      * @param body 
      */
-    public async updateChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateChannelMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -634,7 +700,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateChannelMetadataByKey", "key");
         }
-
 
 
 
@@ -670,18 +735,23 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param userId 
      * @param apiToken 
+     * @param userId 
      * @param updateUserMetadataData 
      */
-    public async updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Promise<RequestContext> {
+    public async updateUserMetadata(apiToken: string, userId: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateUserMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateUserMetadata", "userId");
         }
-
 
 
 
@@ -715,13 +785,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
      * Update a user metadata - When updating a specific item of a user metadata by its key
+     * @param apiToken 
      * @param userId 
      * @param key 
-     * @param apiToken 
      * @param body 
      */
-    public async updateUserMetadataByKey(userId: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "updateUserMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -733,7 +809,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "updateUserMetadataByKey", "key");
         }
-
 
 
 
@@ -768,14 +843,20 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving all items of a channel metacounter
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param key 
      * @param keys 
      */
-    public async viewChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewChannelMetacounter", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -787,7 +868,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewChannelMetacounter", "channelUrl");
         }
-
 
 
 
@@ -822,13 +902,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      */
-    public async viewChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewChannelMetacounterByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -846,7 +932,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewChannelMetacounterByKey", "key");
         }
-
 
 
         // Path Params
@@ -870,14 +955,20 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metadata - When retrieving all items of a channel metadata
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param key 
      * @param keys 
      */
-    public async viewChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewChannelMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -889,7 +980,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewChannelMetadata", "channelUrl");
         }
-
 
 
 
@@ -924,13 +1014,19 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
-     * @param apiToken 
      */
-    public async viewChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewChannelMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -948,7 +1044,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewChannelMetadataByKey", "key");
         }
-
 
 
         // Path Params
@@ -972,19 +1067,24 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
      * View a user metadata - When retrieving all items of a user metadata
-     * @param userId 
      * @param apiToken 
+     * @param userId 
      * @param key 
      * @param keys 
      */
-    public async viewUserMetadata(userId: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async viewUserMetadata(apiToken: string, userId: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewUserMetadata", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewUserMetadata", "userId");
         }
-
 
 
 
@@ -1018,12 +1118,18 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
     /**
      * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
      * View a user metadata - When retrieving a specific item of a user metadata by its key
+     * @param apiToken 
      * @param userId 
      * @param key 
-     * @param apiToken 
      */
-    public async viewUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserChannelMetadataApi", "viewUserMetadataByKey", "apiToken");
+        }
+
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1035,7 +1141,6 @@ export class UserChannelMetadataApiRequestFactory extends BaseAPIRequestFactory 
         if (key === null || key === undefined) {
             throw new RequiredError("UserChannelMetadataApi", "viewUserMetadataByKey", "key");
         }
-
 
 
         // Path Params

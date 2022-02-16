@@ -42,9 +42,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcBanUserRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // OcBanUserData (optional)
   ocBanUserData: {
     channelUrl: "channelUrl_example",
@@ -66,8 +66,8 @@ apiInstance.ocBanUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocBanUserData** | **OcBanUserData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -108,13 +108,13 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcCancelTheRegistrationOfOperatorsRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // Array<string>
   operatorIds: [
     "operator_ids_example",
   ],
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   deleteAll: true,
 };
@@ -129,9 +129,9 @@ apiInstance.ocCancelTheRegistrationOfOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **operatorIds** | **Array&lt;string&gt;** |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **deleteAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -172,7 +172,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcCreateChannelRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // OcCreateChannelData (optional)
   ocCreateChannelData: {
@@ -204,7 +204,7 @@ apiInstance.ocCreateChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocCreateChannelData** | **OcCreateChannelData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -245,9 +245,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcDeleteChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
 };
 
 apiInstance.ocDeleteChannelByUrl(body).then((data:any) => {
@@ -260,8 +260,8 @@ apiInstance.ocDeleteChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -302,9 +302,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcFreezeChannelRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // OcFreezeChannelData (optional)
   ocFreezeChannelData: {
     channelUrl: "channelUrl_example",
@@ -323,8 +323,8 @@ apiInstance.ocFreezeChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocFreezeChannelData** | **OcFreezeChannelData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -365,9 +365,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcListBannedUsersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -384,8 +384,8 @@ apiInstance.ocListBannedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -427,7 +427,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcListChannelsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -457,7 +457,7 @@ apiInstance.ocListChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
@@ -506,9 +506,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcListMutedUsersRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -525,8 +525,8 @@ apiInstance.ocListMutedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -569,9 +569,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcListOperatorsRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -588,8 +588,8 @@ apiInstance.ocListOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -632,9 +632,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcListParticipantsRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -651,8 +651,8 @@ apiInstance.ocListParticipants(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -695,9 +695,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcMuteUserRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // OcMuteUserData (optional)
   ocMuteUserData: {
     userId: "userId_example",
@@ -717,8 +717,8 @@ apiInstance.ocMuteUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocMuteUserData** | **OcMuteUserData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -759,9 +759,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcRegisterOperatorsRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // OcRegisterOperatorsData (optional)
   ocRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
@@ -782,8 +782,8 @@ apiInstance.ocRegisterOperators(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocRegisterOperatorsData** | **OcRegisterOperatorsData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -824,11 +824,11 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcUnbanUserByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocUnbanUserById(body).then((data:any) => {
@@ -841,9 +841,9 @@ apiInstance.ocUnbanUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -884,11 +884,11 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcUnmuteUserByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocUnmuteUserById(body).then((data:any) => {
@@ -901,9 +901,9 @@ apiInstance.ocUnmuteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -944,11 +944,11 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcUpdateBanByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // OcUpdateBanByIdData (optional)
   ocUpdateBanByIdData: {
     channelUrl: "channelUrl_example",
@@ -969,9 +969,9 @@ apiInstance.ocUpdateBanById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocUpdateBanByIdData** | **OcUpdateBanByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1012,9 +1012,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcUpdateChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // OcUpdateChannelByUrlData (optional)
   ocUpdateChannelByUrlData: {
     channelUrl: "channelUrl_example",
@@ -1043,8 +1043,8 @@ apiInstance.ocUpdateChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocUpdateChannelByUrlData** | **OcUpdateChannelByUrlData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1085,11 +1085,11 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcViewBanByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocViewBanById(body).then((data:any) => {
@@ -1102,9 +1102,9 @@ apiInstance.ocViewBanById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1145,9 +1145,9 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcViewChannelByUrlRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
 };
 
 apiInstance.ocViewChannelByUrl(body).then((data:any) => {
@@ -1160,8 +1160,8 @@ apiInstance.ocViewChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1202,11 +1202,11 @@ const apiInstance = new .OpenChannelApi(configuration);
 
 let body:.OpenChannelApiOcViewMuteByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocViewMuteById(body).then((data:any) => {
@@ -1219,9 +1219,9 @@ apiInstance.ocViewMuteById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

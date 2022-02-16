@@ -31,8 +31,13 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param createBotData 
      */
-    public async createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Promise<RequestContext> {
+    public async createBot(apiToken: string, createBotData?: CreateBotData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "createBot", "apiToken");
+        }
 
 
 
@@ -65,17 +70,22 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
      * Delete a bot
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      */
-    public async deleteBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteBotById(apiToken: string, botUserid: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "deleteBotById", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "deleteBotById", "botUserid");
         }
-
 
 
         // Path Params
@@ -97,18 +107,23 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Join channels  Makes a bot join one or more channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-join-channels ----------------------------
      * Join channels
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      * @param joinChannelsData 
      */
-    public async joinChannels(botUserid: string, apiToken?: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Promise<RequestContext> {
+    public async joinChannels(apiToken: string, botUserid: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "joinChannels", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "joinChannels", "botUserid");
         }
-
 
 
 
@@ -142,18 +157,23 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
      * Leave channels - When leaving all channels
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      * @param channelUrl 
      */
-    public async leaveChannels(botUserid: string, apiToken?: string, channelUrl?: string, _options?: Configuration): Promise<RequestContext> {
+    public async leaveChannels(apiToken: string, botUserid: string, channelUrl?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "leaveChannels", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "leaveChannels", "botUserid");
         }
-
 
 
 
@@ -181,12 +201,18 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
      * Leave channels - When leaving a channel by its channel URL
+     * @param apiToken 
      * @param botUserid 
      * @param channelUrl 
-     * @param apiToken 
      */
-    public async leaveChannelsByUrl(botUserid: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async leaveChannelsByUrl(apiToken: string, botUserid: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "leaveChannelsByUrl", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
@@ -198,7 +224,6 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("BotInterfaceApi", "leaveChannelsByUrl", "channelUrl");
         }
-
 
 
         // Path Params
@@ -225,8 +250,13 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
      * @param token 
      * @param limit 
      */
-    public async listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listBots(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "listBots", "apiToken");
+        }
 
 
 
@@ -259,18 +289,23 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
      * Send a bot's message
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      * @param sendBotSMessageData 
      */
-    public async sendBotsMessage(botUserid: string, apiToken?: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async sendBotsMessage(apiToken: string, botUserid: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "sendBotsMessage", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "sendBotsMessage", "botUserid");
         }
-
 
 
 
@@ -304,18 +339,23 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
      * Update a bot
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      * @param updateBotByIdData 
      */
-    public async updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateBotById(apiToken: string, botUserid: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "updateBotById", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "updateBotById", "botUserid");
         }
-
 
 
 
@@ -349,17 +389,22 @@ export class BotInterfaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
      * View a bot
-     * @param botUserid 
      * @param apiToken 
+     * @param botUserid 
      */
-    public async viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewBotById(apiToken: string, botUserid: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("BotInterfaceApi", "viewBotById", "apiToken");
+        }
+
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
             throw new RequiredError("BotInterfaceApi", "viewBotById", "botUserid");
         }
-
 
 
         // Path Params

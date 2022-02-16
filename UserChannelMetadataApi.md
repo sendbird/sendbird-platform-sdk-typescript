@@ -44,11 +44,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiCreateChannelMetacounterRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // CreateChannelMetacounterData (optional)
   createChannelMetacounterData: {
     channelType: "channelType_example",
@@ -68,9 +68,9 @@ apiInstance.createChannelMetacounter(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createChannelMetacounterData** | **CreateChannelMetacounterData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -111,11 +111,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiCreateChannelMetadataRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // CreateChannelMetadataData (optional)
   createChannelMetadataData: {
     channelType: "channelType_example",
@@ -136,9 +136,9 @@ apiInstance.createChannelMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createChannelMetadataData** | **CreateChannelMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -179,9 +179,9 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiCreateUserMetadataRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // CreateUserMetadataData (optional)
   createUserMetadataData: {
     userId: "userId_example",
@@ -200,8 +200,8 @@ apiInstance.createUserMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createUserMetadataData** | **CreateUserMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -242,11 +242,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteChannelMetacounterRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetacounter(body).then((data:any) => {
@@ -259,9 +259,9 @@ apiInstance.deleteChannelMetacounter(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -302,13 +302,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteChannelMetacounterByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetacounterByKey(body).then((data:any) => {
@@ -321,10 +321,10 @@ apiInstance.deleteChannelMetacounterByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -365,11 +365,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteChannelMetadataRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
 };
@@ -384,9 +384,9 @@ apiInstance.deleteChannelMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -428,13 +428,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteChannelMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetadataByKey(body).then((data:any) => {
@@ -447,10 +447,10 @@ apiInstance.deleteChannelMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -491,9 +491,9 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteUserMetadataRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   key: "key_example",
 };
@@ -508,8 +508,8 @@ apiInstance.deleteUserMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -551,11 +551,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiDeleteUserMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteUserMetadataByKey(body).then((data:any) => {
@@ -568,9 +568,9 @@ apiInstance.deleteUserMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -611,11 +611,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateChannelMetacounterRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdateChannelMetacounterData (optional)
   updateChannelMetacounterData: {
     metacounter: "metacounter_example",
@@ -635,9 +635,9 @@ apiInstance.updateChannelMetacounter(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelMetacounterData** | **UpdateChannelMetacounterData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -678,13 +678,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateChannelMetacounterByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -700,10 +700,10 @@ apiInstance.updateChannelMetacounterByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -744,11 +744,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateChannelMetadataRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdateChannelMetadataData (optional)
   updateChannelMetadataData: {
     metadata: "metadata_example",
@@ -767,9 +767,9 @@ apiInstance.updateChannelMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelMetadataData** | **UpdateChannelMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -810,13 +810,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateChannelMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -832,10 +832,10 @@ apiInstance.updateChannelMetadataByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -876,9 +876,9 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateUserMetadataRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // UpdateUserMetadataData (optional)
   updateUserMetadataData: {
     metadata: "metadata_example",
@@ -897,8 +897,8 @@ apiInstance.updateUserMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateUserMetadataData** | **UpdateUserMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -939,11 +939,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiUpdateUserMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -959,9 +959,9 @@ apiInstance.updateUserMetadataByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1002,11 +1002,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewChannelMetacounterRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1025,9 +1025,9 @@ apiInstance.viewChannelMetacounter(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1070,13 +1070,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewChannelMetacounterByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewChannelMetacounterByKey(body).then((data:any) => {
@@ -1089,10 +1089,10 @@ apiInstance.viewChannelMetacounterByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1133,11 +1133,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewChannelMetadataRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1156,9 +1156,9 @@ apiInstance.viewChannelMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1201,13 +1201,13 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewChannelMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewChannelMetadataByKey(body).then((data:any) => {
@@ -1220,10 +1220,10 @@ apiInstance.viewChannelMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1264,9 +1264,9 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewUserMetadataRequest = {
   // string
-  userId: "user_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1285,8 +1285,8 @@ apiInstance.viewUserMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1329,11 +1329,11 @@ const apiInstance = new .UserChannelMetadataApi(configuration);
 
 let body:.UserChannelMetadataApiViewUserMetadataByKeyRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   userId: "user_id_example",
   // string
   key: "key_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewUserMetadataByKey(body).then((data:any) => {
@@ -1346,9 +1346,9 @@ apiInstance.viewUserMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

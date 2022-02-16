@@ -31,7 +31,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiCreateBotRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // CreateBotData (optional)
   createBotData: {
@@ -58,7 +58,7 @@ apiInstance.createBot(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createBotData** | **CreateBotData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -99,9 +99,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiDeleteBotByIdRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
 };
 
 apiInstance.deleteBotById(body).then((data:any) => {
@@ -114,8 +114,8 @@ apiInstance.deleteBotById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -156,9 +156,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiJoinChannelsRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
   // JoinChannelsData (optional)
   joinChannelsData: {
     botUserid: "botUserid_example",
@@ -179,8 +179,8 @@ apiInstance.joinChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **joinChannelsData** | **JoinChannelsData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -221,9 +221,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiLeaveChannelsRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
   // string (optional)
   channelUrl: "channel_url_example",
 };
@@ -238,8 +238,8 @@ apiInstance.leaveChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **channelUrl** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -281,11 +281,11 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiLeaveChannelsByUrlRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   botUserid: "bot_userid_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.leaveChannelsByUrl(body).then((data:any) => {
@@ -298,9 +298,9 @@ apiInstance.leaveChannelsByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -340,7 +340,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiListBotsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -358,7 +358,7 @@ apiInstance.listBots(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -401,9 +401,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiSendBotsMessageRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
   // SendBotSMessageData (optional)
   sendBotSMessageData: {
     message: "message_example",
@@ -431,8 +431,8 @@ apiInstance.sendBotsMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendBotSMessageData** | **SendBotSMessageData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -473,9 +473,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiUpdateBotByIdRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
   // UpdateBotByIdData (optional)
   updateBotByIdData: {
     botUserid: "botUserid_example",
@@ -500,8 +500,8 @@ apiInstance.updateBotById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateBotByIdData** | **UpdateBotByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -542,9 +542,9 @@ const apiInstance = new .BotInterfaceApi(configuration);
 
 let body:.BotInterfaceApiViewBotByIdRequest = {
   // string
-  botUserid: "bot_userid_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  botUserid: "bot_userid_example",
 };
 
 apiInstance.viewBotById(body).then((data:any) => {
@@ -557,8 +557,8 @@ apiInstance.viewBotById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

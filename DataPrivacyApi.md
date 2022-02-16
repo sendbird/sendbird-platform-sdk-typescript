@@ -27,9 +27,9 @@ const apiInstance = new .DataPrivacyApi(configuration);
 
 let body:.DataPrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest = {
   // string
-  requestId: "request_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  requestId: "request_id_example",
 };
 
 apiInstance.cancelTheRegistrationOfGdprRequestById(body).then((data:any) => {
@@ -42,8 +42,8 @@ apiInstance.cancelTheRegistrationOfGdprRequestById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **requestId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -83,7 +83,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .DataPrivacyApi(configuration);
 
 let body:.DataPrivacyApiListGdprRequestsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -101,7 +101,7 @@ apiInstance.listGdprRequests(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -143,7 +143,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .DataPrivacyApi(configuration);
 
 let body:.DataPrivacyApiRegisterGdprRequestRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // RegisterGdprRequestData (optional)
   registerGdprRequestData: {
@@ -167,7 +167,7 @@ apiInstance.registerGdprRequest(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registerGdprRequestData** | **RegisterGdprRequestData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -208,9 +208,9 @@ const apiInstance = new .DataPrivacyApi(configuration);
 
 let body:.DataPrivacyApiViewGdprRequestByIdRequest = {
   // string
-  requestId: "request_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  requestId: "request_id_example",
 };
 
 apiInstance.viewGdprRequestById(body).then((data:any) => {
@@ -223,8 +223,8 @@ apiInstance.viewGdprRequestById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **requestId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

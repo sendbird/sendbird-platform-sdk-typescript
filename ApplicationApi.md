@@ -48,7 +48,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiAddApnsPushConfigurationRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // AddApnsPushConfigurationData (optional)
   addApnsPushConfigurationData: {
@@ -74,7 +74,7 @@ apiInstance.addApnsPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addApnsPushConfigurationData** | **AddApnsPushConfigurationData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -114,7 +114,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiAddFcmPushConfigurationRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // AddFcmPushConfigurationData (optional)
   addFcmPushConfigurationData: {
@@ -134,7 +134,7 @@ apiInstance.addFcmPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addFcmPushConfigurationData** | **AddFcmPushConfigurationData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -174,7 +174,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiAddHmsPushConfigurationRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // AddHmsPushConfigurationData (optional)
   addHmsPushConfigurationData: {
@@ -195,7 +195,7 @@ apiInstance.addHmsPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addHmsPushConfigurationData** | **AddHmsPushConfigurationData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -235,7 +235,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiAddIpToWhitelistRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // AddIpToWhitelistData (optional)
   addIpToWhitelistData: {
@@ -256,7 +256,7 @@ apiInstance.addIpToWhitelist(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addIpToWhitelistData** | **AddIpToWhitelistData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -296,12 +296,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiDeleteAllowedIpsFromWhitelistRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
   // Array<string>
   ipWhitelistAddresses: [
     "ip_whitelist_addresses_example",
   ],
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteAllowedIpsFromWhitelist(body).then((data:any) => {
@@ -314,8 +314,8 @@ apiInstance.deleteAllowedIpsFromWhitelist(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **ipWhitelistAddresses** | **Array&lt;string&gt;** |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -356,9 +356,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiDeleteApnsCertificateByIdRequest = {
   // string
-  providerId: "provider_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  providerId: "provider_id_example",
 };
 
 apiInstance.deleteApnsCertificateById(body).then((data:any) => {
@@ -371,8 +371,8 @@ apiInstance.deleteApnsCertificateById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -412,7 +412,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiGenerateSecondaryApiTokenRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // GenerateSecondaryApiTokenData (optional)
   generateSecondaryApiTokenData: {
@@ -431,7 +431,7 @@ apiInstance.generateSecondaryApiToken(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generateSecondaryApiTokenData** | **GenerateSecondaryApiTokenData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -472,9 +472,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiListPushConfigurationsRequest = {
   // string
-  pushType: "push_type_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  pushType: "push_type_example",
 };
 
 apiInstance.listPushConfigurations(body).then((data:any) => {
@@ -487,8 +487,8 @@ apiInstance.listPushConfigurations(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -528,7 +528,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiListPushNotificationContentTemplatesRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -542,7 +542,7 @@ apiInstance.listPushNotificationContentTemplates(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -582,7 +582,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiListSecondaryApiTokensRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -596,7 +596,7 @@ apiInstance.listSecondaryApiTokens(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -637,11 +637,11 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiRemovePushConfigurationByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   pushType: "push_type_example",
   // string
   providerId: "provider_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removePushConfigurationById(body).then((data:any) => {
@@ -654,9 +654,9 @@ apiInstance.removePushConfigurationById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -696,7 +696,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiRetrieveIpWhitelistRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -710,7 +710,7 @@ apiInstance.retrieveIpWhitelist(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -751,9 +751,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiRevokeSecondaryApiTokenByTokenRequest = {
   // string
-  apiToken2: "api_token_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  apiToken2: "api_token_example",
 };
 
 apiInstance.revokeSecondaryApiTokenByToken(body).then((data:any) => {
@@ -766,8 +766,8 @@ apiInstance.revokeSecondaryApiTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **apiToken2** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -808,9 +808,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiUpdateApnsPushConfigurationByIdRequest = {
   // string
-  providerId: "provider_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  providerId: "provider_id_example",
   // UpdateApnsPushConfigurationByIdData (optional)
   updateApnsPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -836,8 +836,8 @@ apiInstance.updateApnsPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateApnsPushConfigurationByIdData** | **UpdateApnsPushConfigurationByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -877,7 +877,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // UpdateDefaultChannelInvitationPreferenceData (optional)
   updateDefaultChannelInvitationPreferenceData: {
@@ -896,7 +896,7 @@ apiInstance.updateDefaultChannelInvitationPreference(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateDefaultChannelInvitationPreferenceData** | **UpdateDefaultChannelInvitationPreferenceData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -937,9 +937,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiUpdateFcmPushConfigurationByIdRequest = {
   // string
-  providerId: "provider_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  providerId: "provider_id_example",
   // UpdateFcmPushConfigurationByIdData (optional)
   updateFcmPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -959,8 +959,8 @@ apiInstance.updateFcmPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateFcmPushConfigurationByIdData** | **UpdateFcmPushConfigurationByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1001,9 +1001,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiUpdateHmsPushConfigurationByIdRequest = {
   // string
-  providerId: "provider_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  providerId: "provider_id_example",
   // UpdateHmsPushConfigurationByIdData (optional)
   updateHmsPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -1024,8 +1024,8 @@ apiInstance.updateHmsPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateHmsPushConfigurationByIdData** | **UpdateHmsPushConfigurationByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1066,9 +1066,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiUpdatePushNotificationContentTemplateRequest = {
   // string
-  templateName: "template_name_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  templateName: "template_name_example",
   // UpdatePushNotificationContentTemplateData (optional)
   updatePushNotificationContentTemplateData: {
     templateName: "templateName_example",
@@ -1090,8 +1090,8 @@ apiInstance.updatePushNotificationContentTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushNotificationContentTemplateData** | **UpdatePushNotificationContentTemplateData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **templateName** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1131,7 +1131,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewDefaultChannelInvitationPreferenceRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -1145,7 +1145,7 @@ apiInstance.viewDefaultChannelInvitationPreference(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -1185,7 +1185,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewNumberOfConcurrentConnectionsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -1199,7 +1199,7 @@ apiInstance.viewNumberOfConcurrentConnections(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -1239,7 +1239,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewNumberOfDailyActiveUsersRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   date: "date_example",
@@ -1255,7 +1255,7 @@ apiInstance.viewNumberOfDailyActiveUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **date** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -1296,7 +1296,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewNumberOfMonthlyActiveUsersRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   date: "date_example",
@@ -1312,7 +1312,7 @@ apiInstance.viewNumberOfMonthlyActiveUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **date** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -1354,6 +1354,8 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewNumberOfPeakConnectionsRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   timeDimension: "time_dimension_example",
   // number
   startYear: 1,
@@ -1363,8 +1365,6 @@ let body:.ApplicationApiViewNumberOfPeakConnectionsRequest = {
   endYear: 1,
   // number
   endMonth: 1,
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // number (optional)
   startDay: 1,
   // number (optional)
@@ -1381,12 +1381,12 @@ apiInstance.viewNumberOfPeakConnections(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **timeDimension** | [**string**] |  | defaults to undefined
  **startYear** | [**number**] |  | defaults to undefined
  **startMonth** | [**number**] |  | defaults to undefined
  **endYear** | [**number**] |  | defaults to undefined
  **endMonth** | [**number**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **startDay** | [**number**] |  | (optional) defaults to undefined
  **endDay** | [**number**] |  | (optional) defaults to undefined
 
@@ -1429,11 +1429,11 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewPushConfigurationByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   pushType: "push_type_example",
   // string
   providerId: "provider_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushConfigurationById(body).then((data:any) => {
@@ -1446,9 +1446,9 @@ apiInstance.viewPushConfigurationById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1489,9 +1489,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewPushNotificationContentTemplateRequest = {
   // string
-  templateName: "template_name_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  templateName: "template_name_example",
 };
 
 apiInstance.viewPushNotificationContentTemplate(body).then((data:any) => {
@@ -1504,8 +1504,8 @@ apiInstance.viewPushNotificationContentTemplate(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **templateName** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1546,9 +1546,9 @@ const apiInstance = new .ApplicationApi(configuration);
 
 let body:.ApplicationApiViewSecondaryApiTokenByTokenRequest = {
   // string
-  apiToken2: "api_token_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  apiToken2: "api_token_example",
 };
 
 apiInstance.viewSecondaryApiTokenByToken(body).then((data:any) => {
@@ -1561,8 +1561,8 @@ apiInstance.viewSecondaryApiTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **apiToken2** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

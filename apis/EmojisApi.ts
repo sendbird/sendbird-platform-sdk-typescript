@@ -34,8 +34,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param body 
      */
-    public async addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async addEmojiCategories(apiToken: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "addEmojiCategories", "apiToken");
+        }
 
 
 
@@ -71,8 +76,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addEmojisData 
      */
-    public async addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<RequestContext> {
+    public async addEmojis(apiToken: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "addEmojis", "apiToken");
+        }
 
 
 
@@ -105,17 +115,22 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
      * Delete an emoji
-     * @param emojiKey 
      * @param apiToken 
+     * @param emojiKey 
      */
-    public async deleteEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "deleteEmojiByKey", "apiToken");
+        }
+
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("EmojisApi", "deleteEmojiByKey", "emojiKey");
         }
-
 
 
         // Path Params
@@ -137,17 +152,22 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
      * Delete an emoji category
-     * @param emojiCategoryId 
      * @param apiToken 
+     * @param emojiCategoryId 
      */
-    public async deleteEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "deleteEmojiCategoryById", "apiToken");
+        }
+
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("EmojisApi", "deleteEmojiCategoryById", "emojiCategoryId");
         }
-
 
 
         // Path Params
@@ -172,8 +192,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param enableReactionsData 
      */
-    public async enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<RequestContext> {
+    public async enableReactions(apiToken: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "enableReactions", "apiToken");
+        }
 
 
 
@@ -206,17 +231,22 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
      * Get an emoji
-     * @param emojiKey 
      * @param apiToken 
+     * @param emojiKey 
      */
-    public async getEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "getEmojiByKey", "apiToken");
+        }
+
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("EmojisApi", "getEmojiByKey", "emojiKey");
         }
-
 
 
         // Path Params
@@ -238,17 +268,22 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
      * Get an emoji category
-     * @param emojiCategoryId 
      * @param apiToken 
+     * @param emojiCategoryId 
      */
-    public async getEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "getEmojiCategoryById", "apiToken");
+        }
+
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("EmojisApi", "getEmojiCategoryById", "emojiCategoryId");
         }
-
 
 
         // Path Params
@@ -272,8 +307,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * List all emojis and emoji categories
      * @param apiToken 
      */
-    public async listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listAllEmojisAndEmojiCategories(apiToken: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "listAllEmojisAndEmojiCategories", "apiToken");
+        }
 
 
         // Path Params
@@ -296,8 +336,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * List emojis
      * @param apiToken 
      */
-    public async listEmojis(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listEmojis(apiToken: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "listEmojis", "apiToken");
+        }
 
 
         // Path Params
@@ -318,18 +363,23 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
      * Update an emoji category URL
-     * @param emojiCategoryId 
      * @param apiToken 
+     * @param emojiCategoryId 
      * @param updateEmojiCategoryUrlByIdData 
      */
-    public async updateEmojiCategoryUrlById(emojiCategoryId: string, apiToken?: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateEmojiCategoryUrlById(apiToken: string, emojiCategoryId: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "updateEmojiCategoryUrlById", "apiToken");
+        }
+
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("EmojisApi", "updateEmojiCategoryUrlById", "emojiCategoryId");
         }
-
 
 
 
@@ -363,18 +413,23 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
      * Update an emoji URL
-     * @param emojiKey 
      * @param apiToken 
+     * @param emojiKey 
      * @param updateEmojiUrlByKeyData 
      */
-    public async updateEmojiUrlByKey(emojiKey: string, apiToken?: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<RequestContext> {
+    public async updateEmojiUrlByKey(apiToken: string, emojiKey: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "updateEmojiUrlByKey", "apiToken");
+        }
+
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("EmojisApi", "updateEmojiUrlByKey", "emojiKey");
         }
-
 
 
 
@@ -411,8 +466,13 @@ export class EmojisApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param useDefaultEmojisData 
      */
-    public async useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<RequestContext> {
+    public async useDefaultEmojis(apiToken: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("EmojisApi", "useDefaultEmojis", "apiToken");
+        }
 
 
 

@@ -34,8 +34,13 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
      * @param startTs 
      * @param endTs 
      */
-    public async listReports(apiToken?: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listReports(apiToken: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "listReports", "apiToken");
+        }
 
 
 
@@ -80,14 +85,20 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## List reports on a channel  Retrieves a list of reports on a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-channel ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which is reported for offensive messages or inappropriate activities.
      * List reports on a channel
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listReportsOnChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listReportsOnChannelByUrl(apiToken: string, channelType: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "listReportsOnChannelByUrl", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -99,7 +110,6 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "listReportsOnChannelByUrl", "channelUrl");
         }
-
 
 
 
@@ -134,15 +144,21 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## List reports on a message  Retrieves a list of reports on a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel where the reported message is in.  `message_id`      Type: string      Description: Specifies the unique ID of the reported message.
      * List reports on a message
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
-     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listReportsOnMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listReportsOnMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "listReportsOnMessageById", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -160,7 +176,6 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "listReportsOnMessageById", "messageId");
         }
-
 
 
 
@@ -196,19 +211,24 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## List reports on a user  Retrieves a list of reports on a user who sends an offensive message.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-user ----------------------------   `offending_user_id`      Type: string      Description: Specifies the unique ID of the user who has sent the message to report.
      * List reports on a user
-     * @param offendingUserId 
      * @param apiToken 
+     * @param offendingUserId 
      * @param token 
      * @param limit 
      */
-    public async listReportsOnUserById(offendingUserId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listReportsOnUserById(apiToken: string, offendingUserId: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "listReportsOnUserById", "apiToken");
+        }
+
 
         // verify required parameter 'offendingUserId' is not null or undefined
         if (offendingUserId === null || offendingUserId === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "listReportsOnUserById", "offendingUserId");
         }
-
 
 
 
@@ -242,13 +262,19 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## Report a channel  Reports a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-channel ----------------------------
      * Report a channel
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
-     * @param apiToken 
      * @param reportChannelByUrlData 
      */
-    public async reportChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async reportChannelByUrl(apiToken: string, channelType: string, channelUrl: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "reportChannelByUrl", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -260,7 +286,6 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "reportChannelByUrl", "channelUrl");
         }
-
 
 
 
@@ -295,14 +320,20 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## Report a message  Reports a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-message ----------------------------
      * Report a message
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
-     * @param apiToken 
      * @param reportMessageByIdData 
      */
-    public async reportMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async reportMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "reportMessageById", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -320,7 +351,6 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "reportMessageById", "messageId");
         }
-
 
 
 
@@ -356,18 +386,23 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## Report a user  Reports a user who sends an offensive message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-user ----------------------------
      * Report a user
-     * @param offendingUserId 
      * @param apiToken 
+     * @param offendingUserId 
      * @param reportUserByIdData 
      */
-    public async reportUserById(offendingUserId: string, apiToken?: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async reportUserById(apiToken: string, offendingUserId: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "reportUserById", "apiToken");
+        }
+
 
         // verify required parameter 'offendingUserId' is not null or undefined
         if (offendingUserId === null || offendingUserId === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "reportUserById", "offendingUserId");
         }
-
 
 
 
@@ -401,13 +436,19 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
     /**
      * ## View a moderated message  Retrieves information on a message that has been moderated by the [profanity filter](https://sendbird.com/docs/chat/v3/platform-api/guides/filter-and-moderation#2-profanity-filter).  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-view-a-moderated-message ----------------------------
      * View a moderated message
+     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
-     * @param apiToken 
      */
-    public async viewModeratedMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewModeratedMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ReportContentSubjectApi", "viewModeratedMessageById", "apiToken");
+        }
+
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -425,7 +466,6 @@ export class ReportContentSubjectApiRequestFactory extends BaseAPIRequestFactory
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("ReportContentSubjectApi", "viewModeratedMessageById", "messageId");
         }
-
 
 
         // Path Params

@@ -26,9 +26,9 @@ const apiInstance = new .DataExportApi(configuration);
 
 let body:.DataExportApiListDataExportsByMessageChannelOrUserRequest = {
   // string
-  dataType: "data_type_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  dataType: "data_type_example",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -45,8 +45,8 @@ apiInstance.listDataExportsByMessageChannelOrUser(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **dataType** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -89,9 +89,9 @@ const apiInstance = new .DataExportApi(configuration);
 
 let body:.DataExportApiRegisterAndScheduleDataExportRequest = {
   // string
-  dataType: "data_type_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  dataType: "data_type_example",
   // RegisterAndScheduleDataExportData (optional)
   registerAndScheduleDataExportData: {
     startTs: 1,
@@ -131,8 +131,8 @@ apiInstance.registerAndScheduleDataExport(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registerAndScheduleDataExportData** | **RegisterAndScheduleDataExportData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **dataType** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -173,11 +173,11 @@ const apiInstance = new .DataExportApi(configuration);
 
 let body:.DataExportApiViewDataExportByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   dataType: "data_type_example",
   // string
   requestId: "request_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewDataExportById(body).then((data:any) => {
@@ -190,9 +190,9 @@ apiInstance.viewDataExportById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **dataType** | [**string**] |  | defaults to undefined
  **requestId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

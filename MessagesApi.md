@@ -39,13 +39,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiAddExtraDataToMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // AddExtraDataToMessageData (optional)
   addExtraDataToMessageData: {
     channelType: "channelType_example",
@@ -66,10 +66,10 @@ apiInstance.addExtraDataToMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addExtraDataToMessageData** | **AddExtraDataToMessageData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -110,13 +110,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiAddReactionToAMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // AddReactionToAMessageData (optional)
   addReactionToAMessageData: {
     channelType: "channelType_example",
@@ -138,10 +138,10 @@ apiInstance.addReactionToAMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addReactionToAMessageData** | **AddReactionToAMessageData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -182,13 +182,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiDeleteMessageByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteMessageById(body).then((data:any) => {
@@ -201,10 +201,10 @@ apiInstance.deleteMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -245,9 +245,9 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiGcMarkAllMessagesAsDeliveredRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcMarkAllMessagesAsDeliveredData (optional)
   gcMarkAllMessagesAsDeliveredData: {
     applicationId: "applicationId_example",
@@ -267,8 +267,8 @@ apiInstance.gcMarkAllMessagesAsDelivered(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMarkAllMessagesAsDeliveredData** | **GcMarkAllMessagesAsDeliveredData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -309,9 +309,9 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiGcMarkAllMessagesAsReadRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // GcMarkAllMessagesAsReadData (optional)
   gcMarkAllMessagesAsReadData: {
     channelUrl: "channelUrl_example",
@@ -331,8 +331,8 @@ apiInstance.gcMarkAllMessagesAsRead(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMarkAllMessagesAsReadData** | **GcMarkAllMessagesAsReadData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -373,9 +373,9 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiGcViewNumberOfEachMembersUnreadMessagesRequest = {
   // string
-  channelUrl: "channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  channelUrl: "channel_url_example",
   // string (optional)
   userIds: "user_ids_example",
 };
@@ -390,8 +390,8 @@ apiInstance.gcViewNumberOfEachMembersUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **userIds** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -433,15 +433,15 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiListMessagesRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // number
+  // number (optional)
   messageTs: 1,
-  // number
+  // number (optional)
   messageId: 1,
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // number (optional)
   prevLimit: 1,
   // number (optional)
@@ -486,11 +486,11 @@ apiInstance.listMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **messageTs** | [**number**] |  | defaults to undefined
- **messageId** | [**number**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **messageTs** | [**number**] |  | (optional) defaults to undefined
+ **messageId** | [**number**] |  | (optional) defaults to undefined
  **prevLimit** | [**number**] |  | (optional) defaults to undefined
  **nextLimit** | [**number**] |  | (optional) defaults to undefined
  **include** | [**boolean**] |  | (optional) defaults to undefined
@@ -547,13 +547,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiListReactionsOfMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   listUsers: true,
 };
@@ -568,10 +568,10 @@ apiInstance.listReactionsOfMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **listUsers** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -613,13 +613,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiRemoveExtraDataFromMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // Array<string> (optional)
   keys: [
     "keys_example",
@@ -636,10 +636,10 @@ apiInstance.removeExtraDataFromMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
 
@@ -681,13 +681,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiRemoveReactionFromAMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // string (optional)
   userId: "user_id_example",
   // string (optional)
@@ -704,10 +704,10 @@ apiInstance.removeReactionFromAMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **userId** | [**string**] |  | (optional) defaults to undefined
  **reaction** | [**string**] |  | (optional) defaults to undefined
 
@@ -750,11 +750,11 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiSendMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // SendMessageData (optional)
   sendMessageData: {
     userId: "userId_example",
@@ -790,9 +790,9 @@ apiInstance.sendMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendMessageData** | **SendMessageData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -833,13 +833,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiTranslateMessageIntoOtherLanguagesRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -855,10 +855,10 @@ apiInstance.translateMessageIntoOtherLanguages(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -899,13 +899,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiUpdateExtraDataInMessageRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdateExtraDataInMessageData (optional)
   updateExtraDataInMessageData: {
     channelType: "channelType_example",
@@ -928,10 +928,10 @@ apiInstance.updateExtraDataInMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateExtraDataInMessageData** | **UpdateExtraDataInMessageData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -972,13 +972,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiUpdateMessageByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // UpdateMessageByIdData (optional)
   updateMessageByIdData: {
     channelType: "channelType_example",
@@ -1006,10 +1006,10 @@ apiInstance.updateMessageById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateMessageByIdData** | **UpdateMessageByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1050,13 +1050,13 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiViewMessageByIdRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   withSortedMetaArray: true,
   // boolean (optional)
@@ -1073,10 +1073,10 @@ apiInstance.viewMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
  **withSortedMetaArray** | [**boolean**] |  | (optional) defaults to undefined
  **withMetaArray** | [**boolean**] |  | (optional) defaults to undefined
 
@@ -1119,11 +1119,11 @@ const apiInstance = new .MessagesApi(configuration);
 
 let body:.MessagesApiViewTotalNumberOfMessagesInChannelRequest = {
   // string
+  apiToken: "{{API_TOKEN}}",
+  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewTotalNumberOfMessagesInChannel(body).then((data:any) => {
@@ -1136,9 +1136,9 @@ apiInstance.viewTotalNumberOfMessagesInChannel(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

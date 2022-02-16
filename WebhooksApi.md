@@ -24,7 +24,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .WebhooksApi(configuration);
 
 let body:.WebhooksApiChooseWhichEventsToSubscribeToRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // ChooseWhichEventsToSubscribeToData (optional)
   chooseWhichEventsToSubscribeToData: {
@@ -48,7 +48,7 @@ apiInstance.chooseWhichEventsToSubscribeTo(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chooseWhichEventsToSubscribeToData** | **ChooseWhichEventsToSubscribeToData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -88,7 +88,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .WebhooksApi(configuration);
 
 let body:.WebhooksApiRetrieveListOfSubscribedEventsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   displayAllWebhookCategories: true,
@@ -104,7 +104,7 @@ apiInstance.retrieveListOfSubscribedEvents(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
  **displayAllWebhookCategories** | [**boolean**] |  | (optional) defaults to undefined
 
 

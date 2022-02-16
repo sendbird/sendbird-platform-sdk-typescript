@@ -34,7 +34,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiAddEmojiCategoriesRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
@@ -51,7 +51,7 @@ apiInstance.addEmojiCategories(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -91,7 +91,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiAddEmojisRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // AddEmojisData (optional)
   addEmojisData: {
@@ -113,7 +113,7 @@ apiInstance.addEmojis(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addEmojisData** | **AddEmojisData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -154,9 +154,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiDeleteEmojiByKeyRequest = {
   // string
-  emojiKey: "emoji_key_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiKey: "emoji_key_example",
 };
 
 apiInstance.deleteEmojiByKey(body).then((data:any) => {
@@ -169,8 +169,8 @@ apiInstance.deleteEmojiByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -211,9 +211,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiDeleteEmojiCategoryByIdRequest = {
   // string
-  emojiCategoryId: "emoji_category_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiCategoryId: "emoji_category_id_example",
 };
 
 apiInstance.deleteEmojiCategoryById(body).then((data:any) => {
@@ -226,8 +226,8 @@ apiInstance.deleteEmojiCategoryById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -267,7 +267,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiEnableReactionsRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // EnableReactionsData (optional)
   enableReactionsData: {
@@ -286,7 +286,7 @@ apiInstance.enableReactions(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enableReactionsData** | **EnableReactionsData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -327,9 +327,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiGetEmojiByKeyRequest = {
   // string
-  emojiKey: "emoji_key_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiKey: "emoji_key_example",
 };
 
 apiInstance.getEmojiByKey(body).then((data:any) => {
@@ -342,8 +342,8 @@ apiInstance.getEmojiByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -384,9 +384,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiGetEmojiCategoryByIdRequest = {
   // string
-  emojiCategoryId: "emoji_category_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiCategoryId: "emoji_category_id_example",
 };
 
 apiInstance.getEmojiCategoryById(body).then((data:any) => {
@@ -399,8 +399,8 @@ apiInstance.getEmojiCategoryById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -440,7 +440,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiListAllEmojisAndEmojiCategoriesRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -454,7 +454,7 @@ apiInstance.listAllEmojisAndEmojiCategories(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -494,7 +494,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiListEmojisRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -508,7 +508,7 @@ apiInstance.listEmojis(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -549,9 +549,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiUpdateEmojiCategoryUrlByIdRequest = {
   // string
-  emojiCategoryId: "emoji_category_id_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiCategoryId: "emoji_category_id_example",
   // UpdateEmojiCategoryUrlByIdData (optional)
   updateEmojiCategoryUrlByIdData: {
     emojiCategoryId: 1,
@@ -570,8 +570,8 @@ apiInstance.updateEmojiCategoryUrlById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateEmojiCategoryUrlByIdData** | **UpdateEmojiCategoryUrlByIdData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -612,9 +612,9 @@ const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiUpdateEmojiUrlByKeyRequest = {
   // string
-  emojiKey: "emoji_key_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  emojiKey: "emoji_key_example",
   // UpdateEmojiUrlByKeyData (optional)
   updateEmojiUrlByKeyData: {
     emojiKey: "emojiKey_example",
@@ -633,8 +633,8 @@ apiInstance.updateEmojiUrlByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateEmojiUrlByKeyData** | **UpdateEmojiUrlByKeyData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -674,7 +674,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .EmojisApi(configuration);
 
 let body:.EmojisApiUseDefaultEmojisRequest = {
-  // string (optional)
+  // string
   apiToken: "{{API_TOKEN}}",
   // UseDefaultEmojisData (optional)
   useDefaultEmojisData: {
@@ -693,7 +693,7 @@ apiInstance.useDefaultEmojis(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **useDefaultEmojisData** | **UseDefaultEmojisData**|  |
- **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | defaults to undefined
 
 
 ### Return type

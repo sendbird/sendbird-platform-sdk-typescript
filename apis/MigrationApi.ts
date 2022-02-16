@@ -18,18 +18,23 @@ export class MigrationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
      * Migrate messages
-     * @param targetChannelUrl 
      * @param apiToken 
+     * @param targetChannelUrl 
      * @param body 
      */
-    public async migrateMessagesByUrl(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async migrateMessagesByUrl(apiToken: string, targetChannelUrl: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("MigrationApi", "migrateMessagesByUrl", "apiToken");
+        }
+
 
         // verify required parameter 'targetChannelUrl' is not null or undefined
         if (targetChannelUrl === null || targetChannelUrl === undefined) {
             throw new RequiredError("MigrationApi", "migrateMessagesByUrl", "targetChannelUrl");
         }
-
 
 
 

@@ -22,17 +22,22 @@ export class DataPrivacyApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
      * Cancel the registration of a GDPR request
-     * @param requestId 
      * @param apiToken 
+     * @param requestId 
      */
-    public async cancelTheRegistrationOfGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cancelTheRegistrationOfGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("DataPrivacyApi", "cancelTheRegistrationOfGdprRequestById", "apiToken");
+        }
+
 
         // verify required parameter 'requestId' is not null or undefined
         if (requestId === null || requestId === undefined) {
             throw new RequiredError("DataPrivacyApi", "cancelTheRegistrationOfGdprRequestById", "requestId");
         }
-
 
 
         // Path Params
@@ -58,8 +63,13 @@ export class DataPrivacyApiRequestFactory extends BaseAPIRequestFactory {
      * @param token 
      * @param limit 
      */
-    public async listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listGdprRequests(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("DataPrivacyApi", "listGdprRequests", "apiToken");
+        }
 
 
 
@@ -95,8 +105,13 @@ export class DataPrivacyApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param registerGdprRequestData 
      */
-    public async registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RequestContext> {
+    public async registerGdprRequest(apiToken: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("DataPrivacyApi", "registerGdprRequest", "apiToken");
+        }
 
 
 
@@ -129,17 +144,22 @@ export class DataPrivacyApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
      * View a GDPR request
-     * @param requestId 
      * @param apiToken 
+     * @param requestId 
      */
-    public async viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("DataPrivacyApi", "viewGdprRequestById", "apiToken");
+        }
+
 
         // verify required parameter 'requestId' is not null or undefined
         if (requestId === null || requestId === undefined) {
             throw new RequiredError("DataPrivacyApi", "viewGdprRequestById", "requestId");
         }
-
 
 
         // Path Params

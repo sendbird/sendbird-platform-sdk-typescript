@@ -24,8 +24,13 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param chooseWhichEventsToSubscribeToData 
      */
-    public async chooseWhichEventsToSubscribeTo(apiToken?: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Promise<RequestContext> {
+    public async chooseWhichEventsToSubscribeTo(apiToken: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("WebhooksApi", "chooseWhichEventsToSubscribeTo", "apiToken");
+        }
 
 
 
@@ -61,8 +66,13 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param displayAllWebhookCategories 
      */
-    public async retrieveListOfSubscribedEvents(apiToken?: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async retrieveListOfSubscribedEvents(apiToken: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("WebhooksApi", "retrieveListOfSubscribedEvents", "apiToken");
+        }
 
 
 

@@ -24,9 +24,9 @@ const apiInstance = new .MigrationApi(configuration);
 
 let body:.MigrationApiMigrateMessagesByUrlRequest = {
   // string
-  targetChannelUrl: "target_channel_url_example",
-  // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // string
+  targetChannelUrl: "target_channel_url_example",
   // any (optional)
   body: {},
 };
@@ -42,8 +42,8 @@ apiInstance.migrateMessagesByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
  **targetChannelUrl** | [**string**] |  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

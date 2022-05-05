@@ -22,6 +22,7 @@ export * from './AddRegistrationOrDeviceTokenResponse';
 export * from './BanFromChannelsWithCustomChannelTypesData';
 export * from './Blob';
 export * from './BlockUserData';
+export * from './BlockUserResponse';
 export * from './ChoosePushNotificationContentTemplateResponse';
 export * from './ChooseWhichEventsToSubscribeToData';
 export * from './ChooseWhichEventsToSubscribeToResponse';
@@ -63,11 +64,13 @@ export * from './GcMuteUserData';
 export * from './GcRegisterOperatorsData';
 export * from './GcRegisterOperatorsResponse';
 export * from './GcResetChatHistoryData';
+export * from './GcResetChatHistoryResponse';
 export * from './GcUpdateBanByIdData';
+export * from './GcUpdateBanByIdResponse';
 export * from './GcUpdateChannelByUrlData';
+export * from './GcViewBanByIdResponse';
 export * from './GcViewMuteByIdResponse';
 export * from './GcViewNumberOfEachMembersUnreadMessagesResponse';
-export * from './GcViewNumberOfEachMembersUnreadMessagesResponseUnread';
 export * from './GenerateSecondaryApiTokenData';
 export * from './GenerateSecondaryApiTokenResponse';
 export * from './GetDetailedOpenRateOfAnnouncementByIdResponse';
@@ -78,7 +81,9 @@ export * from './GetStatisticsDailyResponse';
 export * from './GetStatisticsDailyResponseStatistics';
 export * from './GetStatisticsMonthlyResponse';
 export * from './GetStatisticsResponse';
+export * from './InlineResponse200';
 export * from './JoinChannelsData';
+export * from './JoinChannelsResponse';
 export * from './LeaveMyGroupChannelsData';
 export * from './ListAllEmojisAndEmojiCategoriesResponse';
 export * from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
@@ -102,8 +107,6 @@ export * from './ListMessagesResponseMessages';
 export * from './ListMessagesResponseOgTag';
 export * from './ListMessagesResponseOgTagOgImage';
 export * from './ListMessagesResponseSortedMetaarray';
-export * from './ListMessagesResponseUser';
-export * from './ListMessagesResponseUserMetadata';
 export * from './ListMutedChannelsResponse';
 export * from './ListMyGroupChannelsResponse';
 export * from './ListPushConfigurationsResponse';
@@ -138,7 +141,9 @@ export * from './OcListParticipantsResponse';
 export * from './OcMuteUserData';
 export * from './OcRegisterOperatorsData';
 export * from './OcUpdateBanByIdData';
+export * from './OcUpdateBanByIdResponse';
 export * from './OcUpdateChannelByUrlData';
+export * from './OcViewBanByIdResponse';
 export * from './OcViewMuteByIdResponse';
 export * from './RegisterAndScheduleDataExportData';
 export * from './RegisterAndScheduleDataExportResponse';
@@ -156,6 +161,7 @@ export * from './ReportMessageByIdData';
 export * from './ReportMessageByIdResponse';
 export * from './ReportUserByIdData';
 export * from './ReportUserByIdResponse';
+export * from './ResetPushPreferencesResponse';
 export * from './RetrieveAdvancedAnalyticsMetricsResponse';
 export * from './RetrieveIpWhitelistResponse';
 export * from './RetrieveListOfSubscribedEventsResponse';
@@ -177,9 +183,14 @@ export * from './SendBirdEmojiCategory';
 export * from './SendBirdFileMessageParams';
 export * from './SendBirdGroupChannel';
 export * from './SendBirdGroupChannelCollection';
+export * from './SendBirdGroupChannelCreatedBy';
+export * from './SendBirdGroupChannelDisappearingMessage';
+export * from './SendBirdGroupChannelSmsFallback';
 export * from './SendBirdMember';
 export * from './SendBirdMessageMetaArray';
 export * from './SendBirdMessageResponse';
+export * from './SendBirdMessageResponseMentionedUsers';
+export * from './SendBirdMessageResponseUser';
 export * from './SendBirdOGImage';
 export * from './SendBirdOGMetaData';
 export * from './SendBirdOpenChannel';
@@ -217,6 +228,7 @@ export * from './UpdateEmojiCategoryUrlByIdData';
 export * from './UpdateEmojiUrlByKeyData';
 export * from './UpdateExtraDataInMessageData';
 export * from './UpdateExtraDataInMessageResponse';
+export * from './UpdateExtraDataInMessageResponseSortedMetaarray';
 export * from './UpdateFcmPushConfigurationByIdData';
 export * from './UpdateFcmPushConfigurationByIdResponse';
 export * from './UpdateHmsPushConfigurationByIdData';
@@ -257,7 +269,6 @@ export * from './ViewPushPreferencesResponse';
 export * from './ViewSecondaryApiTokenByTokenResponse';
 export * from './ViewTotalNumberOfMessagesInChannelResponse';
 export * from './ViewUserMetadataResponse';
-export * from './ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
 
 import { AddApnsPushConfigurationData } from './AddApnsPushConfigurationData';
 import { AddApnsPushConfigurationResponse } from './AddApnsPushConfigurationResponse';
@@ -283,6 +294,7 @@ import { AddRegistrationOrDeviceTokenResponse } from './AddRegistrationOrDeviceT
 import { BanFromChannelsWithCustomChannelTypesData } from './BanFromChannelsWithCustomChannelTypesData';
 import { Blob } from './Blob';
 import { BlockUserData } from './BlockUserData';
+import { BlockUserResponse } from './BlockUserResponse';
 import { ChoosePushNotificationContentTemplateResponse } from './ChoosePushNotificationContentTemplateResponse';
 import { ChooseWhichEventsToSubscribeToData } from './ChooseWhichEventsToSubscribeToData';
 import { ChooseWhichEventsToSubscribeToResponse } from './ChooseWhichEventsToSubscribeToResponse';
@@ -324,11 +336,13 @@ import { GcMuteUserData } from './GcMuteUserData';
 import { GcRegisterOperatorsData } from './GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from './GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from './GcResetChatHistoryData';
+import { GcResetChatHistoryResponse } from './GcResetChatHistoryResponse';
 import { GcUpdateBanByIdData } from './GcUpdateBanByIdData';
+import { GcUpdateBanByIdResponse } from './GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from './GcUpdateChannelByUrlData';
+import { GcViewBanByIdResponse } from './GcViewBanByIdResponse';
 import { GcViewMuteByIdResponse } from './GcViewMuteByIdResponse';
 import { GcViewNumberOfEachMembersUnreadMessagesResponse } from './GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GcViewNumberOfEachMembersUnreadMessagesResponseUnread } from './GcViewNumberOfEachMembersUnreadMessagesResponseUnread';
 import { GenerateSecondaryApiTokenData } from './GenerateSecondaryApiTokenData';
 import { GenerateSecondaryApiTokenResponse } from './GenerateSecondaryApiTokenResponse';
 import { GetDetailedOpenRateOfAnnouncementByIdResponse } from './GetDetailedOpenRateOfAnnouncementByIdResponse';
@@ -339,7 +353,9 @@ import { GetStatisticsDailyResponse } from './GetStatisticsDailyResponse';
 import { GetStatisticsDailyResponseStatistics } from './GetStatisticsDailyResponseStatistics';
 import { GetStatisticsMonthlyResponse } from './GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from './GetStatisticsResponse';
+import { InlineResponse200 } from './InlineResponse200';
 import { JoinChannelsData } from './JoinChannelsData';
+import { JoinChannelsResponse } from './JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from './LeaveMyGroupChannelsData';
 import { ListAllEmojisAndEmojiCategoriesResponse } from './ListAllEmojisAndEmojiCategoriesResponse';
 import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
@@ -363,8 +379,6 @@ import { ListMessagesResponseMessages } from './ListMessagesResponseMessages';
 import { ListMessagesResponseOgTag } from './ListMessagesResponseOgTag';
 import { ListMessagesResponseOgTagOgImage } from './ListMessagesResponseOgTagOgImage';
 import { ListMessagesResponseSortedMetaarray } from './ListMessagesResponseSortedMetaarray';
-import { ListMessagesResponseUser } from './ListMessagesResponseUser';
-import { ListMessagesResponseUserMetadata } from './ListMessagesResponseUserMetadata';
 import { ListMutedChannelsResponse } from './ListMutedChannelsResponse';
 import { ListMyGroupChannelsResponse } from './ListMyGroupChannelsResponse';
 import { ListPushConfigurationsResponse } from './ListPushConfigurationsResponse';
@@ -399,7 +413,9 @@ import { OcListParticipantsResponse } from './OcListParticipantsResponse';
 import { OcMuteUserData } from './OcMuteUserData';
 import { OcRegisterOperatorsData } from './OcRegisterOperatorsData';
 import { OcUpdateBanByIdData } from './OcUpdateBanByIdData';
+import { OcUpdateBanByIdResponse } from './OcUpdateBanByIdResponse';
 import { OcUpdateChannelByUrlData } from './OcUpdateChannelByUrlData';
+import { OcViewBanByIdResponse } from './OcViewBanByIdResponse';
 import { OcViewMuteByIdResponse } from './OcViewMuteByIdResponse';
 import { RegisterAndScheduleDataExportData } from './RegisterAndScheduleDataExportData';
 import { RegisterAndScheduleDataExportResponse } from './RegisterAndScheduleDataExportResponse';
@@ -417,6 +433,7 @@ import { ReportMessageByIdData } from './ReportMessageByIdData';
 import { ReportMessageByIdResponse } from './ReportMessageByIdResponse';
 import { ReportUserByIdData } from './ReportUserByIdData';
 import { ReportUserByIdResponse } from './ReportUserByIdResponse';
+import { ResetPushPreferencesResponse } from './ResetPushPreferencesResponse';
 import { RetrieveAdvancedAnalyticsMetricsResponse } from './RetrieveAdvancedAnalyticsMetricsResponse';
 import { RetrieveIpWhitelistResponse } from './RetrieveIpWhitelistResponse';
 import { RetrieveListOfSubscribedEventsResponse } from './RetrieveListOfSubscribedEventsResponse';
@@ -432,15 +449,20 @@ import { SendBirdAdminMessage           , SendBirdAdminMessageMessageTypeEnum   
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
 import { SendBirdBaseChannel } from './SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance          , SendBirdBaseMessageInstanceMessageTypeEnum         , SendBirdBaseMessageInstanceSendingStatusEnum      } from './SendBirdBaseMessageInstance';
-import { SendBirdChannelResponse     , SendBirdChannelResponseHiddenStateEnum                       , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum         } from './SendBirdChannelResponse';
+import { SendBirdChannelResponse          , SendBirdChannelResponseHiddenStateEnum                         , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum          } from './SendBirdChannelResponse';
 import { SendBirdEmoji } from './SendBirdEmoji';
 import { SendBirdEmojiCategory } from './SendBirdEmojiCategory';
 import { SendBirdFileMessageParams        , SendBirdFileMessageParamsMentionTypeEnum        , SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum    } from './SendBirdFileMessageParams';
-import { SendBirdGroupChannel     , SendBirdGroupChannelHiddenStateEnum                       , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum       } from './SendBirdGroupChannel';
+import { SendBirdGroupChannel          , SendBirdGroupChannelHiddenStateEnum                         , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum        } from './SendBirdGroupChannel';
 import { SendBirdGroupChannelCollection } from './SendBirdGroupChannelCollection';
+import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
+import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember               , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
+import { SendBirdMessageResponseMentionedUsers } from './SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
 import { SendBirdOGImage } from './SendBirdOGImage';
 import { SendBirdOGMetaData } from './SendBirdOGMetaData';
 import { SendBirdOpenChannel } from './SendBirdOpenChannel';
@@ -478,6 +500,7 @@ import { UpdateEmojiCategoryUrlByIdData } from './UpdateEmojiCategoryUrlByIdData
 import { UpdateEmojiUrlByKeyData } from './UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from './UpdateExtraDataInMessageData';
 import { UpdateExtraDataInMessageResponse } from './UpdateExtraDataInMessageResponse';
+import { UpdateExtraDataInMessageResponseSortedMetaarray } from './UpdateExtraDataInMessageResponseSortedMetaarray';
 import { UpdateFcmPushConfigurationByIdData } from './UpdateFcmPushConfigurationByIdData';
 import { UpdateFcmPushConfigurationByIdResponse } from './UpdateFcmPushConfigurationByIdResponse';
 import { UpdateHmsPushConfigurationByIdData } from './UpdateHmsPushConfigurationByIdData';
@@ -518,7 +541,6 @@ import { ViewPushPreferencesResponse } from './ViewPushPreferencesResponse';
 import { ViewSecondaryApiTokenByTokenResponse } from './ViewSecondaryApiTokenByTokenResponse';
 import { ViewTotalNumberOfMessagesInChannelResponse } from './ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from './ViewUserMetadataResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse } from './ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -589,6 +611,7 @@ let typeMap: {[index: string]: any} = {
     "BanFromChannelsWithCustomChannelTypesData": BanFromChannelsWithCustomChannelTypesData,
     "Blob": Blob,
     "BlockUserData": BlockUserData,
+    "BlockUserResponse": BlockUserResponse,
     "ChoosePushNotificationContentTemplateResponse": ChoosePushNotificationContentTemplateResponse,
     "ChooseWhichEventsToSubscribeToData": ChooseWhichEventsToSubscribeToData,
     "ChooseWhichEventsToSubscribeToResponse": ChooseWhichEventsToSubscribeToResponse,
@@ -630,11 +653,13 @@ let typeMap: {[index: string]: any} = {
     "GcRegisterOperatorsData": GcRegisterOperatorsData,
     "GcRegisterOperatorsResponse": GcRegisterOperatorsResponse,
     "GcResetChatHistoryData": GcResetChatHistoryData,
+    "GcResetChatHistoryResponse": GcResetChatHistoryResponse,
     "GcUpdateBanByIdData": GcUpdateBanByIdData,
+    "GcUpdateBanByIdResponse": GcUpdateBanByIdResponse,
     "GcUpdateChannelByUrlData": GcUpdateChannelByUrlData,
+    "GcViewBanByIdResponse": GcViewBanByIdResponse,
     "GcViewMuteByIdResponse": GcViewMuteByIdResponse,
     "GcViewNumberOfEachMembersUnreadMessagesResponse": GcViewNumberOfEachMembersUnreadMessagesResponse,
-    "GcViewNumberOfEachMembersUnreadMessagesResponseUnread": GcViewNumberOfEachMembersUnreadMessagesResponseUnread,
     "GenerateSecondaryApiTokenData": GenerateSecondaryApiTokenData,
     "GenerateSecondaryApiTokenResponse": GenerateSecondaryApiTokenResponse,
     "GetDetailedOpenRateOfAnnouncementByIdResponse": GetDetailedOpenRateOfAnnouncementByIdResponse,
@@ -645,7 +670,9 @@ let typeMap: {[index: string]: any} = {
     "GetStatisticsDailyResponseStatistics": GetStatisticsDailyResponseStatistics,
     "GetStatisticsMonthlyResponse": GetStatisticsMonthlyResponse,
     "GetStatisticsResponse": GetStatisticsResponse,
+    "InlineResponse200": InlineResponse200,
     "JoinChannelsData": JoinChannelsData,
+    "JoinChannelsResponse": JoinChannelsResponse,
     "LeaveMyGroupChannelsData": LeaveMyGroupChannelsData,
     "ListAllEmojisAndEmojiCategoriesResponse": ListAllEmojisAndEmojiCategoriesResponse,
     "ListAllEmojisAndEmojiCategoriesResponseEmojiCategories": ListAllEmojisAndEmojiCategoriesResponseEmojiCategories,
@@ -669,8 +696,6 @@ let typeMap: {[index: string]: any} = {
     "ListMessagesResponseOgTag": ListMessagesResponseOgTag,
     "ListMessagesResponseOgTagOgImage": ListMessagesResponseOgTagOgImage,
     "ListMessagesResponseSortedMetaarray": ListMessagesResponseSortedMetaarray,
-    "ListMessagesResponseUser": ListMessagesResponseUser,
-    "ListMessagesResponseUserMetadata": ListMessagesResponseUserMetadata,
     "ListMutedChannelsResponse": ListMutedChannelsResponse,
     "ListMyGroupChannelsResponse": ListMyGroupChannelsResponse,
     "ListPushConfigurationsResponse": ListPushConfigurationsResponse,
@@ -705,7 +730,9 @@ let typeMap: {[index: string]: any} = {
     "OcMuteUserData": OcMuteUserData,
     "OcRegisterOperatorsData": OcRegisterOperatorsData,
     "OcUpdateBanByIdData": OcUpdateBanByIdData,
+    "OcUpdateBanByIdResponse": OcUpdateBanByIdResponse,
     "OcUpdateChannelByUrlData": OcUpdateChannelByUrlData,
+    "OcViewBanByIdResponse": OcViewBanByIdResponse,
     "OcViewMuteByIdResponse": OcViewMuteByIdResponse,
     "RegisterAndScheduleDataExportData": RegisterAndScheduleDataExportData,
     "RegisterAndScheduleDataExportResponse": RegisterAndScheduleDataExportResponse,
@@ -723,6 +750,7 @@ let typeMap: {[index: string]: any} = {
     "ReportMessageByIdResponse": ReportMessageByIdResponse,
     "ReportUserByIdData": ReportUserByIdData,
     "ReportUserByIdResponse": ReportUserByIdResponse,
+    "ResetPushPreferencesResponse": ResetPushPreferencesResponse,
     "RetrieveAdvancedAnalyticsMetricsResponse": RetrieveAdvancedAnalyticsMetricsResponse,
     "RetrieveIpWhitelistResponse": RetrieveIpWhitelistResponse,
     "RetrieveListOfSubscribedEventsResponse": RetrieveListOfSubscribedEventsResponse,
@@ -744,9 +772,14 @@ let typeMap: {[index: string]: any} = {
     "SendBirdFileMessageParams": SendBirdFileMessageParams,
     "SendBirdGroupChannel": SendBirdGroupChannel,
     "SendBirdGroupChannelCollection": SendBirdGroupChannelCollection,
+    "SendBirdGroupChannelCreatedBy": SendBirdGroupChannelCreatedBy,
+    "SendBirdGroupChannelDisappearingMessage": SendBirdGroupChannelDisappearingMessage,
+    "SendBirdGroupChannelSmsFallback": SendBirdGroupChannelSmsFallback,
     "SendBirdMember": SendBirdMember,
     "SendBirdMessageMetaArray": SendBirdMessageMetaArray,
     "SendBirdMessageResponse": SendBirdMessageResponse,
+    "SendBirdMessageResponseMentionedUsers": SendBirdMessageResponseMentionedUsers,
+    "SendBirdMessageResponseUser": SendBirdMessageResponseUser,
     "SendBirdOGImage": SendBirdOGImage,
     "SendBirdOGMetaData": SendBirdOGMetaData,
     "SendBirdOpenChannel": SendBirdOpenChannel,
@@ -784,6 +817,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateEmojiUrlByKeyData": UpdateEmojiUrlByKeyData,
     "UpdateExtraDataInMessageData": UpdateExtraDataInMessageData,
     "UpdateExtraDataInMessageResponse": UpdateExtraDataInMessageResponse,
+    "UpdateExtraDataInMessageResponseSortedMetaarray": UpdateExtraDataInMessageResponseSortedMetaarray,
     "UpdateFcmPushConfigurationByIdData": UpdateFcmPushConfigurationByIdData,
     "UpdateFcmPushConfigurationByIdResponse": UpdateFcmPushConfigurationByIdResponse,
     "UpdateHmsPushConfigurationByIdData": UpdateHmsPushConfigurationByIdData,
@@ -824,7 +858,6 @@ let typeMap: {[index: string]: any} = {
     "ViewSecondaryApiTokenByTokenResponse": ViewSecondaryApiTokenByTokenResponse,
     "ViewTotalNumberOfMessagesInChannelResponse": ViewTotalNumberOfMessagesInChannelResponse,
     "ViewUserMetadataResponse": ViewUserMetadataResponse,
-    "ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse": ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse,
 }
 
 export class ObjectSerializer {

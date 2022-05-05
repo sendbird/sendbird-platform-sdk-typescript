@@ -10,30 +10,45 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class OcUpdateBanByIdResponse {
+    'user'?: SendbirdUser;
+    'description'?: string;
+    'endAt'?: number;
+    'startAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
+            "name": "user",
+            "baseName": "user",
+            "type": "SendbirdUser",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "startAt",
+            "baseName": "start_at",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return OcUpdateBanByIdResponse.attributeTypeMap;
     }
 
     public constructor() {

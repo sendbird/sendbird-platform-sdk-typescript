@@ -12,28 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class SendBirdGroupChannelSmsFallback {
+    'waitSeconds'?: number;
+    'excludeUserIds'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
+            "name": "waitSeconds",
+            "baseName": "wait_seconds",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "excludeUserIds",
+            "baseName": "exclude_user_ids",
+            "type": "Array<string>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return SendBirdGroupChannelSmsFallback.attributeTypeMap;
     }
 
     public constructor() {

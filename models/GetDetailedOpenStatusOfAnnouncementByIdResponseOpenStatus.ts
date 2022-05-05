@@ -16,6 +16,8 @@ export class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus {
     'userId'?: string;
     'channelUrl'?: string;
     'hasOpened'?: boolean;
+    'sentAt'?: number;
+    'openAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -36,6 +38,18 @@ export class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus {
             "name": "hasOpened",
             "baseName": "has_opened",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sentAt",
+            "baseName": "sent_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "openAt",
+            "baseName": "open_at",
+            "type": "number",
             "format": ""
         }    ];
 

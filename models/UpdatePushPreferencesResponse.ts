@@ -13,6 +13,9 @@
 import { HttpFile } from '../http/http';
 
 export class UpdatePushPreferencesResponse {
+    'blockPushFromBots'?: boolean;
+    'enablePushForReplies'?: boolean;
+    'pushBlockedBotIds'?: Array<string>;
     'pushTriggerOption'?: string;
     'doNotDisturb'?: boolean;
     'startHour'?: number;
@@ -28,6 +31,24 @@ export class UpdatePushPreferencesResponse {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "blockPushFromBots",
+            "baseName": "block_push_from_bots",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "enablePushForReplies",
+            "baseName": "enable_push_for_replies",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "pushBlockedBotIds",
+            "baseName": "push_blocked_bot_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",

@@ -165,7 +165,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcCancelTheRegistrationOfOperators**
-> void gcCancelTheRegistrationOfOperators()
+> InlineResponse200 gcCancelTheRegistrationOfOperators()
 
 ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -219,7 +219,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -377,7 +377,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeclineInvitation**
-> void gcDeclineInvitation()
+> InlineResponse200 gcDeclineInvitation()
 
 ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
 
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -429,7 +429,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -440,7 +440,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeleteChannelByUrl**
-> void gcDeleteChannelByUrl()
+> InlineResponse200 gcDeleteChannelByUrl()
 
 ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -486,7 +486,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -560,7 +560,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcHideOrArchiveChannel**
-> void gcHideOrArchiveChannel()
+> InlineResponse200 gcHideOrArchiveChannel()
 
 ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
 
@@ -606,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -615,7 +615,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -764,7 +764,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcLeaveChannel**
-> void gcLeaveChannel()
+> InlineResponse200 gcLeaveChannel()
 
 ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
 
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -819,7 +819,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1413,7 +1413,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcResetChatHistory**
-> void gcResetChatHistory()
+> GcResetChatHistoryResponse gcResetChatHistory()
 
 ## Reset chat history  Resets the properties related to a user's chat history in a group channel, then clears the existing messages in the channel on the user's side only. A user can no longer see the messages in a group channel once this action is called, but those messages are not deleted from the database of the Sendbird system. All other members in the channel can retrieve and see the messages.  This action simply clears the messages for the user by updating the `last_message` and `read_receipt` properties of the [channel](#2-types-of-a-channel-3-resource-representation) resource in addition to other internally managed data such as the number of the user's unread message.  Using the `reset_all` property, you can also reset the properties related to all users' chat history in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-reset-chat-history ----------------------------
 
@@ -1457,7 +1457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**GcResetChatHistoryResponse**
 
 ### Authorization
 
@@ -1466,7 +1466,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1477,7 +1477,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnbanUserById**
-> void gcUnbanUserById()
+> InlineResponse200 gcUnbanUserById()
 
 ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
 
@@ -1517,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -1526,7 +1526,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1537,7 +1537,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnhideOrUnarchiveChannel**
-> void gcUnhideOrUnarchiveChannel()
+> InlineResponse200 gcUnhideOrUnarchiveChannel()
 
 ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
 
@@ -1580,7 +1580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -1589,7 +1589,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1600,7 +1600,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnmuteUserById**
-> void gcUnmuteUserById()
+> InlineResponse200 gcUnmuteUserById()
 
 ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
 
@@ -1640,7 +1640,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -1649,7 +1649,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1660,7 +1660,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUpdateBanById**
-> SendBirdUser gcUpdateBanById()
+> GcUpdateBanByIdResponse gcUpdateBanById()
 
 ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
 
@@ -1708,7 +1708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUser**
+**GcUpdateBanByIdResponse**
 
 ### Authorization
 
@@ -1801,7 +1801,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcViewBanById**
-> SendBirdUser gcViewBanById()
+> GcViewBanByIdResponse gcViewBanById()
 
 ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
 
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUser**
+**GcViewBanByIdResponse**
 
 ### Authorization
 

@@ -10,30 +10,24 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdGroupChannel } from './SendBirdGroupChannel';
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class JoinChannelsResponse {
+    'channels'?: Array<SendBirdGroupChannel>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "channels",
+            "baseName": "channels",
+            "type": "Array<SendBirdGroupChannel>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return JoinChannelsResponse.attributeTypeMap;
     }
 
     public constructor() {

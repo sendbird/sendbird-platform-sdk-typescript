@@ -12,16 +12,16 @@
 
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
+export class BlockUserResponse {
+    'users'?: Array<string>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
+            "name": "users",
+            "baseName": "users",
             "type": "Array<string>",
             "format": ""
         },
@@ -33,7 +33,7 @@ export class ListAnnouncementGroupsResponse {
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return BlockUserResponse.attributeTypeMap;
     }
 
     public constructor() {

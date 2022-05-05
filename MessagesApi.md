@@ -166,7 +166,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteMessageById**
-> void deleteMessageById()
+> any deleteMessageById()
 
 ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -218,7 +218,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -293,7 +293,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcMarkAllMessagesAsRead**
-> void gcMarkAllMessagesAsRead()
+> any gcMarkAllMessagesAsRead()
 
 ## Mark all messages as read  Marks all messages in a group channel as read for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-read ----------------------------
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -346,7 +346,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -597,7 +597,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **removeExtraDataFromMessage**
-> void removeExtraDataFromMessage()
+> any removeExtraDataFromMessage()
 
 ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-extra-data-from-a-message ----------------------------
 
@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -654,7 +654,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

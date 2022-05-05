@@ -14,6 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class GcCheckIfMemberByIdResponse {
     'isMember'?: boolean;
+    'state'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,6 +23,12 @@ export class GcCheckIfMemberByIdResponse {
             "name": "isMember",
             "baseName": "is_member",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "state",
+            "baseName": "state",
+            "type": "string",
             "format": ""
         }    ];
 

@@ -10,15 +10,168 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdMessageResponseMentionedUsers } from './SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
 import { HttpFile } from '../http/http';
 
 export class SendBirdMessageResponse {
-    'size'?: number;
+    'requireAuth'?: boolean;
+    'messageSurvivalSeconds'?: number;
+    'customType'?: string;
+    'mentionedUsers'?: Array<SendBirdMessageResponseMentionedUsers>;
+    'translations'?: any;
+    'updatedAt'?: number;
+    'isOpMsg'?: boolean;
+    'isRemoved'?: boolean;
+    'user'?: SendBirdMessageResponseUser;
+    'file'?: any;
+    'message'?: string;
+    'data'?: string;
+    'messageRetentionHour'?: number;
+    'silent'?: boolean;
     'type'?: string;
+    'createdAt'?: number;
+    'channelType'?: string;
+    'reqId'?: string;
+    'mentionType'?: string;
+    'channelUrl'?: string;
+    'messageId'?: number;
+    'size'?: number;
+    'sortedMetaarray'?: Array<any>;
+    'threadInfo'?: any;
+    'parentMessageId'?: number;
+    'parentMessageInfo'?: any;
+    'isReplyToChannel'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "requireAuth",
+            "baseName": "require_auth",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "messageSurvivalSeconds",
+            "baseName": "message_survival_seconds",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "customType",
+            "baseName": "custom_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mentionedUsers",
+            "baseName": "mentioned_users",
+            "type": "Array<SendBirdMessageResponseMentionedUsers>",
+            "format": ""
+        },
+        {
+            "name": "translations",
+            "baseName": "translations",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "updatedAt",
+            "baseName": "updated_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "isOpMsg",
+            "baseName": "is_op_msg",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isRemoved",
+            "baseName": "is_removed",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "user",
+            "baseName": "user",
+            "type": "SendBirdMessageResponseUser",
+            "format": ""
+        },
+        {
+            "name": "file",
+            "baseName": "file",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "message",
+            "baseName": "message",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "messageRetentionHour",
+            "baseName": "message_retention_hour",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "silent",
+            "baseName": "silent",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "channelType",
+            "baseName": "channel_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "reqId",
+            "baseName": "req_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mentionType",
+            "baseName": "mention_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "channelUrl",
+            "baseName": "channel_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "messageId",
+            "baseName": "message_id",
+            "type": "number",
+            "format": ""
+        },
         {
             "name": "size",
             "baseName": "size",
@@ -26,9 +179,33 @@ export class SendBirdMessageResponse {
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
+            "name": "sortedMetaarray",
+            "baseName": "sorted_metaarray",
+            "type": "Array<any>",
+            "format": ""
+        },
+        {
+            "name": "threadInfo",
+            "baseName": "thread_info",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "parentMessageId",
+            "baseName": "parent_message_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "parentMessageInfo",
+            "baseName": "parent_message_info",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "isReplyToChannel",
+            "baseName": "is_reply_to_channel",
+            "type": "boolean",
             "format": ""
         }    ];
 

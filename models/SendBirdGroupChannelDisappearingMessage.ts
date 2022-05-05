@@ -12,28 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class SendBirdGroupChannelDisappearingMessage {
+    'messageSurvivalSeconds'?: number;
+    'isTriggeredByMessageRead'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
+            "name": "messageSurvivalSeconds",
+            "baseName": "message_survival_seconds",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "isTriggeredByMessageRead",
+            "baseName": "is_triggered_by_message_read",
+            "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return SendBirdGroupChannelDisappearingMessage.attributeTypeMap;
     }
 
     public constructor() {

@@ -11,57 +11,41 @@
  */
 
 import { InlineResponse200 } from './InlineResponse200';
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class GcBanUserResponse {
-    'user'?: SendBirdUser;
-    'startAt'?: number;
-    'endAt'?: number;
-    'description'?: string;
-    'metadata'?: InlineResponse200;
-    'nextUrl'?: string;
+export class SendBirdMessageResponseUser {
+    'requireAuthForProfileImage'?: boolean;
+    'isActive'?: boolean;
+    'role'?: string;
+    'userId'?: string;
     'nickname'?: string;
     'profileUrl'?: string;
-    'requireAuthForProfileImage'?: boolean;
-    'userId'?: string;
+    'metadata'?: InlineResponse200;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
+            "name": "requireAuthForProfileImage",
+            "baseName": "require_auth_for_profile_image",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
+            "name": "isActive",
+            "baseName": "is_active",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
+            "name": "role",
+            "baseName": "role",
             "type": "string",
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "InlineResponse200",
-            "format": ""
-        },
-        {
-            "name": "nextUrl",
-            "baseName": "next_url",
+            "name": "userId",
+            "baseName": "user_id",
             "type": "string",
             "format": ""
         },
@@ -78,20 +62,14 @@ export class GcBanUserResponse {
             "format": ""
         },
         {
-            "name": "requireAuthForProfileImage",
-            "baseName": "require_auth_for_profile_image",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "InlineResponse200",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return GcBanUserResponse.attributeTypeMap;
+        return SendBirdMessageResponseUser.attributeTypeMap;
     }
 
     public constructor() {

@@ -9,6 +9,7 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
+import { InlineResponse200 } from '../models/InlineResponse200';
 import { OcBanUserData } from '../models/OcBanUserData';
 import { OcBanUserResponse } from '../models/OcBanUserResponse';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
@@ -21,10 +22,11 @@ import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse
 import { OcMuteUserData } from '../models/OcMuteUserData';
 import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
 import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
+import { OcUpdateBanByIdResponse } from '../models/OcUpdateBanByIdResponse';
 import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
+import { OcViewBanByIdResponse } from '../models/OcViewBanByIdResponse';
 import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
-import { SendBirdUser } from '../models/SendBirdUser';
 
 /**
  * no description
@@ -1074,18 +1076,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocDeleteChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<void > {
+     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse200 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse200", ""
+            ) as InlineResponse200;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse200", ""
+            ) as InlineResponse200;
             return body;
         }
 
@@ -1302,18 +1308,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocRegisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocRegisterOperators(response: ResponseContext): Promise<void > {
+     public async ocRegisterOperators(response: ResponseContext): Promise<InlineResponse200 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse200", ""
+            ) as InlineResponse200;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse200", ""
+            ) as InlineResponse200;
             return body;
         }
 
@@ -1327,18 +1337,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocUnbanUserById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocUnbanUserById(response: ResponseContext): Promise<void > {
+     public async ocUnbanUserById(response: ResponseContext): Promise<InlineResponse200 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse200", ""
+            ) as InlineResponse200;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse200", ""
+            ) as InlineResponse200;
             return body;
         }
 
@@ -1352,18 +1366,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocUnmuteUserById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocUnmuteUserById(response: ResponseContext): Promise<void > {
+     public async ocUnmuteUserById(response: ResponseContext): Promise<InlineResponse200 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse200", ""
+            ) as InlineResponse200;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse200 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse200", ""
+            ) as InlineResponse200;
             return body;
         }
 
@@ -1377,22 +1395,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocUpdateBanById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocUpdateBanById(response: ResponseContext): Promise<SendBirdUser > {
+     public async ocUpdateBanById(response: ResponseContext): Promise<OcUpdateBanByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: OcUpdateBanByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "OcUpdateBanByIdResponse", ""
+            ) as OcUpdateBanByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: OcUpdateBanByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "OcUpdateBanByIdResponse", ""
+            ) as OcUpdateBanByIdResponse;
             return body;
         }
 
@@ -1435,22 +1453,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocViewBanById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocViewBanById(response: ResponseContext): Promise<SendBirdUser > {
+     public async ocViewBanById(response: ResponseContext): Promise<OcViewBanByIdResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: OcViewBanByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "OcViewBanByIdResponse", ""
+            ) as OcViewBanByIdResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: OcViewBanByIdResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "OcViewBanByIdResponse", ""
+            ) as OcViewBanByIdResponse;
             return body;
         }
 

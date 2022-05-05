@@ -13,25 +13,26 @@
 import { HttpFile } from '../http/http';
 
 export class RemoveReactionFromAMessageResponse {
-    'userId'?: string;
-    'operation'?: string;
-    'success'?: boolean;
     'reaction'?: string;
+    'userId'?: number;
+    'success'?: boolean;
+    'msgId'?: number;
     'updatedAt'?: number;
+    'operation'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "userId",
-            "baseName": "user_id",
+            "name": "reaction",
+            "baseName": "reaction",
             "type": "string",
             "format": ""
         },
         {
-            "name": "operation",
-            "baseName": "operation",
-            "type": "string",
+            "name": "userId",
+            "baseName": "user_id",
+            "type": "number",
             "format": ""
         },
         {
@@ -41,15 +42,21 @@ export class RemoveReactionFromAMessageResponse {
             "format": ""
         },
         {
-            "name": "reaction",
-            "baseName": "reaction",
-            "type": "string",
+            "name": "msgId",
+            "baseName": "msg_id",
+            "type": "number",
             "format": ""
         },
         {
             "name": "updatedAt",
             "baseName": "updated_at",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "operation",
+            "baseName": "operation",
+            "type": "string",
             "format": ""
         }    ];
 

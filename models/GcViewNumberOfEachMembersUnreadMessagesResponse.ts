@@ -10,11 +10,10 @@
  * Do not edit the class manually.
  */
 
-import { GcViewNumberOfEachMembersUnreadMessagesResponseUnread } from './GcViewNumberOfEachMembersUnreadMessagesResponseUnread';
 import { HttpFile } from '../http/http';
 
 export class GcViewNumberOfEachMembersUnreadMessagesResponse {
-    'unread'?: GcViewNumberOfEachMembersUnreadMessagesResponseUnread;
+    'unread'?: { [key: string]: number; };
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +21,7 @@ export class GcViewNumberOfEachMembersUnreadMessagesResponse {
         {
             "name": "unread",
             "baseName": "unread",
-            "type": "GcViewNumberOfEachMembersUnreadMessagesResponseUnread",
+            "type": "{ [key: string]: number; }",
             "format": ""
         }    ];
 

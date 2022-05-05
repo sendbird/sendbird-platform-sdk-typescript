@@ -14,24 +14,39 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class SendBirdOpenChannel {
-    'coverUrl'?: string;
-    'createdAt'?: number;
-    'creator'?: SendBirdUser;
+    'name'?: string;
     'customType'?: string;
+    'channelUrl'?: string;
+    'createdAt'?: number;
+    'coverUrl'?: string;
+    'creator'?: SendBirdUser;
     'data'?: string;
+    'isDynamicPartitioned'?: boolean;
     'isEphemeral'?: boolean;
     'isFrozen'?: boolean;
-    'name'?: string;
+    'maxLengthMessage'?: number;
     'operators'?: Array<SendBirdUser>;
     'participantCount'?: number;
-    'channelUrl'?: string;
+    'freeze'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "coverUrl",
-            "baseName": "cover_url",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customType",
+            "baseName": "custom_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "channelUrl",
+            "baseName": "channel_url",
             "type": "string",
             "format": ""
         },
@@ -42,21 +57,27 @@ export class SendBirdOpenChannel {
             "format": ""
         },
         {
+            "name": "coverUrl",
+            "baseName": "cover_url",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "creator",
             "baseName": "creator",
             "type": "SendBirdUser",
             "format": ""
         },
         {
-            "name": "customType",
-            "baseName": "custom_type",
+            "name": "data",
+            "baseName": "data",
             "type": "string",
             "format": ""
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "string",
+            "name": "isDynamicPartitioned",
+            "baseName": "is_dynamic_partitioned",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -72,9 +93,9 @@ export class SendBirdOpenChannel {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
+            "name": "maxLengthMessage",
+            "baseName": "max_length_message",
+            "type": "number",
             "format": ""
         },
         {
@@ -90,9 +111,9 @@ export class SendBirdOpenChannel {
             "format": ""
         },
         {
-            "name": "channelUrl",
-            "baseName": "channel_url",
-            "type": "string",
+            "name": "freeze",
+            "baseName": "freeze",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -596,18 +596,22 @@ export class EmojisApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteEmojiCategoryById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteEmojiCategoryById(response: ResponseContext): Promise<void > {
+     public async deleteEmojiCategoryById(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "any", ""
+            ) as any;
             return body;
         }
 

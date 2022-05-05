@@ -16,6 +16,7 @@ import { HttpFile } from '../http/http';
 export class GcListChannelsResponse {
     'channels'?: Array<SendBirdGroupChannel>;
     'next'?: string;
+    'ts'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,6 +31,12 @@ export class GcListChannelsResponse {
             "name": "next",
             "baseName": "next",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "ts",
+            "baseName": "ts",
+            "type": "number",
             "format": ""
         }    ];
 

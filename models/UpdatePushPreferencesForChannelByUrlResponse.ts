@@ -24,6 +24,7 @@ export class UpdatePushPreferencesForChannelByUrlResponse {
     'snoozeEndTs'?: number;
     'timezone'?: string;
     'pushSound'?: string;
+    'enable'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -92,6 +93,12 @@ export class UpdatePushPreferencesForChannelByUrlResponse {
             "name": "pushSound",
             "baseName": "push_sound",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "enable",
+            "baseName": "enable",
+            "type": "boolean",
             "format": ""
         }    ];
 

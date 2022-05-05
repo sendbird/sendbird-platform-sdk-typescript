@@ -15,9 +15,9 @@ import { HttpFile } from '../http/http';
 
 export class ListBannedChannelsResponseBannedChannels {
     'startAt'?: number;
-    'endAt'?: number;
     'description'?: string;
     'channel'?: SendBirdChannelResponse;
+    'endAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,12 +25,6 @@ export class ListBannedChannelsResponseBannedChannels {
         {
             "name": "startAt",
             "baseName": "start_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
             "type": "number",
             "format": ""
         },
@@ -44,6 +38,12 @@ export class ListBannedChannelsResponseBannedChannels {
             "name": "channel",
             "baseName": "channel",
             "type": "SendBirdChannelResponse",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
             "format": ""
         }    ];
 

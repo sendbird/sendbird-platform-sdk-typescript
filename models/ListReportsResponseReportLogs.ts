@@ -16,6 +16,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class ListReportsResponseReportLogs {
+    'reportingUser'?: SendBirdUser;
     'reportType'?: string;
     'reportCategory'?: string;
     'offendingUser'?: SendBirdUser;
@@ -27,6 +28,12 @@ export class ListReportsResponseReportLogs {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "reportingUser",
+            "baseName": "reporting_user",
+            "type": "SendBirdUser",
+            "format": ""
+        },
         {
             "name": "reportType",
             "baseName": "report_type",

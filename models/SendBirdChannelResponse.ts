@@ -11,6 +11,9 @@
  */
 
 import { SendBirdGroupChannel } from './SendBirdGroupChannel';
+import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
+import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from './SendBirdMember';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdOpenChannel } from './SendBirdOpenChannel';
@@ -18,16 +21,22 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class SendBirdChannelResponse {
+    'channelUrl'?: string;
     'coverUrl'?: string;
     'createdAt'?: number;
+    'createdBy'?: SendBirdGroupChannelCreatedBy;
     'creator'?: SendBirdUser;
     'customType'?: string;
     'data'?: string;
+    'disappearingMessage'?: SendBirdGroupChannelDisappearingMessage;
+    'freeze'?: boolean;
+    'ignoreProfanityFilter'?: boolean;
     'hiddenState'?: SendBirdChannelResponseHiddenStateEnum;
     'invitedAt'?: number;
     'inviter'?: SendBirdUser;
     'isAccessCodeRequired'?: boolean;
     'isBroadcast'?: boolean;
+    'isCreated'?: boolean;
     'isDiscoverable'?: boolean;
     'isDistinct'?: boolean;
     'isEphemeral'?: boolean;
@@ -39,6 +48,7 @@ export class SendBirdChannelResponse {
     'joinedAt'?: number;
     'joinedMemberCount'?: number;
     'lastMessage'?: SendBirdMessageResponse;
+    'maxLengthMessage'?: number;
     'memberCount'?: number;
     'members'?: Array<SendBirdMember>;
     'messageOffsetTimestamp'?: number;
@@ -50,15 +60,22 @@ export class SendBirdChannelResponse {
     'myPushTriggerOption'?: SendBirdChannelResponseMyPushTriggerOptionEnum;
     'myRole'?: SendBirdChannelResponseMyRoleEnum;
     'name'?: string;
+    'operators'?: Array<SendBirdUser>;
+    'smsFallback'?: SendBirdGroupChannelSmsFallback;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
-    'channelUrl'?: string;
-    'operators'?: Array<SendBirdUser>;
+    'isDynamicPartitioned'?: boolean;
     'participantCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "channelUrl",
+            "baseName": "channel_url",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "coverUrl",
             "baseName": "cover_url",
@@ -69,6 +86,12 @@ export class SendBirdChannelResponse {
             "name": "createdAt",
             "baseName": "created_at",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "createdBy",
+            "baseName": "created_by",
+            "type": "SendBirdGroupChannelCreatedBy",
             "format": ""
         },
         {
@@ -87,6 +110,24 @@ export class SendBirdChannelResponse {
             "name": "data",
             "baseName": "data",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "disappearingMessage",
+            "baseName": "disappearing_message",
+            "type": "SendBirdGroupChannelDisappearingMessage",
+            "format": ""
+        },
+        {
+            "name": "freeze",
+            "baseName": "freeze",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "ignoreProfanityFilter",
+            "baseName": "ignore_profanity_filter",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -116,6 +157,12 @@ export class SendBirdChannelResponse {
         {
             "name": "isBroadcast",
             "baseName": "is_broadcast",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isCreated",
+            "baseName": "is_created",
             "type": "boolean",
             "format": ""
         },
@@ -186,6 +233,12 @@ export class SendBirdChannelResponse {
             "format": ""
         },
         {
+            "name": "maxLengthMessage",
+            "baseName": "max_length_message",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "memberCount",
             "baseName": "member_count",
             "type": "number",
@@ -252,6 +305,18 @@ export class SendBirdChannelResponse {
             "format": ""
         },
         {
+            "name": "operators",
+            "baseName": "operators",
+            "type": "Array<SendBirdUser>",
+            "format": ""
+        },
+        {
+            "name": "smsFallback",
+            "baseName": "sms_fallback",
+            "type": "SendBirdGroupChannelSmsFallback",
+            "format": ""
+        },
+        {
             "name": "unreadMentionCount",
             "baseName": "unread_mention_count",
             "type": "number",
@@ -264,15 +329,9 @@ export class SendBirdChannelResponse {
             "format": ""
         },
         {
-            "name": "channelUrl",
-            "baseName": "channel_url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "operators",
-            "baseName": "operators",
-            "type": "Array<SendBirdUser>",
+            "name": "isDynamicPartitioned",
+            "baseName": "is_dynamic_partitioned",
+            "type": "boolean",
             "format": ""
         },
         {

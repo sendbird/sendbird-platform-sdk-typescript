@@ -14,6 +14,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class ListRegistrationOrDeviceTokensResponse {
+    'token'?: Array<string>;
     'tokens'?: Array<string>;
     'type'?: string;
     'user'?: SendBirdUser;
@@ -21,6 +22,12 @@ export class ListRegistrationOrDeviceTokensResponse {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "token",
+            "baseName": "token",
+            "type": "Array<string>",
+            "format": ""
+        },
         {
             "name": "tokens",
             "baseName": "tokens",

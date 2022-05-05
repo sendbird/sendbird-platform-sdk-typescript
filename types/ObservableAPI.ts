@@ -27,6 +27,7 @@ import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationO
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
 import { Blob } from '../models/Blob';
 import { BlockUserData } from '../models/BlockUserData';
+import { BlockUserResponse } from '../models/BlockUserResponse';
 import { ChoosePushNotificationContentTemplateResponse } from '../models/ChoosePushNotificationContentTemplateResponse';
 import { ChooseWhichEventsToSubscribeToData } from '../models/ChooseWhichEventsToSubscribeToData';
 import { ChooseWhichEventsToSubscribeToResponse } from '../models/ChooseWhichEventsToSubscribeToResponse';
@@ -68,11 +69,13 @@ import { GcMuteUserData } from '../models/GcMuteUserData';
 import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
+import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
 import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
+import { GcUpdateBanByIdResponse } from '../models/GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
+import { GcViewBanByIdResponse } from '../models/GcViewBanByIdResponse';
 import { GcViewMuteByIdResponse } from '../models/GcViewMuteByIdResponse';
 import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GcViewNumberOfEachMembersUnreadMessagesResponseUnread } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponseUnread';
 import { GenerateSecondaryApiTokenData } from '../models/GenerateSecondaryApiTokenData';
 import { GenerateSecondaryApiTokenResponse } from '../models/GenerateSecondaryApiTokenResponse';
 import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
@@ -83,7 +86,9 @@ import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse
 import { GetStatisticsDailyResponseStatistics } from '../models/GetStatisticsDailyResponseStatistics';
 import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
+import { InlineResponse200 } from '../models/InlineResponse200';
 import { JoinChannelsData } from '../models/JoinChannelsData';
+import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
 import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
@@ -107,8 +112,6 @@ import { ListMessagesResponseMessages } from '../models/ListMessagesResponseMess
 import { ListMessagesResponseOgTag } from '../models/ListMessagesResponseOgTag';
 import { ListMessagesResponseOgTagOgImage } from '../models/ListMessagesResponseOgTagOgImage';
 import { ListMessagesResponseSortedMetaarray } from '../models/ListMessagesResponseSortedMetaarray';
-import { ListMessagesResponseUser } from '../models/ListMessagesResponseUser';
-import { ListMessagesResponseUserMetadata } from '../models/ListMessagesResponseUserMetadata';
 import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListPushConfigurationsResponse } from '../models/ListPushConfigurationsResponse';
@@ -143,7 +146,9 @@ import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse
 import { OcMuteUserData } from '../models/OcMuteUserData';
 import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
 import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
+import { OcUpdateBanByIdResponse } from '../models/OcUpdateBanByIdResponse';
 import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
+import { OcViewBanByIdResponse } from '../models/OcViewBanByIdResponse';
 import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
 import { RegisterAndScheduleDataExportData } from '../models/RegisterAndScheduleDataExportData';
 import { RegisterAndScheduleDataExportResponse } from '../models/RegisterAndScheduleDataExportResponse';
@@ -161,6 +166,7 @@ import { ReportMessageByIdData } from '../models/ReportMessageByIdData';
 import { ReportMessageByIdResponse } from '../models/ReportMessageByIdResponse';
 import { ReportUserByIdData } from '../models/ReportUserByIdData';
 import { ReportUserByIdResponse } from '../models/ReportUserByIdResponse';
+import { ResetPushPreferencesResponse } from '../models/ResetPushPreferencesResponse';
 import { RetrieveAdvancedAnalyticsMetricsResponse } from '../models/RetrieveAdvancedAnalyticsMetricsResponse';
 import { RetrieveIpWhitelistResponse } from '../models/RetrieveIpWhitelistResponse';
 import { RetrieveListOfSubscribedEventsResponse } from '../models/RetrieveListOfSubscribedEventsResponse';
@@ -182,9 +188,14 @@ import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
+import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
+import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
+import { SendBirdMessageResponseMentionedUsers } from '../models/SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUser';
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
@@ -222,6 +233,7 @@ import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrl
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
 import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
+import { UpdateExtraDataInMessageResponseSortedMetaarray } from '../models/UpdateExtraDataInMessageResponseSortedMetaarray';
 import { UpdateFcmPushConfigurationByIdData } from '../models/UpdateFcmPushConfigurationByIdData';
 import { UpdateFcmPushConfigurationByIdResponse } from '../models/UpdateFcmPushConfigurationByIdResponse';
 import { UpdateHmsPushConfigurationByIdData } from '../models/UpdateHmsPushConfigurationByIdData';
@@ -262,7 +274,6 @@ import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesRespon
 import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApiTokenByTokenResponse';
 import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
 
 import { AdvancedAnalyticsApiRequestFactory, AdvancedAnalyticsApiResponseProcessor} from "../apis/AdvancedAnalyticsApi";
 export class ObservableAdvancedAnalyticsApi {
@@ -1336,7 +1347,7 @@ export class ObservableBotInterfaceApi {
      * @param apiToken 
      * @param botUserid 
      */
-    public deleteBotById(apiToken: string, botUserid: string, _options?: Configuration): Observable<void> {
+    public deleteBotById(apiToken: string, botUserid: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.deleteBotById(apiToken, botUserid, _options);
 
         // build promise chain
@@ -1362,7 +1373,7 @@ export class ObservableBotInterfaceApi {
      * @param botUserid 
      * @param joinChannelsData 
      */
-    public joinChannels(apiToken: string, botUserid: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Observable<SendBirdGroupChannelCollection> {
+    public joinChannels(apiToken: string, botUserid: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Observable<JoinChannelsResponse> {
         const requestContextPromise = this.requestFactory.joinChannels(apiToken, botUserid, joinChannelsData, _options);
 
         // build promise chain
@@ -1414,7 +1425,7 @@ export class ObservableBotInterfaceApi {
      * @param botUserid 
      * @param channelUrl 
      */
-    public leaveChannelsByUrl(apiToken: string, botUserid: string, channelUrl: string, _options?: Configuration): Observable<void> {
+    public leaveChannelsByUrl(apiToken: string, botUserid: string, channelUrl: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.leaveChannelsByUrl(apiToken, botUserid, channelUrl, _options);
 
         // build promise chain
@@ -1851,7 +1862,7 @@ export class ObservableEmojisApi {
      * @param apiToken 
      * @param emojiCategoryId 
      */
-    public deleteEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Observable<void> {
+    public deleteEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.deleteEmojiCategoryById(apiToken, emojiCategoryId, _options);
 
         // build promise chain
@@ -2148,7 +2159,7 @@ export class ObservableGroupChannelApi {
      * @param operatorIds 
      * @param deleteAll 
      */
-    public gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Observable<void> {
+    public gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcCancelTheRegistrationOfOperators(apiToken, channelUrl, operatorIds, deleteAll, _options);
 
         // build promise chain
@@ -2225,7 +2236,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcDeclineInvitationData 
      */
-    public gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Observable<void> {
+    public gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcDeclineInvitation(apiToken, channelUrl, gcDeclineInvitationData, _options);
 
         // build promise chain
@@ -2250,7 +2261,7 @@ export class ObservableGroupChannelApi {
      * @param apiToken 
      * @param channelUrl 
      */
-    public gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<void> {
+    public gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcDeleteChannelByUrl(apiToken, channelUrl, _options);
 
         // build promise chain
@@ -2302,7 +2313,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcHideOrArchiveChannelData 
      */
-    public gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Observable<void> {
+    public gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcHideOrArchiveChannel(apiToken, channelUrl, gcHideOrArchiveChannelData, _options);
 
         // build promise chain
@@ -2380,7 +2391,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcLeaveChannelData 
      */
-    public gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Observable<void> {
+    public gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcLeaveChannel(apiToken, channelUrl, gcLeaveChannelData, _options);
 
         // build promise chain
@@ -2639,7 +2650,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcResetChatHistoryData 
      */
-    public gcResetChatHistory(apiToken: string, channelUrl: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Observable<void> {
+    public gcResetChatHistory(apiToken: string, channelUrl: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Observable<GcResetChatHistoryResponse> {
         const requestContextPromise = this.requestFactory.gcResetChatHistory(apiToken, channelUrl, gcResetChatHistoryData, _options);
 
         // build promise chain
@@ -2665,7 +2676,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<void> {
+    public gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -2692,7 +2703,7 @@ export class ObservableGroupChannelApi {
      * @param userId 
      * @param shouldUnhideAll 
      */
-    public gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Observable<void> {
+    public gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcUnhideOrUnarchiveChannel(apiToken, channelUrl, userId, shouldUnhideAll, _options);
 
         // build promise chain
@@ -2718,7 +2729,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param mutedUserId 
      */
-    public gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<void> {
+    public gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.gcUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
 
         // build promise chain
@@ -2745,7 +2756,7 @@ export class ObservableGroupChannelApi {
      * @param bannedUserId 
      * @param gcUpdateBanByIdData 
      */
-    public gcUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Observable<SendBirdUser> {
+    public gcUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Observable<GcUpdateBanByIdResponse> {
         const requestContextPromise = this.requestFactory.gcUpdateBanById(apiToken, channelUrl, bannedUserId, gcUpdateBanByIdData, _options);
 
         // build promise chain
@@ -2797,7 +2808,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public gcViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<SendBirdUser> {
+    public gcViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<GcViewBanByIdResponse> {
         const requestContextPromise = this.requestFactory.gcViewBanById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -2954,7 +2965,7 @@ export class ObservableMessagesApi {
      * @param channelUrl 
      * @param messageId 
      */
-    public deleteMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Observable<void> {
+    public deleteMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.deleteMessageById(apiToken, channelType, channelUrl, messageId, _options);
 
         // build promise chain
@@ -3006,7 +3017,7 @@ export class ObservableMessagesApi {
      * @param channelUrl 
      * @param gcMarkAllMessagesAsReadData 
      */
-    public gcMarkAllMessagesAsRead(apiToken: string, channelUrl: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Observable<void> {
+    public gcMarkAllMessagesAsRead(apiToken: string, channelUrl: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.gcMarkAllMessagesAsRead(apiToken, channelUrl, gcMarkAllMessagesAsReadData, _options);
 
         // build promise chain
@@ -3132,7 +3143,7 @@ export class ObservableMessagesApi {
      * @param messageId 
      * @param keys 
      */
-    public removeExtraDataFromMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, keys?: Array<string>, _options?: Configuration): Observable<void> {
+    public removeExtraDataFromMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.removeExtraDataFromMessage(apiToken, channelType, channelUrl, messageId, keys, _options);
 
         // build promise chain
@@ -3492,7 +3503,7 @@ export class ObservableOpenChannelApi {
      * @param apiToken 
      * @param channelUrl 
      */
-    public ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<void> {
+    public ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.ocDeleteChannelByUrl(apiToken, channelUrl, _options);
 
         // build promise chain
@@ -3710,7 +3721,7 @@ export class ObservableOpenChannelApi {
      * @param channelUrl 
      * @param ocRegisterOperatorsData 
      */
-    public ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Observable<void> {
+    public ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.ocRegisterOperators(apiToken, channelUrl, ocRegisterOperatorsData, _options);
 
         // build promise chain
@@ -3736,7 +3747,7 @@ export class ObservableOpenChannelApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<void> {
+    public ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.ocUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -3762,7 +3773,7 @@ export class ObservableOpenChannelApi {
      * @param channelUrl 
      * @param mutedUserId 
      */
-    public ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<void> {
+    public ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<InlineResponse200> {
         const requestContextPromise = this.requestFactory.ocUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
 
         // build promise chain
@@ -3789,7 +3800,7 @@ export class ObservableOpenChannelApi {
      * @param bannedUserId 
      * @param ocUpdateBanByIdData 
      */
-    public ocUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Observable<SendBirdUser> {
+    public ocUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Observable<OcUpdateBanByIdResponse> {
         const requestContextPromise = this.requestFactory.ocUpdateBanById(apiToken, channelUrl, bannedUserId, ocUpdateBanByIdData, _options);
 
         // build promise chain
@@ -3841,7 +3852,7 @@ export class ObservableOpenChannelApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public ocViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<SendBirdUser> {
+    public ocViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<OcViewBanByIdResponse> {
         const requestContextPromise = this.requestFactory.ocViewBanById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -4201,7 +4212,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param banFromChannelsWithCustomChannelTypesData 
      */
-    public banFromChannelsWithCustomChannelTypes(apiToken: string, userId: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<void> {
+    public banFromChannelsWithCustomChannelTypes(apiToken: string, userId: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.banFromChannelsWithCustomChannelTypes(apiToken, userId, banFromChannelsWithCustomChannelTypesData, _options);
 
         // build promise chain
@@ -4227,7 +4238,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param blockUserData 
      */
-    public blockUser(apiToken: string, userId: string, blockUserData?: BlockUserData, _options?: Configuration): Observable<SendBirdUser> {
+    public blockUser(apiToken: string, userId: string, blockUserData?: BlockUserData, _options?: Configuration): Observable<BlockUserResponse> {
         const requestContextPromise = this.requestFactory.blockUser(apiToken, userId, blockUserData, _options);
 
         // build promise chain
@@ -4303,7 +4314,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param userId 
      */
-    public deleteUserById(apiToken: string, userId: string, _options?: Configuration): Observable<void> {
+    public deleteUserById(apiToken: string, userId: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.deleteUserById(apiToken, userId, _options);
 
         // build promise chain
@@ -4329,7 +4340,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param leaveMyGroupChannelsData 
      */
-    public leaveMyGroupChannels(apiToken: string, userId: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Observable<void> {
+    public leaveMyGroupChannels(apiToken: string, userId: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.leaveMyGroupChannels(apiToken, userId, leaveMyGroupChannelsData, _options);
 
         // build promise chain
@@ -4563,7 +4574,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param markAllMessagesAsReadData 
      */
-    public markAllMessagesAsRead(apiToken: string, userId: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Observable<void> {
+    public markAllMessagesAsRead(apiToken: string, userId: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.markAllMessagesAsRead(apiToken, userId, markAllMessagesAsReadData, _options);
 
         // build promise chain
@@ -4589,7 +4600,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param muteInChannelsWithCustomChannelTypesData 
      */
-    public muteInChannelsWithCustomChannelTypes(apiToken: string, userId: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<void> {
+    public muteInChannelsWithCustomChannelTypes(apiToken: string, userId: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.muteInChannelsWithCustomChannelTypes(apiToken, userId, muteInChannelsWithCustomChannelTypesData, _options);
 
         // build promise chain
@@ -4615,7 +4626,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param registerAsOperatorToChannelsWithCustomChannelTypesData 
      */
-    public registerAsOperatorToChannelsWithCustomChannelTypes(apiToken: string, userId: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<void> {
+    public registerAsOperatorToChannelsWithCustomChannelTypes(apiToken: string, userId: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.registerAsOperatorToChannelsWithCustomChannelTypes(apiToken, userId, registerAsOperatorToChannelsWithCustomChannelTypesData, _options);
 
         // build promise chain
@@ -4718,7 +4729,7 @@ export class ObservableUserApi {
      * @param apiToken 
      * @param userId 
      */
-    public resetPushPreferences(apiToken: string, userId: string, _options?: Configuration): Observable<void> {
+    public resetPushPreferences(apiToken: string, userId: string, _options?: Configuration): Observable<ResetPushPreferencesResponse> {
         const requestContextPromise = this.requestFactory.resetPushPreferences(apiToken, userId, _options);
 
         // build promise chain
@@ -4744,7 +4755,7 @@ export class ObservableUserApi {
      * @param userId 
      * @param targetId 
      */
-    public unblockUserById(apiToken: string, userId: string, targetId: string, _options?: Configuration): Observable<void> {
+    public unblockUserById(apiToken: string, userId: string, targetId: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.unblockUserById(apiToken, userId, targetId, _options);
 
         // build promise chain
@@ -5139,7 +5150,7 @@ export class ObservableUserApi {
      * @param tokenType 
      * @param token 
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Observable<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Observable<Array<any>> {
         const requestContextPromise = this.requestFactory.viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken, tokenType, token, _options);
 
         // build promise chain

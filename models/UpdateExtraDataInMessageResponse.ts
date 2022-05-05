@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListMessagesResponseSortedMetaarray } from './ListMessagesResponseSortedMetaarray';
+import { UpdateExtraDataInMessageResponseSortedMetaarray } from './UpdateExtraDataInMessageResponseSortedMetaarray';
 import { HttpFile } from '../http/http';
 
 export class UpdateExtraDataInMessageResponse {
-    'sortedMetaarray'?: Array<ListMessagesResponseSortedMetaarray>;
+    'sortedMetaarray'?: Array<UpdateExtraDataInMessageResponseSortedMetaarray>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class UpdateExtraDataInMessageResponse {
         {
             "name": "sortedMetaarray",
             "baseName": "sorted_metaarray",
-            "type": "Array<ListMessagesResponseSortedMetaarray>",
+            "type": "Array<UpdateExtraDataInMessageResponseSortedMetaarray>",
             "format": ""
         }    ];
 

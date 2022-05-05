@@ -10,30 +10,45 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class GcViewBanByIdResponse {
+    'user'?: SendBirdUser;
+    'startAt'?: number;
+    'endAt'?: number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
+            "name": "user",
+            "baseName": "user",
+            "type": "SendBirdUser",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "startAt",
+            "baseName": "start_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return GcViewBanByIdResponse.attributeTypeMap;
     }
 
     public constructor() {

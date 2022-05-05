@@ -110,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **banFromChannelsWithCustomChannelTypes**
-> void banFromChannelsWithCustomChannelTypes()
+> any banFromChannelsWithCustomChannelTypes()
 
 ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -174,7 +174,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **blockUser**
-> SendBirdUser blockUser()
+> BlockUserResponse blockUser()
 
 ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUser**
+**BlockUserResponse**
 
 ### Authorization
 
@@ -370,7 +370,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteUserById**
-> void deleteUserById()
+> any deleteUserById()
 
 ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -416,7 +416,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -427,7 +427,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **leaveMyGroupChannels**
-> void leaveMyGroupChannels()
+> any leaveMyGroupChannels()
 
 ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -479,7 +479,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1006,7 +1006,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **markAllMessagesAsRead**
-> void markAllMessagesAsRead()
+> any markAllMessagesAsRead()
 
 ## Mark all messages as read  Marks all of a user's unread messages as read in the joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mark-all-messages-as-read ----------------------------
 
@@ -1051,7 +1051,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -1060,7 +1060,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1071,7 +1071,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **muteInChannelsWithCustomChannelTypes**
-> void muteInChannelsWithCustomChannelTypes()
+> any muteInChannelsWithCustomChannelTypes()
 
 ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
 
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -1124,7 +1124,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1135,7 +1135,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **registerAsOperatorToChannelsWithCustomChannelTypes**
-> void registerAsOperatorToChannelsWithCustomChannelTypes()
+> any registerAsOperatorToChannelsWithCustomChannelTypes()
 
 ## Register as an operator to channels with custom channel types  Registers a user as an operator to channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-register-as-an-operator-to-channels-with-custom-channel-types ----------------------------
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -1188,7 +1188,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1379,7 +1379,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **resetPushPreferences**
-> void resetPushPreferences()
+> ResetPushPreferencesResponse resetPushPreferences()
 
 ## Reset push preferences  Resets a user's push preferences. After performing this action,   `do_not_disturb` and `snooze_enabled` are set to false.  The values of the parameters associated with the time frame are all set to 0.  `timezone` is reset to `UTC`.  `push_sound` is reset to `default`.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-reset-push-preferences ----------------------------
 
@@ -1416,7 +1416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**ResetPushPreferencesResponse**
 
 ### Authorization
 
@@ -1425,7 +1425,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1436,7 +1436,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **unblockUserById**
-> void unblockUserById()
+> any unblockUserById()
 
 ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
 
@@ -1476,7 +1476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**any**
 
 ### Authorization
 
@@ -1485,7 +1485,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -2395,7 +2395,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewWhoOwnsRegistrationOrDeviceTokenByToken**
-> ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse viewWhoOwnsRegistrationOrDeviceTokenByToken()
+> Array<any> viewWhoOwnsRegistrationOrDeviceTokenByToken()
 
 ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
 
@@ -2435,7 +2435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse**
+**Array<any>**
 
 ### Authorization
 

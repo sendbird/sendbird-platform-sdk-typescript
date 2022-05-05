@@ -16,6 +16,7 @@ import { HttpFile } from '../http/http';
 export class OcListChannelsResponse {
     'channels'?: Array<SendBirdOpenChannel>;
     'next'?: string;
+    'ts'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,6 +31,12 @@ export class OcListChannelsResponse {
             "name": "next",
             "baseName": "next",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "ts",
+            "baseName": "ts",
+            "type": "number",
             "format": ""
         }    ];
 

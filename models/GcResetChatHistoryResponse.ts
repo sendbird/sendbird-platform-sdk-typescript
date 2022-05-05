@@ -12,28 +12,21 @@
 
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class GcResetChatHistoryResponse {
+    'tsMessageOffset'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "next",
-            "baseName": "next",
-            "type": "string",
+            "name": "tsMessageOffset",
+            "baseName": "ts_message_offset",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return GcResetChatHistoryResponse.attributeTypeMap;
     }
 
     public constructor() {

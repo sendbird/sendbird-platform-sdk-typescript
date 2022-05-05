@@ -10,24 +10,26 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse200 } from './InlineResponse200';
+import { ModelBoolean } from './ModelBoolean';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class OcBanUserResponse {
-    'user'?: SendBirdUser;
     'startAt'?: number;
     'endAt'?: number;
     'description'?: string;
+    'userId'?: string;
+    'user'?: SendBirdUser;
+    'nextUrl'?: string;
+    'requireAuthForProfileImage'?: ModelBoolean;
+    'nickname'?: string;
+    'profileUrl'?: string;
+    'metadata'?: InlineResponse200;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
-            "format": ""
-        },
         {
             "name": "startAt",
             "baseName": "start_at",
@@ -44,6 +46,48 @@ export class OcBanUserResponse {
             "name": "description",
             "baseName": "description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "user_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "user",
+            "baseName": "user",
+            "type": "SendBirdUser",
+            "format": ""
+        },
+        {
+            "name": "nextUrl",
+            "baseName": "next_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "requireAuthForProfileImage",
+            "baseName": "require_auth_for_profile_image",
+            "type": "ModelBoolean",
+            "format": ""
+        },
+        {
+            "name": "nickname",
+            "baseName": "nickname",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "profileUrl",
+            "baseName": "profile_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "InlineResponse200",
             "format": ""
         }    ];
 

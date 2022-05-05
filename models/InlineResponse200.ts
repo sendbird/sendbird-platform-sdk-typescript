@@ -12,28 +12,21 @@
 
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class InlineResponse200 {
+    'anyOf'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "next",
-            "baseName": "next",
+            "name": "anyOf",
+            "baseName": "anyOf",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return InlineResponse200.attributeTypeMap;
     }
 
     public constructor() {

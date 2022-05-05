@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { ScheduleAnnouncementResponseCreateChannelOptions } from './ScheduleAnnouncementResponseCreateChannelOptions';
 import { ScheduleAnnouncementResponseMessage } from './ScheduleAnnouncementResponseMessage';
 import { HttpFile } from '../http/http';
 
@@ -29,6 +30,13 @@ export class ViewAnnouncementByIdResponse {
     'sentUserCount'?: number;
     'openCount'?: number;
     'openRate'?: number;
+    'createChannel'?: boolean;
+    'createChannelOptions'?: ScheduleAnnouncementResponseCreateChannelOptions;
+    'endAt'?: number;
+    'markAsRead'?: boolean;
+    'sentChannelCount'?: number;
+    'targetChannelType'?: string;
+    'targetCustomType'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -121,6 +129,48 @@ export class ViewAnnouncementByIdResponse {
             "name": "openRate",
             "baseName": "open_rate",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "createChannel",
+            "baseName": "create_channel",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "createChannelOptions",
+            "baseName": "create_channel_options",
+            "type": "ScheduleAnnouncementResponseCreateChannelOptions",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "markAsRead",
+            "baseName": "mark_as_read",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sentChannelCount",
+            "baseName": "sent_channel_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "targetChannelType",
+            "baseName": "target_channel_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "targetCustomType",
+            "baseName": "target_custom_type",
+            "type": "string",
             "format": ""
         }    ];
 

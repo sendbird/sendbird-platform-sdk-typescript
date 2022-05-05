@@ -17,6 +17,7 @@ export class ChooseWhichEventsToSubscribeToResponseWebhook {
     'url'?: string;
     'includeMembers'?: boolean;
     'enabledEvents'?: Array<string>;
+    'includeUnreadCount'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,6 +44,12 @@ export class ChooseWhichEventsToSubscribeToResponseWebhook {
             "name": "enabledEvents",
             "baseName": "enabled_events",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "includeUnreadCount",
+            "baseName": "include_unread_count",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -229,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocDeleteChannelByUrl**
-> void ocDeleteChannelByUrl()
+> InlineResponse200 ocDeleteChannelByUrl()
 
 ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -275,7 +275,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -743,7 +743,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocRegisterOperators**
-> void ocRegisterOperators()
+> InlineResponse200 ocRegisterOperators()
 
 ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
 
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -797,7 +797,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -808,7 +808,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocUnbanUserById**
-> void ocUnbanUserById()
+> InlineResponse200 ocUnbanUserById()
 
 ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
 
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -857,7 +857,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -868,7 +868,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocUnmuteUserById**
-> void ocUnmuteUserById()
+> InlineResponse200 ocUnmuteUserById()
 
 ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
 
@@ -908,7 +908,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse200**
 
 ### Authorization
 
@@ -917,7 +917,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -928,7 +928,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocUpdateBanById**
-> SendBirdUser ocUpdateBanById()
+> OcUpdateBanByIdResponse ocUpdateBanById()
 
 ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
 
@@ -976,7 +976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUser**
+**OcUpdateBanByIdResponse**
 
 ### Authorization
 
@@ -1069,7 +1069,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocViewBanById**
-> SendBirdUser ocViewBanById()
+> OcViewBanByIdResponse ocViewBanById()
 
 ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
 
@@ -1109,7 +1109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SendBirdUser**
+**OcViewBanByIdResponse**
 
 ### Authorization
 

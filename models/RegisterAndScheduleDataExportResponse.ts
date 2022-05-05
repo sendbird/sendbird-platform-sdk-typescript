@@ -14,6 +14,8 @@ import { ListDataExportsByMessageChannelOrUserResponseFile } from './ListDataExp
 import { HttpFile } from '../http/http';
 
 export class RegisterAndScheduleDataExportResponse {
+    'channelCustomTypes'?: Array<string>;
+    'dataType'?: string;
     'requestId'?: string;
     'status'?: string;
     'format'?: string;
@@ -30,6 +32,18 @@ export class RegisterAndScheduleDataExportResponse {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "channelCustomTypes",
+            "baseName": "channel_custom_types",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "dataType",
+            "baseName": "data_type",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "requestId",
             "baseName": "request_id",

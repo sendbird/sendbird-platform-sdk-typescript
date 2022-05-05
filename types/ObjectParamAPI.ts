@@ -26,6 +26,7 @@ import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationO
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
 import { Blob } from '../models/Blob';
 import { BlockUserData } from '../models/BlockUserData';
+import { BlockUserResponse } from '../models/BlockUserResponse';
 import { ChoosePushNotificationContentTemplateResponse } from '../models/ChoosePushNotificationContentTemplateResponse';
 import { ChooseWhichEventsToSubscribeToData } from '../models/ChooseWhichEventsToSubscribeToData';
 import { ChooseWhichEventsToSubscribeToResponse } from '../models/ChooseWhichEventsToSubscribeToResponse';
@@ -67,11 +68,13 @@ import { GcMuteUserData } from '../models/GcMuteUserData';
 import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
+import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
 import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
+import { GcUpdateBanByIdResponse } from '../models/GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
+import { GcViewBanByIdResponse } from '../models/GcViewBanByIdResponse';
 import { GcViewMuteByIdResponse } from '../models/GcViewMuteByIdResponse';
 import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GcViewNumberOfEachMembersUnreadMessagesResponseUnread } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponseUnread';
 import { GenerateSecondaryApiTokenData } from '../models/GenerateSecondaryApiTokenData';
 import { GenerateSecondaryApiTokenResponse } from '../models/GenerateSecondaryApiTokenResponse';
 import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
@@ -82,7 +85,9 @@ import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse
 import { GetStatisticsDailyResponseStatistics } from '../models/GetStatisticsDailyResponseStatistics';
 import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
+import { InlineResponse200 } from '../models/InlineResponse200';
 import { JoinChannelsData } from '../models/JoinChannelsData';
+import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
 import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
@@ -106,8 +111,6 @@ import { ListMessagesResponseMessages } from '../models/ListMessagesResponseMess
 import { ListMessagesResponseOgTag } from '../models/ListMessagesResponseOgTag';
 import { ListMessagesResponseOgTagOgImage } from '../models/ListMessagesResponseOgTagOgImage';
 import { ListMessagesResponseSortedMetaarray } from '../models/ListMessagesResponseSortedMetaarray';
-import { ListMessagesResponseUser } from '../models/ListMessagesResponseUser';
-import { ListMessagesResponseUserMetadata } from '../models/ListMessagesResponseUserMetadata';
 import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListPushConfigurationsResponse } from '../models/ListPushConfigurationsResponse';
@@ -142,7 +145,9 @@ import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse
 import { OcMuteUserData } from '../models/OcMuteUserData';
 import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
 import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
+import { OcUpdateBanByIdResponse } from '../models/OcUpdateBanByIdResponse';
 import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
+import { OcViewBanByIdResponse } from '../models/OcViewBanByIdResponse';
 import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
 import { RegisterAndScheduleDataExportData } from '../models/RegisterAndScheduleDataExportData';
 import { RegisterAndScheduleDataExportResponse } from '../models/RegisterAndScheduleDataExportResponse';
@@ -160,6 +165,7 @@ import { ReportMessageByIdData } from '../models/ReportMessageByIdData';
 import { ReportMessageByIdResponse } from '../models/ReportMessageByIdResponse';
 import { ReportUserByIdData } from '../models/ReportUserByIdData';
 import { ReportUserByIdResponse } from '../models/ReportUserByIdResponse';
+import { ResetPushPreferencesResponse } from '../models/ResetPushPreferencesResponse';
 import { RetrieveAdvancedAnalyticsMetricsResponse } from '../models/RetrieveAdvancedAnalyticsMetricsResponse';
 import { RetrieveIpWhitelistResponse } from '../models/RetrieveIpWhitelistResponse';
 import { RetrieveListOfSubscribedEventsResponse } from '../models/RetrieveListOfSubscribedEventsResponse';
@@ -181,9 +187,14 @@ import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
+import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
+import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
+import { SendBirdMessageResponseMentionedUsers } from '../models/SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUser';
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
@@ -221,6 +232,7 @@ import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrl
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
 import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
+import { UpdateExtraDataInMessageResponseSortedMetaarray } from '../models/UpdateExtraDataInMessageResponseSortedMetaarray';
 import { UpdateFcmPushConfigurationByIdData } from '../models/UpdateFcmPushConfigurationByIdData';
 import { UpdateFcmPushConfigurationByIdResponse } from '../models/UpdateFcmPushConfigurationByIdResponse';
 import { UpdateHmsPushConfigurationByIdData } from '../models/UpdateHmsPushConfigurationByIdData';
@@ -261,7 +273,6 @@ import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesRespon
 import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApiTokenByTokenResponse';
 import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
 
 import { ObservableAdvancedAnalyticsApi } from "./ObservableAPI";
 import { AdvancedAnalyticsApiRequestFactory, AdvancedAnalyticsApiResponseProcessor} from "../apis/AdvancedAnalyticsApi";
@@ -1532,7 +1543,7 @@ export class ObjectBotInterfaceApi {
      * Delete a bot
      * @param param the request object
      */
-    public deleteBotById(param: BotInterfaceApiDeleteBotByIdRequest, options?: Configuration): Promise<void> {
+    public deleteBotById(param: BotInterfaceApiDeleteBotByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteBotById(param.apiToken, param.botUserid,  options).toPromise();
     }
 
@@ -1541,7 +1552,7 @@ export class ObjectBotInterfaceApi {
      * Join channels
      * @param param the request object
      */
-    public joinChannels(param: BotInterfaceApiJoinChannelsRequest, options?: Configuration): Promise<SendBirdGroupChannelCollection> {
+    public joinChannels(param: BotInterfaceApiJoinChannelsRequest, options?: Configuration): Promise<JoinChannelsResponse> {
         return this.api.joinChannels(param.apiToken, param.botUserid, param.joinChannelsData,  options).toPromise();
     }
 
@@ -1559,7 +1570,7 @@ export class ObjectBotInterfaceApi {
      * Leave channels - When leaving a channel by its channel URL
      * @param param the request object
      */
-    public leaveChannelsByUrl(param: BotInterfaceApiLeaveChannelsByUrlRequest, options?: Configuration): Promise<void> {
+    public leaveChannelsByUrl(param: BotInterfaceApiLeaveChannelsByUrlRequest, options?: Configuration): Promise<any> {
         return this.api.leaveChannelsByUrl(param.apiToken, param.botUserid, param.channelUrl,  options).toPromise();
     }
 
@@ -2045,7 +2056,7 @@ export class ObjectEmojisApi {
      * Delete an emoji category
      * @param param the request object
      */
-    public deleteEmojiCategoryById(param: EmojisApiDeleteEmojiCategoryByIdRequest, options?: Configuration): Promise<void> {
+    public deleteEmojiCategoryById(param: EmojisApiDeleteEmojiCategoryByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteEmojiCategoryById(param.apiToken, param.emojiCategoryId,  options).toPromise();
     }
 
@@ -3080,7 +3091,7 @@ export class ObjectGroupChannelApi {
      * Cancel the registration of operators
      * @param param the request object
      */
-    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<void> {
+    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcCancelTheRegistrationOfOperators(param.apiToken, param.channelUrl, param.operatorIds, param.deleteAll,  options).toPromise();
     }
 
@@ -3107,7 +3118,7 @@ export class ObjectGroupChannelApi {
      * Decline an invitation
      * @param param the request object
      */
-    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<void> {
+    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcDeclineInvitation(param.apiToken, param.channelUrl, param.gcDeclineInvitationData,  options).toPromise();
     }
 
@@ -3116,7 +3127,7 @@ export class ObjectGroupChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<void> {
+    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
     }
 
@@ -3134,7 +3145,7 @@ export class ObjectGroupChannelApi {
      * Hide or archive a channel
      * @param param the request object
      */
-    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<void> {
+    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcHideOrArchiveChannel(param.apiToken, param.channelUrl, param.gcHideOrArchiveChannelData,  options).toPromise();
     }
 
@@ -3161,7 +3172,7 @@ export class ObjectGroupChannelApi {
      * Leave a channel
      * @param param the request object
      */
-    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<void> {
+    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcLeaveChannel(param.apiToken, param.channelUrl, param.gcLeaveChannelData,  options).toPromise();
     }
 
@@ -3233,7 +3244,7 @@ export class ObjectGroupChannelApi {
      * Reset chat history
      * @param param the request object
      */
-    public gcResetChatHistory(param: GroupChannelApiGcResetChatHistoryRequest, options?: Configuration): Promise<void> {
+    public gcResetChatHistory(param: GroupChannelApiGcResetChatHistoryRequest, options?: Configuration): Promise<GcResetChatHistoryResponse> {
         return this.api.gcResetChatHistory(param.apiToken, param.channelUrl, param.gcResetChatHistoryData,  options).toPromise();
     }
 
@@ -3242,7 +3253,7 @@ export class ObjectGroupChannelApi {
      * Unban a user
      * @param param the request object
      */
-    public gcUnbanUserById(param: GroupChannelApiGcUnbanUserByIdRequest, options?: Configuration): Promise<void> {
+    public gcUnbanUserById(param: GroupChannelApiGcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -3251,7 +3262,7 @@ export class ObjectGroupChannelApi {
      * Unhide or unarchive a channel
      * @param param the request object
      */
-    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<void> {
+    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcUnhideOrUnarchiveChannel(param.apiToken, param.channelUrl, param.userId, param.shouldUnhideAll,  options).toPromise();
     }
 
@@ -3260,7 +3271,7 @@ export class ObjectGroupChannelApi {
      * Unmute a user
      * @param param the request object
      */
-    public gcUnmuteUserById(param: GroupChannelApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<void> {
+    public gcUnmuteUserById(param: GroupChannelApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.gcUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
     }
 
@@ -3269,7 +3280,7 @@ export class ObjectGroupChannelApi {
      * Update a ban
      * @param param the request object
      */
-    public gcUpdateBanById(param: GroupChannelApiGcUpdateBanByIdRequest, options?: Configuration): Promise<SendBirdUser> {
+    public gcUpdateBanById(param: GroupChannelApiGcUpdateBanByIdRequest, options?: Configuration): Promise<GcUpdateBanByIdResponse> {
         return this.api.gcUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.gcUpdateBanByIdData,  options).toPromise();
     }
 
@@ -3287,7 +3298,7 @@ export class ObjectGroupChannelApi {
      * View a ban
      * @param param the request object
      */
-    public gcViewBanById(param: GroupChannelApiGcViewBanByIdRequest, options?: Configuration): Promise<SendBirdUser> {
+    public gcViewBanById(param: GroupChannelApiGcViewBanByIdRequest, options?: Configuration): Promise<GcViewBanByIdResponse> {
         return this.api.gcViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -3920,7 +3931,7 @@ export class ObjectMessagesApi {
      * Delete a message
      * @param param the request object
      */
-    public deleteMessageById(param: MessagesApiDeleteMessageByIdRequest, options?: Configuration): Promise<void> {
+    public deleteMessageById(param: MessagesApiDeleteMessageByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId,  options).toPromise();
     }
 
@@ -3938,7 +3949,7 @@ export class ObjectMessagesApi {
      * Mark all messages as read
      * @param param the request object
      */
-    public gcMarkAllMessagesAsRead(param: MessagesApiGcMarkAllMessagesAsReadRequest, options?: Configuration): Promise<void> {
+    public gcMarkAllMessagesAsRead(param: MessagesApiGcMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
         return this.api.gcMarkAllMessagesAsRead(param.apiToken, param.channelUrl, param.gcMarkAllMessagesAsReadData,  options).toPromise();
     }
 
@@ -3974,7 +3985,7 @@ export class ObjectMessagesApi {
      * Remove extra data from a message
      * @param param the request object
      */
-    public removeExtraDataFromMessage(param: MessagesApiRemoveExtraDataFromMessageRequest, options?: Configuration): Promise<void> {
+    public removeExtraDataFromMessage(param: MessagesApiRemoveExtraDataFromMessageRequest, options?: Configuration): Promise<any> {
         return this.api.removeExtraDataFromMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.keys,  options).toPromise();
     }
 
@@ -4580,7 +4591,7 @@ export class ObjectOpenChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<void> {
+    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.ocDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
     }
 
@@ -4652,7 +4663,7 @@ export class ObjectOpenChannelApi {
      * Register operators
      * @param param the request object
      */
-    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<void> {
+    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.ocRegisterOperators(param.apiToken, param.channelUrl, param.ocRegisterOperatorsData,  options).toPromise();
     }
 
@@ -4661,7 +4672,7 @@ export class ObjectOpenChannelApi {
      * Unban a user
      * @param param the request object
      */
-    public ocUnbanUserById(param: OpenChannelApiOcUnbanUserByIdRequest, options?: Configuration): Promise<void> {
+    public ocUnbanUserById(param: OpenChannelApiOcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.ocUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -4670,7 +4681,7 @@ export class ObjectOpenChannelApi {
      * Unmute a user
      * @param param the request object
      */
-    public ocUnmuteUserById(param: OpenChannelApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<void> {
+    public ocUnmuteUserById(param: OpenChannelApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
         return this.api.ocUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
     }
 
@@ -4679,7 +4690,7 @@ export class ObjectOpenChannelApi {
      * Update a ban
      * @param param the request object
      */
-    public ocUpdateBanById(param: OpenChannelApiOcUpdateBanByIdRequest, options?: Configuration): Promise<SendBirdUser> {
+    public ocUpdateBanById(param: OpenChannelApiOcUpdateBanByIdRequest, options?: Configuration): Promise<OcUpdateBanByIdResponse> {
         return this.api.ocUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.ocUpdateBanByIdData,  options).toPromise();
     }
 
@@ -4697,7 +4708,7 @@ export class ObjectOpenChannelApi {
      * View a ban
      * @param param the request object
      */
-    public ocViewBanById(param: OpenChannelApiOcViewBanByIdRequest, options?: Configuration): Promise<SendBirdUser> {
+    public ocViewBanById(param: OpenChannelApiOcViewBanByIdRequest, options?: Configuration): Promise<OcViewBanByIdResponse> {
         return this.api.ocViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -6155,7 +6166,7 @@ export class ObjectUserApi {
      * Ban from channels with custom channel types
      * @param param the request object
      */
-    public banFromChannelsWithCustomChannelTypes(param: UserApiBanFromChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<void> {
+    public banFromChannelsWithCustomChannelTypes(param: UserApiBanFromChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
         return this.api.banFromChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.banFromChannelsWithCustomChannelTypesData,  options).toPromise();
     }
 
@@ -6164,7 +6175,7 @@ export class ObjectUserApi {
      * Block a user
      * @param param the request object
      */
-    public blockUser(param: UserApiBlockUserRequest, options?: Configuration): Promise<SendBirdUser> {
+    public blockUser(param: UserApiBlockUserRequest, options?: Configuration): Promise<BlockUserResponse> {
         return this.api.blockUser(param.apiToken, param.userId, param.blockUserData,  options).toPromise();
     }
 
@@ -6191,7 +6202,7 @@ export class ObjectUserApi {
      * Delete a user
      * @param param the request object
      */
-    public deleteUserById(param: UserApiDeleteUserByIdRequest, options?: Configuration): Promise<void> {
+    public deleteUserById(param: UserApiDeleteUserByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteUserById(param.apiToken, param.userId,  options).toPromise();
     }
 
@@ -6200,7 +6211,7 @@ export class ObjectUserApi {
      * Leave my group channels
      * @param param the request object
      */
-    public leaveMyGroupChannels(param: UserApiLeaveMyGroupChannelsRequest, options?: Configuration): Promise<void> {
+    public leaveMyGroupChannels(param: UserApiLeaveMyGroupChannelsRequest, options?: Configuration): Promise<any> {
         return this.api.leaveMyGroupChannels(param.apiToken, param.userId, param.leaveMyGroupChannelsData,  options).toPromise();
     }
 
@@ -6263,7 +6274,7 @@ export class ObjectUserApi {
      * Mark all messages as read
      * @param param the request object
      */
-    public markAllMessagesAsRead(param: UserApiMarkAllMessagesAsReadRequest, options?: Configuration): Promise<void> {
+    public markAllMessagesAsRead(param: UserApiMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
         return this.api.markAllMessagesAsRead(param.apiToken, param.userId, param.markAllMessagesAsReadData,  options).toPromise();
     }
 
@@ -6272,7 +6283,7 @@ export class ObjectUserApi {
      * Mute in channels with custom channel types
      * @param param the request object
      */
-    public muteInChannelsWithCustomChannelTypes(param: UserApiMuteInChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<void> {
+    public muteInChannelsWithCustomChannelTypes(param: UserApiMuteInChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
         return this.api.muteInChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.muteInChannelsWithCustomChannelTypesData,  options).toPromise();
     }
 
@@ -6281,7 +6292,7 @@ export class ObjectUserApi {
      * Register as an operator to channels with custom channel types
      * @param param the request object
      */
-    public registerAsOperatorToChannelsWithCustomChannelTypes(param: UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<void> {
+    public registerAsOperatorToChannelsWithCustomChannelTypes(param: UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
         return this.api.registerAsOperatorToChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.registerAsOperatorToChannelsWithCustomChannelTypesData,  options).toPromise();
     }
 
@@ -6317,7 +6328,7 @@ export class ObjectUserApi {
      * Reset push preferences
      * @param param the request object
      */
-    public resetPushPreferences(param: UserApiResetPushPreferencesRequest, options?: Configuration): Promise<void> {
+    public resetPushPreferences(param: UserApiResetPushPreferencesRequest, options?: Configuration): Promise<ResetPushPreferencesResponse> {
         return this.api.resetPushPreferences(param.apiToken, param.userId,  options).toPromise();
     }
 
@@ -6326,7 +6337,7 @@ export class ObjectUserApi {
      * Unblock a user
      * @param param the request object
      */
-    public unblockUserById(param: UserApiUnblockUserByIdRequest, options?: Configuration): Promise<void> {
+    public unblockUserById(param: UserApiUnblockUserByIdRequest, options?: Configuration): Promise<any> {
         return this.api.unblockUserById(param.apiToken, param.userId, param.targetId,  options).toPromise();
     }
 
@@ -6461,7 +6472,7 @@ export class ObjectUserApi {
      * View who owns a registration or device token
      * @param param the request object
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<Array<any>> {
         return this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(param.apiToken, param.tokenType, param.token,  options).toPromise();
     }
 

@@ -10,22 +10,31 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
+import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from './SendBirdMember';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class SendBirdGroupChannel {
+    'channelUrl'?: string;
     'coverUrl'?: string;
     'createdAt'?: number;
+    'createdBy'?: SendBirdGroupChannelCreatedBy;
     'creator'?: SendBirdUser;
     'customType'?: string;
     'data'?: string;
+    'disappearingMessage'?: SendBirdGroupChannelDisappearingMessage;
+    'freeze'?: boolean;
+    'ignoreProfanityFilter'?: boolean;
     'hiddenState'?: SendBirdGroupChannelHiddenStateEnum;
     'invitedAt'?: number;
     'inviter'?: SendBirdUser;
     'isAccessCodeRequired'?: boolean;
     'isBroadcast'?: boolean;
+    'isCreated'?: boolean;
     'isDiscoverable'?: boolean;
     'isDistinct'?: boolean;
     'isEphemeral'?: boolean;
@@ -37,6 +46,7 @@ export class SendBirdGroupChannel {
     'joinedAt'?: number;
     'joinedMemberCount'?: number;
     'lastMessage'?: SendBirdMessageResponse;
+    'maxLengthMessage'?: number;
     'memberCount'?: number;
     'members'?: Array<SendBirdMember>;
     'messageOffsetTimestamp'?: number;
@@ -48,13 +58,20 @@ export class SendBirdGroupChannel {
     'myPushTriggerOption'?: SendBirdGroupChannelMyPushTriggerOptionEnum;
     'myRole'?: SendBirdGroupChannelMyRoleEnum;
     'name'?: string;
+    'operators'?: Array<string>;
+    'smsFallback'?: SendBirdGroupChannelSmsFallback;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
-    'channelUrl'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "channelUrl",
+            "baseName": "channel_url",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "coverUrl",
             "baseName": "cover_url",
@@ -65,6 +82,12 @@ export class SendBirdGroupChannel {
             "name": "createdAt",
             "baseName": "created_at",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "createdBy",
+            "baseName": "created_by",
+            "type": "SendBirdGroupChannelCreatedBy",
             "format": ""
         },
         {
@@ -83,6 +106,24 @@ export class SendBirdGroupChannel {
             "name": "data",
             "baseName": "data",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "disappearingMessage",
+            "baseName": "disappearing_message",
+            "type": "SendBirdGroupChannelDisappearingMessage",
+            "format": ""
+        },
+        {
+            "name": "freeze",
+            "baseName": "freeze",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "ignoreProfanityFilter",
+            "baseName": "ignore_profanity_filter",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -112,6 +153,12 @@ export class SendBirdGroupChannel {
         {
             "name": "isBroadcast",
             "baseName": "is_broadcast",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isCreated",
+            "baseName": "is_created",
             "type": "boolean",
             "format": ""
         },
@@ -182,6 +229,12 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
+            "name": "maxLengthMessage",
+            "baseName": "max_length_message",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "memberCount",
             "baseName": "member_count",
             "type": "number",
@@ -248,6 +301,18 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
+            "name": "operators",
+            "baseName": "operators",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "smsFallback",
+            "baseName": "sms_fallback",
+            "type": "SendBirdGroupChannelSmsFallback",
+            "format": ""
+        },
+        {
             "name": "unreadMentionCount",
             "baseName": "unread_mention_count",
             "type": "number",
@@ -257,12 +322,6 @@ export class SendBirdGroupChannel {
             "name": "unreadMessageCount",
             "baseName": "unread_message_count",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "channelUrl",
-            "baseName": "channel_url",
-            "type": "string",
             "format": ""
         }    ];
 

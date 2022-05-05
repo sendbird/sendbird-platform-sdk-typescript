@@ -18,6 +18,7 @@ export class AddReactionToAMessageResponse {
     'success'?: boolean;
     'reaction'?: string;
     'updatedAt'?: number;
+    'msgId'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -49,6 +50,12 @@ export class AddReactionToAMessageResponse {
         {
             "name": "updatedAt",
             "baseName": "updated_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "msgId",
+            "baseName": "msg_id",
             "type": "number",
             "format": ""
         }    ];

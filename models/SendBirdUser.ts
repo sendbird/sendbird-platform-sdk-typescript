@@ -17,38 +17,61 @@ import { HttpFile } from '../http/http';
 * User
 */
 export class SendBirdUser {
-    'connectionStatus'?: string;
-    'friendDiscoveryKey'?: string;
-    'friendName'?: string;
+    'requireAuthForProfileImage'?: boolean;
+    'isOnline'?: boolean;
+    'userId'?: string;
+    'accessToken'?: string;
+    'hasEverLoggedIn'?: boolean;
     'isActive'?: boolean;
     'lastSeenAt'?: number;
-    'metaData'?: SBObject;
     'nickname'?: string;
-    'plainProfileUrl'?: string;
+    'discoveryKeys'?: Array<string>;
+    'sessionTokens'?: Array<string>;
     'preferredLanguages'?: Array<string>;
     'profileUrl'?: string;
-    'requireAuth'?: boolean;
-    'userId'?: string;
+    'createdAt'?: number;
+    'phoneNumber'?: string;
+    'local'?: string;
+    'locale'?: string;
+    'isHideMeFromFriends'?: boolean;
+    'isShadowBlocked'?: boolean;
+    'isCreated'?: boolean;
+    'metadata'?: SBObject;
+    'description'?: string;
+    'endAt'?: number;
+    'startAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "connectionStatus",
-            "baseName": "connection_status",
+            "name": "requireAuthForProfileImage",
+            "baseName": "require_auth_for_profile_image",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isOnline",
+            "baseName": "is_online",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "user_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "friendDiscoveryKey",
-            "baseName": "friend_discovery_key",
+            "name": "accessToken",
+            "baseName": "access_token",
             "type": "string",
             "format": ""
         },
         {
-            "name": "friendName",
-            "baseName": "friend_name",
-            "type": "string",
+            "name": "hasEverLoggedIn",
+            "baseName": "has_ever_logged_in",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -64,21 +87,21 @@ export class SendBirdUser {
             "format": ""
         },
         {
-            "name": "metaData",
-            "baseName": "meta_data",
-            "type": "SBObject",
-            "format": ""
-        },
-        {
             "name": "nickname",
             "baseName": "nickname",
             "type": "string",
             "format": ""
         },
         {
-            "name": "plainProfileUrl",
-            "baseName": "plain_profile_url",
-            "type": "string",
+            "name": "discoveryKeys",
+            "baseName": "discovery_keys",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "sessionTokens",
+            "baseName": "session_tokens",
+            "type": "Array<string>",
             "format": ""
         },
         {
@@ -94,15 +117,69 @@ export class SendBirdUser {
             "format": ""
         },
         {
-            "name": "requireAuth",
-            "baseName": "require_auth",
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "phoneNumber",
+            "baseName": "phone_number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "local",
+            "baseName": "local",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "locale",
+            "baseName": "locale",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isHideMeFromFriends",
+            "baseName": "is_hide_me_from_friends",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "userId",
-            "baseName": "user_id",
+            "name": "isShadowBlocked",
+            "baseName": "is_shadow_blocked",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isCreated",
+            "baseName": "is_created",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "SBObject",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "endAt",
+            "baseName": "end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "startAt",
+            "baseName": "start_at",
+            "type": "number",
             "format": ""
         }    ];
 

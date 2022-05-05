@@ -10,30 +10,45 @@
  * Do not edit the class manually.
  */
 
+import { InlineResponse200 } from './InlineResponse200';
 import { HttpFile } from '../http/http';
 
-export class ListAnnouncementGroupsResponse {
-    'announcementGroups'?: Array<string>;
-    'next'?: string;
+export class SendBirdMessageResponseMentionedUsers {
+    'userId'?: string;
+    'nickname'?: string;
+    'profileUrl'?: string;
+    'metadata'?: InlineResponse200;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "announcementGroups",
-            "baseName": "announcement_groups",
-            "type": "Array<string>",
+            "name": "userId",
+            "baseName": "user_id",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "next",
-            "baseName": "next",
+            "name": "nickname",
+            "baseName": "nickname",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "profileUrl",
+            "baseName": "profile_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "InlineResponse200",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListAnnouncementGroupsResponse.attributeTypeMap;
+        return SendBirdMessageResponseMentionedUsers.attributeTypeMap;
     }
 
     public constructor() {

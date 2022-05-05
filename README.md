@@ -79,34 +79,4 @@ This SDK supports the following platform interfaces:
 | User | [docs/UserApi.md](UserApi.md)  |
 | Webhooks | [docs/UserApi.md](WebhooksApi.md)  |
 
-# 👀 Examples
 
-### User Management
-
-TODO
-
-### Authentication
-
-TODO
-
-### Authentication
-
-TODO
-
-### Unread counts
-
-TODO
-
-### Scheduling Announcements
-
-TODO
-
-### Channel Automation
-
-TODO
-
-### Automatic Message
-
-TODO
-
-# 🙄 Gotchas

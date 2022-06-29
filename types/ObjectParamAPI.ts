@@ -24,6 +24,7 @@ import { AddReactionToAMessageResponse } from '../models/AddReactionToAMessageRe
 import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDeviceTokenData';
 import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
+import { BanUsersInChannelsWithCustomChannelTypeData } from '../models/BanUsersInChannelsWithCustomChannelTypeData';
 import { Blob } from '../models/Blob';
 import { BlockUserData } from '../models/BlockUserData';
 import { BlockUserResponse } from '../models/BlockUserResponse';
@@ -40,6 +41,7 @@ import { CreateChannelMetadataResponse } from '../models/CreateChannelMetadataRe
 import { CreateUserData } from '../models/CreateUserData';
 import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
 import { CreateUserMetadataResponse } from '../models/CreateUserMetadataResponse';
+import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
 import { EnableReactionsData } from '../models/EnableReactionsData';
@@ -86,6 +88,7 @@ import { GetStatisticsDailyResponseStatistics } from '../models/GetStatisticsDai
 import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
 import { InlineResponse200 } from '../models/InlineResponse200';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
@@ -132,6 +135,7 @@ import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
 import { ModelFile } from '../models/ModelFile';
 import { MuteInChannelsWithCustomChannelTypesData } from '../models/MuteInChannelsWithCustomChannelTypesData';
+import { MuteUsersInChannelsWithCustomChannelTypeData } from '../models/MuteUsersInChannelsWithCustomChannelTypeData';
 import { OcBanUserData } from '../models/OcBanUserData';
 import { OcBanUserResponse } from '../models/OcBanUserResponse';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
@@ -213,6 +217,7 @@ import { SendBirdUser } from '../models/SendBirdUser';
 import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { SendMessageData } from '../models/SendMessageData';
+import { SetDomainFilterData } from '../models/SetDomainFilterData';
 import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
 import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
 import { UpdateAnnouncementByIdResponseMessage } from '../models/UpdateAnnouncementByIdResponseMessage';
@@ -249,6 +254,13 @@ import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
 import { UpdateUserMetadataResponse } from '../models/UpdateUserMetadataResponse';
 import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
 import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
+import { V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList } from '../models/V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList';
+import { V3ApplicationsSettingsGlobalCustomTypeDomainFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeDomainFilter';
+import { V3ApplicationsSettingsGlobalCustomTypeImageModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModeration';
+import { V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits';
+import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilter';
+import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters';
+import { V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration';
 import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
@@ -274,299 +286,104 @@ import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApi
 import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
 
-import { ObservableAdvancedAnalyticsApi } from "./ObservableAPI";
-import { AdvancedAnalyticsApiRequestFactory, AdvancedAnalyticsApiResponseProcessor} from "../apis/AdvancedAnalyticsApi";
+import { ObservableAnnouncementApi } from "./ObservableAPI";
+import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
 
-export interface AdvancedAnalyticsApiRetrieveAdvancedAnalyticsMetricsRequest {
+export interface AnnouncementApiGetDetailedOpenRateOfAnnouncementByIdRequest {
     /**
      * 
      * @type string
-     * @memberof AdvancedAnalyticsApiretrieveAdvancedAnalyticsMetrics
-     */
-    apiToken: string
-}
-
-export class ObjectAdvancedAnalyticsApi {
-    private api: ObservableAdvancedAnalyticsApi
-
-    public constructor(configuration: Configuration, requestFactory?: AdvancedAnalyticsApiRequestFactory, responseProcessor?: AdvancedAnalyticsApiResponseProcessor) {
-        this.api = new ObservableAdvancedAnalyticsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Retrieve Advanced analytics metrics  Retrieves Advanced analytics metrics based on the specified parameters. You can retrieve either daily or monthly metrics using the time_dimension parameter.  >__Note__: Daily metrics are calculated and updated every three hours, starting at 1 a.m. in UTC. Meanwhile, monthly metrics are calculated after the last day of the month.  https://sendbird.com/docs/chat/v3/platform-api/guides/advanced-analytics#2-retrieve-advanced-analytics-metrics ----------------------------
-     * Retrieve Advanced analytics metrics
-     * @param param the request object
-     */
-    public retrieveAdvancedAnalyticsMetrics(param: AdvancedAnalyticsApiRetrieveAdvancedAnalyticsMetricsRequest, options?: Configuration): Promise<RetrieveAdvancedAnalyticsMetricsResponse> {
-        return this.api.retrieveAdvancedAnalyticsMetrics(param.apiToken,  options).toPromise();
-    }
-
-}
-
-import { ObservableAnnouncementsApi } from "./ObservableAPI";
-import { AnnouncementsApiRequestFactory, AnnouncementsApiResponseProcessor} from "../apis/AnnouncementsApi";
-
-export interface AnnouncementsApiGetDetailedOpenRateOfAnnouncementByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetDetailedOpenRateOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenRateOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementById
      */
     uniqueId: string
 }
 
-export interface AnnouncementsApiGetDetailedOpenRateOfAnnouncementGroupRequest {
+export interface AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest {
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenRateOfAnnouncementGroup
+     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementGroup
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenRateOfAnnouncementGroup
+     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementGroup
      */
     announcementGroup: string
 }
 
-export interface AnnouncementsApiGetDetailedOpenStatusOfAnnouncementByIdRequest {
+export interface AnnouncementApiGetDetailedOpenStatusOfAnnouncementByIdRequest {
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     uniqueId: string
     /**
      * 
      * @type number
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     limit?: number
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     next?: string
     /**
      * 
      * @type Array&lt;string&gt;
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     uniqueIds?: Array<string>
     /**
      * 
      * @type Array&lt;string&gt;
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     channelUrls?: Array<string>
     /**
      * 
      * @type boolean
-     * @memberof AnnouncementsApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
      */
     hasOpened?: boolean
 }
 
-export interface AnnouncementsApiGetStatisticsRequest {
+export interface AnnouncementApiViewAnnouncementByIdRequest {
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetStatistics
-     */
-    apiToken: string
-}
-
-export interface AnnouncementsApiGetStatisticsDailyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
+     * @memberof AnnouncementApiviewAnnouncementById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    startDate: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    endDate: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    startWeek: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    endWeek: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    startMonth: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    endMonth: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsDaily
-     */
-    announcementGroup?: string
-}
-
-export interface AnnouncementsApiGetStatisticsMonthlyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApigetStatisticsMonthly
-     */
-    apiToken: string
-}
-
-export interface AnnouncementsApiListAnnouncementGroupsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncementGroups
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncementGroups
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof AnnouncementsApilistAnnouncementGroups
-     */
-    limit?: number
-}
-
-export interface AnnouncementsApiListAnnouncementsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    limit?: number
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    order?: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    status?: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApilistAnnouncements
-     */
-    announcementGroup?: string
-}
-
-export interface AnnouncementsApiScheduleAnnouncementRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApischeduleAnnouncement
-     */
-    apiToken: string
-    /**
-     * 
-     * @type ScheduleAnnouncementData
-     * @memberof AnnouncementsApischeduleAnnouncement
-     */
-    scheduleAnnouncementData?: ScheduleAnnouncementData
-}
-
-export interface AnnouncementsApiUpdateAnnouncementByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApiupdateAnnouncementById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApiupdateAnnouncementById
-     */
-    uniqueId: string
-    /**
-     * 
-     * @type UpdateAnnouncementByIdData
-     * @memberof AnnouncementsApiupdateAnnouncementById
-     */
-    updateAnnouncementByIdData?: UpdateAnnouncementByIdData
-}
-
-export interface AnnouncementsApiViewAnnouncementByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApiviewAnnouncementById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementsApiviewAnnouncementById
+     * @memberof AnnouncementApiviewAnnouncementById
      */
     uniqueId: string
 }
 
-export class ObjectAnnouncementsApi {
-    private api: ObservableAnnouncementsApi
+export class ObjectAnnouncementApi {
+    private api: ObservableAnnouncementApi
 
-    public constructor(configuration: Configuration, requestFactory?: AnnouncementsApiRequestFactory, responseProcessor?: AnnouncementsApiResponseProcessor) {
-        this.api = new ObservableAnnouncementsApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: AnnouncementApiRequestFactory, responseProcessor?: AnnouncementApiResponseProcessor) {
+        this.api = new ObservableAnnouncementApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
@@ -574,7 +391,7 @@ export class ObjectAnnouncementsApi {
      * Get detailed open rate of an announcement
      * @param param the request object
      */
-    public getDetailedOpenRateOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
+    public getDetailedOpenRateOfAnnouncementById(param: AnnouncementApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
         return this.api.getDetailedOpenRateOfAnnouncementById(param.apiToken, param.uniqueId,  options).toPromise();
     }
 
@@ -583,7 +400,7 @@ export class ObjectAnnouncementsApi {
      * Get detailed open rate of an announcement group
      * @param param the request object
      */
-    public getDetailedOpenRateOfAnnouncementGroup(param: AnnouncementsApiGetDetailedOpenRateOfAnnouncementGroupRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementGroupResponse> {
+    public getDetailedOpenRateOfAnnouncementGroup(param: AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementGroupResponse> {
         return this.api.getDetailedOpenRateOfAnnouncementGroup(param.apiToken, param.announcementGroup,  options).toPromise();
     }
 
@@ -592,71 +409,8 @@ export class ObjectAnnouncementsApi {
      * Get detailed open status of an announcement
      * @param param the request object
      */
-    public getDetailedOpenStatusOfAnnouncementById(param: AnnouncementsApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
+    public getDetailedOpenStatusOfAnnouncementById(param: AnnouncementApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
         return this.api.getDetailedOpenStatusOfAnnouncementById(param.apiToken, param.uniqueId, param.limit, param.next, param.uniqueIds, param.channelUrls, param.hasOpened,  options).toPromise();
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - weekly
-     * @param param the request object
-     */
-    public getStatistics(param: AnnouncementsApiGetStatisticsRequest, options?: Configuration): Promise<GetStatisticsResponse> {
-        return this.api.getStatistics(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - daily
-     * @param param the request object
-     */
-    public getStatisticsDaily(param: AnnouncementsApiGetStatisticsDailyRequest, options?: Configuration): Promise<GetStatisticsDailyResponse> {
-        return this.api.getStatisticsDaily(param.apiToken, param.startDate, param.endDate, param.startWeek, param.endWeek, param.startMonth, param.endMonth, param.announcementGroup,  options).toPromise();
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - monthly
-     * @param param the request object
-     */
-    public getStatisticsMonthly(param: AnnouncementsApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
-        return this.api.getStatisticsMonthly(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
-     * List announcement groups
-     * @param param the request object
-     */
-    public listAnnouncementGroups(param: AnnouncementsApiListAnnouncementGroupsRequest, options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
-        return this.api.listAnnouncementGroups(param.apiToken, param.token, param.limit,  options).toPromise();
-    }
-
-    /**
-     * ## List announcements  Retrieves a list of announcements.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcements ----------------------------
-     * List announcements
-     * @param param the request object
-     */
-    public listAnnouncements(param: AnnouncementsApiListAnnouncementsRequest, options?: Configuration): Promise<ListAnnouncementsResponse> {
-        return this.api.listAnnouncements(param.apiToken, param.token, param.limit, param.order, param.status, param.announcementGroup,  options).toPromise();
-    }
-
-    /**
-     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
-     * Schedule an announcement
-     * @param param the request object
-     */
-    public scheduleAnnouncement(param: AnnouncementsApiScheduleAnnouncementRequest, options?: Configuration): Promise<ScheduleAnnouncementResponse> {
-        return this.api.scheduleAnnouncement(param.apiToken, param.scheduleAnnouncementData,  options).toPromise();
-    }
-
-    /**
-     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
-     * Update an announcement
-     * @param param the request object
-     */
-    public updateAnnouncementById(param: AnnouncementsApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
-        return this.api.updateAnnouncementById(param.apiToken, param.uniqueId, param.updateAnnouncementByIdData,  options).toPromise();
     }
 
     /**
@@ -664,7 +418,7 @@ export class ObjectAnnouncementsApi {
      * View an announcement
      * @param param the request object
      */
-    public viewAnnouncementById(param: AnnouncementsApiViewAnnouncementByIdRequest, options?: Configuration): Promise<ViewAnnouncementByIdResponse> {
+    public viewAnnouncementById(param: AnnouncementApiViewAnnouncementByIdRequest, options?: Configuration): Promise<ViewAnnouncementByIdResponse> {
         return this.api.viewAnnouncementById(param.apiToken, param.uniqueId,  options).toPromise();
     }
 
@@ -733,6 +487,27 @@ export interface ApplicationApiAddIpToWhitelistRequest {
     addIpToWhitelistData?: AddIpToWhitelistData
 }
 
+export interface ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApibanUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApibanUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type BanUsersInChannelsWithCustomChannelTypeData
+     * @memberof ApplicationApibanUsersInChannelsWithCustomChannelType
+     */
+    banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData
+}
+
 export interface ApplicationApiDeleteAllowedIpsFromWhitelistRequest {
     /**
      * 
@@ -778,6 +553,60 @@ export interface ApplicationApiGenerateSecondaryApiTokenRequest {
     generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData
 }
 
+export interface ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistBannedUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistBannedUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistBannedUsersInChannelsWithCustomChannelType
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ApplicationApilistBannedUsersInChannelsWithCustomChannelType
+     */
+    limit?: number
+}
+
+export interface ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistMutedUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistMutedUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistMutedUsersInChannelsWithCustomChannelType
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ApplicationApilistMutedUsersInChannelsWithCustomChannelType
+     */
+    limit?: number
+}
+
 export interface ApplicationApiListPushConfigurationsRequest {
     /**
      * 
@@ -809,6 +638,27 @@ export interface ApplicationApiListSecondaryApiTokensRequest {
      * @memberof ApplicationApilistSecondaryApiTokens
      */
     apiToken: string
+}
+
+export interface ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApimuteUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApimuteUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type MuteUsersInChannelsWithCustomChannelTypeData
+     * @memberof ApplicationApimuteUsersInChannelsWithCustomChannelType
+     */
+    muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData
 }
 
 export interface ApplicationApiRemovePushConfigurationByIdRequest {
@@ -854,6 +704,69 @@ export interface ApplicationApiRevokeSecondaryApiTokenByTokenRequest {
      * @memberof ApplicationApirevokeSecondaryApiTokenByToken
      */
     apiToken2: string
+}
+
+export interface ApplicationApiSetDomainFilterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApisetDomainFilter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApisetDomainFilter
+     */
+    customType: string
+    /**
+     * 
+     * @type SetDomainFilterData
+     * @memberof ApplicationApisetDomainFilter
+     */
+    setDomainFilterData?: SetDomainFilterData
+}
+
+export interface ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApiunbanUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApiunbanUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof ApplicationApiunbanUsersInChannelsWithCustomChannelType
+     */
+    userIds: Array<string>
+}
+
+export interface ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApiunmuteUsersInChannelsWithCustomChannelType
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApiunmuteUsersInChannelsWithCustomChannelType
+     */
+    customType: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof ApplicationApiunmuteUsersInChannelsWithCustomChannelType
+     */
+    userIds: Array<string>
 }
 
 export interface ApplicationApiUpdateApnsPushConfigurationByIdRequest {
@@ -964,96 +877,6 @@ export interface ApplicationApiViewDefaultChannelInvitationPreferenceRequest {
     apiToken: string
 }
 
-export interface ApplicationApiViewNumberOfConcurrentConnectionsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfConcurrentConnections
-     */
-    apiToken: string
-}
-
-export interface ApplicationApiViewNumberOfDailyActiveUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfDailyActiveUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfDailyActiveUsers
-     */
-    date?: string
-}
-
-export interface ApplicationApiViewNumberOfMonthlyActiveUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfMonthlyActiveUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfMonthlyActiveUsers
-     */
-    date?: string
-}
-
-export interface ApplicationApiViewNumberOfPeakConnectionsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    timeDimension: string
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    startYear: number
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    startMonth: number
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    endYear: number
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    endMonth: number
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    startDay?: number
-    /**
-     * 
-     * @type number
-     * @memberof ApplicationApiviewNumberOfPeakConnections
-     */
-    endDay?: number
-}
-
 export interface ApplicationApiViewPushConfigurationByIdRequest {
     /**
      * 
@@ -1149,6 +972,15 @@ export class ObjectApplicationApi {
     }
 
     /**
+     * ## Ban specified users in channels with a custom channel type at once.
+     * Ban users in channels with a custom channel type
+     * @param param the request object
+     */
+    public banUsersInChannelsWithCustomChannelType(param: ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<any> {
+        return this.api.banUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.banUsersInChannelsWithCustomChannelTypeData,  options).toPromise();
+    }
+
+    /**
      * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
      * Delete allowed IPs from a whitelist
      * @param param the request object
@@ -1173,6 +1005,24 @@ export class ObjectApplicationApi {
      */
     public generateSecondaryApiToken(param: ApplicationApiGenerateSecondaryApiTokenRequest, options?: Configuration): Promise<GenerateSecondaryApiTokenResponse> {
         return this.api.generateSecondaryApiToken(param.apiToken, param.generateSecondaryApiTokenData,  options).toPromise();
+    }
+
+    /**
+     * ## Retrieves a list of users banned from channels with the specified custom channel type.
+     * List banned users in channels with a custom channel type
+     * @param param the request object
+     */
+    public listBannedUsersInChannelsWithCustomChannelType(param: ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<CustomTypeListBannedUsersResponse> {
+        return this.api.listBannedUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Retrieves a list of the muted users in channels with a custom channel type.
+     * List muted users in channels with a custom channel type
+     * @param param the request object
+     */
+    public listMutedUsersInChannelsWithCustomChannelType(param: ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<InlineResponse200> {
+        return this.api.listMutedUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -1203,6 +1053,15 @@ export class ObjectApplicationApi {
     }
 
     /**
+     * ## Mutes specified users in channels with a custom channel type at once.
+     * Mute users in channels with a custom channel type
+     * @param param the request object
+     */
+    public muteUsersInChannelsWithCustomChannelType(param: ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<any> {
+        return this.api.muteUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.muteUsersInChannelsWithCustomChannelTypeData,  options).toPromise();
+    }
+
+    /**
      * ## Remove a push configuration  Removes a specific push configuration from an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-remove-a-push-configuration ----------------------------
      * Remove a push configuration
      * @param param the request object
@@ -1227,6 +1086,33 @@ export class ObjectApplicationApi {
      */
     public revokeSecondaryApiTokenByToken(param: ApplicationApiRevokeSecondaryApiTokenByTokenRequest, options?: Configuration): Promise<RevokeSecondaryApiTokenByTokenResponse> {
         return this.api.revokeSecondaryApiTokenByToken(param.apiToken, param.apiToken2,  options).toPromise();
+    }
+
+    /**
+     * ## 
+     * Message moderation
+     * @param param the request object
+     */
+    public setDomainFilter(param: ApplicationApiSetDomainFilterRequest, options?: Configuration): Promise<SendBirdChannelResponse> {
+        return this.api.setDomainFilter(param.apiToken, param.customType, param.setDomainFilterData,  options).toPromise();
+    }
+
+    /**
+     * ## Unban specified users in channels with a custom channel type at once.
+     * Unban users in channels with a custom channel type
+     * @param param the request object
+     */
+    public unbanUsersInChannelsWithCustomChannelType(param: ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<any> {
+        return this.api.unbanUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.userIds,  options).toPromise();
+    }
+
+    /**
+     * ## Unmute specified users in channels with a custom channel type at once.
+     * Unmute users in channels with a custom channel type
+     * @param param the request object
+     */
+    public unmuteUsersInChannelsWithCustomChannelType(param: ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<any> {
+        return this.api.unmuteUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.userIds,  options).toPromise();
     }
 
     /**
@@ -1284,42 +1170,6 @@ export class ObjectApplicationApi {
     }
 
     /**
-     * ## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
-     * View number of concurrent connections
-     * @param param the request object
-     */
-    public viewNumberOfConcurrentConnections(param: ApplicationApiViewNumberOfConcurrentConnectionsRequest, options?: Configuration): Promise<ViewNumberOfConcurrentConnectionsResponse> {
-        return this.api.viewNumberOfConcurrentConnections(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
-     * View number of daily active users
-     * @param param the request object
-     */
-    public viewNumberOfDailyActiveUsers(param: ApplicationApiViewNumberOfDailyActiveUsersRequest, options?: Configuration): Promise<ViewNumberOfDailyActiveUsersResponse> {
-        return this.api.viewNumberOfDailyActiveUsers(param.apiToken, param.date,  options).toPromise();
-    }
-
-    /**
-     * ## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
-     * View number of monthly active users
-     * @param param the request object
-     */
-    public viewNumberOfMonthlyActiveUsers(param: ApplicationApiViewNumberOfMonthlyActiveUsersRequest, options?: Configuration): Promise<ViewNumberOfMonthlyActiveUsersResponse> {
-        return this.api.viewNumberOfMonthlyActiveUsers(param.apiToken, param.date,  options).toPromise();
-    }
-
-    /**
-     * ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
-     * View number of peak connections
-     * @param param the request object
-     */
-    public viewNumberOfPeakConnections(param: ApplicationApiViewNumberOfPeakConnectionsRequest, options?: Configuration): Promise<ViewNumberOfPeakConnectionsResponse> {
-        return this.api.viewNumberOfPeakConnections(param.apiToken, param.timeDimension, param.startYear, param.startMonth, param.endYear, param.endMonth, param.startDay, param.endDay,  options).toPromise();
-    }
-
-    /**
      * ## View a push configuration  Retrieves a specific push configuration of an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-configuration ----------------------------
      * View a push configuration
      * @param param the request object
@@ -1348,185 +1198,185 @@ export class ObjectApplicationApi {
 
 }
 
-import { ObservableBotInterfaceApi } from "./ObservableAPI";
-import { BotInterfaceApiRequestFactory, BotInterfaceApiResponseProcessor} from "../apis/BotInterfaceApi";
+import { ObservableBotApi } from "./ObservableAPI";
+import { BotApiRequestFactory, BotApiResponseProcessor} from "../apis/BotApi";
 
-export interface BotInterfaceApiCreateBotRequest {
+export interface BotApiCreateBotRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApicreateBot
+     * @memberof BotApicreateBot
      */
     apiToken: string
     /**
      * 
      * @type CreateBotData
-     * @memberof BotInterfaceApicreateBot
+     * @memberof BotApicreateBot
      */
     createBotData?: CreateBotData
 }
 
-export interface BotInterfaceApiDeleteBotByIdRequest {
+export interface BotApiDeleteBotByIdRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApideleteBotById
+     * @memberof BotApideleteBotById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApideleteBotById
+     * @memberof BotApideleteBotById
      */
     botUserid: string
 }
 
-export interface BotInterfaceApiJoinChannelsRequest {
+export interface BotApiJoinChannelsRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApijoinChannels
+     * @memberof BotApijoinChannels
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApijoinChannels
+     * @memberof BotApijoinChannels
      */
     botUserid: string
     /**
      * 
      * @type JoinChannelsData
-     * @memberof BotInterfaceApijoinChannels
+     * @memberof BotApijoinChannels
      */
     joinChannelsData?: JoinChannelsData
 }
 
-export interface BotInterfaceApiLeaveChannelsRequest {
+export interface BotApiLeaveChannelsRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannels
+     * @memberof BotApileaveChannels
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannels
+     * @memberof BotApileaveChannels
      */
     botUserid: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannels
+     * @memberof BotApileaveChannels
      */
     channelUrl?: string
 }
 
-export interface BotInterfaceApiLeaveChannelsByUrlRequest {
+export interface BotApiLeaveChannelsByUrlRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannelsByUrl
+     * @memberof BotApileaveChannelsByUrl
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannelsByUrl
+     * @memberof BotApileaveChannelsByUrl
      */
     botUserid: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApileaveChannelsByUrl
+     * @memberof BotApileaveChannelsByUrl
      */
     channelUrl: string
 }
 
-export interface BotInterfaceApiListBotsRequest {
+export interface BotApiListBotsRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApilistBots
+     * @memberof BotApilistBots
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApilistBots
+     * @memberof BotApilistBots
      */
     token?: string
     /**
      * 
      * @type number
-     * @memberof BotInterfaceApilistBots
+     * @memberof BotApilistBots
      */
     limit?: number
 }
 
-export interface BotInterfaceApiSendBotsMessageRequest {
+export interface BotApiSendBotsMessageRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApisendBotsMessage
+     * @memberof BotApisendBotsMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApisendBotsMessage
+     * @memberof BotApisendBotsMessage
      */
     botUserid: string
     /**
      * 
      * @type SendBotSMessageData
-     * @memberof BotInterfaceApisendBotsMessage
+     * @memberof BotApisendBotsMessage
      */
     sendBotSMessageData?: SendBotSMessageData
 }
 
-export interface BotInterfaceApiUpdateBotByIdRequest {
+export interface BotApiUpdateBotByIdRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApiupdateBotById
+     * @memberof BotApiupdateBotById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApiupdateBotById
+     * @memberof BotApiupdateBotById
      */
     botUserid: string
     /**
      * 
      * @type UpdateBotByIdData
-     * @memberof BotInterfaceApiupdateBotById
+     * @memberof BotApiupdateBotById
      */
     updateBotByIdData?: UpdateBotByIdData
 }
 
-export interface BotInterfaceApiViewBotByIdRequest {
+export interface BotApiViewBotByIdRequest {
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApiviewBotById
+     * @memberof BotApiviewBotById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof BotInterfaceApiviewBotById
+     * @memberof BotApiviewBotById
      */
     botUserid: string
 }
 
-export class ObjectBotInterfaceApi {
-    private api: ObservableBotInterfaceApi
+export class ObjectBotApi {
+    private api: ObservableBotApi
 
-    public constructor(configuration: Configuration, requestFactory?: BotInterfaceApiRequestFactory, responseProcessor?: BotInterfaceApiResponseProcessor) {
-        this.api = new ObservableBotInterfaceApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: BotApiRequestFactory, responseProcessor?: BotApiResponseProcessor) {
+        this.api = new ObservableBotApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
@@ -1534,7 +1384,7 @@ export class ObjectBotInterfaceApi {
      * Create a bot
      * @param param the request object
      */
-    public createBot(param: BotInterfaceApiCreateBotRequest, options?: Configuration): Promise<CreateBotResponse> {
+    public createBot(param: BotApiCreateBotRequest, options?: Configuration): Promise<CreateBotResponse> {
         return this.api.createBot(param.apiToken, param.createBotData,  options).toPromise();
     }
 
@@ -1543,7 +1393,7 @@ export class ObjectBotInterfaceApi {
      * Delete a bot
      * @param param the request object
      */
-    public deleteBotById(param: BotInterfaceApiDeleteBotByIdRequest, options?: Configuration): Promise<any> {
+    public deleteBotById(param: BotApiDeleteBotByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteBotById(param.apiToken, param.botUserid,  options).toPromise();
     }
 
@@ -1552,7 +1402,7 @@ export class ObjectBotInterfaceApi {
      * Join channels
      * @param param the request object
      */
-    public joinChannels(param: BotInterfaceApiJoinChannelsRequest, options?: Configuration): Promise<JoinChannelsResponse> {
+    public joinChannels(param: BotApiJoinChannelsRequest, options?: Configuration): Promise<JoinChannelsResponse> {
         return this.api.joinChannels(param.apiToken, param.botUserid, param.joinChannelsData,  options).toPromise();
     }
 
@@ -1561,7 +1411,7 @@ export class ObjectBotInterfaceApi {
      * Leave channels - When leaving all channels
      * @param param the request object
      */
-    public leaveChannels(param: BotInterfaceApiLeaveChannelsRequest, options?: Configuration): Promise<void> {
+    public leaveChannels(param: BotApiLeaveChannelsRequest, options?: Configuration): Promise<void> {
         return this.api.leaveChannels(param.apiToken, param.botUserid, param.channelUrl,  options).toPromise();
     }
 
@@ -1570,7 +1420,7 @@ export class ObjectBotInterfaceApi {
      * Leave channels - When leaving a channel by its channel URL
      * @param param the request object
      */
-    public leaveChannelsByUrl(param: BotInterfaceApiLeaveChannelsByUrlRequest, options?: Configuration): Promise<any> {
+    public leaveChannelsByUrl(param: BotApiLeaveChannelsByUrlRequest, options?: Configuration): Promise<any> {
         return this.api.leaveChannelsByUrl(param.apiToken, param.botUserid, param.channelUrl,  options).toPromise();
     }
 
@@ -1579,7 +1429,7 @@ export class ObjectBotInterfaceApi {
      * List bots
      * @param param the request object
      */
-    public listBots(param: BotInterfaceApiListBotsRequest, options?: Configuration): Promise<ListBotsResponse> {
+    public listBots(param: BotApiListBotsRequest, options?: Configuration): Promise<ListBotsResponse> {
         return this.api.listBots(param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
@@ -1588,7 +1438,7 @@ export class ObjectBotInterfaceApi {
      * Send a bot's message
      * @param param the request object
      */
-    public sendBotsMessage(param: BotInterfaceApiSendBotsMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
+    public sendBotsMessage(param: BotApiSendBotsMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.sendBotsMessage(param.apiToken, param.botUserid, param.sendBotSMessageData,  options).toPromise();
     }
 
@@ -1597,7 +1447,7 @@ export class ObjectBotInterfaceApi {
      * Update a bot
      * @param param the request object
      */
-    public updateBotById(param: BotInterfaceApiUpdateBotByIdRequest, options?: Configuration): Promise<UpdateBotByIdResponse> {
+    public updateBotById(param: BotApiUpdateBotByIdRequest, options?: Configuration): Promise<UpdateBotByIdResponse> {
         return this.api.updateBotById(param.apiToken, param.botUserid, param.updateBotByIdData,  options).toPromise();
     }
 
@@ -1606,7 +1456,7 @@ export class ObjectBotInterfaceApi {
      * View a bot
      * @param param the request object
      */
-    public viewBotById(param: BotInterfaceApiViewBotByIdRequest, options?: Configuration): Promise<ViewBotByIdResponse> {
+    public viewBotById(param: BotApiViewBotByIdRequest, options?: Configuration): Promise<ViewBotByIdResponse> {
         return this.api.viewBotById(param.apiToken, param.botUserid,  options).toPromise();
     }
 
@@ -1720,420 +1570,6 @@ export class ObjectDataExportApi {
 
 }
 
-import { ObservableDataPrivacyApi } from "./ObservableAPI";
-import { DataPrivacyApiRequestFactory, DataPrivacyApiResponseProcessor} from "../apis/DataPrivacyApi";
-
-export interface DataPrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApicancelTheRegistrationOfGdprRequestById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApicancelTheRegistrationOfGdprRequestById
-     */
-    requestId: string
-}
-
-export interface DataPrivacyApiListGdprRequestsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApilistGdprRequests
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApilistGdprRequests
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof DataPrivacyApilistGdprRequests
-     */
-    limit?: number
-}
-
-export interface DataPrivacyApiRegisterGdprRequestRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApiregisterGdprRequest
-     */
-    apiToken: string
-    /**
-     * 
-     * @type RegisterGdprRequestData
-     * @memberof DataPrivacyApiregisterGdprRequest
-     */
-    registerGdprRequestData?: RegisterGdprRequestData
-}
-
-export interface DataPrivacyApiViewGdprRequestByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApiviewGdprRequestById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof DataPrivacyApiviewGdprRequestById
-     */
-    requestId: string
-}
-
-export class ObjectDataPrivacyApi {
-    private api: ObservableDataPrivacyApi
-
-    public constructor(configuration: Configuration, requestFactory?: DataPrivacyApiRequestFactory, responseProcessor?: DataPrivacyApiResponseProcessor) {
-        this.api = new ObservableDataPrivacyApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
-     * Cancel the registration of a GDPR request
-     * @param param the request object
-     */
-    public cancelTheRegistrationOfGdprRequestById(param: DataPrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest, options?: Configuration): Promise<void> {
-        return this.api.cancelTheRegistrationOfGdprRequestById(param.apiToken, param.requestId,  options).toPromise();
-    }
-
-    /**
-     * ## List GDPR requests  Retrieves a list of GDPR requests of all types.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-list-gdpr-requests ----------------------------
-     * List GDPR requests
-     * @param param the request object
-     */
-    public listGdprRequests(param: DataPrivacyApiListGdprRequestsRequest, options?: Configuration): Promise<ListGdprRequestsResponse> {
-        return this.api.listGdprRequests(param.apiToken, param.token, param.limit,  options).toPromise();
-    }
-
-    /**
-     * ## Register a GDPR request  Registers a specific type of GDPR request to meet the GDPR's requirements.  > __Note__: Currently, only delete and access of the user data are supported. The features for the [right to restriction of processing](https://gdpr-info.eu/art-18-gdpr/) and [right to object](https://gdpr-info.eu/art-21-gdpr/) will be available soon.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-register-a-gdpr-request
-     * Register a GDPR request
-     * @param param the request object
-     */
-    public registerGdprRequest(param: DataPrivacyApiRegisterGdprRequestRequest, options?: Configuration): Promise<RegisterGdprRequestResponse> {
-        return this.api.registerGdprRequest(param.apiToken, param.registerGdprRequestData,  options).toPromise();
-    }
-
-    /**
-     * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
-     * View a GDPR request
-     * @param param the request object
-     */
-    public viewGdprRequestById(param: DataPrivacyApiViewGdprRequestByIdRequest, options?: Configuration): Promise<ViewGdprRequestByIdResponse> {
-        return this.api.viewGdprRequestById(param.apiToken, param.requestId,  options).toPromise();
-    }
-
-}
-
-import { ObservableEmojisApi } from "./ObservableAPI";
-import { EmojisApiRequestFactory, EmojisApiResponseProcessor} from "../apis/EmojisApi";
-
-export interface EmojisApiAddEmojiCategoriesRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiaddEmojiCategories
-     */
-    apiToken: string
-    /**
-     * 
-     * @type any
-     * @memberof EmojisApiaddEmojiCategories
-     */
-    body?: any
-}
-
-export interface EmojisApiAddEmojisRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiaddEmojis
-     */
-    apiToken: string
-    /**
-     * 
-     * @type AddEmojisData
-     * @memberof EmojisApiaddEmojis
-     */
-    addEmojisData?: AddEmojisData
-}
-
-export interface EmojisApiDeleteEmojiByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApideleteEmojiByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApideleteEmojiByKey
-     */
-    emojiKey: string
-}
-
-export interface EmojisApiDeleteEmojiCategoryByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApideleteEmojiCategoryById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApideleteEmojiCategoryById
-     */
-    emojiCategoryId: string
-}
-
-export interface EmojisApiEnableReactionsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApienableReactions
-     */
-    apiToken: string
-    /**
-     * 
-     * @type EnableReactionsData
-     * @memberof EmojisApienableReactions
-     */
-    enableReactionsData?: EnableReactionsData
-}
-
-export interface EmojisApiGetEmojiByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApigetEmojiByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApigetEmojiByKey
-     */
-    emojiKey: string
-}
-
-export interface EmojisApiGetEmojiCategoryByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApigetEmojiCategoryById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApigetEmojiCategoryById
-     */
-    emojiCategoryId: string
-}
-
-export interface EmojisApiListAllEmojisAndEmojiCategoriesRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApilistAllEmojisAndEmojiCategories
-     */
-    apiToken: string
-}
-
-export interface EmojisApiListEmojisRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApilistEmojis
-     */
-    apiToken: string
-}
-
-export interface EmojisApiUpdateEmojiCategoryUrlByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiupdateEmojiCategoryUrlById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiupdateEmojiCategoryUrlById
-     */
-    emojiCategoryId: string
-    /**
-     * 
-     * @type UpdateEmojiCategoryUrlByIdData
-     * @memberof EmojisApiupdateEmojiCategoryUrlById
-     */
-    updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData
-}
-
-export interface EmojisApiUpdateEmojiUrlByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiupdateEmojiUrlByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiupdateEmojiUrlByKey
-     */
-    emojiKey: string
-    /**
-     * 
-     * @type UpdateEmojiUrlByKeyData
-     * @memberof EmojisApiupdateEmojiUrlByKey
-     */
-    updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData
-}
-
-export interface EmojisApiUseDefaultEmojisRequest {
-    /**
-     * 
-     * @type string
-     * @memberof EmojisApiuseDefaultEmojis
-     */
-    apiToken: string
-    /**
-     * 
-     * @type UseDefaultEmojisData
-     * @memberof EmojisApiuseDefaultEmojis
-     */
-    useDefaultEmojisData?: UseDefaultEmojisData
-}
-
-export class ObjectEmojisApi {
-    private api: ObservableEmojisApi
-
-    public constructor(configuration: Configuration, requestFactory?: EmojisApiRequestFactory, responseProcessor?: EmojisApiResponseProcessor) {
-        this.api = new ObservableEmojisApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Add emoji categories  Adds a list of one or more new emoji categories to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emoji-categories
-     * Add emoji categories
-     * @param param the request object
-     */
-    public addEmojiCategories(param: EmojisApiAddEmojiCategoriesRequest, options?: Configuration): Promise<AddEmojiCategoriesResponse> {
-        return this.api.addEmojiCategories(param.apiToken, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## Add emojis  Adds a list of one or more new emojis to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emojis
-     * Add emojis
-     * @param param the request object
-     */
-    public addEmojis(param: EmojisApiAddEmojisRequest, options?: Configuration): Promise<AddEmojisResponse> {
-        return this.api.addEmojis(param.apiToken, param.addEmojisData,  options).toPromise();
-    }
-
-    /**
-     * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
-     * Delete an emoji
-     * @param param the request object
-     */
-    public deleteEmojiByKey(param: EmojisApiDeleteEmojiByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteEmojiByKey(param.apiToken, param.emojiKey,  options).toPromise();
-    }
-
-    /**
-     * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
-     * Delete an emoji category
-     * @param param the request object
-     */
-    public deleteEmojiCategoryById(param: EmojisApiDeleteEmojiCategoryByIdRequest, options?: Configuration): Promise<any> {
-        return this.api.deleteEmojiCategoryById(param.apiToken, param.emojiCategoryId,  options).toPromise();
-    }
-
-    /**
-     * ## Enable reactions  Turn on or off reactions in a Sendbird application.  > __Note__: This action also allows reactions in UIKit.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-enable-reactions
-     * Enable reactions
-     * @param param the request object
-     */
-    public enableReactions(param: EmojisApiEnableReactionsRequest, options?: Configuration): Promise<EnableReactionsResponse> {
-        return this.api.enableReactions(param.apiToken, param.enableReactionsData,  options).toPromise();
-    }
-
-    /**
-     * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
-     * Get an emoji
-     * @param param the request object
-     */
-    public getEmojiByKey(param: EmojisApiGetEmojiByKeyRequest, options?: Configuration): Promise<SendBirdEmoji> {
-        return this.api.getEmojiByKey(param.apiToken, param.emojiKey,  options).toPromise();
-    }
-
-    /**
-     * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
-     * Get an emoji category
-     * @param param the request object
-     */
-    public getEmojiCategoryById(param: EmojisApiGetEmojiCategoryByIdRequest, options?: Configuration): Promise<SendBirdEmojiCategory> {
-        return this.api.getEmojiCategoryById(param.apiToken, param.emojiCategoryId,  options).toPromise();
-    }
-
-    /**
-     * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
-     * List all emojis and emoji categories
-     * @param param the request object
-     */
-    public listAllEmojisAndEmojiCategories(param: EmojisApiListAllEmojisAndEmojiCategoriesRequest, options?: Configuration): Promise<ListAllEmojisAndEmojiCategoriesResponse> {
-        return this.api.listAllEmojisAndEmojiCategories(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## List emojis  Retrieves a list of all emojis registered to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-emojis
-     * List emojis
-     * @param param the request object
-     */
-    public listEmojis(param: EmojisApiListEmojisRequest, options?: Configuration): Promise<ListEmojisResponse> {
-        return this.api.listEmojis(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
-     * Update an emoji category URL
-     * @param param the request object
-     */
-    public updateEmojiCategoryUrlById(param: EmojisApiUpdateEmojiCategoryUrlByIdRequest, options?: Configuration): Promise<SendBirdEmojiCategory> {
-        return this.api.updateEmojiCategoryUrlById(param.apiToken, param.emojiCategoryId, param.updateEmojiCategoryUrlByIdData,  options).toPromise();
-    }
-
-    /**
-     * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
-     * Update an emoji URL
-     * @param param the request object
-     */
-    public updateEmojiUrlByKey(param: EmojisApiUpdateEmojiUrlByKeyRequest, options?: Configuration): Promise<SendBirdEmoji> {
-        return this.api.updateEmojiUrlByKey(param.apiToken, param.emojiKey, param.updateEmojiUrlByKeyData,  options).toPromise();
-    }
-
-    /**
-     * ## Use default emojis  Determines whether to use the 7 default emojis initially provided.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-use-default-emojis
-     * Use default emojis
-     * @param param the request object
-     */
-    public useDefaultEmojis(param: EmojisApiUseDefaultEmojisRequest, options?: Configuration): Promise<UseDefaultEmojisResponse> {
-        return this.api.useDefaultEmojis(param.apiToken, param.useDefaultEmojisData,  options).toPromise();
-    }
-
-}
-
 import { ObservableGroupChannelApi } from "./ObservableAPI";
 import { GroupChannelApiRequestFactory, GroupChannelApiResponseProcessor} from "../apis/GroupChannelApi";
 
@@ -2156,27 +1592,6 @@ export interface GroupChannelApiGcAcceptInvitationRequest {
      * @memberof GroupChannelApigcAcceptInvitation
      */
     gcAcceptInvitationData?: GcAcceptInvitationData
-}
-
-export interface GroupChannelApiGcBanUserRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcBanUser
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcBanUser
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type GcBanUserData
-     * @memberof GroupChannelApigcBanUser
-     */
-    gcBanUserData?: GcBanUserData
 }
 
 export interface GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest {
@@ -2278,27 +1693,6 @@ export interface GroupChannelApiGcDeleteChannelByUrlRequest {
     channelUrl: string
 }
 
-export interface GroupChannelApiGcFreezeChannelRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcFreezeChannel
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcFreezeChannel
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type GcFreezeChannelData
-     * @memberof GroupChannelApigcFreezeChannel
-     */
-    gcFreezeChannelData?: GcFreezeChannelData
-}
-
 export interface GroupChannelApiGcHideOrArchiveChannelRequest {
     /**
      * 
@@ -2381,33 +1775,6 @@ export interface GroupChannelApiGcLeaveChannelRequest {
      * @memberof GroupChannelApigcLeaveChannel
      */
     gcLeaveChannelData?: GcLeaveChannelData
-}
-
-export interface GroupChannelApiGcListBannedUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListBannedUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListBannedUsers
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListBannedUsers
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof GroupChannelApigcListBannedUsers
-     */
-    limit?: number
 }
 
 export interface GroupChannelApiGcListChannelsRequest {
@@ -2740,33 +2107,6 @@ export interface GroupChannelApiGcListMembersRequest {
     nicknameStartswith?: string
 }
 
-export interface GroupChannelApiGcListMutedUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListMutedUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListMutedUsers
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcListMutedUsers
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof GroupChannelApigcListMutedUsers
-     */
-    limit?: number
-}
-
 export interface GroupChannelApiGcListOperatorsRequest {
     /**
      * 
@@ -2792,27 +2132,6 @@ export interface GroupChannelApiGcListOperatorsRequest {
      * @memberof GroupChannelApigcListOperators
      */
     limit?: number
-}
-
-export interface GroupChannelApiGcMuteUserRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcMuteUser
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcMuteUser
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type GcMuteUserData
-     * @memberof GroupChannelApigcMuteUser
-     */
-    gcMuteUserData?: GcMuteUserData
 }
 
 export interface GroupChannelApiGcRegisterOperatorsRequest {
@@ -2857,27 +2176,6 @@ export interface GroupChannelApiGcResetChatHistoryRequest {
     gcResetChatHistoryData?: GcResetChatHistoryData
 }
 
-export interface GroupChannelApiGcUnbanUserByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnbanUserById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnbanUserById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnbanUserById
-     */
-    bannedUserId: string
-}
-
 export interface GroupChannelApiGcUnhideOrUnarchiveChannelRequest {
     /**
      * 
@@ -2905,54 +2203,6 @@ export interface GroupChannelApiGcUnhideOrUnarchiveChannelRequest {
     shouldUnhideAll?: boolean
 }
 
-export interface GroupChannelApiGcUnmuteUserByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnmuteUserById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnmuteUserById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUnmuteUserById
-     */
-    mutedUserId: string
-}
-
-export interface GroupChannelApiGcUpdateBanByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUpdateBanById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUpdateBanById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcUpdateBanById
-     */
-    bannedUserId: string
-    /**
-     * 
-     * @type GcUpdateBanByIdData
-     * @memberof GroupChannelApigcUpdateBanById
-     */
-    gcUpdateBanByIdData?: GcUpdateBanByIdData
-}
-
 export interface GroupChannelApiGcUpdateChannelByUrlRequest {
     /**
      * 
@@ -2972,27 +2222,6 @@ export interface GroupChannelApiGcUpdateChannelByUrlRequest {
      * @memberof GroupChannelApigcUpdateChannelByUrl
      */
     gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData
-}
-
-export interface GroupChannelApiGcViewBanByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewBanById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewBanById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewBanById
-     */
-    bannedUserId: string
 }
 
 export interface GroupChannelApiGcViewChannelByUrlRequest {
@@ -3040,27 +2269,6 @@ export interface GroupChannelApiGcViewChannelByUrlRequest {
     member?: boolean
 }
 
-export interface GroupChannelApiGcViewMuteByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewMuteById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewMuteById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof GroupChannelApigcViewMuteById
-     */
-    mutedUserId: string
-}
-
 export class ObjectGroupChannelApi {
     private api: ObservableGroupChannelApi
 
@@ -3078,20 +2286,11 @@ export class ObjectGroupChannelApi {
     }
 
     /**
-     * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param param the request object
-     */
-    public gcBanUser(param: GroupChannelApiGcBanUserRequest, options?: Configuration): Promise<GcBanUserResponse> {
-        return this.api.gcBanUser(param.apiToken, param.channelUrl, param.gcBanUserData,  options).toPromise();
-    }
-
-    /**
      * ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
      * @param param the request object
      */
-    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcCancelTheRegistrationOfOperators(param.apiToken, param.channelUrl, param.operatorIds, param.deleteAll,  options).toPromise();
     }
 
@@ -3118,7 +2317,7 @@ export class ObjectGroupChannelApi {
      * Decline an invitation
      * @param param the request object
      */
-    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcDeclineInvitation(param.apiToken, param.channelUrl, param.gcDeclineInvitationData,  options).toPromise();
     }
 
@@ -3127,17 +2326,8 @@ export class ObjectGroupChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
-    }
-
-    /**
-     * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param param the request object
-     */
-    public gcFreezeChannel(param: GroupChannelApiGcFreezeChannelRequest, options?: Configuration): Promise<SendBirdGroupChannel> {
-        return this.api.gcFreezeChannel(param.apiToken, param.channelUrl, param.gcFreezeChannelData,  options).toPromise();
     }
 
     /**
@@ -3145,7 +2335,7 @@ export class ObjectGroupChannelApi {
      * Hide or archive a channel
      * @param param the request object
      */
-    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcHideOrArchiveChannel(param.apiToken, param.channelUrl, param.gcHideOrArchiveChannelData,  options).toPromise();
     }
 
@@ -3172,17 +2362,8 @@ export class ObjectGroupChannelApi {
      * Leave a channel
      * @param param the request object
      */
-    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcLeaveChannel(param.apiToken, param.channelUrl, param.gcLeaveChannelData,  options).toPromise();
-    }
-
-    /**
-     * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param param the request object
-     */
-    public gcListBannedUsers(param: GroupChannelApiGcListBannedUsersRequest, options?: Configuration): Promise<GcListBannedUsersResponse> {
-        return this.api.gcListBannedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -3204,30 +2385,12 @@ export class ObjectGroupChannelApi {
     }
 
     /**
-     * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param param the request object
-     */
-    public gcListMutedUsers(param: GroupChannelApiGcListMutedUsersRequest, options?: Configuration): Promise<GcListMutedUsersResponse> {
-        return this.api.gcListMutedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
-    }
-
-    /**
      * ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
      * @param param the request object
      */
     public gcListOperators(param: GroupChannelApiGcListOperatorsRequest, options?: Configuration): Promise<GcListOperatorsResponse> {
         return this.api.gcListOperators(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
-    }
-
-    /**
-     * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
-     * Mute a user
-     * @param param the request object
-     */
-    public gcMuteUser(param: GroupChannelApiGcMuteUserRequest, options?: Configuration): Promise<SendBirdGroupChannel> {
-        return this.api.gcMuteUser(param.apiToken, param.channelUrl, param.gcMuteUserData,  options).toPromise();
     }
 
     /**
@@ -3249,39 +2412,12 @@ export class ObjectGroupChannelApi {
     }
 
     /**
-     * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param param the request object
-     */
-    public gcUnbanUserById(param: GroupChannelApiGcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.gcUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
-    }
-
-    /**
      * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
      * Unhide or unarchive a channel
      * @param param the request object
      */
-    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<InlineResponse200> {
+    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.gcUnhideOrUnarchiveChannel(param.apiToken, param.channelUrl, param.userId, param.shouldUnhideAll,  options).toPromise();
-    }
-
-    /**
-     * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param param the request object
-     */
-    public gcUnmuteUserById(param: GroupChannelApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.gcUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param param the request object
-     */
-    public gcUpdateBanById(param: GroupChannelApiGcUpdateBanByIdRequest, options?: Configuration): Promise<GcUpdateBanByIdResponse> {
-        return this.api.gcUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.gcUpdateBanByIdData,  options).toPromise();
     }
 
     /**
@@ -3294,15 +2430,6 @@ export class ObjectGroupChannelApi {
     }
 
     /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param param the request object
-     */
-    public gcViewBanById(param: GroupChannelApiGcViewBanByIdRequest, options?: Configuration): Promise<GcViewBanByIdResponse> {
-        return this.api.gcViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
-    }
-
-    /**
      * ## View a channel  Retrieves information on a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve.
      * View a channel
      * @param param the request object
@@ -3311,601 +2438,976 @@ export class ObjectGroupChannelApi {
         return this.api.gcViewChannelByUrl(param.apiToken, param.channelUrl, param.showDeliveryReceipt, param.showReadReceipt, param.showMember, param.readReceipt, param.member,  options).toPromise();
     }
 
-    /**
-     * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param param the request object
-     */
-    public gcViewMuteById(param: GroupChannelApiGcViewMuteByIdRequest, options?: Configuration): Promise<GcViewMuteByIdResponse> {
-        return this.api.gcViewMuteById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
-    }
-
 }
 
-import { ObservableMessagesApi } from "./ObservableAPI";
-import { MessagesApiRequestFactory, MessagesApiResponseProcessor} from "../apis/MessagesApi";
+import { ObservableMessageApi } from "./ObservableAPI";
+import { MessageApiRequestFactory, MessageApiResponseProcessor} from "../apis/MessageApi";
 
-export interface MessagesApiAddExtraDataToMessageRequest {
+export interface MessageApiAddEmojiCategoriesRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddExtraDataToMessage
+     * @memberof MessageApiaddEmojiCategories
+     */
+    apiToken: string
+    /**
+     * 
+     * @type any
+     * @memberof MessageApiaddEmojiCategories
+     */
+    body?: any
+}
+
+export interface MessageApiAddEmojisRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiaddEmojis
+     */
+    apiToken: string
+    /**
+     * 
+     * @type AddEmojisData
+     * @memberof MessageApiaddEmojis
+     */
+    addEmojisData?: AddEmojisData
+}
+
+export interface MessageApiAddExtraDataToMessageRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiaddExtraDataToMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddExtraDataToMessage
+     * @memberof MessageApiaddExtraDataToMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddExtraDataToMessage
+     * @memberof MessageApiaddExtraDataToMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddExtraDataToMessage
+     * @memberof MessageApiaddExtraDataToMessage
      */
     messageId: string
     /**
      * 
      * @type AddExtraDataToMessageData
-     * @memberof MessagesApiaddExtraDataToMessage
+     * @memberof MessageApiaddExtraDataToMessage
      */
     addExtraDataToMessageData?: AddExtraDataToMessageData
 }
 
-export interface MessagesApiAddReactionToAMessageRequest {
+export interface MessageApiAddReactionToAMessageRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddReactionToAMessage
+     * @memberof MessageApiaddReactionToAMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddReactionToAMessage
+     * @memberof MessageApiaddReactionToAMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddReactionToAMessage
+     * @memberof MessageApiaddReactionToAMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiaddReactionToAMessage
+     * @memberof MessageApiaddReactionToAMessage
      */
     messageId: string
     /**
      * 
      * @type AddReactionToAMessageData
-     * @memberof MessagesApiaddReactionToAMessage
+     * @memberof MessageApiaddReactionToAMessage
      */
     addReactionToAMessageData?: AddReactionToAMessageData
 }
 
-export interface MessagesApiDeleteMessageByIdRequest {
+export interface MessageApiDeleteEmojiByKeyRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApideleteMessageById
+     * @memberof MessageApideleteEmojiByKey
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApideleteMessageById
+     * @memberof MessageApideleteEmojiByKey
+     */
+    emojiKey: string
+}
+
+export interface MessageApiDeleteEmojiCategoryByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApideleteEmojiCategoryById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApideleteEmojiCategoryById
+     */
+    emojiCategoryId: string
+}
+
+export interface MessageApiDeleteMessageByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApideleteMessageById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApideleteMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApideleteMessageById
+     * @memberof MessageApideleteMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApideleteMessageById
+     * @memberof MessageApideleteMessageById
      */
     messageId: string
 }
 
-export interface MessagesApiGcMarkAllMessagesAsDeliveredRequest {
+export interface MessageApiEnableReactionsRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApigcMarkAllMessagesAsDelivered
+     * @memberof MessageApienableReactions
+     */
+    apiToken: string
+    /**
+     * 
+     * @type EnableReactionsData
+     * @memberof MessageApienableReactions
+     */
+    enableReactionsData?: EnableReactionsData
+}
+
+export interface MessageApiGcMarkAllMessagesAsDeliveredRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigcMarkAllMessagesAsDelivered
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApigcMarkAllMessagesAsDelivered
+     * @memberof MessageApigcMarkAllMessagesAsDelivered
      */
     channelUrl: string
     /**
      * 
      * @type GcMarkAllMessagesAsDeliveredData
-     * @memberof MessagesApigcMarkAllMessagesAsDelivered
+     * @memberof MessageApigcMarkAllMessagesAsDelivered
      */
     gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData
 }
 
-export interface MessagesApiGcMarkAllMessagesAsReadRequest {
+export interface MessageApiGcMarkAllMessagesAsReadRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApigcMarkAllMessagesAsRead
+     * @memberof MessageApigcMarkAllMessagesAsRead
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApigcMarkAllMessagesAsRead
+     * @memberof MessageApigcMarkAllMessagesAsRead
      */
     channelUrl: string
     /**
      * 
      * @type GcMarkAllMessagesAsReadData
-     * @memberof MessagesApigcMarkAllMessagesAsRead
+     * @memberof MessageApigcMarkAllMessagesAsRead
      */
     gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData
 }
 
-export interface MessagesApiGcViewNumberOfEachMembersUnreadMessagesRequest {
+export interface MessageApiGcViewNumberOfEachMembersUnreadMessagesRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApigcViewNumberOfEachMembersUnreadMessages
+     * @memberof MessageApigcViewNumberOfEachMembersUnreadMessages
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApigcViewNumberOfEachMembersUnreadMessages
+     * @memberof MessageApigcViewNumberOfEachMembersUnreadMessages
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApigcViewNumberOfEachMembersUnreadMessages
+     * @memberof MessageApigcViewNumberOfEachMembersUnreadMessages
      */
     userIds?: string
 }
 
-export interface MessagesApiListMessagesRequest {
+export interface MessageApiGetEmojiByKeyRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApigetEmojiByKey
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApigetEmojiByKey
+     */
+    emojiKey: string
+}
+
+export interface MessageApiGetEmojiCategoryByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetEmojiCategoryById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetEmojiCategoryById
+     */
+    emojiCategoryId: string
+}
+
+export interface MessageApiGetStatisticsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatistics
+     */
+    apiToken: string
+}
+
+export interface MessageApiGetStatisticsDailyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    startDate: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    endDate: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    startWeek: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    endWeek: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    startMonth: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    endMonth: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsDaily
+     */
+    announcementGroup?: string
+}
+
+export interface MessageApiGetStatisticsMonthlyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApigetStatisticsMonthly
+     */
+    apiToken: string
+}
+
+export interface MessageApiListAllEmojisAndEmojiCategoriesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAllEmojisAndEmojiCategories
+     */
+    apiToken: string
+}
+
+export interface MessageApiListAnnouncementGroupsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncementGroups
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncementGroups
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof MessageApilistAnnouncementGroups
+     */
+    limit?: number
+}
+
+export interface MessageApiListAnnouncementsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncements
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncements
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof MessageApilistAnnouncements
+     */
+    limit?: number
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncements
+     */
+    order?: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncements
+     */
+    status?: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistAnnouncements
+     */
+    announcementGroup?: string
+}
+
+export interface MessageApiListEmojisRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistEmojis
+     */
+    apiToken: string
+}
+
+export interface MessageApiListMessagesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistMessages
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApilistMessages
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     channelUrl: string
     /**
      * 
      * @type number
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     messageTs?: number
     /**
      * 
      * @type number
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     messageId?: number
     /**
      * 
      * @type number
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     prevLimit?: number
     /**
      * 
      * @type number
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     nextLimit?: number
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     include?: boolean
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     reverse?: boolean
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     senderId?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     senderIds?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     operatorFilter?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     customTypes?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     messageType?: string
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     includingRemoved?: boolean
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     includeReactions?: boolean
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     withSortedMetaArray?: boolean
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     showSubchannelMessagesOnly?: boolean
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     userId?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     customType?: string
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistMessages
+     * @memberof MessageApilistMessages
      */
     withMetaArray?: boolean
 }
 
-export interface MessagesApiListReactionsOfMessageRequest {
+export interface MessageApiListReactionsOfMessageRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApilistReactionsOfMessage
+     * @memberof MessageApilistReactionsOfMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistReactionsOfMessage
+     * @memberof MessageApilistReactionsOfMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistReactionsOfMessage
+     * @memberof MessageApilistReactionsOfMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApilistReactionsOfMessage
+     * @memberof MessageApilistReactionsOfMessage
      */
     messageId: string
     /**
      * 
      * @type boolean
-     * @memberof MessagesApilistReactionsOfMessage
+     * @memberof MessageApilistReactionsOfMessage
      */
     listUsers?: boolean
 }
 
-export interface MessagesApiRemoveExtraDataFromMessageRequest {
+export interface MessageApiMigrateMessagesByUrlRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveExtraDataFromMessage
+     * @memberof MessageApimigrateMessagesByUrl
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveExtraDataFromMessage
+     * @memberof MessageApimigrateMessagesByUrl
+     */
+    targetChannelUrl: string
+    /**
+     * 
+     * @type any
+     * @memberof MessageApimigrateMessagesByUrl
+     */
+    body?: any
+}
+
+export interface MessageApiRemoveExtraDataFromMessageRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiremoveExtraDataFromMessage
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiremoveExtraDataFromMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveExtraDataFromMessage
+     * @memberof MessageApiremoveExtraDataFromMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveExtraDataFromMessage
+     * @memberof MessageApiremoveExtraDataFromMessage
      */
     messageId: string
     /**
      * 
      * @type Array&lt;string&gt;
-     * @memberof MessagesApiremoveExtraDataFromMessage
+     * @memberof MessageApiremoveExtraDataFromMessage
      */
     keys?: Array<string>
 }
 
-export interface MessagesApiRemoveReactionFromAMessageRequest {
+export interface MessageApiRemoveReactionFromAMessageRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     messageId: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     userId?: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiremoveReactionFromAMessage
+     * @memberof MessageApiremoveReactionFromAMessage
      */
     reaction?: string
 }
 
-export interface MessagesApiSendMessageRequest {
+export interface MessageApiScheduleAnnouncementRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApisendMessage
+     * @memberof MessageApischeduleAnnouncement
+     */
+    apiToken: string
+    /**
+     * 
+     * @type ScheduleAnnouncementData
+     * @memberof MessageApischeduleAnnouncement
+     */
+    scheduleAnnouncementData?: ScheduleAnnouncementData
+}
+
+export interface MessageApiSendMessageRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApisendMessage
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApisendMessage
+     * @memberof MessageApisendMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApisendMessage
+     * @memberof MessageApisendMessage
      */
     channelUrl: string
     /**
      * 
      * @type SendMessageData
-     * @memberof MessagesApisendMessage
+     * @memberof MessageApisendMessage
      */
     sendMessageData?: SendMessageData
 }
 
-export interface MessagesApiTranslateMessageIntoOtherLanguagesRequest {
+export interface MessageApiTranslateMessageIntoOtherLanguagesRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApitranslateMessageIntoOtherLanguages
+     * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApitranslateMessageIntoOtherLanguages
+     * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApitranslateMessageIntoOtherLanguages
+     * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApitranslateMessageIntoOtherLanguages
+     * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     messageId: string
     /**
      * 
      * @type any
-     * @memberof MessagesApitranslateMessageIntoOtherLanguages
+     * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     body?: any
 }
 
-export interface MessagesApiUpdateExtraDataInMessageRequest {
+export interface MessageApiUpdateAnnouncementByIdRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateExtraDataInMessage
+     * @memberof MessageApiupdateAnnouncementById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateExtraDataInMessage
+     * @memberof MessageApiupdateAnnouncementById
+     */
+    uniqueId: string
+    /**
+     * 
+     * @type UpdateAnnouncementByIdData
+     * @memberof MessageApiupdateAnnouncementById
+     */
+    updateAnnouncementByIdData?: UpdateAnnouncementByIdData
+}
+
+export interface MessageApiUpdateEmojiCategoryUrlByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateEmojiCategoryUrlById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateEmojiCategoryUrlById
+     */
+    emojiCategoryId: string
+    /**
+     * 
+     * @type UpdateEmojiCategoryUrlByIdData
+     * @memberof MessageApiupdateEmojiCategoryUrlById
+     */
+    updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData
+}
+
+export interface MessageApiUpdateEmojiUrlByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateEmojiUrlByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateEmojiUrlByKey
+     */
+    emojiKey: string
+    /**
+     * 
+     * @type UpdateEmojiUrlByKeyData
+     * @memberof MessageApiupdateEmojiUrlByKey
+     */
+    updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData
+}
+
+export interface MessageApiUpdateExtraDataInMessageRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateExtraDataInMessage
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiupdateExtraDataInMessage
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateExtraDataInMessage
+     * @memberof MessageApiupdateExtraDataInMessage
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateExtraDataInMessage
+     * @memberof MessageApiupdateExtraDataInMessage
      */
     messageId: string
     /**
      * 
      * @type UpdateExtraDataInMessageData
-     * @memberof MessagesApiupdateExtraDataInMessage
+     * @memberof MessageApiupdateExtraDataInMessage
      */
     updateExtraDataInMessageData?: UpdateExtraDataInMessageData
 }
 
-export interface MessagesApiUpdateMessageByIdRequest {
+export interface MessageApiUpdateMessageByIdRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateMessageById
+     * @memberof MessageApiupdateMessageById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateMessageById
+     * @memberof MessageApiupdateMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateMessageById
+     * @memberof MessageApiupdateMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiupdateMessageById
+     * @memberof MessageApiupdateMessageById
      */
     messageId: string
     /**
      * 
      * @type UpdateMessageByIdData
-     * @memberof MessagesApiupdateMessageById
+     * @memberof MessageApiupdateMessageById
      */
     updateMessageByIdData?: UpdateMessageByIdData
 }
 
-export interface MessagesApiViewMessageByIdRequest {
+export interface MessageApiUseDefaultEmojisRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiuseDefaultEmojis
+     */
+    apiToken: string
+    /**
+     * 
+     * @type UseDefaultEmojisData
+     * @memberof MessageApiuseDefaultEmojis
+     */
+    useDefaultEmojisData?: UseDefaultEmojisData
+}
+
+export interface MessageApiViewMessageByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MessageApiviewMessageById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiviewMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiviewMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiviewMessageById
      */
     messageId: string
     /**
      * 
      * @type boolean
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiviewMessageById
      */
     withSortedMetaArray?: boolean
     /**
      * 
      * @type boolean
-     * @memberof MessagesApiviewMessageById
+     * @memberof MessageApiviewMessageById
      */
     withMetaArray?: boolean
 }
 
-export interface MessagesApiViewTotalNumberOfMessagesInChannelRequest {
+export interface MessageApiViewTotalNumberOfMessagesInChannelRequest {
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewTotalNumberOfMessagesInChannel
+     * @memberof MessageApiviewTotalNumberOfMessagesInChannel
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewTotalNumberOfMessagesInChannel
+     * @memberof MessageApiviewTotalNumberOfMessagesInChannel
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof MessagesApiviewTotalNumberOfMessagesInChannel
+     * @memberof MessageApiviewTotalNumberOfMessagesInChannel
      */
     channelUrl: string
 }
 
-export class ObjectMessagesApi {
-    private api: ObservableMessagesApi
+export class ObjectMessageApi {
+    private api: ObservableMessageApi
 
-    public constructor(configuration: Configuration, requestFactory?: MessagesApiRequestFactory, responseProcessor?: MessagesApiResponseProcessor) {
-        this.api = new ObservableMessagesApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: MessageApiRequestFactory, responseProcessor?: MessageApiResponseProcessor) {
+        this.api = new ObservableMessageApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Add emoji categories  Adds a list of one or more new emoji categories to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emoji-categories
+     * Add emoji categories
+     * @param param the request object
+     */
+    public addEmojiCategories(param: MessageApiAddEmojiCategoriesRequest, options?: Configuration): Promise<AddEmojiCategoriesResponse> {
+        return this.api.addEmojiCategories(param.apiToken, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Add emojis  Adds a list of one or more new emojis to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emojis
+     * Add emojis
+     * @param param the request object
+     */
+    public addEmojis(param: MessageApiAddEmojisRequest, options?: Configuration): Promise<AddEmojisResponse> {
+        return this.api.addEmojis(param.apiToken, param.addEmojisData,  options).toPromise();
     }
 
     /**
@@ -3913,7 +3415,7 @@ export class ObjectMessagesApi {
      * Add extra data to a message
      * @param param the request object
      */
-    public addExtraDataToMessage(param: MessagesApiAddExtraDataToMessageRequest, options?: Configuration): Promise<AddExtraDataToMessageResponse> {
+    public addExtraDataToMessage(param: MessageApiAddExtraDataToMessageRequest, options?: Configuration): Promise<AddExtraDataToMessageResponse> {
         return this.api.addExtraDataToMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.addExtraDataToMessageData,  options).toPromise();
     }
 
@@ -3922,8 +3424,26 @@ export class ObjectMessagesApi {
      * Add a reaction to a message
      * @param param the request object
      */
-    public addReactionToAMessage(param: MessagesApiAddReactionToAMessageRequest, options?: Configuration): Promise<AddReactionToAMessageResponse> {
+    public addReactionToAMessage(param: MessageApiAddReactionToAMessageRequest, options?: Configuration): Promise<AddReactionToAMessageResponse> {
         return this.api.addReactionToAMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.addReactionToAMessageData,  options).toPromise();
+    }
+
+    /**
+     * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
+     * Delete an emoji
+     * @param param the request object
+     */
+    public deleteEmojiByKey(param: MessageApiDeleteEmojiByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteEmojiByKey(param.apiToken, param.emojiKey,  options).toPromise();
+    }
+
+    /**
+     * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
+     * Delete an emoji category
+     * @param param the request object
+     */
+    public deleteEmojiCategoryById(param: MessageApiDeleteEmojiCategoryByIdRequest, options?: Configuration): Promise<any> {
+        return this.api.deleteEmojiCategoryById(param.apiToken, param.emojiCategoryId,  options).toPromise();
     }
 
     /**
@@ -3931,8 +3451,17 @@ export class ObjectMessagesApi {
      * Delete a message
      * @param param the request object
      */
-    public deleteMessageById(param: MessagesApiDeleteMessageByIdRequest, options?: Configuration): Promise<any> {
+    public deleteMessageById(param: MessageApiDeleteMessageByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId,  options).toPromise();
+    }
+
+    /**
+     * ## Enable reactions  Turn on or off reactions in a Sendbird application.  > __Note__: This action also allows reactions in UIKit.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-enable-reactions
+     * Enable reactions
+     * @param param the request object
+     */
+    public enableReactions(param: MessageApiEnableReactionsRequest, options?: Configuration): Promise<EnableReactionsResponse> {
+        return this.api.enableReactions(param.apiToken, param.enableReactionsData,  options).toPromise();
     }
 
     /**
@@ -3940,7 +3469,7 @@ export class ObjectMessagesApi {
      * Mark all messages as delivered
      * @param param the request object
      */
-    public gcMarkAllMessagesAsDelivered(param: MessagesApiGcMarkAllMessagesAsDeliveredRequest, options?: Configuration): Promise<GcMarkAllMessagesAsDeliveredResponse> {
+    public gcMarkAllMessagesAsDelivered(param: MessageApiGcMarkAllMessagesAsDeliveredRequest, options?: Configuration): Promise<GcMarkAllMessagesAsDeliveredResponse> {
         return this.api.gcMarkAllMessagesAsDelivered(param.apiToken, param.channelUrl, param.gcMarkAllMessagesAsDeliveredData,  options).toPromise();
     }
 
@@ -3949,7 +3478,7 @@ export class ObjectMessagesApi {
      * Mark all messages as read
      * @param param the request object
      */
-    public gcMarkAllMessagesAsRead(param: MessagesApiGcMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
+    public gcMarkAllMessagesAsRead(param: MessageApiGcMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
         return this.api.gcMarkAllMessagesAsRead(param.apiToken, param.channelUrl, param.gcMarkAllMessagesAsReadData,  options).toPromise();
     }
 
@@ -3958,8 +3487,89 @@ export class ObjectMessagesApi {
      * View number of each member's unread messages
      * @param param the request object
      */
-    public gcViewNumberOfEachMembersUnreadMessages(param: MessagesApiGcViewNumberOfEachMembersUnreadMessagesRequest, options?: Configuration): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse> {
+    public gcViewNumberOfEachMembersUnreadMessages(param: MessageApiGcViewNumberOfEachMembersUnreadMessagesRequest, options?: Configuration): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse> {
         return this.api.gcViewNumberOfEachMembersUnreadMessages(param.apiToken, param.channelUrl, param.userIds,  options).toPromise();
+    }
+
+    /**
+     * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
+     * Get an emoji
+     * @param param the request object
+     */
+    public getEmojiByKey(param: MessageApiGetEmojiByKeyRequest, options?: Configuration): Promise<SendBirdEmoji> {
+        return this.api.getEmojiByKey(param.apiToken, param.emojiKey,  options).toPromise();
+    }
+
+    /**
+     * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
+     * Get an emoji category
+     * @param param the request object
+     */
+    public getEmojiCategoryById(param: MessageApiGetEmojiCategoryByIdRequest, options?: Configuration): Promise<SendBirdEmojiCategory> {
+        return this.api.getEmojiCategoryById(param.apiToken, param.emojiCategoryId,  options).toPromise();
+    }
+
+    /**
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - weekly
+     * @param param the request object
+     */
+    public getStatistics(param: MessageApiGetStatisticsRequest, options?: Configuration): Promise<GetStatisticsResponse> {
+        return this.api.getStatistics(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - daily
+     * @param param the request object
+     */
+    public getStatisticsDaily(param: MessageApiGetStatisticsDailyRequest, options?: Configuration): Promise<GetStatisticsDailyResponse> {
+        return this.api.getStatisticsDaily(param.apiToken, param.startDate, param.endDate, param.startWeek, param.endWeek, param.startMonth, param.endMonth, param.announcementGroup,  options).toPromise();
+    }
+
+    /**
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - monthly
+     * @param param the request object
+     */
+    public getStatisticsMonthly(param: MessageApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
+        return this.api.getStatisticsMonthly(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
+     * List all emojis and emoji categories
+     * @param param the request object
+     */
+    public listAllEmojisAndEmojiCategories(param: MessageApiListAllEmojisAndEmojiCategoriesRequest, options?: Configuration): Promise<ListAllEmojisAndEmojiCategoriesResponse> {
+        return this.api.listAllEmojisAndEmojiCategories(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
+     * List announcement groups
+     * @param param the request object
+     */
+    public listAnnouncementGroups(param: MessageApiListAnnouncementGroupsRequest, options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
+        return this.api.listAnnouncementGroups(param.apiToken, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## List announcements  Retrieves a list of announcements.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcements ----------------------------
+     * List announcements
+     * @param param the request object
+     */
+    public listAnnouncements(param: MessageApiListAnnouncementsRequest, options?: Configuration): Promise<ListAnnouncementsResponse> {
+        return this.api.listAnnouncements(param.apiToken, param.token, param.limit, param.order, param.status, param.announcementGroup,  options).toPromise();
+    }
+
+    /**
+     * ## List emojis  Retrieves a list of all emojis registered to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-emojis
+     * List emojis
+     * @param param the request object
+     */
+    public listEmojis(param: MessageApiListEmojisRequest, options?: Configuration): Promise<ListEmojisResponse> {
+        return this.api.listEmojis(param.apiToken,  options).toPromise();
     }
 
     /**
@@ -3967,7 +3577,7 @@ export class ObjectMessagesApi {
      * List messages
      * @param param the request object
      */
-    public listMessages(param: MessagesApiListMessagesRequest, options?: Configuration): Promise<ListMessagesResponse> {
+    public listMessages(param: MessageApiListMessagesRequest, options?: Configuration): Promise<ListMessagesResponse> {
         return this.api.listMessages(param.apiToken, param.channelType, param.channelUrl, param.messageTs, param.messageId, param.prevLimit, param.nextLimit, param.include, param.reverse, param.senderId, param.senderIds, param.operatorFilter, param.customTypes, param.messageType, param.includingRemoved, param.includeReactions, param.withSortedMetaArray, param.showSubchannelMessagesOnly, param.userId, param.customType, param.withMetaArray,  options).toPromise();
     }
 
@@ -3976,8 +3586,17 @@ export class ObjectMessagesApi {
      * List reactions of a message
      * @param param the request object
      */
-    public listReactionsOfMessage(param: MessagesApiListReactionsOfMessageRequest, options?: Configuration): Promise<ListReactionsOfMessageResponse> {
+    public listReactionsOfMessage(param: MessageApiListReactionsOfMessageRequest, options?: Configuration): Promise<ListReactionsOfMessageResponse> {
         return this.api.listReactionsOfMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.listUsers,  options).toPromise();
+    }
+
+    /**
+     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
+     * Migrate messages
+     * @param param the request object
+     */
+    public migrateMessagesByUrl(param: MessageApiMigrateMessagesByUrlRequest, options?: Configuration): Promise<void> {
+        return this.api.migrateMessagesByUrl(param.apiToken, param.targetChannelUrl, param.body,  options).toPromise();
     }
 
     /**
@@ -3985,7 +3604,7 @@ export class ObjectMessagesApi {
      * Remove extra data from a message
      * @param param the request object
      */
-    public removeExtraDataFromMessage(param: MessagesApiRemoveExtraDataFromMessageRequest, options?: Configuration): Promise<any> {
+    public removeExtraDataFromMessage(param: MessageApiRemoveExtraDataFromMessageRequest, options?: Configuration): Promise<any> {
         return this.api.removeExtraDataFromMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.keys,  options).toPromise();
     }
 
@@ -3994,8 +3613,17 @@ export class ObjectMessagesApi {
      * Remove a reaction from a message
      * @param param the request object
      */
-    public removeReactionFromAMessage(param: MessagesApiRemoveReactionFromAMessageRequest, options?: Configuration): Promise<RemoveReactionFromAMessageResponse> {
+    public removeReactionFromAMessage(param: MessageApiRemoveReactionFromAMessageRequest, options?: Configuration): Promise<RemoveReactionFromAMessageResponse> {
         return this.api.removeReactionFromAMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.userId, param.reaction,  options).toPromise();
+    }
+
+    /**
+     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
+     * Schedule an announcement
+     * @param param the request object
+     */
+    public scheduleAnnouncement(param: MessageApiScheduleAnnouncementRequest, options?: Configuration): Promise<ScheduleAnnouncementResponse> {
+        return this.api.scheduleAnnouncement(param.apiToken, param.scheduleAnnouncementData,  options).toPromise();
     }
 
     /**
@@ -4003,7 +3631,7 @@ export class ObjectMessagesApi {
      * Send a message
      * @param param the request object
      */
-    public sendMessage(param: MessagesApiSendMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
+    public sendMessage(param: MessageApiSendMessageRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.sendMessage(param.apiToken, param.channelType, param.channelUrl, param.sendMessageData,  options).toPromise();
     }
 
@@ -4012,8 +3640,35 @@ export class ObjectMessagesApi {
      * Translate a message into other languages
      * @param param the request object
      */
-    public translateMessageIntoOtherLanguages(param: MessagesApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
+    public translateMessageIntoOtherLanguages(param: MessageApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.translateMessageIntoOtherLanguages(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
+     * Update an announcement
+     * @param param the request object
+     */
+    public updateAnnouncementById(param: MessageApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
+        return this.api.updateAnnouncementById(param.apiToken, param.uniqueId, param.updateAnnouncementByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
+     * Update an emoji category URL
+     * @param param the request object
+     */
+    public updateEmojiCategoryUrlById(param: MessageApiUpdateEmojiCategoryUrlByIdRequest, options?: Configuration): Promise<SendBirdEmojiCategory> {
+        return this.api.updateEmojiCategoryUrlById(param.apiToken, param.emojiCategoryId, param.updateEmojiCategoryUrlByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
+     * Update an emoji URL
+     * @param param the request object
+     */
+    public updateEmojiUrlByKey(param: MessageApiUpdateEmojiUrlByKeyRequest, options?: Configuration): Promise<SendBirdEmoji> {
+        return this.api.updateEmojiUrlByKey(param.apiToken, param.emojiKey, param.updateEmojiUrlByKeyData,  options).toPromise();
     }
 
     /**
@@ -4021,7 +3676,7 @@ export class ObjectMessagesApi {
      * Update extra data in a message
      * @param param the request object
      */
-    public updateExtraDataInMessage(param: MessagesApiUpdateExtraDataInMessageRequest, options?: Configuration): Promise<UpdateExtraDataInMessageResponse> {
+    public updateExtraDataInMessage(param: MessageApiUpdateExtraDataInMessageRequest, options?: Configuration): Promise<UpdateExtraDataInMessageResponse> {
         return this.api.updateExtraDataInMessage(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.updateExtraDataInMessageData,  options).toPromise();
     }
 
@@ -4030,8 +3685,17 @@ export class ObjectMessagesApi {
      * Update a message
      * @param param the request object
      */
-    public updateMessageById(param: MessagesApiUpdateMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
+    public updateMessageById(param: MessageApiUpdateMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.updateMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.updateMessageByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## Use default emojis  Determines whether to use the 7 default emojis initially provided.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-use-default-emojis
+     * Use default emojis
+     * @param param the request object
+     */
+    public useDefaultEmojis(param: MessageApiUseDefaultEmojisRequest, options?: Configuration): Promise<UseDefaultEmojisResponse> {
+        return this.api.useDefaultEmojis(param.apiToken, param.useDefaultEmojisData,  options).toPromise();
     }
 
     /**
@@ -4039,7 +3703,7 @@ export class ObjectMessagesApi {
      * View a message
      * @param param the request object
      */
-    public viewMessageById(param: MessagesApiViewMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
+    public viewMessageById(param: MessageApiViewMessageByIdRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.viewMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.withSortedMetaArray, param.withMetaArray,  options).toPromise();
     }
 
@@ -4048,77 +3712,1142 @@ export class ObjectMessagesApi {
      * View total number of messages in a channel
      * @param param the request object
      */
-    public viewTotalNumberOfMessagesInChannel(param: MessagesApiViewTotalNumberOfMessagesInChannelRequest, options?: Configuration): Promise<ViewTotalNumberOfMessagesInChannelResponse> {
+    public viewTotalNumberOfMessagesInChannel(param: MessageApiViewTotalNumberOfMessagesInChannelRequest, options?: Configuration): Promise<ViewTotalNumberOfMessagesInChannelResponse> {
         return this.api.viewTotalNumberOfMessagesInChannel(param.apiToken, param.channelType, param.channelUrl,  options).toPromise();
     }
 
 }
 
-import { ObservableMigrationApi } from "./ObservableAPI";
-import { MigrationApiRequestFactory, MigrationApiResponseProcessor} from "../apis/MigrationApi";
+import { ObservableMetadataApi } from "./ObservableAPI";
+import { MetadataApiRequestFactory, MetadataApiResponseProcessor} from "../apis/MetadataApi";
 
-export interface MigrationApiMigrateMessagesByUrlRequest {
+export interface MetadataApiViewChannelMetacounterRequest {
     /**
      * 
      * @type string
-     * @memberof MigrationApimigrateMessagesByUrl
+     * @memberof MetadataApiviewChannelMetacounter
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof MigrationApimigrateMessagesByUrl
+     * @memberof MetadataApiviewChannelMetacounter
      */
-    targetChannelUrl: string
+    channelType: string
     /**
      * 
-     * @type any
-     * @memberof MigrationApimigrateMessagesByUrl
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounter
      */
-    body?: any
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounter
+     */
+    key?: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof MetadataApiviewChannelMetacounter
+     */
+    keys?: Array<string>
 }
 
-export class ObjectMigrationApi {
-    private api: ObservableMigrationApi
+export interface MetadataApiViewChannelMetacounterByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounterByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounterByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounterByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetacounterByKey
+     */
+    key: string
+}
 
-    public constructor(configuration: Configuration, requestFactory?: MigrationApiRequestFactory, responseProcessor?: MigrationApiResponseProcessor) {
-        this.api = new ObservableMigrationApi(configuration, requestFactory, responseProcessor);
+export interface MetadataApiViewChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadata
+     */
+    key?: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof MetadataApiviewChannelMetadata
+     */
+    keys?: Array<string>
+}
+
+export interface MetadataApiViewChannelMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadataByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadataByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewChannelMetadataByKey
+     */
+    key: string
+}
+
+export interface MetadataApiViewUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadata
+     */
+    key?: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof MetadataApiviewUserMetadata
+     */
+    keys?: Array<string>
+}
+
+export interface MetadataApiViewUserMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadataByKey
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiviewUserMetadataByKey
+     */
+    key: string
+}
+
+export class ObjectMetadataApi {
+    private api: ObservableMetadataApi
+
+    public constructor(configuration: Configuration, requestFactory?: MetadataApiRequestFactory, responseProcessor?: MetadataApiResponseProcessor) {
+        this.api = new ObservableMetadataApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
-     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
-     * Migrate messages
+     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * View a channel metacounter - When retrieving all items of a channel metacounter
      * @param param the request object
      */
-    public migrateMessagesByUrl(param: MigrationApiMigrateMessagesByUrlRequest, options?: Configuration): Promise<void> {
-        return this.api.migrateMessagesByUrl(param.apiToken, param.targetChannelUrl, param.body,  options).toPromise();
+    public viewChannelMetacounter(param: MetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+        return this.api.viewChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
+    }
+
+    /**
+     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     * @param param the request object
+     */
+    public viewChannelMetacounterByKey(param: MetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+        return this.api.viewChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * View a channel metadata - When retrieving all items of a channel metadata
+     * @param param the request object
+     */
+    public viewChannelMetadata(param: MetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.viewChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
+    }
+
+    /**
+     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
+     * @param param the request object
+     */
+    public viewChannelMetadataByKey(param: MetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.viewChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
+     * View a user metadata - When retrieving all items of a user metadata
+     * @param param the request object
+     */
+    public viewUserMetadata(param: MetadataApiViewUserMetadataRequest, options?: Configuration): Promise<ViewUserMetadataResponse> {
+        return this.api.viewUserMetadata(param.apiToken, param.userId, param.key, param.keys,  options).toPromise();
+    }
+
+    /**
+     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
+     * View a user metadata - When retrieving a specific item of a user metadata by its key
+     * @param param the request object
+     */
+    public viewUserMetadataByKey(param: MetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.viewUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
+    }
+
+}
+
+import { ObservableModerationApi } from "./ObservableAPI";
+import { ModerationApiRequestFactory, ModerationApiResponseProcessor} from "../apis/ModerationApi";
+
+export interface ModerationApiBanFromChannelsWithCustomChannelTypesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApibanFromChannelsWithCustomChannelTypes
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApibanFromChannelsWithCustomChannelTypes
+     */
+    userId: string
+    /**
+     * 
+     * @type BanFromChannelsWithCustomChannelTypesData
+     * @memberof ModerationApibanFromChannelsWithCustomChannelTypes
+     */
+    banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData
+}
+
+export interface ModerationApiBlockUserRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiblockUser
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiblockUser
+     */
+    userId: string
+    /**
+     * 
+     * @type BlockUserData
+     * @memberof ModerationApiblockUser
+     */
+    blockUserData?: BlockUserData
+}
+
+export interface ModerationApiGcBanUserRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcBanUser
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcBanUser
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type GcBanUserData
+     * @memberof ModerationApigcBanUser
+     */
+    gcBanUserData?: GcBanUserData
+}
+
+export interface ModerationApiGcFreezeChannelRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcFreezeChannel
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcFreezeChannel
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type GcFreezeChannelData
+     * @memberof ModerationApigcFreezeChannel
+     */
+    gcFreezeChannelData?: GcFreezeChannelData
+}
+
+export interface ModerationApiGcListBannedUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListBannedUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListBannedUsers
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListBannedUsers
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApigcListBannedUsers
+     */
+    limit?: number
+}
+
+export interface ModerationApiGcListMutedUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListMutedUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListMutedUsers
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcListMutedUsers
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApigcListMutedUsers
+     */
+    limit?: number
+}
+
+export interface ModerationApiGcMuteUserRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcMuteUser
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcMuteUser
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type GcMuteUserData
+     * @memberof ModerationApigcMuteUser
+     */
+    gcMuteUserData?: GcMuteUserData
+}
+
+export interface ModerationApiGcUnbanUserByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnbanUserById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnbanUserById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnbanUserById
+     */
+    bannedUserId: string
+}
+
+export interface ModerationApiGcUnmuteUserByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnmuteUserById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnmuteUserById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUnmuteUserById
+     */
+    mutedUserId: string
+}
+
+export interface ModerationApiGcUpdateBanByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUpdateBanById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUpdateBanById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcUpdateBanById
+     */
+    bannedUserId: string
+    /**
+     * 
+     * @type GcUpdateBanByIdData
+     * @memberof ModerationApigcUpdateBanById
+     */
+    gcUpdateBanByIdData?: GcUpdateBanByIdData
+}
+
+export interface ModerationApiGcViewBanByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewBanById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewBanById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewBanById
+     */
+    bannedUserId: string
+}
+
+export interface ModerationApiGcViewMuteByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewMuteById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewMuteById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApigcViewMuteById
+     */
+    mutedUserId: string
+}
+
+export interface ModerationApiListBannedChannelsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBannedChannels
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBannedChannels
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBannedChannels
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApilistBannedChannels
+     */
+    limit?: number
+}
+
+export interface ModerationApiListBlockedUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApilistBlockedUsers
+     */
+    limit?: number
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    userIds?: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    metadatakey?: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistBlockedUsers
+     */
+    metadatavaluesIn?: string
+}
+
+export interface ModerationApiListMutedChannelsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistMutedChannels
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistMutedChannels
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApilistMutedChannels
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApilistMutedChannels
+     */
+    limit?: number
+}
+
+export interface ModerationApiMuteInChannelsWithCustomChannelTypesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApimuteInChannelsWithCustomChannelTypes
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApimuteInChannelsWithCustomChannelTypes
+     */
+    userId: string
+    /**
+     * 
+     * @type MuteInChannelsWithCustomChannelTypesData
+     * @memberof ModerationApimuteInChannelsWithCustomChannelTypes
+     */
+    muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData
+}
+
+export interface ModerationApiOcBanUserRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocBanUser
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocBanUser
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type OcBanUserData
+     * @memberof ModerationApiocBanUser
+     */
+    ocBanUserData?: OcBanUserData
+}
+
+export interface ModerationApiOcFreezeChannelRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocFreezeChannel
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocFreezeChannel
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type OcFreezeChannelData
+     * @memberof ModerationApiocFreezeChannel
+     */
+    ocFreezeChannelData?: OcFreezeChannelData
+}
+
+export interface ModerationApiOcListBannedUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListBannedUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListBannedUsers
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListBannedUsers
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApiocListBannedUsers
+     */
+    limit?: number
+}
+
+export interface ModerationApiOcListMutedUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListMutedUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListMutedUsers
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocListMutedUsers
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ModerationApiocListMutedUsers
+     */
+    limit?: number
+}
+
+export interface ModerationApiOcMuteUserRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocMuteUser
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocMuteUser
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type OcMuteUserData
+     * @memberof ModerationApiocMuteUser
+     */
+    ocMuteUserData?: OcMuteUserData
+}
+
+export interface ModerationApiOcUnbanUserByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnbanUserById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnbanUserById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnbanUserById
+     */
+    bannedUserId: string
+}
+
+export interface ModerationApiOcUnmuteUserByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnmuteUserById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnmuteUserById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUnmuteUserById
+     */
+    mutedUserId: string
+}
+
+export interface ModerationApiOcUpdateBanByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUpdateBanById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUpdateBanById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocUpdateBanById
+     */
+    bannedUserId: string
+    /**
+     * 
+     * @type OcUpdateBanByIdData
+     * @memberof ModerationApiocUpdateBanById
+     */
+    ocUpdateBanByIdData?: OcUpdateBanByIdData
+}
+
+export interface ModerationApiOcViewBanByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewBanById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewBanById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewBanById
+     */
+    bannedUserId: string
+}
+
+export interface ModerationApiOcViewMuteByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewMuteById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewMuteById
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiocViewMuteById
+     */
+    mutedUserId: string
+}
+
+export interface ModerationApiUnblockUserByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiunblockUserById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiunblockUserById
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApiunblockUserById
+     */
+    targetId: string
+}
+
+export class ObjectModerationApi {
+    private api: ObservableModerationApi
+
+    public constructor(configuration: Configuration, requestFactory?: ModerationApiRequestFactory, responseProcessor?: ModerationApiResponseProcessor) {
+        this.api = new ObservableModerationApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
+     * Ban from channels with custom channel types
+     * @param param the request object
+     */
+    public banFromChannelsWithCustomChannelTypes(param: ModerationApiBanFromChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
+        return this.api.banFromChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.banFromChannelsWithCustomChannelTypesData,  options).toPromise();
+    }
+
+    /**
+     * ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
+     * Block a user
+     * @param param the request object
+     */
+    public blockUser(param: ModerationApiBlockUserRequest, options?: Configuration): Promise<BlockUserResponse> {
+        return this.api.blockUser(param.apiToken, param.userId, param.blockUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
+     * Ban a user
+     * @param param the request object
+     */
+    public gcBanUser(param: ModerationApiGcBanUserRequest, options?: Configuration): Promise<GcBanUserResponse> {
+        return this.api.gcBanUser(param.apiToken, param.channelUrl, param.gcBanUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
+     * Freeze a channel
+     * @param param the request object
+     */
+    public gcFreezeChannel(param: ModerationApiGcFreezeChannelRequest, options?: Configuration): Promise<SendBirdGroupChannel> {
+        return this.api.gcFreezeChannel(param.apiToken, param.channelUrl, param.gcFreezeChannelData,  options).toPromise();
+    }
+
+    /**
+     * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
+     * List banned users
+     * @param param the request object
+     */
+    public gcListBannedUsers(param: ModerationApiGcListBannedUsersRequest, options?: Configuration): Promise<GcListBannedUsersResponse> {
+        return this.api.gcListBannedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
+     * List muted users
+     * @param param the request object
+     */
+    public gcListMutedUsers(param: ModerationApiGcListMutedUsersRequest, options?: Configuration): Promise<GcListMutedUsersResponse> {
+        return this.api.gcListMutedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
+     * Mute a user
+     * @param param the request object
+     */
+    public gcMuteUser(param: ModerationApiGcMuteUserRequest, options?: Configuration): Promise<SendBirdGroupChannel> {
+        return this.api.gcMuteUser(param.apiToken, param.channelUrl, param.gcMuteUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
+     * Unban a user
+     * @param param the request object
+     */
+    public gcUnbanUserById(param: ModerationApiGcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+        return this.api.gcUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
+     * Unmute a user
+     * @param param the request object
+     */
+    public gcUnmuteUserById(param: ModerationApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+        return this.api.gcUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
+     * Update a ban
+     * @param param the request object
+     */
+    public gcUpdateBanById(param: ModerationApiGcUpdateBanByIdRequest, options?: Configuration): Promise<GcUpdateBanByIdResponse> {
+        return this.api.gcUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.gcUpdateBanByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
+     * View a ban
+     * @param param the request object
+     */
+    public gcViewBanById(param: ModerationApiGcViewBanByIdRequest, options?: Configuration): Promise<GcViewBanByIdResponse> {
+        return this.api.gcViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
+     * View a mute
+     * @param param the request object
+     */
+    public gcViewMuteById(param: ModerationApiGcViewMuteByIdRequest, options?: Configuration): Promise<GcViewMuteByIdResponse> {
+        return this.api.gcViewMuteById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * List banned channels
+     * @param param the request object
+     */
+    public listBannedChannels(param: ModerationApiListBannedChannelsRequest, options?: Configuration): Promise<ListBannedChannelsResponse> {
+        return this.api.listBannedChannels(param.apiToken, param.userId, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * List blocked users
+     * @param param the request object
+     */
+    public listBlockedUsers(param: ModerationApiListBlockedUsersRequest, options?: Configuration): Promise<ListBlockedUsersResponse> {
+        return this.api.listBlockedUsers(param.apiToken, param.userId, param.token, param.limit, param.userIds, param.metadatakey, param.metadatavaluesIn,  options).toPromise();
+    }
+
+    /**
+     * ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * List muted channels
+     * @param param the request object
+     */
+    public listMutedChannels(param: ModerationApiListMutedChannelsRequest, options?: Configuration): Promise<ListMutedChannelsResponse> {
+        return this.api.listMutedChannels(param.apiToken, param.userId, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
+     * Mute in channels with custom channel types
+     * @param param the request object
+     */
+    public muteInChannelsWithCustomChannelTypes(param: ModerationApiMuteInChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
+        return this.api.muteInChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.muteInChannelsWithCustomChannelTypesData,  options).toPromise();
+    }
+
+    /**
+     * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
+     * Ban a user
+     * @param param the request object
+     */
+    public ocBanUser(param: ModerationApiOcBanUserRequest, options?: Configuration): Promise<OcBanUserResponse> {
+        return this.api.ocBanUser(param.apiToken, param.channelUrl, param.ocBanUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
+     * Freeze a channel
+     * @param param the request object
+     */
+    public ocFreezeChannel(param: ModerationApiOcFreezeChannelRequest, options?: Configuration): Promise<SendBirdOpenChannel> {
+        return this.api.ocFreezeChannel(param.apiToken, param.channelUrl, param.ocFreezeChannelData,  options).toPromise();
+    }
+
+    /**
+     * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
+     * List banned users
+     * @param param the request object
+     */
+    public ocListBannedUsers(param: ModerationApiOcListBannedUsersRequest, options?: Configuration): Promise<OcListBannedUsersResponse> {
+        return this.api.ocListBannedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
+     * List muted users
+     * @param param the request object
+     */
+    public ocListMutedUsers(param: ModerationApiOcListMutedUsersRequest, options?: Configuration): Promise<OcListMutedUsersResponse> {
+        return this.api.ocListMutedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
+     * Mute a user
+     * @param param the request object
+     */
+    public ocMuteUser(param: ModerationApiOcMuteUserRequest, options?: Configuration): Promise<SendBirdOpenChannel> {
+        return this.api.ocMuteUser(param.apiToken, param.channelUrl, param.ocMuteUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
+     * Unban a user
+     * @param param the request object
+     */
+    public ocUnbanUserById(param: ModerationApiOcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+        return this.api.ocUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
+     * Unmute a user
+     * @param param the request object
+     */
+    public ocUnmuteUserById(param: ModerationApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+        return this.api.ocUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
+     * Update a ban
+     * @param param the request object
+     */
+    public ocUpdateBanById(param: ModerationApiOcUpdateBanByIdRequest, options?: Configuration): Promise<OcUpdateBanByIdResponse> {
+        return this.api.ocUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.ocUpdateBanByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
+     * View a ban
+     * @param param the request object
+     */
+    public ocViewBanById(param: ModerationApiOcViewBanByIdRequest, options?: Configuration): Promise<OcViewBanByIdResponse> {
+        return this.api.ocViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
+     * View a mute
+     * @param param the request object
+     */
+    public ocViewMuteById(param: ModerationApiOcViewMuteByIdRequest, options?: Configuration): Promise<OcViewMuteByIdResponse> {
+        return this.api.ocViewMuteById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
+    }
+
+    /**
+     * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
+     * Unblock a user
+     * @param param the request object
+     */
+    public unblockUserById(param: ModerationApiUnblockUserByIdRequest, options?: Configuration): Promise<any> {
+        return this.api.unblockUserById(param.apiToken, param.userId, param.targetId,  options).toPromise();
     }
 
 }
 
 import { ObservableOpenChannelApi } from "./ObservableAPI";
 import { OpenChannelApiRequestFactory, OpenChannelApiResponseProcessor} from "../apis/OpenChannelApi";
-
-export interface OpenChannelApiOcBanUserRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocBanUser
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocBanUser
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type OcBanUserData
-     * @memberof OpenChannelApiocBanUser
-     */
-    ocBanUserData?: OcBanUserData
-}
 
 export interface OpenChannelApiOcCancelTheRegistrationOfOperatorsRequest {
     /**
@@ -4175,54 +4904,6 @@ export interface OpenChannelApiOcDeleteChannelByUrlRequest {
      * @memberof OpenChannelApiocDeleteChannelByUrl
      */
     channelUrl: string
-}
-
-export interface OpenChannelApiOcFreezeChannelRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocFreezeChannel
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocFreezeChannel
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type OcFreezeChannelData
-     * @memberof OpenChannelApiocFreezeChannel
-     */
-    ocFreezeChannelData?: OcFreezeChannelData
-}
-
-export interface OpenChannelApiOcListBannedUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListBannedUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListBannedUsers
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListBannedUsers
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof OpenChannelApiocListBannedUsers
-     */
-    limit?: number
 }
 
 export interface OpenChannelApiOcListChannelsRequest {
@@ -4282,33 +4963,6 @@ export interface OpenChannelApiOcListChannelsRequest {
     customType?: string
 }
 
-export interface OpenChannelApiOcListMutedUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListMutedUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListMutedUsers
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocListMutedUsers
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof OpenChannelApiocListMutedUsers
-     */
-    limit?: number
-}
-
 export interface OpenChannelApiOcListOperatorsRequest {
     /**
      * 
@@ -4363,27 +5017,6 @@ export interface OpenChannelApiOcListParticipantsRequest {
     limit?: number
 }
 
-export interface OpenChannelApiOcMuteUserRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocMuteUser
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocMuteUser
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type OcMuteUserData
-     * @memberof OpenChannelApiocMuteUser
-     */
-    ocMuteUserData?: OcMuteUserData
-}
-
 export interface OpenChannelApiOcRegisterOperatorsRequest {
     /**
      * 
@@ -4403,75 +5036,6 @@ export interface OpenChannelApiOcRegisterOperatorsRequest {
      * @memberof OpenChannelApiocRegisterOperators
      */
     ocRegisterOperatorsData?: OcRegisterOperatorsData
-}
-
-export interface OpenChannelApiOcUnbanUserByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnbanUserById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnbanUserById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnbanUserById
-     */
-    bannedUserId: string
-}
-
-export interface OpenChannelApiOcUnmuteUserByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnmuteUserById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnmuteUserById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUnmuteUserById
-     */
-    mutedUserId: string
-}
-
-export interface OpenChannelApiOcUpdateBanByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUpdateBanById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUpdateBanById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocUpdateBanById
-     */
-    bannedUserId: string
-    /**
-     * 
-     * @type OcUpdateBanByIdData
-     * @memberof OpenChannelApiocUpdateBanById
-     */
-    ocUpdateBanByIdData?: OcUpdateBanByIdData
 }
 
 export interface OpenChannelApiOcUpdateChannelByUrlRequest {
@@ -4495,27 +5059,6 @@ export interface OpenChannelApiOcUpdateChannelByUrlRequest {
     ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData
 }
 
-export interface OpenChannelApiOcViewBanByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewBanById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewBanById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewBanById
-     */
-    bannedUserId: string
-}
-
 export interface OpenChannelApiOcViewChannelByUrlRequest {
     /**
      * 
@@ -4531,41 +5074,11 @@ export interface OpenChannelApiOcViewChannelByUrlRequest {
     channelUrl: string
 }
 
-export interface OpenChannelApiOcViewMuteByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewMuteById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewMuteById
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApiocViewMuteById
-     */
-    mutedUserId: string
-}
-
 export class ObjectOpenChannelApi {
     private api: ObservableOpenChannelApi
 
     public constructor(configuration: Configuration, requestFactory?: OpenChannelApiRequestFactory, responseProcessor?: OpenChannelApiResponseProcessor) {
         this.api = new ObservableOpenChannelApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param param the request object
-     */
-    public ocBanUser(param: OpenChannelApiOcBanUserRequest, options?: Configuration): Promise<OcBanUserResponse> {
-        return this.api.ocBanUser(param.apiToken, param.channelUrl, param.ocBanUserData,  options).toPromise();
     }
 
     /**
@@ -4591,26 +5104,8 @@ export class ObjectOpenChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse200> {
+    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.ocDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
-    }
-
-    /**
-     * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param param the request object
-     */
-    public ocFreezeChannel(param: OpenChannelApiOcFreezeChannelRequest, options?: Configuration): Promise<SendBirdOpenChannel> {
-        return this.api.ocFreezeChannel(param.apiToken, param.channelUrl, param.ocFreezeChannelData,  options).toPromise();
-    }
-
-    /**
-     * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param param the request object
-     */
-    public ocListBannedUsers(param: OpenChannelApiOcListBannedUsersRequest, options?: Configuration): Promise<OcListBannedUsersResponse> {
-        return this.api.ocListBannedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -4620,15 +5115,6 @@ export class ObjectOpenChannelApi {
      */
     public ocListChannels(param: OpenChannelApiOcListChannelsRequest, options?: Configuration): Promise<OcListChannelsResponse> {
         return this.api.ocListChannels(param.apiToken, param.token, param.limit, param.customTypes, param.nameContains, param.urlContains, param.showFrozen, param.showMetadata, param.customType,  options).toPromise();
-    }
-
-    /**
-     * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param param the request object
-     */
-    public ocListMutedUsers(param: OpenChannelApiOcListMutedUsersRequest, options?: Configuration): Promise<OcListMutedUsersResponse> {
-        return this.api.ocListMutedUsers(param.apiToken, param.channelUrl, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -4650,48 +5136,12 @@ export class ObjectOpenChannelApi {
     }
 
     /**
-     * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
-     * Mute a user
-     * @param param the request object
-     */
-    public ocMuteUser(param: OpenChannelApiOcMuteUserRequest, options?: Configuration): Promise<SendBirdOpenChannel> {
-        return this.api.ocMuteUser(param.apiToken, param.channelUrl, param.ocMuteUserData,  options).toPromise();
-    }
-
-    /**
      * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
      * Register operators
      * @param param the request object
      */
-    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse200> {
+    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.ocRegisterOperators(param.apiToken, param.channelUrl, param.ocRegisterOperatorsData,  options).toPromise();
-    }
-
-    /**
-     * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param param the request object
-     */
-    public ocUnbanUserById(param: OpenChannelApiOcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.ocUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
-    }
-
-    /**
-     * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param param the request object
-     */
-    public ocUnmuteUserById(param: OpenChannelApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.ocUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param param the request object
-     */
-    public ocUpdateBanById(param: OpenChannelApiOcUpdateBanByIdRequest, options?: Configuration): Promise<OcUpdateBanByIdResponse> {
-        return this.api.ocUpdateBanById(param.apiToken, param.channelUrl, param.bannedUserId, param.ocUpdateBanByIdData,  options).toPromise();
     }
 
     /**
@@ -4704,15 +5154,6 @@ export class ObjectOpenChannelApi {
     }
 
     /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param param the request object
-     */
-    public ocViewBanById(param: OpenChannelApiOcViewBanByIdRequest, options?: Configuration): Promise<OcViewBanByIdResponse> {
-        return this.api.ocViewBanById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
-    }
-
-    /**
      * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
      * View a channel
      * @param param the request object
@@ -4721,265 +5162,370 @@ export class ObjectOpenChannelApi {
         return this.api.ocViewChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
     }
 
-    /**
-     * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param param the request object
-     */
-    public ocViewMuteById(param: OpenChannelApiOcViewMuteByIdRequest, options?: Configuration): Promise<OcViewMuteByIdResponse> {
-        return this.api.ocViewMuteById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
-    }
-
 }
 
-import { ObservableReportContentSubjectApi } from "./ObservableAPI";
-import { ReportContentSubjectApiRequestFactory, ReportContentSubjectApiResponseProcessor} from "../apis/ReportContentSubjectApi";
+import { ObservablePrivacyApi } from "./ObservableAPI";
+import { PrivacyApiRequestFactory, PrivacyApiResponseProcessor} from "../apis/PrivacyApi";
 
-export interface ReportContentSubjectApiListReportsRequest {
+export interface PrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReports
+     * @memberof PrivacyApicancelTheRegistrationOfGdprRequestById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReports
+     * @memberof PrivacyApicancelTheRegistrationOfGdprRequestById
+     */
+    requestId: string
+}
+
+export interface PrivacyApiListGdprRequestsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PrivacyApilistGdprRequests
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof PrivacyApilistGdprRequests
      */
     token?: string
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReports
+     * @memberof PrivacyApilistGdprRequests
+     */
+    limit?: number
+}
+
+export interface PrivacyApiRegisterGdprRequestRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PrivacyApiregisterGdprRequest
+     */
+    apiToken: string
+    /**
+     * 
+     * @type RegisterGdprRequestData
+     * @memberof PrivacyApiregisterGdprRequest
+     */
+    registerGdprRequestData?: RegisterGdprRequestData
+}
+
+export interface PrivacyApiViewGdprRequestByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PrivacyApiviewGdprRequestById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof PrivacyApiviewGdprRequestById
+     */
+    requestId: string
+}
+
+export class ObjectPrivacyApi {
+    private api: ObservablePrivacyApi
+
+    public constructor(configuration: Configuration, requestFactory?: PrivacyApiRequestFactory, responseProcessor?: PrivacyApiResponseProcessor) {
+        this.api = new ObservablePrivacyApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
+     * Cancel the registration of a GDPR request
+     * @param param the request object
+     */
+    public cancelTheRegistrationOfGdprRequestById(param: PrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest, options?: Configuration): Promise<void> {
+        return this.api.cancelTheRegistrationOfGdprRequestById(param.apiToken, param.requestId,  options).toPromise();
+    }
+
+    /**
+     * ## List GDPR requests  Retrieves a list of GDPR requests of all types.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-list-gdpr-requests ----------------------------
+     * List GDPR requests
+     * @param param the request object
+     */
+    public listGdprRequests(param: PrivacyApiListGdprRequestsRequest, options?: Configuration): Promise<ListGdprRequestsResponse> {
+        return this.api.listGdprRequests(param.apiToken, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Register a GDPR request  Registers a specific type of GDPR request to meet the GDPR's requirements.  > __Note__: Currently, only delete and access of the user data are supported. The features for the [right to restriction of processing](https://gdpr-info.eu/art-18-gdpr/) and [right to object](https://gdpr-info.eu/art-21-gdpr/) will be available soon.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-register-a-gdpr-request
+     * Register a GDPR request
+     * @param param the request object
+     */
+    public registerGdprRequest(param: PrivacyApiRegisterGdprRequestRequest, options?: Configuration): Promise<RegisterGdprRequestResponse> {
+        return this.api.registerGdprRequest(param.apiToken, param.registerGdprRequestData,  options).toPromise();
+    }
+
+    /**
+     * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
+     * View a GDPR request
+     * @param param the request object
+     */
+    public viewGdprRequestById(param: PrivacyApiViewGdprRequestByIdRequest, options?: Configuration): Promise<ViewGdprRequestByIdResponse> {
+        return this.api.viewGdprRequestById(param.apiToken, param.requestId,  options).toPromise();
+    }
+
+}
+
+import { ObservableReportApi } from "./ObservableAPI";
+import { ReportApiRequestFactory, ReportApiResponseProcessor} from "../apis/ReportApi";
+
+export interface ReportApiListReportsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ReportApilistReports
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof ReportApilistReports
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof ReportApilistReports
      */
     limit?: number
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReports
+     * @memberof ReportApilistReports
      */
     startTs?: number
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReports
+     * @memberof ReportApilistReports
      */
     endTs?: number
 }
 
-export interface ReportContentSubjectApiListReportsOnChannelByUrlRequest {
+export interface ReportApiListReportsOnChannelByUrlRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnChannelByUrl
+     * @memberof ReportApilistReportsOnChannelByUrl
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnChannelByUrl
+     * @memberof ReportApilistReportsOnChannelByUrl
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnChannelByUrl
+     * @memberof ReportApilistReportsOnChannelByUrl
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnChannelByUrl
+     * @memberof ReportApilistReportsOnChannelByUrl
      */
     token?: string
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReportsOnChannelByUrl
+     * @memberof ReportApilistReportsOnChannelByUrl
      */
     limit?: number
 }
 
-export interface ReportContentSubjectApiListReportsOnMessageByIdRequest {
+export interface ReportApiListReportsOnMessageByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     messageId: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     token?: string
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReportsOnMessageById
+     * @memberof ReportApilistReportsOnMessageById
      */
     limit?: number
 }
 
-export interface ReportContentSubjectApiListReportsOnUserByIdRequest {
+export interface ReportApiListReportsOnUserByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnUserById
+     * @memberof ReportApilistReportsOnUserById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnUserById
+     * @memberof ReportApilistReportsOnUserById
      */
     offendingUserId: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApilistReportsOnUserById
+     * @memberof ReportApilistReportsOnUserById
      */
     token?: string
     /**
      * 
      * @type number
-     * @memberof ReportContentSubjectApilistReportsOnUserById
+     * @memberof ReportApilistReportsOnUserById
      */
     limit?: number
 }
 
-export interface ReportContentSubjectApiReportChannelByUrlRequest {
+export interface ReportApiReportChannelByUrlRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportChannelByUrl
+     * @memberof ReportApireportChannelByUrl
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportChannelByUrl
+     * @memberof ReportApireportChannelByUrl
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportChannelByUrl
+     * @memberof ReportApireportChannelByUrl
      */
     channelUrl: string
     /**
      * 
      * @type ReportChannelByUrlData
-     * @memberof ReportContentSubjectApireportChannelByUrl
+     * @memberof ReportApireportChannelByUrl
      */
     reportChannelByUrlData?: ReportChannelByUrlData
 }
 
-export interface ReportContentSubjectApiReportMessageByIdRequest {
+export interface ReportApiReportMessageByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportMessageById
+     * @memberof ReportApireportMessageById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportMessageById
+     * @memberof ReportApireportMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportMessageById
+     * @memberof ReportApireportMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportMessageById
+     * @memberof ReportApireportMessageById
      */
     messageId: string
     /**
      * 
      * @type ReportMessageByIdData
-     * @memberof ReportContentSubjectApireportMessageById
+     * @memberof ReportApireportMessageById
      */
     reportMessageByIdData?: ReportMessageByIdData
 }
 
-export interface ReportContentSubjectApiReportUserByIdRequest {
+export interface ReportApiReportUserByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportUserById
+     * @memberof ReportApireportUserById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApireportUserById
+     * @memberof ReportApireportUserById
      */
     offendingUserId: string
     /**
      * 
      * @type ReportUserByIdData
-     * @memberof ReportContentSubjectApireportUserById
+     * @memberof ReportApireportUserById
      */
     reportUserByIdData?: ReportUserByIdData
 }
 
-export interface ReportContentSubjectApiViewModeratedMessageByIdRequest {
+export interface ReportApiViewModeratedMessageByIdRequest {
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApiviewModeratedMessageById
+     * @memberof ReportApiviewModeratedMessageById
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApiviewModeratedMessageById
+     * @memberof ReportApiviewModeratedMessageById
      */
     channelType: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApiviewModeratedMessageById
+     * @memberof ReportApiviewModeratedMessageById
      */
     channelUrl: string
     /**
      * 
      * @type string
-     * @memberof ReportContentSubjectApiviewModeratedMessageById
+     * @memberof ReportApiviewModeratedMessageById
      */
     messageId: string
 }
 
-export class ObjectReportContentSubjectApi {
-    private api: ObservableReportContentSubjectApi
+export class ObjectReportApi {
+    private api: ObservableReportApi
 
-    public constructor(configuration: Configuration, requestFactory?: ReportContentSubjectApiRequestFactory, responseProcessor?: ReportContentSubjectApiResponseProcessor) {
-        this.api = new ObservableReportContentSubjectApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: ReportApiRequestFactory, responseProcessor?: ReportApiResponseProcessor) {
+        this.api = new ObservableReportApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
@@ -4987,7 +5533,7 @@ export class ObjectReportContentSubjectApi {
      * List reports
      * @param param the request object
      */
-    public listReports(param: ReportContentSubjectApiListReportsRequest, options?: Configuration): Promise<ListReportsResponse> {
+    public listReports(param: ReportApiListReportsRequest, options?: Configuration): Promise<ListReportsResponse> {
         return this.api.listReports(param.apiToken, param.token, param.limit, param.startTs, param.endTs,  options).toPromise();
     }
 
@@ -4996,7 +5542,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a channel
      * @param param the request object
      */
-    public listReportsOnChannelByUrl(param: ReportContentSubjectApiListReportsOnChannelByUrlRequest, options?: Configuration): Promise<ListReportsOnChannelByUrlResponse> {
+    public listReportsOnChannelByUrl(param: ReportApiListReportsOnChannelByUrlRequest, options?: Configuration): Promise<ListReportsOnChannelByUrlResponse> {
         return this.api.listReportsOnChannelByUrl(param.apiToken, param.channelType, param.channelUrl, param.token, param.limit,  options).toPromise();
     }
 
@@ -5005,7 +5551,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a message
      * @param param the request object
      */
-    public listReportsOnMessageById(param: ReportContentSubjectApiListReportsOnMessageByIdRequest, options?: Configuration): Promise<ListReportsOnMessageByIdResponse> {
+    public listReportsOnMessageById(param: ReportApiListReportsOnMessageByIdRequest, options?: Configuration): Promise<ListReportsOnMessageByIdResponse> {
         return this.api.listReportsOnMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.token, param.limit,  options).toPromise();
     }
 
@@ -5014,7 +5560,7 @@ export class ObjectReportContentSubjectApi {
      * List reports on a user
      * @param param the request object
      */
-    public listReportsOnUserById(param: ReportContentSubjectApiListReportsOnUserByIdRequest, options?: Configuration): Promise<ListReportsOnUserByIdResponse> {
+    public listReportsOnUserById(param: ReportApiListReportsOnUserByIdRequest, options?: Configuration): Promise<ListReportsOnUserByIdResponse> {
         return this.api.listReportsOnUserById(param.apiToken, param.offendingUserId, param.token, param.limit,  options).toPromise();
     }
 
@@ -5023,7 +5569,7 @@ export class ObjectReportContentSubjectApi {
      * Report a channel
      * @param param the request object
      */
-    public reportChannelByUrl(param: ReportContentSubjectApiReportChannelByUrlRequest, options?: Configuration): Promise<ReportChannelByUrlResponse> {
+    public reportChannelByUrl(param: ReportApiReportChannelByUrlRequest, options?: Configuration): Promise<ReportChannelByUrlResponse> {
         return this.api.reportChannelByUrl(param.apiToken, param.channelType, param.channelUrl, param.reportChannelByUrlData,  options).toPromise();
     }
 
@@ -5032,7 +5578,7 @@ export class ObjectReportContentSubjectApi {
      * Report a message
      * @param param the request object
      */
-    public reportMessageById(param: ReportContentSubjectApiReportMessageByIdRequest, options?: Configuration): Promise<ReportMessageByIdResponse> {
+    public reportMessageById(param: ReportApiReportMessageByIdRequest, options?: Configuration): Promise<ReportMessageByIdResponse> {
         return this.api.reportMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.reportMessageByIdData,  options).toPromise();
     }
 
@@ -5041,7 +5587,7 @@ export class ObjectReportContentSubjectApi {
      * Report a user
      * @param param the request object
      */
-    public reportUserById(param: ReportContentSubjectApiReportUserByIdRequest, options?: Configuration): Promise<ReportUserByIdResponse> {
+    public reportUserById(param: ReportApiReportUserByIdRequest, options?: Configuration): Promise<ReportUserByIdResponse> {
         return this.api.reportUserById(param.apiToken, param.offendingUserId, param.reportUserByIdData,  options).toPromise();
     }
 
@@ -5050,8 +5596,164 @@ export class ObjectReportContentSubjectApi {
      * View a moderated message
      * @param param the request object
      */
-    public viewModeratedMessageById(param: ReportContentSubjectApiViewModeratedMessageByIdRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+    public viewModeratedMessageById(param: ReportApiViewModeratedMessageByIdRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.viewModeratedMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId,  options).toPromise();
+    }
+
+}
+
+import { ObservableStatisticsApi } from "./ObservableAPI";
+import { StatisticsApiRequestFactory, StatisticsApiResponseProcessor} from "../apis/StatisticsApi";
+
+export interface StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiretrieveAdvancedAnalyticsMetrics
+     */
+    apiToken: string
+}
+
+export interface StatisticsApiViewNumberOfConcurrentConnectionsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfConcurrentConnections
+     */
+    apiToken: string
+}
+
+export interface StatisticsApiViewNumberOfDailyActiveUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfDailyActiveUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfDailyActiveUsers
+     */
+    date?: string
+}
+
+export interface StatisticsApiViewNumberOfMonthlyActiveUsersRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfMonthlyActiveUsers
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfMonthlyActiveUsers
+     */
+    date?: string
+}
+
+export interface StatisticsApiViewNumberOfPeakConnectionsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    timeDimension: string
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    startYear: number
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    startMonth: number
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    endYear: number
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    endMonth: number
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    startDay?: number
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApiviewNumberOfPeakConnections
+     */
+    endDay?: number
+}
+
+export class ObjectStatisticsApi {
+    private api: ObservableStatisticsApi
+
+    public constructor(configuration: Configuration, requestFactory?: StatisticsApiRequestFactory, responseProcessor?: StatisticsApiResponseProcessor) {
+        this.api = new ObservableStatisticsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Retrieve Advanced analytics metrics  Retrieves Advanced analytics metrics based on the specified parameters. You can retrieve either daily or monthly metrics using the time_dimension parameter.  >__Note__: Daily metrics are calculated and updated every three hours, starting at 1 a.m. in UTC. Meanwhile, monthly metrics are calculated after the last day of the month.  https://sendbird.com/docs/chat/v3/platform-api/guides/advanced-analytics#2-retrieve-advanced-analytics-metrics ----------------------------
+     * Retrieve Advanced analytics metrics
+     * @param param the request object
+     */
+    public retrieveAdvancedAnalyticsMetrics(param: StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest, options?: Configuration): Promise<RetrieveAdvancedAnalyticsMetricsResponse> {
+        return this.api.retrieveAdvancedAnalyticsMetrics(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
+     * View number of concurrent connections
+     * @param param the request object
+     */
+    public viewNumberOfConcurrentConnections(param: StatisticsApiViewNumberOfConcurrentConnectionsRequest, options?: Configuration): Promise<ViewNumberOfConcurrentConnectionsResponse> {
+        return this.api.viewNumberOfConcurrentConnections(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
+     * View number of daily active users
+     * @param param the request object
+     */
+    public viewNumberOfDailyActiveUsers(param: StatisticsApiViewNumberOfDailyActiveUsersRequest, options?: Configuration): Promise<ViewNumberOfDailyActiveUsersResponse> {
+        return this.api.viewNumberOfDailyActiveUsers(param.apiToken, param.date,  options).toPromise();
+    }
+
+    /**
+     * ## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
+     * View number of monthly active users
+     * @param param the request object
+     */
+    public viewNumberOfMonthlyActiveUsers(param: StatisticsApiViewNumberOfMonthlyActiveUsersRequest, options?: Configuration): Promise<ViewNumberOfMonthlyActiveUsersResponse> {
+        return this.api.viewNumberOfMonthlyActiveUsers(param.apiToken, param.date,  options).toPromise();
+    }
+
+    /**
+     * ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
+     * View number of peak connections
+     * @param param the request object
+     */
+    public viewNumberOfPeakConnections(param: StatisticsApiViewNumberOfPeakConnectionsRequest, options?: Configuration): Promise<ViewNumberOfPeakConnectionsResponse> {
+        return this.api.viewNumberOfPeakConnections(param.apiToken, param.timeDimension, param.startYear, param.startMonth, param.endYear, param.endMonth, param.startDay, param.endDay,  options).toPromise();
     }
 
 }
@@ -5086,48 +5788,6 @@ export interface UserApiAddRegistrationOrDeviceTokenRequest {
     addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData
 }
 
-export interface UserApiBanFromChannelsWithCustomChannelTypesRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApibanFromChannelsWithCustomChannelTypes
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApibanFromChannelsWithCustomChannelTypes
-     */
-    userId: string
-    /**
-     * 
-     * @type BanFromChannelsWithCustomChannelTypesData
-     * @memberof UserApibanFromChannelsWithCustomChannelTypes
-     */
-    banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData
-}
-
-export interface UserApiBlockUserRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiblockUser
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiblockUser
-     */
-    userId: string
-    /**
-     * 
-     * @type BlockUserData
-     * @memberof UserApiblockUser
-     */
-    blockUserData?: BlockUserData
-}
-
 export interface UserApiChoosePushNotificationContentTemplateRequest {
     /**
      * 
@@ -5149,6 +5809,60 @@ export interface UserApiChoosePushNotificationContentTemplateRequest {
     body?: any
 }
 
+export interface UserApiCreateChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetacounter
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type CreateChannelMetacounterData
+     * @memberof UserApicreateChannelMetacounter
+     */
+    createChannelMetacounterData?: CreateChannelMetacounterData
+}
+
+export interface UserApiCreateChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type CreateChannelMetadataData
+     * @memberof UserApicreateChannelMetadata
+     */
+    createChannelMetadataData?: CreateChannelMetadataData
+}
+
 export interface UserApiCreateUserRequest {
     /**
      * 
@@ -5164,6 +5878,129 @@ export interface UserApiCreateUserRequest {
     createUserData?: CreateUserData
 }
 
+export interface UserApiCreateUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type CreateUserMetadataData
+     * @memberof UserApicreateUserMetadata
+     */
+    createUserMetadataData?: CreateUserMetadataData
+}
+
+export interface UserApiDeleteChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounter
+     */
+    channelUrl: string
+}
+
+export interface UserApiDeleteChannelMetacounterByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounterByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounterByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounterByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetacounterByKey
+     */
+    key: string
+}
+
+export interface UserApiDeleteChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadata
+     */
+    key?: string
+}
+
+export interface UserApiDeleteChannelMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadataByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadataByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteChannelMetadataByKey
+     */
+    key: string
+}
+
 export interface UserApiDeleteUserByIdRequest {
     /**
      * 
@@ -5177,6 +6014,48 @@ export interface UserApiDeleteUserByIdRequest {
      * @memberof UserApideleteUserById
      */
     userId: string
+}
+
+export interface UserApiDeleteUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadata
+     */
+    key?: string
+}
+
+export interface UserApiDeleteUserMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadataByKey
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserMetadataByKey
+     */
+    key: string
 }
 
 export interface UserApiLeaveMyGroupChannelsRequest {
@@ -5198,105 +6077,6 @@ export interface UserApiLeaveMyGroupChannelsRequest {
      * @memberof UserApileaveMyGroupChannels
      */
     leaveMyGroupChannelsData?: LeaveMyGroupChannelsData
-}
-
-export interface UserApiListBannedChannelsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBannedChannels
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBannedChannels
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBannedChannels
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof UserApilistBannedChannels
-     */
-    limit?: number
-}
-
-export interface UserApiListBlockedUsersRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof UserApilistBlockedUsers
-     */
-    limit?: number
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    userIds?: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    metadatakey?: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistBlockedUsers
-     */
-    metadatavaluesIn?: string
-}
-
-export interface UserApiListMutedChannelsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistMutedChannels
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistMutedChannels
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApilistMutedChannels
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof UserApilistMutedChannels
-     */
-    limit?: number
 }
 
 export interface UserApiListMyGroupChannelsRequest {
@@ -5659,27 +6439,6 @@ export interface UserApiMarkAllMessagesAsReadRequest {
     markAllMessagesAsReadData?: MarkAllMessagesAsReadData
 }
 
-export interface UserApiMuteInChannelsWithCustomChannelTypesRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApimuteInChannelsWithCustomChannelTypes
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApimuteInChannelsWithCustomChannelTypes
-     */
-    userId: string
-    /**
-     * 
-     * @type MuteInChannelsWithCustomChannelTypesData
-     * @memberof UserApimuteInChannelsWithCustomChannelTypes
-     */
-    muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData
-}
-
 export interface UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest {
     /**
      * 
@@ -5779,27 +6538,6 @@ export interface UserApiResetPushPreferencesRequest {
     userId: string
 }
 
-export interface UserApiUnblockUserByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiunblockUserById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiunblockUserById
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiunblockUserById
-     */
-    targetId: string
-}
-
 export interface UserApiUpdateChannelInvitationPreferenceRequest {
     /**
      * 
@@ -5819,6 +6557,126 @@ export interface UserApiUpdateChannelInvitationPreferenceRequest {
      * @memberof UserApiupdateChannelInvitationPreference
      */
     updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData
+}
+
+export interface UserApiUpdateChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounter
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type UpdateChannelMetacounterData
+     * @memberof UserApiupdateChannelMetacounter
+     */
+    updateChannelMetacounterData?: UpdateChannelMetacounterData
+}
+
+export interface UserApiUpdateChannelMetacounterByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounterByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounterByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounterByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetacounterByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof UserApiupdateChannelMetacounterByKey
+     */
+    body?: any
+}
+
+export interface UserApiUpdateChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type UpdateChannelMetadataData
+     * @memberof UserApiupdateChannelMetadata
+     */
+    updateChannelMetadataData?: UpdateChannelMetadataData
+}
+
+export interface UserApiUpdateChannelMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadataByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadataByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateChannelMetadataByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof UserApiupdateChannelMetadataByKey
+     */
+    body?: any
 }
 
 export interface UserApiUpdateCountPreferenceOfChannelByUrlRequest {
@@ -5915,6 +6773,54 @@ export interface UserApiUpdateUserByIdRequest {
      * @memberof UserApiupdateUserById
      */
     updateUserByIdData?: UpdateUserByIdData
+}
+
+export interface UserApiUpdateUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type UpdateUserMetadataData
+     * @memberof UserApiupdateUserMetadata
+     */
+    updateUserMetadataData?: UpdateUserMetadataData
+}
+
+export interface UserApiUpdateUserMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadataByKey
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadataByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof UserApiupdateUserMetadataByKey
+     */
+    body?: any
 }
 
 export interface UserApiViewChannelInvitationPreferenceRequest {
@@ -6162,30 +7068,30 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
-     * Ban from channels with custom channel types
-     * @param param the request object
-     */
-    public banFromChannelsWithCustomChannelTypes(param: UserApiBanFromChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
-        return this.api.banFromChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.banFromChannelsWithCustomChannelTypesData,  options).toPromise();
-    }
-
-    /**
-     * ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
-     * Block a user
-     * @param param the request object
-     */
-    public blockUser(param: UserApiBlockUserRequest, options?: Configuration): Promise<BlockUserResponse> {
-        return this.api.blockUser(param.apiToken, param.userId, param.blockUserData,  options).toPromise();
-    }
-
-    /**
      * ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
      * Choose a push notification content template
      * @param param the request object
      */
     public choosePushNotificationContentTemplate(param: UserApiChoosePushNotificationContentTemplateRequest, options?: Configuration): Promise<ChoosePushNotificationContentTemplateResponse> {
         return this.api.choosePushNotificationContentTemplate(param.apiToken, param.userId, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
+     * Create a channel metacounter
+     * @param param the request object
+     */
+    public createChannelMetacounter(param: UserApiCreateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+        return this.api.createChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetacounterData,  options).toPromise();
+    }
+
+    /**
+     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+     * Create a channel metadata
+     * @param param the request object
+     */
+    public createChannelMetadata(param: UserApiCreateChannelMetadataRequest, options?: Configuration): Promise<CreateChannelMetadataResponse> {
+        return this.api.createChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetadataData,  options).toPromise();
     }
 
     /**
@@ -6198,6 +7104,51 @@ export class ObjectUserApi {
     }
 
     /**
+     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
+     * Create a user metadata
+     * @param param the request object
+     */
+    public createUserMetadata(param: UserApiCreateUserMetadataRequest, options?: Configuration): Promise<CreateUserMetadataResponse> {
+        return this.api.createUserMetadata(param.apiToken, param.userId, param.createUserMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     * @param param the request object
+     */
+    public deleteChannelMetacounter(param: UserApiDeleteChannelMetacounterRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetacounter(param.apiToken, param.channelType, param.channelUrl,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     * @param param the request object
+     */
+    public deleteChannelMetacounterByKey(param: UserApiDeleteChannelMetacounterByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     * @param param the request object
+     */
+    public deleteChannelMetadata(param: UserApiDeleteChannelMetadataRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     * @param param the request object
+     */
+    public deleteChannelMetadataByKey(param: UserApiDeleteChannelMetadataByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
      * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
      * Delete a user
      * @param param the request object
@@ -6207,39 +7158,30 @@ export class ObjectUserApi {
     }
 
     /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting all items of a user metadata
+     * @param param the request object
+     */
+    public deleteUserMetadata(param: UserApiDeleteUserMetadataRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteUserMetadata(param.apiToken, param.userId, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     * @param param the request object
+     */
+    public deleteUserMetadataByKey(param: UserApiDeleteUserMetadataByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
+    }
+
+    /**
      * ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
      * Leave my group channels
      * @param param the request object
      */
     public leaveMyGroupChannels(param: UserApiLeaveMyGroupChannelsRequest, options?: Configuration): Promise<any> {
         return this.api.leaveMyGroupChannels(param.apiToken, param.userId, param.leaveMyGroupChannelsData,  options).toPromise();
-    }
-
-    /**
-     * ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-     * List banned channels
-     * @param param the request object
-     */
-    public listBannedChannels(param: UserApiListBannedChannelsRequest, options?: Configuration): Promise<ListBannedChannelsResponse> {
-        return this.api.listBannedChannels(param.apiToken, param.userId, param.token, param.limit,  options).toPromise();
-    }
-
-    /**
-     * ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-     * List blocked users
-     * @param param the request object
-     */
-    public listBlockedUsers(param: UserApiListBlockedUsersRequest, options?: Configuration): Promise<ListBlockedUsersResponse> {
-        return this.api.listBlockedUsers(param.apiToken, param.userId, param.token, param.limit, param.userIds, param.metadatakey, param.metadatavaluesIn,  options).toPromise();
-    }
-
-    /**
-     * ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-     * List muted channels
-     * @param param the request object
-     */
-    public listMutedChannels(param: UserApiListMutedChannelsRequest, options?: Configuration): Promise<ListMutedChannelsResponse> {
-        return this.api.listMutedChannels(param.apiToken, param.userId, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -6276,15 +7218,6 @@ export class ObjectUserApi {
      */
     public markAllMessagesAsRead(param: UserApiMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
         return this.api.markAllMessagesAsRead(param.apiToken, param.userId, param.markAllMessagesAsReadData,  options).toPromise();
-    }
-
-    /**
-     * ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
-     * Mute in channels with custom channel types
-     * @param param the request object
-     */
-    public muteInChannelsWithCustomChannelTypes(param: UserApiMuteInChannelsWithCustomChannelTypesRequest, options?: Configuration): Promise<any> {
-        return this.api.muteInChannelsWithCustomChannelTypes(param.apiToken, param.userId, param.muteInChannelsWithCustomChannelTypesData,  options).toPromise();
     }
 
     /**
@@ -6333,21 +7266,48 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
-     * Unblock a user
-     * @param param the request object
-     */
-    public unblockUserById(param: UserApiUnblockUserByIdRequest, options?: Configuration): Promise<any> {
-        return this.api.unblockUserById(param.apiToken, param.userId, param.targetId,  options).toPromise();
-    }
-
-    /**
      * ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
      * Update channel invitation preference
      * @param param the request object
      */
     public updateChannelInvitationPreference(param: UserApiUpdateChannelInvitationPreferenceRequest, options?: Configuration): Promise<UpdateChannelInvitationPreferenceResponse> {
         return this.api.updateChannelInvitationPreference(param.apiToken, param.userId, param.updateChannelInvitationPreferenceData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * @param param the request object
+     */
+    public updateChannelMetacounter(param: UserApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+        return this.api.updateChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetacounterData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     * @param param the request object
+     */
+    public updateChannelMetacounterByKey(param: UserApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.updateChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     * @param param the request object
+     */
+    public updateChannelMetadata(param: UserApiUpdateChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.updateChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     * @param param the request object
+     */
+    public updateChannelMetadataByKey(param: UserApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.updateChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
     }
 
     /**
@@ -6384,6 +7344,24 @@ export class ObjectUserApi {
      */
     public updateUserById(param: UserApiUpdateUserByIdRequest, options?: Configuration): Promise<SendBirdUser> {
         return this.api.updateUserById(param.apiToken, param.userId, param.updateUserByIdData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     * @param param the request object
+     */
+    public updateUserMetadata(param: UserApiUpdateUserMetadataRequest, options?: Configuration): Promise<UpdateUserMetadataResponse> {
+        return this.api.updateUserMetadata(param.apiToken, param.userId, param.updateUserMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     * @param param the request object
+     */
+    public updateUserMetadataByKey(param: UserApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+        return this.api.updateUserMetadataByKey(param.apiToken, param.userId, param.key, param.body,  options).toPromise();
     }
 
     /**
@@ -6474,762 +7452,6 @@ export class ObjectUserApi {
      */
     public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<Array<any>> {
         return this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(param.apiToken, param.tokenType, param.token,  options).toPromise();
-    }
-
-}
-
-import { ObservableUserChannelMetadataApi } from "./ObservableAPI";
-import { UserChannelMetadataApiRequestFactory, UserChannelMetadataApiResponseProcessor} from "../apis/UserChannelMetadataApi";
-
-export interface UserChannelMetadataApiCreateChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetacounter
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type CreateChannelMetacounterData
-     * @memberof UserChannelMetadataApicreateChannelMetacounter
-     */
-    createChannelMetacounterData?: CreateChannelMetacounterData
-}
-
-export interface UserChannelMetadataApiCreateChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type CreateChannelMetadataData
-     * @memberof UserChannelMetadataApicreateChannelMetadata
-     */
-    createChannelMetadataData?: CreateChannelMetadataData
-}
-
-export interface UserChannelMetadataApiCreateUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApicreateUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type CreateUserMetadataData
-     * @memberof UserChannelMetadataApicreateUserMetadata
-     */
-    createUserMetadataData?: CreateUserMetadataData
-}
-
-export interface UserChannelMetadataApiDeleteChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounter
-     */
-    channelUrl: string
-}
-
-export interface UserChannelMetadataApiDeleteChannelMetacounterByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounterByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounterByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounterByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetacounterByKey
-     */
-    key: string
-}
-
-export interface UserChannelMetadataApiDeleteChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadata
-     */
-    key?: string
-}
-
-export interface UserChannelMetadataApiDeleteChannelMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadataByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadataByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteChannelMetadataByKey
-     */
-    key: string
-}
-
-export interface UserChannelMetadataApiDeleteUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadata
-     */
-    key?: string
-}
-
-export interface UserChannelMetadataApiDeleteUserMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadataByKey
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApideleteUserMetadataByKey
-     */
-    key: string
-}
-
-export interface UserChannelMetadataApiUpdateChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounter
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type UpdateChannelMetacounterData
-     * @memberof UserChannelMetadataApiupdateChannelMetacounter
-     */
-    updateChannelMetacounterData?: UpdateChannelMetacounterData
-}
-
-export interface UserChannelMetadataApiUpdateChannelMetacounterByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounterByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounterByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounterByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetacounterByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserChannelMetadataApiupdateChannelMetacounterByKey
-     */
-    body?: any
-}
-
-export interface UserChannelMetadataApiUpdateChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type UpdateChannelMetadataData
-     * @memberof UserChannelMetadataApiupdateChannelMetadata
-     */
-    updateChannelMetadataData?: UpdateChannelMetadataData
-}
-
-export interface UserChannelMetadataApiUpdateChannelMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadataByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadataByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateChannelMetadataByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserChannelMetadataApiupdateChannelMetadataByKey
-     */
-    body?: any
-}
-
-export interface UserChannelMetadataApiUpdateUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type UpdateUserMetadataData
-     * @memberof UserChannelMetadataApiupdateUserMetadata
-     */
-    updateUserMetadataData?: UpdateUserMetadataData
-}
-
-export interface UserChannelMetadataApiUpdateUserMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateUserMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateUserMetadataByKey
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiupdateUserMetadataByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserChannelMetadataApiupdateUserMetadataByKey
-     */
-    body?: any
-}
-
-export interface UserChannelMetadataApiViewChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounter
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounter
-     */
-    key?: string
-    /**
-     * 
-     * @type Array&lt;string&gt;
-     * @memberof UserChannelMetadataApiviewChannelMetacounter
-     */
-    keys?: Array<string>
-}
-
-export interface UserChannelMetadataApiViewChannelMetacounterByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounterByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounterByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounterByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetacounterByKey
-     */
-    key: string
-}
-
-export interface UserChannelMetadataApiViewChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadata
-     */
-    key?: string
-    /**
-     * 
-     * @type Array&lt;string&gt;
-     * @memberof UserChannelMetadataApiviewChannelMetadata
-     */
-    keys?: Array<string>
-}
-
-export interface UserChannelMetadataApiViewChannelMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadataByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadataByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewChannelMetadataByKey
-     */
-    key: string
-}
-
-export interface UserChannelMetadataApiViewUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadata
-     */
-    key?: string
-    /**
-     * 
-     * @type Array&lt;string&gt;
-     * @memberof UserChannelMetadataApiviewUserMetadata
-     */
-    keys?: Array<string>
-}
-
-export interface UserChannelMetadataApiViewUserMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadataByKey
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserChannelMetadataApiviewUserMetadataByKey
-     */
-    key: string
-}
-
-export class ObjectUserChannelMetadataApi {
-    private api: ObservableUserChannelMetadataApi
-
-    public constructor(configuration: Configuration, requestFactory?: UserChannelMetadataApiRequestFactory, responseProcessor?: UserChannelMetadataApiResponseProcessor) {
-        this.api = new ObservableUserChannelMetadataApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
-     * Create a channel metacounter
-     * @param param the request object
-     */
-    public createChannelMetacounter(param: UserChannelMetadataApiCreateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.createChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetacounterData,  options).toPromise();
-    }
-
-    /**
-     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
-     * Create a channel metadata
-     * @param param the request object
-     */
-    public createChannelMetadata(param: UserChannelMetadataApiCreateChannelMetadataRequest, options?: Configuration): Promise<CreateChannelMetadataResponse> {
-        return this.api.createChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
-     * Create a user metadata
-     * @param param the request object
-     */
-    public createUserMetadata(param: UserChannelMetadataApiCreateUserMetadataRequest, options?: Configuration): Promise<CreateUserMetadataResponse> {
-        return this.api.createUserMetadata(param.apiToken, param.userId, param.createUserMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     * @param param the request object
-     */
-    public deleteChannelMetacounter(param: UserChannelMetadataApiDeleteChannelMetacounterRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetacounter(param.apiToken, param.channelType, param.channelUrl,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     * @param param the request object
-     */
-    public deleteChannelMetacounterByKey(param: UserChannelMetadataApiDeleteChannelMetacounterByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     * @param param the request object
-     */
-    public deleteChannelMetadata(param: UserChannelMetadataApiDeleteChannelMetadataRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     * @param param the request object
-     */
-    public deleteChannelMetadataByKey(param: UserChannelMetadataApiDeleteChannelMetadataByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting all items of a user metadata
-     * @param param the request object
-     */
-    public deleteUserMetadata(param: UserChannelMetadataApiDeleteUserMetadataRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteUserMetadata(param.apiToken, param.userId, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     * @param param the request object
-     */
-    public deleteUserMetadataByKey(param: UserChannelMetadataApiDeleteUserMetadataByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     * @param param the request object
-     */
-    public updateChannelMetacounter(param: UserChannelMetadataApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.updateChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetacounterData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     * @param param the request object
-     */
-    public updateChannelMetacounterByKey(param: UserChannelMetadataApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     * @param param the request object
-     */
-    public updateChannelMetadata(param: UserChannelMetadataApiUpdateChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     * @param param the request object
-     */
-    public updateChannelMetadataByKey(param: UserChannelMetadataApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param param the request object
-     */
-    public updateUserMetadata(param: UserChannelMetadataApiUpdateUserMetadataRequest, options?: Configuration): Promise<UpdateUserMetadataResponse> {
-        return this.api.updateUserMetadata(param.apiToken, param.userId, param.updateUserMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     * @param param the request object
-     */
-    public updateUserMetadataByKey(param: UserChannelMetadataApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateUserMetadataByKey(param.apiToken, param.userId, param.key, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     * @param param the request object
-     */
-    public viewChannelMetacounter(param: UserChannelMetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.viewChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
-    }
-
-    /**
-     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
-     * @param param the request object
-     */
-    public viewChannelMetacounterByKey(param: UserChannelMetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.viewChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metadata - When retrieving all items of a channel metadata
-     * @param param the request object
-     */
-    public viewChannelMetadata(param: UserChannelMetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.viewChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
-    }
-
-    /**
-     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     * @param param the request object
-     */
-    public viewChannelMetadataByKey(param: UserChannelMetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.viewChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
-     * View a user metadata - When retrieving all items of a user metadata
-     * @param param the request object
-     */
-    public viewUserMetadata(param: UserChannelMetadataApiViewUserMetadataRequest, options?: Configuration): Promise<ViewUserMetadataResponse> {
-        return this.api.viewUserMetadata(param.apiToken, param.userId, param.key, param.keys,  options).toPromise();
-    }
-
-    /**
-     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     * @param param the request object
-     */
-    public viewUserMetadataByKey(param: UserChannelMetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.viewUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
     }
 
 }

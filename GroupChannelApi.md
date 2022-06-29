@@ -5,33 +5,23 @@ All URIs are relative to *https://api-APP_ID.sendbird.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**gcAcceptInvitation**](GroupChannelApi.md#gcAcceptInvitation) | **PUT** /v3/group_channels/{channel_url}/accept | Accept an invitation
-[**gcBanUser**](GroupChannelApi.md#gcBanUser) | **POST** /v3/group_channels/{channel_url}/ban | Ban a user
 [**gcCancelTheRegistrationOfOperators**](GroupChannelApi.md#gcCancelTheRegistrationOfOperators) | **DELETE** /v3/group_channels/{channel_url}/operators | Cancel the registration of operators
 [**gcCheckIfMemberById**](GroupChannelApi.md#gcCheckIfMemberById) | **GET** /v3/group_channels/{channel_url}/members/{user_id} | Check if member
 [**gcCreateChannel**](GroupChannelApi.md#gcCreateChannel) | **POST** /v3/group_channels | Create a channel
 [**gcDeclineInvitation**](GroupChannelApi.md#gcDeclineInvitation) | **PUT** /v3/group_channels/{channel_url}/decline | Decline an invitation
 [**gcDeleteChannelByUrl**](GroupChannelApi.md#gcDeleteChannelByUrl) | **DELETE** /v3/group_channels/{channel_url} | Delete a channel
-[**gcFreezeChannel**](GroupChannelApi.md#gcFreezeChannel) | **PUT** /v3/group_channels/{channel_url}/freeze | Freeze a channel
 [**gcHideOrArchiveChannel**](GroupChannelApi.md#gcHideOrArchiveChannel) | **PUT** /v3/group_channels/{channel_url}/hide | Hide or archive a channel
 [**gcInviteAsMembers**](GroupChannelApi.md#gcInviteAsMembers) | **POST** /v3/group_channels/{channel_url}/invite | Invite as members
 [**gcJoinChannel**](GroupChannelApi.md#gcJoinChannel) | **PUT** /v3/group_channels/{channel_url}/join | Join a channel
 [**gcLeaveChannel**](GroupChannelApi.md#gcLeaveChannel) | **PUT** /v3/group_channels/{channel_url}/leave | Leave a channel
-[**gcListBannedUsers**](GroupChannelApi.md#gcListBannedUsers) | **GET** /v3/group_channels/{channel_url}/ban | List banned users
 [**gcListChannels**](GroupChannelApi.md#gcListChannels) | **GET** /v3/group_channels | List channels
 [**gcListMembers**](GroupChannelApi.md#gcListMembers) | **GET** /v3/group_channels/{channel_url}/members | List members
-[**gcListMutedUsers**](GroupChannelApi.md#gcListMutedUsers) | **GET** /v3/group_channels/{channel_url}/mute | List muted users
 [**gcListOperators**](GroupChannelApi.md#gcListOperators) | **GET** /v3/group_channels/{channel_url}/operators | List operators
-[**gcMuteUser**](GroupChannelApi.md#gcMuteUser) | **POST** /v3/group_channels/{channel_url}/mute | Mute a user
 [**gcRegisterOperators**](GroupChannelApi.md#gcRegisterOperators) | **POST** /v3/group_channels/{channel_url}/operators | Register operators
 [**gcResetChatHistory**](GroupChannelApi.md#gcResetChatHistory) | **PUT** /v3/group_channels/{channel_url}/reset_user_history | Reset chat history
-[**gcUnbanUserById**](GroupChannelApi.md#gcUnbanUserById) | **DELETE** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Unban a user
 [**gcUnhideOrUnarchiveChannel**](GroupChannelApi.md#gcUnhideOrUnarchiveChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide or unarchive a channel
-[**gcUnmuteUserById**](GroupChannelApi.md#gcUnmuteUserById) | **DELETE** /v3/group_channels/{channel_url}/mute/{muted_user_id} | Unmute a user
-[**gcUpdateBanById**](GroupChannelApi.md#gcUpdateBanById) | **PUT** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Update a ban
 [**gcUpdateChannelByUrl**](GroupChannelApi.md#gcUpdateChannelByUrl) | **PUT** /v3/group_channels/{channel_url} | Update a channel
-[**gcViewBanById**](GroupChannelApi.md#gcViewBanById) | **GET** /v3/group_channels/{channel_url}/ban/{banned_user_id} | View a ban
 [**gcViewChannelByUrl**](GroupChannelApi.md#gcViewChannelByUrl) | **GET** /v3/group_channels/{channel_url} | View a channel
-[**gcViewMuteById**](GroupChannelApi.md#gcViewMuteById) | **GET** /v3/group_channels/{channel_url}/mute/{muted_user_id} | View a mute
 
 
 # **gcAcceptInvitation**
@@ -98,74 +88,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **gcBanUser**
-> GcBanUserResponse gcBanUser()
-
-## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcBanUserRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // GcBanUserData (optional)
-  gcBanUserData: {
-    channelUrl: "channelUrl_example",
-    userId: "userId_example",
-    agentId: "agentId_example",
-    seconds: 1,
-    description: "description_example",
-  },
-};
-
-apiInstance.gcBanUser(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **gcBanUserData** | **GcBanUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GcBanUserResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **gcCancelTheRegistrationOfOperators**
-> InlineResponse200 gcCancelTheRegistrationOfOperators()
+> InlineResponse2001 gcCancelTheRegistrationOfOperators()
 
 ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
 
@@ -210,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -377,7 +301,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeclineInvitation**
-> InlineResponse200 gcDeclineInvitation()
+> InlineResponse2001 gcDeclineInvitation()
 
 ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
 
@@ -420,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -440,7 +364,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeleteChannelByUrl**
-> InlineResponse200 gcDeleteChannelByUrl()
+> InlineResponse2001 gcDeleteChannelByUrl()
 
 ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
 
@@ -477,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -496,71 +420,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **gcFreezeChannel**
-> SendBirdGroupChannel gcFreezeChannel()
-
-## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcFreezeChannelRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // GcFreezeChannelData (optional)
-  gcFreezeChannelData: {
-    channelUrl: "channelUrl_example",
-    freeze: true,
-  },
-};
-
-apiInstance.gcFreezeChannel(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **gcFreezeChannelData** | **GcFreezeChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**SendBirdGroupChannel**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **gcHideOrArchiveChannel**
-> InlineResponse200 gcHideOrArchiveChannel()
+> InlineResponse2001 gcHideOrArchiveChannel()
 
 ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
 
@@ -606,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -764,7 +625,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcLeaveChannel**
-> InlineResponse200 gcLeaveChannel()
+> InlineResponse2001 gcLeaveChannel()
 
 ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
 
@@ -810,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -819,69 +680,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **gcListBannedUsers**
-> GcListBannedUsersResponse gcListBannedUsers()
-
-## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcListBannedUsersRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-};
-
-apiInstance.gcListBannedUsers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**GcListBannedUsersResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -1156,69 +954,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **gcListMutedUsers**
-> GcListMutedUsersResponse gcListMutedUsers()
-
-## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcListMutedUsersRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-};
-
-apiInstance.gcListMutedUsers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**GcListMutedUsersResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **gcListOperators**
 > GcListOperatorsResponse gcListOperators()
 
@@ -1272,71 +1007,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **gcMuteUser**
-> SendBirdGroupChannel gcMuteUser()
-
-## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcMuteUserRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // GcMuteUserData (optional)
-  gcMuteUserData: {
-    channelUrl: "channelUrl_example",
-    userId: "userId_example",
-    seconds: 1,
-    description: "description_example",
-  },
-};
-
-apiInstance.gcMuteUser(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **gcMuteUserData** | **GcMuteUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**SendBirdGroupChannel**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1476,68 +1146,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **gcUnbanUserById**
-> InlineResponse200 gcUnbanUserById()
-
-## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcUnbanUserByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string
-  bannedUserId: "banned_user_id_example",
-};
-
-apiInstance.gcUnbanUserById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **bannedUserId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**InlineResponse200**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **gcUnhideOrUnarchiveChannel**
-> InlineResponse200 gcUnhideOrUnarchiveChannel()
+> InlineResponse2001 gcUnhideOrUnarchiveChannel()
 
 ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
 
@@ -1580,7 +1190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -1589,134 +1199,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **gcUnmuteUserById**
-> InlineResponse200 gcUnmuteUserById()
-
-## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcUnmuteUserByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string
-  mutedUserId: "muted_user_id_example",
-};
-
-apiInstance.gcUnmuteUserById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **mutedUserId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**InlineResponse200**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **gcUpdateBanById**
-> GcUpdateBanByIdResponse gcUpdateBanById()
-
-## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcUpdateBanByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string
-  bannedUserId: "banned_user_id_example",
-  // GcUpdateBanByIdData (optional)
-  gcUpdateBanByIdData: {
-    channelUrl: "channelUrl_example",
-    bannedUserId: "bannedUserId_example",
-    seconds: 1,
-    description: "description_example",
-  },
-};
-
-apiInstance.gcUpdateBanById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **gcUpdateBanByIdData** | **GcUpdateBanByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **bannedUserId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GcUpdateBanByIdResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1800,66 +1282,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **gcViewBanById**
-> GcViewBanByIdResponse gcViewBanById()
-
-## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcViewBanByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string
-  bannedUserId: "banned_user_id_example",
-};
-
-apiInstance.gcViewBanById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **bannedUserId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GcViewBanByIdResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **gcViewChannelByUrl**
 > SendBirdGroupChannel gcViewChannelByUrl()
 
@@ -1914,66 +1336,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **SendBirdGroupChannel**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **gcViewMuteById**
-> GcViewMuteByIdResponse gcViewMuteById()
-
-## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
-
-let body:.GroupChannelApiGcViewMuteByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  channelUrl: "channel_url_example",
-  // string
-  mutedUserId: "muted_user_id_example",
-};
-
-apiInstance.gcViewMuteById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **channelUrl** | [**string**] |  | defaults to undefined
- **mutedUserId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GcViewMuteByIdResponse**
 
 ### Authorization
 

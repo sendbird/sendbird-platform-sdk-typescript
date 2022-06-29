@@ -5,31 +5,39 @@ All URIs are relative to *https://api-APP_ID.sendbird.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addRegistrationOrDeviceToken**](UserApi.md#addRegistrationOrDeviceToken) | **POST** /v3/users/{user_id}/push/{token_type} | Add a registration or device token
-[**banFromChannelsWithCustomChannelTypes**](UserApi.md#banFromChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/banned_channel_custom_types | Ban from channels with custom channel types
-[**blockUser**](UserApi.md#blockUser) | **POST** /v3/users/{user_id}/block | Block a user
 [**choosePushNotificationContentTemplate**](UserApi.md#choosePushNotificationContentTemplate) | **PUT** /v3/users/{user_id}/push/template | Choose a push notification content template
+[**createChannelMetacounter**](UserApi.md#createChannelMetacounter) | **POST** /v3/{channel_type}/{channel_url}/metacounter | Create a channel metacounter
+[**createChannelMetadata**](UserApi.md#createChannelMetadata) | **POST** /v3/{channel_type}/{channel_url}/metadata | Create a channel metadata
 [**createUser**](UserApi.md#createUser) | **POST** /v3/users | Create a user
+[**createUserMetadata**](UserApi.md#createUserMetadata) | **POST** /v3/users/{user_id}/metadata | Create a user metadata
+[**deleteChannelMetacounter**](UserApi.md#deleteChannelMetacounter) | **DELETE** /v3/{channel_type}/{channel_url}/metacounter | Delete a channel metacounter - When deleting all items of a channel metacounter
+[**deleteChannelMetacounterByKey**](UserApi.md#deleteChannelMetacounterByKey) | **DELETE** /v3/{channel_type}/{channel_url}/metacounter/{key} | Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+[**deleteChannelMetadata**](UserApi.md#deleteChannelMetadata) | **DELETE** /v3/{channel_type}/{channel_url}/metadata | Delete a channel metadata - When deleting all items of a channel metadata
+[**deleteChannelMetadataByKey**](UserApi.md#deleteChannelMetadataByKey) | **DELETE** /v3/{channel_type}/{channel_url}/metadata/{key} | Delete a channel metadata - When deleting a specific item of a channel metadata by its key
 [**deleteUserById**](UserApi.md#deleteUserById) | **DELETE** /v3/users/{user_id} | Delete a user
+[**deleteUserMetadata**](UserApi.md#deleteUserMetadata) | **DELETE** /v3/users/{user_id}/metadata | Delete a user metadata - When deleting all items of a user metadata
+[**deleteUserMetadataByKey**](UserApi.md#deleteUserMetadataByKey) | **DELETE** /v3/users/{user_id}/metadata/{key} | Delete a user metadata - When deleting a specific item of a user metadata by its key
 [**leaveMyGroupChannels**](UserApi.md#leaveMyGroupChannels) | **PUT** /v3/users/{user_id}/my_group_channels/leave | Leave my group channels
-[**listBannedChannels**](UserApi.md#listBannedChannels) | **GET** /v3/users/{user_id}/ban | List banned channels
-[**listBlockedUsers**](UserApi.md#listBlockedUsers) | **GET** /v3/users/{user_id}/block | List blocked users
-[**listMutedChannels**](UserApi.md#listMutedChannels) | **GET** /v3/users/{user_id}/mute | List muted channels
 [**listMyGroupChannels**](UserApi.md#listMyGroupChannels) | **GET** /v3/users/{user_id}/my_group_channels | List my group channels
 [**listRegistrationOrDeviceTokens**](UserApi.md#listRegistrationOrDeviceTokens) | **GET** /v3/users/{user_id}/push/{token_type} | List registration or device tokens
 [**listUsers**](UserApi.md#listUsers) | **GET** /v3/users | List users
 [**markAllMessagesAsRead**](UserApi.md#markAllMessagesAsRead) | **PUT** /v3/users/{user_id}/mark_as_read_all | Mark all messages as read
-[**muteInChannelsWithCustomChannelTypes**](UserApi.md#muteInChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/muted_channel_custom_types | Mute in channels with custom channel types
 [**registerAsOperatorToChannelsWithCustomChannelTypes**](UserApi.md#registerAsOperatorToChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/operating_channel_custom_types | Register as an operator to channels with custom channel types
 [**removeRegistrationOrDeviceToken**](UserApi.md#removeRegistrationOrDeviceToken) | **DELETE** /v3/users/{user_id}/push | Remove a registration or device token - When unregistering all device tokens
 [**removeRegistrationOrDeviceTokenByToken**](UserApi.md#removeRegistrationOrDeviceTokenByToken) | **DELETE** /v3/users/{user_id}/push/{token_type}/{token} | Remove a registration or device token - When unregistering a specific token
 [**removeRegistrationOrDeviceTokenFromOwnerByToken**](UserApi.md#removeRegistrationOrDeviceTokenFromOwnerByToken) | **DELETE** /v3/push/device_tokens/{token_type}/{token} | Remove a registration or device token from an owner
 [**resetPushPreferences**](UserApi.md#resetPushPreferences) | **DELETE** /v3/users/{user_id}/push_preference | Reset push preferences
-[**unblockUserById**](UserApi.md#unblockUserById) | **DELETE** /v3/users/{user_id}/block/{target_id} | Unblock a user
 [**updateChannelInvitationPreference**](UserApi.md#updateChannelInvitationPreference) | **PUT** /v3/users/{user_id}/channel_invitation_preference | Update channel invitation preference
+[**updateChannelMetacounter**](UserApi.md#updateChannelMetacounter) | **PUT** /v3/{channel_type}/{channel_url}/metacounter | Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+[**updateChannelMetacounterByKey**](UserApi.md#updateChannelMetacounterByKey) | **PUT** /v3/{channel_type}/{channel_url}/metacounter/{key} | Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+[**updateChannelMetadata**](UserApi.md#updateChannelMetadata) | **PUT** /v3/{channel_type}/{channel_url}/metadata | Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+[**updateChannelMetadataByKey**](UserApi.md#updateChannelMetadataByKey) | **PUT** /v3/{channel_type}/{channel_url}/metadata/{key} | Update a channel metadata - When updating a specific item of a channel metadata by its key
 [**updateCountPreferenceOfChannelByUrl**](UserApi.md#updateCountPreferenceOfChannelByUrl) | **PUT** /v3/users/{user_id}/count_preference/{channel_url} | Update count preference of a channel
 [**updatePushPreferences**](UserApi.md#updatePushPreferences) | **PUT** /v3/users/{user_id}/push_preference | Update push preferences
 [**updatePushPreferencesForChannelByUrl**](UserApi.md#updatePushPreferencesForChannelByUrl) | **PUT** /v3/users/{user_id}/push_preference/{channel_url} | Update push preferences for a channel
 [**updateUserById**](UserApi.md#updateUserById) | **PUT** /v3/users/{user_id} | Update a user
+[**updateUserMetadata**](UserApi.md#updateUserMetadata) | **PUT** /v3/users/{user_id}/metadata | Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+[**updateUserMetadataByKey**](UserApi.md#updateUserMetadataByKey) | **PUT** /v3/users/{user_id}/metadata/{key} | Update a user metadata - When updating a specific item of a user metadata by its key
 [**viewChannelInvitationPreference**](UserApi.md#viewChannelInvitationPreference) | **GET** /v3/users/{user_id}/channel_invitation_preference | View channel invitation preference
 [**viewCountPreferenceOfChannelByUrl**](UserApi.md#viewCountPreferenceOfChannelByUrl) | **GET** /v3/users/{user_id}/count_preference/{channel_url} | View count preference of a channel
 [**viewNumberOfChannelsByJoinStatus**](UserApi.md#viewNumberOfChannelsByJoinStatus) | **GET** /v3/users/{user_id}/group_channel_count | View number of channels by join status
@@ -109,139 +117,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **banFromChannelsWithCustomChannelTypes**
-> any banFromChannelsWithCustomChannelTypes()
-
-## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiBanFromChannelsWithCustomChannelTypesRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // BanFromChannelsWithCustomChannelTypesData (optional)
-  banFromChannelsWithCustomChannelTypesData: {
-    channelCustomTypes: [
-      "channelCustomTypes_example",
-    ],
-  },
-};
-
-apiInstance.banFromChannelsWithCustomChannelTypes(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **banFromChannelsWithCustomChannelTypesData** | **BanFromChannelsWithCustomChannelTypesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**any**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **blockUser**
-> BlockUserResponse blockUser()
-
-## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiBlockUserRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // BlockUserData (optional)
-  blockUserData: {
-    userId: "userId_example",
-    targetId: "targetId_example",
-    userIds: [
-      1,
-    ],
-    users: [
-      1,
-    ],
-  },
-};
-
-apiInstance.blockUser(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **blockUserData** | **BlockUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**BlockUserResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **choosePushNotificationContentTemplate**
 > ChoosePushNotificationContentTemplateResponse choosePushNotificationContentTemplate()
 
@@ -284,6 +159,141 @@ Name | Type | Description  | Notes
 ### Return type
 
 **ChoosePushNotificationContentTemplateResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **createChannelMetacounter**
+> { [key: string]: SendBirdAdditionalProperties; } createChannelMetacounter()
+
+## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiCreateChannelMetacounterRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // CreateChannelMetacounterData (optional)
+  createChannelMetacounterData: {
+    channelType: "channelType_example",
+    channelUrl: "channelUrl_example",
+    metacounter: "metacounter_example",
+  },
+};
+
+apiInstance.createChannelMetacounter(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createChannelMetacounterData** | **CreateChannelMetacounterData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: SendBirdAdditionalProperties; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **createChannelMetadata**
+> CreateChannelMetadataResponse createChannelMetadata()
+
+## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiCreateChannelMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // CreateChannelMetadataData (optional)
+  createChannelMetadataData: {
+    channelType: "channelType_example",
+    channelUrl: "channelUrl_example",
+    metadata: "metadata_example",
+    includeTs: true,
+  },
+};
+
+apiInstance.createChannelMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createChannelMetadataData** | **CreateChannelMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**CreateChannelMetadataResponse**
 
 ### Authorization
 
@@ -369,6 +379,318 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **createUserMetadata**
+> CreateUserMetadataResponse createUserMetadata()
+
+## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiCreateUserMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // CreateUserMetadataData (optional)
+  createUserMetadataData: {
+    userId: "userId_example",
+    metadata: "metadata_example",
+  },
+};
+
+apiInstance.createUserMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createUserMetadataData** | **CreateUserMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**CreateUserMetadataResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteChannelMetacounter**
+> void deleteChannelMetacounter()
+
+## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteChannelMetacounterRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+};
+
+apiInstance.deleteChannelMetacounter(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteChannelMetacounterByKey**
+> void deleteChannelMetacounterByKey()
+
+## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteChannelMetacounterByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // string
+  key: "key_example",
+};
+
+apiInstance.deleteChannelMetacounterByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteChannelMetadata**
+> void deleteChannelMetadata()
+
+## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteChannelMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  key: "key_example",
+};
+
+apiInstance.deleteChannelMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteChannelMetadataByKey**
+> void deleteChannelMetadataByKey()
+
+## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteChannelMetadataByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // string
+  key: "key_example",
+};
+
+apiInstance.deleteChannelMetadataByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **deleteUserById**
 > any deleteUserById()
 
@@ -417,6 +739,126 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteUserMetadata**
+> void deleteUserMetadata()
+
+## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteUserMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // string (optional)
+  key: "key_example",
+};
+
+apiInstance.deleteUserMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteUserMetadataByKey**
+> void deleteUserMetadataByKey()
+
+## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiDeleteUserMetadataByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // string
+  key: "key_example",
+};
+
+apiInstance.deleteUserMetadataByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 
 ### HTTP response details
@@ -479,204 +921,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **listBannedChannels**
-> ListBannedChannelsResponse listBannedChannels()
-
-## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiListBannedChannelsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-};
-
-apiInstance.listBannedChannels(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ListBannedChannelsResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **listBlockedUsers**
-> ListBlockedUsersResponse listBlockedUsers()
-
-## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiListBlockedUsersRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-  // string (optional)
-  userIds: "user_ids_example",
-  // string (optional)
-  metadatakey: "metadatakey_example",
-  // string (optional)
-  metadatavaluesIn: "metadatavalues_in_example",
-};
-
-apiInstance.listBlockedUsers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
- **userIds** | [**string**] |  | (optional) defaults to undefined
- **metadatakey** | [**string**] |  | (optional) defaults to undefined
- **metadatavaluesIn** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ListBlockedUsersResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **listMutedChannels**
-> ListMutedChannelsResponse listMutedChannels()
-
-## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiListMutedChannelsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-};
-
-apiInstance.listMutedChannels(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ListMutedChannelsResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -1070,70 +1314,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **muteInChannelsWithCustomChannelTypes**
-> any muteInChannelsWithCustomChannelTypes()
-
-## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiMuteInChannelsWithCustomChannelTypesRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // MuteInChannelsWithCustomChannelTypesData (optional)
-  muteInChannelsWithCustomChannelTypesData: {
-    channelCustomTypes: [
-      "channelCustomTypes_example",
-    ],
-  },
-};
-
-apiInstance.muteInChannelsWithCustomChannelTypes(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **muteInChannelsWithCustomChannelTypesData** | **MuteInChannelsWithCustomChannelTypesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**any**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **registerAsOperatorToChannelsWithCustomChannelTypes**
 > any registerAsOperatorToChannelsWithCustomChannelTypes()
 
@@ -1435,66 +1615,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **unblockUserById**
-> any unblockUserById()
-
-## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
-
-let body:.UserApiUnblockUserByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  userId: "user_id_example",
-  // string
-  targetId: "target_id_example",
-};
-
-apiInstance.unblockUserById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | defaults to undefined
- **targetId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**any**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **updateChannelInvitationPreference**
 > UpdateChannelInvitationPreferenceResponse updateChannelInvitationPreference()
 
@@ -1539,6 +1659,271 @@ Name | Type | Description  | Notes
 ### Return type
 
 **UpdateChannelInvitationPreferenceResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateChannelMetacounter**
+> { [key: string]: SendBirdAdditionalProperties; } updateChannelMetacounter()
+
+## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateChannelMetacounterRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // UpdateChannelMetacounterData (optional)
+  updateChannelMetacounterData: {
+    metacounter: "metacounter_example",
+    mode: "mode_example",
+    upsert: true,
+  },
+};
+
+apiInstance.updateChannelMetacounter(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateChannelMetacounterData** | **UpdateChannelMetacounterData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: SendBirdAdditionalProperties; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateChannelMetacounterByKey**
+> { [key: string]: string; } updateChannelMetacounterByKey()
+
+## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateChannelMetacounterByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // string
+  key: "key_example",
+  // any (optional)
+  body: {},
+};
+
+apiInstance.updateChannelMetacounterByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: string; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateChannelMetadata**
+> { [key: string]: string; } updateChannelMetadata()
+
+## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateChannelMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // UpdateChannelMetadataData (optional)
+  updateChannelMetadataData: {
+    metadata: "metadata_example",
+    upsert: true,
+  },
+};
+
+apiInstance.updateChannelMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateChannelMetadataData** | **UpdateChannelMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: string; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateChannelMetadataByKey**
+> { [key: string]: string; } updateChannelMetadataByKey()
+
+## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateChannelMetadataByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  channelType: "channel_type_example",
+  // string
+  channelUrl: "channel_url_example",
+  // string
+  key: "key_example",
+  // any (optional)
+  body: {},
+};
+
+apiInstance.updateChannelMetadataByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **channelType** | [**string**] |  | defaults to undefined
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: string; }**
 
 ### Authorization
 
@@ -1825,6 +2210,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 **SendBirdUser**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateUserMetadata**
+> UpdateUserMetadataResponse updateUserMetadata()
+
+## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateUserMetadataRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // UpdateUserMetadataData (optional)
+  updateUserMetadataData: {
+    metadata: "metadata_example",
+    upsert: true,
+  },
+};
+
+apiInstance.updateUserMetadata(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateUserMetadataData** | **UpdateUserMetadataData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**UpdateUserMetadataResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateUserMetadataByKey**
+> { [key: string]: string; } updateUserMetadataByKey()
+
+## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiUpdateUserMetadataByKeyRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // string
+  key: "key_example",
+  // any (optional)
+  body: {},
+};
+
+apiInstance.updateUserMetadataByKey(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **any**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+ **key** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**{ [key: string]: string; }**
 
 ### Authorization
 

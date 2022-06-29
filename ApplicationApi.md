@@ -8,25 +8,28 @@ Method | HTTP request | Description
 [**addFcmPushConfiguration**](ApplicationApi.md#addFcmPushConfiguration) | **POST** /v3/applications/push/fcm | Add a FCM push configuration
 [**addHmsPushConfiguration**](ApplicationApi.md#addHmsPushConfiguration) | **POST** /v3/applications/push/hms | Add an HMS push configuration
 [**addIpToWhitelist**](ApplicationApi.md#addIpToWhitelist) | **PUT** /v3/applications/settings/ip_whitelist | Add an IP to a whitelist
+[**banUsersInChannelsWithCustomChannelType**](ApplicationApi.md#banUsersInChannelsWithCustomChannelType) | **POST** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | Ban users in channels with a custom channel type
 [**deleteAllowedIpsFromWhitelist**](ApplicationApi.md#deleteAllowedIpsFromWhitelist) | **DELETE** /v3/applications/settings/ip_whitelist | Delete allowed IPs from a whitelist
 [**deleteApnsCertificateById**](ApplicationApi.md#deleteApnsCertificateById) | **DELETE** /v3/applications/push/apns/cert/{provider_id} | Delete an APNs certificate
 [**generateSecondaryApiToken**](ApplicationApi.md#generateSecondaryApiToken) | **POST** /v3/applications/api_tokens | Generate a secondary API token
+[**listBannedUsersInChannelsWithCustomChannelType**](ApplicationApi.md#listBannedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | List banned users in channels with a custom channel type
+[**listMutedUsersInChannelsWithCustomChannelType**](ApplicationApi.md#listMutedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | List muted users in channels with a custom channel type
 [**listPushConfigurations**](ApplicationApi.md#listPushConfigurations) | **GET** /v3/applications/push/{push_type} | List push configurations
 [**listPushNotificationContentTemplates**](ApplicationApi.md#listPushNotificationContentTemplates) | **GET** /v3/applications/push/message_templates | List push notification content templates
 [**listSecondaryApiTokens**](ApplicationApi.md#listSecondaryApiTokens) | **GET** /v3/applications/api_tokens | List secondary API tokens
+[**muteUsersInChannelsWithCustomChannelType**](ApplicationApi.md#muteUsersInChannelsWithCustomChannelType) | **POST** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | Mute users in channels with a custom channel type
 [**removePushConfigurationById**](ApplicationApi.md#removePushConfigurationById) | **DELETE** /v3/applications/push/{push_type}/{provider_id} | Remove a push configuration
 [**retrieveIpWhitelist**](ApplicationApi.md#retrieveIpWhitelist) | **GET** /v3/applications/settings/ip_whitelist | Retrieve an IP whitelist
 [**revokeSecondaryApiTokenByToken**](ApplicationApi.md#revokeSecondaryApiTokenByToken) | **DELETE** /v3/applications/api_tokens/{api_token} | Revoke a secondary API token
+[**setDomainFilter**](ApplicationApi.md#setDomainFilter) | **PUT** /v3/applications/settings_global/{custom_type} | Message moderation
+[**unbanUsersInChannelsWithCustomChannelType**](ApplicationApi.md#unbanUsersInChannelsWithCustomChannelType) | **DELETE** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | Unban users in channels with a custom channel type
+[**unmuteUsersInChannelsWithCustomChannelType**](ApplicationApi.md#unmuteUsersInChannelsWithCustomChannelType) | **DELETE** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | Unmute users in channels with a custom channel type
 [**updateApnsPushConfigurationById**](ApplicationApi.md#updateApnsPushConfigurationById) | **PUT** /v3/applications/push/apns/{provider_id} | Update an APNs push configuration
 [**updateDefaultChannelInvitationPreference**](ApplicationApi.md#updateDefaultChannelInvitationPreference) | **PUT** /v3/applications/default_channel_invitation_preference | Update default channel invitation preference
 [**updateFcmPushConfigurationById**](ApplicationApi.md#updateFcmPushConfigurationById) | **PUT** /v3/applications/push/fcm/{provider_id} | Update a FCM push configuration
 [**updateHmsPushConfigurationById**](ApplicationApi.md#updateHmsPushConfigurationById) | **PUT** /v3/applications/push/hms/{provider_id} | Update an HMS push configuration
 [**updatePushNotificationContentTemplate**](ApplicationApi.md#updatePushNotificationContentTemplate) | **PUT** /v3/applications/push/message_templates/{template_name} | Update a push notification content template
 [**viewDefaultChannelInvitationPreference**](ApplicationApi.md#viewDefaultChannelInvitationPreference) | **GET** /v3/applications/default_channel_invitation_preference | View default channel invitation preference
-[**viewNumberOfConcurrentConnections**](ApplicationApi.md#viewNumberOfConcurrentConnections) | **GET** /v3/applications/ccu | View number of concurrent connections
-[**viewNumberOfDailyActiveUsers**](ApplicationApi.md#viewNumberOfDailyActiveUsers) | **GET** /v3/applications/dau | View number of daily active users
-[**viewNumberOfMonthlyActiveUsers**](ApplicationApi.md#viewNumberOfMonthlyActiveUsers) | **GET** /v3/applications/mau | View number of monthly active users
-[**viewNumberOfPeakConnections**](ApplicationApi.md#viewNumberOfPeakConnections) | **GET** /v3/applications/peak_connections | View number of peak connections
 [**viewPushConfigurationById**](ApplicationApi.md#viewPushConfigurationById) | **GET** /v3/applications/push/{push_type}/{provider_id} | View a push configuration
 [**viewPushNotificationContentTemplate**](ApplicationApi.md#viewPushNotificationContentTemplate) | **GET** /v3/applications/push/message_templates/{template_name} | View a push notification content template
 [**viewSecondaryApiTokenByToken**](ApplicationApi.md#viewSecondaryApiTokenByToken) | **GET** /v3/applications/api_tokens/{api_token} | View a secondary API token
@@ -280,6 +283,75 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **banUsersInChannelsWithCustomChannelType**
+> any banUsersInChannelsWithCustomChannelType()
+
+## Ban specified users in channels with a custom channel type at once.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // BanUsersInChannelsWithCustomChannelTypeData (optional)
+  banUsersInChannelsWithCustomChannelTypeData: {
+    bannedList: [
+      {
+        userId: "userId_example",
+        seconds: 3.14,
+        description: "description_example",
+      },
+    ],
+    onDemandUpsert: true,
+  },
+};
+
+apiInstance.banUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **banUsersInChannelsWithCustomChannelTypeData** | **BanUsersInChannelsWithCustomChannelTypeData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **deleteAllowedIpsFromWhitelist**
 > DeleteAllowedIpsFromWhitelistResponse deleteAllowedIpsFromWhitelist()
 
@@ -455,6 +527,132 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **listBannedUsersInChannelsWithCustomChannelType**
+> CustomTypeListBannedUsersResponse listBannedUsersInChannelsWithCustomChannelType()
+
+## Retrieves a list of users banned from channels with the specified custom channel type.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // string (optional)
+  token: "token_example",
+  // number (optional)
+  limit: 1,
+};
+
+apiInstance.listBannedUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+ **token** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**CustomTypeListBannedUsersResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **listMutedUsersInChannelsWithCustomChannelType**
+> InlineResponse200 listMutedUsersInChannelsWithCustomChannelType()
+
+## Retrieves a list of the muted users in channels with a custom channel type.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // string (optional)
+  token: "token_example",
+  // number (optional)
+  limit: 1,
+};
+
+apiInstance.listMutedUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+ **token** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**InlineResponse200**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **listPushConfigurations**
 > ListPushConfigurationsResponse listPushConfigurations()
 
@@ -620,6 +818,73 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **muteUsersInChannelsWithCustomChannelType**
+> any muteUsersInChannelsWithCustomChannelType()
+
+## Mutes specified users in channels with a custom channel type at once.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // MuteUsersInChannelsWithCustomChannelTypeData (optional)
+  muteUsersInChannelsWithCustomChannelTypeData: {
+    userIds: [
+      "userIds_example",
+    ],
+    seconds: 3.14,
+    description: "description_example",
+    onDemandUpsert: true,
+  },
+};
+
+apiInstance.muteUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **muteUsersInChannelsWithCustomChannelTypeData** | **MuteUsersInChannelsWithCustomChannelTypeData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **removePushConfigurationById**
 > RemovePushConfigurationByIdResponse removePushConfigurationById()
 
@@ -773,6 +1038,227 @@ Name | Type | Description  | Notes
 ### Return type
 
 **RevokeSecondaryApiTokenByTokenResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **setDomainFilter**
+> SendBirdChannelResponse setDomainFilter()
+
+## 
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiSetDomainFilterRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // SetDomainFilterData (optional)
+  setDomainFilterData: {
+    domainFilter: {
+      domains: [
+        "domains_example",
+      ],
+      type: 1,
+      shouldCheckGlobal: true,
+    },
+    profanityFilter: {
+      keywords: [
+        "keywords_example",
+      ],
+      regexFilters: [
+        {
+          regex: "regex_example",
+        },
+      ],
+      type: 1,
+      shouldCheckGlobal: true,
+    },
+    profanityTriggeredModeration: {
+      count: 1,
+      duration: 1,
+      action: 1,
+    },
+    imageModeration: {
+      type: 1,
+      softBlock: true,
+      limits: {
+        adult: 1,
+        spoof: 1,
+        medical: 1,
+        violence: 1,
+        racy: 1,
+      },
+      checkUrls: true,
+    },
+  },
+};
+
+apiInstance.setDomainFilter(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **setDomainFilterData** | **SetDomainFilterData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**SendBirdChannelResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **unbanUsersInChannelsWithCustomChannelType**
+> any unbanUsersInChannelsWithCustomChannelType()
+
+## Unban specified users in channels with a custom channel type at once.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // Array<string>
+  userIds: [
+    "user_ids_example",
+  ],
+};
+
+apiInstance.unbanUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+ **userIds** | **Array&lt;string&gt;** |  | defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **unmuteUsersInChannelsWithCustomChannelType**
+> any unmuteUsersInChannelsWithCustomChannelType()
+
+## Unmute specified users in channels with a custom channel type at once.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .ApplicationApi(configuration);
+
+let body:.ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  customType: "custom_type_example",
+  // Array<string>
+  userIds: [
+    "user_ids_example",
+  ],
+};
+
+apiInstance.unmuteUsersInChannelsWithCustomChannelType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiToken** | [**string**] |  | defaults to undefined
+ **customType** | [**string**] |  | defaults to undefined
+ **userIds** | **Array&lt;string&gt;** |  | defaults to undefined
+
+
+### Return type
+
+**any**
 
 ### Authorization
 
@@ -1151,249 +1637,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **ViewDefaultChannelInvitationPreferenceResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **viewNumberOfConcurrentConnections**
-> ViewNumberOfConcurrentConnectionsResponse viewNumberOfConcurrentConnections()
-
-## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
-
-let body:.ApplicationApiViewNumberOfConcurrentConnectionsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-};
-
-apiInstance.viewNumberOfConcurrentConnections(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**ViewNumberOfConcurrentConnectionsResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **viewNumberOfDailyActiveUsers**
-> ViewNumberOfDailyActiveUsersResponse viewNumberOfDailyActiveUsers()
-
-## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
-
-let body:.ApplicationApiViewNumberOfDailyActiveUsersRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string (optional)
-  date: "date_example",
-};
-
-apiInstance.viewNumberOfDailyActiveUsers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **date** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ViewNumberOfDailyActiveUsersResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **viewNumberOfMonthlyActiveUsers**
-> ViewNumberOfMonthlyActiveUsersResponse viewNumberOfMonthlyActiveUsers()
-
-## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
-
-let body:.ApplicationApiViewNumberOfMonthlyActiveUsersRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string (optional)
-  date: "date_example",
-};
-
-apiInstance.viewNumberOfMonthlyActiveUsers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **date** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ViewNumberOfMonthlyActiveUsersResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **viewNumberOfPeakConnections**
-> ViewNumberOfPeakConnectionsResponse viewNumberOfPeakConnections()
-
-## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
-
-let body:.ApplicationApiViewNumberOfPeakConnectionsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  timeDimension: "time_dimension_example",
-  // number
-  startYear: 1,
-  // number
-  startMonth: 1,
-  // number
-  endYear: 1,
-  // number
-  endMonth: 1,
-  // number (optional)
-  startDay: 1,
-  // number (optional)
-  endDay: 1,
-};
-
-apiInstance.viewNumberOfPeakConnections(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **timeDimension** | [**string**] |  | defaults to undefined
- **startYear** | [**number**] |  | defaults to undefined
- **startMonth** | [**number**] |  | defaults to undefined
- **endYear** | [**number**] |  | defaults to undefined
- **endMonth** | [**number**] |  | defaults to undefined
- **startDay** | [**number**] |  | (optional) defaults to undefined
- **endDay** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ViewNumberOfPeakConnectionsResponse**
 
 ### Authorization
 

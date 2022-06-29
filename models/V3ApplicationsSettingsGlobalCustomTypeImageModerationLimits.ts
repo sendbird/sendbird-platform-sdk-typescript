@@ -10,45 +10,51 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
-    'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
+export class V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits {
+    'adult'?: number;
+    'spoof'?: number;
+    'medical'?: number;
+    'violence'?: number;
+    'racy'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
+            "name": "adult",
+            "baseName": "adult",
             "type": "number",
             "format": ""
         },
         {
-            "name": "startAt",
-            "baseName": "start_at",
+            "name": "spoof",
+            "baseName": "spoof",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "medical",
+            "baseName": "medical",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "violence",
+            "baseName": "violence",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "racy",
+            "baseName": "racy",
             "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits.attributeTypeMap;
     }
 
     public constructor() {

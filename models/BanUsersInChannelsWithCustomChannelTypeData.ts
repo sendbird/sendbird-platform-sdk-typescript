@@ -10,45 +10,31 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
+import { V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList } from './V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
-    'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
+export class BanUsersInChannelsWithCustomChannelTypeData {
+    'bannedList': Array<V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList>;
+    'onDemandUpsert'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
+            "name": "bannedList",
+            "baseName": "banned_list",
+            "type": "Array<V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList>",
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
+            "name": "onDemandUpsert",
+            "baseName": "on_demand_upsert",
+            "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return BanUsersInChannelsWithCustomChannelTypeData.attributeTypeMap;
     }
 
     public constructor() {

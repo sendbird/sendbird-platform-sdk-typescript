@@ -10,22 +10,27 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
+export class MuteUsersInChannelsWithCustomChannelTypeData {
+    'userIds': Array<string>;
+    'seconds'?: number;
     'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
+    'onDemandUpsert'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
+            "name": "userIds",
+            "baseName": "user_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "seconds",
+            "baseName": "seconds",
+            "type": "number",
             "format": ""
         },
         {
@@ -35,20 +40,14 @@ export class OcUpdateBanByIdResponse {
             "format": ""
         },
         {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
+            "name": "onDemandUpsert",
+            "baseName": "on_demand_upsert",
+            "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return MuteUsersInChannelsWithCustomChannelTypeData.attributeTypeMap;
     }
 
     public constructor() {

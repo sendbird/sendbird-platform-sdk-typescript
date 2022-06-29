@@ -10,22 +10,26 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
+export class V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList {
+    'userId': string;
+    'seconds'?: number;
     'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
+            "name": "userId",
+            "baseName": "user_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "seconds",
+            "baseName": "seconds",
+            "type": "number",
             "format": ""
         },
         {
@@ -33,22 +37,10 @@ export class OcUpdateBanByIdResponse {
             "baseName": "description",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
-            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList.attributeTypeMap;
     }
 
     public constructor() {

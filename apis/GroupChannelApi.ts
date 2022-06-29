@@ -10,32 +10,22 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 
 import { GcAcceptInvitationData } from '../models/GcAcceptInvitationData';
-import { GcBanUserData } from '../models/GcBanUserData';
-import { GcBanUserResponse } from '../models/GcBanUserResponse';
 import { GcCheckIfMemberByIdResponse } from '../models/GcCheckIfMemberByIdResponse';
 import { GcCreateChannelData } from '../models/GcCreateChannelData';
 import { GcDeclineInvitationData } from '../models/GcDeclineInvitationData';
-import { GcFreezeChannelData } from '../models/GcFreezeChannelData';
 import { GcHideOrArchiveChannelData } from '../models/GcHideOrArchiveChannelData';
 import { GcInviteAsMembersData } from '../models/GcInviteAsMembersData';
 import { GcJoinChannelData } from '../models/GcJoinChannelData';
 import { GcLeaveChannelData } from '../models/GcLeaveChannelData';
-import { GcListBannedUsersResponse } from '../models/GcListBannedUsersResponse';
 import { GcListChannelsResponse } from '../models/GcListChannelsResponse';
 import { GcListMembersResponse } from '../models/GcListMembersResponse';
-import { GcListMutedUsersResponse } from '../models/GcListMutedUsersResponse';
 import { GcListOperatorsResponse } from '../models/GcListOperatorsResponse';
-import { GcMuteUserData } from '../models/GcMuteUserData';
 import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
-import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
-import { GcUpdateBanByIdResponse } from '../models/GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
-import { GcViewBanByIdResponse } from '../models/GcViewBanByIdResponse';
-import { GcViewMuteByIdResponse } from '../models/GcViewMuteByIdResponse';
-import { InlineResponse200 } from '../models/InlineResponse200';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 
 /**
@@ -85,56 +75,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(gcAcceptInvitationData, "GcAcceptInvitationData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param gcBanUserData 
-     */
-    public async gcBanUser(apiToken: string, channelUrl: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcBanUser", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcBanUser", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/ban'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcBanUserData, "GcBanUserData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -374,56 +314,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param apiToken 
-     * @param channelUrl 
-     * @param gcFreezeChannelData 
-     */
-    public async gcFreezeChannel(apiToken: string, channelUrl: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcFreezeChannel", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcFreezeChannel", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/freeze'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcFreezeChannelData, "GcFreezeChannelData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
      * ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
      * Hide or archive a channel
      * @param apiToken 
@@ -618,57 +508,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             contentType
         );
         requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param apiToken 
-     * @param channelUrl 
-     * @param token 
-     * @param limit 
-     */
-    public async gcListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListBannedUsers", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListBannedUsers", "channelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/ban'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
 
 
         return requestContext;
@@ -1098,57 +937,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param apiToken 
-     * @param channelUrl 
-     * @param token 
-     * @param limit 
-     */
-    public async gcListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListMutedUsers", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListMutedUsers", "channelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/mute'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
      * ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
      * @param apiToken 
@@ -1194,56 +982,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Header Params
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
-     * Mute a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param gcMuteUserData 
-     */
-    public async gcMuteUser(apiToken: string, channelUrl: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcMuteUser", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcMuteUser", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/mute'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcMuteUserData, "GcMuteUserData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
 
         return requestContext;
@@ -1350,51 +1088,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     */
-    public async gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnbanUserById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnbanUserById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnbanUserById", "bannedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
      * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
      * Unhide or unarchive a channel
      * @param apiToken 
@@ -1451,109 +1144,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param mutedUserId 
-     */
-    public async gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnmuteUserById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnmuteUserById", "channelUrl");
-        }
-
-
-        // verify required parameter 'mutedUserId' is not null or undefined
-        if (mutedUserId === null || mutedUserId === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnmuteUserById", "mutedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/mute/{muted_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'muted_user_id' + '}', encodeURIComponent(String(mutedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param gcUpdateBanByIdData 
-     */
-    public async gcUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUpdateBanById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUpdateBanById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUpdateBanById", "bannedUserId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcUpdateBanByIdData, "GcUpdateBanByIdData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
      * ## Update a channel  Updates information on a group channel.  > __Note__: You can't change the members of the channel here. To do so, see [invite as members](#2-invite-as-members) action below.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-channel ----------------------------
      * Update a channel
      * @param apiToken 
@@ -1598,51 +1188,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             contentType
         );
         requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     */
-    public async gcViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewBanById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewBanById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewBanById", "bannedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
 
 
         return requestContext;
@@ -1720,51 +1265,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         return requestContext;
     }
 
-    /**
-     * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param apiToken 
-     * @param channelUrl 
-     * @param mutedUserId 
-     */
-    public async gcViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewMuteById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewMuteById", "channelUrl");
-        }
-
-
-        // verify required parameter 'mutedUserId' is not null or undefined
-        if (mutedUserId === null || mutedUserId === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewMuteById", "mutedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/mute/{muted_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'muted_user_id' + '}', encodeURIComponent(String(mutedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
 }
 
 export class GroupChannelApiResponseProcessor {
@@ -1802,54 +1302,25 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to gcBanUser
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcBanUser(response: ResponseContext): Promise<GcBanUserResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcBanUserResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcBanUserResponse", ""
-            ) as GcBanUserResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcBanUserResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcBanUserResponse", ""
-            ) as GcBanUserResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to gcCancelTheRegistrationOfOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcCancelTheRegistrationOfOperators(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcCancelTheRegistrationOfOperators(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -1921,22 +1392,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcDeclineInvitation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcDeclineInvitation(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcDeclineInvitation(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -1950,51 +1421,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcDeleteChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcFreezeChannel
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcFreezeChannel(response: ResponseContext): Promise<SendBirdGroupChannel > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdGroupChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdGroupChannel", ""
-            ) as SendBirdGroupChannel;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdGroupChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdGroupChannel", ""
-            ) as SendBirdGroupChannel;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -2008,22 +1450,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcHideOrArchiveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcHideOrArchiveChannel(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcHideOrArchiveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -2091,51 +1533,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcLeaveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcLeaveChannel(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcLeaveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcListBannedUsers
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcListBannedUsers(response: ResponseContext): Promise<GcListBannedUsersResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcListBannedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcListBannedUsersResponse", ""
-            ) as GcListBannedUsersResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcListBannedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcListBannedUsersResponse", ""
-            ) as GcListBannedUsersResponse;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -2204,35 +1617,6 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to gcListMutedUsers
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcListMutedUsers(response: ResponseContext): Promise<GcListMutedUsersResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcListMutedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcListMutedUsersResponse", ""
-            ) as GcListMutedUsersResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcListMutedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcListMutedUsersResponse", ""
-            ) as GcListMutedUsersResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to gcListOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2252,35 +1636,6 @@ export class GroupChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "GcListOperatorsResponse", ""
             ) as GcListOperatorsResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcMuteUser
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcMuteUser(response: ResponseContext): Promise<SendBirdGroupChannel > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdGroupChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdGroupChannel", ""
-            ) as SendBirdGroupChannel;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdGroupChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdGroupChannel", ""
-            ) as SendBirdGroupChannel;
             return body;
         }
 
@@ -2349,112 +1704,25 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to gcUnbanUserById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcUnbanUserById(response: ResponseContext): Promise<InlineResponse200 > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to gcUnhideOrUnarchiveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcUnhideOrUnarchiveChannel(response: ResponseContext): Promise<InlineResponse200 > {
+     public async gcUnhideOrUnarchiveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcUnmuteUserById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcUnmuteUserById(response: ResponseContext): Promise<InlineResponse200 > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcUpdateBanById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcUpdateBanById(response: ResponseContext): Promise<GcUpdateBanByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcUpdateBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcUpdateBanByIdResponse", ""
-            ) as GcUpdateBanByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcUpdateBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcUpdateBanByIdResponse", ""
-            ) as GcUpdateBanByIdResponse;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -2494,35 +1762,6 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to gcViewBanById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcViewBanById(response: ResponseContext): Promise<GcViewBanByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcViewBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewBanByIdResponse", ""
-            ) as GcViewBanByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcViewBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewBanByIdResponse", ""
-            ) as GcViewBanByIdResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to gcViewChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2542,35 +1781,6 @@ export class GroupChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SendBirdGroupChannel", ""
             ) as SendBirdGroupChannel;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcViewMuteById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcViewMuteById(response: ResponseContext): Promise<GcViewMuteByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcViewMuteByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewMuteByIdResponse", ""
-            ) as GcViewMuteByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcViewMuteByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewMuteByIdResponse", ""
-            ) as GcViewMuteByIdResponse;
             return body;
         }
 

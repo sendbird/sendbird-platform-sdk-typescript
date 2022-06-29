@@ -10,17 +10,25 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse200 {
-    'anyOf'?: string;
+    'mutedList'?: Array<SendBirdUser>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "anyOf",
-            "baseName": "anyOf",
+            "name": "mutedList",
+            "baseName": "muted_list",
+            "type": "Array<SendBirdUser>",
+            "format": ""
+        },
+        {
+            "name": "next",
+            "baseName": "next",
             "type": "string",
             "format": ""
         }    ];

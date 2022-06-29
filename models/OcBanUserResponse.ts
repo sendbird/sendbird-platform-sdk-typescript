@@ -10,8 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse200 } from './InlineResponse200';
-import { ModelBoolean } from './ModelBoolean';
+import { InlineResponse2001 } from './InlineResponse2001';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
@@ -22,10 +21,10 @@ export class OcBanUserResponse {
     'userId'?: string;
     'user'?: SendBirdUser;
     'nextUrl'?: string;
-    'requireAuthForProfileImage'?: ModelBoolean;
+    'requireAuthForProfileImage'?: boolean;
     'nickname'?: string;
     'profileUrl'?: string;
-    'metadata'?: InlineResponse200;
+    'metadata'?: InlineResponse2001;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -69,7 +68,7 @@ export class OcBanUserResponse {
         {
             "name": "requireAuthForProfileImage",
             "baseName": "require_auth_for_profile_image",
-            "type": "ModelBoolean",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -87,7 +86,7 @@ export class OcBanUserResponse {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "InlineResponse200",
+            "type": "InlineResponse2001",
             "format": ""
         }    ];
 

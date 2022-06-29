@@ -9,79 +9,19 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { OcBanUserData } from '../models/OcBanUserData';
-import { OcBanUserResponse } from '../models/OcBanUserResponse';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
-import { OcFreezeChannelData } from '../models/OcFreezeChannelData';
-import { OcListBannedUsersResponse } from '../models/OcListBannedUsersResponse';
 import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
-import { OcListMutedUsersResponse } from '../models/OcListMutedUsersResponse';
 import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
 import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse';
-import { OcMuteUserData } from '../models/OcMuteUserData';
 import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
-import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
-import { OcUpdateBanByIdResponse } from '../models/OcUpdateBanByIdResponse';
 import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
-import { OcViewBanByIdResponse } from '../models/OcViewBanByIdResponse';
-import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
 
 /**
  * no description
  */
 export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
-
-    /**
-     * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param ocBanUserData 
-     */
-    public async ocBanUser(apiToken: string, channelUrl: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocBanUser", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocBanUser", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/ban'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocBanUserData, "OcBanUserData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
 
     /**
      * ## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
@@ -219,107 +159,6 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param apiToken 
-     * @param channelUrl 
-     * @param ocFreezeChannelData 
-     */
-    public async ocFreezeChannel(apiToken: string, channelUrl: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocFreezeChannel", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocFreezeChannel", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/freeze'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocFreezeChannelData, "OcFreezeChannelData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param apiToken 
-     * @param channelUrl 
-     * @param token 
-     * @param limit 
-     */
-    public async ocListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListBannedUsers", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListBannedUsers", "channelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/ban'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
      * ## List channels  Retrieves a list of open channels. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-channels ----------------------------
      * List channels
      * @param apiToken 
@@ -394,57 +233,6 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (customType !== undefined) {
             requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param apiToken 
-     * @param channelUrl 
-     * @param token 
-     * @param limit 
-     */
-    public async ocListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListMutedUsers", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListMutedUsers", "channelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/mute'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
         }
 
         // Header Params
@@ -558,56 +346,6 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
-     * Mute a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param ocMuteUserData 
-     */
-    public async ocMuteUser(apiToken: string, channelUrl: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocMuteUser", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocMuteUser", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/mute'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocMuteUserData, "OcMuteUserData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
      * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
      * Register operators
      * @param apiToken 
@@ -649,154 +387,6 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(ocRegisterOperatorsData, "OcRegisterOperatorsData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     */
-    public async ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnbanUserById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnbanUserById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnbanUserById", "bannedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param apiToken 
-     * @param channelUrl 
-     * @param mutedUserId 
-     */
-    public async ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnmuteUserById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnmuteUserById", "channelUrl");
-        }
-
-
-        // verify required parameter 'mutedUserId' is not null or undefined
-        if (mutedUserId === null || mutedUserId === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUnmuteUserById", "mutedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/mute/{muted_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'muted_user_id' + '}', encodeURIComponent(String(mutedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param ocUpdateBanByIdData 
-     */
-    public async ocUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUpdateBanById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUpdateBanById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUpdateBanById", "bannedUserId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocUpdateBanByIdData, "OcUpdateBanByIdData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -856,51 +446,6 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param apiToken 
-     * @param channelUrl 
-     * @param bannedUserId 
-     */
-    public async ocViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewBanById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewBanById", "channelUrl");
-        }
-
-
-        // verify required parameter 'bannedUserId' is not null or undefined
-        if (bannedUserId === null || bannedUserId === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewBanById", "bannedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/ban/{banned_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'banned_user_id' + '}', encodeURIComponent(String(bannedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
-    /**
      * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
      * View a channel
      * @param apiToken 
@@ -937,83 +482,9 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         return requestContext;
     }
 
-    /**
-     * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param apiToken 
-     * @param channelUrl 
-     * @param mutedUserId 
-     */
-    public async ocViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewMuteById", "apiToken");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewMuteById", "channelUrl");
-        }
-
-
-        // verify required parameter 'mutedUserId' is not null or undefined
-        if (mutedUserId === null || mutedUserId === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewMuteById", "mutedUserId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/mute/{muted_user_id}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'muted_user_id' + '}', encodeURIComponent(String(mutedUserId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-
-        return requestContext;
-    }
-
 }
 
 export class OpenChannelApiResponseProcessor {
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocBanUser
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocBanUser(response: ResponseContext): Promise<OcBanUserResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcBanUserResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcBanUserResponse", ""
-            ) as OcBanUserResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcBanUserResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcBanUserResponse", ""
-            ) as OcBanUserResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
 
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1076,80 +547,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocDeleteChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse200 > {
+     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocFreezeChannel
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocFreezeChannel(response: ResponseContext): Promise<SendBirdOpenChannel > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocListBannedUsers
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocListBannedUsers(response: ResponseContext): Promise<OcListBannedUsersResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcListBannedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListBannedUsersResponse", ""
-            ) as OcListBannedUsersResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcListBannedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListBannedUsersResponse", ""
-            ) as OcListBannedUsersResponse;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -1179,35 +592,6 @@ export class OpenChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "OcListChannelsResponse", ""
             ) as OcListChannelsResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocListMutedUsers
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocListMutedUsers(response: ResponseContext): Promise<OcListMutedUsersResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcListMutedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListMutedUsersResponse", ""
-            ) as OcListMutedUsersResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcListMutedUsersResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListMutedUsersResponse", ""
-            ) as OcListMutedUsersResponse;
             return body;
         }
 
@@ -1276,141 +660,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocMuteUser
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocMuteUser(response: ResponseContext): Promise<SendBirdOpenChannel > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to ocRegisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocRegisterOperators(response: ResponseContext): Promise<InlineResponse200 > {
+     public async ocRegisterOperators(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocUnbanUserById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocUnbanUserById(response: ResponseContext): Promise<InlineResponse200 > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocUnmuteUserById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocUnmuteUserById(response: ResponseContext): Promise<InlineResponse200 > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocUpdateBanById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocUpdateBanById(response: ResponseContext): Promise<OcUpdateBanByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcUpdateBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcUpdateBanByIdResponse", ""
-            ) as OcUpdateBanByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcUpdateBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcUpdateBanByIdResponse", ""
-            ) as OcUpdateBanByIdResponse;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -1450,35 +718,6 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocViewBanById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocViewBanById(response: ResponseContext): Promise<OcViewBanByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcViewBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcViewBanByIdResponse", ""
-            ) as OcViewBanByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcViewBanByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcViewBanByIdResponse", ""
-            ) as OcViewBanByIdResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to ocViewChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1498,35 +737,6 @@ export class OpenChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SendBirdOpenChannel", ""
             ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocViewMuteById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocViewMuteById(response: ResponseContext): Promise<OcViewMuteByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcViewMuteByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcViewMuteByIdResponse", ""
-            ) as OcViewMuteByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcViewMuteByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcViewMuteByIdResponse", ""
-            ) as OcViewMuteByIdResponse;
             return body;
         }
 

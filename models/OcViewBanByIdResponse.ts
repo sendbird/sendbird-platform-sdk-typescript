@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdUser } from './SendbirdUser';
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class OcViewBanByIdResponse {
-    'user'?: SendbirdUser;
+    'user'?: SendBirdUser;
     'description'?: string;
     'endAt'?: number;
     'startAt'?: number;
@@ -25,7 +25,7 @@ export class OcViewBanByIdResponse {
         {
             "name": "user",
             "baseName": "user",
-            "type": "SendbirdUser",
+            "type": "SendBirdUser",
             "format": ""
         },
         {

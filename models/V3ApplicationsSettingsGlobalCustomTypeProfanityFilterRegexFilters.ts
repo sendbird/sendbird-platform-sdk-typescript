@@ -10,45 +10,23 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
-    'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
+export class V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters {
+    'regex'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
+            "name": "regex",
+            "baseName": "regex",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters.attributeTypeMap;
     }
 
     public constructor() {

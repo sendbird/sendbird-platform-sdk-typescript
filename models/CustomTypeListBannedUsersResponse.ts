@@ -10,45 +10,31 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdUser } from './SendBirdUser';
+import { OcListBannedUsersResponseBannedList } from './OcListBannedUsersResponseBannedList';
 import { HttpFile } from '../http/http';
 
-export class OcUpdateBanByIdResponse {
-    'user'?: SendBirdUser;
-    'description'?: string;
-    'endAt'?: number;
-    'startAt'?: number;
+export class CustomTypeListBannedUsersResponse {
+    'bannedList'?: Array<OcListBannedUsersResponseBannedList>;
+    'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendBirdUser",
+            "name": "bannedList",
+            "baseName": "banned_list",
+            "type": "Array<OcListBannedUsersResponseBannedList>",
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "next",
+            "baseName": "next",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "endAt",
-            "baseName": "end_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startAt",
-            "baseName": "start_at",
-            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OcUpdateBanByIdResponse.attributeTypeMap;
+        return CustomTypeListBannedUsersResponse.attributeTypeMap;
     }
 
     public constructor() {

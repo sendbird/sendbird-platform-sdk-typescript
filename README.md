@@ -65,18 +65,21 @@ You will need [Node.js](https://nodejs.org/en/download/) installed. This has bee
  4. cd to your project directory
  5. run `npm install /path/to/sendbird-platform-sdk-typescript --save`
 
-# 🗃️ Documentation
 
-This SDK supports the following platform interfaces:
+# 🗃️ Documentation 
+All the documentation for this project lives in the /docs directory of this repo. 
+
+##### Helpful links
+
 |       | Documentation |
 | ----------- | ----------- |
-| Announcements   | [docs/AnnouncementsApi.md](AnnouncementsApi.md)|
-| Application | [docs/ApplicationApi.md](ApplicationApi.md)  |
-| BotInterface | [docs/BotInterfaceApi.md](BotInterfaceApi.md)  |
+| Announcement   | [docs/AnnouncementApi.md](docs/AnnouncementApi.md)|
+| Application | [docs/ApplicationApi.md](docs/ApplicationApi.md)  |
+| Bot | [docs/BotApi.md](docs/BotApi.md)  |
 | GroupChannel | [docs/GroupChannelApi.md](docs/GroupChannelApi.md)  |
-| Messages | [docs/MessagesApi.md](MessagesApi.md)  |
-| OpenChannel | [docs/OpenChannelApi.md](OpenChannelApi.md)  |
-| User | [docs/UserApi.md](UserApi.md)  |
-| Webhooks | [docs/UserApi.md](WebhooksApi.md)  |
+| Message | [docs/MessageApi.md](docs/MessageApi.md)  |
+| OpenChannel | [docs/OpenChannelApi.md ](docs/OpenChannelApi.md)  |
+| User | [docs/UserApi.md](docs/UserApi.md)  |
+| Webhooks | [docs/WebhooksApi.md](docs/WebhooksApi.md)  |
 
 

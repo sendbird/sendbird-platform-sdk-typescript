@@ -20,19 +20,19 @@ export class GcInviteAsMembersData {
     /**
     * Specifies an array of one or more user IDs to invite into the channel. The maximum number of users to be invited at once is 100. The users can be used instead of this property.
     */
-    'userIds': Array<number>;
+    'userIds': Array<string>;
     /**
     * Specifies a list of one or more `JSON` objects which contain the user_id property to invite into the channel. The maximum number of users to be invited at once is 100. The user_ids can be used instead of this property.
     */
-    'users': Array<number>;
+    'users': Array<string>;
     /**
-    * Specifies an array of one or more information about the join status of each invited user to the channel. Each item of the array should be specified with a combination of the unique ID of a user in the user_ids or users property, a colon (:), and the user's join status (for example, user_id_1: join status). Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+    * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
     */
-    'invitationStatus': Array<string>;
+    'invitationStatus': any;
     /**
-    * Specifies an array of one or more channel hidden statuses about whether to hide the channel from each invited user's list of group channels, and whether to automatically unhide the hidden channel when receiving a new message from other member of that channel. Each item of the array should be specified with a combination of the unique ID of a user in the user_ids or users property, a colon (:), and the channel hidden status (for example, user_id_1: channel hidden status). Acceptable values are limited to the following:<br />- unhidden (default): the channel is included in when retrieving a list of group channels.<br />- hidden_allow_auto_unhide: the channel automatically gets unhidden when receiving a new message.<br />- hidden_prevent_auto_unhide: the channel keeps hidden though receiving a new message.
+    * Specifies one or more key-value pair items which set the channel's hidden status for each user. The key should be a user_id and the value should be their hidden status. Acceptable values are limited to the following:<br />- unhidden (default): the channel is included in when retrieving a list of group channels.<br />- hidden_allow_auto_unhide: the channel automatically gets unhidden when receiving a new message.<br />- hidden_prevent_auto_unhide: the channel keeps hidden though receiving a new message.
     */
-    'hiddenStatus': Array<string>;
+    'hiddenStatus': any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -46,25 +46,25 @@ export class GcInviteAsMembersData {
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {
             "name": "users",
             "baseName": "users",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {
             "name": "invitationStatus",
             "baseName": "invitation_status",
-            "type": "Array<string>",
+            "type": "any",
             "format": ""
         },
         {
             "name": "hiddenStatus",
             "baseName": "hidden_status",
-            "type": "Array<string>",
+            "type": "any",
             "format": ""
         }    ];
 

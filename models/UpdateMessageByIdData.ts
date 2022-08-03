@@ -48,7 +48,7 @@ export class UpdateMessageByIdData {
     /**
     * Specifies an array of one or more IDs of the users who will get a notification for the message.
     */
-    'mentionedUserIds'?: Array<number>;
+    'mentionedUserIds'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -104,7 +104,7 @@ export class UpdateMessageByIdData {
         {
             "name": "mentionedUserIds",
             "baseName": "mentioned_user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListPushConfigurationsResponsePushConfigurations } from './ListPushConfigurationsResponsePushConfigurations';
+import { ListPushConfigurationsResponsePushConfigurationsInner } from './ListPushConfigurationsResponsePushConfigurationsInner';
 import { HttpFile } from '../http/http';
 
 export class ListPushConfigurationsResponse {
-    'pushConfigurations'?: Array<ListPushConfigurationsResponsePushConfigurations>;
+    'pushConfigurations'?: Array<ListPushConfigurationsResponsePushConfigurationsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ListPushConfigurationsResponse {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<ListPushConfigurationsResponsePushConfigurations>",
+            "type": "Array<ListPushConfigurationsResponsePushConfigurationsInner>",
             "format": ""
         }    ];
 

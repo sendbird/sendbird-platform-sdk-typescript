@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList } from './V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList';
+import { BanUsersInChannelsWithCustomChannelTypeDataBannedListInner } from './BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
 import { HttpFile } from '../http/http';
 
 export class BanUsersInChannelsWithCustomChannelTypeData {
-    'bannedList': Array<V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList>;
+    'bannedList': Array<BanUsersInChannelsWithCustomChannelTypeDataBannedListInner>;
     'onDemandUpsert'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class BanUsersInChannelsWithCustomChannelTypeData {
         {
             "name": "bannedList",
             "baseName": "banned_list",
-            "type": "Array<V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList>",
+            "type": "Array<BanUsersInChannelsWithCustomChannelTypeDataBannedListInner>",
             "format": ""
         },
         {

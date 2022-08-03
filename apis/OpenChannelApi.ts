@@ -1,16 +1,17 @@
 // TODO: better import syntax?
-import { BaseAPIRequestFactory, RequiredError } from './baseapi';
+import {BaseAPIRequestFactory, RequiredError} from './baseapi';
 import {Configuration} from '../configuration';
-import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import * as FormData from "form-data";
 import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
+import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
+import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
 import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
 import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
 import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse';
@@ -75,6 +76,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -117,6 +123,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -154,6 +165,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -239,6 +255,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -290,6 +311,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -341,6 +367,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -391,6 +422,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -441,6 +477,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -478,6 +519,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -547,22 +593,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocDeleteChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -663,22 +709,22 @@ export class OpenChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to ocRegisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocRegisterOperators(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async ocRegisterOperators(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 

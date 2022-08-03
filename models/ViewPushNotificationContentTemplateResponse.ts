@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ViewPushNotificationContentTemplateResponsePushMessageTemplates } from './ViewPushNotificationContentTemplateResponsePushMessageTemplates';
+import { ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner } from './ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
 import { HttpFile } from '../http/http';
 
 export class ViewPushNotificationContentTemplateResponse {
-    'pushMessageTemplates'?: Array<ViewPushNotificationContentTemplateResponsePushMessageTemplates>;
+    'pushMessageTemplates'?: Array<ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ViewPushNotificationContentTemplateResponse {
         {
             "name": "pushMessageTemplates",
             "baseName": "push_message_templates",
-            "type": "Array<ViewPushNotificationContentTemplateResponsePushMessageTemplates>",
+            "type": "Array<ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner>",
             "format": ""
         }    ];
 

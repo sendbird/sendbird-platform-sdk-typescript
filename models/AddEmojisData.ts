@@ -20,7 +20,7 @@ export class AddEmojisData {
     /**
     * Specifies a list of one or more new emojis to register.
     */
-    'emojis': Array<string>;
+    'emojis': Array<any>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -34,7 +34,7 @@ export class AddEmojisData {
         {
             "name": "emojis",
             "baseName": "emojis",
-            "type": "Array<string>",
+            "type": "Array<any>",
             "format": ""
         }    ];
 

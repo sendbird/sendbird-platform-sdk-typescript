@@ -24,7 +24,7 @@ export class CreateChannelMetadataData {
     /**
     * Specifies a `JSON` object that stores key-value items. The key must not have a comma (,) and its length is limited to 128 characters. The value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
     */
-    'metadata': string;
+    'metadata': any;
     /**
     * Determines whether to include the timestamp of when a metadata has been created in the response. (Default: false)
     */
@@ -48,7 +48,7 @@ export class CreateChannelMetadataData {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {

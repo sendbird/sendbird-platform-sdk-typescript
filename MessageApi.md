@@ -121,7 +121,7 @@ let body:.MessageApiAddEmojisRequest = {
   addEmojisData: {
     emojiCategoryId: 1,
     emojis: [
-      "emojis_example",
+      {},
     ],
   },
 };
@@ -1830,8 +1830,12 @@ let body:.MessageApiTranslateMessageIntoOtherLanguagesRequest = {
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
-  // any (optional)
-  body: {},
+  // TranslateMessageIntoOtherLanguagesData (optional)
+  translateMessageIntoOtherLanguagesData: {
+    targetLangs: [
+      "targetLangs_example",
+    ],
+  },
 };
 
 apiInstance.translateMessageIntoOtherLanguages(body).then((data:any) => {
@@ -1844,7 +1848,7 @@ apiInstance.translateMessageIntoOtherLanguages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **any**|  |
+ **translateMessageIntoOtherLanguagesData** | **TranslateMessageIntoOtherLanguagesData**|  |
  **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
@@ -2184,7 +2188,7 @@ let body:.MessageApiUpdateMessageByIdRequest = {
     data: "data_example",
     mentionType: "mentionType_example",
     mentionedUserIds: [
-      1,
+      "mentionedUserIds_example",
     ],
   },
 };

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ListDataExportsByMessageChannelOrUserResponseFile } from './ListDataExportsByMessageChannelOrUserResponseFile';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from './ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
 import { HttpFile } from '../http/http';
 
 export class ViewGdprRequestByIdResponse {
@@ -18,7 +18,7 @@ export class ViewGdprRequestByIdResponse {
     'action'?: string;
     'status'?: string;
     'userId'?: string;
-    'files'?: ListDataExportsByMessageChannelOrUserResponseFile;
+    'files'?: ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile;
     'userIds'?: Array<string>;
     'channelDeleteOption'?: string;
     'createdAt'?: number;
@@ -53,7 +53,7 @@ export class ViewGdprRequestByIdResponse {
         {
             "name": "files",
             "baseName": "files",
-            "type": "ListDataExportsByMessageChannelOrUserResponseFile",
+            "type": "ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile",
             "format": ""
         },
         {

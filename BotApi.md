@@ -412,7 +412,7 @@ let body:.BotApiSendBotsMessageRequest = {
     data: "data_example",
     sendPush: true,
     mentioned: [
-      1,
+      "mentioned_example",
     ],
     markAsRead: true,
     dedupId: "dedupId_example",

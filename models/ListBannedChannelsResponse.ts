@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListBannedChannelsResponseBannedChannels } from './ListBannedChannelsResponseBannedChannels';
+import { ListBannedChannelsResponseBannedChannelsInner } from './ListBannedChannelsResponseBannedChannelsInner';
 import { HttpFile } from '../http/http';
 
 export class ListBannedChannelsResponse {
-    'bannedChannels'?: Array<ListBannedChannelsResponseBannedChannels>;
+    'bannedChannels'?: Array<ListBannedChannelsResponseBannedChannelsInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class ListBannedChannelsResponse {
         {
             "name": "bannedChannels",
             "baseName": "banned_channels",
-            "type": "Array<ListBannedChannelsResponseBannedChannels>",
+            "type": "Array<ListBannedChannelsResponseBannedChannelsInner>",
             "format": ""
         },
         {

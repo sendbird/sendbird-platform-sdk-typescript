@@ -16,7 +16,7 @@ export class UpdateUserMetadataData {
     /**
     * Specifies a `JSON` object that stores key-value items. The key must not have a comma (,) and its length is limited to 128 characters. The value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
     */
-    'metadata': string;
+    'metadata': any;
     'upsert': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -25,7 +25,7 @@ export class UpdateUserMetadataData {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {

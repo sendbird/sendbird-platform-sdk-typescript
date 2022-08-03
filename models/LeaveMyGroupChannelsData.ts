@@ -14,10 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class LeaveMyGroupChannelsData {
     /**
-    * Specifies the unique ID of the user to leave all joined group channels.
-    */
-    'userId': string;
-    /**
     * Specifies the custom channel type to make the user leave joined group channels with the corresponding type.
     */
     'customType': string;
@@ -25,12 +21,6 @@ export class LeaveMyGroupChannelsData {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "customType",
             "baseName": "custom_type",

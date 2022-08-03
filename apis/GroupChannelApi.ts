@@ -1,12 +1,13 @@
 // TODO: better import syntax?
-import { BaseAPIRequestFactory, RequiredError } from './baseapi';
+import {BaseAPIRequestFactory, RequiredError} from './baseapi';
 import {Configuration} from '../configuration';
-import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import * as FormData from "form-data";
 import { URLSearchParams } from 'url';
 import {ObjectSerializer} from '../models/ObjectSerializer';
 import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
+import {SecurityAuthentication} from '../auth/auth';
 
 
 import { GcAcceptInvitationData } from '../models/GcAcceptInvitationData';
@@ -25,7 +26,7 @@ import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsRespon
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
+import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 
 /**
@@ -79,6 +80,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -135,6 +141,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -180,6 +191,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -222,6 +238,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -272,6 +293,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -309,6 +335,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -359,6 +390,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -409,6 +445,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -459,6 +500,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -509,6 +555,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -832,6 +883,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -932,6 +988,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -983,6 +1044,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1033,6 +1099,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1083,6 +1154,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1139,6 +1215,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1189,6 +1270,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1261,6 +1347,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }
@@ -1305,22 +1396,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcCancelTheRegistrationOfOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcCancelTheRegistrationOfOperators(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcCancelTheRegistrationOfOperators(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -1392,22 +1483,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcDeclineInvitation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcDeclineInvitation(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcDeclineInvitation(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -1421,22 +1512,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcDeleteChannelByUrl
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcDeleteChannelByUrl(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcDeleteChannelByUrl(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -1450,22 +1541,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcHideOrArchiveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcHideOrArchiveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcHideOrArchiveChannel(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -1533,22 +1624,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcLeaveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcLeaveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcLeaveChannel(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
@@ -1707,22 +1798,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to gcUnhideOrUnarchiveChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async gcUnhideOrUnarchiveChannel(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async gcUnhideOrUnarchiveChannel(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListDataExportsByMessageChannelOrUserResponseExportedData } from './ListDataExportsByMessageChannelOrUserResponseExportedData';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInner } from './ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
 import { HttpFile } from '../http/http';
 
 export class ListDataExportsByMessageChannelOrUserResponse {
-    'exportedData'?: Array<ListDataExportsByMessageChannelOrUserResponseExportedData>;
+    'exportedData'?: Array<ListDataExportsByMessageChannelOrUserResponseExportedDataInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class ListDataExportsByMessageChannelOrUserResponse {
         {
             "name": "exportedData",
             "baseName": "exported_data",
-            "type": "Array<ListDataExportsByMessageChannelOrUserResponseExportedData>",
+            "type": "Array<ListDataExportsByMessageChannelOrUserResponseExportedDataInner>",
             "format": ""
         },
         {

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AddEmojiCategoriesResponseEmojiCategories } from './AddEmojiCategoriesResponseEmojiCategories';
+import { AddEmojiCategoriesResponseEmojiCategoriesInner } from './AddEmojiCategoriesResponseEmojiCategoriesInner';
 import { HttpFile } from '../http/http';
 
 export class AddEmojiCategoriesResponse {
-    'emojiCategories'?: Array<AddEmojiCategoriesResponseEmojiCategories>;
+    'emojiCategories'?: Array<AddEmojiCategoriesResponseEmojiCategoriesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class AddEmojiCategoriesResponse {
         {
             "name": "emojiCategories",
             "baseName": "emoji_categories",
-            "type": "Array<AddEmojiCategoriesResponseEmojiCategories>",
+            "type": "Array<AddEmojiCategoriesResponseEmojiCategoriesInner>",
             "format": ""
         }    ];
 

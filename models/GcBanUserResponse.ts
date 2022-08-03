@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2001 } from './InlineResponse2001';
+import { OcDeleteChannelByUrl200Response } from './OcDeleteChannelByUrl200Response';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
@@ -19,7 +19,7 @@ export class GcBanUserResponse {
     'startAt'?: number;
     'endAt'?: number;
     'description'?: string;
-    'metadata'?: InlineResponse2001;
+    'metadata'?: OcDeleteChannelByUrl200Response;
     'nextUrl'?: string;
     'nickname'?: string;
     'profileUrl'?: string;
@@ -56,7 +56,7 @@ export class GcBanUserResponse {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "InlineResponse2001",
+            "type": "OcDeleteChannelByUrl200Response",
             "format": ""
         },
         {

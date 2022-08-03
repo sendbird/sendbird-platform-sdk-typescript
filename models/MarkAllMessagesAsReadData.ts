@@ -14,10 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class MarkAllMessagesAsReadData {
     /**
-    * Specifies the unique ID of the target user.
-    */
-    'userId': string;
-    /**
     * Specifies an array of one or more group channel URLs to mark all of the unread messages in as read. If not specified, all of the unread messages in the joined group channels are marked as read.
     */
     'channelUrls': Array<string>;
@@ -25,12 +21,6 @@ export class MarkAllMessagesAsReadData {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "channelUrls",
             "baseName": "channel_urls",

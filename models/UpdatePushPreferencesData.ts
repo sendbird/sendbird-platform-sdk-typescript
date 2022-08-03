@@ -14,10 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class UpdatePushPreferencesData {
     /**
-    * Specifies the unique ID of the target user.
-    */
-    'userId': string;
-    /**
     * Determines the type of push notification trigger to apply to the user's joined group channels. Valid values are the following:<br />- all (default): when disconnected from Sendbird server, the user receives notifications for all new messages including mentioned messages the user has been mentioned in.<br />- mention_only: when disconnected from Sendbird server, the user only receives notifications for messages the user has been mentioned in.<br />- off: the user doesn't receive any notifications.
     */
     'pushTriggerOption': string;
@@ -73,12 +69,6 @@ export class UpdatePushPreferencesData {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",

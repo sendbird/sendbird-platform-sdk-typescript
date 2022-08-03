@@ -122,10 +122,10 @@ let body:.ModerationApiBlockUserRequest = {
     userId: "userId_example",
     targetId: "targetId_example",
     userIds: [
-      1,
+      "userIds_example",
     ],
     users: [
-      1,
+      "users_example",
     ],
   },
 };
@@ -487,7 +487,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnbanUserById**
-> InlineResponse2001 gcUnbanUserById()
+> OcDeleteChannelByUrl200Response gcUnbanUserById()
 
 ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
 
@@ -527,7 +527,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -547,7 +547,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnmuteUserById**
-> InlineResponse2001 gcUnmuteUserById()
+> OcDeleteChannelByUrl200Response gcUnmuteUserById()
 
 ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -1376,7 +1376,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocUnbanUserById**
-> InlineResponse2001 ocUnbanUserById()
+> OcDeleteChannelByUrl200Response ocUnbanUserById()
 
 ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
 
@@ -1416,7 +1416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -1436,7 +1436,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocUnmuteUserById**
-> InlineResponse2001 ocUnmuteUserById()
+> OcDeleteChannelByUrl200Response ocUnmuteUserById()
 
 ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
 
@@ -1476,7 +1476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 

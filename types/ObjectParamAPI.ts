@@ -4,19 +4,19 @@ import { Configuration} from '../configuration'
 
 import { AddApnsPushConfigurationData } from '../models/AddApnsPushConfigurationData';
 import { AddApnsPushConfigurationResponse } from '../models/AddApnsPushConfigurationResponse';
-import { AddApnsPushConfigurationResponsePushConfigurations } from '../models/AddApnsPushConfigurationResponsePushConfigurations';
+import { AddApnsPushConfigurationResponsePushConfigurationsInner } from '../models/AddApnsPushConfigurationResponsePushConfigurationsInner';
 import { AddEmojiCategoriesResponse } from '../models/AddEmojiCategoriesResponse';
-import { AddEmojiCategoriesResponseEmojiCategories } from '../models/AddEmojiCategoriesResponseEmojiCategories';
+import { AddEmojiCategoriesResponseEmojiCategoriesInner } from '../models/AddEmojiCategoriesResponseEmojiCategoriesInner';
 import { AddEmojisData } from '../models/AddEmojisData';
 import { AddEmojisResponse } from '../models/AddEmojisResponse';
 import { AddExtraDataToMessageData } from '../models/AddExtraDataToMessageData';
 import { AddExtraDataToMessageResponse } from '../models/AddExtraDataToMessageResponse';
 import { AddFcmPushConfigurationData } from '../models/AddFcmPushConfigurationData';
 import { AddFcmPushConfigurationResponse } from '../models/AddFcmPushConfigurationResponse';
-import { AddFcmPushConfigurationResponsePushConfigurations } from '../models/AddFcmPushConfigurationResponsePushConfigurations';
+import { AddFcmPushConfigurationResponsePushConfigurationsInner } from '../models/AddFcmPushConfigurationResponsePushConfigurationsInner';
 import { AddHmsPushConfigurationData } from '../models/AddHmsPushConfigurationData';
 import { AddHmsPushConfigurationResponse } from '../models/AddHmsPushConfigurationResponse';
-import { AddHmsPushConfigurationResponsePushConfigurations } from '../models/AddHmsPushConfigurationResponsePushConfigurations';
+import { AddHmsPushConfigurationResponsePushConfigurationsInner } from '../models/AddHmsPushConfigurationResponsePushConfigurationsInner';
 import { AddIpToWhitelistData } from '../models/AddIpToWhitelistData';
 import { AddIpToWhitelistResponse } from '../models/AddIpToWhitelistResponse';
 import { AddReactionToAMessageData } from '../models/AddReactionToAMessageData';
@@ -25,6 +25,7 @@ import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDev
 import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
 import { BanUsersInChannelsWithCustomChannelTypeData } from '../models/BanUsersInChannelsWithCustomChannelTypeData';
+import { BanUsersInChannelsWithCustomChannelTypeDataBannedListInner } from '../models/BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
 import { Blob } from '../models/Blob';
 import { BlockUserData } from '../models/BlockUserData';
 import { BlockUserResponse } from '../models/BlockUserResponse';
@@ -82,55 +83,54 @@ import { GenerateSecondaryApiTokenResponse } from '../models/GenerateSecondaryAp
 import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
 import { GetDetailedOpenRateOfAnnouncementGroupResponse } from '../models/GetDetailedOpenRateOfAnnouncementGroupResponse';
 import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus';
+import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
 import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse';
-import { GetStatisticsDailyResponseStatistics } from '../models/GetStatisticsDailyResponseStatistics';
+import { GetStatisticsDailyResponseStatisticsInner } from '../models/GetStatisticsDailyResponseStatisticsInner';
 import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojis } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojis';
+import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
+import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner';
 import { ListAnnouncementGroupsResponse } from '../models/ListAnnouncementGroupsResponse';
 import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
-import { ListAnnouncementsResponseAnnouncements } from '../models/ListAnnouncementsResponseAnnouncements';
+import { ListAnnouncementsResponseAnnouncementsInner } from '../models/ListAnnouncementsResponseAnnouncementsInner';
 import { ListBannedChannelsResponse } from '../models/ListBannedChannelsResponse';
-import { ListBannedChannelsResponseBannedChannels } from '../models/ListBannedChannelsResponseBannedChannels';
+import { ListBannedChannelsResponseBannedChannelsInner } from '../models/ListBannedChannelsResponseBannedChannelsInner';
 import { ListBlockedUsersResponse } from '../models/ListBlockedUsersResponse';
 import { ListBotsResponse } from '../models/ListBotsResponse';
-import { ListBotsResponseBots } from '../models/ListBotsResponseBots';
+import { ListBotsResponseBotsInner } from '../models/ListBotsResponseBotsInner';
 import { ListDataExportsByMessageChannelOrUserResponse } from '../models/ListDataExportsByMessageChannelOrUserResponse';
-import { ListDataExportsByMessageChannelOrUserResponseExportedData } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedData';
-import { ListDataExportsByMessageChannelOrUserResponseFile } from '../models/ListDataExportsByMessageChannelOrUserResponseFile';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInner } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
 import { ListEmojisResponse } from '../models/ListEmojisResponse';
 import { ListGdprRequestsResponse } from '../models/ListGdprRequestsResponse';
-import { ListGdprRequestsResponseRequests } from '../models/ListGdprRequestsResponseRequests';
+import { ListGdprRequestsResponseRequestsInner } from '../models/ListGdprRequestsResponseRequestsInner';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
-import { ListMessagesResponseMessages } from '../models/ListMessagesResponseMessages';
-import { ListMessagesResponseOgTag } from '../models/ListMessagesResponseOgTag';
-import { ListMessagesResponseOgTagOgImage } from '../models/ListMessagesResponseOgTagOgImage';
-import { ListMessagesResponseSortedMetaarray } from '../models/ListMessagesResponseSortedMetaarray';
+import { ListMessagesResponseMessagesInner } from '../models/ListMessagesResponseMessagesInner';
+import { ListMessagesResponseMessagesInnerOgTag } from '../models/ListMessagesResponseMessagesInnerOgTag';
+import { ListMessagesResponseMessagesInnerOgTagOgImage } from '../models/ListMessagesResponseMessagesInnerOgTagOgImage';
+import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from '../models/ListMessagesResponseMessagesInnerSortedMetaarrayInner';
 import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
+import { ListMutedUsersInChannelsWithCustomChannelType200Response } from '../models/ListMutedUsersInChannelsWithCustomChannelType200Response';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListPushConfigurationsResponse } from '../models/ListPushConfigurationsResponse';
-import { ListPushConfigurationsResponsePushConfigurations } from '../models/ListPushConfigurationsResponsePushConfigurations';
+import { ListPushConfigurationsResponsePushConfigurationsInner } from '../models/ListPushConfigurationsResponsePushConfigurationsInner';
 import { ListPushNotificationContentTemplatesResponse } from '../models/ListPushNotificationContentTemplatesResponse';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplates } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplates';
-import { ListPushNotificationContentTemplatesResponseTemplate } from '../models/ListPushNotificationContentTemplatesResponseTemplate';
+import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
+import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate';
 import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
 import { ListReportsOnChannelByUrlResponse } from '../models/ListReportsOnChannelByUrlResponse';
 import { ListReportsOnMessageByIdResponse } from '../models/ListReportsOnMessageByIdResponse';
-import { ListReportsOnMessageByIdResponseReportLogs } from '../models/ListReportsOnMessageByIdResponseReportLogs';
+import { ListReportsOnMessageByIdResponseReportLogsInner } from '../models/ListReportsOnMessageByIdResponseReportLogsInner';
 import { ListReportsOnUserByIdResponse } from '../models/ListReportsOnUserByIdResponse';
 import { ListReportsResponse } from '../models/ListReportsResponse';
-import { ListReportsResponseReportLogs } from '../models/ListReportsResponseReportLogs';
+import { ListReportsResponseReportLogsInner } from '../models/ListReportsResponseReportLogsInner';
 import { ListSecondaryApiTokensResponse } from '../models/ListSecondaryApiTokensResponse';
-import { ListSecondaryApiTokensResponseApiTokens } from '../models/ListSecondaryApiTokensResponseApiTokens';
+import { ListSecondaryApiTokensResponseApiTokensInner } from '../models/ListSecondaryApiTokensResponseApiTokensInner';
 import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
 import { ModelFile } from '../models/ModelFile';
@@ -139,9 +139,10 @@ import { MuteUsersInChannelsWithCustomChannelTypeData } from '../models/MuteUser
 import { OcBanUserData } from '../models/OcBanUserData';
 import { OcBanUserResponse } from '../models/OcBanUserResponse';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
+import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
 import { OcFreezeChannelData } from '../models/OcFreezeChannelData';
 import { OcListBannedUsersResponse } from '../models/OcListBannedUsersResponse';
-import { OcListBannedUsersResponseBannedList } from '../models/OcListBannedUsersResponseBannedList';
+import { OcListBannedUsersResponseBannedListInner } from '../models/OcListBannedUsersResponseBannedListInner';
 import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
 import { OcListMutedUsersResponse } from '../models/OcListMutedUsersResponse';
 import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
@@ -180,7 +181,6 @@ import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
 import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
 import { ScheduleAnnouncementResponseCreateChannelOptions } from '../models/ScheduleAnnouncementResponseCreateChannelOptions';
 import { ScheduleAnnouncementResponseMessage } from '../models/ScheduleAnnouncementResponseMessage';
-import { SendBirdAdditionalProperties } from '../models/SendBirdAdditionalProperties';
 import { SendBirdAdminMessage } from '../models/SendBirdAdminMessage';
 import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCriticalAlertOptions';
 import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
@@ -190,6 +190,7 @@ import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
+import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
@@ -197,7 +198,7 @@ import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelS
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
-import { SendBirdMessageResponseMentionedUsers } from '../models/SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseMentionedUsersInner } from '../models/SendBirdMessageResponseMentionedUsersInner';
 import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUser';
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
@@ -218,6 +219,13 @@ import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { SendMessageData } from '../models/SendMessageData';
 import { SetDomainFilterData } from '../models/SetDomainFilterData';
+import { SetDomainFilterDataDomainFilter } from '../models/SetDomainFilterDataDomainFilter';
+import { SetDomainFilterDataImageModeration } from '../models/SetDomainFilterDataImageModeration';
+import { SetDomainFilterDataImageModerationLimits } from '../models/SetDomainFilterDataImageModerationLimits';
+import { SetDomainFilterDataProfanityFilter } from '../models/SetDomainFilterDataProfanityFilter';
+import { SetDomainFilterDataProfanityFilterRegexFiltersInner } from '../models/SetDomainFilterDataProfanityFilterRegexFiltersInner';
+import { SetDomainFilterDataProfanityTriggeredModeration } from '../models/SetDomainFilterDataProfanityTriggeredModeration';
+import { TranslateMessageIntoOtherLanguagesData } from '../models/TranslateMessageIntoOtherLanguagesData';
 import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
 import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
 import { UpdateAnnouncementByIdResponseMessage } from '../models/UpdateAnnouncementByIdResponseMessage';
@@ -237,7 +245,7 @@ import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrl
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
 import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
-import { UpdateExtraDataInMessageResponseSortedMetaarray } from '../models/UpdateExtraDataInMessageResponseSortedMetaarray';
+import { UpdateExtraDataInMessageResponseSortedMetaarrayInner } from '../models/UpdateExtraDataInMessageResponseSortedMetaarrayInner';
 import { UpdateFcmPushConfigurationByIdData } from '../models/UpdateFcmPushConfigurationByIdData';
 import { UpdateFcmPushConfigurationByIdResponse } from '../models/UpdateFcmPushConfigurationByIdResponse';
 import { UpdateHmsPushConfigurationByIdData } from '../models/UpdateHmsPushConfigurationByIdData';
@@ -254,13 +262,6 @@ import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
 import { UpdateUserMetadataResponse } from '../models/UpdateUserMetadataResponse';
 import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
 import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
-import { V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList } from '../models/V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList';
-import { V3ApplicationsSettingsGlobalCustomTypeDomainFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeDomainFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeImageModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModeration';
-import { V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration';
 import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
@@ -274,17 +275,18 @@ import { ViewNumberOfConcurrentConnectionsResponse } from '../models/ViewNumberO
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
 import { ViewNumberOfPeakConnectionsResponse } from '../models/ViewNumberOfPeakConnectionsResponse';
-import { ViewNumberOfPeakConnectionsResponsePeakConnections } from '../models/ViewNumberOfPeakConnectionsResponsePeakConnections';
+import { ViewNumberOfPeakConnectionsResponsePeakConnectionsInner } from '../models/ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
 import { ViewNumberOfUnreadItemsResponse } from '../models/ViewNumberOfUnreadItemsResponse';
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
 import { ViewPushConfigurationByIdResponse } from '../models/ViewPushConfigurationByIdResponse';
 import { ViewPushNotificationContentTemplateResponse } from '../models/ViewPushNotificationContentTemplateResponse';
-import { ViewPushNotificationContentTemplateResponsePushMessageTemplates } from '../models/ViewPushNotificationContentTemplateResponsePushMessageTemplates';
+import { ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner } from '../models/ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
 import { ViewPushPreferencesForChannelByUrlResponse } from '../models/ViewPushPreferencesForChannelByUrlResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
 import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApiTokenByTokenResponse';
 import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
+import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
 import { ObservableAnnouncementApi } from "./ObservableAPI";
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
@@ -1021,7 +1023,7 @@ export class ObjectApplicationApi {
      * List muted users in channels with a custom channel type
      * @param param the request object
      */
-    public listMutedUsersInChannelsWithCustomChannelType(param: ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<InlineResponse200> {
+    public listMutedUsersInChannelsWithCustomChannelType(param: ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest, options?: Configuration): Promise<ListMutedUsersInChannelsWithCustomChannelType200Response> {
         return this.api.listMutedUsersInChannelsWithCustomChannelType(param.apiToken, param.customType, param.token, param.limit,  options).toPromise();
     }
 
@@ -2290,7 +2292,7 @@ export class ObjectGroupChannelApi {
      * Cancel the registration of operators
      * @param param the request object
      */
-    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcCancelTheRegistrationOfOperators(param: GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcCancelTheRegistrationOfOperators(param.apiToken, param.channelUrl, param.operatorIds, param.deleteAll,  options).toPromise();
     }
 
@@ -2317,7 +2319,7 @@ export class ObjectGroupChannelApi {
      * Decline an invitation
      * @param param the request object
      */
-    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcDeclineInvitation(param: GroupChannelApiGcDeclineInvitationRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcDeclineInvitation(param.apiToken, param.channelUrl, param.gcDeclineInvitationData,  options).toPromise();
     }
 
@@ -2326,7 +2328,7 @@ export class ObjectGroupChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcDeleteChannelByUrl(param: GroupChannelApiGcDeleteChannelByUrlRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
     }
 
@@ -2335,7 +2337,7 @@ export class ObjectGroupChannelApi {
      * Hide or archive a channel
      * @param param the request object
      */
-    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcHideOrArchiveChannel(param: GroupChannelApiGcHideOrArchiveChannelRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcHideOrArchiveChannel(param.apiToken, param.channelUrl, param.gcHideOrArchiveChannelData,  options).toPromise();
     }
 
@@ -2362,7 +2364,7 @@ export class ObjectGroupChannelApi {
      * Leave a channel
      * @param param the request object
      */
-    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcLeaveChannel(param: GroupChannelApiGcLeaveChannelRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcLeaveChannel(param.apiToken, param.channelUrl, param.gcLeaveChannelData,  options).toPromise();
     }
 
@@ -2416,7 +2418,7 @@ export class ObjectGroupChannelApi {
      * Unhide or unarchive a channel
      * @param param the request object
      */
-    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcUnhideOrUnarchiveChannel(param: GroupChannelApiGcUnhideOrUnarchiveChannelRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcUnhideOrUnarchiveChannel(param.apiToken, param.channelUrl, param.userId, param.shouldUnhideAll,  options).toPromise();
     }
 
@@ -3175,10 +3177,10 @@ export interface MessageApiTranslateMessageIntoOtherLanguagesRequest {
     messageId: string
     /**
      * 
-     * @type any
+     * @type TranslateMessageIntoOtherLanguagesData
      * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
-    body?: any
+    translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData
 }
 
 export interface MessageApiUpdateAnnouncementByIdRequest {
@@ -3641,7 +3643,7 @@ export class ObjectMessageApi {
      * @param param the request object
      */
     public translateMessageIntoOtherLanguages(param: MessageApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
-        return this.api.translateMessageIntoOtherLanguages(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.body,  options).toPromise();
+        return this.api.translateMessageIntoOtherLanguages(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.translateMessageIntoOtherLanguagesData,  options).toPromise();
     }
 
     /**
@@ -3720,6 +3722,393 @@ export class ObjectMessageApi {
 
 import { ObservableMetadataApi } from "./ObservableAPI";
 import { MetadataApiRequestFactory, MetadataApiResponseProcessor} from "../apis/MetadataApi";
+
+export interface MetadataApiCreateChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetacounter
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type CreateChannelMetacounterData
+     * @memberof MetadataApicreateChannelMetacounter
+     */
+    createChannelMetacounterData?: CreateChannelMetacounterData
+}
+
+export interface MetadataApiCreateChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type CreateChannelMetadataData
+     * @memberof MetadataApicreateChannelMetadata
+     */
+    createChannelMetadataData?: CreateChannelMetadataData
+}
+
+export interface MetadataApiCreateUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApicreateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type CreateUserMetadataData
+     * @memberof MetadataApicreateUserMetadata
+     */
+    createUserMetadataData?: CreateUserMetadataData
+}
+
+export interface MetadataApiDeleteChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounter
+     */
+    channelUrl: string
+}
+
+export interface MetadataApiDeleteChannelMetacounterByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounterByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounterByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounterByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetacounterByKey
+     */
+    key: string
+}
+
+export interface MetadataApiDeleteChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadata
+     */
+    key?: string
+}
+
+export interface MetadataApiDeleteChannelMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadataByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadataByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteChannelMetadataByKey
+     */
+    key: string
+}
+
+export interface MetadataApiDeleteUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadata
+     */
+    key?: string
+}
+
+export interface MetadataApiDeleteUserMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadataByKey
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApideleteUserMetadataByKey
+     */
+    key: string
+}
+
+export interface MetadataApiUpdateChannelMetacounterRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounter
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounter
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounter
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type UpdateChannelMetacounterData
+     * @memberof MetadataApiupdateChannelMetacounter
+     */
+    updateChannelMetacounterData?: UpdateChannelMetacounterData
+}
+
+export interface MetadataApiUpdateChannelMetacounterByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounterByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounterByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounterByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetacounterByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof MetadataApiupdateChannelMetacounterByKey
+     */
+    body?: any
+}
+
+export interface MetadataApiUpdateChannelMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadata
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadata
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type UpdateChannelMetadataData
+     * @memberof MetadataApiupdateChannelMetadata
+     */
+    updateChannelMetadataData?: UpdateChannelMetadataData
+}
+
+export interface MetadataApiUpdateChannelMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadataByKey
+     */
+    channelType: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadataByKey
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateChannelMetadataByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof MetadataApiupdateChannelMetadataByKey
+     */
+    body?: any
+}
+
+export interface MetadataApiUpdateUserMetadataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateUserMetadata
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type UpdateUserMetadataData
+     * @memberof MetadataApiupdateUserMetadata
+     */
+    updateUserMetadataData?: UpdateUserMetadataData
+}
+
+export interface MetadataApiUpdateUserMetadataByKeyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateUserMetadataByKey
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateUserMetadataByKey
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof MetadataApiupdateUserMetadataByKey
+     */
+    key: string
+    /**
+     * 
+     * @type any
+     * @memberof MetadataApiupdateUserMetadataByKey
+     */
+    body?: any
+}
 
 export interface MetadataApiViewChannelMetacounterRequest {
     /**
@@ -3897,11 +4286,146 @@ export class ObjectMetadataApi {
     }
 
     /**
+     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
+     * Create a channel metacounter
+     * @param param the request object
+     */
+    public createChannelMetacounter(param: MetadataApiCreateChannelMetacounterRequest, options?: Configuration): Promise<any> {
+        return this.api.createChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetacounterData,  options).toPromise();
+    }
+
+    /**
+     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+     * Create a channel metadata
+     * @param param the request object
+     */
+    public createChannelMetadata(param: MetadataApiCreateChannelMetadataRequest, options?: Configuration): Promise<CreateChannelMetadataResponse> {
+        return this.api.createChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
+     * Create a user metadata
+     * @param param the request object
+     */
+    public createUserMetadata(param: MetadataApiCreateUserMetadataRequest, options?: Configuration): Promise<CreateUserMetadataResponse> {
+        return this.api.createUserMetadata(param.apiToken, param.userId, param.createUserMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     * @param param the request object
+     */
+    public deleteChannelMetacounter(param: MetadataApiDeleteChannelMetacounterRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetacounter(param.apiToken, param.channelType, param.channelUrl,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     * @param param the request object
+     */
+    public deleteChannelMetacounterByKey(param: MetadataApiDeleteChannelMetacounterByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     * @param param the request object
+     */
+    public deleteChannelMetadata(param: MetadataApiDeleteChannelMetadataRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     * @param param the request object
+     */
+    public deleteChannelMetadataByKey(param: MetadataApiDeleteChannelMetadataByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting all items of a user metadata
+     * @param param the request object
+     */
+    public deleteUserMetadata(param: MetadataApiDeleteUserMetadataRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteUserMetadata(param.apiToken, param.userId, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     * @param param the request object
+     */
+    public deleteUserMetadataByKey(param: MetadataApiDeleteUserMetadataByKeyRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * @param param the request object
+     */
+    public updateChannelMetacounter(param: MetadataApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<any> {
+        return this.api.updateChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetacounterData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     * @param param the request object
+     */
+    public updateChannelMetacounterByKey(param: MetadataApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<any> {
+        return this.api.updateChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     * @param param the request object
+     */
+    public updateChannelMetadata(param: MetadataApiUpdateChannelMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.updateChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     * @param param the request object
+     */
+    public updateChannelMetadataByKey(param: MetadataApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<any> {
+        return this.api.updateChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     * @param param the request object
+     */
+    public updateUserMetadata(param: MetadataApiUpdateUserMetadataRequest, options?: Configuration): Promise<UpdateUserMetadataResponse> {
+        return this.api.updateUserMetadata(param.apiToken, param.userId, param.updateUserMetadataData,  options).toPromise();
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     * @param param the request object
+     */
+    public updateUserMetadataByKey(param: MetadataApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<any> {
+        return this.api.updateUserMetadataByKey(param.apiToken, param.userId, param.key, param.body,  options).toPromise();
+    }
+
+    /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving all items of a channel metacounter
      * @param param the request object
      */
-    public viewChannelMetacounter(param: MetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+    public viewChannelMetacounter(param: MetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<any> {
         return this.api.viewChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
     }
 
@@ -3910,7 +4434,7 @@ export class ObjectMetadataApi {
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      * @param param the request object
      */
-    public viewChannelMetacounterByKey(param: MetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
+    public viewChannelMetacounterByKey(param: MetadataApiViewChannelMetacounterByKeyRequest, options?: Configuration): Promise<any> {
         return this.api.viewChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
     }
 
@@ -3919,7 +4443,7 @@ export class ObjectMetadataApi {
      * View a channel metadata - When retrieving all items of a channel metadata
      * @param param the request object
      */
-    public viewChannelMetadata(param: MetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+    public viewChannelMetadata(param: MetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<any> {
         return this.api.viewChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
     }
 
@@ -3928,7 +4452,7 @@ export class ObjectMetadataApi {
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      * @param param the request object
      */
-    public viewChannelMetadataByKey(param: MetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+    public viewChannelMetadataByKey(param: MetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<any> {
         return this.api.viewChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
     }
 
@@ -3946,7 +4470,7 @@ export class ObjectMetadataApi {
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      * @param param the request object
      */
-    public viewUserMetadataByKey(param: MetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+    public viewUserMetadataByKey(param: MetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<any> {
         return this.api.viewUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
     }
 
@@ -4669,7 +5193,7 @@ export class ObjectModerationApi {
      * Unban a user
      * @param param the request object
      */
-    public gcUnbanUserById(param: ModerationApiGcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcUnbanUserById(param: ModerationApiGcUnbanUserByIdRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -4678,7 +5202,7 @@ export class ObjectModerationApi {
      * Unmute a user
      * @param param the request object
      */
-    public gcUnmuteUserById(param: ModerationApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public gcUnmuteUserById(param: ModerationApiGcUnmuteUserByIdRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.gcUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
     }
 
@@ -4795,7 +5319,7 @@ export class ObjectModerationApi {
      * Unban a user
      * @param param the request object
      */
-    public ocUnbanUserById(param: ModerationApiOcUnbanUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public ocUnbanUserById(param: ModerationApiOcUnbanUserByIdRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.ocUnbanUserById(param.apiToken, param.channelUrl, param.bannedUserId,  options).toPromise();
     }
 
@@ -4804,7 +5328,7 @@ export class ObjectModerationApi {
      * Unmute a user
      * @param param the request object
      */
-    public ocUnmuteUserById(param: ModerationApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public ocUnmuteUserById(param: ModerationApiOcUnmuteUserByIdRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.ocUnmuteUserById(param.apiToken, param.channelUrl, param.mutedUserId,  options).toPromise();
     }
 
@@ -5104,7 +5628,7 @@ export class ObjectOpenChannelApi {
      * Delete a channel
      * @param param the request object
      */
-    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public ocDeleteChannelByUrl(param: OpenChannelApiOcDeleteChannelByUrlRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.ocDeleteChannelByUrl(param.apiToken, param.channelUrl,  options).toPromise();
     }
 
@@ -5140,7 +5664,7 @@ export class ObjectOpenChannelApi {
      * Register operators
      * @param param the request object
      */
-    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public ocRegisterOperators(param: OpenChannelApiOcRegisterOperatorsRequest, options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
         return this.api.ocRegisterOperators(param.apiToken, param.channelUrl, param.ocRegisterOperatorsData,  options).toPromise();
     }
 
@@ -5596,7 +6120,7 @@ export class ObjectReportApi {
      * View a moderated message
      * @param param the request object
      */
-    public viewModeratedMessageById(param: ReportApiViewModeratedMessageByIdRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
+    public viewModeratedMessageById(param: ReportApiViewModeratedMessageByIdRequest, options?: Configuration): Promise<any> {
         return this.api.viewModeratedMessageById(param.apiToken, param.channelType, param.channelUrl, param.messageId,  options).toPromise();
     }
 
@@ -5809,60 +6333,6 @@ export interface UserApiChoosePushNotificationContentTemplateRequest {
     body?: any
 }
 
-export interface UserApiCreateChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetacounter
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type CreateChannelMetacounterData
-     * @memberof UserApicreateChannelMetacounter
-     */
-    createChannelMetacounterData?: CreateChannelMetacounterData
-}
-
-export interface UserApiCreateChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type CreateChannelMetadataData
-     * @memberof UserApicreateChannelMetadata
-     */
-    createChannelMetadataData?: CreateChannelMetadataData
-}
-
 export interface UserApiCreateUserRequest {
     /**
      * 
@@ -5878,129 +6348,6 @@ export interface UserApiCreateUserRequest {
     createUserData?: CreateUserData
 }
 
-export interface UserApiCreateUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApicreateUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type CreateUserMetadataData
-     * @memberof UserApicreateUserMetadata
-     */
-    createUserMetadataData?: CreateUserMetadataData
-}
-
-export interface UserApiDeleteChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounter
-     */
-    channelUrl: string
-}
-
-export interface UserApiDeleteChannelMetacounterByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounterByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounterByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounterByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetacounterByKey
-     */
-    key: string
-}
-
-export interface UserApiDeleteChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadata
-     */
-    key?: string
-}
-
-export interface UserApiDeleteChannelMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadataByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadataByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteChannelMetadataByKey
-     */
-    key: string
-}
-
 export interface UserApiDeleteUserByIdRequest {
     /**
      * 
@@ -6014,48 +6361,6 @@ export interface UserApiDeleteUserByIdRequest {
      * @memberof UserApideleteUserById
      */
     userId: string
-}
-
-export interface UserApiDeleteUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadata
-     */
-    key?: string
-}
-
-export interface UserApiDeleteUserMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadataByKey
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApideleteUserMetadataByKey
-     */
-    key: string
 }
 
 export interface UserApiLeaveMyGroupChannelsRequest {
@@ -6559,126 +6864,6 @@ export interface UserApiUpdateChannelInvitationPreferenceRequest {
     updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData
 }
 
-export interface UserApiUpdateChannelMetacounterRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounter
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounter
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounter
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type UpdateChannelMetacounterData
-     * @memberof UserApiupdateChannelMetacounter
-     */
-    updateChannelMetacounterData?: UpdateChannelMetacounterData
-}
-
-export interface UserApiUpdateChannelMetacounterByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounterByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounterByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounterByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetacounterByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserApiupdateChannelMetacounterByKey
-     */
-    body?: any
-}
-
-export interface UserApiUpdateChannelMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadata
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadata
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type UpdateChannelMetadataData
-     * @memberof UserApiupdateChannelMetadata
-     */
-    updateChannelMetadataData?: UpdateChannelMetadataData
-}
-
-export interface UserApiUpdateChannelMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadataByKey
-     */
-    channelType: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadataByKey
-     */
-    channelUrl: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateChannelMetadataByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserApiupdateChannelMetadataByKey
-     */
-    body?: any
-}
-
 export interface UserApiUpdateCountPreferenceOfChannelByUrlRequest {
     /**
      * 
@@ -6773,54 +6958,6 @@ export interface UserApiUpdateUserByIdRequest {
      * @memberof UserApiupdateUserById
      */
     updateUserByIdData?: UpdateUserByIdData
-}
-
-export interface UserApiUpdateUserMetadataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateUserMetadata
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateUserMetadata
-     */
-    userId: string
-    /**
-     * 
-     * @type UpdateUserMetadataData
-     * @memberof UserApiupdateUserMetadata
-     */
-    updateUserMetadataData?: UpdateUserMetadataData
-}
-
-export interface UserApiUpdateUserMetadataByKeyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateUserMetadataByKey
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateUserMetadataByKey
-     */
-    userId: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiupdateUserMetadataByKey
-     */
-    key: string
-    /**
-     * 
-     * @type any
-     * @memberof UserApiupdateUserMetadataByKey
-     */
-    body?: any
 }
 
 export interface UserApiViewChannelInvitationPreferenceRequest {
@@ -7077,24 +7214,6 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
-     * Create a channel metacounter
-     * @param param the request object
-     */
-    public createChannelMetacounter(param: UserApiCreateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.createChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetacounterData,  options).toPromise();
-    }
-
-    /**
-     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
-     * Create a channel metadata
-     * @param param the request object
-     */
-    public createChannelMetadata(param: UserApiCreateChannelMetadataRequest, options?: Configuration): Promise<CreateChannelMetadataResponse> {
-        return this.api.createChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.createChannelMetadataData,  options).toPromise();
-    }
-
-    /**
      * ## Create a user  Creates a new user in the application. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user
      * Create a user
      * @param param the request object
@@ -7104,75 +7223,12 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
-     * Create a user metadata
-     * @param param the request object
-     */
-    public createUserMetadata(param: UserApiCreateUserMetadataRequest, options?: Configuration): Promise<CreateUserMetadataResponse> {
-        return this.api.createUserMetadata(param.apiToken, param.userId, param.createUserMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     * @param param the request object
-     */
-    public deleteChannelMetacounter(param: UserApiDeleteChannelMetacounterRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetacounter(param.apiToken, param.channelType, param.channelUrl,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     * @param param the request object
-     */
-    public deleteChannelMetacounterByKey(param: UserApiDeleteChannelMetacounterByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     * @param param the request object
-     */
-    public deleteChannelMetadata(param: UserApiDeleteChannelMetadataRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     * @param param the request object
-     */
-    public deleteChannelMetadataByKey(param: UserApiDeleteChannelMetadataByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
-    }
-
-    /**
      * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
      * Delete a user
      * @param param the request object
      */
     public deleteUserById(param: UserApiDeleteUserByIdRequest, options?: Configuration): Promise<any> {
         return this.api.deleteUserById(param.apiToken, param.userId,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting all items of a user metadata
-     * @param param the request object
-     */
-    public deleteUserMetadata(param: UserApiDeleteUserMetadataRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteUserMetadata(param.apiToken, param.userId, param.key,  options).toPromise();
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     * @param param the request object
-     */
-    public deleteUserMetadataByKey(param: UserApiDeleteUserMetadataByKeyRequest, options?: Configuration): Promise<void> {
-        return this.api.deleteUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
     }
 
     /**
@@ -7275,42 +7331,6 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     * @param param the request object
-     */
-    public updateChannelMetacounter(param: UserApiUpdateChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: SendBirdAdditionalProperties; }> {
-        return this.api.updateChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetacounterData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     * @param param the request object
-     */
-    public updateChannelMetacounterByKey(param: UserApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     * @param param the request object
-     */
-    public updateChannelMetadata(param: UserApiUpdateChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     * @param param the request object
-     */
-    public updateChannelMetadataByKey(param: UserApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
-    }
-
-    /**
      * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
      * Update count preference of a channel
      * @param param the request object
@@ -7344,24 +7364,6 @@ export class ObjectUserApi {
      */
     public updateUserById(param: UserApiUpdateUserByIdRequest, options?: Configuration): Promise<SendBirdUser> {
         return this.api.updateUserById(param.apiToken, param.userId, param.updateUserByIdData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param param the request object
-     */
-    public updateUserMetadata(param: UserApiUpdateUserMetadataRequest, options?: Configuration): Promise<UpdateUserMetadataResponse> {
-        return this.api.updateUserMetadata(param.apiToken, param.userId, param.updateUserMetadataData,  options).toPromise();
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     * @param param the request object
-     */
-    public updateUserMetadataByKey(param: UserApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
-        return this.api.updateUserMetadataByKey(param.apiToken, param.userId, param.key, param.body,  options).toPromise();
     }
 
     /**
@@ -7450,50 +7452,50 @@ export class ObjectUserApi {
      * View who owns a registration or device token
      * @param param the request object
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<Array<any>> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(param: UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest, options?: Configuration): Promise<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>> {
         return this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(param.apiToken, param.tokenType, param.token,  options).toPromise();
     }
 
 }
 
-import { ObservableWebhooksApi } from "./ObservableAPI";
-import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor} from "../apis/WebhooksApi";
+import { ObservableWebhookApi } from "./ObservableAPI";
+import { WebhookApiRequestFactory, WebhookApiResponseProcessor} from "../apis/WebhookApi";
 
-export interface WebhooksApiChooseWhichEventsToSubscribeToRequest {
+export interface WebhookApiChooseWhichEventsToSubscribeToRequest {
     /**
      * 
      * @type string
-     * @memberof WebhooksApichooseWhichEventsToSubscribeTo
+     * @memberof WebhookApichooseWhichEventsToSubscribeTo
      */
     apiToken: string
     /**
      * 
      * @type ChooseWhichEventsToSubscribeToData
-     * @memberof WebhooksApichooseWhichEventsToSubscribeTo
+     * @memberof WebhookApichooseWhichEventsToSubscribeTo
      */
     chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData
 }
 
-export interface WebhooksApiRetrieveListOfSubscribedEventsRequest {
+export interface WebhookApiRetrieveListOfSubscribedEventsRequest {
     /**
      * 
      * @type string
-     * @memberof WebhooksApiretrieveListOfSubscribedEvents
+     * @memberof WebhookApiretrieveListOfSubscribedEvents
      */
     apiToken: string
     /**
      * 
      * @type boolean
-     * @memberof WebhooksApiretrieveListOfSubscribedEvents
+     * @memberof WebhookApiretrieveListOfSubscribedEvents
      */
     displayAllWebhookCategories?: boolean
 }
 
-export class ObjectWebhooksApi {
-    private api: ObservableWebhooksApi
+export class ObjectWebhookApi {
+    private api: ObservableWebhookApi
 
-    public constructor(configuration: Configuration, requestFactory?: WebhooksApiRequestFactory, responseProcessor?: WebhooksApiResponseProcessor) {
-        this.api = new ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: WebhookApiRequestFactory, responseProcessor?: WebhookApiResponseProcessor) {
+        this.api = new ObservableWebhookApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
@@ -7501,7 +7503,7 @@ export class ObjectWebhooksApi {
      * Choose which events to subscribe to
      * @param param the request object
      */
-    public chooseWhichEventsToSubscribeTo(param: WebhooksApiChooseWhichEventsToSubscribeToRequest, options?: Configuration): Promise<ChooseWhichEventsToSubscribeToResponse> {
+    public chooseWhichEventsToSubscribeTo(param: WebhookApiChooseWhichEventsToSubscribeToRequest, options?: Configuration): Promise<ChooseWhichEventsToSubscribeToResponse> {
         return this.api.chooseWhichEventsToSubscribeTo(param.apiToken, param.chooseWhichEventsToSubscribeToData,  options).toPromise();
     }
 
@@ -7510,7 +7512,7 @@ export class ObjectWebhooksApi {
      * Retrieve a list of subscribed events
      * @param param the request object
      */
-    public retrieveListOfSubscribedEvents(param: WebhooksApiRetrieveListOfSubscribedEventsRequest, options?: Configuration): Promise<RetrieveListOfSubscribedEventsResponse> {
+    public retrieveListOfSubscribedEvents(param: WebhookApiRetrieveListOfSubscribedEventsRequest, options?: Configuration): Promise<RetrieveListOfSubscribedEventsResponse> {
         return this.api.retrieveListOfSubscribedEvents(param.apiToken, param.displayAllWebhookCategories,  options).toPromise();
     }
 

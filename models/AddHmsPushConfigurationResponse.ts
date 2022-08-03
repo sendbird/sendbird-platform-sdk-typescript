@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AddHmsPushConfigurationResponsePushConfigurations } from './AddHmsPushConfigurationResponsePushConfigurations';
+import { AddHmsPushConfigurationResponsePushConfigurationsInner } from './AddHmsPushConfigurationResponsePushConfigurationsInner';
 import { HttpFile } from '../http/http';
 
 export class AddHmsPushConfigurationResponse {
-    'pushConfigurations'?: Array<AddHmsPushConfigurationResponsePushConfigurations>;
+    'pushConfigurations'?: Array<AddHmsPushConfigurationResponsePushConfigurationsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class AddHmsPushConfigurationResponse {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<AddHmsPushConfigurationResponsePushConfigurations>",
+            "type": "Array<AddHmsPushConfigurationResponsePushConfigurationsInner>",
             "format": ""
         }    ];
 

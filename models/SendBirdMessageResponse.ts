@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdMessageResponseMentionedUsers } from './SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
 import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
 import { HttpFile } from '../http/http';
 
@@ -18,7 +18,7 @@ export class SendBirdMessageResponse {
     'requireAuth'?: boolean;
     'messageSurvivalSeconds'?: number;
     'customType'?: string;
-    'mentionedUsers'?: Array<SendBirdMessageResponseMentionedUsers>;
+    'mentionedUsers'?: Array<SendBirdMessageResponseMentionedUsersInner>;
     'translations'?: any;
     'updatedAt'?: number;
     'isOpMsg'?: boolean;
@@ -67,7 +67,7 @@ export class SendBirdMessageResponse {
         {
             "name": "mentionedUsers",
             "baseName": "mentioned_users",
-            "type": "Array<SendBirdMessageResponseMentionedUsers>",
+            "type": "Array<SendBirdMessageResponseMentionedUsersInner>",
             "format": ""
         },
         {

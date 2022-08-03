@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AddFcmPushConfigurationResponsePushConfigurations } from './AddFcmPushConfigurationResponsePushConfigurations';
+import { AddFcmPushConfigurationResponsePushConfigurationsInner } from './AddFcmPushConfigurationResponsePushConfigurationsInner';
 import { HttpFile } from '../http/http';
 
 export class AddFcmPushConfigurationResponse {
-    'pushConfigurations'?: Array<AddFcmPushConfigurationResponsePushConfigurations>;
+    'pushConfigurations'?: Array<AddFcmPushConfigurationResponsePushConfigurationsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class AddFcmPushConfigurationResponse {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<AddFcmPushConfigurationResponsePushConfigurations>",
+            "type": "Array<AddFcmPushConfigurationResponsePushConfigurationsInner>",
             "format": ""
         }    ];
 

@@ -36,11 +36,11 @@ export class RegisterAndScheduleDataExportData {
     /**
     * Specifies an array of the IDs of the users which are used to filter the messages by its sender for the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs in the request. (Default: all messages sent by any user)
     */
-    'senderIds'?: Array<number>;
+    'senderIds'?: Array<string>;
     /**
     * Specifies an array of the IDs of the users which are used to exclude their sent messages from the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs. (Default: all messages sent by any user)
     */
-    'excludeSenderIds'?: Array<number>;
+    'excludeSenderIds'?: Array<string>;
     /**
     * Specifies an array of one or more URLs of channels to export the messages from. This property is effective only when the data_type parameter is set to messages or channels. (Default: all channels)
     */
@@ -52,7 +52,7 @@ export class RegisterAndScheduleDataExportData {
     /**
     * Specifies an array of the IDs of the users to export their information. This property is effective only when the data_type parameter is set to users. (Default: all users)
     */
-    'userIds'?: Array<number>;
+    'userIds'?: Array<string>;
     /**
     * Determines whether to include information about the read receipts of each channel in the exported data. The read receipt indicates the timestamps of when each user has last read the messages in the channel, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps). (Default: true)
     */
@@ -102,13 +102,13 @@ export class RegisterAndScheduleDataExportData {
         {
             "name": "senderIds",
             "baseName": "sender_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {
             "name": "excludeSenderIds",
             "baseName": "exclude_sender_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {
@@ -126,7 +126,7 @@ export class RegisterAndScheduleDataExportData {
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

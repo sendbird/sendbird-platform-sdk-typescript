@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
@@ -62,6 +63,7 @@ export class SendBirdGroupChannel {
     'smsFallback'?: SendBirdGroupChannelSmsFallback;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
+    'channel'?: SendBirdGroupChannelChannel;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -322,6 +324,12 @@ export class SendBirdGroupChannel {
             "name": "unreadMessageCount",
             "baseName": "unread_message_count",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "channel",
+            "baseName": "channel",
+            "type": "SendBirdGroupChannelChannel",
             "format": ""
         }    ];
 

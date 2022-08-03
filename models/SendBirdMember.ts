@@ -19,8 +19,6 @@ export class SendBirdMember {
     'friendDiscoveryKey'?: string;
     'friendName'?: string;
     'isActive'?: boolean;
-    'isBlockedByMe'?: boolean;
-    'isBlockingMe'?: boolean;
     'isMuted'?: boolean;
     'lastSeenAt'?: number;
     'metaData'?: SBObject;
@@ -29,6 +27,11 @@ export class SendBirdMember {
     'preferredLanguages'?: Array<string>;
     'profileUrl'?: string;
     'requireAuth'?: boolean;
+    'requireAuthForProfileImage'?: boolean;
+    'metadata'?: any;
+    'isOnline'?: boolean;
+    'mutedEndAt'?: number;
+    'mutedDescription'?: string;
     'restrictionInfo'?: SendBirdRestrictionInfo;
     'role'?: SendBirdMemberRoleEnum;
     'state'?: SendBirdMemberStateEnum;
@@ -58,18 +61,6 @@ export class SendBirdMember {
         {
             "name": "isActive",
             "baseName": "is_active",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isBlockedByMe",
-            "baseName": "is_blocked_by_me",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isBlockingMe",
-            "baseName": "is_blocking_me",
             "type": "boolean",
             "format": ""
         },
@@ -119,6 +110,36 @@ export class SendBirdMember {
             "name": "requireAuth",
             "baseName": "require_auth",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "requireAuthForProfileImage",
+            "baseName": "require_auth_for_profile_image",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "isOnline",
+            "baseName": "is_online",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "mutedEndAt",
+            "baseName": "muted_end_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "mutedDescription",
+            "baseName": "muted_description",
+            "type": "string",
             "format": ""
         },
         {

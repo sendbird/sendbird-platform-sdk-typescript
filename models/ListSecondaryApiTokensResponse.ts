@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListSecondaryApiTokensResponseApiTokens } from './ListSecondaryApiTokensResponseApiTokens';
+import { ListSecondaryApiTokensResponseApiTokensInner } from './ListSecondaryApiTokensResponseApiTokensInner';
 import { HttpFile } from '../http/http';
 
 export class ListSecondaryApiTokensResponse {
-    'apiTokens'?: Array<ListSecondaryApiTokensResponseApiTokens>;
+    'apiTokens'?: Array<ListSecondaryApiTokensResponseApiTokensInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ListSecondaryApiTokensResponse {
         {
             "name": "apiTokens",
             "baseName": "api_tokens",
-            "type": "Array<ListSecondaryApiTokensResponseApiTokens>",
+            "type": "Array<ListSecondaryApiTokensResponseApiTokensInner>",
             "format": ""
         }    ];
 

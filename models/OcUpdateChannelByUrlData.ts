@@ -40,7 +40,7 @@ export class OcUpdateChannelByUrlData {
     /**
     * Specifies an array of one or more user IDs to register as operators of the channel. The maximum allowed number of operators per channel is 100. Operators can delete any messages in the channel, and can also receive all messages that have been throttled.<br/><br/>  Operators cannot view messages that have been [moderated by](/docs/chat/v3/platform-api/guides/filter-and-moderation) the domain filter or profanity filter. Only the sender will be notified that the message has been blocked.
     */
-    'operatorIds': Array<number>;
+    'operatorIds': Array<string>;
     /**
     * (Deprecated) Specifies the string IDs of the users registered as channel operators. Operators can delete any messages in the channel, and can also receive all messages that have been throttled.
     */
@@ -88,7 +88,7 @@ export class OcUpdateChannelByUrlData {
         {
             "name": "operatorIds",
             "baseName": "operator_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

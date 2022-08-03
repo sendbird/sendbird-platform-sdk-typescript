@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
+import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner } from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
 import { HttpFile } from '../http/http';
 
 export class ListAllEmojisAndEmojiCategoriesResponse {
     'emojiHash'?: string;
-    'emojiCategories'?: Array<ListAllEmojisAndEmojiCategoriesResponseEmojiCategories>;
+    'emojiCategories'?: Array<ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -29,7 +29,7 @@ export class ListAllEmojisAndEmojiCategoriesResponse {
         {
             "name": "emojiCategories",
             "baseName": "emoji_categories",
-            "type": "Array<ListAllEmojisAndEmojiCategoriesResponseEmojiCategories>",
+            "type": "Array<ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner>",
             "format": ""
         }    ];
 

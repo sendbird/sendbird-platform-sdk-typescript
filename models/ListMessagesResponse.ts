@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListMessagesResponseMessages } from './ListMessagesResponseMessages';
+import { ListMessagesResponseMessagesInner } from './ListMessagesResponseMessagesInner';
 import { HttpFile } from '../http/http';
 
 export class ListMessagesResponse {
-    'messages'?: Array<ListMessagesResponseMessages>;
+    'messages'?: Array<ListMessagesResponseMessagesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ListMessagesResponse {
         {
             "name": "messages",
             "baseName": "messages",
-            "type": "Array<ListMessagesResponseMessages>",
+            "type": "Array<ListMessagesResponseMessagesInner>",
             "format": ""
         }    ];
 

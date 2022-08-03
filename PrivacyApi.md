@@ -149,7 +149,7 @@ let body:.PrivacyApiRegisterGdprRequestRequest = {
   registerGdprRequestData: {
     action: "action_example",
     userIds: [
-      1,
+      "userIds_example",
     ],
     channelDeleteOption: "channelDeleteOption_example",
     userId: "userId_example",

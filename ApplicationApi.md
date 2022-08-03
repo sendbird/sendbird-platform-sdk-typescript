@@ -591,7 +591,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **listMutedUsersInChannelsWithCustomChannelType**
-> InlineResponse200 listMutedUsersInChannelsWithCustomChannelType()
+> ListMutedUsersInChannelsWithCustomChannelType200Response listMutedUsersInChannelsWithCustomChannelType()
 
 ## Retrieves a list of the muted users in channels with a custom channel type.
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**ListMutedUsersInChannelsWithCustomChannelType200Response**
 
 ### Authorization
 

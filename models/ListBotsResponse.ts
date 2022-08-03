@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListBotsResponseBots } from './ListBotsResponseBots';
+import { ListBotsResponseBotsInner } from './ListBotsResponseBotsInner';
 import { HttpFile } from '../http/http';
 
 export class ListBotsResponse {
-    'bots'?: Array<ListBotsResponseBots>;
+    'bots'?: Array<ListBotsResponseBotsInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class ListBotsResponse {
         {
             "name": "bots",
             "baseName": "bots",
-            "type": "Array<ListBotsResponseBots>",
+            "type": "Array<ListBotsResponseBotsInner>",
             "format": ""
         },
         {

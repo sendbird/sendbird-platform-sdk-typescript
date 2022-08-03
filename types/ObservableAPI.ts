@@ -5,19 +5,19 @@ import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
 import { AddApnsPushConfigurationData } from '../models/AddApnsPushConfigurationData';
 import { AddApnsPushConfigurationResponse } from '../models/AddApnsPushConfigurationResponse';
-import { AddApnsPushConfigurationResponsePushConfigurations } from '../models/AddApnsPushConfigurationResponsePushConfigurations';
+import { AddApnsPushConfigurationResponsePushConfigurationsInner } from '../models/AddApnsPushConfigurationResponsePushConfigurationsInner';
 import { AddEmojiCategoriesResponse } from '../models/AddEmojiCategoriesResponse';
-import { AddEmojiCategoriesResponseEmojiCategories } from '../models/AddEmojiCategoriesResponseEmojiCategories';
+import { AddEmojiCategoriesResponseEmojiCategoriesInner } from '../models/AddEmojiCategoriesResponseEmojiCategoriesInner';
 import { AddEmojisData } from '../models/AddEmojisData';
 import { AddEmojisResponse } from '../models/AddEmojisResponse';
 import { AddExtraDataToMessageData } from '../models/AddExtraDataToMessageData';
 import { AddExtraDataToMessageResponse } from '../models/AddExtraDataToMessageResponse';
 import { AddFcmPushConfigurationData } from '../models/AddFcmPushConfigurationData';
 import { AddFcmPushConfigurationResponse } from '../models/AddFcmPushConfigurationResponse';
-import { AddFcmPushConfigurationResponsePushConfigurations } from '../models/AddFcmPushConfigurationResponsePushConfigurations';
+import { AddFcmPushConfigurationResponsePushConfigurationsInner } from '../models/AddFcmPushConfigurationResponsePushConfigurationsInner';
 import { AddHmsPushConfigurationData } from '../models/AddHmsPushConfigurationData';
 import { AddHmsPushConfigurationResponse } from '../models/AddHmsPushConfigurationResponse';
-import { AddHmsPushConfigurationResponsePushConfigurations } from '../models/AddHmsPushConfigurationResponsePushConfigurations';
+import { AddHmsPushConfigurationResponsePushConfigurationsInner } from '../models/AddHmsPushConfigurationResponsePushConfigurationsInner';
 import { AddIpToWhitelistData } from '../models/AddIpToWhitelistData';
 import { AddIpToWhitelistResponse } from '../models/AddIpToWhitelistResponse';
 import { AddReactionToAMessageData } from '../models/AddReactionToAMessageData';
@@ -26,6 +26,7 @@ import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDev
 import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
 import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
 import { BanUsersInChannelsWithCustomChannelTypeData } from '../models/BanUsersInChannelsWithCustomChannelTypeData';
+import { BanUsersInChannelsWithCustomChannelTypeDataBannedListInner } from '../models/BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
 import { Blob } from '../models/Blob';
 import { BlockUserData } from '../models/BlockUserData';
 import { BlockUserResponse } from '../models/BlockUserResponse';
@@ -83,55 +84,54 @@ import { GenerateSecondaryApiTokenResponse } from '../models/GenerateSecondaryAp
 import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
 import { GetDetailedOpenRateOfAnnouncementGroupResponse } from '../models/GetDetailedOpenRateOfAnnouncementGroupResponse';
 import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus';
+import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
 import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse';
-import { GetStatisticsDailyResponseStatistics } from '../models/GetStatisticsDailyResponseStatistics';
+import { GetStatisticsDailyResponseStatisticsInner } from '../models/GetStatisticsDailyResponseStatisticsInner';
 import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
 import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { JoinChannelsData } from '../models/JoinChannelsData';
 import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategories } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategories';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojis } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojis';
+import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
+import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner';
 import { ListAnnouncementGroupsResponse } from '../models/ListAnnouncementGroupsResponse';
 import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
-import { ListAnnouncementsResponseAnnouncements } from '../models/ListAnnouncementsResponseAnnouncements';
+import { ListAnnouncementsResponseAnnouncementsInner } from '../models/ListAnnouncementsResponseAnnouncementsInner';
 import { ListBannedChannelsResponse } from '../models/ListBannedChannelsResponse';
-import { ListBannedChannelsResponseBannedChannels } from '../models/ListBannedChannelsResponseBannedChannels';
+import { ListBannedChannelsResponseBannedChannelsInner } from '../models/ListBannedChannelsResponseBannedChannelsInner';
 import { ListBlockedUsersResponse } from '../models/ListBlockedUsersResponse';
 import { ListBotsResponse } from '../models/ListBotsResponse';
-import { ListBotsResponseBots } from '../models/ListBotsResponseBots';
+import { ListBotsResponseBotsInner } from '../models/ListBotsResponseBotsInner';
 import { ListDataExportsByMessageChannelOrUserResponse } from '../models/ListDataExportsByMessageChannelOrUserResponse';
-import { ListDataExportsByMessageChannelOrUserResponseExportedData } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedData';
-import { ListDataExportsByMessageChannelOrUserResponseFile } from '../models/ListDataExportsByMessageChannelOrUserResponseFile';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInner } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
 import { ListEmojisResponse } from '../models/ListEmojisResponse';
 import { ListGdprRequestsResponse } from '../models/ListGdprRequestsResponse';
-import { ListGdprRequestsResponseRequests } from '../models/ListGdprRequestsResponseRequests';
+import { ListGdprRequestsResponseRequestsInner } from '../models/ListGdprRequestsResponseRequestsInner';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
-import { ListMessagesResponseMessages } from '../models/ListMessagesResponseMessages';
-import { ListMessagesResponseOgTag } from '../models/ListMessagesResponseOgTag';
-import { ListMessagesResponseOgTagOgImage } from '../models/ListMessagesResponseOgTagOgImage';
-import { ListMessagesResponseSortedMetaarray } from '../models/ListMessagesResponseSortedMetaarray';
+import { ListMessagesResponseMessagesInner } from '../models/ListMessagesResponseMessagesInner';
+import { ListMessagesResponseMessagesInnerOgTag } from '../models/ListMessagesResponseMessagesInnerOgTag';
+import { ListMessagesResponseMessagesInnerOgTagOgImage } from '../models/ListMessagesResponseMessagesInnerOgTagOgImage';
+import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from '../models/ListMessagesResponseMessagesInnerSortedMetaarrayInner';
 import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
+import { ListMutedUsersInChannelsWithCustomChannelType200Response } from '../models/ListMutedUsersInChannelsWithCustomChannelType200Response';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListPushConfigurationsResponse } from '../models/ListPushConfigurationsResponse';
-import { ListPushConfigurationsResponsePushConfigurations } from '../models/ListPushConfigurationsResponsePushConfigurations';
+import { ListPushConfigurationsResponsePushConfigurationsInner } from '../models/ListPushConfigurationsResponsePushConfigurationsInner';
 import { ListPushNotificationContentTemplatesResponse } from '../models/ListPushNotificationContentTemplatesResponse';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplates } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplates';
-import { ListPushNotificationContentTemplatesResponseTemplate } from '../models/ListPushNotificationContentTemplatesResponseTemplate';
+import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
+import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate';
 import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
 import { ListReportsOnChannelByUrlResponse } from '../models/ListReportsOnChannelByUrlResponse';
 import { ListReportsOnMessageByIdResponse } from '../models/ListReportsOnMessageByIdResponse';
-import { ListReportsOnMessageByIdResponseReportLogs } from '../models/ListReportsOnMessageByIdResponseReportLogs';
+import { ListReportsOnMessageByIdResponseReportLogsInner } from '../models/ListReportsOnMessageByIdResponseReportLogsInner';
 import { ListReportsOnUserByIdResponse } from '../models/ListReportsOnUserByIdResponse';
 import { ListReportsResponse } from '../models/ListReportsResponse';
-import { ListReportsResponseReportLogs } from '../models/ListReportsResponseReportLogs';
+import { ListReportsResponseReportLogsInner } from '../models/ListReportsResponseReportLogsInner';
 import { ListSecondaryApiTokensResponse } from '../models/ListSecondaryApiTokensResponse';
-import { ListSecondaryApiTokensResponseApiTokens } from '../models/ListSecondaryApiTokensResponseApiTokens';
+import { ListSecondaryApiTokensResponseApiTokensInner } from '../models/ListSecondaryApiTokensResponseApiTokensInner';
 import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
 import { ModelFile } from '../models/ModelFile';
@@ -140,9 +140,10 @@ import { MuteUsersInChannelsWithCustomChannelTypeData } from '../models/MuteUser
 import { OcBanUserData } from '../models/OcBanUserData';
 import { OcBanUserResponse } from '../models/OcBanUserResponse';
 import { OcCreateChannelData } from '../models/OcCreateChannelData';
+import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
 import { OcFreezeChannelData } from '../models/OcFreezeChannelData';
 import { OcListBannedUsersResponse } from '../models/OcListBannedUsersResponse';
-import { OcListBannedUsersResponseBannedList } from '../models/OcListBannedUsersResponseBannedList';
+import { OcListBannedUsersResponseBannedListInner } from '../models/OcListBannedUsersResponseBannedListInner';
 import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
 import { OcListMutedUsersResponse } from '../models/OcListMutedUsersResponse';
 import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
@@ -181,7 +182,6 @@ import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
 import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
 import { ScheduleAnnouncementResponseCreateChannelOptions } from '../models/ScheduleAnnouncementResponseCreateChannelOptions';
 import { ScheduleAnnouncementResponseMessage } from '../models/ScheduleAnnouncementResponseMessage';
-import { SendBirdAdditionalProperties } from '../models/SendBirdAdditionalProperties';
 import { SendBirdAdminMessage } from '../models/SendBirdAdminMessage';
 import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCriticalAlertOptions';
 import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
@@ -191,6 +191,7 @@ import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
+import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
@@ -198,7 +199,7 @@ import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelS
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
-import { SendBirdMessageResponseMentionedUsers } from '../models/SendBirdMessageResponseMentionedUsers';
+import { SendBirdMessageResponseMentionedUsersInner } from '../models/SendBirdMessageResponseMentionedUsersInner';
 import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUser';
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
@@ -219,6 +220,13 @@ import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
 import { SendMessageData } from '../models/SendMessageData';
 import { SetDomainFilterData } from '../models/SetDomainFilterData';
+import { SetDomainFilterDataDomainFilter } from '../models/SetDomainFilterDataDomainFilter';
+import { SetDomainFilterDataImageModeration } from '../models/SetDomainFilterDataImageModeration';
+import { SetDomainFilterDataImageModerationLimits } from '../models/SetDomainFilterDataImageModerationLimits';
+import { SetDomainFilterDataProfanityFilter } from '../models/SetDomainFilterDataProfanityFilter';
+import { SetDomainFilterDataProfanityFilterRegexFiltersInner } from '../models/SetDomainFilterDataProfanityFilterRegexFiltersInner';
+import { SetDomainFilterDataProfanityTriggeredModeration } from '../models/SetDomainFilterDataProfanityTriggeredModeration';
+import { TranslateMessageIntoOtherLanguagesData } from '../models/TranslateMessageIntoOtherLanguagesData';
 import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
 import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
 import { UpdateAnnouncementByIdResponseMessage } from '../models/UpdateAnnouncementByIdResponseMessage';
@@ -238,7 +246,7 @@ import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrl
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
 import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
-import { UpdateExtraDataInMessageResponseSortedMetaarray } from '../models/UpdateExtraDataInMessageResponseSortedMetaarray';
+import { UpdateExtraDataInMessageResponseSortedMetaarrayInner } from '../models/UpdateExtraDataInMessageResponseSortedMetaarrayInner';
 import { UpdateFcmPushConfigurationByIdData } from '../models/UpdateFcmPushConfigurationByIdData';
 import { UpdateFcmPushConfigurationByIdResponse } from '../models/UpdateFcmPushConfigurationByIdResponse';
 import { UpdateHmsPushConfigurationByIdData } from '../models/UpdateHmsPushConfigurationByIdData';
@@ -255,13 +263,6 @@ import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
 import { UpdateUserMetadataResponse } from '../models/UpdateUserMetadataResponse';
 import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
 import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
-import { V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList } from '../models/V3ApplicationsSettingsByChannelCustomTypeCustomTypeBanBannedList';
-import { V3ApplicationsSettingsGlobalCustomTypeDomainFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeDomainFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeImageModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModeration';
-import { V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits } from '../models/V3ApplicationsSettingsGlobalCustomTypeImageModerationLimits';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilter } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityFilterRegexFilters';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration } from '../models/V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration';
 import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
@@ -275,17 +276,18 @@ import { ViewNumberOfConcurrentConnectionsResponse } from '../models/ViewNumberO
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
 import { ViewNumberOfPeakConnectionsResponse } from '../models/ViewNumberOfPeakConnectionsResponse';
-import { ViewNumberOfPeakConnectionsResponsePeakConnections } from '../models/ViewNumberOfPeakConnectionsResponsePeakConnections';
+import { ViewNumberOfPeakConnectionsResponsePeakConnectionsInner } from '../models/ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
 import { ViewNumberOfUnreadItemsResponse } from '../models/ViewNumberOfUnreadItemsResponse';
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
 import { ViewPushConfigurationByIdResponse } from '../models/ViewPushConfigurationByIdResponse';
 import { ViewPushNotificationContentTemplateResponse } from '../models/ViewPushNotificationContentTemplateResponse';
-import { ViewPushNotificationContentTemplateResponsePushMessageTemplates } from '../models/ViewPushNotificationContentTemplateResponsePushMessageTemplates';
+import { ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner } from '../models/ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
 import { ViewPushPreferencesForChannelByUrlResponse } from '../models/ViewPushPreferencesForChannelByUrlResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
 import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApiTokenByTokenResponse';
 import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
 import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
+import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
 export class ObservableAnnouncementApi {
@@ -662,7 +664,7 @@ export class ObservableApplicationApi {
      * @param token 
      * @param limit 
      */
-    public listMutedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Observable<InlineResponse200> {
+    public listMutedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Observable<ListMutedUsersInChannelsWithCustomChannelType200Response> {
         const requestContextPromise = this.requestFactory.listMutedUsersInChannelsWithCustomChannelType(apiToken, customType, token, limit, _options);
 
         // build promise chain
@@ -1560,7 +1562,7 @@ export class ObservableGroupChannelApi {
      * @param operatorIds 
      * @param deleteAll 
      */
-    public gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcCancelTheRegistrationOfOperators(apiToken, channelUrl, operatorIds, deleteAll, _options);
 
         // build promise chain
@@ -1637,7 +1639,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcDeclineInvitationData 
      */
-    public gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcDeclineInvitation(apiToken, channelUrl, gcDeclineInvitationData, _options);
 
         // build promise chain
@@ -1662,7 +1664,7 @@ export class ObservableGroupChannelApi {
      * @param apiToken 
      * @param channelUrl 
      */
-    public gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcDeleteChannelByUrl(apiToken, channelUrl, _options);
 
         // build promise chain
@@ -1688,7 +1690,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcHideOrArchiveChannelData 
      */
-    public gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcHideOrArchiveChannel(apiToken, channelUrl, gcHideOrArchiveChannelData, _options);
 
         // build promise chain
@@ -1766,7 +1768,7 @@ export class ObservableGroupChannelApi {
      * @param channelUrl 
      * @param gcLeaveChannelData 
      */
-    public gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcLeaveChannel(apiToken, channelUrl, gcLeaveChannelData, _options);
 
         // build promise chain
@@ -1972,7 +1974,7 @@ export class ObservableGroupChannelApi {
      * @param userId 
      * @param shouldUnhideAll 
      */
-    public gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcUnhideOrUnarchiveChannel(apiToken, channelUrl, userId, shouldUnhideAll, _options);
 
         // build promise chain
@@ -2797,10 +2799,10 @@ export class ObservableMessageApi {
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
-     * @param body 
+     * @param translateMessageIntoOtherLanguagesData 
      */
-    public translateMessageIntoOtherLanguages(apiToken: string, channelType: string, channelUrl: string, messageId: string, body?: any, _options?: Configuration): Observable<SendBirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.translateMessageIntoOtherLanguages(apiToken, channelType, channelUrl, messageId, body, _options);
+    public translateMessageIntoOtherLanguages(apiToken: string, channelType: string, channelUrl: string, messageId: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Observable<SendBirdMessageResponse> {
+        const requestContextPromise = this.requestFactory.translateMessageIntoOtherLanguages(apiToken, channelType, channelUrl, messageId, translateMessageIntoOtherLanguagesData, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3051,6 +3053,408 @@ export class ObservableMetadataApi {
     }
 
     /**
+     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
+     * Create a channel metacounter
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param createChannelMetacounterData 
+     */
+    public createChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.createChannelMetacounter(apiToken, channelType, channelUrl, createChannelMetacounterData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetacounter(rsp)));
+            }));
+    }
+
+    /**
+     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+     * Create a channel metadata
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param createChannelMetadataData 
+     */
+    public createChannelMetadata(apiToken: string, channelType: string, channelUrl: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Observable<CreateChannelMetadataResponse> {
+        const requestContextPromise = this.requestFactory.createChannelMetadata(apiToken, channelType, channelUrl, createChannelMetadataData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
+     * Create a user metadata
+     * @param apiToken 
+     * @param userId 
+     * @param createUserMetadataData 
+     */
+    public createUserMetadata(apiToken: string, userId: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Observable<CreateUserMetadataResponse> {
+        const requestContextPromise = this.requestFactory.createUserMetadata(apiToken, userId, createUserMetadataData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUserMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     */
+    public deleteChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteChannelMetacounter(apiToken, channelType, channelUrl, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounter(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param key 
+     */
+    public deleteChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteChannelMetacounterByKey(apiToken, channelType, channelUrl, key, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounterByKey(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param key 
+     */
+    public deleteChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteChannelMetadata(apiToken, channelType, channelUrl, key, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param key 
+     */
+    public deleteChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadataByKey(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting all items of a user metadata
+     * @param apiToken 
+     * @param userId 
+     * @param key 
+     */
+    public deleteUserMetadata(apiToken: string, userId: string, key?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteUserMetadata(apiToken, userId, key, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     * @param apiToken 
+     * @param userId 
+     * @param key 
+     */
+    public deleteUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.deleteUserMetadataByKey(apiToken, userId, key, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadataByKey(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param updateChannelMetacounterData 
+     */
+    public updateChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateChannelMetacounter(apiToken, channelType, channelUrl, updateChannelMetacounterData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounter(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param key 
+     * @param body 
+     */
+    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateChannelMetacounterByKey(apiToken, channelType, channelUrl, key, body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounterByKey(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param updateChannelMetadataData 
+     */
+    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateChannelMetadata(apiToken, channelType, channelUrl, updateChannelMetadataData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param key 
+     * @param body 
+     */
+    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateChannelMetadataByKey(apiToken, channelType, channelUrl, key, body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadataByKey(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     * @param apiToken 
+     * @param userId 
+     * @param updateUserMetadataData 
+     */
+    public updateUserMetadata(apiToken: string, userId: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Observable<UpdateUserMetadataResponse> {
+        const requestContextPromise = this.requestFactory.updateUserMetadata(apiToken, userId, updateUserMetadataData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadata(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     * @param apiToken 
+     * @param userId 
+     * @param key 
+     * @param body 
+     */
+    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateUserMetadataByKey(apiToken, userId, key, body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadataByKey(rsp)));
+            }));
+    }
+
+    /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving all items of a channel metacounter
      * @param apiToken 
@@ -3059,7 +3463,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: SendBirdAdditionalProperties; }> {
+    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewChannelMetacounter(apiToken, channelType, channelUrl, key, keys, _options);
 
         // build promise chain
@@ -3086,7 +3490,7 @@ export class ObservableMetadataApi {
      * @param channelUrl 
      * @param key 
      */
-    public viewChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<{ [key: string]: SendBirdAdditionalProperties; }> {
+    public viewChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewChannelMetacounterByKey(apiToken, channelType, channelUrl, key, _options);
 
         // build promise chain
@@ -3114,7 +3518,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: string; }> {
+    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewChannelMetadata(apiToken, channelType, channelUrl, key, keys, _options);
 
         // build promise chain
@@ -3141,7 +3545,7 @@ export class ObservableMetadataApi {
      * @param channelUrl 
      * @param key 
      */
-    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
+    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
 
         // build promise chain
@@ -3194,7 +3598,7 @@ export class ObservableMetadataApi {
      * @param userId 
      * @param key 
      */
-    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
+    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewUserMetadataByKey(apiToken, userId, key, _options);
 
         // build promise chain
@@ -3422,7 +3826,7 @@ export class ObservableModerationApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -3448,7 +3852,7 @@ export class ObservableModerationApi {
      * @param channelUrl 
      * @param mutedUserId 
      */
-    public gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.gcUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
 
         // build promise chain
@@ -3795,7 +4199,7 @@ export class ObservableModerationApi {
      * @param channelUrl 
      * @param bannedUserId 
      */
-    public ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.ocUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
 
         // build promise chain
@@ -3821,7 +4225,7 @@ export class ObservableModerationApi {
      * @param channelUrl 
      * @param mutedUserId 
      */
-    public ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.ocUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
 
         // build promise chain
@@ -4021,7 +4425,7 @@ export class ObservableOpenChannelApi {
      * @param apiToken 
      * @param channelUrl 
      */
-    public ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<InlineResponse2001> {
+    public ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.ocDeleteChannelByUrl(apiToken, channelUrl, _options);
 
         // build promise chain
@@ -4133,7 +4537,7 @@ export class ObservableOpenChannelApi {
      * @param channelUrl 
      * @param ocRegisterOperatorsData 
      */
-    public ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Observable<InlineResponse2001> {
+    public ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
         const requestContextPromise = this.requestFactory.ocRegisterOperators(apiToken, channelUrl, ocRegisterOperatorsData, _options);
 
         // build promise chain
@@ -4541,7 +4945,7 @@ export class ObservableReportApi {
      * @param channelUrl 
      * @param messageId 
      */
-    public viewModeratedMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
+    public viewModeratedMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.viewModeratedMessageById(apiToken, channelType, channelUrl, messageId, _options);
 
         // build promise chain
@@ -4779,60 +5183,6 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
-     * Create a channel metacounter
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param createChannelMetacounterData 
-     */
-    public createChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Observable<{ [key: string]: SendBirdAdditionalProperties; }> {
-        const requestContextPromise = this.requestFactory.createChannelMetacounter(apiToken, channelType, channelUrl, createChannelMetacounterData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
-     * Create a channel metadata
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param createChannelMetadataData 
-     */
-    public createChannelMetadata(apiToken: string, channelType: string, channelUrl: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Observable<CreateChannelMetadataResponse> {
-        const requestContextPromise = this.requestFactory.createChannelMetadata(apiToken, channelType, channelUrl, createChannelMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetadata(rsp)));
-            }));
-    }
-
-    /**
      * ## Create a user  Creates a new user in the application. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user
      * Create a user
      * @param apiToken 
@@ -4858,139 +5208,6 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
-     * Create a user metadata
-     * @param apiToken 
-     * @param userId 
-     * @param createUserMetadataData 
-     */
-    public createUserMetadata(apiToken: string, userId: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Observable<CreateUserMetadataResponse> {
-        const requestContextPromise = this.requestFactory.createUserMetadata(apiToken, userId, createUserMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     */
-    public deleteChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetacounter(apiToken, channelType, channelUrl, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     */
-    public deleteChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetacounterByKey(apiToken, channelType, channelUrl, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounterByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     */
-    public deleteChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetadata(apiToken, channelType, channelUrl, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     */
-    public deleteChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
      * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
      * Delete a user
      * @param apiToken 
@@ -5012,58 +5229,6 @@ export class ObservableUserApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting all items of a user metadata
-     * @param apiToken 
-     * @param userId 
-     * @param key 
-     */
-    public deleteUserMetadata(apiToken: string, userId: string, key?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteUserMetadata(apiToken, userId, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     * @param apiToken 
-     * @param userId 
-     * @param key 
-     */
-    public deleteUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteUserMetadataByKey(apiToken, userId, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadataByKey(rsp)));
             }));
     }
 
@@ -5399,116 +5564,6 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param updateChannelMetacounterData 
-     */
-    public updateChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Observable<{ [key: string]: SendBirdAdditionalProperties; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetacounter(apiToken, channelType, channelUrl, updateChannelMetacounterData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param body 
-     */
-    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetacounterByKey(apiToken, channelType, channelUrl, key, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounterByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param updateChannelMetadataData 
-     */
-    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetadata(apiToken, channelType, channelUrl, updateChannelMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param body 
-     */
-    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetadataByKey(apiToken, channelType, channelUrl, key, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
      * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
      * Update count preference of a channel
      * @param apiToken 
@@ -5611,59 +5666,6 @@ export class ObservableUserApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param apiToken 
-     * @param userId 
-     * @param updateUserMetadataData 
-     */
-    public updateUserMetadata(apiToken: string, userId: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Observable<UpdateUserMetadataResponse> {
-        const requestContextPromise = this.requestFactory.updateUserMetadata(apiToken, userId, updateUserMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     * @param apiToken 
-     * @param userId 
-     * @param key 
-     * @param body 
-     */
-    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateUserMetadataByKey(apiToken, userId, key, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadataByKey(rsp)));
             }));
     }
 
@@ -5911,7 +5913,7 @@ export class ObservableUserApi {
      * @param tokenType 
      * @param token 
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Observable<Array<any>> {
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Observable<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>> {
         const requestContextPromise = this.requestFactory.viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken, tokenType, token, _options);
 
         // build promise chain
@@ -5932,20 +5934,20 @@ export class ObservableUserApi {
 
 }
 
-import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor} from "../apis/WebhooksApi";
-export class ObservableWebhooksApi {
-    private requestFactory: WebhooksApiRequestFactory;
-    private responseProcessor: WebhooksApiResponseProcessor;
+import { WebhookApiRequestFactory, WebhookApiResponseProcessor} from "../apis/WebhookApi";
+export class ObservableWebhookApi {
+    private requestFactory: WebhookApiRequestFactory;
+    private responseProcessor: WebhookApiResponseProcessor;
     private configuration: Configuration;
 
     public constructor(
         configuration: Configuration,
-        requestFactory?: WebhooksApiRequestFactory,
-        responseProcessor?: WebhooksApiResponseProcessor
+        requestFactory?: WebhookApiRequestFactory,
+        responseProcessor?: WebhookApiResponseProcessor
     ) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new WebhooksApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new WebhooksApiResponseProcessor();
+        this.requestFactory = requestFactory || new WebhookApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new WebhookApiResponseProcessor();
     }
 
     /**

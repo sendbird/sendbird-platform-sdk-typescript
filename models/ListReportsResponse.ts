@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListReportsResponseReportLogs } from './ListReportsResponseReportLogs';
+import { ListReportsResponseReportLogsInner } from './ListReportsResponseReportLogsInner';
 import { HttpFile } from '../http/http';
 
 export class ListReportsResponse {
-    'reportLogs'?: Array<ListReportsResponseReportLogs>;
+    'reportLogs'?: Array<ListReportsResponseReportLogsInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class ListReportsResponse {
         {
             "name": "reportLogs",
             "baseName": "report_logs",
-            "type": "Array<ListReportsResponseReportLogs>",
+            "type": "Array<ListReportsResponseReportLogsInner>",
             "format": ""
         },
         {

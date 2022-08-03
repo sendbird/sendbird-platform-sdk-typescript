@@ -20,7 +20,7 @@ export class GcLeaveChannelData {
     /**
     * Specifies an array of one or more IDs of the users to leave the channel.
     */
-    'userIds': Array<number>;
+    'userIds': Array<string>;
     /**
     * Determines whether to make all members leave the channel. (Default: false)
     */
@@ -38,7 +38,7 @@ export class GcLeaveChannelData {
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

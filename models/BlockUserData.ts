@@ -24,11 +24,11 @@ export class BlockUserData {
     /**
     * Specifies an array of the IDs of the users to be blocked at a time. (for bulk mode)
     */
-    'userIds': Array<number>;
+    'userIds': Array<string>;
     /**
     * Specifies an array of the IDs of the users to be blocked at a time. The user_ids above and this property can be used interchangeably. (for bulk mode)
     */
-    'users': Array<number>;
+    'users': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -48,13 +48,13 @@ export class BlockUserData {
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {
             "name": "users",
             "baseName": "users",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

@@ -20,7 +20,7 @@ export class RegisterGdprRequestData {
     /**
     * Specifies an array of the IDs of the users to delete in order to meet the GDPR's requirements. The maximum number of users to be processed at once is 100. This should be specified when the value of the action property is delete.
     */
-    'userIds': Array<number>;
+    'userIds': Array<string>;
     /**
     * Determines the scope of group channels to delete in addition to deleting the specified users with the user_ids property. Acceptable values are limited to the following:<br />- do_not_delete (default): the users will be deleted but their joined group channels will remain.<br />- 1_on_1: only 1-on-1 group channels of the users will be deleted. (This option can be useful when eliminating spam users) <br />- all: all joined group channels of the users will be deleted.<br /><br /> This only works when the value of the action property is delete.
     */
@@ -42,7 +42,7 @@ export class RegisterGdprRequestData {
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

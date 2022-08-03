@@ -20,7 +20,7 @@ export class OcRegisterOperatorsData {
     /**
     * Specifies an array of one or more IDs of users to register as operators of the channel. The maximum allowed number of operators per channel is 100.
     */
-    'operatorIds': Array<number>;
+    'operatorIds': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -34,7 +34,7 @@ export class OcRegisterOperatorsData {
         {
             "name": "operatorIds",
             "baseName": "operator_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

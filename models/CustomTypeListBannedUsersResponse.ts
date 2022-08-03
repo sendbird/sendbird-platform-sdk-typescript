@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { OcListBannedUsersResponseBannedList } from './OcListBannedUsersResponseBannedList';
+import { OcListBannedUsersResponseBannedListInner } from './OcListBannedUsersResponseBannedListInner';
 import { HttpFile } from '../http/http';
 
 export class CustomTypeListBannedUsersResponse {
-    'bannedList'?: Array<OcListBannedUsersResponseBannedList>;
+    'bannedList'?: Array<OcListBannedUsersResponseBannedListInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class CustomTypeListBannedUsersResponse {
         {
             "name": "bannedList",
             "baseName": "banned_list",
-            "type": "Array<OcListBannedUsersResponseBannedList>",
+            "type": "Array<OcListBannedUsersResponseBannedListInner>",
             "format": ""
         },
         {

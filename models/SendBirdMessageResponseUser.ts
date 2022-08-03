@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2001 } from './InlineResponse2001';
+import { OcDeleteChannelByUrl200Response } from './OcDeleteChannelByUrl200Response';
 import { HttpFile } from '../http/http';
 
 export class SendBirdMessageResponseUser {
@@ -20,7 +20,7 @@ export class SendBirdMessageResponseUser {
     'userId'?: string;
     'nickname'?: string;
     'profileUrl'?: string;
-    'metadata'?: InlineResponse2001;
+    'metadata'?: OcDeleteChannelByUrl200Response;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -64,7 +64,7 @@ export class SendBirdMessageResponseUser {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "InlineResponse2001",
+            "type": "OcDeleteChannelByUrl200Response",
             "format": ""
         }    ];
 

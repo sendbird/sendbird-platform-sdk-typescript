@@ -100,10 +100,10 @@ let body:.DataExportApiRegisterAndScheduleDataExportRequest = {
     csvDelimiter: "csvDelimiter_example",
     timezone: "timezone_example",
     senderIds: [
-      1,
+      "senderIds_example",
     ],
     excludeSenderIds: [
-      1,
+      "excludeSenderIds_example",
     ],
     channelUrls: [
       "channelUrls_example",
@@ -112,7 +112,7 @@ let body:.DataExportApiRegisterAndScheduleDataExportRequest = {
       "excludeChannelUrls_example",
     ],
     userIds: [
-      1,
+      "userIds_example",
     ],
     showReadReceipt: true,
     showChannelMetadata: true,

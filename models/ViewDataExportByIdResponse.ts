@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ListDataExportsByMessageChannelOrUserResponseFile } from './ListDataExportsByMessageChannelOrUserResponseFile';
+import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from './ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
 import { HttpFile } from '../http/http';
 
 export class ViewDataExportByIdResponse {
@@ -26,8 +26,8 @@ export class ViewDataExportByIdResponse {
     'channelUrls'?: Array<string>;
     'channelCustomTypes'?: Array<string>;
     'senderIds'?: Array<string>;
-    'file'?: ListDataExportsByMessageChannelOrUserResponseFile;
-    'userIds'?: Array<number>;
+    'file'?: ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile;
+    'userIds'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -107,13 +107,13 @@ export class ViewDataExportByIdResponse {
         {
             "name": "file",
             "baseName": "file",
-            "type": "ListDataExportsByMessageChannelOrUserResponseFile",
+            "type": "ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile",
             "format": ""
         },
         {
             "name": "userIds",
             "baseName": "user_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

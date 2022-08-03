@@ -36,7 +36,7 @@ export class SendBotSMessageData {
     /**
     * Specifies an array of one or more IDs of the users who get a notification for the message.
     */
-    'mentioned'?: Array<number>;
+    'mentioned'?: Array<string>;
     /**
     * Determines whether to mark the message as read for the bot. If set to false, the bot's unread_count and read_receipt remain unchanged after the message is sent. (Default: true)
     */
@@ -86,7 +86,7 @@ export class SendBotSMessageData {
         {
             "name": "mentioned",
             "baseName": "mentioned",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

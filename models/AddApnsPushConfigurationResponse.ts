@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AddApnsPushConfigurationResponsePushConfigurations } from './AddApnsPushConfigurationResponsePushConfigurations';
+import { AddApnsPushConfigurationResponsePushConfigurationsInner } from './AddApnsPushConfigurationResponsePushConfigurationsInner';
 import { HttpFile } from '../http/http';
 
 export class AddApnsPushConfigurationResponse {
-    'pushConfigurations'?: Array<AddApnsPushConfigurationResponsePushConfigurations>;
+    'pushConfigurations'?: Array<AddApnsPushConfigurationResponsePushConfigurationsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class AddApnsPushConfigurationResponse {
         {
             "name": "pushConfigurations",
             "baseName": "push_configurations",
-            "type": "Array<AddApnsPushConfigurationResponsePushConfigurations>",
+            "type": "Array<AddApnsPushConfigurationResponsePushConfigurationsInner>",
             "format": ""
         }    ];
 

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus } from './GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus';
+import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner } from './GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
 import { HttpFile } from '../http/http';
 
 export class GetDetailedOpenStatusOfAnnouncementByIdResponse {
-    'openStatus'?: Array<GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus>;
+    'openStatus'?: Array<GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class GetDetailedOpenStatusOfAnnouncementByIdResponse {
         {
             "name": "openStatus",
             "baseName": "open_status",
-            "type": "Array<GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus>",
+            "type": "Array<GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner>",
             "format": ""
         },
         {

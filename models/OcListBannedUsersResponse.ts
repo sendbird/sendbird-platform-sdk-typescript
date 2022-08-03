@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { OcListBannedUsersResponseBannedList } from './OcListBannedUsersResponseBannedList';
+import { OcListBannedUsersResponseBannedListInner } from './OcListBannedUsersResponseBannedListInner';
 import { HttpFile } from '../http/http';
 
 export class OcListBannedUsersResponse {
-    'bannedList'?: Array<OcListBannedUsersResponseBannedList>;
+    'bannedList'?: Array<OcListBannedUsersResponseBannedListInner>;
     'totalBanCount'?: number;
     'next'?: string;
 
@@ -24,7 +24,7 @@ export class OcListBannedUsersResponse {
         {
             "name": "bannedList",
             "baseName": "banned_list",
-            "type": "Array<OcListBannedUsersResponseBannedList>",
+            "type": "Array<OcListBannedUsersResponseBannedListInner>",
             "format": ""
         },
         {

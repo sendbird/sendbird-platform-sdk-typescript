@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListGdprRequestsResponseRequests } from './ListGdprRequestsResponseRequests';
+import { ListGdprRequestsResponseRequestsInner } from './ListGdprRequestsResponseRequestsInner';
 import { HttpFile } from '../http/http';
 
 export class ListGdprRequestsResponse {
-    'requests'?: Array<ListGdprRequestsResponseRequests>;
+    'requests'?: Array<ListGdprRequestsResponseRequestsInner>;
     'next'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class ListGdprRequestsResponse {
         {
             "name": "requests",
             "baseName": "requests",
-            "type": "Array<ListGdprRequestsResponseRequests>",
+            "type": "Array<ListGdprRequestsResponseRequestsInner>",
             "format": ""
         },
         {

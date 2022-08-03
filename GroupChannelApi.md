@@ -89,7 +89,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcCancelTheRegistrationOfOperators**
-> InlineResponse2001 gcCancelTheRegistrationOfOperators()
+> OcDeleteChannelByUrl200Response gcCancelTheRegistrationOfOperators()
 
 ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -234,10 +234,47 @@ let body:.GroupChannelApiGcCreateChannelRequest = {
   // GcCreateChannelData (optional)
   gcCreateChannelData: {
     userIds: [
-      1,
+      "userIds_example",
     ],
     users: [
-      1,
+      {
+        requireAuthForProfileImage: true,
+        isOnline: true,
+        userId: "userId_example",
+        accessToken: "accessToken_example",
+        hasEverLoggedIn: true,
+        isActive: true,
+        lastSeenAt: 1,
+        nickname: "nickname_example",
+        discoveryKeys: [
+          "discoveryKeys_example",
+        ],
+        sessionTokens: [
+          "sessionTokens_example",
+        ],
+        preferredLanguages: [
+          "preferredLanguages_example",
+        ],
+        profileUrl: "profileUrl_example",
+        createdAt: 1,
+        phoneNumber: "phoneNumber_example",
+        local: "local_example",
+        locale: "locale_example",
+        isHideMeFromFriends: true,
+        isShadowBlocked: true,
+        isCreated: true,
+        metadata: {
+          constructor: {
+            arguments: null,
+            caller: ,
+            length: 3.14,
+            prototype: null,
+          },
+        },
+        description: "description_example",
+        endAt: 3.14,
+        startAt: 3.14,
+      },
     ],
     name: "name_example",
     channelUrl: "channelUrl_example",
@@ -252,14 +289,10 @@ let body:.GroupChannelApiGcCreateChannelRequest = {
     accessCode: "accessCode_example",
     inviterId: "inviterId_example",
     strict: true,
-    invitationStatus: [
-      "invitationStatus_example",
-    ],
-    hiddenStatus: [
-      "hiddenStatus_example",
-    ],
+    invitationStatus: {},
+    hiddenStatus: {},
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
     blockSdkUserChannelJoin: true,
   },
@@ -301,7 +334,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeclineInvitation**
-> InlineResponse2001 gcDeclineInvitation()
+> OcDeleteChannelByUrl200Response gcDeclineInvitation()
 
 ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
 
@@ -344,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -364,7 +397,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcDeleteChannelByUrl**
-> InlineResponse2001 gcDeleteChannelByUrl()
+> OcDeleteChannelByUrl200Response gcDeleteChannelByUrl()
 
 ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
 
@@ -401,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -421,7 +454,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcHideOrArchiveChannel**
-> InlineResponse2001 gcHideOrArchiveChannel()
+> OcDeleteChannelByUrl200Response gcHideOrArchiveChannel()
 
 ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
 
@@ -467,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -510,17 +543,13 @@ let body:.GroupChannelApiGcInviteAsMembersRequest = {
   gcInviteAsMembersData: {
     channelUrl: "channelUrl_example",
     userIds: [
-      1,
+      "userIds_example",
     ],
     users: [
-      1,
+      "users_example",
     ],
-    invitationStatus: [
-      "invitationStatus_example",
-    ],
-    hiddenStatus: [
-      "hiddenStatus_example",
-    ],
+    invitationStatus: {},
+    hiddenStatus: {},
   },
 };
 
@@ -625,7 +654,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcLeaveChannel**
-> InlineResponse2001 gcLeaveChannel()
+> OcDeleteChannelByUrl200Response gcLeaveChannel()
 
 ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
 
@@ -648,7 +677,7 @@ let body:.GroupChannelApiGcLeaveChannelRequest = {
   gcLeaveChannelData: {
     channelUrl: "channelUrl_example",
     userIds: [
-      1,
+      "userIds_example",
     ],
     shouldLeaveAll: true,
   },
@@ -671,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -1041,7 +1070,7 @@ let body:.GroupChannelApiGcRegisterOperatorsRequest = {
   gcRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
   },
 };
@@ -1147,7 +1176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **gcUnhideOrUnarchiveChannel**
-> InlineResponse2001 gcUnhideOrUnarchiveChannel()
+> OcDeleteChannelByUrl200Response gcUnhideOrUnarchiveChannel()
 
 ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
 
@@ -1190,7 +1219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -1241,7 +1270,7 @@ let body:.GroupChannelApiGcUpdateChannelByUrlRequest = {
     isPublic: true,
     accessCode: "accessCode_example",
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
   },
 };

@@ -10,17 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { V3ApplicationsSettingsGlobalCustomTypeDomainFilter } from './V3ApplicationsSettingsGlobalCustomTypeDomainFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeImageModeration } from './V3ApplicationsSettingsGlobalCustomTypeImageModeration';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityFilter } from './V3ApplicationsSettingsGlobalCustomTypeProfanityFilter';
-import { V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration } from './V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration';
+import { SetDomainFilterDataDomainFilter } from './SetDomainFilterDataDomainFilter';
+import { SetDomainFilterDataImageModeration } from './SetDomainFilterDataImageModeration';
+import { SetDomainFilterDataProfanityFilter } from './SetDomainFilterDataProfanityFilter';
+import { SetDomainFilterDataProfanityTriggeredModeration } from './SetDomainFilterDataProfanityTriggeredModeration';
 import { HttpFile } from '../http/http';
 
 export class SetDomainFilterData {
-    'domainFilter'?: V3ApplicationsSettingsGlobalCustomTypeDomainFilter;
-    'profanityFilter'?: V3ApplicationsSettingsGlobalCustomTypeProfanityFilter;
-    'profanityTriggeredModeration'?: V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration;
-    'imageModeration'?: V3ApplicationsSettingsGlobalCustomTypeImageModeration;
+    'domainFilter'?: SetDomainFilterDataDomainFilter;
+    'profanityFilter'?: SetDomainFilterDataProfanityFilter;
+    'profanityTriggeredModeration'?: SetDomainFilterDataProfanityTriggeredModeration;
+    'imageModeration'?: SetDomainFilterDataImageModeration;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,25 +28,25 @@ export class SetDomainFilterData {
         {
             "name": "domainFilter",
             "baseName": "domain_filter",
-            "type": "V3ApplicationsSettingsGlobalCustomTypeDomainFilter",
+            "type": "SetDomainFilterDataDomainFilter",
             "format": ""
         },
         {
             "name": "profanityFilter",
             "baseName": "profanity_filter",
-            "type": "V3ApplicationsSettingsGlobalCustomTypeProfanityFilter",
+            "type": "SetDomainFilterDataProfanityFilter",
             "format": ""
         },
         {
             "name": "profanityTriggeredModeration",
             "baseName": "profanity_triggered_moderation",
-            "type": "V3ApplicationsSettingsGlobalCustomTypeProfanityTriggeredModeration",
+            "type": "SetDomainFilterDataProfanityTriggeredModeration",
             "format": ""
         },
         {
             "name": "imageModeration",
             "baseName": "image_moderation",
-            "type": "V3ApplicationsSettingsGlobalCustomTypeImageModeration",
+            "type": "SetDomainFilterDataImageModeration",
             "format": ""
         }    ];
 

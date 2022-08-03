@@ -16,7 +16,7 @@ export class UpdateChannelMetadataData {
     /**
     * Specifies a `JSON` object which has key-value items to update. A key can't contain a comma (,) and its length is limited to 128 characters. A value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
     */
-    'metadata': string;
+    'metadata': any;
     'upsert': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -25,7 +25,7 @@ export class UpdateChannelMetadataData {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {

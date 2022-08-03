@@ -11,6 +11,7 @@
  */
 
 import { SendBirdGroupChannel } from './SendBirdGroupChannel';
+import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
@@ -64,6 +65,7 @@ export class SendBirdChannelResponse {
     'smsFallback'?: SendBirdGroupChannelSmsFallback;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
+    'channel'?: SendBirdGroupChannelChannel;
     'isDynamicPartitioned'?: boolean;
     'participantCount'?: number;
 
@@ -326,6 +328,12 @@ export class SendBirdChannelResponse {
             "name": "unreadMessageCount",
             "baseName": "unread_message_count",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "channel",
+            "baseName": "channel",
+            "type": "SendBirdGroupChannelChannel",
             "format": ""
         },
         {

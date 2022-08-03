@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ViewNumberOfPeakConnectionsResponsePeakConnections } from './ViewNumberOfPeakConnectionsResponsePeakConnections';
+import { ViewNumberOfPeakConnectionsResponsePeakConnectionsInner } from './ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
 import { HttpFile } from '../http/http';
 
 export class ViewNumberOfPeakConnectionsResponse {
-    'peakConnections'?: Array<ViewNumberOfPeakConnectionsResponsePeakConnections>;
+    'peakConnections'?: Array<ViewNumberOfPeakConnectionsResponsePeakConnectionsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ViewNumberOfPeakConnectionsResponse {
         {
             "name": "peakConnections",
             "baseName": "peak_connections",
-            "type": "Array<ViewNumberOfPeakConnectionsResponsePeakConnections>",
+            "type": "Array<ViewNumberOfPeakConnectionsResponsePeakConnectionsInner>",
             "format": ""
         }    ];
 

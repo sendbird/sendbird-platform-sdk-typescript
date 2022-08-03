@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { GetStatisticsDailyResponseStatistics } from './GetStatisticsDailyResponseStatistics';
+import { GetStatisticsDailyResponseStatisticsInner } from './GetStatisticsDailyResponseStatisticsInner';
 import { HttpFile } from '../http/http';
 
 export class GetStatisticsDailyResponse {
-    'statistics'?: Array<GetStatisticsDailyResponseStatistics>;
+    'statistics'?: Array<GetStatisticsDailyResponseStatisticsInner>;
     'week'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class GetStatisticsDailyResponse {
         {
             "name": "statistics",
             "baseName": "statistics",
-            "type": "Array<GetStatisticsDailyResponseStatistics>",
+            "type": "Array<GetStatisticsDailyResponseStatisticsInner>",
             "format": ""
         },
         {

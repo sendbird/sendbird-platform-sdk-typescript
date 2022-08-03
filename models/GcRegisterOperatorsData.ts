@@ -20,7 +20,7 @@ export class GcRegisterOperatorsData {
     /**
     * Specifies an array of one or more IDs of users to register as operators of the channel. If the operators are not members of the channel yet, they need an [invitation](#2-invite-as-members) to [join](#2-join-a-channel) a privte group channel while they don't need any to join a [public](#-3-private-vs-public) group channel. The maximum allowed number of operators per channel is 100.
     */
-    'operatorIds': Array<number>;
+    'operatorIds': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -34,7 +34,7 @@ export class GcRegisterOperatorsData {
         {
             "name": "operatorIds",
             "baseName": "operator_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

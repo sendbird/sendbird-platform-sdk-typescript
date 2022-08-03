@@ -109,7 +109,7 @@ let body:.OpenChannelApiOcCreateChannelRequest = {
     isEphemeral: true,
     isDynamicPartitioned2HowDynamicPartitioningWorks: true,
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
     operators: [
       "operators_example",
@@ -153,7 +153,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocDeleteChannelByUrl**
-> InlineResponse2001 ocDeleteChannelByUrl()
+> OcDeleteChannelByUrl200Response ocDeleteChannelByUrl()
 
 ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -414,7 +414,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ocRegisterOperators**
-> InlineResponse2001 ocRegisterOperators()
+> OcDeleteChannelByUrl200Response ocRegisterOperators()
 
 ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
 
@@ -437,7 +437,7 @@ let body:.OpenChannelApiOcRegisterOperatorsRequest = {
   ocRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
   },
 };
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -507,7 +507,7 @@ let body:.OpenChannelApiOcUpdateChannelByUrlRequest = {
     customType: "customType_example",
     data: "data_example",
     operatorIds: [
-      1,
+      "operatorIds_example",
     ],
     operators: [
       "operators_example",

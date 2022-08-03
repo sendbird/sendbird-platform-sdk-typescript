@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplates } from './ListPushNotificationContentTemplatesResponsePushMessageTemplates';
+import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner } from './ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
 import { HttpFile } from '../http/http';
 
 export class ListPushNotificationContentTemplatesResponse {
-    'pushMessageTemplates'?: Array<ListPushNotificationContentTemplatesResponsePushMessageTemplates>;
+    'pushMessageTemplates'?: Array<ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ListPushNotificationContentTemplatesResponse {
         {
             "name": "pushMessageTemplates",
             "baseName": "push_message_templates",
-            "type": "Array<ListPushNotificationContentTemplatesResponsePushMessageTemplates>",
+            "type": "Array<ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner>",
             "format": ""
         }    ];
 

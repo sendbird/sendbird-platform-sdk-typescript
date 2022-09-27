@@ -73,13 +73,13 @@ All the documentation for this project lives in the /docs directory of this repo
 
 |       | Documentation |
 | ----------- | ----------- |
-| Announcement   | [docs/AnnouncementApi.md](docs/AnnouncementApi.md)|
-| Application | [docs/ApplicationApi.md](docs/ApplicationApi.md)  |
-| Bot | [docs/BotApi.md](docs/BotApi.md)  |
-| GroupChannel | [docs/GroupChannelApi.md](docs/GroupChannelApi.md)  |
-| Message | [docs/MessageApi.md](docs/MessageApi.md)  |
-| OpenChannel | [docs/OpenChannelApi.md ](docs/OpenChannelApi.md)  |
-| User | [docs/UserApi.md](docs/UserApi.md)  |
-| Webhooks | [docs/WebhooksApi.md](docs/WebhooksApi.md)  |
+| Announcement   | [docs/AnnouncementApi.md](AnnouncementApi.md)|
+| Application | [docs/ApplicationApi.md](ApplicationApi.md)  |
+| Bot | [docs/BotApi.md](BotApi.md)  |
+| GroupChannel | [docs/GroupChannelApi.md](GroupChannelApi.md)  |
+| Message | [docs/MessageApi.md](MessageApi.md)  |
+| OpenChannel | [docs/OpenChannelApi.md ](OpenChannelApi.md)  |
+| User | [docs/UserApi.md](UserApi.md)  |
+| Webhooks | [docs/WebhooksApi.md](WebhooksApi.md)  |
 
 

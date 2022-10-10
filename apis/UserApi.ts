@@ -14,6 +14,8 @@ import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDev
 import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
 import { ChoosePushNotificationContentTemplateResponse } from '../models/ChoosePushNotificationContentTemplateResponse';
 import { CreateUserData } from '../models/CreateUserData';
+import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
@@ -201,6 +203,61 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(createUserData, "CreateUserData", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Create user token
+     * Create user token
+     * @param apiToken 
+     * @param userId 
+     * @param createUserTokenData 
+     */
+    public async createUserToken(apiToken: string, userId: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserApi", "createUserToken", "apiToken");
+        }
+
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "createUserToken", "userId");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/token'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(createUserTokenData, "CreateUserTokenData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1972,6 +2029,35 @@ export class UserApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SendBirdUser", ""
             ) as SendBirdUser;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createUserToken
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createUserToken(response: ResponseContext): Promise<CreateUserTokenResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: CreateUserTokenResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CreateUserTokenResponse", ""
+            ) as CreateUserTokenResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: CreateUserTokenResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CreateUserTokenResponse", ""
+            ) as CreateUserTokenResponse;
             return body;
         }
 

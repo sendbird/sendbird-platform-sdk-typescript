@@ -42,6 +42,8 @@ import { CreateChannelMetadataResponse } from '../models/CreateChannelMetadataRe
 import { CreateUserData } from '../models/CreateUserData';
 import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
 import { CreateUserMetadataResponse } from '../models/CreateUserMetadataResponse';
+import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
@@ -194,6 +196,8 @@ import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChann
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelInviter } from '../models/SendBirdGroupChannelInviter';
+import { SendBirdGroupChannelLastMessage } from '../models/SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
@@ -2874,10 +2878,10 @@ export interface MessageApiListMessagesRequest {
     channelUrl: string
     /**
      * 
-     * @type number
+     * @type string
      * @memberof MessageApilistMessages
      */
-    messageTs?: number
+    messageTs?: string
     /**
      * 
      * @type number
@@ -4380,7 +4384,7 @@ export class ObjectMetadataApi {
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      * @param param the request object
      */
-    public updateChannelMetacounterByKey(param: MetadataApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<any> {
+    public updateChannelMetacounterByKey(param: MetadataApiUpdateChannelMetacounterByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.updateChannelMetacounterByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
     }
 
@@ -4389,7 +4393,7 @@ export class ObjectMetadataApi {
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      * @param param the request object
      */
-    public updateChannelMetadata(param: MetadataApiUpdateChannelMetadataRequest, options?: Configuration): Promise<any> {
+    public updateChannelMetadata(param: MetadataApiUpdateChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.updateChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.updateChannelMetadataData,  options).toPromise();
     }
 
@@ -4398,7 +4402,7 @@ export class ObjectMetadataApi {
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      * @param param the request object
      */
-    public updateChannelMetadataByKey(param: MetadataApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<any> {
+    public updateChannelMetadataByKey(param: MetadataApiUpdateChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.updateChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key, param.body,  options).toPromise();
     }
 
@@ -4416,7 +4420,7 @@ export class ObjectMetadataApi {
      * Update a user metadata - When updating a specific item of a user metadata by its key
      * @param param the request object
      */
-    public updateUserMetadataByKey(param: MetadataApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<any> {
+    public updateUserMetadataByKey(param: MetadataApiUpdateUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.updateUserMetadataByKey(param.apiToken, param.userId, param.key, param.body,  options).toPromise();
     }
 
@@ -4425,7 +4429,7 @@ export class ObjectMetadataApi {
      * View a channel metacounter - When retrieving all items of a channel metacounter
      * @param param the request object
      */
-    public viewChannelMetacounter(param: MetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<any> {
+    public viewChannelMetacounter(param: MetadataApiViewChannelMetacounterRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.viewChannelMetacounter(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
     }
 
@@ -4443,7 +4447,7 @@ export class ObjectMetadataApi {
      * View a channel metadata - When retrieving all items of a channel metadata
      * @param param the request object
      */
-    public viewChannelMetadata(param: MetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<any> {
+    public viewChannelMetadata(param: MetadataApiViewChannelMetadataRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.viewChannelMetadata(param.apiToken, param.channelType, param.channelUrl, param.key, param.keys,  options).toPromise();
     }
 
@@ -4452,7 +4456,7 @@ export class ObjectMetadataApi {
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      * @param param the request object
      */
-    public viewChannelMetadataByKey(param: MetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<any> {
+    public viewChannelMetadataByKey(param: MetadataApiViewChannelMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.viewChannelMetadataByKey(param.apiToken, param.channelType, param.channelUrl, param.key,  options).toPromise();
     }
 
@@ -4470,7 +4474,7 @@ export class ObjectMetadataApi {
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      * @param param the request object
      */
-    public viewUserMetadataByKey(param: MetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<any> {
+    public viewUserMetadataByKey(param: MetadataApiViewUserMetadataByKeyRequest, options?: Configuration): Promise<{ [key: string]: string; }> {
         return this.api.viewUserMetadataByKey(param.apiToken, param.userId, param.key,  options).toPromise();
     }
 
@@ -6348,6 +6352,27 @@ export interface UserApiCreateUserRequest {
     createUserData?: CreateUserData
 }
 
+export interface UserApiCreateUserTokenRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateUserToken
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateUserToken
+     */
+    userId: string
+    /**
+     * 
+     * @type CreateUserTokenData
+     * @memberof UserApicreateUserToken
+     */
+    createUserTokenData?: CreateUserTokenData
+}
+
 export interface UserApiDeleteUserByIdRequest {
     /**
      * 
@@ -7220,6 +7245,15 @@ export class ObjectUserApi {
      */
     public createUser(param: UserApiCreateUserRequest, options?: Configuration): Promise<SendBirdUser> {
         return this.api.createUser(param.apiToken, param.createUserData,  options).toPromise();
+    }
+
+    /**
+     * ## Create user token
+     * Create user token
+     * @param param the request object
+     */
+    public createUserToken(param: UserApiCreateUserTokenRequest, options?: Configuration): Promise<CreateUserTokenResponse> {
+        return this.api.createUserToken(param.apiToken, param.userId, param.createUserTokenData,  options).toPromise();
     }
 
     /**

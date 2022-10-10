@@ -1115,7 +1115,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param customType 
      * @param withMetaArray 
      */
-    public async listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: number, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'apiToken' is not null or undefined
@@ -1165,7 +1165,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (messageTs !== undefined) {
-            requestContext.setQueryParam("message_ts", ObjectSerializer.serialize(messageTs, "number", ""));
+            requestContext.setQueryParam("message_ts", ObjectSerializer.serialize(messageTs, "string", ""));
         }
 
         // Query Params

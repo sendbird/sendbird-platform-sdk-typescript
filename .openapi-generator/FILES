@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 AnnouncementApi.md
 ApplicationApi.md
 BotApi.md
@@ -77,6 +78,8 @@ models/CreateChannelMetadataResponse.ts
 models/CreateUserData.ts
 models/CreateUserMetadataData.ts
 models/CreateUserMetadataResponse.ts
+models/CreateUserTokenData.ts
+models/CreateUserTokenResponse.ts
 models/CustomTypeListBannedUsersResponse.ts
 models/DeleteAllowedIpsFromWhitelistResponse.ts
 models/DeleteApnsCertificateByIdResponse.ts
@@ -230,6 +233,8 @@ models/SendBirdGroupChannelChannel.ts
 models/SendBirdGroupChannelCollection.ts
 models/SendBirdGroupChannelCreatedBy.ts
 models/SendBirdGroupChannelDisappearingMessage.ts
+models/SendBirdGroupChannelInviter.ts
+models/SendBirdGroupChannelLastMessage.ts
 models/SendBirdGroupChannelSmsFallback.ts
 models/SendBirdMember.ts
 models/SendBirdMessageMetaArray.ts

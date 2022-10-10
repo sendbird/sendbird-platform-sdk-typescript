@@ -43,6 +43,8 @@ import { CreateChannelMetadataResponse } from '../models/CreateChannelMetadataRe
 import { CreateUserData } from '../models/CreateUserData';
 import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
 import { CreateUserMetadataResponse } from '../models/CreateUserMetadataResponse';
+import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
@@ -195,6 +197,8 @@ import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChann
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelInviter } from '../models/SendBirdGroupChannelInviter';
+import { SendBirdGroupChannelLastMessage } from '../models/SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
@@ -2610,7 +2614,7 @@ export class ObservableMessageApi {
      * @param customType 
      * @param withMetaArray 
      */
-    public listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: number, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Observable<ListMessagesResponse> {
+    public listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Observable<ListMessagesResponse> {
         const requestContextPromise = this.requestFactory.listMessages(apiToken, channelType, channelUrl, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
 
         // build promise chain
@@ -3327,7 +3331,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.updateChannelMetacounterByKey(apiToken, channelType, channelUrl, key, body, _options);
 
         // build promise chain
@@ -3354,7 +3358,7 @@ export class ObservableMetadataApi {
      * @param channelUrl 
      * @param updateChannelMetadataData 
      */
-    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Observable<any> {
+    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.updateChannelMetadata(apiToken, channelType, channelUrl, updateChannelMetadataData, _options);
 
         // build promise chain
@@ -3382,7 +3386,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.updateChannelMetadataByKey(apiToken, channelType, channelUrl, key, body, _options);
 
         // build promise chain
@@ -3435,7 +3439,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Observable<any> {
+    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.updateUserMetadataByKey(apiToken, userId, key, body, _options);
 
         // build promise chain
@@ -3463,7 +3467,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
+    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.viewChannelMetacounter(apiToken, channelType, channelUrl, key, keys, _options);
 
         // build promise chain
@@ -3518,7 +3522,7 @@ export class ObservableMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
+    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.viewChannelMetadata(apiToken, channelType, channelUrl, key, keys, _options);
 
         // build promise chain
@@ -3545,7 +3549,7 @@ export class ObservableMetadataApi {
      * @param channelUrl 
      * @param key 
      */
-    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<any> {
+    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.viewChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
 
         // build promise chain
@@ -3598,7 +3602,7 @@ export class ObservableMetadataApi {
      * @param userId 
      * @param key 
      */
-    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<any> {
+    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
         const requestContextPromise = this.requestFactory.viewUserMetadataByKey(apiToken, userId, key, _options);
 
         // build promise chain
@@ -5204,6 +5208,32 @@ export class ObservableUserApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUser(rsp)));
+            }));
+    }
+
+    /**
+     * ## Create user token
+     * Create user token
+     * @param apiToken 
+     * @param userId 
+     * @param createUserTokenData 
+     */
+    public createUserToken(apiToken: string, userId: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Observable<CreateUserTokenResponse> {
+        const requestContextPromise = this.requestFactory.createUserToken(apiToken, userId, createUserTokenData, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUserToken(rsp)));
             }));
     }
 

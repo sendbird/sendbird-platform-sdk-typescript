@@ -250,7 +250,7 @@ let body:.GroupChannelApiGcCreateChannelRequest = {
           "discoveryKeys_example",
         ],
         sessionTokens: [
-          "sessionTokens_example",
+          {},
         ],
         preferredLanguages: [
           "preferredLanguages_example",
@@ -263,14 +263,7 @@ let body:.GroupChannelApiGcCreateChannelRequest = {
         isHideMeFromFriends: true,
         isShadowBlocked: true,
         isCreated: true,
-        metadata: {
-          constructor: {
-            arguments: null,
-            caller: ,
-            length: 3.14,
-            prototype: null,
-          },
-        },
+        metadata: {},
         description: "description_example",
         endAt: 3.14,
         startAt: 3.14,

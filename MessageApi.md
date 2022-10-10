@@ -1284,8 +1284,8 @@ let body:.MessageApiListMessagesRequest = {
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
-  // number (optional)
-  messageTs: 1,
+  // string (optional)
+  messageTs: "message_ts_example",
   // number (optional)
   messageId: 1,
   // number (optional)
@@ -1335,7 +1335,7 @@ Name | Type | Description  | Notes
  **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **messageTs** | [**number**] |  | (optional) defaults to undefined
+ **messageTs** | [**string**] |  | (optional) defaults to undefined
  **messageId** | [**number**] |  | (optional) defaults to undefined
  **prevLimit** | [**number**] |  | (optional) defaults to undefined
  **nextLimit** | [**number**] |  | (optional) defaults to undefined

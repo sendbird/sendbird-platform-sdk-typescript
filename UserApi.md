@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addRegistrationOrDeviceToken**](UserApi.md#addRegistrationOrDeviceToken) | **POST** /v3/users/{user_id}/push/{token_type} | Add a registration or device token
 [**choosePushNotificationContentTemplate**](UserApi.md#choosePushNotificationContentTemplate) | **PUT** /v3/users/{user_id}/push/template | Choose a push notification content template
 [**createUser**](UserApi.md#createUser) | **POST** /v3/users | Create a user
+[**createUserToken**](UserApi.md#createUserToken) | **POST** /v3/users/{user_id}/token | Create user token
 [**deleteUserById**](UserApi.md#deleteUserById) | **DELETE** /v3/users/{user_id} | Delete a user
 [**leaveMyGroupChannels**](UserApi.md#leaveMyGroupChannels) | **PUT** /v3/users/{user_id}/my_group_channels/leave | Leave my group channels
 [**listMyGroupChannels**](UserApi.md#listMyGroupChannels) | **GET** /v3/users/{user_id}/my_group_channels | List my group channels
@@ -211,6 +212,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 **SendBirdUser**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **createUserToken**
+> CreateUserTokenResponse createUserToken()
+
+## Create user token
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .UserApi(configuration);
+
+let body:.UserApiCreateUserTokenRequest = {
+  // string
+  apiToken: "{{API_TOKEN}}",
+  // string
+  userId: "user_id_example",
+  // CreateUserTokenData (optional)
+  createUserTokenData: {
+    expiresAt: 3.14,
+  },
+};
+
+apiInstance.createUserToken(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createUserTokenData** | **CreateUserTokenData**|  |
+ **apiToken** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**CreateUserTokenResponse**
 
 ### Authorization
 

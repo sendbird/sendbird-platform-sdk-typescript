@@ -42,6 +42,8 @@ import { CreateChannelMetadataResponse } from '../models/CreateChannelMetadataRe
 import { CreateUserData } from '../models/CreateUserData';
 import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
 import { CreateUserMetadataResponse } from '../models/CreateUserMetadataResponse';
+import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
@@ -194,6 +196,8 @@ import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChann
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelInviter } from '../models/SendBirdGroupChannelInviter';
+import { SendBirdGroupChannelLastMessage } from '../models/SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
@@ -1449,7 +1453,7 @@ export class PromiseMessageApi {
      * @param customType 
      * @param withMetaArray 
      */
-    public listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: number, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<ListMessagesResponse> {
+    public listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<ListMessagesResponse> {
         const result = this.api.listMessages(apiToken, channelType, channelUrl, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
         return result.toPromise();
     }
@@ -1803,7 +1807,7 @@ export class PromiseMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<any> {
+    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.updateChannelMetacounterByKey(apiToken, channelType, channelUrl, key, body, _options);
         return result.toPromise();
     }
@@ -1816,7 +1820,7 @@ export class PromiseMetadataApi {
      * @param channelUrl 
      * @param updateChannelMetadataData 
      */
-    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<any> {
+    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.updateChannelMetadata(apiToken, channelType, channelUrl, updateChannelMetadataData, _options);
         return result.toPromise();
     }
@@ -1830,7 +1834,7 @@ export class PromiseMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<any> {
+    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.updateChannelMetadataByKey(apiToken, channelType, channelUrl, key, body, _options);
         return result.toPromise();
     }
@@ -1855,7 +1859,7 @@ export class PromiseMetadataApi {
      * @param key 
      * @param body 
      */
-    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Promise<any> {
+    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.updateUserMetadataByKey(apiToken, userId, key, body, _options);
         return result.toPromise();
     }
@@ -1869,7 +1873,7 @@ export class PromiseMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<any> {
+    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.viewChannelMetacounter(apiToken, channelType, channelUrl, key, keys, _options);
         return result.toPromise();
     }
@@ -1896,7 +1900,7 @@ export class PromiseMetadataApi {
      * @param key 
      * @param keys 
      */
-    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<any> {
+    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.viewChannelMetadata(apiToken, channelType, channelUrl, key, keys, _options);
         return result.toPromise();
     }
@@ -1909,7 +1913,7 @@ export class PromiseMetadataApi {
      * @param channelUrl 
      * @param key 
      */
-    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<any> {
+    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.viewChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
         return result.toPromise();
     }
@@ -1934,7 +1938,7 @@ export class PromiseMetadataApi {
      * @param userId 
      * @param key 
      */
-    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<any> {
+    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
         const result = this.api.viewUserMetadataByKey(apiToken, userId, key, _options);
         return result.toPromise();
     }
@@ -2748,6 +2752,18 @@ export class PromiseUserApi {
      */
     public createUser(apiToken: string, createUserData?: CreateUserData, _options?: Configuration): Promise<SendBirdUser> {
         const result = this.api.createUser(apiToken, createUserData, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Create user token
+     * Create user token
+     * @param apiToken 
+     * @param userId 
+     * @param createUserTokenData 
+     */
+    public createUserToken(apiToken: string, userId: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<CreateUserTokenResponse> {
+        const result = this.api.createUserToken(apiToken, userId, createUserTokenData, _options);
         return result.toPromise();
     }
 

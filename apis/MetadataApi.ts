@@ -1542,22 +1542,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateChannelMetacounterByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateChannelMetacounterByKey(response: ResponseContext): Promise<any > {
+     public async updateChannelMetacounterByKey(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1571,22 +1571,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateChannelMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateChannelMetadata(response: ResponseContext): Promise<any > {
+     public async updateChannelMetadata(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1600,22 +1600,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateChannelMetadataByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateChannelMetadataByKey(response: ResponseContext): Promise<any > {
+     public async updateChannelMetadataByKey(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1658,22 +1658,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to updateUserMetadataByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateUserMetadataByKey(response: ResponseContext): Promise<any > {
+     public async updateUserMetadataByKey(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1687,22 +1687,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelMetacounter
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelMetacounter(response: ResponseContext): Promise<any > {
+     public async viewChannelMetacounter(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1745,22 +1745,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelMetadata
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelMetadata(response: ResponseContext): Promise<any > {
+     public async viewChannelMetadata(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1774,22 +1774,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewChannelMetadataByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelMetadataByKey(response: ResponseContext): Promise<any > {
+     public async viewChannelMetadataByKey(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
@@ -1832,22 +1832,22 @@ export class MetadataApiResponseProcessor {
      * @params response Response returned by the server for a request to viewUserMetadataByKey
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewUserMetadataByKey(response: ResponseContext): Promise<any > {
+     public async viewUserMetadataByKey(response: ResponseContext): Promise<{ [key: string]: string; } > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: { [key: string]: string; } = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "{ [key: string]: string; }", ""
+            ) as { [key: string]: string; };
             return body;
         }
 

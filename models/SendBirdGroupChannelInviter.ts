@@ -10,12 +10,10 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
-/**
-* User
-*/
-export class SendBirdUser {
+export class SendBirdGroupChannelInviter {
     'requireAuthForProfileImage'?: boolean;
     'isOnline'?: boolean;
     'userId'?: string;
@@ -183,7 +181,7 @@ export class SendBirdUser {
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdUser.attributeTypeMap;
+        return SendBirdGroupChannelInviter.attributeTypeMap;
     }
 
     public constructor() {

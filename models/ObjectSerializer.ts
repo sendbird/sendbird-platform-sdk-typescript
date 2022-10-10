@@ -38,6 +38,8 @@ export * from './CreateChannelMetadataResponse';
 export * from './CreateUserData';
 export * from './CreateUserMetadataData';
 export * from './CreateUserMetadataResponse';
+export * from './CreateUserTokenData';
+export * from './CreateUserTokenResponse';
 export * from './CustomTypeListBannedUsersResponse';
 export * from './DeleteAllowedIpsFromWhitelistResponse';
 export * from './DeleteApnsCertificateByIdResponse';
@@ -190,6 +192,8 @@ export * from './SendBirdGroupChannelChannel';
 export * from './SendBirdGroupChannelCollection';
 export * from './SendBirdGroupChannelCreatedBy';
 export * from './SendBirdGroupChannelDisappearingMessage';
+export * from './SendBirdGroupChannelInviter';
+export * from './SendBirdGroupChannelLastMessage';
 export * from './SendBirdGroupChannelSmsFallback';
 export * from './SendBirdMember';
 export * from './SendBirdMessageMetaArray';
@@ -324,6 +328,8 @@ import { CreateChannelMetadataResponse } from './CreateChannelMetadataResponse';
 import { CreateUserData } from './CreateUserData';
 import { CreateUserMetadataData } from './CreateUserMetadataData';
 import { CreateUserMetadataResponse } from './CreateUserMetadataResponse';
+import { CreateUserTokenData } from './CreateUserTokenData';
+import { CreateUserTokenResponse } from './CreateUserTokenResponse';
 import { CustomTypeListBannedUsersResponse } from './CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from './DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from './DeleteApnsCertificateByIdResponse';
@@ -476,8 +482,10 @@ import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCollection } from './SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
+import { SendBirdGroupChannelInviter } from './SendBirdGroupChannelInviter';
+import { SendBirdGroupChannelLastMessage } from './SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
-import { SendBirdMember                  , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
+import { SendBirdMember                 , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
 import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
@@ -655,6 +663,8 @@ let typeMap: {[index: string]: any} = {
     "CreateUserData": CreateUserData,
     "CreateUserMetadataData": CreateUserMetadataData,
     "CreateUserMetadataResponse": CreateUserMetadataResponse,
+    "CreateUserTokenData": CreateUserTokenData,
+    "CreateUserTokenResponse": CreateUserTokenResponse,
     "CustomTypeListBannedUsersResponse": CustomTypeListBannedUsersResponse,
     "DeleteAllowedIpsFromWhitelistResponse": DeleteAllowedIpsFromWhitelistResponse,
     "DeleteApnsCertificateByIdResponse": DeleteApnsCertificateByIdResponse,
@@ -807,6 +817,8 @@ let typeMap: {[index: string]: any} = {
     "SendBirdGroupChannelCollection": SendBirdGroupChannelCollection,
     "SendBirdGroupChannelCreatedBy": SendBirdGroupChannelCreatedBy,
     "SendBirdGroupChannelDisappearingMessage": SendBirdGroupChannelDisappearingMessage,
+    "SendBirdGroupChannelInviter": SendBirdGroupChannelInviter,
+    "SendBirdGroupChannelLastMessage": SendBirdGroupChannelLastMessage,
     "SendBirdGroupChannelSmsFallback": SendBirdGroupChannelSmsFallback,
     "SendBirdMember": SendBirdMember,
     "SendBirdMessageMetaArray": SendBirdMessageMetaArray,

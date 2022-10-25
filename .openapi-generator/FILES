@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 AnnouncementApi.md
 ApplicationApi.md
 BotApi.md
@@ -69,6 +68,8 @@ models/ChoosePushNotificationContentTemplateResponse.ts
 models/ChooseWhichEventsToSubscribeToData.ts
 models/ChooseWhichEventsToSubscribeToResponse.ts
 models/ChooseWhichEventsToSubscribeToResponseWebhook.ts
+models/ConfigureAutoEventData.ts
+models/ConfigureAutoEventDataAutoEventMessage.ts
 models/CreateBotData.ts
 models/CreateBotResponse.ts
 models/CreateBotResponseBot.ts
@@ -217,11 +218,13 @@ models/RetrieveListOfSubscribedEventsResponseWebhook.ts
 models/RevokeSecondaryApiTokenByTokenResponse.ts
 models/SBObject.ts
 models/ScheduleAnnouncementData.ts
+models/ScheduleAnnouncementDataMessage.ts
 models/ScheduleAnnouncementResponse.ts
 models/ScheduleAnnouncementResponseCreateChannelOptions.ts
 models/ScheduleAnnouncementResponseMessage.ts
 models/SendBirdAdminMessage.ts
 models/SendBirdAppleCriticalAlertOptions.ts
+models/SendBirdAutoEventMessageSettings.ts
 models/SendBirdBaseChannel.ts
 models/SendBirdBaseMessageInstance.ts
 models/SendBirdChannelResponse.ts

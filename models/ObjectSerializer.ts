@@ -29,6 +29,8 @@ export * from './ChoosePushNotificationContentTemplateResponse';
 export * from './ChooseWhichEventsToSubscribeToData';
 export * from './ChooseWhichEventsToSubscribeToResponse';
 export * from './ChooseWhichEventsToSubscribeToResponseWebhook';
+export * from './ConfigureAutoEventData';
+export * from './ConfigureAutoEventDataAutoEventMessage';
 export * from './CreateBotData';
 export * from './CreateBotResponse';
 export * from './CreateBotResponseBot';
@@ -176,11 +178,13 @@ export * from './RetrieveListOfSubscribedEventsResponseWebhook';
 export * from './RevokeSecondaryApiTokenByTokenResponse';
 export * from './SBObject';
 export * from './ScheduleAnnouncementData';
+export * from './ScheduleAnnouncementDataMessage';
 export * from './ScheduleAnnouncementResponse';
 export * from './ScheduleAnnouncementResponseCreateChannelOptions';
 export * from './ScheduleAnnouncementResponseMessage';
 export * from './SendBirdAdminMessage';
 export * from './SendBirdAppleCriticalAlertOptions';
+export * from './SendBirdAutoEventMessageSettings';
 export * from './SendBirdBaseChannel';
 export * from './SendBirdBaseMessageInstance';
 export * from './SendBirdChannelResponse';
@@ -319,6 +323,8 @@ import { ChoosePushNotificationContentTemplateResponse } from './ChoosePushNotif
 import { ChooseWhichEventsToSubscribeToData } from './ChooseWhichEventsToSubscribeToData';
 import { ChooseWhichEventsToSubscribeToResponse } from './ChooseWhichEventsToSubscribeToResponse';
 import { ChooseWhichEventsToSubscribeToResponseWebhook } from './ChooseWhichEventsToSubscribeToResponseWebhook';
+import { ConfigureAutoEventData } from './ConfigureAutoEventData';
+import { ConfigureAutoEventDataAutoEventMessage } from './ConfigureAutoEventDataAutoEventMessage';
 import { CreateBotData } from './CreateBotData';
 import { CreateBotResponse } from './CreateBotResponse';
 import { CreateBotResponseBot } from './CreateBotResponseBot';
@@ -466,11 +472,13 @@ import { RetrieveListOfSubscribedEventsResponseWebhook } from './RetrieveListOfS
 import { RevokeSecondaryApiTokenByTokenResponse } from './RevokeSecondaryApiTokenByTokenResponse';
 import { SBObject } from './SBObject';
 import { ScheduleAnnouncementData } from './ScheduleAnnouncementData';
+import { ScheduleAnnouncementDataMessage } from './ScheduleAnnouncementDataMessage';
 import { ScheduleAnnouncementResponse } from './ScheduleAnnouncementResponse';
 import { ScheduleAnnouncementResponseCreateChannelOptions } from './ScheduleAnnouncementResponseCreateChannelOptions';
 import { ScheduleAnnouncementResponseMessage } from './ScheduleAnnouncementResponseMessage';
 import { SendBirdAdminMessage           , SendBirdAdminMessageMessageTypeEnum         , SendBirdAdminMessageSendingStatusEnum       } from './SendBirdAdminMessage';
 import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
+import { SendBirdAutoEventMessageSettings } from './SendBirdAutoEventMessageSettings';
 import { SendBirdBaseChannel } from './SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance          , SendBirdBaseMessageInstanceMessageTypeEnum         , SendBirdBaseMessageInstanceSendingStatusEnum      } from './SendBirdBaseMessageInstance';
 import { SendBirdChannelResponse          , SendBirdChannelResponseHiddenStateEnum                         , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum           } from './SendBirdChannelResponse';
@@ -654,6 +662,8 @@ let typeMap: {[index: string]: any} = {
     "ChooseWhichEventsToSubscribeToData": ChooseWhichEventsToSubscribeToData,
     "ChooseWhichEventsToSubscribeToResponse": ChooseWhichEventsToSubscribeToResponse,
     "ChooseWhichEventsToSubscribeToResponseWebhook": ChooseWhichEventsToSubscribeToResponseWebhook,
+    "ConfigureAutoEventData": ConfigureAutoEventData,
+    "ConfigureAutoEventDataAutoEventMessage": ConfigureAutoEventDataAutoEventMessage,
     "CreateBotData": CreateBotData,
     "CreateBotResponse": CreateBotResponse,
     "CreateBotResponseBot": CreateBotResponseBot,
@@ -801,11 +811,13 @@ let typeMap: {[index: string]: any} = {
     "RevokeSecondaryApiTokenByTokenResponse": RevokeSecondaryApiTokenByTokenResponse,
     "SBObject": SBObject,
     "ScheduleAnnouncementData": ScheduleAnnouncementData,
+    "ScheduleAnnouncementDataMessage": ScheduleAnnouncementDataMessage,
     "ScheduleAnnouncementResponse": ScheduleAnnouncementResponse,
     "ScheduleAnnouncementResponseCreateChannelOptions": ScheduleAnnouncementResponseCreateChannelOptions,
     "ScheduleAnnouncementResponseMessage": ScheduleAnnouncementResponseMessage,
     "SendBirdAdminMessage": SendBirdAdminMessage,
     "SendBirdAppleCriticalAlertOptions": SendBirdAppleCriticalAlertOptions,
+    "SendBirdAutoEventMessageSettings": SendBirdAutoEventMessageSettings,
     "SendBirdBaseChannel": SendBirdBaseChannel,
     "SendBirdBaseMessageInstance": SendBirdBaseMessageInstance,
     "SendBirdChannelResponse": SendBirdChannelResponse,

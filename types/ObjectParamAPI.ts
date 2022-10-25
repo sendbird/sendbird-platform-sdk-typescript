@@ -33,6 +33,8 @@ import { ChoosePushNotificationContentTemplateResponse } from '../models/ChooseP
 import { ChooseWhichEventsToSubscribeToData } from '../models/ChooseWhichEventsToSubscribeToData';
 import { ChooseWhichEventsToSubscribeToResponse } from '../models/ChooseWhichEventsToSubscribeToResponse';
 import { ChooseWhichEventsToSubscribeToResponseWebhook } from '../models/ChooseWhichEventsToSubscribeToResponseWebhook';
+import { ConfigureAutoEventData } from '../models/ConfigureAutoEventData';
+import { ConfigureAutoEventDataAutoEventMessage } from '../models/ConfigureAutoEventDataAutoEventMessage';
 import { CreateBotData } from '../models/CreateBotData';
 import { CreateBotResponse } from '../models/CreateBotResponse';
 import { CreateBotResponseBot } from '../models/CreateBotResponseBot';
@@ -180,11 +182,13 @@ import { RetrieveListOfSubscribedEventsResponseWebhook } from '../models/Retriev
 import { RevokeSecondaryApiTokenByTokenResponse } from '../models/RevokeSecondaryApiTokenByTokenResponse';
 import { SBObject } from '../models/SBObject';
 import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
+import { ScheduleAnnouncementDataMessage } from '../models/ScheduleAnnouncementDataMessage';
 import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
 import { ScheduleAnnouncementResponseCreateChannelOptions } from '../models/ScheduleAnnouncementResponseCreateChannelOptions';
 import { ScheduleAnnouncementResponseMessage } from '../models/ScheduleAnnouncementResponseMessage';
 import { SendBirdAdminMessage } from '../models/SendBirdAdminMessage';
 import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCriticalAlertOptions';
+import { SendBirdAutoEventMessageSettings } from '../models/SendBirdAutoEventMessageSettings';
 import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance } from '../models/SendBirdBaseMessageInstance';
 import { SendBirdChannelResponse } from '../models/SendBirdChannelResponse';
@@ -295,21 +299,6 @@ import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from '../mod
 import { ObservableAnnouncementApi } from "./ObservableAPI";
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
 
-export interface AnnouncementApiGetDetailedOpenRateOfAnnouncementByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementApigetDetailedOpenRateOfAnnouncementById
-     */
-    uniqueId: string
-}
-
 export interface AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest {
     /**
      * 
@@ -325,49 +314,130 @@ export interface AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest {
     announcementGroup: string
 }
 
-export interface AnnouncementApiGetDetailedOpenStatusOfAnnouncementByIdRequest {
+export interface AnnouncementApiGetStatisticsRequest {
     /**
      * 
      * @type string
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetStatistics
+     */
+    apiToken: string
+}
+
+export interface AnnouncementApiGetStatisticsDailyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
      */
     apiToken: string
     /**
      * 
      * @type string
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    startDate: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    endDate: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    startWeek: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    endWeek: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    startMonth: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    endMonth: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsDaily
+     */
+    announcementGroup?: string
+}
+
+export interface AnnouncementApiGetStatisticsMonthlyRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApigetStatisticsMonthly
+     */
+    apiToken: string
+}
+
+export interface AnnouncementApiListAnnouncementGroupsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApilistAnnouncementGroups
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApilistAnnouncementGroups
+     */
+    token?: string
+    /**
+     * 
+     * @type number
+     * @memberof AnnouncementApilistAnnouncementGroups
+     */
+    limit?: number
+}
+
+export interface AnnouncementApiScheduleAnnouncementRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApischeduleAnnouncement
+     */
+    apiToken: string
+    /**
+     * 
+     * @type ScheduleAnnouncementData
+     * @memberof AnnouncementApischeduleAnnouncement
+     */
+    scheduleAnnouncementData?: ScheduleAnnouncementData
+}
+
+export interface AnnouncementApiUpdateAnnouncementByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApiupdateAnnouncementById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof AnnouncementApiupdateAnnouncementById
      */
     uniqueId: string
     /**
      * 
-     * @type number
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
+     * @type UpdateAnnouncementByIdData
+     * @memberof AnnouncementApiupdateAnnouncementById
      */
-    limit?: number
-    /**
-     * 
-     * @type string
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
-     */
-    next?: string
-    /**
-     * 
-     * @type Array&lt;string&gt;
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
-     */
-    uniqueIds?: Array<string>
-    /**
-     * 
-     * @type Array&lt;string&gt;
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
-     */
-    channelUrls?: Array<string>
-    /**
-     * 
-     * @type boolean
-     * @memberof AnnouncementApigetDetailedOpenStatusOfAnnouncementById
-     */
-    hasOpened?: boolean
+    updateAnnouncementByIdData?: UpdateAnnouncementByIdData
 }
 
 export interface AnnouncementApiViewAnnouncementByIdRequest {
@@ -393,15 +463,6 @@ export class ObjectAnnouncementApi {
     }
 
     /**
-     * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
-     * Get detailed open rate of an announcement
-     * @param param the request object
-     */
-    public getDetailedOpenRateOfAnnouncementById(param: AnnouncementApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
-        return this.api.getDetailedOpenRateOfAnnouncementById(param.apiToken, param.uniqueId,  options).toPromise();
-    }
-
-    /**
      * ## Get detailed open rate of an announcement group  Retrieves the detailed open rate information of an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement-group ----------------------------
      * Get detailed open rate of an announcement group
      * @param param the request object
@@ -411,12 +472,57 @@ export class ObjectAnnouncementApi {
     }
 
     /**
-     * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
-     * Get detailed open status of an announcement
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - weekly
      * @param param the request object
      */
-    public getDetailedOpenStatusOfAnnouncementById(param: AnnouncementApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
-        return this.api.getDetailedOpenStatusOfAnnouncementById(param.apiToken, param.uniqueId, param.limit, param.next, param.uniqueIds, param.channelUrls, param.hasOpened,  options).toPromise();
+    public getStatistics(param: AnnouncementApiGetStatisticsRequest, options?: Configuration): Promise<GetStatisticsResponse> {
+        return this.api.getStatistics(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - daily
+     * @param param the request object
+     */
+    public getStatisticsDaily(param: AnnouncementApiGetStatisticsDailyRequest, options?: Configuration): Promise<GetStatisticsDailyResponse> {
+        return this.api.getStatisticsDaily(param.apiToken, param.startDate, param.endDate, param.startWeek, param.endWeek, param.startMonth, param.endMonth, param.announcementGroup,  options).toPromise();
+    }
+
+    /**
+     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
+     * Get statistics - monthly
+     * @param param the request object
+     */
+    public getStatisticsMonthly(param: AnnouncementApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
+        return this.api.getStatisticsMonthly(param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
+     * List announcement groups
+     * @param param the request object
+     */
+    public listAnnouncementGroups(param: AnnouncementApiListAnnouncementGroupsRequest, options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
+        return this.api.listAnnouncementGroups(param.apiToken, param.token, param.limit,  options).toPromise();
+    }
+
+    /**
+     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
+     * Schedule an announcement
+     * @param param the request object
+     */
+    public scheduleAnnouncement(param: AnnouncementApiScheduleAnnouncementRequest, options?: Configuration): Promise<ScheduleAnnouncementResponse> {
+        return this.api.scheduleAnnouncement(param.apiToken, param.scheduleAnnouncementData,  options).toPromise();
+    }
+
+    /**
+     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
+     * Update an announcement
+     * @param param the request object
+     */
+    public updateAnnouncementById(param: AnnouncementApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
+        return this.api.updateAnnouncementById(param.apiToken, param.uniqueId, param.updateAnnouncementByIdData,  options).toPromise();
     }
 
     /**
@@ -514,6 +620,21 @@ export interface ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest {
     banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData
 }
 
+export interface ApplicationApiConfigureAutoEventMessagesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApiconfigureAutoEventMessages
+     */
+    apiToken: string
+    /**
+     * 
+     * @type ConfigureAutoEventData
+     * @memberof ApplicationApiconfigureAutoEventMessages
+     */
+    configureAutoEventData?: ConfigureAutoEventData
+}
+
 export interface ApplicationApiDeleteAllowedIpsFromWhitelistRequest {
     /**
      * 
@@ -557,6 +678,15 @@ export interface ApplicationApiGenerateSecondaryApiTokenRequest {
      * @memberof ApplicationApigenerateSecondaryApiToken
      */
     generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData
+}
+
+export interface ApplicationApiListAutoEventMessagesRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ApplicationApilistAutoEventMessages
+     */
+    apiToken: string
 }
 
 export interface ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest {
@@ -987,6 +1117,15 @@ export class ObjectApplicationApi {
     }
 
     /**
+     * ## Configure auto event message settings  Determines whether to automatically send event messages to group channels when events take place in an application. You can choose which auto event message to receive on the Sendbird Dashboard  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/configure-auto-event-message-settings ----------------------------
+     * Configure auto event message settings
+     * @param param the request object
+     */
+    public configureAutoEventMessages(param: ApplicationApiConfigureAutoEventMessagesRequest, options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
+        return this.api.configureAutoEventMessages(param.apiToken, param.configureAutoEventData,  options).toPromise();
+    }
+
+    /**
      * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
      * Delete allowed IPs from a whitelist
      * @param param the request object
@@ -1011,6 +1150,15 @@ export class ObjectApplicationApi {
      */
     public generateSecondaryApiToken(param: ApplicationApiGenerateSecondaryApiTokenRequest, options?: Configuration): Promise<GenerateSecondaryApiTokenResponse> {
         return this.api.generateSecondaryApiToken(param.apiToken, param.generateSecondaryApiTokenData,  options).toPromise();
+    }
+
+    /**
+     * ## List auto event messages  Retrieves a list of auto event messages that are sent in a specified application and indicates which ones are in use. Auto event messages are Admin messages that are automatically generated when a specific event occurs.  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/list-auto-event-messages ----------------------------
+     * List auto event messages
+     * @param param the request object
+     */
+    public listAutoEventMessages(param: ApplicationApiListAutoEventMessagesRequest, options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
+        return this.api.listAutoEventMessages(param.apiToken,  options).toPromise();
     }
 
     /**
@@ -2710,75 +2858,6 @@ export interface MessageApiGetEmojiCategoryByIdRequest {
     emojiCategoryId: string
 }
 
-export interface MessageApiGetStatisticsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatistics
-     */
-    apiToken: string
-}
-
-export interface MessageApiGetStatisticsDailyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    startDate: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    endDate: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    startWeek: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    endWeek: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    startMonth: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    endMonth: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsDaily
-     */
-    announcementGroup?: string
-}
-
-export interface MessageApiGetStatisticsMonthlyRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApigetStatisticsMonthly
-     */
-    apiToken: string
-}
-
 export interface MessageApiListAllEmojisAndEmojiCategoriesRequest {
     /**
      * 
@@ -2786,27 +2865,6 @@ export interface MessageApiListAllEmojisAndEmojiCategoriesRequest {
      * @memberof MessageApilistAllEmojisAndEmojiCategories
      */
     apiToken: string
-}
-
-export interface MessageApiListAnnouncementGroupsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApilistAnnouncementGroups
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApilistAnnouncementGroups
-     */
-    token?: string
-    /**
-     * 
-     * @type number
-     * @memberof MessageApilistAnnouncementGroups
-     */
-    limit?: number
 }
 
 export interface MessageApiListAnnouncementsRequest {
@@ -3112,21 +3170,6 @@ export interface MessageApiRemoveReactionFromAMessageRequest {
     reaction?: string
 }
 
-export interface MessageApiScheduleAnnouncementRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApischeduleAnnouncement
-     */
-    apiToken: string
-    /**
-     * 
-     * @type ScheduleAnnouncementData
-     * @memberof MessageApischeduleAnnouncement
-     */
-    scheduleAnnouncementData?: ScheduleAnnouncementData
-}
-
 export interface MessageApiSendMessageRequest {
     /**
      * 
@@ -3185,27 +3228,6 @@ export interface MessageApiTranslateMessageIntoOtherLanguagesRequest {
      * @memberof MessageApitranslateMessageIntoOtherLanguages
      */
     translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData
-}
-
-export interface MessageApiUpdateAnnouncementByIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof MessageApiupdateAnnouncementById
-     */
-    apiToken: string
-    /**
-     * 
-     * @type string
-     * @memberof MessageApiupdateAnnouncementById
-     */
-    uniqueId: string
-    /**
-     * 
-     * @type UpdateAnnouncementByIdData
-     * @memberof MessageApiupdateAnnouncementById
-     */
-    updateAnnouncementByIdData?: UpdateAnnouncementByIdData
 }
 
 export interface MessageApiUpdateEmojiCategoryUrlByIdRequest {
@@ -3516,48 +3538,12 @@ export class ObjectMessageApi {
     }
 
     /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - weekly
-     * @param param the request object
-     */
-    public getStatistics(param: MessageApiGetStatisticsRequest, options?: Configuration): Promise<GetStatisticsResponse> {
-        return this.api.getStatistics(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - daily
-     * @param param the request object
-     */
-    public getStatisticsDaily(param: MessageApiGetStatisticsDailyRequest, options?: Configuration): Promise<GetStatisticsDailyResponse> {
-        return this.api.getStatisticsDaily(param.apiToken, param.startDate, param.endDate, param.startWeek, param.endWeek, param.startMonth, param.endMonth, param.announcementGroup,  options).toPromise();
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - monthly
-     * @param param the request object
-     */
-    public getStatisticsMonthly(param: MessageApiGetStatisticsMonthlyRequest, options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
-        return this.api.getStatisticsMonthly(param.apiToken,  options).toPromise();
-    }
-
-    /**
      * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
      * List all emojis and emoji categories
      * @param param the request object
      */
     public listAllEmojisAndEmojiCategories(param: MessageApiListAllEmojisAndEmojiCategoriesRequest, options?: Configuration): Promise<ListAllEmojisAndEmojiCategoriesResponse> {
         return this.api.listAllEmojisAndEmojiCategories(param.apiToken,  options).toPromise();
-    }
-
-    /**
-     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
-     * List announcement groups
-     * @param param the request object
-     */
-    public listAnnouncementGroups(param: MessageApiListAnnouncementGroupsRequest, options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
-        return this.api.listAnnouncementGroups(param.apiToken, param.token, param.limit,  options).toPromise();
     }
 
     /**
@@ -3624,15 +3610,6 @@ export class ObjectMessageApi {
     }
 
     /**
-     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
-     * Schedule an announcement
-     * @param param the request object
-     */
-    public scheduleAnnouncement(param: MessageApiScheduleAnnouncementRequest, options?: Configuration): Promise<ScheduleAnnouncementResponse> {
-        return this.api.scheduleAnnouncement(param.apiToken, param.scheduleAnnouncementData,  options).toPromise();
-    }
-
-    /**
      * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
      * Send a message
      * @param param the request object
@@ -3648,15 +3625,6 @@ export class ObjectMessageApi {
      */
     public translateMessageIntoOtherLanguages(param: MessageApiTranslateMessageIntoOtherLanguagesRequest, options?: Configuration): Promise<SendBirdMessageResponse> {
         return this.api.translateMessageIntoOtherLanguages(param.apiToken, param.channelType, param.channelUrl, param.messageId, param.translateMessageIntoOtherLanguagesData,  options).toPromise();
-    }
-
-    /**
-     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
-     * Update an announcement
-     * @param param the request object
-     */
-    public updateAnnouncementById(param: MessageApiUpdateAnnouncementByIdRequest, options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
-        return this.api.updateAnnouncementById(param.apiToken, param.uniqueId, param.updateAnnouncementByIdData,  options).toPromise();
     }
 
     /**
@@ -6133,6 +6101,66 @@ export class ObjectReportApi {
 import { ObservableStatisticsApi } from "./ObservableAPI";
 import { StatisticsApiRequestFactory, StatisticsApiResponseProcessor} from "../apis/StatisticsApi";
 
+export interface StatisticsApiGetDetailedOpenRateOfAnnouncementByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApigetDetailedOpenRateOfAnnouncementById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApigetDetailedOpenRateOfAnnouncementById
+     */
+    uniqueId: string
+}
+
+export interface StatisticsApiGetDetailedOpenStatusOfAnnouncementByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    apiToken: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    uniqueId: string
+    /**
+     * 
+     * @type number
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    limit?: number
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    next?: string
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    uniqueIds?: Array<string>
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    channelUrls?: Array<string>
+    /**
+     * 
+     * @type boolean
+     * @memberof StatisticsApigetDetailedOpenStatusOfAnnouncementById
+     */
+    hasOpened?: boolean
+}
+
 export interface StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest {
     /**
      * 
@@ -6237,6 +6265,24 @@ export class ObjectStatisticsApi {
 
     public constructor(configuration: Configuration, requestFactory?: StatisticsApiRequestFactory, responseProcessor?: StatisticsApiResponseProcessor) {
         this.api = new ObservableStatisticsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
+     * Get detailed open rate of an announcement
+     * @param param the request object
+     */
+    public getDetailedOpenRateOfAnnouncementById(param: StatisticsApiGetDetailedOpenRateOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
+        return this.api.getDetailedOpenRateOfAnnouncementById(param.apiToken, param.uniqueId,  options).toPromise();
+    }
+
+    /**
+     * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
+     * Get detailed open status of an announcement
+     * @param param the request object
+     */
+    public getDetailedOpenStatusOfAnnouncementById(param: StatisticsApiGetDetailedOpenStatusOfAnnouncementByIdRequest, options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
+        return this.api.getDetailedOpenStatusOfAnnouncementById(param.apiToken, param.uniqueId, param.limit, param.next, param.uniqueIds, param.channelUrls, param.hasOpened,  options).toPromise();
     }
 
     /**

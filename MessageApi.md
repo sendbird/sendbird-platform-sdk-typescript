@@ -17,11 +17,7 @@ Method | HTTP request | Description
 [**gcViewNumberOfEachMembersUnreadMessages**](MessageApi.md#gcViewNumberOfEachMembersUnreadMessages) | **GET** /v3/group_channels/{channel_url}/messages/unread_count | View number of each member&#39;s unread messages
 [**getEmojiByKey**](MessageApi.md#getEmojiByKey) | **GET** /v3/emojis/{emoji_key} | Get an emoji
 [**getEmojiCategoryById**](MessageApi.md#getEmojiCategoryById) | **GET** /v3/emoji_categories/{emoji_category_id} | Get an emoji category
-[**getStatistics**](MessageApi.md#getStatistics) | **GET** /v3/announcement_stats/weekly | Get statistics - weekly
-[**getStatisticsDaily**](MessageApi.md#getStatisticsDaily) | **GET** /v3/announcement_stats/daily | Get statistics - daily
-[**getStatisticsMonthly**](MessageApi.md#getStatisticsMonthly) | **GET** /v3/announcement_stats/monthly | Get statistics - monthly
 [**listAllEmojisAndEmojiCategories**](MessageApi.md#listAllEmojisAndEmojiCategories) | **GET** /v3/emoji_categories | List all emojis and emoji categories
-[**listAnnouncementGroups**](MessageApi.md#listAnnouncementGroups) | **GET** /v3/announcement_group | List announcement groups
 [**listAnnouncements**](MessageApi.md#listAnnouncements) | **GET** /v3/announcements | List announcements
 [**listEmojis**](MessageApi.md#listEmojis) | **GET** /v3/emojis | List emojis
 [**listMessages**](MessageApi.md#listMessages) | **GET** /v3/{channel_type}/{channel_url}/messages | List messages
@@ -29,10 +25,8 @@ Method | HTTP request | Description
 [**migrateMessagesByUrl**](MessageApi.md#migrateMessagesByUrl) | **POST** /v3/migration/{target_channel_url} | Migrate messages
 [**removeExtraDataFromMessage**](MessageApi.md#removeExtraDataFromMessage) | **DELETE** /v3/{channel_type}/{channel_url}/messages/{message_id}/sorted_metaarray | Remove extra data from a message
 [**removeReactionFromAMessage**](MessageApi.md#removeReactionFromAMessage) | **DELETE** /v3/{channel_type}/{channel_url}/messages/{message_id}/reactions | Remove a reaction from a message
-[**scheduleAnnouncement**](MessageApi.md#scheduleAnnouncement) | **POST** /v3/announcements | Schedule an announcement
 [**sendMessage**](MessageApi.md#sendMessage) | **POST** /v3/{channel_type}/{channel_url}/messages | Send a message
 [**translateMessageIntoOtherLanguages**](MessageApi.md#translateMessageIntoOtherLanguages) | **POST** /v3/{channel_type}/{channel_url}/messages/{message_id}/translation | Translate a message into other languages
-[**updateAnnouncementById**](MessageApi.md#updateAnnouncementById) | **PUT** /v3/announcements/{unique_id} | Update an announcement
 [**updateEmojiCategoryUrlById**](MessageApi.md#updateEmojiCategoryUrlById) | **PUT** /v3/emoji_categories/{emoji_category_id} | Update an emoji category URL
 [**updateEmojiUrlByKey**](MessageApi.md#updateEmojiUrlByKey) | **PUT** /v3/emojis/{emoji_key} | Update an emoji URL
 [**updateExtraDataInMessage**](MessageApi.md#updateExtraDataInMessage) | **PUT** /v3/{channel_type}/{channel_url}/messages/{message_id}/sorted_metaarray | Update extra data in a message
@@ -842,189 +836,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getStatistics**
-> GetStatisticsResponse getStatistics()
-
-## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiGetStatisticsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-};
-
-apiInstance.getStatistics(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GetStatisticsResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **getStatisticsDaily**
-> GetStatisticsDailyResponse getStatisticsDaily()
-
-## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiGetStatisticsDailyRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  startDate: "start_date_example",
-  // string
-  endDate: "end_date_example",
-  // string
-  startWeek: "start_week_example",
-  // string
-  endWeek: "end_week_example",
-  // string
-  startMonth: "start_month_example",
-  // string
-  endMonth: "end_month_example",
-  // string (optional)
-  announcementGroup: "announcement_group_example",
-};
-
-apiInstance.getStatisticsDaily(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **startDate** | [**string**] |  | defaults to undefined
- **endDate** | [**string**] |  | defaults to undefined
- **startWeek** | [**string**] |  | defaults to undefined
- **endWeek** | [**string**] |  | defaults to undefined
- **startMonth** | [**string**] |  | defaults to undefined
- **endMonth** | [**string**] |  | defaults to undefined
- **announcementGroup** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**GetStatisticsDailyResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **getStatisticsMonthly**
-> GetStatisticsMonthlyResponse getStatisticsMonthly()
-
-## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiGetStatisticsMonthlyRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-};
-
-apiInstance.getStatisticsMonthly(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**GetStatisticsMonthlyResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **listAllEmojisAndEmojiCategories**
 > ListAllEmojisAndEmojiCategoriesResponse listAllEmojisAndEmojiCategories()
 
@@ -1061,66 +872,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **ListAllEmojisAndEmojiCategoriesResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **listAnnouncementGroups**
-> ListAnnouncementGroupsResponse listAnnouncementGroups()
-
-## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiListAnnouncementGroupsRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string (optional)
-  token: "token_example",
-  // number (optional)
-  limit: 1,
-};
-
-apiInstance.listAnnouncementGroups(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
- **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**ListAnnouncementGroupsResponse**
 
 ### Authorization
 
@@ -1639,90 +1390,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **scheduleAnnouncement**
-> ScheduleAnnouncementResponse scheduleAnnouncement()
-
-## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiScheduleAnnouncementRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // ScheduleAnnouncementData (optional)
-  scheduleAnnouncementData: {
-    message: "message_example",
-    messageType: "messageType_example",
-    messageUserId: "messageUserId_example",
-    messageContent: "messageContent_example",
-    targetAt: "targetAt_example",
-    targetList: [
-      "targetList_example",
-    ],
-    targetChannelType: "targetChannelType_example",
-    uniqueId: "uniqueId_example",
-    messageCustomType: "messageCustomType_example",
-    messageData: "messageData_example",
-    createChannel: true,
-    announcementGroup: "announcementGroup_example",
-    createChannelOptions: "createChannelOptions_example",
-    createChannelOptionsName: "createChannelOptionsName_example",
-    createChannelOptionsCoverUrl: "createChannelOptionsCoverUrl_example",
-    createChannelOptionsCustomType: "createChannelOptionsCustomType_example",
-    createChannelOptionsData: "createChannelOptionsData_example",
-    createChannelOptionsDistinct: "createChannelOptionsDistinct_example",
-    scheduledAt: 1,
-    ceaseAt: "ceaseAt_example",
-    resumeAt: "resumeAt_example",
-    endAt: 1,
-    enablePush: true,
-    assignSenderAsChannelInviter: true,
-  },
-};
-
-apiInstance.scheduleAnnouncement(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scheduleAnnouncementData** | **ScheduleAnnouncementData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**ScheduleAnnouncementResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **sendMessage**
 > SendBirdMessageResponse sendMessage()
 
@@ -1766,6 +1433,17 @@ let body:.MessageApiSendMessageRequest = {
     apnsBundleId: "apnsBundleId_example",
     sound: "sound_example",
     volume: 3.14,
+    url: "url_example",
+    file: "file_example",
+    fileName: "fileName_example",
+    fileSize: 3.14,
+    fileType: "fileType_example",
+    thumbnails: [
+      "thumbnails_example",
+    ],
+    thumbnail1: "thumbnail1_example",
+    thumbnail2: "thumbnail2_example",
+    thumbnail3: "thumbnail3_example",
   },
 };
 
@@ -1858,84 +1536,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **SendBirdMessageResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **updateAnnouncementById**
-> UpdateAnnouncementByIdResponse updateAnnouncementById()
-
-## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
-
-let body:.MessageApiUpdateAnnouncementByIdRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
-  // string
-  uniqueId: "unique_id_example",
-  // UpdateAnnouncementByIdData (optional)
-  updateAnnouncementByIdData: {
-    uniqueId: "uniqueId_example",
-    action: "action_example",
-    announcementGroup: "announcementGroup_example",
-    createChannel: true,
-    createChannelOptionsName: "createChannelOptionsName_example",
-    createChannelOptionsCoverUrl: "createChannelOptionsCoverUrl_example",
-    createChannelOptionsCustomType: "createChannelOptionsCustomType_example",
-    createChannelOptionsData: "createChannelOptionsData_example",
-    createChannelOptionsDistinct: "createChannelOptionsDistinct_example",
-    messageUserId: "messageUserId_example",
-    messageContent: "messageContent_example",
-    messageData: "messageData_example",
-    enablePush: true,
-    scheduledAt: 1,
-    endAt: 1,
-    ceaseAt: "ceaseAt_example",
-    resumeAt: "resumeAt_example",
-  },
-};
-
-apiInstance.updateAnnouncementById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updateAnnouncementByIdData** | **UpdateAnnouncementByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
- **uniqueId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**UpdateAnnouncementByIdResponse**
 
 ### Authorization
 

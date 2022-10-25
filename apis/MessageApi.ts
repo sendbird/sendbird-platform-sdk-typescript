@@ -23,25 +23,17 @@ import { GcMarkAllMessagesAsDeliveredData } from '../models/GcMarkAllMessagesAsD
 import { GcMarkAllMessagesAsDeliveredResponse } from '../models/GcMarkAllMessagesAsDeliveredResponse';
 import { GcMarkAllMessagesAsReadData } from '../models/GcMarkAllMessagesAsReadData';
 import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse';
-import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
-import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
 import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAnnouncementGroupsResponse } from '../models/ListAnnouncementGroupsResponse';
 import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
 import { ListEmojisResponse } from '../models/ListEmojisResponse';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
 import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
 import { RemoveReactionFromAMessageResponse } from '../models/RemoveReactionFromAMessageResponse';
-import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
-import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
 import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
 import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
 import { SendMessageData } from '../models/SendMessageData';
 import { TranslateMessageIntoOtherLanguagesData } from '../models/TranslateMessageIntoOtherLanguagesData';
-import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
-import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
 import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrlByIdData';
 import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
 import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
@@ -725,187 +717,6 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - weekly
-     * @param apiToken 
-     */
-    public async getStatistics(apiToken: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "getStatistics", "apiToken");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/announcement_stats/weekly';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - daily
-     * @param apiToken 
-     * @param startDate 
-     * @param endDate 
-     * @param startWeek 
-     * @param endWeek 
-     * @param startMonth 
-     * @param endMonth 
-     * @param announcementGroup 
-     */
-    public async getStatisticsDaily(apiToken: string, startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "apiToken");
-        }
-
-
-        // verify required parameter 'startDate' is not null or undefined
-        if (startDate === null || startDate === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "startDate");
-        }
-
-
-        // verify required parameter 'endDate' is not null or undefined
-        if (endDate === null || endDate === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "endDate");
-        }
-
-
-        // verify required parameter 'startWeek' is not null or undefined
-        if (startWeek === null || startWeek === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "startWeek");
-        }
-
-
-        // verify required parameter 'endWeek' is not null or undefined
-        if (endWeek === null || endWeek === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "endWeek");
-        }
-
-
-        // verify required parameter 'startMonth' is not null or undefined
-        if (startMonth === null || startMonth === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "startMonth");
-        }
-
-
-        // verify required parameter 'endMonth' is not null or undefined
-        if (endMonth === null || endMonth === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsDaily", "endMonth");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/announcement_stats/daily';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (startDate !== undefined) {
-            requestContext.setQueryParam("start_date", ObjectSerializer.serialize(startDate, "string", ""));
-        }
-
-        // Query Params
-        if (endDate !== undefined) {
-            requestContext.setQueryParam("end_date", ObjectSerializer.serialize(endDate, "string", ""));
-        }
-
-        // Query Params
-        if (startWeek !== undefined) {
-            requestContext.setQueryParam("start_week", ObjectSerializer.serialize(startWeek, "string", ""));
-        }
-
-        // Query Params
-        if (endWeek !== undefined) {
-            requestContext.setQueryParam("end_week", ObjectSerializer.serialize(endWeek, "string", ""));
-        }
-
-        // Query Params
-        if (startMonth !== undefined) {
-            requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "string", ""));
-        }
-
-        // Query Params
-        if (endMonth !== undefined) {
-            requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "string", ""));
-        }
-
-        // Query Params
-        if (announcementGroup !== undefined) {
-            requestContext.setQueryParam("announcement_group", ObjectSerializer.serialize(announcementGroup, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - monthly
-     * @param apiToken 
-     */
-    public async getStatisticsMonthly(apiToken: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "getStatisticsMonthly", "apiToken");
-        }
-
-
-        // Path Params
-        const localVarPath = '/v3/announcement_stats/monthly';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
      * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
      * List all emojis and emoji categories
      * @param apiToken 
@@ -925,54 +736,6 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
-     * List announcement groups
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public async listAnnouncementGroups(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listAnnouncementGroups", "apiToken");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/announcement_group';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
 
         // Header Params
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
@@ -1524,53 +1287,6 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
-     * Schedule an announcement
-     * @param apiToken 
-     * @param scheduleAnnouncementData 
-     */
-    public async scheduleAnnouncement(apiToken: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "scheduleAnnouncement", "apiToken");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/announcements';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(scheduleAnnouncementData, "ScheduleAnnouncementData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
      * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
      * Send a message
      * @param apiToken 
@@ -1691,61 +1407,6 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(translateMessageIntoOtherLanguagesData, "TranslateMessageIntoOtherLanguagesData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
-     * Update an announcement
-     * @param apiToken 
-     * @param uniqueId 
-     * @param updateAnnouncementByIdData 
-     */
-    public async updateAnnouncementById(apiToken: string, uniqueId: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "updateAnnouncementById", "apiToken");
-        }
-
-
-        // verify required parameter 'uniqueId' is not null or undefined
-        if (uniqueId === null || uniqueId === undefined) {
-            throw new RequiredError("MessageApi", "updateAnnouncementById", "uniqueId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/announcements/{unique_id}'
-            .replace('{' + 'unique_id' + '}', encodeURIComponent(String(uniqueId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateAnnouncementByIdData, "UpdateAnnouncementByIdData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -2561,93 +2222,6 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getStatistics
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getStatistics(response: ResponseContext): Promise<GetStatisticsResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetStatisticsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsResponse", ""
-            ) as GetStatisticsResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetStatisticsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsResponse", ""
-            ) as GetStatisticsResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getStatisticsDaily
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getStatisticsDaily(response: ResponseContext): Promise<GetStatisticsDailyResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetStatisticsDailyResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsDailyResponse", ""
-            ) as GetStatisticsDailyResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetStatisticsDailyResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsDailyResponse", ""
-            ) as GetStatisticsDailyResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getStatisticsMonthly
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getStatisticsMonthly(response: ResponseContext): Promise<GetStatisticsMonthlyResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetStatisticsMonthlyResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsMonthlyResponse", ""
-            ) as GetStatisticsMonthlyResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetStatisticsMonthlyResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetStatisticsMonthlyResponse", ""
-            ) as GetStatisticsMonthlyResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to listAllEmojisAndEmojiCategories
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2667,35 +2241,6 @@ export class MessageApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ListAllEmojisAndEmojiCategoriesResponse", ""
             ) as ListAllEmojisAndEmojiCategoriesResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to listAnnouncementGroups
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async listAnnouncementGroups(response: ResponseContext): Promise<ListAnnouncementGroupsResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ListAnnouncementGroupsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAnnouncementGroupsResponse", ""
-            ) as ListAnnouncementGroupsResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ListAnnouncementGroupsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAnnouncementGroupsResponse", ""
-            ) as ListAnnouncementGroupsResponse;
             return body;
         }
 
@@ -2905,35 +2450,6 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to scheduleAnnouncement
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async scheduleAnnouncement(response: ResponseContext): Promise<ScheduleAnnouncementResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ScheduleAnnouncementResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ScheduleAnnouncementResponse", ""
-            ) as ScheduleAnnouncementResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ScheduleAnnouncementResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ScheduleAnnouncementResponse", ""
-            ) as ScheduleAnnouncementResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to sendMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2982,35 +2498,6 @@ export class MessageApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SendBirdMessageResponse", ""
             ) as SendBirdMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to updateAnnouncementById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async updateAnnouncementById(response: ResponseContext): Promise<UpdateAnnouncementByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UpdateAnnouncementByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateAnnouncementByIdResponse", ""
-            ) as UpdateAnnouncementByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UpdateAnnouncementByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateAnnouncementByIdResponse", ""
-            ) as UpdateAnnouncementByIdResponse;
             return body;
         }
 

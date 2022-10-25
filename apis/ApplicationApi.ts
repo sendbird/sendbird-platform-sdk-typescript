@@ -19,6 +19,7 @@ import { AddHmsPushConfigurationResponse } from '../models/AddHmsPushConfigurati
 import { AddIpToWhitelistData } from '../models/AddIpToWhitelistData';
 import { AddIpToWhitelistResponse } from '../models/AddIpToWhitelistResponse';
 import { BanUsersInChannelsWithCustomChannelTypeData } from '../models/BanUsersInChannelsWithCustomChannelTypeData';
+import { ConfigureAutoEventData } from '../models/ConfigureAutoEventData';
 import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
 import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
 import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
@@ -32,6 +33,7 @@ import { MuteUsersInChannelsWithCustomChannelTypeData } from '../models/MuteUser
 import { RemovePushConfigurationByIdResponse } from '../models/RemovePushConfigurationByIdResponse';
 import { RetrieveIpWhitelistResponse } from '../models/RetrieveIpWhitelistResponse';
 import { RevokeSecondaryApiTokenByTokenResponse } from '../models/RevokeSecondaryApiTokenByTokenResponse';
+import { SendBirdAutoEventMessageSettings } from '../models/SendBirdAutoEventMessageSettings';
 import { SendBirdChannelResponse } from '../models/SendBirdChannelResponse';
 import { SetDomainFilterData } from '../models/SetDomainFilterData';
 import { UpdateApnsPushConfigurationByIdData } from '../models/UpdateApnsPushConfigurationByIdData';
@@ -298,6 +300,53 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Configure auto event message settings  Determines whether to automatically send event messages to group channels when events take place in an application. You can choose which auto event message to receive on the Sendbird Dashboard  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/configure-auto-event-message-settings ----------------------------
+     * Configure auto event message settings
+     * @param apiToken 
+     * @param configureAutoEventData 
+     */
+    public async configureAutoEventMessages(apiToken: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ApplicationApi", "configureAutoEventMessages", "apiToken");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/applications/settings/auto_event_message';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(configureAutoEventData, "ConfigureAutoEventData", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
      * Delete allowed IPs from a whitelist
      * @param apiToken 
@@ -422,6 +471,40 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
             contentType
         );
         requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## List auto event messages  Retrieves a list of auto event messages that are sent in a specified application and indicates which ones are in use. Auto event messages are Admin messages that are automatically generated when a specific event occurs.  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/list-auto-event-messages ----------------------------
+     * List auto event messages
+     * @param apiToken 
+     */
+    public async listAutoEventMessages(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("ApplicationApi", "listAutoEventMessages", "apiToken");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v3/applications/settings/auto_event_message';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -1586,6 +1669,35 @@ export class ApplicationApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to configureAutoEventMessages
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async configureAutoEventMessages(response: ResponseContext): Promise<SendBirdAutoEventMessageSettings > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SendBirdAutoEventMessageSettings = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendBirdAutoEventMessageSettings", ""
+            ) as SendBirdAutoEventMessageSettings;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SendBirdAutoEventMessageSettings = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendBirdAutoEventMessageSettings", ""
+            ) as SendBirdAutoEventMessageSettings;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to deleteAllowedIpsFromWhitelist
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1663,6 +1775,35 @@ export class ApplicationApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "GenerateSecondaryApiTokenResponse", ""
             ) as GenerateSecondaryApiTokenResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listAutoEventMessages
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async listAutoEventMessages(response: ResponseContext): Promise<SendBirdAutoEventMessageSettings > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SendBirdAutoEventMessageSettings = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendBirdAutoEventMessageSettings", ""
+            ) as SendBirdAutoEventMessageSettings;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SendBirdAutoEventMessageSettings = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendBirdAutoEventMessageSettings", ""
+            ) as SendBirdAutoEventMessageSettings;
             return body;
         }
 

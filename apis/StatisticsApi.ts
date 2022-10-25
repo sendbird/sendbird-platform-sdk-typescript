@@ -10,6 +10,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
+import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponse';
 import { RetrieveAdvancedAnalyticsMetricsResponse } from '../models/RetrieveAdvancedAnalyticsMetricsResponse';
 import { ViewNumberOfConcurrentConnectionsResponse } from '../models/ViewNumberOfConcurrentConnectionsResponse';
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
@@ -20,6 +22,125 @@ import { ViewNumberOfPeakConnectionsResponse } from '../models/ViewNumberOfPeakC
  * no description
  */
 export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
+
+    /**
+     * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
+     * Get detailed open rate of an announcement
+     * @param apiToken 
+     * @param uniqueId 
+     */
+    public async getDetailedOpenRateOfAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("StatisticsApi", "getDetailedOpenRateOfAnnouncementById", "apiToken");
+        }
+
+
+        // verify required parameter 'uniqueId' is not null or undefined
+        if (uniqueId === null || uniqueId === undefined) {
+            throw new RequiredError("StatisticsApi", "getDetailedOpenRateOfAnnouncementById", "uniqueId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v3/announcement_open_rate/{unique_id}'
+            .replace('{' + 'unique_id' + '}', encodeURIComponent(String(uniqueId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
+     * Get detailed open status of an announcement
+     * @param apiToken 
+     * @param uniqueId 
+     * @param limit 
+     * @param next 
+     * @param uniqueIds 
+     * @param channelUrls 
+     * @param hasOpened 
+     */
+    public async getDetailedOpenStatusOfAnnouncementById(apiToken: string, uniqueId: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("StatisticsApi", "getDetailedOpenStatusOfAnnouncementById", "apiToken");
+        }
+
+
+        // verify required parameter 'uniqueId' is not null or undefined
+        if (uniqueId === null || uniqueId === undefined) {
+            throw new RequiredError("StatisticsApi", "getDetailedOpenStatusOfAnnouncementById", "uniqueId");
+        }
+
+
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/announcement_open_status/{unique_id}'
+            .replace('{' + 'unique_id' + '}', encodeURIComponent(String(uniqueId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (next !== undefined) {
+            requestContext.setQueryParam("next", ObjectSerializer.serialize(next, "string", ""));
+        }
+
+        // Query Params
+        if (uniqueIds !== undefined) {
+            requestContext.setQueryParam("unique_ids", ObjectSerializer.serialize(uniqueIds, "Array<string>", ""));
+        }
+
+        // Query Params
+        if (channelUrls !== undefined) {
+            requestContext.setQueryParam("channel_urls", ObjectSerializer.serialize(channelUrls, "Array<string>", ""));
+        }
+
+        // Query Params
+        if (hasOpened !== undefined) {
+            requestContext.setQueryParam("has_opened", ObjectSerializer.serialize(hasOpened, "boolean", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
 
     /**
      * ## Retrieve Advanced analytics metrics  Retrieves Advanced analytics metrics based on the specified parameters. You can retrieve either daily or monthly metrics using the time_dimension parameter.  >__Note__: Daily metrics are calculated and updated every three hours, starting at 1 a.m. in UTC. Meanwhile, monthly metrics are calculated after the last day of the month.  https://sendbird.com/docs/chat/v3/platform-api/guides/advanced-analytics#2-retrieve-advanced-analytics-metrics ----------------------------
@@ -282,6 +403,64 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StatisticsApiResponseProcessor {
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getDetailedOpenRateOfAnnouncementById
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getDetailedOpenRateOfAnnouncementById(response: ResponseContext): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetDetailedOpenRateOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetDetailedOpenRateOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementByIdResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetDetailedOpenRateOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetDetailedOpenRateOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenRateOfAnnouncementByIdResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getDetailedOpenStatusOfAnnouncementById
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getDetailedOpenStatusOfAnnouncementById(response: ResponseContext): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetDetailedOpenStatusOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetDetailedOpenStatusOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenStatusOfAnnouncementByIdResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetDetailedOpenStatusOfAnnouncementByIdResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetDetailedOpenStatusOfAnnouncementByIdResponse", ""
+            ) as GetDetailedOpenStatusOfAnnouncementByIdResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
 
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content

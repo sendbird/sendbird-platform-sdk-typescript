@@ -81,6 +81,15 @@ export class SendMessageData {
     * Specifies the volume of the critical alert sound. The volume ranges from 0.0 to 1.0, which indicates silent and full volume, respectively. (Default 1.0)
     */
     'volume'?: number;
+    'url'?: string;
+    'file'?: string;
+    'fileName'?: string;
+    'fileSize'?: number;
+    'fileType'?: string;
+    'thumbnails'?: Array<string>;
+    'thumbnail1'?: string;
+    'thumbnail2'?: string;
+    'thumbnail3'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -185,6 +194,60 @@ export class SendMessageData {
             "name": "volume",
             "baseName": "volume",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "file",
+            "baseName": "file",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "fileName",
+            "baseName": "file_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "fileSize",
+            "baseName": "file_size",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "fileType",
+            "baseName": "file_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "thumbnails",
+            "baseName": "thumbnails",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "thumbnail1",
+            "baseName": "thumbnail1",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "thumbnail2",
+            "baseName": "thumbnail2",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "thumbnail3",
+            "baseName": "thumbnail3",
+            "type": "string",
             "format": ""
         }    ];
 

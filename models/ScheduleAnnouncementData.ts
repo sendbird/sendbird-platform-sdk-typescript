@@ -10,25 +10,23 @@
  * Do not edit the class manually.
  */
 
+import { ScheduleAnnouncementDataMessage } from './ScheduleAnnouncementDataMessage';
 import { HttpFile } from '../http/http';
 
 export class ScheduleAnnouncementData {
-    /**
-    * The [message](/docs/chat/v3/platform-api/guides/messages#-3-resource-representation) of a new announcement.
-    */
-    'message': string;
+    'message': ScheduleAnnouncementDataMessage;
     /**
     * Specifies the type of the message, which can be either MESG for a text message and ADMM for an admin message.
     */
-    'messageType': string;
+    'messageType'?: string;
     /**
     * Specifies the unique ID of the sender when the message.type is MESG. When the message.type value is ADMM, this property is not effective.
     */
-    'messageUserId': string;
+    'userId'?: string;
     /**
     * Specifies the content of the message.
     */
-    'messageContent': string;
+    'content'?: string;
     /**
     * Specifies the target channels to send the announcement to. Acceptable values are the following: <br/> - sender_all_channels (Default): sends the announcement to all of the sender's group channels.<br />- target_channels: sends the announcement to all target group channels. When the `message.type` of the announcement is ADMM, this is the only valid option. <br /> - target_users_included_channels: sends the announcement to group channels consisting of the sender, target users, and other members. <br/> - target_users_only_channels: sends the announcement to group channels consisting of the sender and target users only.
     */
@@ -116,24 +114,24 @@ export class ScheduleAnnouncementData {
         {
             "name": "message",
             "baseName": "message",
-            "type": "string",
+            "type": "ScheduleAnnouncementDataMessage",
             "format": ""
         },
         {
             "name": "messageType",
-            "baseName": "message.type",
+            "baseName": "message_type",
             "type": "string",
             "format": ""
         },
         {
-            "name": "messageUserId",
-            "baseName": "message.user_id",
+            "name": "userId",
+            "baseName": "user_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "messageContent",
-            "baseName": "message.content",
+            "name": "content",
+            "baseName": "content",
             "type": "string",
             "format": ""
         },

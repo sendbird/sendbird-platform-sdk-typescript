@@ -14,8 +14,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class AddRegistrationOrDeviceTokenResponse {
-    'tokens'?: Array<string>;
-    'token'?: Array<string>;
+    'token'?: string;
     'type'?: string;
     'user'?: SendBirdUser;
 
@@ -23,15 +22,9 @@ export class AddRegistrationOrDeviceTokenResponse {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "tokens",
-            "baseName": "tokens",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
             "name": "token",
             "baseName": "token",
-            "type": "Array<string>",
+            "type": "string",
             "format": ""
         },
         {

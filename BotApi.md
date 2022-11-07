@@ -1,4 +1,4 @@
-# .BotApi
+# Sendbird.BotApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -24,13 +24,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiCreateBotRequest = {
+let body:Sendbird.BotApiCreateBotRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // CreateBotData (optional)
@@ -91,13 +91,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiDeleteBotByIdRequest = {
+let body:Sendbird.BotApiDeleteBotByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -148,13 +148,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiJoinChannelsRequest = {
+let body:Sendbird.BotApiJoinChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -213,13 +213,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiLeaveChannelsRequest = {
+let body:Sendbird.BotApiLeaveChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -273,13 +273,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiLeaveChannelsByUrlRequest = {
+let body:Sendbird.BotApiLeaveChannelsByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -333,13 +333,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiListBotsRequest = {
+let body:Sendbird.BotApiListBotsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -393,13 +393,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiSendBotsMessageRequest = {
+let body:Sendbird.BotApiSendBotsMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -465,13 +465,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiUpdateBotByIdRequest = {
+let body:Sendbird.BotApiUpdateBotByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -534,13 +534,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BotApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:.BotApiViewBotByIdRequest = {
+let body:Sendbird.BotApiViewBotByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

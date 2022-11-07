@@ -1,4 +1,4 @@
-# .ReportApi
+# Sendbird.ReportApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -23,13 +23,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiListReportsRequest = {
+let body:Sendbird.ReportApiListReportsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -89,13 +89,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiListReportsOnChannelByUrlRequest = {
+let body:Sendbird.ReportApiListReportsOnChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -155,13 +155,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiListReportsOnMessageByIdRequest = {
+let body:Sendbird.ReportApiListReportsOnMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -224,13 +224,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiListReportsOnUserByIdRequest = {
+let body:Sendbird.ReportApiListReportsOnUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -287,13 +287,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiReportChannelByUrlRequest = {
+let body:Sendbird.ReportApiReportChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -356,13 +356,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiReportMessageByIdRequest = {
+let body:Sendbird.ReportApiReportMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -430,13 +430,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiReportUserByIdRequest = {
+let body:Sendbird.ReportApiReportUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -497,13 +497,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ReportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ReportApi(configuration);
 
-let body:.ReportApiViewModeratedMessageByIdRequest = {
+let body:Sendbird.ReportApiViewModeratedMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

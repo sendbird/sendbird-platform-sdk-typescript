@@ -1,4 +1,4 @@
-# .PrivacyApi
+# Sendbird.PrivacyApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -19,13 +19,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PrivacyApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.PrivacyApi(configuration);
 
-let body:.PrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest = {
+let body:Sendbird.PrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -76,13 +76,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PrivacyApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.PrivacyApi(configuration);
 
-let body:.PrivacyApiListGdprRequestsRequest = {
+let body:Sendbird.PrivacyApiListGdprRequestsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -136,13 +136,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PrivacyApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.PrivacyApi(configuration);
 
-let body:.PrivacyApiRegisterGdprRequestRequest = {
+let body:Sendbird.PrivacyApiRegisterGdprRequestRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // RegisterGdprRequestData (optional)
@@ -200,13 +200,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PrivacyApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.PrivacyApi(configuration);
 
-let body:.PrivacyApiViewGdprRequestByIdRequest = {
+let body:Sendbird.PrivacyApiViewGdprRequestByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

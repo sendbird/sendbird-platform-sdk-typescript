@@ -1,4 +1,4 @@
-# .MessageApi
+# Sendbird.MessageApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -45,13 +45,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiAddEmojiCategoriesRequest = {
+let body:Sendbird.MessageApiAddEmojiCategoriesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // any (optional)
@@ -102,13 +102,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiAddEmojisRequest = {
+let body:Sendbird.MessageApiAddEmojisRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // AddEmojisData (optional)
@@ -164,13 +164,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiAddExtraDataToMessageRequest = {
+let body:Sendbird.MessageApiAddExtraDataToMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -235,13 +235,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiAddReactionToAMessageRequest = {
+let body:Sendbird.MessageApiAddReactionToAMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -307,13 +307,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiDeleteEmojiByKeyRequest = {
+let body:Sendbird.MessageApiDeleteEmojiByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -364,13 +364,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiDeleteEmojiCategoryByIdRequest = {
+let body:Sendbird.MessageApiDeleteEmojiCategoryByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -421,13 +421,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiDeleteMessageByIdRequest = {
+let body:Sendbird.MessageApiDeleteMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -484,13 +484,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiEnableReactionsRequest = {
+let body:Sendbird.MessageApiEnableReactionsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // EnableReactionsData (optional)
@@ -543,13 +543,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiGcMarkAllMessagesAsDeliveredRequest = {
+let body:Sendbird.MessageApiGcMarkAllMessagesAsDeliveredRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -607,13 +607,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiGcMarkAllMessagesAsReadRequest = {
+let body:Sendbird.MessageApiGcMarkAllMessagesAsReadRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -671,13 +671,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiGcViewNumberOfEachMembersUnreadMessagesRequest = {
+let body:Sendbird.MessageApiGcViewNumberOfEachMembersUnreadMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -731,13 +731,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiGetEmojiByKeyRequest = {
+let body:Sendbird.MessageApiGetEmojiByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -788,13 +788,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiGetEmojiCategoryByIdRequest = {
+let body:Sendbird.MessageApiGetEmojiCategoryByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -845,13 +845,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiListAllEmojisAndEmojiCategoriesRequest = {
+let body:Sendbird.MessageApiListAllEmojisAndEmojiCategoriesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -899,13 +899,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiListAnnouncementsRequest = {
+let body:Sendbird.MessageApiListAnnouncementsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -968,13 +968,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiListEmojisRequest = {
+let body:Sendbird.MessageApiListEmojisRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -1022,13 +1022,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiListMessagesRequest = {
+let body:Sendbird.MessageApiListMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1136,13 +1136,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiListReactionsOfMessageRequest = {
+let body:Sendbird.MessageApiListReactionsOfMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1202,13 +1202,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiMigrateMessagesByUrlRequest = {
+let body:Sendbird.MessageApiMigrateMessagesByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1262,13 +1262,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiRemoveExtraDataFromMessageRequest = {
+let body:Sendbird.MessageApiRemoveExtraDataFromMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1330,13 +1330,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiRemoveReactionFromAMessageRequest = {
+let body:Sendbird.MessageApiRemoveReactionFromAMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1399,13 +1399,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiSendMessageRequest = {
+let body:Sendbird.MessageApiSendMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1493,13 +1493,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiTranslateMessageIntoOtherLanguagesRequest = {
+let body:Sendbird.MessageApiTranslateMessageIntoOtherLanguagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1563,13 +1563,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiUpdateEmojiCategoryUrlByIdRequest = {
+let body:Sendbird.MessageApiUpdateEmojiCategoryUrlByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1626,13 +1626,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiUpdateEmojiUrlByKeyRequest = {
+let body:Sendbird.MessageApiUpdateEmojiUrlByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1689,13 +1689,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiUpdateExtraDataInMessageRequest = {
+let body:Sendbird.MessageApiUpdateExtraDataInMessageRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1762,13 +1762,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiUpdateMessageByIdRequest = {
+let body:Sendbird.MessageApiUpdateMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1840,13 +1840,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiUseDefaultEmojisRequest = {
+let body:Sendbird.MessageApiUseDefaultEmojisRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // UseDefaultEmojisData (optional)
@@ -1899,13 +1899,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiViewMessageByIdRequest = {
+let body:Sendbird.MessageApiViewMessageByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1968,13 +1968,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MessageApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MessageApi(configuration);
 
-let body:.MessageApiViewTotalNumberOfMessagesInChannelRequest = {
+let body:Sendbird.MessageApiViewTotalNumberOfMessagesInChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

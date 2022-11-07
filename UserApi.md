@@ -1,4 +1,4 @@
-# .UserApi
+# Sendbird.UserApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -45,13 +45,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiAddRegistrationOrDeviceTokenRequest = {
+let body:Sendbird.UserApiAddRegistrationOrDeviceTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -112,13 +112,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiChoosePushNotificationContentTemplateRequest = {
+let body:Sendbird.UserApiChoosePushNotificationContentTemplateRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -172,13 +172,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiCreateUserRequest = {
+let body:Sendbird.UserApiCreateUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // CreateUserData (optional)
@@ -239,13 +239,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiCreateUserTokenRequest = {
+let body:Sendbird.UserApiCreateUserTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -301,13 +301,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiDeleteUserByIdRequest = {
+let body:Sendbird.UserApiDeleteUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -358,13 +358,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiLeaveMyGroupChannelsRequest = {
+let body:Sendbird.UserApiLeaveMyGroupChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -420,13 +420,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiListMyGroupChannelsRequest = {
+let body:Sendbird.UserApiListMyGroupChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -597,13 +597,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiListRegistrationOrDeviceTokensRequest = {
+let body:Sendbird.UserApiListRegistrationOrDeviceTokensRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -657,13 +657,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiListUsersRequest = {
+let body:Sendbird.UserApiListUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -738,13 +738,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiMarkAllMessagesAsReadRequest = {
+let body:Sendbird.UserApiMarkAllMessagesAsReadRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -802,13 +802,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest = {
+let body:Sendbird.UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -866,13 +866,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiRemoveRegistrationOrDeviceTokenRequest = {
+let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -923,13 +923,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiRemoveRegistrationOrDeviceTokenByTokenRequest = {
+let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenByTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -986,13 +986,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest = {
+let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1046,13 +1046,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiResetPushPreferencesRequest = {
+let body:Sendbird.UserApiResetPushPreferencesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1103,13 +1103,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiUpdateChannelInvitationPreferenceRequest = {
+let body:Sendbird.UserApiUpdateChannelInvitationPreferenceRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1165,13 +1165,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiUpdateCountPreferenceOfChannelByUrlRequest = {
+let body:Sendbird.UserApiUpdateCountPreferenceOfChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1230,13 +1230,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiUpdatePushPreferencesRequest = {
+let body:Sendbird.UserApiUpdatePushPreferencesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1306,13 +1306,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiUpdatePushPreferencesForChannelByUrlRequest = {
+let body:Sendbird.UserApiUpdatePushPreferencesForChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1373,13 +1373,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiUpdateUserByIdRequest = {
+let body:Sendbird.UserApiUpdateUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1450,13 +1450,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewChannelInvitationPreferenceRequest = {
+let body:Sendbird.UserApiViewChannelInvitationPreferenceRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1507,13 +1507,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewCountPreferenceOfChannelByUrlRequest = {
+let body:Sendbird.UserApiViewCountPreferenceOfChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1567,13 +1567,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewNumberOfChannelsByJoinStatusRequest = {
+let body:Sendbird.UserApiViewNumberOfChannelsByJoinStatusRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1627,13 +1627,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewNumberOfChannelsWithUnreadMessagesRequest = {
+let body:Sendbird.UserApiViewNumberOfChannelsWithUnreadMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1692,13 +1692,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewNumberOfUnreadItemsRequest = {
+let body:Sendbird.UserApiViewNumberOfUnreadItemsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1755,13 +1755,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewNumberOfUnreadMessagesRequest = {
+let body:Sendbird.UserApiViewNumberOfUnreadMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1818,13 +1818,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewPushPreferencesRequest = {
+let body:Sendbird.UserApiViewPushPreferencesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1875,13 +1875,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewPushPreferencesForChannelByUrlRequest = {
+let body:Sendbird.UserApiViewPushPreferencesForChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1935,13 +1935,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewUserByIdRequest = {
+let body:Sendbird.UserApiViewUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -2001,13 +2001,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .UserApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:.UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest = {
+let body:Sendbird.UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

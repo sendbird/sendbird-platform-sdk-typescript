@@ -1,4 +1,4 @@
-# .OpenChannelApi
+# Sendbird.OpenChannelApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -24,13 +24,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcCancelTheRegistrationOfOperatorsRequest = {
+let body:Sendbird.OpenChannelApiOcCancelTheRegistrationOfOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -89,13 +89,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcCreateChannelRequest = {
+let body:Sendbird.OpenChannelApiOcCreateChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // OcCreateChannelData (optional)
@@ -161,13 +161,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcDeleteChannelByUrlRequest = {
+let body:Sendbird.OpenChannelApiOcDeleteChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -218,13 +218,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcListChannelsRequest = {
+let body:Sendbird.OpenChannelApiOcListChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -296,13 +296,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcListOperatorsRequest = {
+let body:Sendbird.OpenChannelApiOcListOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -359,13 +359,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcListParticipantsRequest = {
+let body:Sendbird.OpenChannelApiOcListParticipantsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -422,13 +422,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcRegisterOperatorsRequest = {
+let body:Sendbird.OpenChannelApiOcRegisterOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -487,13 +487,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcUpdateChannelByUrlRequest = {
+let body:Sendbird.OpenChannelApiOcUpdateChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -560,13 +560,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .OpenChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
-let body:.OpenChannelApiOcViewChannelByUrlRequest = {
+let body:Sendbird.OpenChannelApiOcViewChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

@@ -1,4 +1,4 @@
-# .StatisticsApi
+# Sendbird.StatisticsApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -22,13 +22,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiGetDetailedOpenRateOfAnnouncementByIdRequest = {
+let body:Sendbird.StatisticsApiGetDetailedOpenRateOfAnnouncementByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -79,13 +79,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiGetDetailedOpenStatusOfAnnouncementByIdRequest = {
+let body:Sendbird.StatisticsApiGetDetailedOpenStatusOfAnnouncementByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -155,13 +155,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest = {
+let body:Sendbird.StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -209,13 +209,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiViewNumberOfConcurrentConnectionsRequest = {
+let body:Sendbird.StatisticsApiViewNumberOfConcurrentConnectionsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -263,13 +263,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiViewNumberOfDailyActiveUsersRequest = {
+let body:Sendbird.StatisticsApiViewNumberOfDailyActiveUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -320,13 +320,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiViewNumberOfMonthlyActiveUsersRequest = {
+let body:Sendbird.StatisticsApiViewNumberOfMonthlyActiveUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -377,13 +377,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatisticsApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.StatisticsApi(configuration);
 
-let body:.StatisticsApiViewNumberOfPeakConnectionsRequest = {
+let body:Sendbird.StatisticsApiViewNumberOfPeakConnectionsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

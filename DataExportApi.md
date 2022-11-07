@@ -1,4 +1,4 @@
-# .DataExportApi
+# Sendbird.DataExportApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -18,13 +18,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DataExportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.DataExportApi(configuration);
 
-let body:.DataExportApiListDataExportsByMessageChannelOrUserRequest = {
+let body:Sendbird.DataExportApiListDataExportsByMessageChannelOrUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -81,13 +81,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DataExportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.DataExportApi(configuration);
 
-let body:.DataExportApiRegisterAndScheduleDataExportRequest = {
+let body:Sendbird.DataExportApiRegisterAndScheduleDataExportRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -165,13 +165,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DataExportApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.DataExportApi(configuration);
 
-let body:.DataExportApiViewDataExportByIdRequest = {
+let body:Sendbird.DataExportApiViewDataExportByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

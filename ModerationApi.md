@@ -1,4 +1,4 @@
-# .ModerationApi
+# Sendbird.ModerationApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -42,13 +42,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiBanFromChannelsWithCustomChannelTypesRequest = {
+let body:Sendbird.ModerationApiBanFromChannelsWithCustomChannelTypesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -106,13 +106,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiBlockUserRequest = {
+let body:Sendbird.ModerationApiBlockUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -175,13 +175,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcBanUserRequest = {
+let body:Sendbird.ModerationApiGcBanUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -241,13 +241,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcFreezeChannelRequest = {
+let body:Sendbird.ModerationApiGcFreezeChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -304,13 +304,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcListBannedUsersRequest = {
+let body:Sendbird.ModerationApiGcListBannedUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -367,13 +367,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcListMutedUsersRequest = {
+let body:Sendbird.ModerationApiGcListMutedUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -430,13 +430,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcMuteUserRequest = {
+let body:Sendbird.ModerationApiGcMuteUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -495,13 +495,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcUnbanUserByIdRequest = {
+let body:Sendbird.ModerationApiGcUnbanUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -555,13 +555,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcUnmuteUserByIdRequest = {
+let body:Sendbird.ModerationApiGcUnmuteUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -615,13 +615,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcUpdateBanByIdRequest = {
+let body:Sendbird.ModerationApiGcUpdateBanByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -683,13 +683,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcViewBanByIdRequest = {
+let body:Sendbird.ModerationApiGcViewBanByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -743,13 +743,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiGcViewMuteByIdRequest = {
+let body:Sendbird.ModerationApiGcViewMuteByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -803,13 +803,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiListBannedChannelsRequest = {
+let body:Sendbird.ModerationApiListBannedChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -866,13 +866,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiListBlockedUsersRequest = {
+let body:Sendbird.ModerationApiListBlockedUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -938,13 +938,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiListMutedChannelsRequest = {
+let body:Sendbird.ModerationApiListMutedChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1001,13 +1001,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiMuteInChannelsWithCustomChannelTypesRequest = {
+let body:Sendbird.ModerationApiMuteInChannelsWithCustomChannelTypesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1065,13 +1065,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcBanUserRequest = {
+let body:Sendbird.ModerationApiOcBanUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1131,13 +1131,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcFreezeChannelRequest = {
+let body:Sendbird.ModerationApiOcFreezeChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1194,13 +1194,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcListBannedUsersRequest = {
+let body:Sendbird.ModerationApiOcListBannedUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1257,13 +1257,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcListMutedUsersRequest = {
+let body:Sendbird.ModerationApiOcListMutedUsersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1320,13 +1320,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcMuteUserRequest = {
+let body:Sendbird.ModerationApiOcMuteUserRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1384,13 +1384,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcUnbanUserByIdRequest = {
+let body:Sendbird.ModerationApiOcUnbanUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1444,13 +1444,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcUnmuteUserByIdRequest = {
+let body:Sendbird.ModerationApiOcUnmuteUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1504,13 +1504,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcUpdateBanByIdRequest = {
+let body:Sendbird.ModerationApiOcUpdateBanByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1572,13 +1572,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcViewBanByIdRequest = {
+let body:Sendbird.ModerationApiOcViewBanByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1632,13 +1632,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiOcViewMuteByIdRequest = {
+let body:Sendbird.ModerationApiOcViewMuteByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1692,13 +1692,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ModerationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ModerationApi(configuration);
 
-let body:.ModerationApiUnblockUserByIdRequest = {
+let body:Sendbird.ModerationApiUnblockUserByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

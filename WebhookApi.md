@@ -1,4 +1,4 @@
-# .WebhookApi
+# Sendbird.WebhookApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -17,13 +17,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .WebhookApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.WebhookApi(configuration);
 
-let body:.WebhookApiChooseWhichEventsToSubscribeToRequest = {
+let body:Sendbird.WebhookApiChooseWhichEventsToSubscribeToRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // ChooseWhichEventsToSubscribeToData (optional)
@@ -81,13 +81,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .WebhookApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.WebhookApi(configuration);
 
-let body:.WebhookApiRetrieveListOfSubscribedEventsRequest = {
+let body:Sendbird.WebhookApiRetrieveListOfSubscribedEventsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // boolean (optional)

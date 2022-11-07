@@ -1,4 +1,4 @@
-# .ApplicationApi
+# Sendbird.ApplicationApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -46,13 +46,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiAddApnsPushConfigurationRequest = {
+let body:Sendbird.ApplicationApiAddApnsPushConfigurationRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // AddApnsPushConfigurationData (optional)
@@ -112,13 +112,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiAddFcmPushConfigurationRequest = {
+let body:Sendbird.ApplicationApiAddFcmPushConfigurationRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // AddFcmPushConfigurationData (optional)
@@ -172,13 +172,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiAddHmsPushConfigurationRequest = {
+let body:Sendbird.ApplicationApiAddHmsPushConfigurationRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // AddHmsPushConfigurationData (optional)
@@ -233,13 +233,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiAddIpToWhitelistRequest = {
+let body:Sendbird.ApplicationApiAddIpToWhitelistRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // AddIpToWhitelistData (optional)
@@ -294,13 +294,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -363,13 +363,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiConfigureAutoEventMessagesRequest = {
+let body:Sendbird.ApplicationApiConfigureAutoEventMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // ConfigureAutoEventData (optional)
@@ -427,13 +427,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiDeleteAllowedIpsFromWhitelistRequest = {
+let body:Sendbird.ApplicationApiDeleteAllowedIpsFromWhitelistRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // Array<string>
@@ -486,13 +486,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiDeleteApnsCertificateByIdRequest = {
+let body:Sendbird.ApplicationApiDeleteApnsCertificateByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -543,13 +543,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiGenerateSecondaryApiTokenRequest = {
+let body:Sendbird.ApplicationApiGenerateSecondaryApiTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // GenerateSecondaryApiTokenData (optional)
@@ -602,13 +602,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListAutoEventMessagesRequest = {
+let body:Sendbird.ApplicationApiListAutoEventMessagesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -656,13 +656,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -719,13 +719,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -782,13 +782,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListPushConfigurationsRequest = {
+let body:Sendbird.ApplicationApiListPushConfigurationsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -839,13 +839,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListPushNotificationContentTemplatesRequest = {
+let body:Sendbird.ApplicationApiListPushNotificationContentTemplatesRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -893,13 +893,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiListSecondaryApiTokensRequest = {
+let body:Sendbird.ApplicationApiListSecondaryApiTokensRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -947,13 +947,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1014,13 +1014,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiRemovePushConfigurationByIdRequest = {
+let body:Sendbird.ApplicationApiRemovePushConfigurationByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1074,13 +1074,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiRetrieveIpWhitelistRequest = {
+let body:Sendbird.ApplicationApiRetrieveIpWhitelistRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -1128,13 +1128,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiRevokeSecondaryApiTokenByTokenRequest = {
+let body:Sendbird.ApplicationApiRevokeSecondaryApiTokenByTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1185,13 +1185,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiSetDomainFilterRequest = {
+let body:Sendbird.ApplicationApiSetDomainFilterRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1282,13 +1282,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1344,13 +1344,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest = {
+let body:Sendbird.ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1406,13 +1406,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUpdateApnsPushConfigurationByIdRequest = {
+let body:Sendbird.ApplicationApiUpdateApnsPushConfigurationByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1476,13 +1476,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest = {
+let body:Sendbird.ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // UpdateDefaultChannelInvitationPreferenceData (optional)
@@ -1535,13 +1535,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUpdateFcmPushConfigurationByIdRequest = {
+let body:Sendbird.ApplicationApiUpdateFcmPushConfigurationByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1599,13 +1599,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUpdateHmsPushConfigurationByIdRequest = {
+let body:Sendbird.ApplicationApiUpdateHmsPushConfigurationByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1664,13 +1664,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiUpdatePushNotificationContentTemplateRequest = {
+let body:Sendbird.ApplicationApiUpdatePushNotificationContentTemplateRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1730,13 +1730,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiViewDefaultChannelInvitationPreferenceRequest = {
+let body:Sendbird.ApplicationApiViewDefaultChannelInvitationPreferenceRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -1784,13 +1784,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiViewPushConfigurationByIdRequest = {
+let body:Sendbird.ApplicationApiViewPushConfigurationByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1844,13 +1844,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiViewPushNotificationContentTemplateRequest = {
+let body:Sendbird.ApplicationApiViewPushNotificationContentTemplateRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1901,13 +1901,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ApplicationApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.ApplicationApi(configuration);
 
-let body:.ApplicationApiViewSecondaryApiTokenByTokenRequest = {
+let body:Sendbird.ApplicationApiViewSecondaryApiTokenByTokenRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

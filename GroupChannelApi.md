@@ -1,4 +1,4 @@
-# .GroupChannelApi
+# Sendbird.GroupChannelApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -33,13 +33,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcAcceptInvitationRequest = {
+let body:Sendbird.GroupChannelApiGcAcceptInvitationRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -97,13 +97,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest = {
+let body:Sendbird.GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -162,13 +162,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcCheckIfMemberByIdRequest = {
+let body:Sendbird.GroupChannelApiGcCheckIfMemberByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -222,13 +222,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcCreateChannelRequest = {
+let body:Sendbird.GroupChannelApiGcCreateChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // GcCreateChannelData (optional)
@@ -335,13 +335,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcDeclineInvitationRequest = {
+let body:Sendbird.GroupChannelApiGcDeclineInvitationRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -398,13 +398,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcDeleteChannelByUrlRequest = {
+let body:Sendbird.GroupChannelApiGcDeleteChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -455,13 +455,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcHideOrArchiveChannelRequest = {
+let body:Sendbird.GroupChannelApiGcHideOrArchiveChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -521,13 +521,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcInviteAsMembersRequest = {
+let body:Sendbird.GroupChannelApiGcInviteAsMembersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -591,13 +591,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcJoinChannelRequest = {
+let body:Sendbird.GroupChannelApiGcJoinChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -655,13 +655,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcLeaveChannelRequest = {
+let body:Sendbird.GroupChannelApiGcLeaveChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -721,13 +721,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcListChannelsRequest = {
+let body:Sendbird.GroupChannelApiGcListChannelsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -901,13 +901,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcListMembersRequest = {
+let body:Sendbird.GroupChannelApiGcListMembersRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -985,13 +985,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcListOperatorsRequest = {
+let body:Sendbird.GroupChannelApiGcListOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1048,13 +1048,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcRegisterOperatorsRequest = {
+let body:Sendbird.GroupChannelApiGcRegisterOperatorsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1113,13 +1113,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcResetChatHistoryRequest = {
+let body:Sendbird.GroupChannelApiGcResetChatHistoryRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1177,13 +1177,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcUnhideOrUnarchiveChannelRequest = {
+let body:Sendbird.GroupChannelApiGcUnhideOrUnarchiveChannelRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1240,13 +1240,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcUpdateChannelByUrlRequest = {
+let body:Sendbird.GroupChannelApiGcUpdateChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1313,13 +1313,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GroupChannelApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
-let body:.GroupChannelApiGcViewChannelByUrlRequest = {
+let body:Sendbird.GroupChannelApiGcViewChannelByUrlRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

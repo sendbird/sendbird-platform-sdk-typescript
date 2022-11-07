@@ -1,4 +1,4 @@
-# .AnnouncementApi
+# Sendbird.AnnouncementApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -23,13 +23,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest = {
+let body:Sendbird.AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -80,13 +80,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiGetStatisticsRequest = {
+let body:Sendbird.AnnouncementApiGetStatisticsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -134,13 +134,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiGetStatisticsDailyRequest = {
+let body:Sendbird.AnnouncementApiGetStatisticsDailyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -209,13 +209,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiGetStatisticsMonthlyRequest = {
+let body:Sendbird.AnnouncementApiGetStatisticsMonthlyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
 };
@@ -263,13 +263,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiListAnnouncementGroupsRequest = {
+let body:Sendbird.AnnouncementApiListAnnouncementGroupsRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string (optional)
@@ -323,13 +323,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiScheduleAnnouncementRequest = {
+let body:Sendbird.AnnouncementApiScheduleAnnouncementRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // ScheduleAnnouncementData (optional)
@@ -411,13 +411,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiUpdateAnnouncementByIdRequest = {
+let body:Sendbird.AnnouncementApiUpdateAnnouncementByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -489,13 +489,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AnnouncementApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
-let body:.AnnouncementApiViewAnnouncementByIdRequest = {
+let body:Sendbird.AnnouncementApiViewAnnouncementByIdRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

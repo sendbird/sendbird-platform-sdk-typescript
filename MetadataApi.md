@@ -1,4 +1,4 @@
-# .MetadataApi
+# Sendbird.MetadataApi
 
 All URIs are relative to *https://api-APP_ID.sendbird.com*
 
@@ -36,13 +36,13 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiCreateChannelMetacounterRequest = {
+let body:Sendbird.MetadataApiCreateChannelMetacounterRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -103,13 +103,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiCreateChannelMetadataRequest = {
+let body:Sendbird.MetadataApiCreateChannelMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -171,13 +171,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiCreateUserMetadataRequest = {
+let body:Sendbird.MetadataApiCreateUserMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -233,13 +233,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteChannelMetacounterRequest = {
+let body:Sendbird.MetadataApiDeleteChannelMetacounterRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -293,13 +293,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteChannelMetacounterByKeyRequest = {
+let body:Sendbird.MetadataApiDeleteChannelMetacounterByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -356,13 +356,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteChannelMetadataRequest = {
+let body:Sendbird.MetadataApiDeleteChannelMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -419,13 +419,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteChannelMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiDeleteChannelMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -482,13 +482,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteUserMetadataRequest = {
+let body:Sendbird.MetadataApiDeleteUserMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -542,13 +542,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiDeleteUserMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiDeleteUserMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -602,13 +602,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateChannelMetacounterRequest = {
+let body:Sendbird.MetadataApiUpdateChannelMetacounterRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -669,13 +669,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateChannelMetacounterByKeyRequest = {
+let body:Sendbird.MetadataApiUpdateChannelMetacounterByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -735,13 +735,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateChannelMetadataRequest = {
+let body:Sendbird.MetadataApiUpdateChannelMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -801,13 +801,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateChannelMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiUpdateChannelMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -867,13 +867,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateUserMetadataRequest = {
+let body:Sendbird.MetadataApiUpdateUserMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -930,13 +930,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiUpdateUserMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiUpdateUserMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -993,13 +993,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewChannelMetacounterRequest = {
+let body:Sendbird.MetadataApiViewChannelMetacounterRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1061,13 +1061,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewChannelMetacounterByKeyRequest = {
+let body:Sendbird.MetadataApiViewChannelMetacounterByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1124,13 +1124,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewChannelMetadataRequest = {
+let body:Sendbird.MetadataApiViewChannelMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1192,13 +1192,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewChannelMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiViewChannelMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1255,13 +1255,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewUserMetadataRequest = {
+let body:Sendbird.MetadataApiViewUserMetadataRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string
@@ -1320,13 +1320,13 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
+import { Sendbird } from 'sendbird-platform-sdk';
 import * as fs from 'fs';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MetadataApi(configuration);
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.MetadataApi(configuration);
 
-let body:.MetadataApiViewUserMetadataByKeyRequest = {
+let body:Sendbird.MetadataApiViewUserMetadataByKeyRequest = {
   // string
   apiToken: "{{API_TOKEN}}",
   // string

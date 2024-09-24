@@ -27,9 +27,9 @@ const apiInstance = new Sendbird.PrivacyApi(configuration);
 
 let body:Sendbird.PrivacyApiCancelTheRegistrationOfGdprRequestByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   requestId: "request_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.cancelTheRegistrationOfGdprRequestById(body).then((data:any) => {
@@ -42,8 +42,8 @@ apiInstance.cancelTheRegistrationOfGdprRequestById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **requestId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -83,7 +83,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.PrivacyApi(configuration);
 
 let body:Sendbird.PrivacyApiListGdprRequestsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -101,7 +101,7 @@ apiInstance.listGdprRequests(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -143,7 +143,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.PrivacyApi(configuration);
 
 let body:Sendbird.PrivacyApiRegisterGdprRequestRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // RegisterGdprRequestData (optional)
   registerGdprRequestData: {
@@ -167,7 +167,7 @@ apiInstance.registerGdprRequest(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registerGdprRequestData** | **RegisterGdprRequestData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -208,9 +208,9 @@ const apiInstance = new Sendbird.PrivacyApi(configuration);
 
 let body:Sendbird.PrivacyApiViewGdprRequestByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   requestId: "request_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewGdprRequestById(body).then((data:any) => {
@@ -223,8 +223,8 @@ apiInstance.viewGdprRequestById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **requestId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

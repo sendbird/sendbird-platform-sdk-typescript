@@ -72,6 +72,7 @@ export * from './GcRegisterOperatorsData';
 export * from './GcRegisterOperatorsResponse';
 export * from './GcResetChatHistoryData';
 export * from './GcResetChatHistoryResponse';
+export * from './GcTypingIndicatorsData';
 export * from './GcUpdateBanByIdData';
 export * from './GcUpdateBanByIdResponse';
 export * from './GcUpdateChannelByUrlData';
@@ -111,7 +112,6 @@ export * from './ListGdprRequestsResponseRequestsInner';
 export * from './ListMessagesResponse';
 export * from './ListMessagesResponseMessagesInner';
 export * from './ListMessagesResponseMessagesInnerOgTag';
-export * from './ListMessagesResponseMessagesInnerOgTagOgImage';
 export * from './ListMessagesResponseMessagesInnerSortedMetaarrayInner';
 export * from './ListMutedChannelsResponse';
 export * from './ListMutedUsersInChannelsWithCustomChannelType200Response';
@@ -187,17 +187,20 @@ export * from './SendBirdAppleCriticalAlertOptions';
 export * from './SendBirdAutoEventMessageSettings';
 export * from './SendBirdBaseChannel';
 export * from './SendBirdBaseMessageInstance';
+export * from './SendBirdBotsMessageResponse';
+export * from './SendBirdBotsMessageResponseMessage';
+export * from './SendBirdBotsMessageResponseMessageExtendedMessagePayload';
+export * from './SendBirdBotsMessageResponseMessageMessageEvents';
 export * from './SendBirdChannelResponse';
 export * from './SendBirdEmoji';
 export * from './SendBirdEmojiCategory';
+export * from './SendBirdFile';
 export * from './SendBirdFileMessageParams';
 export * from './SendBirdGroupChannel';
 export * from './SendBirdGroupChannelChannel';
 export * from './SendBirdGroupChannelCollection';
 export * from './SendBirdGroupChannelCreatedBy';
 export * from './SendBirdGroupChannelDisappearingMessage';
-export * from './SendBirdGroupChannelInviter';
-export * from './SendBirdGroupChannelLastMessage';
 export * from './SendBirdGroupChannelSmsFallback';
 export * from './SendBirdMember';
 export * from './SendBirdMessageMetaArray';
@@ -207,6 +210,7 @@ export * from './SendBirdMessageResponseUser';
 export * from './SendBirdOGImage';
 export * from './SendBirdOGMetaData';
 export * from './SendBirdOpenChannel';
+export * from './SendBirdParentMessageInfo';
 export * from './SendBirdPlugin';
 export * from './SendBirdPoll';
 export * from './SendBirdPollDetails';
@@ -214,6 +218,7 @@ export * from './SendBirdPollOption';
 export * from './SendBirdPollUpdatedVoteCount';
 export * from './SendBirdReaction';
 export * from './SendBirdRestrictionInfo';
+export * from './SendBirdScheduledMessage';
 export * from './SendBirdSender';
 export * from './SendBirdThreadInfo';
 export * from './SendBirdThumbnailSBObject';
@@ -221,6 +226,7 @@ export * from './SendBirdThumbnailSize';
 export * from './SendBirdUser';
 export * from './SendBirdUserMessageParams';
 export * from './SendBotSMessageData';
+export * from './SendBotSMessageDataExtendedMessagePayload';
 export * from './SendMessageData';
 export * from './SetDomainFilterData';
 export * from './SetDomainFilterDataDomainFilter';
@@ -266,6 +272,19 @@ export * from './UpdateUserMetadataData';
 export * from './UpdateUserMetadataResponse';
 export * from './UseDefaultEmojisData';
 export * from './UseDefaultEmojisResponse';
+export * from './V3ApplicationsPushSettingsGet200Response';
+export * from './V3ApplicationsPushSettingsGetRequest';
+export * from './V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
+export * from './V3PollsGetRequest';
+export * from './V3PollsPollIdDeleteRequest';
+export * from './V3PollsPollIdDeleteRequest1';
+export * from './V3PollsPollIdOptionsOptionIdDeleteRequest';
+export * from './V3PollsPollIdOptionsOptionIdVotersGet200Response';
+export * from './V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
+export * from './V3PollsPollIdOptionsOptionIdVotersGetRequest';
+export * from './V3PollsPollIdVotePutRequest';
+export * from './V3ScheduledMessagesCountGet200Response';
+export * from './V3ScheduledMessagesGet200Response';
 export * from './ViewAnnouncementByIdResponse';
 export * from './ViewBotByIdResponse';
 export * from './ViewChannelInvitationPreferenceResponse';
@@ -366,6 +385,7 @@ import { GcRegisterOperatorsData } from './GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from './GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from './GcResetChatHistoryData';
 import { GcResetChatHistoryResponse } from './GcResetChatHistoryResponse';
+import { GcTypingIndicatorsData } from './GcTypingIndicatorsData';
 import { GcUpdateBanByIdData } from './GcUpdateBanByIdData';
 import { GcUpdateBanByIdResponse } from './GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from './GcUpdateChannelByUrlData';
@@ -405,7 +425,6 @@ import { ListGdprRequestsResponseRequestsInner } from './ListGdprRequestsRespons
 import { ListMessagesResponse } from './ListMessagesResponse';
 import { ListMessagesResponseMessagesInner } from './ListMessagesResponseMessagesInner';
 import { ListMessagesResponseMessagesInnerOgTag } from './ListMessagesResponseMessagesInnerOgTag';
-import { ListMessagesResponseMessagesInnerOgTagOgImage } from './ListMessagesResponseMessagesInnerOgTagOgImage';
 import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from './ListMessagesResponseMessagesInnerSortedMetaarrayInner';
 import { ListMutedChannelsResponse } from './ListMutedChannelsResponse';
 import { ListMutedUsersInChannelsWithCustomChannelType200Response } from './ListMutedUsersInChannelsWithCustomChannelType200Response';
@@ -481,17 +500,20 @@ import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertO
 import { SendBirdAutoEventMessageSettings } from './SendBirdAutoEventMessageSettings';
 import { SendBirdBaseChannel } from './SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance          , SendBirdBaseMessageInstanceMessageTypeEnum         , SendBirdBaseMessageInstanceSendingStatusEnum      } from './SendBirdBaseMessageInstance';
-import { SendBirdChannelResponse          , SendBirdChannelResponseHiddenStateEnum                         , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum           } from './SendBirdChannelResponse';
+import { SendBirdBotsMessageResponse } from './SendBirdBotsMessageResponse';
+import { SendBirdBotsMessageResponseMessage } from './SendBirdBotsMessageResponseMessage';
+import { SendBirdBotsMessageResponseMessageExtendedMessagePayload } from './SendBirdBotsMessageResponseMessageExtendedMessagePayload';
+import { SendBirdBotsMessageResponseMessageMessageEvents } from './SendBirdBotsMessageResponseMessageMessageEvents';
+import { SendBirdChannelResponse          , SendBirdChannelResponseHiddenStateEnum                        , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum            } from './SendBirdChannelResponse';
 import { SendBirdEmoji } from './SendBirdEmoji';
 import { SendBirdEmojiCategory } from './SendBirdEmojiCategory';
+import { SendBirdFile } from './SendBirdFile';
 import { SendBirdFileMessageParams        , SendBirdFileMessageParamsMentionTypeEnum        , SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum    } from './SendBirdFileMessageParams';
-import { SendBirdGroupChannel          , SendBirdGroupChannelHiddenStateEnum                         , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum         } from './SendBirdGroupChannel';
+import { SendBirdGroupChannel          , SendBirdGroupChannelHiddenStateEnum                        , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum          } from './SendBirdGroupChannel';
 import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCollection } from './SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelInviter } from './SendBirdGroupChannelInviter';
-import { SendBirdGroupChannelLastMessage } from './SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember                 , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
 import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
@@ -501,6 +523,7 @@ import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
 import { SendBirdOGImage } from './SendBirdOGImage';
 import { SendBirdOGMetaData } from './SendBirdOGMetaData';
 import { SendBirdOpenChannel } from './SendBirdOpenChannel';
+import { SendBirdParentMessageInfo } from './SendBirdParentMessageInfo';
 import { SendBirdPlugin } from './SendBirdPlugin';
 import { SendBirdPoll } from './SendBirdPoll';
 import { SendBirdPollDetails       , SendBirdPollDetailsStatusEnum     } from './SendBirdPollDetails';
@@ -508,6 +531,7 @@ import { SendBirdPollOption } from './SendBirdPollOption';
 import { SendBirdPollUpdatedVoteCount } from './SendBirdPollUpdatedVoteCount';
 import { SendBirdReaction } from './SendBirdReaction';
 import { SendBirdRestrictionInfo  , SendBirdRestrictionInfoRestrictionTypeEnum   } from './SendBirdRestrictionInfo';
+import { SendBirdScheduledMessage } from './SendBirdScheduledMessage';
 import { SendBirdSender } from './SendBirdSender';
 import { SendBirdThreadInfo } from './SendBirdThreadInfo';
 import { SendBirdThumbnailSBObject } from './SendBirdThumbnailSBObject';
@@ -515,6 +539,7 @@ import { SendBirdThumbnailSize } from './SendBirdThumbnailSize';
 import { SendBirdUser } from './SendBirdUser';
 import { SendBirdUserMessageParams    , SendBirdUserMessageParamsMentionTypeEnum         , SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum     } from './SendBirdUserMessageParams';
 import { SendBotSMessageData } from './SendBotSMessageData';
+import { SendBotSMessageDataExtendedMessagePayload } from './SendBotSMessageDataExtendedMessagePayload';
 import { SendMessageData } from './SendMessageData';
 import { SetDomainFilterData } from './SetDomainFilterData';
 import { SetDomainFilterDataDomainFilter } from './SetDomainFilterDataDomainFilter';
@@ -560,6 +585,19 @@ import { UpdateUserMetadataData } from './UpdateUserMetadataData';
 import { UpdateUserMetadataResponse } from './UpdateUserMetadataResponse';
 import { UseDefaultEmojisData } from './UseDefaultEmojisData';
 import { UseDefaultEmojisResponse } from './UseDefaultEmojisResponse';
+import { V3ApplicationsPushSettingsGet200Response } from './V3ApplicationsPushSettingsGet200Response';
+import { V3ApplicationsPushSettingsGetRequest } from './V3ApplicationsPushSettingsGetRequest';
+import { V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest } from './V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
+import { V3PollsGetRequest } from './V3PollsGetRequest';
+import { V3PollsPollIdDeleteRequest } from './V3PollsPollIdDeleteRequest';
+import { V3PollsPollIdDeleteRequest1 } from './V3PollsPollIdDeleteRequest1';
+import { V3PollsPollIdOptionsOptionIdDeleteRequest } from './V3PollsPollIdOptionsOptionIdDeleteRequest';
+import { V3PollsPollIdOptionsOptionIdVotersGet200Response } from './V3PollsPollIdOptionsOptionIdVotersGet200Response';
+import { V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner } from './V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
+import { V3PollsPollIdOptionsOptionIdVotersGetRequest } from './V3PollsPollIdOptionsOptionIdVotersGetRequest';
+import { V3PollsPollIdVotePutRequest } from './V3PollsPollIdVotePutRequest';
+import { V3ScheduledMessagesCountGet200Response } from './V3ScheduledMessagesCountGet200Response';
+import { V3ScheduledMessagesGet200Response } from './V3ScheduledMessagesGet200Response';
 import { ViewAnnouncementByIdResponse } from './ViewAnnouncementByIdResponse';
 import { ViewBotByIdResponse } from './ViewBotByIdResponse';
 import { ViewChannelInvitationPreferenceResponse } from './ViewChannelInvitationPreferenceResponse';
@@ -705,6 +743,7 @@ let typeMap: {[index: string]: any} = {
     "GcRegisterOperatorsResponse": GcRegisterOperatorsResponse,
     "GcResetChatHistoryData": GcResetChatHistoryData,
     "GcResetChatHistoryResponse": GcResetChatHistoryResponse,
+    "GcTypingIndicatorsData": GcTypingIndicatorsData,
     "GcUpdateBanByIdData": GcUpdateBanByIdData,
     "GcUpdateBanByIdResponse": GcUpdateBanByIdResponse,
     "GcUpdateChannelByUrlData": GcUpdateChannelByUrlData,
@@ -744,7 +783,6 @@ let typeMap: {[index: string]: any} = {
     "ListMessagesResponse": ListMessagesResponse,
     "ListMessagesResponseMessagesInner": ListMessagesResponseMessagesInner,
     "ListMessagesResponseMessagesInnerOgTag": ListMessagesResponseMessagesInnerOgTag,
-    "ListMessagesResponseMessagesInnerOgTagOgImage": ListMessagesResponseMessagesInnerOgTagOgImage,
     "ListMessagesResponseMessagesInnerSortedMetaarrayInner": ListMessagesResponseMessagesInnerSortedMetaarrayInner,
     "ListMutedChannelsResponse": ListMutedChannelsResponse,
     "ListMutedUsersInChannelsWithCustomChannelType200Response": ListMutedUsersInChannelsWithCustomChannelType200Response,
@@ -820,17 +858,20 @@ let typeMap: {[index: string]: any} = {
     "SendBirdAutoEventMessageSettings": SendBirdAutoEventMessageSettings,
     "SendBirdBaseChannel": SendBirdBaseChannel,
     "SendBirdBaseMessageInstance": SendBirdBaseMessageInstance,
+    "SendBirdBotsMessageResponse": SendBirdBotsMessageResponse,
+    "SendBirdBotsMessageResponseMessage": SendBirdBotsMessageResponseMessage,
+    "SendBirdBotsMessageResponseMessageExtendedMessagePayload": SendBirdBotsMessageResponseMessageExtendedMessagePayload,
+    "SendBirdBotsMessageResponseMessageMessageEvents": SendBirdBotsMessageResponseMessageMessageEvents,
     "SendBirdChannelResponse": SendBirdChannelResponse,
     "SendBirdEmoji": SendBirdEmoji,
     "SendBirdEmojiCategory": SendBirdEmojiCategory,
+    "SendBirdFile": SendBirdFile,
     "SendBirdFileMessageParams": SendBirdFileMessageParams,
     "SendBirdGroupChannel": SendBirdGroupChannel,
     "SendBirdGroupChannelChannel": SendBirdGroupChannelChannel,
     "SendBirdGroupChannelCollection": SendBirdGroupChannelCollection,
     "SendBirdGroupChannelCreatedBy": SendBirdGroupChannelCreatedBy,
     "SendBirdGroupChannelDisappearingMessage": SendBirdGroupChannelDisappearingMessage,
-    "SendBirdGroupChannelInviter": SendBirdGroupChannelInviter,
-    "SendBirdGroupChannelLastMessage": SendBirdGroupChannelLastMessage,
     "SendBirdGroupChannelSmsFallback": SendBirdGroupChannelSmsFallback,
     "SendBirdMember": SendBirdMember,
     "SendBirdMessageMetaArray": SendBirdMessageMetaArray,
@@ -840,6 +881,7 @@ let typeMap: {[index: string]: any} = {
     "SendBirdOGImage": SendBirdOGImage,
     "SendBirdOGMetaData": SendBirdOGMetaData,
     "SendBirdOpenChannel": SendBirdOpenChannel,
+    "SendBirdParentMessageInfo": SendBirdParentMessageInfo,
     "SendBirdPlugin": SendBirdPlugin,
     "SendBirdPoll": SendBirdPoll,
     "SendBirdPollDetails": SendBirdPollDetails,
@@ -847,6 +889,7 @@ let typeMap: {[index: string]: any} = {
     "SendBirdPollUpdatedVoteCount": SendBirdPollUpdatedVoteCount,
     "SendBirdReaction": SendBirdReaction,
     "SendBirdRestrictionInfo": SendBirdRestrictionInfo,
+    "SendBirdScheduledMessage": SendBirdScheduledMessage,
     "SendBirdSender": SendBirdSender,
     "SendBirdThreadInfo": SendBirdThreadInfo,
     "SendBirdThumbnailSBObject": SendBirdThumbnailSBObject,
@@ -854,6 +897,7 @@ let typeMap: {[index: string]: any} = {
     "SendBirdUser": SendBirdUser,
     "SendBirdUserMessageParams": SendBirdUserMessageParams,
     "SendBotSMessageData": SendBotSMessageData,
+    "SendBotSMessageDataExtendedMessagePayload": SendBotSMessageDataExtendedMessagePayload,
     "SendMessageData": SendMessageData,
     "SetDomainFilterData": SetDomainFilterData,
     "SetDomainFilterDataDomainFilter": SetDomainFilterDataDomainFilter,
@@ -899,6 +943,19 @@ let typeMap: {[index: string]: any} = {
     "UpdateUserMetadataResponse": UpdateUserMetadataResponse,
     "UseDefaultEmojisData": UseDefaultEmojisData,
     "UseDefaultEmojisResponse": UseDefaultEmojisResponse,
+    "V3ApplicationsPushSettingsGet200Response": V3ApplicationsPushSettingsGet200Response,
+    "V3ApplicationsPushSettingsGetRequest": V3ApplicationsPushSettingsGetRequest,
+    "V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest": V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest,
+    "V3PollsGetRequest": V3PollsGetRequest,
+    "V3PollsPollIdDeleteRequest": V3PollsPollIdDeleteRequest,
+    "V3PollsPollIdDeleteRequest1": V3PollsPollIdDeleteRequest1,
+    "V3PollsPollIdOptionsOptionIdDeleteRequest": V3PollsPollIdOptionsOptionIdDeleteRequest,
+    "V3PollsPollIdOptionsOptionIdVotersGet200Response": V3PollsPollIdOptionsOptionIdVotersGet200Response,
+    "V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner": V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner,
+    "V3PollsPollIdOptionsOptionIdVotersGetRequest": V3PollsPollIdOptionsOptionIdVotersGetRequest,
+    "V3PollsPollIdVotePutRequest": V3PollsPollIdVotePutRequest,
+    "V3ScheduledMessagesCountGet200Response": V3ScheduledMessagesCountGet200Response,
+    "V3ScheduledMessagesGet200Response": V3ScheduledMessagesGet200Response,
     "ViewAnnouncementByIdResponse": ViewAnnouncementByIdResponse,
     "ViewBotByIdResponse": ViewBotByIdResponse,
     "ViewChannelInvitationPreferenceResponse": ViewChannelInvitationPreferenceResponse,

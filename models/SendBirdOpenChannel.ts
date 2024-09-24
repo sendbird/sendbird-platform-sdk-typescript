@@ -23,7 +23,6 @@ export class SendBirdOpenChannel {
     'data'?: string;
     'isDynamicPartitioned'?: boolean;
     'isEphemeral'?: boolean;
-    'isFrozen'?: boolean;
     'maxLengthMessage'?: number;
     'operators'?: Array<SendBirdUser>;
     'participantCount'?: number;
@@ -83,12 +82,6 @@ export class SendBirdOpenChannel {
         {
             "name": "isEphemeral",
             "baseName": "is_ephemeral",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFrozen",
-            "baseName": "is_frozen",
             "type": "boolean",
             "format": ""
         },

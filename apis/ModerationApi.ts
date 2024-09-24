@@ -49,23 +49,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
      * Ban from channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param banFromChannelsWithCustomChannelTypesData 
      */
-    public async banFromChannelsWithCustomChannelTypes(apiToken: string, userId: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
+    public async banFromChannelsWithCustomChannelTypes(userId: string, apiToken?: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "banFromChannelsWithCustomChannelTypes", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "banFromChannelsWithCustomChannelTypes", "userId");
         }
+
 
 
 
@@ -104,23 +99,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
      * Block a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param blockUserData 
      */
-    public async blockUser(apiToken: string, userId: string, blockUserData?: BlockUserData, _options?: Configuration): Promise<RequestContext> {
+    public async blockUser(userId: string, apiToken?: string, blockUserData?: BlockUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "blockUser", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "blockUser", "userId");
         }
+
 
 
 
@@ -159,23 +149,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
      * Ban a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcBanUserData 
      */
-    public async gcBanUser(apiToken: string, channelUrl: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Promise<RequestContext> {
+    public async gcBanUser(channelUrl: string, apiToken?: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcBanUser", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "gcBanUser", "channelUrl");
         }
+
 
 
 
@@ -214,23 +199,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
      * Freeze a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcFreezeChannelData 
      */
-    public async gcFreezeChannel(apiToken: string, channelUrl: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async gcFreezeChannel(channelUrl: string, apiToken?: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcFreezeChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "gcFreezeChannel", "channelUrl");
         }
+
 
 
 
@@ -269,24 +249,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
      * List banned users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async gcListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async gcListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcListBannedUsers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "gcListBannedUsers", "channelUrl");
         }
+
 
 
 
@@ -325,24 +300,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
      * List muted users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async gcListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async gcListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcListMutedUsers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "gcListMutedUsers", "channelUrl");
         }
+
 
 
 
@@ -381,23 +351,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
      * Mute a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMuteUserData 
      */
-    public async gcMuteUser(apiToken: string, channelUrl: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Promise<RequestContext> {
+    public async gcMuteUser(channelUrl: string, apiToken?: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcMuteUser", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "gcMuteUser", "channelUrl");
         }
+
 
 
 
@@ -436,18 +401,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
      * Unban a user
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public async gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcUnbanUserById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -459,6 +418,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "gcUnbanUserById", "bannedUserId");
         }
+
 
 
         // Path Params
@@ -486,18 +446,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
      * Unmute a user
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public async gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcUnmuteUserById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -509,6 +463,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (mutedUserId === null || mutedUserId === undefined) {
             throw new RequiredError("ModerationApi", "gcUnmuteUserById", "mutedUserId");
         }
+
 
 
         // Path Params
@@ -536,19 +491,13 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
      * Update a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      * @param gcUpdateBanByIdData 
      */
-    public async gcUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async gcUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcUpdateBanById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -560,6 +509,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "gcUpdateBanById", "bannedUserId");
         }
+
 
 
 
@@ -599,18 +549,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
      * View a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public async gcViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcViewBanById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -622,6 +566,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "gcViewBanById", "bannedUserId");
         }
+
 
 
         // Path Params
@@ -649,18 +594,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
      * View a mute
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public async gcViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "gcViewMuteById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -672,6 +611,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (mutedUserId === null || mutedUserId === undefined) {
             throw new RequiredError("ModerationApi", "gcViewMuteById", "mutedUserId");
         }
+
 
 
         // Path Params
@@ -699,24 +639,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List banned channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listBannedChannels(apiToken: string, userId: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listBannedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "listBannedChannels", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "listBannedChannels", "userId");
         }
+
 
 
 
@@ -755,27 +690,22 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List blocked users
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param userIds 
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public async listBlockedUsers(apiToken: string, userId: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listBlockedUsers(userId: string, apiToken?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "listBlockedUsers", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "listBlockedUsers", "userId");
         }
+
 
 
 
@@ -832,24 +762,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List muted channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listMutedChannels(apiToken: string, userId: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listMutedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "listMutedChannels", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "listMutedChannels", "userId");
         }
+
 
 
 
@@ -888,23 +813,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
      * Mute in channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param muteInChannelsWithCustomChannelTypesData 
      */
-    public async muteInChannelsWithCustomChannelTypes(apiToken: string, userId: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
+    public async muteInChannelsWithCustomChannelTypes(userId: string, apiToken?: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "muteInChannelsWithCustomChannelTypes", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("ModerationApi", "muteInChannelsWithCustomChannelTypes", "userId");
         }
+
 
 
 
@@ -943,23 +863,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
      * Ban a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocBanUserData 
      */
-    public async ocBanUser(apiToken: string, channelUrl: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Promise<RequestContext> {
+    public async ocBanUser(channelUrl: string, apiToken?: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocBanUser", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "ocBanUser", "channelUrl");
         }
+
 
 
 
@@ -998,23 +913,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
      * Freeze a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocFreezeChannelData 
      */
-    public async ocFreezeChannel(apiToken: string, channelUrl: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async ocFreezeChannel(channelUrl: string, apiToken?: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocFreezeChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "ocFreezeChannel", "channelUrl");
         }
+
 
 
 
@@ -1053,24 +963,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
      * List banned users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async ocListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async ocListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocListBannedUsers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "ocListBannedUsers", "channelUrl");
         }
+
 
 
 
@@ -1109,24 +1014,19 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
      * List muted users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async ocListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async ocListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocListMutedUsers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "ocListMutedUsers", "channelUrl");
         }
+
 
 
 
@@ -1165,23 +1065,18 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
      * Mute a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocMuteUserData 
      */
-    public async ocMuteUser(apiToken: string, channelUrl: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Promise<RequestContext> {
+    public async ocMuteUser(channelUrl: string, apiToken?: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocMuteUser", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("ModerationApi", "ocMuteUser", "channelUrl");
         }
+
 
 
 
@@ -1220,18 +1115,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
      * Unban a user
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public async ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocUnbanUserById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1243,6 +1132,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "ocUnbanUserById", "bannedUserId");
         }
+
 
 
         // Path Params
@@ -1270,18 +1160,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
      * Unmute a user
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public async ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocUnmuteUserById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1293,6 +1177,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (mutedUserId === null || mutedUserId === undefined) {
             throw new RequiredError("ModerationApi", "ocUnmuteUserById", "mutedUserId");
         }
+
 
 
         // Path Params
@@ -1320,19 +1205,13 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
      * Update a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      * @param ocUpdateBanByIdData 
      */
-    public async ocUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async ocUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocUpdateBanById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1344,6 +1223,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "ocUpdateBanById", "bannedUserId");
         }
+
 
 
 
@@ -1383,18 +1263,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
      * View a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public async ocViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocViewBanById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1406,6 +1280,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (bannedUserId === null || bannedUserId === undefined) {
             throw new RequiredError("ModerationApi", "ocViewBanById", "bannedUserId");
         }
+
 
 
         // Path Params
@@ -1433,18 +1308,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
      * View a mute
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public async ocViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "ocViewMuteById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1456,6 +1325,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (mutedUserId === null || mutedUserId === undefined) {
             throw new RequiredError("ModerationApi", "ocViewMuteById", "mutedUserId");
         }
+
 
 
         // Path Params
@@ -1483,18 +1353,12 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
      * Unblock a user
-     * @param apiToken 
      * @param userId 
      * @param targetId 
+     * @param apiToken 
      */
-    public async unblockUserById(apiToken: string, userId: string, targetId: string, _options?: Configuration): Promise<RequestContext> {
+    public async unblockUserById(userId: string, targetId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ModerationApi", "unblockUserById", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1506,6 +1370,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         if (targetId === null || targetId === undefined) {
             throw new RequiredError("ModerationApi", "unblockUserById", "targetId");
         }
+
 
 
         // Path Params

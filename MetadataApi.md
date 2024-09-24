@@ -44,11 +44,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiCreateChannelMetacounterRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // CreateChannelMetacounterData (optional)
   createChannelMetacounterData: {
     channelType: "channelType_example",
@@ -68,9 +68,9 @@ apiInstance.createChannelMetacounter(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createChannelMetacounterData** | **CreateChannelMetacounterData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -111,11 +111,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiCreateChannelMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // CreateChannelMetadataData (optional)
   createChannelMetadataData: {
     channelType: "channelType_example",
@@ -136,9 +136,9 @@ apiInstance.createChannelMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createChannelMetadataData** | **CreateChannelMetadataData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -179,9 +179,9 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiCreateUserMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // CreateUserMetadataData (optional)
   createUserMetadataData: {
     metadata: {},
@@ -199,8 +199,8 @@ apiInstance.createUserMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createUserMetadataData** | **CreateUserMetadataData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -241,11 +241,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteChannelMetacounterRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetacounter(body).then((data:any) => {
@@ -258,9 +258,9 @@ apiInstance.deleteChannelMetacounter(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -301,13 +301,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteChannelMetacounterByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetacounterByKey(body).then((data:any) => {
@@ -320,10 +320,10 @@ apiInstance.deleteChannelMetacounterByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -364,11 +364,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteChannelMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
 };
@@ -383,9 +383,9 @@ apiInstance.deleteChannelMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -427,13 +427,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteChannelMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteChannelMetadataByKey(body).then((data:any) => {
@@ -446,10 +446,10 @@ apiInstance.deleteChannelMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -490,9 +490,9 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteUserMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
 };
@@ -507,8 +507,8 @@ apiInstance.deleteUserMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -550,11 +550,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiDeleteUserMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteUserMetadataByKey(body).then((data:any) => {
@@ -567,9 +567,9 @@ apiInstance.deleteUserMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -610,11 +610,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateChannelMetacounterRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateChannelMetacounterData (optional)
   updateChannelMetacounterData: {
     metacounter: "metacounter_example",
@@ -634,9 +634,9 @@ apiInstance.updateChannelMetacounter(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelMetacounterData** | **UpdateChannelMetacounterData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -677,13 +677,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateChannelMetacounterByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -699,10 +699,10 @@ apiInstance.updateChannelMetacounterByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -743,11 +743,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateChannelMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateChannelMetadataData (optional)
   updateChannelMetadataData: {
     metadata: {},
@@ -766,9 +766,9 @@ apiInstance.updateChannelMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelMetadataData** | **UpdateChannelMetadataData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -809,13 +809,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateChannelMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -831,10 +831,10 @@ apiInstance.updateChannelMetadataByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -875,9 +875,9 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateUserMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateUserMetadataData (optional)
   updateUserMetadataData: {
     metadata: {},
@@ -896,8 +896,8 @@ apiInstance.updateUserMetadata(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateUserMetadataData** | **UpdateUserMetadataData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -938,11 +938,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiUpdateUserMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -958,9 +958,9 @@ apiInstance.updateUserMetadataByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1001,11 +1001,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewChannelMetacounterRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1024,9 +1024,9 @@ apiInstance.viewChannelMetacounter(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1069,13 +1069,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewChannelMetacounterByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewChannelMetacounterByKey(body).then((data:any) => {
@@ -1088,10 +1088,10 @@ apiInstance.viewChannelMetacounterByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1132,11 +1132,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewChannelMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1155,9 +1155,9 @@ apiInstance.viewChannelMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1200,13 +1200,13 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewChannelMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewChannelMetadataByKey(body).then((data:any) => {
@@ -1219,10 +1219,10 @@ apiInstance.viewChannelMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1263,9 +1263,9 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewUserMetadataRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   key: "key_example",
   // Array<string> (optional)
@@ -1284,8 +1284,8 @@ apiInstance.viewUserMetadata(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **key** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
@@ -1328,11 +1328,11 @@ const apiInstance = new Sendbird.MetadataApi(configuration);
 
 let body:Sendbird.MetadataApiViewUserMetadataByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   key: "key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewUserMetadataByKey(body).then((data:any) => {
@@ -1345,9 +1345,9 @@ apiInstance.viewUserMetadataByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **key** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

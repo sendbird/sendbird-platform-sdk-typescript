@@ -52,7 +52,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiAddEmojiCategoriesRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
@@ -69,7 +69,7 @@ apiInstance.addEmojiCategories(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -109,7 +109,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiAddEmojisRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddEmojisData (optional)
   addEmojisData: {
@@ -131,7 +131,7 @@ apiInstance.addEmojis(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addEmojisData** | **AddEmojisData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -172,13 +172,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiAddExtraDataToMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // AddExtraDataToMessageData (optional)
   addExtraDataToMessageData: {
     channelType: "channelType_example",
@@ -199,10 +199,10 @@ apiInstance.addExtraDataToMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addExtraDataToMessageData** | **AddExtraDataToMessageData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -243,13 +243,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiAddReactionToAMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // AddReactionToAMessageData (optional)
   addReactionToAMessageData: {
     channelType: "channelType_example",
@@ -271,10 +271,10 @@ apiInstance.addReactionToAMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addReactionToAMessageData** | **AddReactionToAMessageData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -315,9 +315,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiDeleteEmojiByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiKey: "emoji_key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteEmojiByKey(body).then((data:any) => {
@@ -330,8 +330,8 @@ apiInstance.deleteEmojiByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -372,9 +372,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiDeleteEmojiCategoryByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiCategoryId: "emoji_category_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteEmojiCategoryById(body).then((data:any) => {
@@ -387,8 +387,8 @@ apiInstance.deleteEmojiCategoryById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -429,13 +429,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiDeleteMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteMessageById(body).then((data:any) => {
@@ -448,10 +448,10 @@ apiInstance.deleteMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -491,7 +491,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiEnableReactionsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // EnableReactionsData (optional)
   enableReactionsData: {
@@ -510,7 +510,7 @@ apiInstance.enableReactions(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enableReactionsData** | **EnableReactionsData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -551,9 +551,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiGcMarkAllMessagesAsDeliveredRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcMarkAllMessagesAsDeliveredData (optional)
   gcMarkAllMessagesAsDeliveredData: {
     applicationId: "applicationId_example",
@@ -573,8 +573,8 @@ apiInstance.gcMarkAllMessagesAsDelivered(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMarkAllMessagesAsDeliveredData** | **GcMarkAllMessagesAsDeliveredData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -615,9 +615,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiGcMarkAllMessagesAsReadRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcMarkAllMessagesAsReadData (optional)
   gcMarkAllMessagesAsReadData: {
     channelUrl: "channelUrl_example",
@@ -637,8 +637,8 @@ apiInstance.gcMarkAllMessagesAsRead(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMarkAllMessagesAsReadData** | **GcMarkAllMessagesAsReadData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -679,11 +679,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiGcViewNumberOfEachMembersUnreadMessagesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string (optional)
-  userIds: "user_ids_example",
+  apiToken: "{{API_TOKEN}}",
+  // Array<string> (optional)
+  userIds: [
+    "user_ids_example",
+  ],
 };
 
 apiInstance.gcViewNumberOfEachMembersUnreadMessages(body).then((data:any) => {
@@ -696,9 +698,9 @@ apiInstance.gcViewNumberOfEachMembersUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
- **userIds** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **userIds** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -739,9 +741,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiGetEmojiByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiKey: "emoji_key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.getEmojiByKey(body).then((data:any) => {
@@ -754,8 +756,8 @@ apiInstance.getEmojiByKey(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -796,9 +798,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiGetEmojiCategoryByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiCategoryId: "emoji_category_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.getEmojiCategoryById(body).then((data:any) => {
@@ -811,8 +813,8 @@ apiInstance.getEmojiCategoryById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -852,7 +854,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiListAllEmojisAndEmojiCategoriesRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -866,7 +868,7 @@ apiInstance.listAllEmojisAndEmojiCategories(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -906,7 +908,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiListAnnouncementsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -930,7 +932,7 @@ apiInstance.listAnnouncements(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **order** | [**string**] |  | (optional) defaults to undefined
@@ -975,7 +977,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiListEmojisRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -989,7 +991,7 @@ apiInstance.listEmojis(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1030,11 +1032,11 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiListMessagesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   messageTs: "message_ts_example",
   // number (optional)
@@ -1061,6 +1063,10 @@ let body:Sendbird.MessageApiListMessagesRequest = {
   includingRemoved: true,
   // boolean (optional)
   includeReactions: true,
+  // 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL' | One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL (optional)
+  includeReplyType: "NONE",
+  // boolean (optional)
+  includeParentMessageInfo: true,
   // boolean (optional)
   withSortedMetaArray: true,
   // boolean (optional)
@@ -1083,9 +1089,9 @@ apiInstance.listMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **messageTs** | [**string**] |  | (optional) defaults to undefined
  **messageId** | [**number**] |  | (optional) defaults to undefined
  **prevLimit** | [**number**] |  | (optional) defaults to undefined
@@ -1099,6 +1105,8 @@ Name | Type | Description  | Notes
  **messageType** | [**string**] |  | (optional) defaults to undefined
  **includingRemoved** | [**boolean**] |  | (optional) defaults to undefined
  **includeReactions** | [**boolean**] |  | (optional) defaults to undefined
+ **includeReplyType** | [**&#39;NONE&#39; | &#39;ALL&#39; | &#39;ONLY_REPLY_TO_CHANNEL&#39;**]**Array<&#39;NONE&#39; &#124; &#39;ALL&#39; &#124; &#39;ONLY_REPLY_TO_CHANNEL&#39;>** | One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL | (optional) defaults to undefined
+ **includeParentMessageInfo** | [**boolean**] |  | (optional) defaults to undefined
  **withSortedMetaArray** | [**boolean**] |  | (optional) defaults to undefined
  **showSubchannelMessagesOnly** | [**boolean**] |  | (optional) defaults to undefined
  **userId** | [**string**] |  | (optional) defaults to undefined
@@ -1144,13 +1152,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiListReactionsOfMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   listUsers: true,
 };
@@ -1165,10 +1173,10 @@ apiInstance.listReactionsOfMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **listUsers** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -1210,9 +1218,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiMigrateMessagesByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   targetChannelUrl: "target_channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -1228,8 +1236,8 @@ apiInstance.migrateMessagesByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **targetChannelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1270,13 +1278,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiRemoveExtraDataFromMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // Array<string> (optional)
   keys: [
     "keys_example",
@@ -1293,10 +1301,10 @@ apiInstance.removeExtraDataFromMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **keys** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
 
 
@@ -1338,13 +1346,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiRemoveReactionFromAMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   userId: "user_id_example",
   // string (optional)
@@ -1361,10 +1369,10 @@ apiInstance.removeReactionFromAMessage(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **userId** | [**string**] |  | (optional) defaults to undefined
  **reaction** | [**string**] |  | (optional) defaults to undefined
 
@@ -1407,11 +1415,11 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiSendMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // SendMessageData (optional)
   sendMessageData: {
     userId: "userId_example",
@@ -1458,9 +1466,9 @@ apiInstance.sendMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendMessageData** | **SendMessageData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1501,13 +1509,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiTranslateMessageIntoOtherLanguagesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // TranslateMessageIntoOtherLanguagesData (optional)
   translateMessageIntoOtherLanguagesData: {
     targetLangs: [
@@ -1527,10 +1535,10 @@ apiInstance.translateMessageIntoOtherLanguages(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **translateMessageIntoOtherLanguagesData** | **TranslateMessageIntoOtherLanguagesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1571,9 +1579,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiUpdateEmojiCategoryUrlByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiCategoryId: "emoji_category_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateEmojiCategoryUrlByIdData (optional)
   updateEmojiCategoryUrlByIdData: {
     emojiCategoryId: 1,
@@ -1592,8 +1600,8 @@ apiInstance.updateEmojiCategoryUrlById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateEmojiCategoryUrlByIdData** | **UpdateEmojiCategoryUrlByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiCategoryId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1634,9 +1642,9 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiUpdateEmojiUrlByKeyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   emojiKey: "emoji_key_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateEmojiUrlByKeyData (optional)
   updateEmojiUrlByKeyData: {
     emojiKey: "emojiKey_example",
@@ -1655,8 +1663,8 @@ apiInstance.updateEmojiUrlByKey(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateEmojiUrlByKeyData** | **UpdateEmojiUrlByKeyData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **emojiKey** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1697,13 +1705,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiUpdateExtraDataInMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateExtraDataInMessageData (optional)
   updateExtraDataInMessageData: {
     channelType: "channelType_example",
@@ -1726,10 +1734,10 @@ apiInstance.updateExtraDataInMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateExtraDataInMessageData** | **UpdateExtraDataInMessageData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1770,13 +1778,13 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiUpdateMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateMessageByIdData (optional)
   updateMessageByIdData: {
     channelType: "channelType_example",
@@ -1804,10 +1812,10 @@ apiInstance.updateMessageById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateMessageByIdData** | **UpdateMessageByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1847,7 +1855,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiUseDefaultEmojisRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // UseDefaultEmojisData (optional)
   useDefaultEmojisData: {
@@ -1866,7 +1874,7 @@ apiInstance.useDefaultEmojis(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **useDefaultEmojisData** | **UseDefaultEmojisData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1907,17 +1915,19 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiViewMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   withSortedMetaArray: true,
   // boolean (optional)
   withMetaArray: true,
+  // boolean (optional)
+  includeParentMessageInfo: true,
 };
 
 apiInstance.viewMessageById(body).then((data:any) => {
@@ -1930,12 +1940,13 @@ apiInstance.viewMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **withSortedMetaArray** | [**boolean**] |  | (optional) defaults to undefined
  **withMetaArray** | [**boolean**] |  | (optional) defaults to undefined
+ **includeParentMessageInfo** | [**boolean**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1976,11 +1987,11 @@ const apiInstance = new Sendbird.MessageApi(configuration);
 
 let body:Sendbird.MessageApiViewTotalNumberOfMessagesInChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewTotalNumberOfMessagesInChannel(body).then((data:any) => {
@@ -1993,9 +2004,9 @@ apiInstance.viewTotalNumberOfMessagesInChannel(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

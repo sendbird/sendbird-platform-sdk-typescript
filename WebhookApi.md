@@ -24,7 +24,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.WebhookApi(configuration);
 
 let body:Sendbird.WebhookApiChooseWhichEventsToSubscribeToRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // ChooseWhichEventsToSubscribeToData (optional)
   chooseWhichEventsToSubscribeToData: {
@@ -48,7 +48,7 @@ apiInstance.chooseWhichEventsToSubscribeTo(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chooseWhichEventsToSubscribeToData** | **ChooseWhichEventsToSubscribeToData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -88,7 +88,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.WebhookApi(configuration);
 
 let body:Sendbird.WebhookApiRetrieveListOfSubscribedEventsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   displayAllWebhookCategories: true,
@@ -104,7 +104,7 @@ apiInstance.retrieveListOfSubscribedEvents(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **displayAllWebhookCategories** | [**boolean**] |  | (optional) defaults to undefined
 
 

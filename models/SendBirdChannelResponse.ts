@@ -14,10 +14,9 @@ import { SendBirdGroupChannel } from './SendBirdGroupChannel';
 import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelInviter } from './SendBirdGroupChannelInviter';
-import { SendBirdGroupChannelLastMessage } from './SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from './SendBirdMember';
+import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdOpenChannel } from './SendBirdOpenChannel';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
@@ -35,21 +34,20 @@ export class SendBirdChannelResponse {
     'ignoreProfanityFilter'?: boolean;
     'hiddenState'?: SendBirdChannelResponseHiddenStateEnum;
     'invitedAt'?: number;
-    'inviter'?: SendBirdGroupChannelInviter;
+    'inviter'?: SendBirdUser;
     'isAccessCodeRequired'?: boolean;
     'isBroadcast'?: boolean;
     'isCreated'?: boolean;
     'isDiscoverable'?: boolean;
     'isDistinct'?: boolean;
     'isEphemeral'?: boolean;
-    'isFrozen'?: boolean;
     'isHidden'?: boolean;
     'isPublic'?: boolean;
     'isPushEnabled'?: boolean;
     'isSuper'?: boolean;
     'joinedAt'?: number;
     'joinedMemberCount'?: number;
-    'lastMessage'?: SendBirdGroupChannelLastMessage;
+    'lastMessage'?: SendBirdMessageResponse;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
     'members'?: Array<SendBirdMember>;
@@ -67,6 +65,7 @@ export class SendBirdChannelResponse {
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
     'channel'?: SendBirdGroupChannelChannel;
+    'readReceipt'?: { [key: string]: number; };
     'isDynamicPartitioned'?: boolean;
     'participantCount'?: number;
 
@@ -148,7 +147,7 @@ export class SendBirdChannelResponse {
         {
             "name": "inviter",
             "baseName": "inviter",
-            "type": "SendBirdGroupChannelInviter",
+            "type": "SendBirdUser",
             "format": ""
         },
         {
@@ -184,12 +183,6 @@ export class SendBirdChannelResponse {
         {
             "name": "isEphemeral",
             "baseName": "is_ephemeral",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFrozen",
-            "baseName": "is_frozen",
             "type": "boolean",
             "format": ""
         },
@@ -232,7 +225,7 @@ export class SendBirdChannelResponse {
         {
             "name": "lastMessage",
             "baseName": "last_message",
-            "type": "SendBirdGroupChannelLastMessage",
+            "type": "SendBirdMessageResponse",
             "format": ""
         },
         {
@@ -336,6 +329,12 @@ export class SendBirdChannelResponse {
             "baseName": "channel",
             "type": "SendBirdGroupChannelChannel",
             "format": ""
+        },
+        {
+            "name": "readReceipt",
+            "baseName": "read_receipt",
+            "type": "{ [key: string]: number; }",
+            "format": "int64"
         },
         {
             "name": "isDynamicPartitioned",

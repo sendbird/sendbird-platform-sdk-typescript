@@ -50,9 +50,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiBanFromChannelsWithCustomChannelTypesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // BanFromChannelsWithCustomChannelTypesData (optional)
   banFromChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -72,8 +72,8 @@ apiInstance.banFromChannelsWithCustomChannelTypes(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **banFromChannelsWithCustomChannelTypesData** | **BanFromChannelsWithCustomChannelTypesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -114,9 +114,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiBlockUserRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // BlockUserData (optional)
   blockUserData: {
     userId: "userId_example",
@@ -141,8 +141,8 @@ apiInstance.blockUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockUserData** | **BlockUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -183,9 +183,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcBanUserRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcBanUserData (optional)
   gcBanUserData: {
     channelUrl: "channelUrl_example",
@@ -207,8 +207,8 @@ apiInstance.gcBanUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcBanUserData** | **GcBanUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -249,9 +249,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcFreezeChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcFreezeChannelData (optional)
   gcFreezeChannelData: {
     channelUrl: "channelUrl_example",
@@ -270,8 +270,8 @@ apiInstance.gcFreezeChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcFreezeChannelData** | **GcFreezeChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -312,9 +312,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcListBannedUsersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -331,8 +331,8 @@ apiInstance.gcListBannedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -375,9 +375,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcListMutedUsersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -394,8 +394,8 @@ apiInstance.gcListMutedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -438,9 +438,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcMuteUserRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcMuteUserData (optional)
   gcMuteUserData: {
     channelUrl: "channelUrl_example",
@@ -461,8 +461,8 @@ apiInstance.gcMuteUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcMuteUserData** | **GcMuteUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -503,11 +503,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcUnbanUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcUnbanUserById(body).then((data:any) => {
@@ -520,9 +520,9 @@ apiInstance.gcUnbanUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -563,11 +563,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcUnmuteUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcUnmuteUserById(body).then((data:any) => {
@@ -580,9 +580,9 @@ apiInstance.gcUnmuteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -623,11 +623,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcUpdateBanByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcUpdateBanByIdData (optional)
   gcUpdateBanByIdData: {
     channelUrl: "channelUrl_example",
@@ -648,9 +648,9 @@ apiInstance.gcUpdateBanById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcUpdateBanByIdData** | **GcUpdateBanByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -691,11 +691,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcViewBanByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcViewBanById(body).then((data:any) => {
@@ -708,9 +708,9 @@ apiInstance.gcViewBanById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -751,11 +751,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiGcViewMuteByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcViewMuteById(body).then((data:any) => {
@@ -768,9 +768,9 @@ apiInstance.gcViewMuteById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -811,9 +811,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiListBannedChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -830,8 +830,8 @@ apiInstance.listBannedChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -874,9 +874,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiListBlockedUsersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -899,8 +899,8 @@ apiInstance.listBlockedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **userIds** | [**string**] |  | (optional) defaults to undefined
@@ -946,9 +946,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiListMutedChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -965,8 +965,8 @@ apiInstance.listMutedChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1009,9 +1009,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiMuteInChannelsWithCustomChannelTypesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // MuteInChannelsWithCustomChannelTypesData (optional)
   muteInChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -1031,8 +1031,8 @@ apiInstance.muteInChannelsWithCustomChannelTypes(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteInChannelsWithCustomChannelTypesData** | **MuteInChannelsWithCustomChannelTypesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1073,9 +1073,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcBanUserRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcBanUserData (optional)
   ocBanUserData: {
     channelUrl: "channelUrl_example",
@@ -1097,8 +1097,8 @@ apiInstance.ocBanUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocBanUserData** | **OcBanUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1139,9 +1139,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcFreezeChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcFreezeChannelData (optional)
   ocFreezeChannelData: {
     channelUrl: "channelUrl_example",
@@ -1160,8 +1160,8 @@ apiInstance.ocFreezeChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocFreezeChannelData** | **OcFreezeChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1202,9 +1202,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcListBannedUsersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1221,8 +1221,8 @@ apiInstance.ocListBannedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1265,9 +1265,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcListMutedUsersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1284,8 +1284,8 @@ apiInstance.ocListMutedUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1328,9 +1328,9 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcMuteUserRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcMuteUserData (optional)
   ocMuteUserData: {
     userId: "userId_example",
@@ -1350,8 +1350,8 @@ apiInstance.ocMuteUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocMuteUserData** | **OcMuteUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1392,11 +1392,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcUnbanUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocUnbanUserById(body).then((data:any) => {
@@ -1409,9 +1409,9 @@ apiInstance.ocUnbanUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1452,11 +1452,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcUnmuteUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocUnmuteUserById(body).then((data:any) => {
@@ -1469,9 +1469,9 @@ apiInstance.ocUnmuteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1512,11 +1512,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcUpdateBanByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcUpdateBanByIdData (optional)
   ocUpdateBanByIdData: {
     channelUrl: "channelUrl_example",
@@ -1537,9 +1537,9 @@ apiInstance.ocUpdateBanById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocUpdateBanByIdData** | **OcUpdateBanByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1580,11 +1580,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcViewBanByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   bannedUserId: "banned_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocViewBanById(body).then((data:any) => {
@@ -1597,9 +1597,9 @@ apiInstance.ocViewBanById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **bannedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1640,11 +1640,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiOcViewMuteByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   mutedUserId: "muted_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocViewMuteById(body).then((data:any) => {
@@ -1657,9 +1657,9 @@ apiInstance.ocViewMuteById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **mutedUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1700,11 +1700,11 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 
 let body:Sendbird.ModerationApiUnblockUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   targetId: "target_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.unblockUserById(body).then((data:any) => {
@@ -1717,9 +1717,9 @@ apiInstance.unblockUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **targetId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

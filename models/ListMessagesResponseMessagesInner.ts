@@ -12,8 +12,10 @@
 
 import { ListMessagesResponseMessagesInnerOgTag } from './ListMessagesResponseMessagesInnerOgTag';
 import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from './ListMessagesResponseMessagesInnerSortedMetaarrayInner';
+import { SendBirdFile } from './SendBirdFile';
 import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
 import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
+import { SendBirdParentMessageInfo } from './SendBirdParentMessageInfo';
 import { HttpFile } from '../http/http';
 
 export class ListMessagesResponseMessagesInner {
@@ -26,6 +28,7 @@ export class ListMessagesResponseMessagesInner {
     'isRemoved'?: boolean;
     'user'?: SendBirdMessageResponseUser;
     'file'?: any;
+    'files'?: Array<SendBirdFile>;
     'message'?: string;
     'data'?: string;
     'messageRetentionHour'?: number;
@@ -39,6 +42,7 @@ export class ListMessagesResponseMessagesInner {
     'messageId'?: number;
     'sortedMetaarray'?: Array<ListMessagesResponseMessagesInnerSortedMetaarrayInner>;
     'ogTag'?: ListMessagesResponseMessagesInnerOgTag;
+    'parentMessageInfo'?: SendBirdParentMessageInfo;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -95,6 +99,12 @@ export class ListMessagesResponseMessagesInner {
             "name": "file",
             "baseName": "file",
             "type": "any",
+            "format": ""
+        },
+        {
+            "name": "files",
+            "baseName": "files",
+            "type": "Array<SendBirdFile>",
             "format": ""
         },
         {
@@ -173,6 +183,12 @@ export class ListMessagesResponseMessagesInner {
             "name": "ogTag",
             "baseName": "og_tag",
             "type": "ListMessagesResponseMessagesInnerOgTag",
+            "format": ""
+        },
+        {
+            "name": "parentMessageInfo",
+            "baseName": "parent_message_info",
+            "type": "SendBirdParentMessageInfo",
             "format": ""
         }    ];
 

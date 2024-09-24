@@ -53,11 +53,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiAddRegistrationOrDeviceTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // AddRegistrationOrDeviceTokenData (optional)
   addRegistrationOrDeviceTokenData: {
     gcmRegToken: "gcmRegToken_example",
@@ -77,9 +77,9 @@ apiInstance.addRegistrationOrDeviceToken(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addRegistrationOrDeviceTokenData** | **AddRegistrationOrDeviceTokenData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -120,9 +120,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiChoosePushNotificationContentTemplateRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // any (optional)
   body: {},
 };
@@ -138,8 +138,8 @@ apiInstance.choosePushNotificationContentTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **any**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -179,7 +179,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiCreateUserRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // CreateUserData (optional)
   createUserData: {
@@ -206,7 +206,7 @@ apiInstance.createUser(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createUserData** | **CreateUserData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -247,9 +247,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiCreateUserTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // CreateUserTokenData (optional)
   createUserTokenData: {
     expiresAt: 3.14,
@@ -267,8 +267,8 @@ apiInstance.createUserToken(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createUserTokenData** | **CreateUserTokenData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -309,9 +309,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiDeleteUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteUserById(body).then((data:any) => {
@@ -324,8 +324,8 @@ apiInstance.deleteUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -366,9 +366,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiLeaveMyGroupChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // LeaveMyGroupChannelsData (optional)
   leaveMyGroupChannelsData: {
     customType: "customType_example",
@@ -386,8 +386,8 @@ apiInstance.leaveMyGroupChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **leaveMyGroupChannelsData** | **LeaveMyGroupChannelsData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -428,9 +428,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiListMyGroupChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -523,8 +523,8 @@ apiInstance.listMyGroupChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **distinctMode** | [**string**] |  | (optional) defaults to undefined
@@ -605,11 +605,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiListRegistrationOrDeviceTokensRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.listRegistrationOrDeviceTokens(body).then((data:any) => {
@@ -622,9 +622,9 @@ apiInstance.listRegistrationOrDeviceTokens(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -664,7 +664,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiListUsersRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -696,7 +696,7 @@ apiInstance.listUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **activeMode** | [**string**] |  | (optional) defaults to undefined
@@ -746,9 +746,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiMarkAllMessagesAsReadRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // MarkAllMessagesAsReadData (optional)
   markAllMessagesAsReadData: {
     channelUrls: [
@@ -768,8 +768,8 @@ apiInstance.markAllMessagesAsRead(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markAllMessagesAsReadData** | **MarkAllMessagesAsReadData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -810,9 +810,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiRegisterAsOperatorToChannelsWithCustomChannelTypesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // RegisterAsOperatorToChannelsWithCustomChannelTypesData (optional)
   registerAsOperatorToChannelsWithCustomChannelTypesData: {
     channelCustomTypes: [
@@ -832,8 +832,8 @@ apiInstance.registerAsOperatorToChannelsWithCustomChannelTypes(body).then((data:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registerAsOperatorToChannelsWithCustomChannelTypesData** | **RegisterAsOperatorToChannelsWithCustomChannelTypesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -874,9 +874,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removeRegistrationOrDeviceToken(body).then((data:any) => {
@@ -889,8 +889,8 @@ apiInstance.removeRegistrationOrDeviceToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -931,13 +931,13 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenByTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removeRegistrationOrDeviceTokenByToken(body).then((data:any) => {
@@ -950,10 +950,10 @@ apiInstance.removeRegistrationOrDeviceTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -994,11 +994,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiRemoveRegistrationOrDeviceTokenFromOwnerByTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removeRegistrationOrDeviceTokenFromOwnerByToken(body).then((data:any) => {
@@ -1011,9 +1011,9 @@ apiInstance.removeRegistrationOrDeviceTokenFromOwnerByToken(body).then((data:any
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1054,9 +1054,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiResetPushPreferencesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.resetPushPreferences(body).then((data:any) => {
@@ -1069,8 +1069,8 @@ apiInstance.resetPushPreferences(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1111,9 +1111,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiUpdateChannelInvitationPreferenceRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateChannelInvitationPreferenceData (optional)
   updateChannelInvitationPreferenceData: {
     autoAccept: true,
@@ -1131,8 +1131,8 @@ apiInstance.updateChannelInvitationPreference(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChannelInvitationPreferenceData** | **UpdateChannelInvitationPreferenceData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1173,11 +1173,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiUpdateCountPreferenceOfChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateCountPreferenceOfChannelByUrlData (optional)
   updateCountPreferenceOfChannelByUrlData: {
     countPreference: "countPreference_example",
@@ -1195,9 +1195,9 @@ apiInstance.updateCountPreferenceOfChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCountPreferenceOfChannelByUrlData** | **UpdateCountPreferenceOfChannelByUrlData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1238,9 +1238,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiUpdatePushPreferencesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdatePushPreferencesData (optional)
   updatePushPreferencesData: {
     pushTriggerOption: "pushTriggerOption_example",
@@ -1254,7 +1254,7 @@ let body:Sendbird.UserApiUpdatePushPreferencesRequest = {
     snoozeEndTs: 1,
     blockPushFromBots: true,
     pushBlockedBotIds: [
-      1,
+      "pushBlockedBotIds_example",
     ],
     timezone: "timezone_example",
     pushSound: "pushSound_example",
@@ -1272,8 +1272,8 @@ apiInstance.updatePushPreferences(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushPreferencesData** | **UpdatePushPreferencesData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1314,11 +1314,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiUpdatePushPreferencesForChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdatePushPreferencesForChannelByUrlData (optional)
   updatePushPreferencesForChannelByUrlData: {
     pushTriggerOption: "pushTriggerOption_example",
@@ -1338,9 +1338,9 @@ apiInstance.updatePushPreferencesForChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushPreferencesForChannelByUrlData** | **UpdatePushPreferencesForChannelByUrlData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1381,9 +1381,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiUpdateUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateUserByIdData (optional)
   updateUserByIdData: {
     userId: "userId_example",
@@ -1416,8 +1416,8 @@ apiInstance.updateUserById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateUserByIdData** | **UpdateUserByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1458,9 +1458,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewChannelInvitationPreferenceRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewChannelInvitationPreference(body).then((data:any) => {
@@ -1473,8 +1473,8 @@ apiInstance.viewChannelInvitationPreference(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1515,11 +1515,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewCountPreferenceOfChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewCountPreferenceOfChannelByUrl(body).then((data:any) => {
@@ -1532,9 +1532,9 @@ apiInstance.viewCountPreferenceOfChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1575,9 +1575,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewNumberOfChannelsByJoinStatusRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   state: "state_example",
 };
@@ -1592,8 +1592,8 @@ apiInstance.viewNumberOfChannelsByJoinStatus(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **state** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -1635,9 +1635,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewNumberOfChannelsWithUnreadMessagesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // Array<string> (optional)
   customTypes: [
     "custom_types_example",
@@ -1656,8 +1656,8 @@ apiInstance.viewNumberOfChannelsWithUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customTypes** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
 
@@ -1700,9 +1700,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewNumberOfUnreadItemsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   customType: "custom_type_example",
   // string (optional)
@@ -1719,8 +1719,8 @@ apiInstance.viewNumberOfUnreadItems(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customType** | [**string**] |  | (optional) defaults to undefined
  **itemKeys** | [**string**] |  | (optional) defaults to undefined
 
@@ -1763,9 +1763,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewNumberOfUnreadMessagesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   customTypes: "custom_types_example",
   // string (optional)
@@ -1782,8 +1782,8 @@ apiInstance.viewNumberOfUnreadMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
 
@@ -1826,9 +1826,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewPushPreferencesRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushPreferences(body).then((data:any) => {
@@ -1841,8 +1841,8 @@ apiInstance.viewPushPreferences(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1883,11 +1883,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewPushPreferencesForChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushPreferencesForChannelByUrl(body).then((data:any) => {
@@ -1900,9 +1900,9 @@ apiInstance.viewPushPreferencesForChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1943,9 +1943,9 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   includeUnreadCount: true,
   // string (optional)
@@ -1964,8 +1964,8 @@ apiInstance.viewUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **includeUnreadCount** | [**boolean**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
  **superMode** | [**string**] |  | (optional) defaults to undefined
@@ -2009,11 +2009,11 @@ const apiInstance = new Sendbird.UserApi(configuration);
 
 let body:Sendbird.UserApiViewWhoOwnsRegistrationOrDeviceTokenByTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   tokenType: "token_type_example",
   // string
   token: "token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewWhoOwnsRegistrationOrDeviceTokenByToken(body).then((data:any) => {
@@ -2026,9 +2026,9 @@ apiInstance.viewWhoOwnsRegistrationOrDeviceTokenByToken(body).then((data:any) =>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **tokenType** | [**string**] |  | defaults to undefined
  **token** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

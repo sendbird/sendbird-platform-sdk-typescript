@@ -23,24 +23,19 @@ export class DataExportApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List data exports by message, channel, or user  Retrieves a list of message, channel or user data exports  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-list-data-exports-by-message,-channel,-or-user ----------------------------   `data_type`      Type: string      Description: Specifies the type of a data export to retrieve. Acceptable values are messages, channels, users, and failed_webhooks.
      * List data exports by message, channel, or user
-     * @param apiToken 
      * @param dataType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listDataExportsByMessageChannelOrUser(apiToken: string, dataType: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listDataExportsByMessageChannelOrUser(dataType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("DataExportApi", "listDataExportsByMessageChannelOrUser", "apiToken");
-        }
-
 
         // verify required parameter 'dataType' is not null or undefined
         if (dataType === null || dataType === undefined) {
             throw new RequiredError("DataExportApi", "listDataExportsByMessageChannelOrUser", "dataType");
         }
+
 
 
 
@@ -79,23 +74,18 @@ export class DataExportApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Register and schedule a data export  Registers and schedules a message, channel, or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-register-and-schedule-a-data-export ----------------------------
      * Register and schedule a data export
-     * @param apiToken 
      * @param dataType 
+     * @param apiToken 
      * @param registerAndScheduleDataExportData 
      */
-    public async registerAndScheduleDataExport(apiToken: string, dataType: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Promise<RequestContext> {
+    public async registerAndScheduleDataExport(dataType: string, apiToken?: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("DataExportApi", "registerAndScheduleDataExport", "apiToken");
-        }
-
 
         // verify required parameter 'dataType' is not null or undefined
         if (dataType === null || dataType === undefined) {
             throw new RequiredError("DataExportApi", "registerAndScheduleDataExport", "dataType");
         }
+
 
 
 
@@ -134,18 +124,12 @@ export class DataExportApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a data export  Retrieves information on a message, channel or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-view-a-data-export ----------------------------   `data_type`      Type: string      Description: Specifies the type of a targeted data export. Acceptable values are messages, channels,  users, and failed_webhooks.  `request_id`      Type: string      Description: Specifies the unique ID of a data export to retrieve.
      * View a data export
-     * @param apiToken 
      * @param dataType 
      * @param requestId 
+     * @param apiToken 
      */
-    public async viewDataExportById(apiToken: string, dataType: string, requestId: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewDataExportById(dataType: string, requestId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("DataExportApi", "viewDataExportById", "apiToken");
-        }
-
 
         // verify required parameter 'dataType' is not null or undefined
         if (dataType === null || dataType === undefined) {
@@ -157,6 +141,7 @@ export class DataExportApiRequestFactory extends BaseAPIRequestFactory {
         if (requestId === null || requestId === undefined) {
             throw new RequiredError("DataExportApi", "viewDataExportById", "requestId");
         }
+
 
 
         // Path Params

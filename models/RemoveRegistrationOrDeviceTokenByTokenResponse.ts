@@ -14,7 +14,7 @@ import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
 export class RemoveRegistrationOrDeviceTokenByTokenResponse {
-    'token'?: Array<string>;
+    'token'?: string;
     'user'?: SendBirdUser;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class RemoveRegistrationOrDeviceTokenByTokenResponse {
         {
             "name": "token",
             "baseName": "token",
-            "type": "Array<string>",
+            "type": "string",
             "format": ""
         },
         {

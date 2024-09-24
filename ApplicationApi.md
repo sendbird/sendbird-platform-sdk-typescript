@@ -33,7 +33,7 @@ Method | HTTP request | Description
 [**updatePushNotificationContentTemplate**](ApplicationApi.md#updatePushNotificationContentTemplate) | **PUT** /v3/applications/push/message_templates/{template_name} | Update a push notification content template
 [**viewDefaultChannelInvitationPreference**](ApplicationApi.md#viewDefaultChannelInvitationPreference) | **GET** /v3/applications/default_channel_invitation_preference | View default channel invitation preference
 [**viewPushConfigurationById**](ApplicationApi.md#viewPushConfigurationById) | **GET** /v3/applications/push/{push_type}/{provider_id} | View a push configuration
-[**viewPushNotificationContentTemplate**](ApplicationApi.md#viewPushNotificationContentTemplate) | **GET** /v3/applications/push/message_templates/{template_name} | View a push notification content template
+[**viewPushNotificationContentTemplate**](ApplicationApi.md#viewPushNotificationContentTemplate) | **GET** /v3/applications/push/message_templates/{template_name} | Get a push notification content template
 [**viewSecondaryApiTokenByToken**](ApplicationApi.md#viewSecondaryApiTokenByToken) | **GET** /v3/applications/api_tokens/{api_token} | View a secondary API token
 
 
@@ -53,7 +53,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiAddApnsPushConfigurationRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddApnsPushConfigurationData (optional)
   addApnsPushConfigurationData: {
@@ -79,7 +79,7 @@ apiInstance.addApnsPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addApnsPushConfigurationData** | **AddApnsPushConfigurationData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -119,7 +119,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiAddFcmPushConfigurationRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddFcmPushConfigurationData (optional)
   addFcmPushConfigurationData: {
@@ -139,7 +139,7 @@ apiInstance.addFcmPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addFcmPushConfigurationData** | **AddFcmPushConfigurationData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -179,7 +179,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiAddHmsPushConfigurationRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddHmsPushConfigurationData (optional)
   addHmsPushConfigurationData: {
@@ -200,7 +200,7 @@ apiInstance.addHmsPushConfiguration(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addHmsPushConfigurationData** | **AddHmsPushConfigurationData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -240,7 +240,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiAddIpToWhitelistRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddIpToWhitelistData (optional)
   addIpToWhitelistData: {
@@ -261,7 +261,7 @@ apiInstance.addIpToWhitelist(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addIpToWhitelistData** | **AddIpToWhitelistData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -302,9 +302,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiBanUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // BanUsersInChannelsWithCustomChannelTypeData (optional)
   banUsersInChannelsWithCustomChannelTypeData: {
     bannedList: [
@@ -329,8 +329,8 @@ apiInstance.banUsersInChannelsWithCustomChannelType(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **banUsersInChannelsWithCustomChannelTypeData** | **BanUsersInChannelsWithCustomChannelTypeData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -370,7 +370,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiConfigureAutoEventMessagesRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // ConfigureAutoEventData (optional)
   configureAutoEventData: {
@@ -394,7 +394,7 @@ apiInstance.configureAutoEventMessages(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configureAutoEventData** | **ConfigureAutoEventData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -434,12 +434,12 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiDeleteAllowedIpsFromWhitelistRequest = {
-  // string
-  apiToken: "{{API_TOKEN}}",
   // Array<string>
   ipWhitelistAddresses: [
     "ip_whitelist_addresses_example",
   ],
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteAllowedIpsFromWhitelist(body).then((data:any) => {
@@ -452,8 +452,8 @@ apiInstance.deleteAllowedIpsFromWhitelist(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **ipWhitelistAddresses** | **Array&lt;string&gt;** |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -494,9 +494,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiDeleteApnsCertificateByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteApnsCertificateById(body).then((data:any) => {
@@ -509,8 +509,8 @@ apiInstance.deleteApnsCertificateById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -550,7 +550,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiGenerateSecondaryApiTokenRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // GenerateSecondaryApiTokenData (optional)
   generateSecondaryApiTokenData: {
@@ -569,7 +569,7 @@ apiInstance.generateSecondaryApiToken(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generateSecondaryApiTokenData** | **GenerateSecondaryApiTokenData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -609,7 +609,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListAutoEventMessagesRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -623,7 +623,7 @@ apiInstance.listAutoEventMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -664,9 +664,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListBannedUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -683,8 +683,8 @@ apiInstance.listBannedUsersInChannelsWithCustomChannelType(body).then((data:any)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -727,9 +727,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListMutedUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -746,8 +746,8 @@ apiInstance.listMutedUsersInChannelsWithCustomChannelType(body).then((data:any) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -790,9 +790,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListPushConfigurationsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   pushType: "push_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.listPushConfigurations(body).then((data:any) => {
@@ -805,8 +805,8 @@ apiInstance.listPushConfigurations(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -846,7 +846,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListPushNotificationContentTemplatesRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -860,7 +860,7 @@ apiInstance.listPushNotificationContentTemplates(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -900,7 +900,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiListSecondaryApiTokensRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -914,7 +914,7 @@ apiInstance.listSecondaryApiTokens(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -955,9 +955,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiMuteUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // MuteUsersInChannelsWithCustomChannelTypeData (optional)
   muteUsersInChannelsWithCustomChannelTypeData: {
     userIds: [
@@ -980,8 +980,8 @@ apiInstance.muteUsersInChannelsWithCustomChannelType(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteUsersInChannelsWithCustomChannelTypeData** | **MuteUsersInChannelsWithCustomChannelTypeData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1022,11 +1022,11 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiRemovePushConfigurationByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   pushType: "push_type_example",
   // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.removePushConfigurationById(body).then((data:any) => {
@@ -1039,9 +1039,9 @@ apiInstance.removePushConfigurationById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1081,7 +1081,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiRetrieveIpWhitelistRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -1095,7 +1095,7 @@ apiInstance.retrieveIpWhitelist(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1136,9 +1136,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiRevokeSecondaryApiTokenByTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   apiToken2: "api_token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.revokeSecondaryApiTokenByToken(body).then((data:any) => {
@@ -1151,8 +1151,8 @@ apiInstance.revokeSecondaryApiTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **apiToken2** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1193,9 +1193,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiSetDomainFilterRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // SetDomainFilterData (optional)
   setDomainFilterData: {
     domainFilter: {
@@ -1248,8 +1248,8 @@ apiInstance.setDomainFilter(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **setDomainFilterData** | **SetDomainFilterData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1290,13 +1290,13 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUnbanUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
   // Array<string>
   userIds: [
     "user_ids_example",
   ],
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.unbanUsersInChannelsWithCustomChannelType(body).then((data:any) => {
@@ -1309,9 +1309,9 @@ apiInstance.unbanUsersInChannelsWithCustomChannelType(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
  **userIds** | **Array&lt;string&gt;** |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1352,13 +1352,13 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUnmuteUsersInChannelsWithCustomChannelTypeRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   customType: "custom_type_example",
   // Array<string>
   userIds: [
     "user_ids_example",
   ],
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.unmuteUsersInChannelsWithCustomChannelType(body).then((data:any) => {
@@ -1371,9 +1371,9 @@ apiInstance.unmuteUsersInChannelsWithCustomChannelType(body).then((data:any) => 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **customType** | [**string**] |  | defaults to undefined
  **userIds** | **Array&lt;string&gt;** |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1414,9 +1414,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUpdateApnsPushConfigurationByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateApnsPushConfigurationByIdData (optional)
   updateApnsPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -1442,8 +1442,8 @@ apiInstance.updateApnsPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateApnsPushConfigurationByIdData** | **UpdateApnsPushConfigurationByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1483,7 +1483,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUpdateDefaultChannelInvitationPreferenceRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // UpdateDefaultChannelInvitationPreferenceData (optional)
   updateDefaultChannelInvitationPreferenceData: {
@@ -1502,7 +1502,7 @@ apiInstance.updateDefaultChannelInvitationPreference(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateDefaultChannelInvitationPreferenceData** | **UpdateDefaultChannelInvitationPreferenceData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1543,9 +1543,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUpdateFcmPushConfigurationByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateFcmPushConfigurationByIdData (optional)
   updateFcmPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -1565,8 +1565,8 @@ apiInstance.updateFcmPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateFcmPushConfigurationByIdData** | **UpdateFcmPushConfigurationByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1607,9 +1607,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUpdateHmsPushConfigurationByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateHmsPushConfigurationByIdData (optional)
   updateHmsPushConfigurationByIdData: {
     providerId: "providerId_example",
@@ -1630,8 +1630,8 @@ apiInstance.updateHmsPushConfigurationById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateHmsPushConfigurationByIdData** | **UpdateHmsPushConfigurationByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1672,9 +1672,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiUpdatePushNotificationContentTemplateRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   templateName: "template_name_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdatePushNotificationContentTemplateData (optional)
   updatePushNotificationContentTemplateData: {
     templateName: "templateName_example",
@@ -1696,8 +1696,8 @@ apiInstance.updatePushNotificationContentTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePushNotificationContentTemplateData** | **UpdatePushNotificationContentTemplateData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **templateName** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1737,7 +1737,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiViewDefaultChannelInvitationPreferenceRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -1751,7 +1751,7 @@ apiInstance.viewDefaultChannelInvitationPreference(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1792,11 +1792,11 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiViewPushConfigurationByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   pushType: "push_type_example",
   // string
   providerId: "provider_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushConfigurationById(body).then((data:any) => {
@@ -1809,9 +1809,9 @@ apiInstance.viewPushConfigurationById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **pushType** | [**string**] |  | defaults to undefined
  **providerId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1838,7 +1838,7 @@ No authorization required
 # **viewPushNotificationContentTemplate**
 > ViewPushNotificationContentTemplateResponse viewPushNotificationContentTemplate()
 
-## View a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
+## Get a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
 
 ### Example
 
@@ -1852,9 +1852,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiViewPushNotificationContentTemplateRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   templateName: "template_name_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewPushNotificationContentTemplate(body).then((data:any) => {
@@ -1867,8 +1867,8 @@ apiInstance.viewPushNotificationContentTemplate(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **templateName** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1909,9 +1909,9 @@ const apiInstance = new Sendbird.ApplicationApi(configuration);
 
 let body:Sendbird.ApplicationApiViewSecondaryApiTokenByTokenRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   apiToken2: "api_token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewSecondaryApiTokenByToken(body).then((data:any) => {
@@ -1924,8 +1924,8 @@ apiInstance.viewSecondaryApiTokenByToken(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **apiToken2** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

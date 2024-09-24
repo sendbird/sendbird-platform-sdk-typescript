@@ -54,19 +54,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Add a registration or device token  > __Note__: A user can have up to 20 FCM registration tokens, 20 HMS device tokens, and 20 APNs device tokens each. The oldest token will be deleted before a new token is added for a user who already has 20 registration or device tokens. Only the 20 newest tokens will be maintained for users who already have more than 20 of each token type.  To send notification requests to push notification services on behalf of your server, adds a specific user's FCM registration token, HMS device token, or APNs device token to Sendbird server. Depending on which push service you are using, you can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`.  A FCM registration token and an APNs device token allow identification of each client app instance on each device, and are generated and registered by Android and iOS apps through the corresponding SDKs. Use this method if you need to register a token via your own server.  > __Note__: For more information on the registration token and device token, visit the Google's [FCM](https://firebase.google.com/docs/auth/admin/verify-id-tokens) page, Huawei's [Push kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050040060) and Apple's [APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) page.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-add-a-registration-or-device-token ----------------------------
      * Add a registration or device token
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
+     * @param apiToken 
      * @param addRegistrationOrDeviceTokenData 
      */
-    public async addRegistrationOrDeviceToken(apiToken: string, userId: string, tokenType: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Promise<RequestContext> {
+    public async addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "addRegistrationOrDeviceToken", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -78,6 +72,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (tokenType === null || tokenType === undefined) {
             throw new RequiredError("UserApi", "addRegistrationOrDeviceToken", "tokenType");
         }
+
 
 
 
@@ -117,23 +112,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
      * Choose a push notification content template
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param body 
      */
-    public async choosePushNotificationContentTemplate(apiToken: string, userId: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "choosePushNotificationContentTemplate", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "choosePushNotificationContentTemplate", "userId");
         }
+
 
 
 
@@ -175,13 +165,8 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param createUserData 
      */
-    public async createUser(apiToken: string, createUserData?: CreateUserData, _options?: Configuration): Promise<RequestContext> {
+    public async createUser(apiToken?: string, createUserData?: CreateUserData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "createUser", "apiToken");
-        }
 
 
 
@@ -219,23 +204,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Create user token
      * Create user token
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param createUserTokenData 
      */
-    public async createUserToken(apiToken: string, userId: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<RequestContext> {
+    public async createUserToken(userId: string, apiToken?: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "createUserToken", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "createUserToken", "userId");
         }
+
 
 
 
@@ -274,22 +254,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
      * Delete a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public async deleteUserById(apiToken: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteUserById(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "deleteUserById", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "deleteUserById", "userId");
         }
+
 
 
         // Path Params
@@ -316,23 +291,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
      * Leave my group channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param leaveMyGroupChannelsData 
      */
-    public async leaveMyGroupChannels(apiToken: string, userId: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Promise<RequestContext> {
+    public async leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "leaveMyGroupChannels", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "leaveMyGroupChannels", "userId");
         }
+
 
 
 
@@ -371,8 +341,8 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List my group channels  Retrieves all group channels that the user has joined. You can create a request based on various query parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List my group channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param distinctMode 
@@ -414,19 +384,14 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param metacounterValueLte 
      * @param customType 
      */
-    public async listMyGroupChannels(apiToken: string, userId: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "listMyGroupChannels", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "listMyGroupChannels", "userId");
         }
+
 
 
 
@@ -693,18 +658,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List registration or device tokens  Retrieves a list of a specific user's FCM registration tokens, HMS device tokens, or APNs device tokens. You can specify either `gcm`, `huawei`, or `apns` in the `token_type` parameter, depending on which push notification service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-registration-or-device-tokens ----------------------------
      * List registration or device tokens
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
+     * @param apiToken 
      */
-    public async listRegistrationOrDeviceTokens(apiToken: string, userId: string, tokenType: string, _options?: Configuration): Promise<RequestContext> {
+    public async listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "listRegistrationOrDeviceTokens", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -716,6 +675,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (tokenType === null || tokenType === undefined) {
             throw new RequiredError("UserApi", "listRegistrationOrDeviceTokens", "tokenType");
         }
+
 
 
         // Path Params
@@ -754,13 +714,8 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public async listUsers(apiToken: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "listUsers", "apiToken");
-        }
 
 
 
@@ -840,23 +795,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mark all messages as read  Marks all of a user's unread messages as read in the joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mark-all-messages-as-read ----------------------------
      * Mark all messages as read
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param markAllMessagesAsReadData 
      */
-    public async markAllMessagesAsRead(apiToken: string, userId: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
+    public async markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "markAllMessagesAsRead", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "markAllMessagesAsRead", "userId");
         }
+
 
 
 
@@ -895,23 +845,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Register as an operator to channels with custom channel types  Registers a user as an operator to channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-register-as-an-operator-to-channels-with-custom-channel-types ----------------------------
      * Register as an operator to channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param registerAsOperatorToChannelsWithCustomChannelTypesData 
      */
-    public async registerAsOperatorToChannelsWithCustomChannelTypes(apiToken: string, userId: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
+    public async registerAsOperatorToChannelsWithCustomChannelTypes(userId: string, apiToken?: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "registerAsOperatorToChannelsWithCustomChannelTypes", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "registerAsOperatorToChannelsWithCustomChannelTypes", "userId");
         }
+
 
 
 
@@ -950,22 +895,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
      * Remove a registration or device token - When unregistering all device tokens
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public async removeRegistrationOrDeviceToken(apiToken: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceToken", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "removeRegistrationOrDeviceToken", "userId");
         }
+
 
 
         // Path Params
@@ -992,19 +932,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
      * Remove a registration or device token - When unregistering a specific token
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public async removeRegistrationOrDeviceTokenByToken(apiToken: string, userId: string, tokenType: string, token: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenByToken", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1022,6 +956,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (token === null || token === undefined) {
             throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenByToken", "token");
         }
+
 
 
         // Path Params
@@ -1050,18 +985,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who owns it. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token-from-an-owner ----------------------------
      * Remove a registration or device token from an owner
-     * @param apiToken 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public async removeRegistrationOrDeviceTokenFromOwnerByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenFromOwnerByToken", "apiToken");
-        }
-
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
@@ -1073,6 +1002,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (token === null || token === undefined) {
             throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenFromOwnerByToken", "token");
         }
+
 
 
         // Path Params
@@ -1100,22 +1030,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Reset push preferences  Resets a user's push preferences. After performing this action,   `do_not_disturb` and `snooze_enabled` are set to false.  The values of the parameters associated with the time frame are all set to 0.  `timezone` is reset to `UTC`.  `push_sound` is reset to `default`.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-reset-push-preferences ----------------------------
      * Reset push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public async resetPushPreferences(apiToken: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async resetPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "resetPushPreferences", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "resetPushPreferences", "userId");
         }
+
 
 
         // Path Params
@@ -1142,23 +1067,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
      * Update channel invitation preference
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updateChannelInvitationPreferenceData 
      */
-    public async updateChannelInvitationPreference(apiToken: string, userId: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Promise<RequestContext> {
+    public async updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "updateChannelInvitationPreference", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "updateChannelInvitationPreference", "userId");
         }
+
 
 
 
@@ -1197,19 +1117,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
      * Update count preference of a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      * @param updateCountPreferenceOfChannelByUrlData 
      */
-    public async updateCountPreferenceOfChannelByUrl(apiToken: string, userId: string, channelUrl: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "updateCountPreferenceOfChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1221,6 +1135,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserApi", "updateCountPreferenceOfChannelByUrl", "channelUrl");
         }
+
 
 
 
@@ -1260,23 +1175,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update push preferences  Updates a user's push preferences. Through this action, you can set `do_not_disturb` for a user, and update the time frame in which the setting applies.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences ----------------------------
      * Update push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updatePushPreferencesData 
      */
-    public async updatePushPreferences(apiToken: string, userId: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Promise<RequestContext> {
+    public async updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "updatePushPreferences", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "updatePushPreferences", "userId");
         }
+
 
 
 
@@ -1315,19 +1225,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update push preferences for a channel  Updates push preferences for a user's specific group channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences-for-a-channel ----------------------------
      * Update push preferences for a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      * @param updatePushPreferencesForChannelByUrlData 
      */
-    public async updatePushPreferencesForChannelByUrl(apiToken: string, userId: string, channelUrl: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "updatePushPreferencesForChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1339,6 +1243,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserApi", "updatePushPreferencesForChannelByUrl", "channelUrl");
         }
+
 
 
 
@@ -1378,23 +1283,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a user  Updates information on a user. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user. If the `leave_all_when_deactivated` is true (which it is by default), a user leaves all joined group channels when deactivated.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-a-user ----------------------------
      * Update a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updateUserByIdData 
      */
-    public async updateUserById(apiToken: string, userId: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateUserById(userId: string, apiToken?: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "updateUserById", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "updateUserById", "userId");
         }
+
 
 
 
@@ -1433,22 +1333,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View channel invitation preference  Retrieves channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [view default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference) action, you can retrieve the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference
      * View channel invitation preference
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public async viewChannelInvitationPreference(apiToken: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewChannelInvitationPreference", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewChannelInvitationPreference", "userId");
         }
+
 
 
         // Path Params
@@ -1475,18 +1370,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View count preference of a channel  Retrieves count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-count-preference-of-a-channel ----------------------------
      * View count preference of a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async viewCountPreferenceOfChannelByUrl(apiToken: string, userId: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewCountPreferenceOfChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1498,6 +1387,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserApi", "viewCountPreferenceOfChannelByUrl", "channelUrl");
         }
+
 
 
         // Path Params
@@ -1525,23 +1415,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of channels by join status  Retrieves the number of a user's group channels by their join status.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-by-join-status ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
      * View number of channels by join status
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param state 
      */
-    public async viewNumberOfChannelsByJoinStatus(apiToken: string, userId: string, state?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfChannelsByJoinStatus", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewNumberOfChannelsByJoinStatus", "userId");
         }
+
 
 
 
@@ -1574,24 +1459,19 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of channels with unread messages  Retrieves the total number of a user's group channels with unread messages.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-with-unread-messages ----------------------------
      * View number of channels with unread messages
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customTypes 
      * @param superMode 
      */
-    public async viewNumberOfChannelsWithUnreadMessages(apiToken: string, userId: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfChannelsWithUnreadMessages", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewNumberOfChannelsWithUnreadMessages", "userId");
         }
+
 
 
 
@@ -1630,24 +1510,19 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of unread items  Retrieves a set of total numbers of a user's unread messages, unread mentioned messages, or received invitations in either super or non-super group channels. This action is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-items ----------------------------
      * View number of unread items
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customType 
      * @param itemKeys 
      */
-    public async viewNumberOfUnreadItems(apiToken: string, userId: string, customType?: string, itemKeys?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfUnreadItems", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewNumberOfUnreadItems", "userId");
         }
+
 
 
 
@@ -1686,24 +1561,19 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of unread messages  Retrieves the total number of a user's currently unread messages in the group channels. The unread counts feature is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-messages ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
      * View number of unread messages
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customTypes 
      * @param superMode 
      */
-    public async viewNumberOfUnreadMessages(apiToken: string, userId: string, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfUnreadMessages", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewNumberOfUnreadMessages", "userId");
         }
+
 
 
 
@@ -1742,22 +1612,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View push preferences  Retrieves a user's push preferences about whether the user has set `do_not_disturb` to pause notifications for a certain period of time, and the time frame in which the user has applied the setting.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences ----------------------------
      * View push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public async viewPushPreferences(apiToken: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewPushPreferences", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewPushPreferences", "userId");
         }
+
 
 
         // Path Params
@@ -1784,18 +1649,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View push preferences for a channel  Retrieves whether a user has turned on notification messages for a specific channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences-for-a-channel ----------------------------
      * View push preferences for a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async viewPushPreferencesForChannelByUrl(apiToken: string, userId: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewPushPreferencesForChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
@@ -1807,6 +1666,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("UserApi", "viewPushPreferencesForChannelByUrl", "channelUrl");
         }
+
 
 
         // Path Params
@@ -1834,25 +1694,20 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a user  Retrieves information on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-a-user ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve.
      * View a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param includeUnreadCount 
      * @param customTypes 
      * @param superMode 
      */
-    public async viewUserById(apiToken: string, userId: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewUserById(userId: string, apiToken?: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewUserById", "apiToken");
-        }
-
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "viewUserById", "userId");
         }
+
 
 
 
@@ -1897,18 +1752,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
      * View who owns a registration or device token
-     * @param apiToken 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public async viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("UserApi", "viewWhoOwnsRegistrationOrDeviceTokenByToken", "apiToken");
-        }
-
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
@@ -1920,6 +1769,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         if (token === null || token === undefined) {
             throw new RequiredError("UserApi", "viewWhoOwnsRegistrationOrDeviceTokenByToken", "token");
         }
+
 
 
         // Path Params

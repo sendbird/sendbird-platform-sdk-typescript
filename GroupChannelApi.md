@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**gcListOperators**](GroupChannelApi.md#gcListOperators) | **GET** /v3/group_channels/{channel_url}/operators | List operators
 [**gcRegisterOperators**](GroupChannelApi.md#gcRegisterOperators) | **POST** /v3/group_channels/{channel_url}/operators | Register operators
 [**gcResetChatHistory**](GroupChannelApi.md#gcResetChatHistory) | **PUT** /v3/group_channels/{channel_url}/reset_user_history | Reset chat history
+[**gcStartTypingIndicators**](GroupChannelApi.md#gcStartTypingIndicators) | **POST** /v3/group_channels/{channel_url}/typing | Start typing indicators
+[**gcStopTypingIndicators**](GroupChannelApi.md#gcStopTypingIndicators) | **DELETE** /v3/group_channels/{channel_url}/typing | Stop typing indicators
 [**gcUnhideOrUnarchiveChannel**](GroupChannelApi.md#gcUnhideOrUnarchiveChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide or unarchive a channel
 [**gcUpdateChannelByUrl**](GroupChannelApi.md#gcUpdateChannelByUrl) | **PUT** /v3/group_channels/{channel_url} | Update a channel
 [**gcViewChannelByUrl**](GroupChannelApi.md#gcViewChannelByUrl) | **GET** /v3/group_channels/{channel_url} | View a channel
@@ -41,9 +43,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcAcceptInvitationRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcAcceptInvitationData (optional)
   gcAcceptInvitationData: {
     channelUrl: "channelUrl_example",
@@ -63,8 +65,8 @@ apiInstance.gcAcceptInvitation(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcAcceptInvitationData** | **GcAcceptInvitationData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -105,13 +107,13 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcCancelTheRegistrationOfOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // Array<string>
   operatorIds: [
     "operator_ids_example",
   ],
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   deleteAll: true,
 };
@@ -126,9 +128,9 @@ apiInstance.gcCancelTheRegistrationOfOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **operatorIds** | **Array&lt;string&gt;** |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **deleteAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -170,11 +172,11 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcCheckIfMemberByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcCheckIfMemberById(body).then((data:any) => {
@@ -187,9 +189,9 @@ apiInstance.gcCheckIfMemberById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -229,7 +231,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcCreateChannelRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // GcCreateChannelData (optional)
   gcCreateChannelData: {
@@ -302,7 +304,7 @@ apiInstance.gcCreateChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcCreateChannelData** | **GcCreateChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -343,9 +345,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcDeclineInvitationRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcDeclineInvitationData (optional)
   gcDeclineInvitationData: {
     channelUrl: "channelUrl_example",
@@ -364,8 +366,8 @@ apiInstance.gcDeclineInvitation(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcDeclineInvitationData** | **GcDeclineInvitationData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -406,9 +408,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcDeleteChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.gcDeleteChannelByUrl(body).then((data:any) => {
@@ -421,8 +423,8 @@ apiInstance.gcDeleteChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -463,9 +465,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcHideOrArchiveChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcHideOrArchiveChannelData (optional)
   gcHideOrArchiveChannelData: {
     channelUrl: "channelUrl_example",
@@ -487,8 +489,8 @@ apiInstance.gcHideOrArchiveChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcHideOrArchiveChannelData** | **GcHideOrArchiveChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -529,9 +531,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcInviteAsMembersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcInviteAsMembersData (optional)
   gcInviteAsMembersData: {
     channelUrl: "channelUrl_example",
@@ -557,8 +559,8 @@ apiInstance.gcInviteAsMembers(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcInviteAsMembersData** | **GcInviteAsMembersData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -599,9 +601,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcJoinChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcJoinChannelData (optional)
   gcJoinChannelData: {
     channelUrl: "channelUrl_example",
@@ -621,8 +623,8 @@ apiInstance.gcJoinChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcJoinChannelData** | **GcJoinChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -663,9 +665,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcLeaveChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcLeaveChannelData (optional)
   gcLeaveChannelData: {
     channelUrl: "channelUrl_example",
@@ -687,8 +689,8 @@ apiInstance.gcLeaveChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcLeaveChannelData** | **GcLeaveChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -728,7 +730,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcListChannelsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -826,7 +828,7 @@ apiInstance.gcListChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **distinctMode** | [**string**] |  | (optional) defaults to undefined
@@ -909,9 +911,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcListMembersRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -942,8 +944,8 @@ apiInstance.gcListMembers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
@@ -993,9 +995,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcListOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -1012,8 +1014,8 @@ apiInstance.gcListOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -1056,9 +1058,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcRegisterOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcRegisterOperatorsData (optional)
   gcRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
@@ -1079,8 +1081,8 @@ apiInstance.gcRegisterOperators(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcRegisterOperatorsData** | **GcRegisterOperatorsData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1121,9 +1123,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcResetChatHistoryRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcResetChatHistoryData (optional)
   gcResetChatHistoryData: {
     channelUrl: "channelUrl_example",
@@ -1143,13 +1145,141 @@ apiInstance.gcResetChatHistory(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcResetChatHistoryData** | **GcResetChatHistoryData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
 **GcResetChatHistoryResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **gcStartTypingIndicators**
+> OcDeleteChannelByUrl200Response gcStartTypingIndicators()
+
+## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiGcStartTypingIndicatorsRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // GcTypingIndicatorsData (optional)
+  gcTypingIndicatorsData: {
+    userIds: [
+      "userIds_example",
+    ],
+  },
+};
+
+apiInstance.gcStartTypingIndicators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gcTypingIndicatorsData** | **GcTypingIndicatorsData**|  |
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**OcDeleteChannelByUrl200Response**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **gcStopTypingIndicators**
+> OcDeleteChannelByUrl200Response gcStopTypingIndicators()
+
+## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiGcStopTypingIndicatorsRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // GcTypingIndicatorsData (optional)
+  gcTypingIndicatorsData: {
+    userIds: [
+      "userIds_example",
+    ],
+  },
+};
+
+apiInstance.gcStopTypingIndicators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gcTypingIndicatorsData** | **GcTypingIndicatorsData**|  |
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**OcDeleteChannelByUrl200Response**
 
 ### Authorization
 
@@ -1185,11 +1315,11 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcUnhideOrUnarchiveChannelRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // string
   userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   shouldUnhideAll: true,
 };
@@ -1204,9 +1334,9 @@ apiInstance.gcUnhideOrUnarchiveChannel(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **userId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **shouldUnhideAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -1248,9 +1378,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcUpdateChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // GcUpdateChannelByUrlData (optional)
   gcUpdateChannelByUrlData: {
     channelUrl: "channelUrl_example",
@@ -1279,8 +1409,8 @@ apiInstance.gcUpdateChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gcUpdateChannelByUrlData** | **GcUpdateChannelByUrlData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1321,9 +1451,9 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiGcViewChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   showDeliveryReceipt: true,
   // boolean (optional)
@@ -1346,8 +1476,8 @@ apiInstance.gcViewChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
  **showReadReceipt** | [**boolean**] |  | (optional) defaults to undefined
  **showMember** | [**boolean**] |  | (optional) defaults to undefined

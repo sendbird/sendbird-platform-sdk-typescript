@@ -25,6 +25,7 @@ import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
+import { GcTypingIndicatorsData } from '../models/GcTypingIndicatorsData';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
 import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
@@ -37,23 +38,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Accept an invitation  Accepts an invitation from a [private](#4-private-vs-public) group channel for a user to join. Since a user is allowed to join up to 2,000 group channels, the invitation to a user who already belongs to a maximum number of group channels will be canceled automatically.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-accept-an-invitation ----------------------------
      * Accept an invitation
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcAcceptInvitationData 
      */
-    public async gcAcceptInvitation(apiToken: string, channelUrl: string, gcAcceptInvitationData?: GcAcceptInvitationData, _options?: Configuration): Promise<RequestContext> {
+    public async gcAcceptInvitation(channelUrl: string, apiToken?: string, gcAcceptInvitationData?: GcAcceptInvitationData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcAcceptInvitation", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcAcceptInvitation", "channelUrl");
         }
+
 
 
 
@@ -92,19 +88,13 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
-     * @param apiToken 
      * @param channelUrl 
      * @param operatorIds 
+     * @param apiToken 
      * @param deleteAll 
      */
-    public async gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async gcCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcCancelTheRegistrationOfOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -116,6 +106,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         if (operatorIds === null || operatorIds === undefined) {
             throw new RequiredError("GroupChannelApi", "gcCancelTheRegistrationOfOperators", "operatorIds");
         }
+
 
 
 
@@ -153,18 +144,12 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Check if member  Checks whether the user is a member of the group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-check-if-member ----------------------------
      * Check if member
-     * @param apiToken 
      * @param channelUrl 
      * @param userId 
+     * @param apiToken 
      */
-    public async gcCheckIfMemberById(apiToken: string, channelUrl: string, userId: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcCheckIfMemberById(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcCheckIfMemberById", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -176,6 +161,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         if (userId === null || userId === undefined) {
             throw new RequiredError("GroupChannelApi", "gcCheckIfMemberById", "userId");
         }
+
 
 
         // Path Params
@@ -206,13 +192,8 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param gcCreateChannelData 
      */
-    public async gcCreateChannel(apiToken: string, gcCreateChannelData?: GcCreateChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async gcCreateChannel(apiToken?: string, gcCreateChannelData?: GcCreateChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcCreateChannel", "apiToken");
-        }
 
 
 
@@ -250,23 +231,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
      * Decline an invitation
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcDeclineInvitationData 
      */
-    public async gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Promise<RequestContext> {
+    public async gcDeclineInvitation(channelUrl: string, apiToken?: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcDeclineInvitation", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcDeclineInvitation", "channelUrl");
         }
+
 
 
 
@@ -305,22 +281,17 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
      * Delete a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcDeleteChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcDeleteChannelByUrl", "channelUrl");
         }
+
 
 
         // Path Params
@@ -347,23 +318,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
      * Hide or archive a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcHideOrArchiveChannelData 
      */
-    public async gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async gcHideOrArchiveChannel(channelUrl: string, apiToken?: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcHideOrArchiveChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcHideOrArchiveChannel", "channelUrl");
         }
+
 
 
 
@@ -402,23 +368,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Invite as members  Invites one or more users as members into the group channel.  > __Note__: By default, users in your application automatically join a [private](#4-private-vs-public) group channel promptly from an invitation without having to accept it. If you want to give them the option to decide whether to accept or decline an invitation, you should set the value of channel invitation preference to false through the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action. Or using the [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can also allow the option individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members ----------------------------
      * Invite as members
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcInviteAsMembersData 
      */
-    public async gcInviteAsMembers(apiToken: string, channelUrl: string, gcInviteAsMembersData?: GcInviteAsMembersData, _options?: Configuration): Promise<RequestContext> {
+    public async gcInviteAsMembers(channelUrl: string, apiToken?: string, gcInviteAsMembersData?: GcInviteAsMembersData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcInviteAsMembers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcInviteAsMembers", "channelUrl");
         }
+
 
 
 
@@ -457,23 +418,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Join a channel  Allows a user to join a [public](#4-private-vs-public) group channel. Since a user is allowed to join up to 2,000 group channels, a user who already belongs to a maximum number of group channels can't join a new channel.  > __Note__: This action is only permitted for public group channels where the `is_public` property is true.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-join-a-channel ----------------------------
      * Join a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcJoinChannelData 
      */
-    public async gcJoinChannel(apiToken: string, channelUrl: string, gcJoinChannelData?: GcJoinChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async gcJoinChannel(channelUrl: string, apiToken?: string, gcJoinChannelData?: GcJoinChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcJoinChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcJoinChannel", "channelUrl");
         }
+
 
 
 
@@ -512,23 +468,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
      * Leave a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcLeaveChannelData 
      */
-    public async gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async gcLeaveChannel(channelUrl: string, apiToken?: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcLeaveChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcLeaveChannel", "channelUrl");
         }
+
 
 
 
@@ -611,13 +562,8 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param membersIn 
      * @param userId 
      */
-    public async gcListChannels(apiToken: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcListChannels(apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListChannels", "apiToken");
-        }
 
 
 
@@ -895,8 +841,8 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List members  Retrieves a list of members of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-members ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of members of.
      * List members
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param showDeliveryReceipt 
@@ -907,19 +853,14 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param mutedMemberFilter 
      * @param nicknameStartswith 
      */
-    public async gcListMembers(apiToken: string, channelUrl: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcListMembers(channelUrl: string, apiToken?: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListMembers", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcListMembers", "channelUrl");
         }
+
 
 
 
@@ -1000,24 +941,19 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async gcListOperators(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async gcListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcListOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcListOperators", "channelUrl");
         }
+
 
 
 
@@ -1056,23 +992,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Register operators  Registers one or more operators to a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-register-operators ----------------------------
      * Register operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcRegisterOperatorsData 
      */
-    public async gcRegisterOperators(apiToken: string, channelUrl: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Promise<RequestContext> {
+    public async gcRegisterOperators(channelUrl: string, apiToken?: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcRegisterOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcRegisterOperators", "channelUrl");
         }
+
 
 
 
@@ -1111,23 +1042,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Reset chat history  Resets the properties related to a user's chat history in a group channel, then clears the existing messages in the channel on the user's side only. A user can no longer see the messages in a group channel once this action is called, but those messages are not deleted from the database of the Sendbird system. All other members in the channel can retrieve and see the messages.  This action simply clears the messages for the user by updating the `last_message` and `read_receipt` properties of the [channel](#2-types-of-a-channel-3-resource-representation) resource in addition to other internally managed data such as the number of the user's unread message.  Using the `reset_all` property, you can also reset the properties related to all users' chat history in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-reset-chat-history ----------------------------
      * Reset chat history
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcResetChatHistoryData 
      */
-    public async gcResetChatHistory(apiToken: string, channelUrl: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Promise<RequestContext> {
+    public async gcResetChatHistory(channelUrl: string, apiToken?: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcResetChatHistory", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcResetChatHistory", "channelUrl");
         }
+
 
 
 
@@ -1164,21 +1090,115 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
-     * Unhide or unarchive a channel
-     * @param apiToken 
+     * ## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * Start typing indicators
      * @param channelUrl 
-     * @param userId 
-     * @param shouldUnhideAll 
+     * @param apiToken 
+     * @param gcTypingIndicatorsData 
      */
-    public async gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async gcStartTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUnhideOrUnarchiveChannel", "apiToken");
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "gcStartTypingIndicators", "channelUrl");
         }
 
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/typing'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(gcTypingIndicatorsData, "GcTypingIndicatorsData", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * Stop typing indicators
+     * @param channelUrl 
+     * @param apiToken 
+     * @param gcTypingIndicatorsData 
+     */
+    public async gcStopTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "gcStopTypingIndicators", "channelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/typing'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(gcTypingIndicatorsData, "GcTypingIndicatorsData", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
+     * Unhide or unarchive a channel
+     * @param channelUrl 
+     * @param userId 
+     * @param apiToken 
+     * @param shouldUnhideAll 
+     */
+    public async gcUnhideOrUnarchiveChannel(channelUrl: string, userId: string, apiToken?: string, shouldUnhideAll?: boolean, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -1190,6 +1210,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         if (userId === null || userId === undefined) {
             throw new RequiredError("GroupChannelApi", "gcUnhideOrUnarchiveChannel", "userId");
         }
+
 
 
 
@@ -1227,23 +1248,18 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a channel  Updates information on a group channel.  > __Note__: You can't change the members of the channel here. To do so, see [invite as members](#2-invite-as-members) action below.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-channel ----------------------------
      * Update a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcUpdateChannelByUrlData 
      */
-    public async gcUpdateChannelByUrl(apiToken: string, channelUrl: string, gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async gcUpdateChannelByUrl(channelUrl: string, apiToken?: string, gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcUpdateChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcUpdateChannelByUrl", "channelUrl");
         }
+
 
 
 
@@ -1282,27 +1298,22 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a channel  Retrieves information on a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve.
      * View a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param showDeliveryReceipt 
      * @param showReadReceipt 
      * @param showMember 
      * @param readReceipt 
      * @param member 
      */
-    public async gcViewChannelByUrl(apiToken: string, channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, readReceipt?: boolean, member?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async gcViewChannelByUrl(channelUrl: string, apiToken?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, readReceipt?: boolean, member?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("GroupChannelApi", "gcViewChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "gcViewChannelByUrl", "channelUrl");
         }
+
 
 
 
@@ -1785,6 +1796,64 @@ export class GroupChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "GcResetChatHistoryResponse", ""
             ) as GcResetChatHistoryResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to gcStartTypingIndicators
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async gcStartTypingIndicators(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to gcStopTypingIndicators
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async gcStopTypingIndicators(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OcDeleteChannelByUrl200Response", ""
+            ) as OcDeleteChannelByUrl200Response;
             return body;
         }
 

@@ -32,13 +32,13 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcCancelTheRegistrationOfOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
   // Array<string>
   operatorIds: [
     "operator_ids_example",
   ],
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // boolean (optional)
   deleteAll: true,
 };
@@ -53,9 +53,9 @@ apiInstance.ocCancelTheRegistrationOfOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **operatorIds** | **Array&lt;string&gt;** |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **deleteAll** | [**boolean**] |  | (optional) defaults to undefined
 
 
@@ -96,7 +96,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcCreateChannelRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // OcCreateChannelData (optional)
   ocCreateChannelData: {
@@ -128,7 +128,7 @@ apiInstance.ocCreateChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocCreateChannelData** | **OcCreateChannelData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -169,9 +169,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcDeleteChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocDeleteChannelByUrl(body).then((data:any) => {
@@ -184,8 +184,8 @@ apiInstance.ocDeleteChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -225,7 +225,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcListChannelsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -255,7 +255,7 @@ apiInstance.ocListChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **customTypes** | [**string**] |  | (optional) defaults to undefined
@@ -304,9 +304,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcListOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -323,8 +323,8 @@ apiInstance.ocListOperators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -367,9 +367,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcListParticipantsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -386,8 +386,8 @@ apiInstance.ocListParticipants(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -430,9 +430,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcRegisterOperatorsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcRegisterOperatorsData (optional)
   ocRegisterOperatorsData: {
     channelUrl: "channelUrl_example",
@@ -453,8 +453,8 @@ apiInstance.ocRegisterOperators(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocRegisterOperatorsData** | **OcRegisterOperatorsData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -495,9 +495,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcUpdateChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // OcUpdateChannelByUrlData (optional)
   ocUpdateChannelByUrlData: {
     channelUrl: "channelUrl_example",
@@ -526,8 +526,8 @@ apiInstance.ocUpdateChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ocUpdateChannelByUrlData** | **OcUpdateChannelByUrlData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -568,9 +568,9 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 
 let body:Sendbird.OpenChannelApiOcViewChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.ocViewChannelByUrl(body).then((data:any) => {
@@ -583,8 +583,8 @@ apiInstance.ocViewChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

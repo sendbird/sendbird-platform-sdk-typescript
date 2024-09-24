@@ -23,22 +23,17 @@ export class PrivacyApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
      * Cancel the registration of a GDPR request
-     * @param apiToken 
      * @param requestId 
+     * @param apiToken 
      */
-    public async cancelTheRegistrationOfGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<RequestContext> {
+    public async cancelTheRegistrationOfGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("PrivacyApi", "cancelTheRegistrationOfGdprRequestById", "apiToken");
-        }
-
 
         // verify required parameter 'requestId' is not null or undefined
         if (requestId === null || requestId === undefined) {
             throw new RequiredError("PrivacyApi", "cancelTheRegistrationOfGdprRequestById", "requestId");
         }
+
 
 
         // Path Params
@@ -69,13 +64,8 @@ export class PrivacyApiRequestFactory extends BaseAPIRequestFactory {
      * @param token 
      * @param limit 
      */
-    public async listGdprRequests(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("PrivacyApi", "listGdprRequests", "apiToken");
-        }
 
 
 
@@ -116,13 +106,8 @@ export class PrivacyApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param registerGdprRequestData 
      */
-    public async registerGdprRequest(apiToken: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RequestContext> {
+    public async registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("PrivacyApi", "registerGdprRequest", "apiToken");
-        }
 
 
 
@@ -160,22 +145,17 @@ export class PrivacyApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
      * View a GDPR request
-     * @param apiToken 
      * @param requestId 
+     * @param apiToken 
      */
-    public async viewGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("PrivacyApi", "viewGdprRequestById", "apiToken");
-        }
-
 
         // verify required parameter 'requestId' is not null or undefined
         if (requestId === null || requestId === undefined) {
             throw new RequiredError("PrivacyApi", "viewGdprRequestById", "requestId");
         }
+
 
 
         // Path Params

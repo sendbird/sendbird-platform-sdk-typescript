@@ -30,7 +30,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiListReportsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -52,7 +52,7 @@ apiInstance.listReports(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **startTs** | [**number**] |  | (optional) defaults to undefined
@@ -97,11 +97,11 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiListReportsOnChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -118,9 +118,9 @@ apiInstance.listReportsOnChannelByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -163,13 +163,13 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiListReportsOnMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -186,10 +186,10 @@ apiInstance.listReportsOnMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -232,9 +232,9 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiListReportsOnUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   offendingUserId: "offending_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -251,8 +251,8 @@ apiInstance.listReportsOnUserById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **offendingUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -295,11 +295,11 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiReportChannelByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // ReportChannelByUrlData (optional)
   reportChannelByUrlData: {
     channelType: "channelType_example",
@@ -321,9 +321,9 @@ apiInstance.reportChannelByUrl(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportChannelByUrlData** | **ReportChannelByUrlData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -364,13 +364,13 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiReportMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // ReportMessageByIdData (optional)
   reportMessageByIdData: {
     channelType: "channelType_example",
@@ -394,10 +394,10 @@ apiInstance.reportMessageById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportMessageByIdData** | **ReportMessageByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -438,9 +438,9 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiReportUserByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   offendingUserId: "offending_user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // ReportUserByIdData (optional)
   reportUserByIdData: {
     offendingUserId: "offendingUserId_example",
@@ -463,8 +463,8 @@ apiInstance.reportUserById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportUserByIdData** | **ReportUserByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **offendingUserId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -505,13 +505,13 @@ const apiInstance = new Sendbird.ReportApi(configuration);
 
 let body:Sendbird.ReportApiViewModeratedMessageByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   channelType: "channel_type_example",
   // string
   channelUrl: "channel_url_example",
   // string
   messageId: "message_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewModeratedMessageById(body).then((data:any) => {
@@ -524,10 +524,10 @@ apiInstance.viewModeratedMessageById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **channelType** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
  **messageId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

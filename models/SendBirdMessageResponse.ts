@@ -10,8 +10,10 @@
  * Do not edit the class manually.
  */
 
+import { SendBirdFile } from './SendBirdFile';
 import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
 import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
+import { SendBirdParentMessageInfo } from './SendBirdParentMessageInfo';
 import { HttpFile } from '../http/http';
 
 export class SendBirdMessageResponse {
@@ -25,6 +27,7 @@ export class SendBirdMessageResponse {
     'isRemoved'?: boolean;
     'user'?: SendBirdMessageResponseUser;
     'file'?: any;
+    'files'?: Array<SendBirdFile>;
     'message'?: string;
     'data'?: string;
     'messageRetentionHour'?: number;
@@ -40,7 +43,7 @@ export class SendBirdMessageResponse {
     'sortedMetaarray'?: Array<any>;
     'threadInfo'?: any;
     'parentMessageId'?: number;
-    'parentMessageInfo'?: any;
+    'parentMessageInfo'?: SendBirdParentMessageInfo;
     'isReplyToChannel'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -104,6 +107,12 @@ export class SendBirdMessageResponse {
             "name": "file",
             "baseName": "file",
             "type": "any",
+            "format": ""
+        },
+        {
+            "name": "files",
+            "baseName": "files",
+            "type": "Array<SendBirdFile>",
             "format": ""
         },
         {
@@ -199,7 +208,7 @@ export class SendBirdMessageResponse {
         {
             "name": "parentMessageInfo",
             "baseName": "parent_message_info",
-            "type": "any",
+            "type": "SendBirdParentMessageInfo",
             "format": ""
         },
         {

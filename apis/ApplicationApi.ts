@@ -62,13 +62,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addApnsPushConfigurationData 
      */
-    public async addApnsPushConfiguration(apiToken: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
+    public async addApnsPushConfiguration(apiToken?: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "addApnsPushConfiguration", "apiToken");
-        }
 
 
 
@@ -109,13 +104,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addFcmPushConfigurationData 
      */
-    public async addFcmPushConfiguration(apiToken: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
+    public async addFcmPushConfiguration(apiToken?: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "addFcmPushConfiguration", "apiToken");
-        }
 
 
 
@@ -156,13 +146,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addHmsPushConfigurationData 
      */
-    public async addHmsPushConfiguration(apiToken: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
+    public async addHmsPushConfiguration(apiToken?: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "addHmsPushConfiguration", "apiToken");
-        }
 
 
 
@@ -203,13 +188,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addIpToWhitelistData 
      */
-    public async addIpToWhitelist(apiToken: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Promise<RequestContext> {
+    public async addIpToWhitelist(apiToken?: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "addIpToWhitelist", "apiToken");
-        }
 
 
 
@@ -247,23 +227,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Ban specified users in channels with a custom channel type at once.
      * Ban users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param banUsersInChannelsWithCustomChannelTypeData 
      */
-    public async banUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<RequestContext> {
+    public async banUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "banUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
             throw new RequiredError("ApplicationApi", "banUsersInChannelsWithCustomChannelType", "customType");
         }
+
 
 
 
@@ -305,13 +280,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param configureAutoEventData 
      */
-    public async configureAutoEventMessages(apiToken: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Promise<RequestContext> {
+    public async configureAutoEventMessages(apiToken?: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "configureAutoEventMessages", "apiToken");
-        }
 
 
 
@@ -349,22 +319,17 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
      * Delete allowed IPs from a whitelist
-     * @param apiToken 
      * @param ipWhitelistAddresses 
+     * @param apiToken 
      */
-    public async deleteAllowedIpsFromWhitelist(apiToken: string, ipWhitelistAddresses: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async deleteAllowedIpsFromWhitelist(ipWhitelistAddresses: Array<string>, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "deleteAllowedIpsFromWhitelist", "apiToken");
-        }
-
 
         // verify required parameter 'ipWhitelistAddresses' is not null or undefined
         if (ipWhitelistAddresses === null || ipWhitelistAddresses === undefined) {
             throw new RequiredError("ApplicationApi", "deleteAllowedIpsFromWhitelist", "ipWhitelistAddresses");
         }
+
 
 
         // Path Params
@@ -395,22 +360,17 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete an APNs certificate  Deletes a specific APNs certificate.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-an-apns-certificate ----------------------------
      * Delete an APNs certificate
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      */
-    public async deleteApnsCertificateById(apiToken: string, providerId: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteApnsCertificateById(providerId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "deleteApnsCertificateById", "apiToken");
-        }
-
 
         // verify required parameter 'providerId' is not null or undefined
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "deleteApnsCertificateById", "providerId");
         }
+
 
 
         // Path Params
@@ -440,13 +400,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param generateSecondaryApiTokenData 
      */
-    public async generateSecondaryApiToken(apiToken: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Promise<RequestContext> {
+    public async generateSecondaryApiToken(apiToken?: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "generateSecondaryApiToken", "apiToken");
-        }
 
 
 
@@ -486,13 +441,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * List auto event messages
      * @param apiToken 
      */
-    public async listAutoEventMessages(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async listAutoEventMessages(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listAutoEventMessages", "apiToken");
-        }
 
 
         // Path Params
@@ -518,24 +468,19 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Retrieves a list of users banned from channels with the specified custom channel type.
      * List banned users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listBannedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listBannedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listBannedUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
             throw new RequiredError("ApplicationApi", "listBannedUsersInChannelsWithCustomChannelType", "customType");
         }
+
 
 
 
@@ -574,24 +519,19 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Retrieves a list of the muted users in channels with a custom channel type.
      * List muted users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async listMutedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listMutedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listMutedUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
             throw new RequiredError("ApplicationApi", "listMutedUsersInChannelsWithCustomChannelType", "customType");
         }
+
 
 
 
@@ -630,22 +570,17 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List push configurations  Retrieves a list of an application's registered push configurations.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-configurations ----------------------------
      * List push configurations
-     * @param apiToken 
      * @param pushType 
+     * @param apiToken 
      */
-    public async listPushConfigurations(apiToken: string, pushType: string, _options?: Configuration): Promise<RequestContext> {
+    public async listPushConfigurations(pushType: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listPushConfigurations", "apiToken");
-        }
-
 
         // verify required parameter 'pushType' is not null or undefined
         if (pushType === null || pushType === undefined) {
             throw new RequiredError("ApplicationApi", "listPushConfigurations", "pushType");
         }
+
 
 
         // Path Params
@@ -674,13 +609,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * List push notification content templates
      * @param apiToken 
      */
-    public async listPushNotificationContentTemplates(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async listPushNotificationContentTemplates(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listPushNotificationContentTemplates", "apiToken");
-        }
 
 
         // Path Params
@@ -708,13 +638,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * List secondary API tokens
      * @param apiToken 
      */
-    public async listSecondaryApiTokens(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async listSecondaryApiTokens(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "listSecondaryApiTokens", "apiToken");
-        }
 
 
         // Path Params
@@ -740,23 +665,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mutes specified users in channels with a custom channel type at once.
      * Mute users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param muteUsersInChannelsWithCustomChannelTypeData 
      */
-    public async muteUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<RequestContext> {
+    public async muteUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "muteUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
             throw new RequiredError("ApplicationApi", "muteUsersInChannelsWithCustomChannelType", "customType");
         }
+
 
 
 
@@ -795,18 +715,12 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove a push configuration  Removes a specific push configuration from an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-remove-a-push-configuration ----------------------------
      * Remove a push configuration
-     * @param apiToken 
      * @param pushType 
      * @param providerId 
+     * @param apiToken 
      */
-    public async removePushConfigurationById(apiToken: string, pushType: string, providerId: string, _options?: Configuration): Promise<RequestContext> {
+    public async removePushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "removePushConfigurationById", "apiToken");
-        }
-
 
         // verify required parameter 'pushType' is not null or undefined
         if (pushType === null || pushType === undefined) {
@@ -818,6 +732,7 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "removePushConfigurationById", "providerId");
         }
+
 
 
         // Path Params
@@ -847,13 +762,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * Retrieve an IP whitelist
      * @param apiToken 
      */
-    public async retrieveIpWhitelist(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieveIpWhitelist(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "retrieveIpWhitelist", "apiToken");
-        }
 
 
         // Path Params
@@ -879,22 +789,17 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Revoke a secondary API token  Revokes a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-revoke-a-secondary-api-token
      * Revoke a secondary API token
-     * @param apiToken 
      * @param apiToken2 
+     * @param apiToken 
      */
-    public async revokeSecondaryApiTokenByToken(apiToken: string, apiToken2: string, _options?: Configuration): Promise<RequestContext> {
+    public async revokeSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "revokeSecondaryApiTokenByToken", "apiToken");
-        }
-
 
         // verify required parameter 'apiToken2' is not null or undefined
         if (apiToken2 === null || apiToken2 === undefined) {
             throw new RequiredError("ApplicationApi", "revokeSecondaryApiTokenByToken", "apiToken2");
         }
+
 
 
         // Path Params
@@ -921,23 +826,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## 
      * Message moderation
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param setDomainFilterData 
      */
-    public async setDomainFilter(apiToken: string, customType: string, setDomainFilterData?: SetDomainFilterData, _options?: Configuration): Promise<RequestContext> {
+    public async setDomainFilter(customType: string, apiToken?: string, setDomainFilterData?: SetDomainFilterData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "setDomainFilter", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
             throw new RequiredError("ApplicationApi", "setDomainFilter", "customType");
         }
+
 
 
 
@@ -976,18 +876,12 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unban specified users in channels with a custom channel type at once.
      * Unban users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
      * @param userIds 
+     * @param apiToken 
      */
-    public async unbanUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, userIds: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async unbanUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "unbanUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
@@ -999,6 +893,7 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
         if (userIds === null || userIds === undefined) {
             throw new RequiredError("ApplicationApi", "unbanUsersInChannelsWithCustomChannelType", "userIds");
         }
+
 
 
         // Path Params
@@ -1030,18 +925,12 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Unmute specified users in channels with a custom channel type at once.
      * Unmute users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
      * @param userIds 
+     * @param apiToken 
      */
-    public async unmuteUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, userIds: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async unmuteUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "unmuteUsersInChannelsWithCustomChannelType", "apiToken");
-        }
-
 
         // verify required parameter 'customType' is not null or undefined
         if (customType === null || customType === undefined) {
@@ -1053,6 +942,7 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
         if (userIds === null || userIds === undefined) {
             throw new RequiredError("ApplicationApi", "unmuteUsersInChannelsWithCustomChannelType", "userIds");
         }
+
 
 
         // Path Params
@@ -1084,23 +974,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an APNs push configuration  Updates a specific APNs (Apple Push Notification service) push configuration for your client app. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: If your HTTP request body contains a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to upload to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests) .  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-apns-push-configuration ----------------------------
      * Update an APNs push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateApnsPushConfigurationByIdData 
      */
-    public async updateApnsPushConfigurationById(apiToken: string, providerId: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateApnsPushConfigurationById(providerId: string, apiToken?: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "updateApnsPushConfigurationById", "apiToken");
-        }
-
 
         // verify required parameter 'providerId' is not null or undefined
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "updateApnsPushConfigurationById", "providerId");
         }
+
 
 
 
@@ -1142,13 +1027,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param updateDefaultChannelInvitationPreferenceData 
      */
-    public async updateDefaultChannelInvitationPreference(apiToken: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Promise<RequestContext> {
+    public async updateDefaultChannelInvitationPreference(apiToken?: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "updateDefaultChannelInvitationPreference", "apiToken");
-        }
 
 
 
@@ -1186,23 +1066,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a FCM push configuration  Updates a specific FCM (Firebase Cloud Messaging) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-fcm-push-configuration ----------------------------
      * Update a FCM push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateFcmPushConfigurationByIdData 
      */
-    public async updateFcmPushConfigurationById(apiToken: string, providerId: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateFcmPushConfigurationById(providerId: string, apiToken?: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "updateFcmPushConfigurationById", "apiToken");
-        }
-
 
         // verify required parameter 'providerId' is not null or undefined
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "updateFcmPushConfigurationById", "providerId");
         }
+
 
 
 
@@ -1241,23 +1116,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an HMS push configuration  Updates a specific HMS (Huawei Mobile Services) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-hms-push-configuration ----------------------------
      * Update an HMS push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateHmsPushConfigurationByIdData 
      */
-    public async updateHmsPushConfigurationById(apiToken: string, providerId: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateHmsPushConfigurationById(providerId: string, apiToken?: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "updateHmsPushConfigurationById", "apiToken");
-        }
-
 
         // verify required parameter 'providerId' is not null or undefined
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "updateHmsPushConfigurationById", "providerId");
         }
+
 
 
 
@@ -1296,23 +1166,18 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a push notification content template  Updates a specific push notification content template of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-push-notification-content-template ----------------------------
      * Update a push notification content template
-     * @param apiToken 
      * @param templateName 
+     * @param apiToken 
      * @param updatePushNotificationContentTemplateData 
      */
-    public async updatePushNotificationContentTemplate(apiToken: string, templateName: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Promise<RequestContext> {
+    public async updatePushNotificationContentTemplate(templateName: string, apiToken?: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "updatePushNotificationContentTemplate", "apiToken");
-        }
-
 
         // verify required parameter 'templateName' is not null or undefined
         if (templateName === null || templateName === undefined) {
             throw new RequiredError("ApplicationApi", "updatePushNotificationContentTemplate", "templateName");
         }
+
 
 
 
@@ -1353,13 +1218,8 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
      * View default channel invitation preference
      * @param apiToken 
      */
-    public async viewDefaultChannelInvitationPreference(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewDefaultChannelInvitationPreference(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "viewDefaultChannelInvitationPreference", "apiToken");
-        }
 
 
         // Path Params
@@ -1385,18 +1245,12 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a push configuration  Retrieves a specific push configuration of an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-configuration ----------------------------
      * View a push configuration
-     * @param apiToken 
      * @param pushType 
      * @param providerId 
+     * @param apiToken 
      */
-    public async viewPushConfigurationById(apiToken: string, pushType: string, providerId: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewPushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "viewPushConfigurationById", "apiToken");
-        }
-
 
         // verify required parameter 'pushType' is not null or undefined
         if (pushType === null || pushType === undefined) {
@@ -1408,6 +1262,7 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
         if (providerId === null || providerId === undefined) {
             throw new RequiredError("ApplicationApi", "viewPushConfigurationById", "providerId");
         }
+
 
 
         // Path Params
@@ -1433,24 +1288,19 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
-     * View a push notification content template
-     * @param apiToken 
+     * ## Get a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
+     * Get a push notification content template
      * @param templateName 
+     * @param apiToken 
      */
-    public async viewPushNotificationContentTemplate(apiToken: string, templateName: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewPushNotificationContentTemplate(templateName: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "viewPushNotificationContentTemplate", "apiToken");
-        }
-
 
         // verify required parameter 'templateName' is not null or undefined
         if (templateName === null || templateName === undefined) {
             throw new RequiredError("ApplicationApi", "viewPushNotificationContentTemplate", "templateName");
         }
+
 
 
         // Path Params
@@ -1477,22 +1327,17 @@ export class ApplicationApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a secondary API token  Retrieves the information on a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-secondary-api-token
      * View a secondary API token
-     * @param apiToken 
      * @param apiToken2 
+     * @param apiToken 
      */
-    public async viewSecondaryApiTokenByToken(apiToken: string, apiToken2: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("ApplicationApi", "viewSecondaryApiTokenByToken", "apiToken");
-        }
-
 
         // verify required parameter 'apiToken2' is not null or undefined
         if (apiToken2 === null || apiToken2 === undefined) {
             throw new RequiredError("ApplicationApi", "viewSecondaryApiTokenByToken", "apiToken2");
         }
+
 
 
         // Path Params

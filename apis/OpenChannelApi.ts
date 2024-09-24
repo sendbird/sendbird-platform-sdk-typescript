@@ -27,19 +27,13 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
-     * @param apiToken 
      * @param channelUrl 
      * @param operatorIds 
+     * @param apiToken 
      * @param deleteAll 
      */
-    public async ocCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async ocCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocCancelTheRegistrationOfOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
@@ -51,6 +45,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         if (operatorIds === null || operatorIds === undefined) {
             throw new RequiredError("OpenChannelApi", "ocCancelTheRegistrationOfOperators", "operatorIds");
         }
+
 
 
 
@@ -91,13 +86,8 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param ocCreateChannelData 
      */
-    public async ocCreateChannel(apiToken: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async ocCreateChannel(apiToken?: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocCreateChannel", "apiToken");
-        }
 
 
 
@@ -135,22 +125,17 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
      * Delete a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocDeleteChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocDeleteChannelByUrl", "channelUrl");
         }
+
 
 
         // Path Params
@@ -187,13 +172,8 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param showMetadata 
      * @param customType 
      */
-    public async ocListChannels(apiToken: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListChannels", "apiToken");
-        }
 
 
 
@@ -267,24 +247,19 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async ocListOperators(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocListOperators", "channelUrl");
         }
+
 
 
 
@@ -323,24 +298,19 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
      * List participants
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public async ocListParticipants(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListParticipants", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocListParticipants", "channelUrl");
         }
+
 
 
 
@@ -379,23 +349,18 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
      * Register operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocRegisterOperatorsData 
      */
-    public async ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Promise<RequestContext> {
+    public async ocRegisterOperators(channelUrl: string, apiToken?: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocRegisterOperators", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocRegisterOperators", "channelUrl");
         }
+
 
 
 
@@ -434,23 +399,18 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a channel  Updates information on an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-channel ----------------------------
      * Update a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocUpdateChannelByUrlData 
      */
-    public async ocUpdateChannelByUrl(apiToken: string, channelUrl: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async ocUpdateChannelByUrl(channelUrl: string, apiToken?: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUpdateChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocUpdateChannelByUrl", "channelUrl");
         }
+
 
 
 
@@ -489,22 +449,17 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
      * View a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async ocViewChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async ocViewChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewChannelByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "ocViewChannelByUrl", "channelUrl");
         }
+
 
 
         // Path Params

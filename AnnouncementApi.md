@@ -31,9 +31,9 @@ const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiGetDetailedOpenRateOfAnnouncementGroupRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   announcementGroup: "announcement_group_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.getDetailedOpenRateOfAnnouncementGroup(body).then((data:any) => {
@@ -46,8 +46,8 @@ apiInstance.getDetailedOpenRateOfAnnouncementGroup(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **announcementGroup** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -87,7 +87,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiGetStatisticsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -101,7 +101,7 @@ apiInstance.getStatistics(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -142,8 +142,6 @@ const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiGetStatisticsDailyRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   startDate: "start_date_example",
   // string
   endDate: "end_date_example",
@@ -155,6 +153,8 @@ let body:Sendbird.AnnouncementApiGetStatisticsDailyRequest = {
   startMonth: "start_month_example",
   // string
   endMonth: "end_month_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   announcementGroup: "announcement_group_example",
 };
@@ -169,13 +169,13 @@ apiInstance.getStatisticsDaily(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **startDate** | [**string**] |  | defaults to undefined
  **endDate** | [**string**] |  | defaults to undefined
  **startWeek** | [**string**] |  | defaults to undefined
  **endWeek** | [**string**] |  | defaults to undefined
  **startMonth** | [**string**] |  | defaults to undefined
  **endMonth** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **announcementGroup** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -216,7 +216,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiGetStatisticsMonthlyRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -230,7 +230,7 @@ apiInstance.getStatisticsMonthly(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -270,7 +270,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiListAnnouncementGroupsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -288,7 +288,7 @@ apiInstance.listAnnouncementGroups(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -330,7 +330,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiScheduleAnnouncementRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // ScheduleAnnouncementData (optional)
   scheduleAnnouncementData: {
@@ -378,7 +378,7 @@ apiInstance.scheduleAnnouncement(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scheduleAnnouncementData** | **ScheduleAnnouncementData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -419,9 +419,9 @@ const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiUpdateAnnouncementByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   uniqueId: "unique_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateAnnouncementByIdData (optional)
   updateAnnouncementByIdData: {
     uniqueId: "uniqueId_example",
@@ -455,8 +455,8 @@ apiInstance.updateAnnouncementById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateAnnouncementByIdData** | **UpdateAnnouncementByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -497,9 +497,9 @@ const apiInstance = new Sendbird.AnnouncementApi(configuration);
 
 let body:Sendbird.AnnouncementApiViewAnnouncementByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   uniqueId: "unique_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewAnnouncementById(body).then((data:any) => {
@@ -512,8 +512,8 @@ apiInstance.viewAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

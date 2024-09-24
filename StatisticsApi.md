@@ -30,9 +30,9 @@ const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiGetDetailedOpenRateOfAnnouncementByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   uniqueId: "unique_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.getDetailedOpenRateOfAnnouncementById(body).then((data:any) => {
@@ -45,8 +45,8 @@ apiInstance.getDetailedOpenRateOfAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -87,9 +87,9 @@ const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiGetDetailedOpenStatusOfAnnouncementByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   uniqueId: "unique_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // number (optional)
   limit: 1,
   // string (optional)
@@ -116,8 +116,8 @@ apiInstance.getDetailedOpenStatusOfAnnouncementById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **uniqueId** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **next** | [**string**] |  | (optional) defaults to undefined
  **uniqueIds** | **Array&lt;string&gt;** |  | (optional) defaults to undefined
@@ -162,7 +162,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiRetrieveAdvancedAnalyticsMetricsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -176,7 +176,7 @@ apiInstance.retrieveAdvancedAnalyticsMetrics(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -216,7 +216,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiViewNumberOfConcurrentConnectionsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -230,7 +230,7 @@ apiInstance.viewNumberOfConcurrentConnections(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -270,7 +270,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiViewNumberOfDailyActiveUsersRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   date: "date_example",
@@ -286,7 +286,7 @@ apiInstance.viewNumberOfDailyActiveUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **date** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -327,7 +327,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiViewNumberOfMonthlyActiveUsersRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   date: "date_example",
@@ -343,7 +343,7 @@ apiInstance.viewNumberOfMonthlyActiveUsers(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **date** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -385,8 +385,6 @@ const apiInstance = new Sendbird.StatisticsApi(configuration);
 
 let body:Sendbird.StatisticsApiViewNumberOfPeakConnectionsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   timeDimension: "time_dimension_example",
   // number
   startYear: 1,
@@ -396,6 +394,8 @@ let body:Sendbird.StatisticsApiViewNumberOfPeakConnectionsRequest = {
   endYear: 1,
   // number
   endMonth: 1,
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // number (optional)
   startDay: 1,
   // number (optional)
@@ -412,12 +412,12 @@ apiInstance.viewNumberOfPeakConnections(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **timeDimension** | [**string**] |  | defaults to undefined
  **startYear** | [**number**] |  | defaults to undefined
  **startMonth** | [**number**] |  | defaults to undefined
  **endYear** | [**number**] |  | defaults to undefined
  **endMonth** | [**number**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **startDay** | [**number**] |  | (optional) defaults to undefined
  **endDay** | [**number**] |  | (optional) defaults to undefined
 

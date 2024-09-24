@@ -52,11 +52,11 @@ export class UpdatePushPreferencesData {
     /**
     * Determines whether to block push notifications from [all bots](/docs/chat/v3/platform-api/guides/bot-interface#2-list-bots) within the application. If the push_blocked_bot_ids is specified, notifications only from the bots in the property are blocked. (Default: false)
     */
-    'blockPushFromBots': boolean;
+    'blockPushFromBots'?: boolean;
     /**
     * Specifies an array of one or more IDs of bots whose push notifications are blocked. This property is effective only when the block_push_from_bots is set to true.
     */
-    'pushBlockedBotIds': Array<number>;
+    'pushBlockedBotIds'?: Array<string>;
     /**
     * Specifies the timezone to be applied to push preferences with a value such as UTC, Asia/Seoul, Europe/London, etc.
     */
@@ -132,7 +132,7 @@ export class UpdatePushPreferencesData {
         {
             "name": "pushBlockedBotIds",
             "baseName": "push_blocked_bot_ids",
-            "type": "Array<number>",
+            "type": "Array<string>",
             "format": ""
         },
         {

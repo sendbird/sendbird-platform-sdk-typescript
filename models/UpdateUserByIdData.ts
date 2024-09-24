@@ -20,11 +20,11 @@ export class UpdateUserByIdData {
     /**
     * Specifies the user's nickname. The length is limited to 80 characters.
     */
-    'nickname': string;
+    'nickname'?: string;
     /**
     * Specifies the URL of the user's profile image. The length is limited to 2,048 characters.<br /><br /> The [domain filter](/docs/chat/v3/platform-api/guides/filter-and-moderation#2-domain-filter) filters out the request if the value of this property matches the filter's domain set.
     */
-    'profileUrl': string;
+    'profileUrl'?: string;
     /**
     * Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
     */
@@ -117,7 +117,7 @@ export class UpdateUserByIdData {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "discoveryKeys",

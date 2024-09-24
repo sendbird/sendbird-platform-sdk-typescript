@@ -13,10 +13,9 @@
 import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelInviter } from './SendBirdGroupChannelInviter';
-import { SendBirdGroupChannelLastMessage } from './SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from './SendBirdMember';
+import { SendBirdMessageResponse } from './SendBirdMessageResponse';
 import { SendBirdUser } from './SendBirdUser';
 import { HttpFile } from '../http/http';
 
@@ -33,21 +32,20 @@ export class SendBirdGroupChannel {
     'ignoreProfanityFilter'?: boolean;
     'hiddenState'?: SendBirdGroupChannelHiddenStateEnum;
     'invitedAt'?: number;
-    'inviter'?: SendBirdGroupChannelInviter;
+    'inviter'?: SendBirdUser;
     'isAccessCodeRequired'?: boolean;
     'isBroadcast'?: boolean;
     'isCreated'?: boolean;
     'isDiscoverable'?: boolean;
     'isDistinct'?: boolean;
     'isEphemeral'?: boolean;
-    'isFrozen'?: boolean;
     'isHidden'?: boolean;
     'isPublic'?: boolean;
     'isPushEnabled'?: boolean;
     'isSuper'?: boolean;
     'joinedAt'?: number;
     'joinedMemberCount'?: number;
-    'lastMessage'?: SendBirdGroupChannelLastMessage;
+    'lastMessage'?: SendBirdMessageResponse;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
     'members'?: Array<SendBirdMember>;
@@ -65,6 +63,7 @@ export class SendBirdGroupChannel {
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
     'channel'?: SendBirdGroupChannelChannel;
+    'readReceipt'?: { [key: string]: number; };
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -144,7 +143,7 @@ export class SendBirdGroupChannel {
         {
             "name": "inviter",
             "baseName": "inviter",
-            "type": "SendBirdGroupChannelInviter",
+            "type": "SendBirdUser",
             "format": ""
         },
         {
@@ -180,12 +179,6 @@ export class SendBirdGroupChannel {
         {
             "name": "isEphemeral",
             "baseName": "is_ephemeral",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFrozen",
-            "baseName": "is_frozen",
             "type": "boolean",
             "format": ""
         },
@@ -228,7 +221,7 @@ export class SendBirdGroupChannel {
         {
             "name": "lastMessage",
             "baseName": "last_message",
-            "type": "SendBirdGroupChannelLastMessage",
+            "type": "SendBirdMessageResponse",
             "format": ""
         },
         {
@@ -332,6 +325,12 @@ export class SendBirdGroupChannel {
             "baseName": "channel",
             "type": "SendBirdGroupChannelChannel",
             "format": ""
+        },
+        {
+            "name": "readReceipt",
+            "baseName": "read_receipt",
+            "type": "{ [key: string]: number; }",
+            "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {

@@ -26,22 +26,17 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
      * Get detailed open rate of an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      */
-    public async getDetailedOpenRateOfAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<RequestContext> {
+    public async getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "getDetailedOpenRateOfAnnouncementById", "apiToken");
-        }
-
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("StatisticsApi", "getDetailedOpenRateOfAnnouncementById", "uniqueId");
         }
+
 
 
         // Path Params
@@ -68,27 +63,22 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
      * Get detailed open status of an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      * @param limit 
      * @param next 
      * @param uniqueIds 
      * @param channelUrls 
      * @param hasOpened 
      */
-    public async getDetailedOpenStatusOfAnnouncementById(apiToken: string, uniqueId: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "getDetailedOpenStatusOfAnnouncementById", "apiToken");
-        }
-
 
         // verify required parameter 'uniqueId' is not null or undefined
         if (uniqueId === null || uniqueId === undefined) {
             throw new RequiredError("StatisticsApi", "getDetailedOpenStatusOfAnnouncementById", "uniqueId");
         }
+
 
 
 
@@ -147,13 +137,8 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
      * Retrieve Advanced analytics metrics
      * @param apiToken 
      */
-    public async retrieveAdvancedAnalyticsMetrics(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "retrieveAdvancedAnalyticsMetrics", "apiToken");
-        }
 
 
         // Path Params
@@ -181,13 +166,8 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
      * View number of concurrent connections
      * @param apiToken 
      */
-    public async viewNumberOfConcurrentConnections(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfConcurrentConnections(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "viewNumberOfConcurrentConnections", "apiToken");
-        }
 
 
         // Path Params
@@ -216,13 +196,8 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param date 
      */
-    public async viewNumberOfDailyActiveUsers(apiToken: string, date?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfDailyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "viewNumberOfDailyActiveUsers", "apiToken");
-        }
 
 
 
@@ -257,13 +232,8 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param date 
      */
-    public async viewNumberOfMonthlyActiveUsers(apiToken: string, date?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfMonthlyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "viewNumberOfMonthlyActiveUsers", "apiToken");
-        }
 
 
 
@@ -295,23 +265,17 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
      * View number of peak connections
-     * @param apiToken 
      * @param timeDimension 
      * @param startYear 
      * @param startMonth 
      * @param endYear 
      * @param endMonth 
+     * @param apiToken 
      * @param startDay 
      * @param endDay 
      */
-    public async viewNumberOfPeakConnections(apiToken: string, timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, startDay?: number, endDay?: number, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfPeakConnections(timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, apiToken?: string, startDay?: number, endDay?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("StatisticsApi", "viewNumberOfPeakConnections", "apiToken");
-        }
-
 
         // verify required parameter 'timeDimension' is not null or undefined
         if (timeDimension === null || timeDimension === undefined) {
@@ -341,6 +305,7 @@ export class StatisticsApiRequestFactory extends BaseAPIRequestFactory {
         if (endMonth === null || endMonth === undefined) {
             throw new RequiredError("StatisticsApi", "viewNumberOfPeakConnections", "endMonth");
         }
+
 
 
 

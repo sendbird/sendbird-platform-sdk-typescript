@@ -31,7 +31,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiCreateBotRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // CreateBotData (optional)
   createBotData: {
@@ -58,7 +58,7 @@ apiInstance.createBot(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createBotData** | **CreateBotData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -99,9 +99,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiDeleteBotByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.deleteBotById(body).then((data:any) => {
@@ -114,8 +114,8 @@ apiInstance.deleteBotById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -156,9 +156,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiJoinChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // JoinChannelsData (optional)
   joinChannelsData: {
     botUserid: "botUserid_example",
@@ -179,8 +179,8 @@ apiInstance.joinChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **joinChannelsData** | **JoinChannelsData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -221,9 +221,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiLeaveChannelsRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // string (optional)
   channelUrl: "channel_url_example",
 };
@@ -238,8 +238,8 @@ apiInstance.leaveChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **channelUrl** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -281,11 +281,11 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiLeaveChannelsByUrlRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
   // string
   channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.leaveChannelsByUrl(body).then((data:any) => {
@@ -298,9 +298,9 @@ apiInstance.leaveChannelsByUrl(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
  **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -340,7 +340,7 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiListBotsRequest = {
-  // string
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
   // string (optional)
   token: "token_example",
@@ -358,7 +358,7 @@ apiInstance.listBots(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
 
@@ -385,7 +385,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **sendBotsMessage**
-> SendBirdMessageResponse sendBotsMessage()
+> SendBirdBotsMessageResponse sendBotsMessage()
 
 ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
 
@@ -401,9 +401,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiSendBotsMessageRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // SendBotSMessageData (optional)
   sendBotSMessageData: {
     message: "message_example",
@@ -417,6 +417,13 @@ let body:Sendbird.BotApiSendBotsMessageRequest = {
     markAsRead: true,
     dedupId: "dedupId_example",
     createdAt: 1,
+    extendedMessagePayload: {
+      suggestedReplies: [
+        "suggestedReplies_example",
+      ],
+      customView: {},
+    },
+    targetMessageId: 1,
   },
 };
 
@@ -431,13 +438,13 @@ apiInstance.sendBotsMessage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendBotSMessageData** | **SendBotSMessageData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**SendBirdMessageResponse**
+**SendBirdBotsMessageResponse**
 
 ### Authorization
 
@@ -473,9 +480,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiUpdateBotByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
   // UpdateBotByIdData (optional)
   updateBotByIdData: {
     botUserid: "botUserid_example",
@@ -500,8 +507,8 @@ apiInstance.updateBotById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateBotByIdData** | **UpdateBotByIdData**|  |
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -542,9 +549,9 @@ const apiInstance = new Sendbird.BotApi(configuration);
 
 let body:Sendbird.BotApiViewBotByIdRequest = {
   // string
-  apiToken: "{{API_TOKEN}}",
-  // string
   botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
 };
 
 apiInstance.viewBotById(body).then((data:any) => {
@@ -557,8 +564,8 @@ apiInstance.viewBotById(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiToken** | [**string**] |  | defaults to undefined
  **botUserid** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { ListMessagesResponseMessagesInnerOgTagOgImage } from './ListMessagesResponseMessagesInnerOgTagOgImage';
+import { SendBirdOGImage } from './SendBirdOGImage';
 import { HttpFile } from '../http/http';
 
 export class ListMessagesResponseMessagesInnerOgTag {
     'ogurl'?: string;
     'ogtitle'?: string;
     'ogdescription'?: string;
-    'ogimage'?: ListMessagesResponseMessagesInnerOgTagOgImage;
+    'ogimage'?: SendBirdOGImage;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,7 +43,7 @@ export class ListMessagesResponseMessagesInnerOgTag {
         {
             "name": "ogimage",
             "baseName": "og:image",
-            "type": "ListMessagesResponseMessagesInnerOgTagOgImage",
+            "type": "SendBirdOGImage",
             "format": ""
         }    ];
 

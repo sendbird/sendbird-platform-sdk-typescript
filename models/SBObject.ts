@@ -14,7 +14,7 @@ import { Function } from './Function';
 import { HttpFile } from '../http/http';
 
 export class SBObject {
-    //'constructor'?: Function;
+    'constructor'?: Function;
 
     static readonly discriminator: string | undefined = undefined;
 

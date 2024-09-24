@@ -83,7 +83,7 @@ export class SendBirdUser {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "nickname",

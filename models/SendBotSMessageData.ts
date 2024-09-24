@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { SendBotSMessageDataExtendedMessagePayload } from './SendBotSMessageDataExtendedMessagePayload';
 import { HttpFile } from '../http/http';
 
 export class SendBotSMessageData {
@@ -49,6 +50,11 @@ export class SendBotSMessageData {
     * Specifies the time that the message was sent, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format.
     */
     'createdAt'?: number;
+    'extendedMessagePayload'?: SendBotSMessageDataExtendedMessagePayload;
+    /**
+    * Specifies the ID of the user's message which bot's message replies to
+    */
+    'targetMessageId'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -106,6 +112,18 @@ export class SendBotSMessageData {
             "baseName": "created_at",
             "type": "number",
             "format": ""
+        },
+        {
+            "name": "extendedMessagePayload",
+            "baseName": "extended_message_payload",
+            "type": "SendBotSMessageDataExtendedMessagePayload",
+            "format": ""
+        },
+        {
+            "name": "targetMessageId",
+            "baseName": "target_message_id",
+            "type": "number",
+            "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {

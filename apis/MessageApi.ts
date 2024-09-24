@@ -54,13 +54,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param body 
      */
-    public async addEmojiCategories(apiToken: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "addEmojiCategories", "apiToken");
-        }
 
 
 
@@ -101,13 +96,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addEmojisData 
      */
-    public async addEmojis(apiToken: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<RequestContext> {
+    public async addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "addEmojis", "apiToken");
-        }
 
 
 
@@ -145,20 +135,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-extra-data-to-a-message ----------------------------
      * Add extra data to a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param addExtraDataToMessageData 
      */
-    public async addExtraDataToMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "addExtraDataToMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -176,6 +160,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "addExtraDataToMessage", "messageId");
         }
+
 
 
 
@@ -216,20 +201,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Add a reaction to a message  Adds a specific reaction to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-a-reaction-to-a-message ----------------------------
      * Add a reaction to a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param addReactionToAMessageData 
      */
-    public async addReactionToAMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "addReactionToAMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -247,6 +226,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "addReactionToAMessage", "messageId");
         }
+
 
 
 
@@ -287,22 +267,17 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
      * Delete an emoji
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      */
-    public async deleteEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "deleteEmojiByKey", "apiToken");
-        }
-
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("MessageApi", "deleteEmojiByKey", "emojiKey");
         }
+
 
 
         // Path Params
@@ -329,22 +304,17 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
      * Delete an emoji category
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      */
-    public async deleteEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "deleteEmojiCategoryById", "apiToken");
-        }
-
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("MessageApi", "deleteEmojiCategoryById", "emojiCategoryId");
         }
+
 
 
         // Path Params
@@ -371,19 +341,13 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
      * Delete a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      */
-    public async deleteMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "deleteMessageById", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -401,6 +365,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "deleteMessageById", "messageId");
         }
+
 
 
         // Path Params
@@ -432,13 +397,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param enableReactionsData 
      */
-    public async enableReactions(apiToken: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<RequestContext> {
+    public async enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "enableReactions", "apiToken");
-        }
 
 
 
@@ -476,23 +436,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mark all messages as delivered  Marks all messages in a group channel as delivered for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-delivered ----------------------------
      * Mark all messages as delivered
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMarkAllMessagesAsDeliveredData 
      */
-    public async gcMarkAllMessagesAsDelivered(apiToken: string, channelUrl: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Promise<RequestContext> {
+    public async gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "gcMarkAllMessagesAsDelivered", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "gcMarkAllMessagesAsDelivered", "channelUrl");
         }
+
 
 
 
@@ -531,23 +486,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Mark all messages as read  Marks all messages in a group channel as read for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-read ----------------------------
      * Mark all messages as read
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMarkAllMessagesAsReadData 
      */
-    public async gcMarkAllMessagesAsRead(apiToken: string, channelUrl: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
+    public async gcMarkAllMessagesAsRead(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "gcMarkAllMessagesAsRead", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "gcMarkAllMessagesAsRead", "channelUrl");
         }
+
 
 
 
@@ -586,23 +536,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View number of each member's unread messages  Retrieves the total number of each member's unread messages in a group channel. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-number-of-each-member-s-unread-messages ----------------------------
      * View number of each member's unread messages
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param userIds 
      */
-    public async gcViewNumberOfEachMembersUnreadMessages(apiToken: string, channelUrl: string, userIds?: string, _options?: Configuration): Promise<RequestContext> {
+    public async gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "gcViewNumberOfEachMembersUnreadMessages", "apiToken");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "gcViewNumberOfEachMembersUnreadMessages", "channelUrl");
         }
+
 
 
 
@@ -616,7 +561,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (userIds !== undefined) {
-            requestContext.setQueryParam("user_ids", ObjectSerializer.serialize(userIds, "string", ""));
+            requestContext.setQueryParam("user_ids", ObjectSerializer.serialize(userIds, "Array<string>", ""));
         }
 
         // Header Params
@@ -635,22 +580,17 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
      * Get an emoji
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      */
-    public async getEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<RequestContext> {
+    public async getEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "getEmojiByKey", "apiToken");
-        }
-
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("MessageApi", "getEmojiByKey", "emojiKey");
         }
+
 
 
         // Path Params
@@ -677,22 +617,17 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
      * Get an emoji category
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      */
-    public async getEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<RequestContext> {
+    public async getEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "getEmojiCategoryById", "apiToken");
-        }
-
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("MessageApi", "getEmojiCategoryById", "emojiCategoryId");
         }
+
 
 
         // Path Params
@@ -721,13 +656,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * List all emojis and emoji categories
      * @param apiToken 
      */
-    public async listAllEmojisAndEmojiCategories(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listAllEmojisAndEmojiCategories", "apiToken");
-        }
 
 
         // Path Params
@@ -760,13 +690,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param status 
      * @param announcementGroup 
      */
-    public async listAnnouncements(apiToken: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listAnnouncements", "apiToken");
-        }
 
 
 
@@ -824,13 +749,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * List emojis
      * @param apiToken 
      */
-    public async listEmojis(apiToken: string, _options?: Configuration): Promise<RequestContext> {
+    public async listEmojis(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listEmojis", "apiToken");
-        }
 
 
         // Path Params
@@ -856,9 +776,9 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List messages  Retrieves a list of past messages of a channel.  > This message retrieval is one of Sendbird's [premium features](https://sendbird.com/docs/chat/v3/platform-api/guides/application#-3-sendbird-s-premium-features). Contact our [sales team](https://get.sendbird.com/talk-to-sales.html) for further assistance.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-messages ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of past messages.
      * List messages
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param messageTs 
      * @param messageId 
      * @param prevLimit 
@@ -872,20 +792,16 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param messageType 
      * @param includingRemoved 
      * @param includeReactions 
+     * @param includeReplyType One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL
+     * @param includeParentMessageInfo 
      * @param withSortedMetaArray 
      * @param showSubchannelMessagesOnly 
      * @param userId 
      * @param customType 
      * @param withMetaArray 
      */
-    public async listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async listMessages(channelType: string, channelUrl: string, apiToken?: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listMessages", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -897,6 +813,9 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "listMessages", "channelUrl");
         }
+
+
+
 
 
 
@@ -992,6 +911,16 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (includeReplyType !== undefined) {
+            requestContext.setQueryParam("include_reply_type", ObjectSerializer.serialize(includeReplyType, "'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL'", ""));
+        }
+
+        // Query Params
+        if (includeParentMessageInfo !== undefined) {
+            requestContext.setQueryParam("include_parent_message_info", ObjectSerializer.serialize(includeParentMessageInfo, "boolean", ""));
+        }
+
+        // Query Params
         if (withSortedMetaArray !== undefined) {
             requestContext.setQueryParam("with_sorted_meta_array", ObjectSerializer.serialize(withSortedMetaArray, "boolean", ""));
         }
@@ -1032,20 +961,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## List reactions of a message  Retrieves a list of reactions made to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-reactions-of-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to add a reaction to.
      * List reactions of a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param listUsers 
      */
-    public async listReactionsOfMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, listUsers?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "listReactionsOfMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1063,6 +986,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "listReactionsOfMessage", "messageId");
         }
+
 
 
 
@@ -1097,23 +1021,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
      * Migrate messages
-     * @param apiToken 
      * @param targetChannelUrl 
+     * @param apiToken 
      * @param body 
      */
-    public async migrateMessagesByUrl(apiToken: string, targetChannelUrl: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async migrateMessagesByUrl(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "migrateMessagesByUrl", "apiToken");
-        }
-
 
         // verify required parameter 'targetChannelUrl' is not null or undefined
         if (targetChannelUrl === null || targetChannelUrl === undefined) {
             throw new RequiredError("MessageApi", "migrateMessagesByUrl", "targetChannelUrl");
         }
+
 
 
 
@@ -1152,20 +1071,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-extra-data-from-a-message ----------------------------
      * Remove extra data from a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param keys 
      */
-    public async removeExtraDataFromMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async removeExtraDataFromMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "removeExtraDataFromMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1183,6 +1096,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "removeExtraDataFromMessage", "messageId");
         }
+
 
 
 
@@ -1217,21 +1131,15 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Remove a reaction from a message  Removes a specific reaction from a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-a-reaction-from-a-message ----------------------------
      * Remove a reaction from a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param userId 
      * @param reaction 
      */
-    public async removeReactionFromAMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, userId?: string, reaction?: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "removeReactionFromAMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1249,6 +1157,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "removeReactionFromAMessage", "messageId");
         }
+
 
 
 
@@ -1289,19 +1198,13 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
      * Send a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param sendMessageData 
      */
-    public async sendMessage(apiToken: string, channelType: string, channelUrl: string, sendMessageData?: SendMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async sendMessage(channelType: string, channelUrl: string, apiToken?: string, sendMessageData?: SendMessageData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "sendMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1313,6 +1216,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "sendMessage", "channelUrl");
         }
+
 
 
 
@@ -1352,20 +1256,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Translate a message into other languages  Translates a message into specific languages. Only text messages of which type is MESG can be translated into other languages.  > __Note__: Message translation is powered by [Google Cloud Translation API recognition engine](https://cloud.google.com/translate/). Find language codes supported by the engine in the [Miscellaneous](https://sendbird.com/docs/chat/v3/platform-api/guides/Miscellaneous) page or visit the [Language Support](https://cloud.google.com/translate/docs/languages) for Google Cloud Translation.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-translate-a-message-into-other-languages ----------------------------
      * Translate a message into other languages
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param translateMessageIntoOtherLanguagesData 
      */
-    public async translateMessageIntoOtherLanguages(apiToken: string, channelType: string, channelUrl: string, messageId: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Promise<RequestContext> {
+    public async translateMessageIntoOtherLanguages(channelType: string, channelUrl: string, messageId: string, apiToken?: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "translateMessageIntoOtherLanguages", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1383,6 +1281,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "translateMessageIntoOtherLanguages", "messageId");
         }
+
 
 
 
@@ -1423,23 +1322,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
      * Update an emoji category URL
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      * @param updateEmojiCategoryUrlByIdData 
      */
-    public async updateEmojiCategoryUrlById(apiToken: string, emojiCategoryId: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateEmojiCategoryUrlById(emojiCategoryId: string, apiToken?: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "updateEmojiCategoryUrlById", "apiToken");
-        }
-
 
         // verify required parameter 'emojiCategoryId' is not null or undefined
         if (emojiCategoryId === null || emojiCategoryId === undefined) {
             throw new RequiredError("MessageApi", "updateEmojiCategoryUrlById", "emojiCategoryId");
         }
+
 
 
 
@@ -1478,23 +1372,18 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
      * Update an emoji URL
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      * @param updateEmojiUrlByKeyData 
      */
-    public async updateEmojiUrlByKey(apiToken: string, emojiKey: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<RequestContext> {
+    public async updateEmojiUrlByKey(emojiKey: string, apiToken?: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "updateEmojiUrlByKey", "apiToken");
-        }
-
 
         // verify required parameter 'emojiKey' is not null or undefined
         if (emojiKey === null || emojiKey === undefined) {
             throw new RequiredError("MessageApi", "updateEmojiUrlByKey", "emojiKey");
         }
+
 
 
 
@@ -1533,20 +1422,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-extra-data-in-a-message ----------------------------
      * Update extra data in a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param updateExtraDataInMessageData 
      */
-    public async updateExtraDataInMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "updateExtraDataInMessage", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1564,6 +1447,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "updateExtraDataInMessage", "messageId");
         }
+
 
 
 
@@ -1604,20 +1488,14 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Update a message  Updates information on a message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-a-message ----------------------------
      * Update a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param updateMessageByIdData 
      */
-    public async updateMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async updateMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "updateMessageById", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1635,6 +1513,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "updateMessageById", "messageId");
         }
+
 
 
 
@@ -1678,13 +1557,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param useDefaultEmojisData 
      */
-    public async useDefaultEmojis(apiToken: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<RequestContext> {
+    public async useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "useDefaultEmojis", "apiToken");
-        }
 
 
 
@@ -1722,21 +1596,16 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View a message  Retrieves information on a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
      * View a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param withSortedMetaArray 
      * @param withMetaArray 
+     * @param includeParentMessageInfo 
      */
-    public async viewMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async viewMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, includeParentMessageInfo?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "viewMessageById", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1754,6 +1623,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (messageId === null || messageId === undefined) {
             throw new RequiredError("MessageApi", "viewMessageById", "messageId");
         }
+
+
 
 
 
@@ -1778,6 +1649,11 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("with_meta_array", ObjectSerializer.serialize(withMetaArray, "boolean", ""));
         }
 
+        // Query Params
+        if (includeParentMessageInfo !== undefined) {
+            requestContext.setQueryParam("include_parent_message_info", ObjectSerializer.serialize(includeParentMessageInfo, "boolean", ""));
+        }
+
         // Header Params
         requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
 
@@ -1794,18 +1670,12 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View total number of messages in a channel  Retrieves the total number of messages in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-total-number-of-messages-in-a-channel ----------------------------
      * View total number of messages in a channel
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public async viewTotalNumberOfMessagesInChannel(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'apiToken' is not null or undefined
-        if (apiToken === null || apiToken === undefined) {
-            throw new RequiredError("MessageApi", "viewTotalNumberOfMessagesInChannel", "apiToken");
-        }
-
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
@@ -1817,6 +1687,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("MessageApi", "viewTotalNumberOfMessagesInChannel", "channelUrl");
         }
+
 
 
         // Path Params

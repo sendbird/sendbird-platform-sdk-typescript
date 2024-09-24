@@ -76,6 +76,7 @@ import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
 import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
 import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
 import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
+import { GcTypingIndicatorsData } from '../models/GcTypingIndicatorsData';
 import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
 import { GcUpdateBanByIdResponse } from '../models/GcUpdateBanByIdResponse';
 import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
@@ -115,7 +116,6 @@ import { ListGdprRequestsResponseRequestsInner } from '../models/ListGdprRequest
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
 import { ListMessagesResponseMessagesInner } from '../models/ListMessagesResponseMessagesInner';
 import { ListMessagesResponseMessagesInnerOgTag } from '../models/ListMessagesResponseMessagesInnerOgTag';
-import { ListMessagesResponseMessagesInnerOgTagOgImage } from '../models/ListMessagesResponseMessagesInnerOgTagOgImage';
 import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from '../models/ListMessagesResponseMessagesInnerSortedMetaarrayInner';
 import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
 import { ListMutedUsersInChannelsWithCustomChannelType200Response } from '../models/ListMutedUsersInChannelsWithCustomChannelType200Response';
@@ -191,17 +191,20 @@ import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCritic
 import { SendBirdAutoEventMessageSettings } from '../models/SendBirdAutoEventMessageSettings';
 import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
 import { SendBirdBaseMessageInstance } from '../models/SendBirdBaseMessageInstance';
+import { SendBirdBotsMessageResponse } from '../models/SendBirdBotsMessageResponse';
+import { SendBirdBotsMessageResponseMessage } from '../models/SendBirdBotsMessageResponseMessage';
+import { SendBirdBotsMessageResponseMessageExtendedMessagePayload } from '../models/SendBirdBotsMessageResponseMessageExtendedMessagePayload';
+import { SendBirdBotsMessageResponseMessageMessageEvents } from '../models/SendBirdBotsMessageResponseMessageMessageEvents';
 import { SendBirdChannelResponse } from '../models/SendBirdChannelResponse';
 import { SendBirdEmoji } from '../models/SendBirdEmoji';
 import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
+import { SendBirdFile } from '../models/SendBirdFile';
 import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
 import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
 import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChannel';
 import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
 import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
 import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelInviter } from '../models/SendBirdGroupChannelInviter';
-import { SendBirdGroupChannelLastMessage } from '../models/SendBirdGroupChannelLastMessage';
 import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
 import { SendBirdMember } from '../models/SendBirdMember';
 import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
@@ -211,6 +214,7 @@ import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUs
 import { SendBirdOGImage } from '../models/SendBirdOGImage';
 import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
 import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
+import { SendBirdParentMessageInfo } from '../models/SendBirdParentMessageInfo';
 import { SendBirdPlugin } from '../models/SendBirdPlugin';
 import { SendBirdPoll } from '../models/SendBirdPoll';
 import { SendBirdPollDetails } from '../models/SendBirdPollDetails';
@@ -218,6 +222,7 @@ import { SendBirdPollOption } from '../models/SendBirdPollOption';
 import { SendBirdPollUpdatedVoteCount } from '../models/SendBirdPollUpdatedVoteCount';
 import { SendBirdReaction } from '../models/SendBirdReaction';
 import { SendBirdRestrictionInfo } from '../models/SendBirdRestrictionInfo';
+import { SendBirdScheduledMessage } from '../models/SendBirdScheduledMessage';
 import { SendBirdSender } from '../models/SendBirdSender';
 import { SendBirdThreadInfo } from '../models/SendBirdThreadInfo';
 import { SendBirdThumbnailSBObject } from '../models/SendBirdThumbnailSBObject';
@@ -225,6 +230,7 @@ import { SendBirdThumbnailSize } from '../models/SendBirdThumbnailSize';
 import { SendBirdUser } from '../models/SendBirdUser';
 import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
 import { SendBotSMessageData } from '../models/SendBotSMessageData';
+import { SendBotSMessageDataExtendedMessagePayload } from '../models/SendBotSMessageDataExtendedMessagePayload';
 import { SendMessageData } from '../models/SendMessageData';
 import { SetDomainFilterData } from '../models/SetDomainFilterData';
 import { SetDomainFilterDataDomainFilter } from '../models/SetDomainFilterDataDomainFilter';
@@ -270,6 +276,19 @@ import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
 import { UpdateUserMetadataResponse } from '../models/UpdateUserMetadataResponse';
 import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
 import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
+import { V3ApplicationsPushSettingsGet200Response } from '../models/V3ApplicationsPushSettingsGet200Response';
+import { V3ApplicationsPushSettingsGetRequest } from '../models/V3ApplicationsPushSettingsGetRequest';
+import { V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest } from '../models/V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
+import { V3PollsGetRequest } from '../models/V3PollsGetRequest';
+import { V3PollsPollIdDeleteRequest } from '../models/V3PollsPollIdDeleteRequest';
+import { V3PollsPollIdDeleteRequest1 } from '../models/V3PollsPollIdDeleteRequest1';
+import { V3PollsPollIdOptionsOptionIdDeleteRequest } from '../models/V3PollsPollIdOptionsOptionIdDeleteRequest';
+import { V3PollsPollIdOptionsOptionIdVotersGet200Response } from '../models/V3PollsPollIdOptionsOptionIdVotersGet200Response';
+import { V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner } from '../models/V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
+import { V3PollsPollIdOptionsOptionIdVotersGetRequest } from '../models/V3PollsPollIdOptionsOptionIdVotersGetRequest';
+import { V3PollsPollIdVotePutRequest } from '../models/V3PollsPollIdVotePutRequest';
+import { V3ScheduledMessagesCountGet200Response } from '../models/V3ScheduledMessagesCountGet200Response';
+import { V3ScheduledMessagesGet200Response } from '../models/V3ScheduledMessagesGet200Response';
 import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
@@ -312,11 +331,11 @@ export class PromiseAnnouncementApi {
     /**
      * ## Get detailed open rate of an announcement group  Retrieves the detailed open rate information of an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement-group ----------------------------
      * Get detailed open rate of an announcement group
-     * @param apiToken 
      * @param announcementGroup 
+     * @param apiToken 
      */
-    public getDetailedOpenRateOfAnnouncementGroup(apiToken: string, announcementGroup: string, _options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementGroupResponse> {
-        const result = this.api.getDetailedOpenRateOfAnnouncementGroup(apiToken, announcementGroup, _options);
+    public getDetailedOpenRateOfAnnouncementGroup(announcementGroup: string, apiToken?: string, _options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementGroupResponse> {
+        const result = this.api.getDetailedOpenRateOfAnnouncementGroup(announcementGroup, apiToken, _options);
         return result.toPromise();
     }
 
@@ -325,7 +344,7 @@ export class PromiseAnnouncementApi {
      * Get statistics - weekly
      * @param apiToken 
      */
-    public getStatistics(apiToken: string, _options?: Configuration): Promise<GetStatisticsResponse> {
+    public getStatistics(apiToken?: string, _options?: Configuration): Promise<GetStatisticsResponse> {
         const result = this.api.getStatistics(apiToken, _options);
         return result.toPromise();
     }
@@ -333,17 +352,17 @@ export class PromiseAnnouncementApi {
     /**
      * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
      * Get statistics - daily
-     * @param apiToken 
      * @param startDate 
      * @param endDate 
      * @param startWeek 
      * @param endWeek 
      * @param startMonth 
      * @param endMonth 
+     * @param apiToken 
      * @param announcementGroup 
      */
-    public getStatisticsDaily(apiToken: string, startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, announcementGroup?: string, _options?: Configuration): Promise<GetStatisticsDailyResponse> {
-        const result = this.api.getStatisticsDaily(apiToken, startDate, endDate, startWeek, endWeek, startMonth, endMonth, announcementGroup, _options);
+    public getStatisticsDaily(startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, apiToken?: string, announcementGroup?: string, _options?: Configuration): Promise<GetStatisticsDailyResponse> {
+        const result = this.api.getStatisticsDaily(startDate, endDate, startWeek, endWeek, startMonth, endMonth, apiToken, announcementGroup, _options);
         return result.toPromise();
     }
 
@@ -352,7 +371,7 @@ export class PromiseAnnouncementApi {
      * Get statistics - monthly
      * @param apiToken 
      */
-    public getStatisticsMonthly(apiToken: string, _options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
+    public getStatisticsMonthly(apiToken?: string, _options?: Configuration): Promise<GetStatisticsMonthlyResponse> {
         const result = this.api.getStatisticsMonthly(apiToken, _options);
         return result.toPromise();
     }
@@ -364,7 +383,7 @@ export class PromiseAnnouncementApi {
      * @param token 
      * @param limit 
      */
-    public listAnnouncementGroups(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
+    public listAnnouncementGroups(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListAnnouncementGroupsResponse> {
         const result = this.api.listAnnouncementGroups(apiToken, token, limit, _options);
         return result.toPromise();
     }
@@ -375,7 +394,7 @@ export class PromiseAnnouncementApi {
      * @param apiToken 
      * @param scheduleAnnouncementData 
      */
-    public scheduleAnnouncement(apiToken: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Promise<ScheduleAnnouncementResponse> {
+    public scheduleAnnouncement(apiToken?: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Promise<ScheduleAnnouncementResponse> {
         const result = this.api.scheduleAnnouncement(apiToken, scheduleAnnouncementData, _options);
         return result.toPromise();
     }
@@ -383,23 +402,23 @@ export class PromiseAnnouncementApi {
     /**
      * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
      * Update an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      * @param updateAnnouncementByIdData 
      */
-    public updateAnnouncementById(apiToken: string, uniqueId: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
-        const result = this.api.updateAnnouncementById(apiToken, uniqueId, updateAnnouncementByIdData, _options);
+    public updateAnnouncementById(uniqueId: string, apiToken?: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Promise<UpdateAnnouncementByIdResponse> {
+        const result = this.api.updateAnnouncementById(uniqueId, apiToken, updateAnnouncementByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View an announcement  Retrieves information on a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-view-an-announcement ----------------------------
      * View an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      */
-    public viewAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<ViewAnnouncementByIdResponse> {
-        const result = this.api.viewAnnouncementById(apiToken, uniqueId, _options);
+    public viewAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Promise<ViewAnnouncementByIdResponse> {
+        const result = this.api.viewAnnouncementById(uniqueId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -428,7 +447,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param addApnsPushConfigurationData 
      */
-    public addApnsPushConfiguration(apiToken: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Promise<AddApnsPushConfigurationResponse> {
+    public addApnsPushConfiguration(apiToken?: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Promise<AddApnsPushConfigurationResponse> {
         const result = this.api.addApnsPushConfiguration(apiToken, addApnsPushConfigurationData, _options);
         return result.toPromise();
     }
@@ -439,7 +458,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param addFcmPushConfigurationData 
      */
-    public addFcmPushConfiguration(apiToken: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Promise<AddFcmPushConfigurationResponse> {
+    public addFcmPushConfiguration(apiToken?: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Promise<AddFcmPushConfigurationResponse> {
         const result = this.api.addFcmPushConfiguration(apiToken, addFcmPushConfigurationData, _options);
         return result.toPromise();
     }
@@ -450,7 +469,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param addHmsPushConfigurationData 
      */
-    public addHmsPushConfiguration(apiToken: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Promise<AddHmsPushConfigurationResponse> {
+    public addHmsPushConfiguration(apiToken?: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Promise<AddHmsPushConfigurationResponse> {
         const result = this.api.addHmsPushConfiguration(apiToken, addHmsPushConfigurationData, _options);
         return result.toPromise();
     }
@@ -461,7 +480,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param addIpToWhitelistData 
      */
-    public addIpToWhitelist(apiToken: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Promise<AddIpToWhitelistResponse> {
+    public addIpToWhitelist(apiToken?: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Promise<AddIpToWhitelistResponse> {
         const result = this.api.addIpToWhitelist(apiToken, addIpToWhitelistData, _options);
         return result.toPromise();
     }
@@ -469,12 +488,12 @@ export class PromiseApplicationApi {
     /**
      * ## Ban specified users in channels with a custom channel type at once.
      * Ban users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param banUsersInChannelsWithCustomChannelTypeData 
      */
-    public banUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<any> {
-        const result = this.api.banUsersInChannelsWithCustomChannelType(apiToken, customType, banUsersInChannelsWithCustomChannelTypeData, _options);
+    public banUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<any> {
+        const result = this.api.banUsersInChannelsWithCustomChannelType(customType, apiToken, banUsersInChannelsWithCustomChannelTypeData, _options);
         return result.toPromise();
     }
 
@@ -484,7 +503,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param configureAutoEventData 
      */
-    public configureAutoEventMessages(apiToken: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
+    public configureAutoEventMessages(apiToken?: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
         const result = this.api.configureAutoEventMessages(apiToken, configureAutoEventData, _options);
         return result.toPromise();
     }
@@ -492,22 +511,22 @@ export class PromiseApplicationApi {
     /**
      * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
      * Delete allowed IPs from a whitelist
-     * @param apiToken 
      * @param ipWhitelistAddresses 
+     * @param apiToken 
      */
-    public deleteAllowedIpsFromWhitelist(apiToken: string, ipWhitelistAddresses: Array<string>, _options?: Configuration): Promise<DeleteAllowedIpsFromWhitelistResponse> {
-        const result = this.api.deleteAllowedIpsFromWhitelist(apiToken, ipWhitelistAddresses, _options);
+    public deleteAllowedIpsFromWhitelist(ipWhitelistAddresses: Array<string>, apiToken?: string, _options?: Configuration): Promise<DeleteAllowedIpsFromWhitelistResponse> {
+        const result = this.api.deleteAllowedIpsFromWhitelist(ipWhitelistAddresses, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete an APNs certificate  Deletes a specific APNs certificate.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-an-apns-certificate ----------------------------
      * Delete an APNs certificate
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      */
-    public deleteApnsCertificateById(apiToken: string, providerId: string, _options?: Configuration): Promise<DeleteApnsCertificateByIdResponse> {
-        const result = this.api.deleteApnsCertificateById(apiToken, providerId, _options);
+    public deleteApnsCertificateById(providerId: string, apiToken?: string, _options?: Configuration): Promise<DeleteApnsCertificateByIdResponse> {
+        const result = this.api.deleteApnsCertificateById(providerId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -517,7 +536,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param generateSecondaryApiTokenData 
      */
-    public generateSecondaryApiToken(apiToken: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Promise<GenerateSecondaryApiTokenResponse> {
+    public generateSecondaryApiToken(apiToken?: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Promise<GenerateSecondaryApiTokenResponse> {
         const result = this.api.generateSecondaryApiToken(apiToken, generateSecondaryApiTokenData, _options);
         return result.toPromise();
     }
@@ -527,7 +546,7 @@ export class PromiseApplicationApi {
      * List auto event messages
      * @param apiToken 
      */
-    public listAutoEventMessages(apiToken: string, _options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
+    public listAutoEventMessages(apiToken?: string, _options?: Configuration): Promise<SendBirdAutoEventMessageSettings> {
         const result = this.api.listAutoEventMessages(apiToken, _options);
         return result.toPromise();
     }
@@ -535,37 +554,37 @@ export class PromiseApplicationApi {
     /**
      * ## Retrieves a list of users banned from channels with the specified custom channel type.
      * List banned users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listBannedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Promise<CustomTypeListBannedUsersResponse> {
-        const result = this.api.listBannedUsersInChannelsWithCustomChannelType(apiToken, customType, token, limit, _options);
+    public listBannedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<CustomTypeListBannedUsersResponse> {
+        const result = this.api.listBannedUsersInChannelsWithCustomChannelType(customType, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Retrieves a list of the muted users in channels with a custom channel type.
      * List muted users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listMutedUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, token?: string, limit?: number, _options?: Configuration): Promise<ListMutedUsersInChannelsWithCustomChannelType200Response> {
-        const result = this.api.listMutedUsersInChannelsWithCustomChannelType(apiToken, customType, token, limit, _options);
+    public listMutedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListMutedUsersInChannelsWithCustomChannelType200Response> {
+        const result = this.api.listMutedUsersInChannelsWithCustomChannelType(customType, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List push configurations  Retrieves a list of an application's registered push configurations.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-configurations ----------------------------
      * List push configurations
-     * @param apiToken 
      * @param pushType 
+     * @param apiToken 
      */
-    public listPushConfigurations(apiToken: string, pushType: string, _options?: Configuration): Promise<ListPushConfigurationsResponse> {
-        const result = this.api.listPushConfigurations(apiToken, pushType, _options);
+    public listPushConfigurations(pushType: string, apiToken?: string, _options?: Configuration): Promise<ListPushConfigurationsResponse> {
+        const result = this.api.listPushConfigurations(pushType, apiToken, _options);
         return result.toPromise();
     }
 
@@ -574,7 +593,7 @@ export class PromiseApplicationApi {
      * List push notification content templates
      * @param apiToken 
      */
-    public listPushNotificationContentTemplates(apiToken: string, _options?: Configuration): Promise<ListPushNotificationContentTemplatesResponse> {
+    public listPushNotificationContentTemplates(apiToken?: string, _options?: Configuration): Promise<ListPushNotificationContentTemplatesResponse> {
         const result = this.api.listPushNotificationContentTemplates(apiToken, _options);
         return result.toPromise();
     }
@@ -584,7 +603,7 @@ export class PromiseApplicationApi {
      * List secondary API tokens
      * @param apiToken 
      */
-    public listSecondaryApiTokens(apiToken: string, _options?: Configuration): Promise<ListSecondaryApiTokensResponse> {
+    public listSecondaryApiTokens(apiToken?: string, _options?: Configuration): Promise<ListSecondaryApiTokensResponse> {
         const result = this.api.listSecondaryApiTokens(apiToken, _options);
         return result.toPromise();
     }
@@ -592,24 +611,24 @@ export class PromiseApplicationApi {
     /**
      * ## Mutes specified users in channels with a custom channel type at once.
      * Mute users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param muteUsersInChannelsWithCustomChannelTypeData 
      */
-    public muteUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<any> {
-        const result = this.api.muteUsersInChannelsWithCustomChannelType(apiToken, customType, muteUsersInChannelsWithCustomChannelTypeData, _options);
+    public muteUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Promise<any> {
+        const result = this.api.muteUsersInChannelsWithCustomChannelType(customType, apiToken, muteUsersInChannelsWithCustomChannelTypeData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove a push configuration  Removes a specific push configuration from an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-remove-a-push-configuration ----------------------------
      * Remove a push configuration
-     * @param apiToken 
      * @param pushType 
      * @param providerId 
+     * @param apiToken 
      */
-    public removePushConfigurationById(apiToken: string, pushType: string, providerId: string, _options?: Configuration): Promise<RemovePushConfigurationByIdResponse> {
-        const result = this.api.removePushConfigurationById(apiToken, pushType, providerId, _options);
+    public removePushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Promise<RemovePushConfigurationByIdResponse> {
+        const result = this.api.removePushConfigurationById(pushType, providerId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -618,7 +637,7 @@ export class PromiseApplicationApi {
      * Retrieve an IP whitelist
      * @param apiToken 
      */
-    public retrieveIpWhitelist(apiToken: string, _options?: Configuration): Promise<RetrieveIpWhitelistResponse> {
+    public retrieveIpWhitelist(apiToken?: string, _options?: Configuration): Promise<RetrieveIpWhitelistResponse> {
         const result = this.api.retrieveIpWhitelist(apiToken, _options);
         return result.toPromise();
     }
@@ -626,59 +645,59 @@ export class PromiseApplicationApi {
     /**
      * ## Revoke a secondary API token  Revokes a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-revoke-a-secondary-api-token
      * Revoke a secondary API token
-     * @param apiToken 
      * @param apiToken2 
+     * @param apiToken 
      */
-    public revokeSecondaryApiTokenByToken(apiToken: string, apiToken2: string, _options?: Configuration): Promise<RevokeSecondaryApiTokenByTokenResponse> {
-        const result = this.api.revokeSecondaryApiTokenByToken(apiToken, apiToken2, _options);
+    public revokeSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Promise<RevokeSecondaryApiTokenByTokenResponse> {
+        const result = this.api.revokeSecondaryApiTokenByToken(apiToken2, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## 
      * Message moderation
-     * @param apiToken 
      * @param customType 
+     * @param apiToken 
      * @param setDomainFilterData 
      */
-    public setDomainFilter(apiToken: string, customType: string, setDomainFilterData?: SetDomainFilterData, _options?: Configuration): Promise<SendBirdChannelResponse> {
-        const result = this.api.setDomainFilter(apiToken, customType, setDomainFilterData, _options);
+    public setDomainFilter(customType: string, apiToken?: string, setDomainFilterData?: SetDomainFilterData, _options?: Configuration): Promise<SendBirdChannelResponse> {
+        const result = this.api.setDomainFilter(customType, apiToken, setDomainFilterData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unban specified users in channels with a custom channel type at once.
      * Unban users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
      * @param userIds 
+     * @param apiToken 
      */
-    public unbanUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, userIds: Array<string>, _options?: Configuration): Promise<any> {
-        const result = this.api.unbanUsersInChannelsWithCustomChannelType(apiToken, customType, userIds, _options);
+    public unbanUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.unbanUsersInChannelsWithCustomChannelType(customType, userIds, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unmute specified users in channels with a custom channel type at once.
      * Unmute users in channels with a custom channel type
-     * @param apiToken 
      * @param customType 
      * @param userIds 
+     * @param apiToken 
      */
-    public unmuteUsersInChannelsWithCustomChannelType(apiToken: string, customType: string, userIds: Array<string>, _options?: Configuration): Promise<any> {
-        const result = this.api.unmuteUsersInChannelsWithCustomChannelType(apiToken, customType, userIds, _options);
+    public unmuteUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.unmuteUsersInChannelsWithCustomChannelType(customType, userIds, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update an APNs push configuration  Updates a specific APNs (Apple Push Notification service) push configuration for your client app. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: If your HTTP request body contains a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to upload to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests) .  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-apns-push-configuration ----------------------------
      * Update an APNs push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateApnsPushConfigurationByIdData 
      */
-    public updateApnsPushConfigurationById(apiToken: string, providerId: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Promise<UpdateApnsPushConfigurationByIdResponse> {
-        const result = this.api.updateApnsPushConfigurationById(apiToken, providerId, updateApnsPushConfigurationByIdData, _options);
+    public updateApnsPushConfigurationById(providerId: string, apiToken?: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Promise<UpdateApnsPushConfigurationByIdResponse> {
+        const result = this.api.updateApnsPushConfigurationById(providerId, apiToken, updateApnsPushConfigurationByIdData, _options);
         return result.toPromise();
     }
 
@@ -688,7 +707,7 @@ export class PromiseApplicationApi {
      * @param apiToken 
      * @param updateDefaultChannelInvitationPreferenceData 
      */
-    public updateDefaultChannelInvitationPreference(apiToken: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Promise<UpdateDefaultChannelInvitationPreferenceResponse> {
+    public updateDefaultChannelInvitationPreference(apiToken?: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Promise<UpdateDefaultChannelInvitationPreferenceResponse> {
         const result = this.api.updateDefaultChannelInvitationPreference(apiToken, updateDefaultChannelInvitationPreferenceData, _options);
         return result.toPromise();
     }
@@ -696,36 +715,36 @@ export class PromiseApplicationApi {
     /**
      * ## Update a FCM push configuration  Updates a specific FCM (Firebase Cloud Messaging) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-fcm-push-configuration ----------------------------
      * Update a FCM push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateFcmPushConfigurationByIdData 
      */
-    public updateFcmPushConfigurationById(apiToken: string, providerId: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Promise<UpdateFcmPushConfigurationByIdResponse> {
-        const result = this.api.updateFcmPushConfigurationById(apiToken, providerId, updateFcmPushConfigurationByIdData, _options);
+    public updateFcmPushConfigurationById(providerId: string, apiToken?: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Promise<UpdateFcmPushConfigurationByIdResponse> {
+        const result = this.api.updateFcmPushConfigurationById(providerId, apiToken, updateFcmPushConfigurationByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update an HMS push configuration  Updates a specific HMS (Huawei Mobile Services) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-hms-push-configuration ----------------------------
      * Update an HMS push configuration
-     * @param apiToken 
      * @param providerId 
+     * @param apiToken 
      * @param updateHmsPushConfigurationByIdData 
      */
-    public updateHmsPushConfigurationById(apiToken: string, providerId: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Promise<UpdateHmsPushConfigurationByIdResponse> {
-        const result = this.api.updateHmsPushConfigurationById(apiToken, providerId, updateHmsPushConfigurationByIdData, _options);
+    public updateHmsPushConfigurationById(providerId: string, apiToken?: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Promise<UpdateHmsPushConfigurationByIdResponse> {
+        const result = this.api.updateHmsPushConfigurationById(providerId, apiToken, updateHmsPushConfigurationByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a push notification content template  Updates a specific push notification content template of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-push-notification-content-template ----------------------------
      * Update a push notification content template
-     * @param apiToken 
      * @param templateName 
+     * @param apiToken 
      * @param updatePushNotificationContentTemplateData 
      */
-    public updatePushNotificationContentTemplate(apiToken: string, templateName: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Promise<UpdatePushNotificationContentTemplateResponse> {
-        const result = this.api.updatePushNotificationContentTemplate(apiToken, templateName, updatePushNotificationContentTemplateData, _options);
+    public updatePushNotificationContentTemplate(templateName: string, apiToken?: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Promise<UpdatePushNotificationContentTemplateResponse> {
+        const result = this.api.updatePushNotificationContentTemplate(templateName, apiToken, updatePushNotificationContentTemplateData, _options);
         return result.toPromise();
     }
 
@@ -734,7 +753,7 @@ export class PromiseApplicationApi {
      * View default channel invitation preference
      * @param apiToken 
      */
-    public viewDefaultChannelInvitationPreference(apiToken: string, _options?: Configuration): Promise<ViewDefaultChannelInvitationPreferenceResponse> {
+    public viewDefaultChannelInvitationPreference(apiToken?: string, _options?: Configuration): Promise<ViewDefaultChannelInvitationPreferenceResponse> {
         const result = this.api.viewDefaultChannelInvitationPreference(apiToken, _options);
         return result.toPromise();
     }
@@ -742,34 +761,34 @@ export class PromiseApplicationApi {
     /**
      * ## View a push configuration  Retrieves a specific push configuration of an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-configuration ----------------------------
      * View a push configuration
-     * @param apiToken 
      * @param pushType 
      * @param providerId 
+     * @param apiToken 
      */
-    public viewPushConfigurationById(apiToken: string, pushType: string, providerId: string, _options?: Configuration): Promise<ViewPushConfigurationByIdResponse> {
-        const result = this.api.viewPushConfigurationById(apiToken, pushType, providerId, _options);
+    public viewPushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Promise<ViewPushConfigurationByIdResponse> {
+        const result = this.api.viewPushConfigurationById(pushType, providerId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
-     * ## View a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
-     * View a push notification content template
-     * @param apiToken 
+     * ## Get a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
+     * Get a push notification content template
      * @param templateName 
+     * @param apiToken 
      */
-    public viewPushNotificationContentTemplate(apiToken: string, templateName: string, _options?: Configuration): Promise<ViewPushNotificationContentTemplateResponse> {
-        const result = this.api.viewPushNotificationContentTemplate(apiToken, templateName, _options);
+    public viewPushNotificationContentTemplate(templateName: string, apiToken?: string, _options?: Configuration): Promise<ViewPushNotificationContentTemplateResponse> {
+        const result = this.api.viewPushNotificationContentTemplate(templateName, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a secondary API token  Retrieves the information on a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-secondary-api-token
      * View a secondary API token
-     * @param apiToken 
      * @param apiToken2 
+     * @param apiToken 
      */
-    public viewSecondaryApiTokenByToken(apiToken: string, apiToken2: string, _options?: Configuration): Promise<ViewSecondaryApiTokenByTokenResponse> {
-        const result = this.api.viewSecondaryApiTokenByToken(apiToken, apiToken2, _options);
+    public viewSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Promise<ViewSecondaryApiTokenByTokenResponse> {
+        const result = this.api.viewSecondaryApiTokenByToken(apiToken2, apiToken, _options);
         return result.toPromise();
     }
 
@@ -798,7 +817,7 @@ export class PromiseBotApi {
      * @param apiToken 
      * @param createBotData 
      */
-    public createBot(apiToken: string, createBotData?: CreateBotData, _options?: Configuration): Promise<CreateBotResponse> {
+    public createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Promise<CreateBotResponse> {
         const result = this.api.createBot(apiToken, createBotData, _options);
         return result.toPromise();
     }
@@ -806,47 +825,47 @@ export class PromiseBotApi {
     /**
      * ## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
      * Delete a bot
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      */
-    public deleteBotById(apiToken: string, botUserid: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteBotById(apiToken, botUserid, _options);
+    public deleteBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteBotById(botUserid, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Join channels  Makes a bot join one or more channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-join-channels ----------------------------
      * Join channels
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      * @param joinChannelsData 
      */
-    public joinChannels(apiToken: string, botUserid: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Promise<JoinChannelsResponse> {
-        const result = this.api.joinChannels(apiToken, botUserid, joinChannelsData, _options);
+    public joinChannels(botUserid: string, apiToken?: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Promise<JoinChannelsResponse> {
+        const result = this.api.joinChannels(botUserid, apiToken, joinChannelsData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
      * Leave channels - When leaving all channels
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      * @param channelUrl 
      */
-    public leaveChannels(apiToken: string, botUserid: string, channelUrl?: string, _options?: Configuration): Promise<void> {
-        const result = this.api.leaveChannels(apiToken, botUserid, channelUrl, _options);
+    public leaveChannels(botUserid: string, apiToken?: string, channelUrl?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.leaveChannels(botUserid, apiToken, channelUrl, _options);
         return result.toPromise();
     }
 
     /**
      * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
      * Leave channels - When leaving a channel by its channel URL
-     * @param apiToken 
      * @param botUserid 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public leaveChannelsByUrl(apiToken: string, botUserid: string, channelUrl: string, _options?: Configuration): Promise<any> {
-        const result = this.api.leaveChannelsByUrl(apiToken, botUserid, channelUrl, _options);
+    public leaveChannelsByUrl(botUserid: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.leaveChannelsByUrl(botUserid, channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
@@ -857,7 +876,7 @@ export class PromiseBotApi {
      * @param token 
      * @param limit 
      */
-    public listBots(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<ListBotsResponse> {
+    public listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListBotsResponse> {
         const result = this.api.listBots(apiToken, token, limit, _options);
         return result.toPromise();
     }
@@ -865,35 +884,35 @@ export class PromiseBotApi {
     /**
      * ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
      * Send a bot's message
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      * @param sendBotSMessageData 
      */
-    public sendBotsMessage(apiToken: string, botUserid: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Promise<SendBirdMessageResponse> {
-        const result = this.api.sendBotsMessage(apiToken, botUserid, sendBotSMessageData, _options);
+    public sendBotsMessage(botUserid: string, apiToken?: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Promise<SendBirdBotsMessageResponse> {
+        const result = this.api.sendBotsMessage(botUserid, apiToken, sendBotSMessageData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
      * Update a bot
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      * @param updateBotByIdData 
      */
-    public updateBotById(apiToken: string, botUserid: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<UpdateBotByIdResponse> {
-        const result = this.api.updateBotById(apiToken, botUserid, updateBotByIdData, _options);
+    public updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<UpdateBotByIdResponse> {
+        const result = this.api.updateBotById(botUserid, apiToken, updateBotByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
      * View a bot
-     * @param apiToken 
      * @param botUserid 
+     * @param apiToken 
      */
-    public viewBotById(apiToken: string, botUserid: string, _options?: Configuration): Promise<ViewBotByIdResponse> {
-        const result = this.api.viewBotById(apiToken, botUserid, _options);
+    public viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<ViewBotByIdResponse> {
+        const result = this.api.viewBotById(botUserid, apiToken, _options);
         return result.toPromise();
     }
 
@@ -919,37 +938,69 @@ export class PromiseDataExportApi {
     /**
      * ## List data exports by message, channel, or user  Retrieves a list of message, channel or user data exports  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-list-data-exports-by-message,-channel,-or-user ----------------------------   `data_type`      Type: string      Description: Specifies the type of a data export to retrieve. Acceptable values are messages, channels, users, and failed_webhooks.
      * List data exports by message, channel, or user
-     * @param apiToken 
      * @param dataType 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listDataExportsByMessageChannelOrUser(apiToken: string, dataType: string, token?: string, limit?: number, _options?: Configuration): Promise<ListDataExportsByMessageChannelOrUserResponse> {
-        const result = this.api.listDataExportsByMessageChannelOrUser(apiToken, dataType, token, limit, _options);
+    public listDataExportsByMessageChannelOrUser(dataType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListDataExportsByMessageChannelOrUserResponse> {
+        const result = this.api.listDataExportsByMessageChannelOrUser(dataType, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Register and schedule a data export  Registers and schedules a message, channel, or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-register-and-schedule-a-data-export ----------------------------
      * Register and schedule a data export
-     * @param apiToken 
      * @param dataType 
+     * @param apiToken 
      * @param registerAndScheduleDataExportData 
      */
-    public registerAndScheduleDataExport(apiToken: string, dataType: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Promise<RegisterAndScheduleDataExportResponse> {
-        const result = this.api.registerAndScheduleDataExport(apiToken, dataType, registerAndScheduleDataExportData, _options);
+    public registerAndScheduleDataExport(dataType: string, apiToken?: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Promise<RegisterAndScheduleDataExportResponse> {
+        const result = this.api.registerAndScheduleDataExport(dataType, apiToken, registerAndScheduleDataExportData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a data export  Retrieves information on a message, channel or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-view-a-data-export ----------------------------   `data_type`      Type: string      Description: Specifies the type of a targeted data export. Acceptable values are messages, channels,  users, and failed_webhooks.  `request_id`      Type: string      Description: Specifies the unique ID of a data export to retrieve.
      * View a data export
-     * @param apiToken 
      * @param dataType 
      * @param requestId 
+     * @param apiToken 
      */
-    public viewDataExportById(apiToken: string, dataType: string, requestId: string, _options?: Configuration): Promise<ViewDataExportByIdResponse> {
-        const result = this.api.viewDataExportById(apiToken, dataType, requestId, _options);
+    public viewDataExportById(dataType: string, requestId: string, apiToken?: string, _options?: Configuration): Promise<ViewDataExportByIdResponse> {
+        const result = this.api.viewDataExportById(dataType, requestId, apiToken, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableDeleteAPinApi } from './ObservableAPI';
+
+import { DeleteAPinApiRequestFactory, DeleteAPinApiResponseProcessor} from "../apis/DeleteAPinApi";
+export class PromiseDeleteAPinApi {
+    private api: ObservableDeleteAPinApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DeleteAPinApiRequestFactory,
+        responseProcessor?: DeleteAPinApiResponseProcessor
+    ) {
+        this.api = new ObservableDeleteAPinApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Delete a pin Unpin a message from its channel. -----------------------------  
+     * Delete a pin
+     * @param channelType 
+     * @param channelUrl 
+     * @param messageId 
+     * @param apiToken 
+     */
+    public v3ChannelTypeChannelUrlMessagesMessageIdPinDelete(channelType: string, channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Promise<SendBirdChannelResponse> {
+        const result = this.api.v3ChannelTypeChannelUrlMessagesMessageIdPinDelete(channelType, channelUrl, messageId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -975,37 +1026,37 @@ export class PromiseGroupChannelApi {
     /**
      * ## Accept an invitation  Accepts an invitation from a [private](#4-private-vs-public) group channel for a user to join. Since a user is allowed to join up to 2,000 group channels, the invitation to a user who already belongs to a maximum number of group channels will be canceled automatically.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-accept-an-invitation ----------------------------
      * Accept an invitation
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcAcceptInvitationData 
      */
-    public gcAcceptInvitation(apiToken: string, channelUrl: string, gcAcceptInvitationData?: GcAcceptInvitationData, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcAcceptInvitation(apiToken, channelUrl, gcAcceptInvitationData, _options);
+    public gcAcceptInvitation(channelUrl: string, apiToken?: string, gcAcceptInvitationData?: GcAcceptInvitationData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcAcceptInvitation(channelUrl, apiToken, gcAcceptInvitationData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
-     * @param apiToken 
      * @param channelUrl 
      * @param operatorIds 
+     * @param apiToken 
      * @param deleteAll 
      */
-    public gcCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcCancelTheRegistrationOfOperators(apiToken, channelUrl, operatorIds, deleteAll, _options);
+    public gcCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcCancelTheRegistrationOfOperators(channelUrl, operatorIds, apiToken, deleteAll, _options);
         return result.toPromise();
     }
 
     /**
      * ## Check if member  Checks whether the user is a member of the group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-check-if-member ----------------------------
      * Check if member
-     * @param apiToken 
      * @param channelUrl 
      * @param userId 
+     * @param apiToken 
      */
-    public gcCheckIfMemberById(apiToken: string, channelUrl: string, userId: string, _options?: Configuration): Promise<GcCheckIfMemberByIdResponse> {
-        const result = this.api.gcCheckIfMemberById(apiToken, channelUrl, userId, _options);
+    public gcCheckIfMemberById(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Promise<GcCheckIfMemberByIdResponse> {
+        const result = this.api.gcCheckIfMemberById(channelUrl, userId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1015,7 +1066,7 @@ export class PromiseGroupChannelApi {
      * @param apiToken 
      * @param gcCreateChannelData 
      */
-    public gcCreateChannel(apiToken: string, gcCreateChannelData?: GcCreateChannelData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+    public gcCreateChannel(apiToken?: string, gcCreateChannelData?: GcCreateChannelData, _options?: Configuration): Promise<SendBirdGroupChannel> {
         const result = this.api.gcCreateChannel(apiToken, gcCreateChannelData, _options);
         return result.toPromise();
     }
@@ -1023,71 +1074,71 @@ export class PromiseGroupChannelApi {
     /**
      * ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
      * Decline an invitation
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcDeclineInvitationData 
      */
-    public gcDeclineInvitation(apiToken: string, channelUrl: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcDeclineInvitation(apiToken, channelUrl, gcDeclineInvitationData, _options);
+    public gcDeclineInvitation(channelUrl: string, apiToken?: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcDeclineInvitation(channelUrl, apiToken, gcDeclineInvitationData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
      * Delete a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public gcDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcDeleteChannelByUrl(apiToken, channelUrl, _options);
+    public gcDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcDeleteChannelByUrl(channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
      * Hide or archive a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcHideOrArchiveChannelData 
      */
-    public gcHideOrArchiveChannel(apiToken: string, channelUrl: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcHideOrArchiveChannel(apiToken, channelUrl, gcHideOrArchiveChannelData, _options);
+    public gcHideOrArchiveChannel(channelUrl: string, apiToken?: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcHideOrArchiveChannel(channelUrl, apiToken, gcHideOrArchiveChannelData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Invite as members  Invites one or more users as members into the group channel.  > __Note__: By default, users in your application automatically join a [private](#4-private-vs-public) group channel promptly from an invitation without having to accept it. If you want to give them the option to decide whether to accept or decline an invitation, you should set the value of channel invitation preference to false through the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action. Or using the [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can also allow the option individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members ----------------------------
      * Invite as members
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcInviteAsMembersData 
      */
-    public gcInviteAsMembers(apiToken: string, channelUrl: string, gcInviteAsMembersData?: GcInviteAsMembersData, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcInviteAsMembers(apiToken, channelUrl, gcInviteAsMembersData, _options);
+    public gcInviteAsMembers(channelUrl: string, apiToken?: string, gcInviteAsMembersData?: GcInviteAsMembersData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcInviteAsMembers(channelUrl, apiToken, gcInviteAsMembersData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Join a channel  Allows a user to join a [public](#4-private-vs-public) group channel. Since a user is allowed to join up to 2,000 group channels, a user who already belongs to a maximum number of group channels can't join a new channel.  > __Note__: This action is only permitted for public group channels where the `is_public` property is true.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-join-a-channel ----------------------------
      * Join a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcJoinChannelData 
      */
-    public gcJoinChannel(apiToken: string, channelUrl: string, gcJoinChannelData?: GcJoinChannelData, _options?: Configuration): Promise<void> {
-        const result = this.api.gcJoinChannel(apiToken, channelUrl, gcJoinChannelData, _options);
+    public gcJoinChannel(channelUrl: string, apiToken?: string, gcJoinChannelData?: GcJoinChannelData, _options?: Configuration): Promise<void> {
+        const result = this.api.gcJoinChannel(channelUrl, apiToken, gcJoinChannelData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
      * Leave a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcLeaveChannelData 
      */
-    public gcLeaveChannel(apiToken: string, channelUrl: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcLeaveChannel(apiToken, channelUrl, gcLeaveChannelData, _options);
+    public gcLeaveChannel(channelUrl: string, apiToken?: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcLeaveChannel(channelUrl, apiToken, gcLeaveChannelData, _options);
         return result.toPromise();
     }
 
@@ -1138,7 +1189,7 @@ export class PromiseGroupChannelApi {
      * @param membersIn 
      * @param userId 
      */
-    public gcListChannels(apiToken: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<GcListChannelsResponse> {
+    public gcListChannels(apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<GcListChannelsResponse> {
         const result = this.api.gcListChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, customType, readReceipt, member, isDistinct, membersIn, userId, _options);
         return result.toPromise();
     }
@@ -1146,8 +1197,8 @@ export class PromiseGroupChannelApi {
     /**
      * ## List members  Retrieves a list of members of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-members ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of members of.
      * List members
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param showDeliveryReceipt 
@@ -1158,86 +1209,110 @@ export class PromiseGroupChannelApi {
      * @param mutedMemberFilter 
      * @param nicknameStartswith 
      */
-    public gcListMembers(apiToken: string, channelUrl: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Promise<GcListMembersResponse> {
-        const result = this.api.gcListMembers(apiToken, channelUrl, token, limit, showDeliveryReceipt, showReadReceipt, order, operatorFilter, memberStateFilter, mutedMemberFilter, nicknameStartswith, _options);
+    public gcListMembers(channelUrl: string, apiToken?: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Promise<GcListMembersResponse> {
+        const result = this.api.gcListMembers(channelUrl, apiToken, token, limit, showDeliveryReceipt, showReadReceipt, order, operatorFilter, memberStateFilter, mutedMemberFilter, nicknameStartswith, _options);
         return result.toPromise();
     }
 
     /**
      * ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public gcListOperators(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListOperatorsResponse> {
-        const result = this.api.gcListOperators(apiToken, channelUrl, token, limit, _options);
+    public gcListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListOperatorsResponse> {
+        const result = this.api.gcListOperators(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Register operators  Registers one or more operators to a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-register-operators ----------------------------
      * Register operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcRegisterOperatorsData 
      */
-    public gcRegisterOperators(apiToken: string, channelUrl: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Promise<GcRegisterOperatorsResponse> {
-        const result = this.api.gcRegisterOperators(apiToken, channelUrl, gcRegisterOperatorsData, _options);
+    public gcRegisterOperators(channelUrl: string, apiToken?: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Promise<GcRegisterOperatorsResponse> {
+        const result = this.api.gcRegisterOperators(channelUrl, apiToken, gcRegisterOperatorsData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Reset chat history  Resets the properties related to a user's chat history in a group channel, then clears the existing messages in the channel on the user's side only. A user can no longer see the messages in a group channel once this action is called, but those messages are not deleted from the database of the Sendbird system. All other members in the channel can retrieve and see the messages.  This action simply clears the messages for the user by updating the `last_message` and `read_receipt` properties of the [channel](#2-types-of-a-channel-3-resource-representation) resource in addition to other internally managed data such as the number of the user's unread message.  Using the `reset_all` property, you can also reset the properties related to all users' chat history in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-reset-chat-history ----------------------------
      * Reset chat history
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcResetChatHistoryData 
      */
-    public gcResetChatHistory(apiToken: string, channelUrl: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Promise<GcResetChatHistoryResponse> {
-        const result = this.api.gcResetChatHistory(apiToken, channelUrl, gcResetChatHistoryData, _options);
+    public gcResetChatHistory(channelUrl: string, apiToken?: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Promise<GcResetChatHistoryResponse> {
+        const result = this.api.gcResetChatHistory(channelUrl, apiToken, gcResetChatHistoryData, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * Start typing indicators
+     * @param channelUrl 
+     * @param apiToken 
+     * @param gcTypingIndicatorsData 
+     */
+    public gcStartTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcStartTypingIndicators(channelUrl, apiToken, gcTypingIndicatorsData, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * Stop typing indicators
+     * @param channelUrl 
+     * @param apiToken 
+     * @param gcTypingIndicatorsData 
+     */
+    public gcStopTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcStopTypingIndicators(channelUrl, apiToken, gcTypingIndicatorsData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
      * Unhide or unarchive a channel
-     * @param apiToken 
      * @param channelUrl 
      * @param userId 
+     * @param apiToken 
      * @param shouldUnhideAll 
      */
-    public gcUnhideOrUnarchiveChannel(apiToken: string, channelUrl: string, userId: string, shouldUnhideAll?: boolean, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcUnhideOrUnarchiveChannel(apiToken, channelUrl, userId, shouldUnhideAll, _options);
+    public gcUnhideOrUnarchiveChannel(channelUrl: string, userId: string, apiToken?: string, shouldUnhideAll?: boolean, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcUnhideOrUnarchiveChannel(channelUrl, userId, apiToken, shouldUnhideAll, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel  Updates information on a group channel.  > __Note__: You can't change the members of the channel here. To do so, see [invite as members](#2-invite-as-members) action below.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-channel ----------------------------
      * Update a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcUpdateChannelByUrlData 
      */
-    public gcUpdateChannelByUrl(apiToken: string, channelUrl: string, gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcUpdateChannelByUrl(apiToken, channelUrl, gcUpdateChannelByUrlData, _options);
+    public gcUpdateChannelByUrl(channelUrl: string, apiToken?: string, gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcUpdateChannelByUrl(channelUrl, apiToken, gcUpdateChannelByUrlData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel  Retrieves information on a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve.
      * View a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param showDeliveryReceipt 
      * @param showReadReceipt 
      * @param showMember 
      * @param readReceipt 
      * @param member 
      */
-    public gcViewChannelByUrl(apiToken: string, channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, readReceipt?: boolean, member?: boolean, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcViewChannelByUrl(apiToken, channelUrl, showDeliveryReceipt, showReadReceipt, showMember, readReceipt, member, _options);
+    public gcViewChannelByUrl(channelUrl: string, apiToken?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, readReceipt?: boolean, member?: boolean, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcViewChannelByUrl(channelUrl, apiToken, showDeliveryReceipt, showReadReceipt, showMember, readReceipt, member, _options);
         return result.toPromise();
     }
 
@@ -1266,7 +1341,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param body 
      */
-    public addEmojiCategories(apiToken: string, body?: any, _options?: Configuration): Promise<AddEmojiCategoriesResponse> {
+    public addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Promise<AddEmojiCategoriesResponse> {
         const result = this.api.addEmojiCategories(apiToken, body, _options);
         return result.toPromise();
     }
@@ -1277,7 +1352,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param addEmojisData 
      */
-    public addEmojis(apiToken: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<AddEmojisResponse> {
+    public addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<AddEmojisResponse> {
         const result = this.api.addEmojis(apiToken, addEmojisData, _options);
         return result.toPromise();
     }
@@ -1285,63 +1360,63 @@ export class PromiseMessageApi {
     /**
      * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-extra-data-to-a-message ----------------------------
      * Add extra data to a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param addExtraDataToMessageData 
      */
-    public addExtraDataToMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Promise<AddExtraDataToMessageResponse> {
-        const result = this.api.addExtraDataToMessage(apiToken, channelType, channelUrl, messageId, addExtraDataToMessageData, _options);
+    public addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Promise<AddExtraDataToMessageResponse> {
+        const result = this.api.addExtraDataToMessage(channelType, channelUrl, messageId, apiToken, addExtraDataToMessageData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Add a reaction to a message  Adds a specific reaction to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-a-reaction-to-a-message ----------------------------
      * Add a reaction to a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param addReactionToAMessageData 
      */
-    public addReactionToAMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Promise<AddReactionToAMessageResponse> {
-        const result = this.api.addReactionToAMessage(apiToken, channelType, channelUrl, messageId, addReactionToAMessageData, _options);
+    public addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Promise<AddReactionToAMessageResponse> {
+        const result = this.api.addReactionToAMessage(channelType, channelUrl, messageId, apiToken, addReactionToAMessageData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
      * Delete an emoji
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      */
-    public deleteEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteEmojiByKey(apiToken, emojiKey, _options);
+    public deleteEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteEmojiByKey(emojiKey, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
      * Delete an emoji category
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      */
-    public deleteEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteEmojiCategoryById(apiToken, emojiCategoryId, _options);
+    public deleteEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteEmojiCategoryById(emojiCategoryId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
      * Delete a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      */
-    public deleteMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteMessageById(apiToken, channelType, channelUrl, messageId, _options);
+    public deleteMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteMessageById(channelType, channelUrl, messageId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1351,7 +1426,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param enableReactionsData 
      */
-    public enableReactions(apiToken: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<EnableReactionsResponse> {
+    public enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<EnableReactionsResponse> {
         const result = this.api.enableReactions(apiToken, enableReactionsData, _options);
         return result.toPromise();
     }
@@ -1359,58 +1434,58 @@ export class PromiseMessageApi {
     /**
      * ## Mark all messages as delivered  Marks all messages in a group channel as delivered for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-delivered ----------------------------
      * Mark all messages as delivered
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMarkAllMessagesAsDeliveredData 
      */
-    public gcMarkAllMessagesAsDelivered(apiToken: string, channelUrl: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Promise<GcMarkAllMessagesAsDeliveredResponse> {
-        const result = this.api.gcMarkAllMessagesAsDelivered(apiToken, channelUrl, gcMarkAllMessagesAsDeliveredData, _options);
+    public gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Promise<GcMarkAllMessagesAsDeliveredResponse> {
+        const result = this.api.gcMarkAllMessagesAsDelivered(channelUrl, apiToken, gcMarkAllMessagesAsDeliveredData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Mark all messages as read  Marks all messages in a group channel as read for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-read ----------------------------
      * Mark all messages as read
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMarkAllMessagesAsReadData 
      */
-    public gcMarkAllMessagesAsRead(apiToken: string, channelUrl: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Promise<any> {
-        const result = this.api.gcMarkAllMessagesAsRead(apiToken, channelUrl, gcMarkAllMessagesAsReadData, _options);
+    public gcMarkAllMessagesAsRead(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Promise<any> {
+        const result = this.api.gcMarkAllMessagesAsRead(channelUrl, apiToken, gcMarkAllMessagesAsReadData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View number of each member's unread messages  Retrieves the total number of each member's unread messages in a group channel. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-number-of-each-member-s-unread-messages ----------------------------
      * View number of each member's unread messages
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param userIds 
      */
-    public gcViewNumberOfEachMembersUnreadMessages(apiToken: string, channelUrl: string, userIds?: string, _options?: Configuration): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse> {
-        const result = this.api.gcViewNumberOfEachMembersUnreadMessages(apiToken, channelUrl, userIds, _options);
+    public gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: Array<string>, _options?: Configuration): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse> {
+        const result = this.api.gcViewNumberOfEachMembersUnreadMessages(channelUrl, apiToken, userIds, _options);
         return result.toPromise();
     }
 
     /**
      * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
      * Get an emoji
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      */
-    public getEmojiByKey(apiToken: string, emojiKey: string, _options?: Configuration): Promise<SendBirdEmoji> {
-        const result = this.api.getEmojiByKey(apiToken, emojiKey, _options);
+    public getEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<SendBirdEmoji> {
+        const result = this.api.getEmojiByKey(emojiKey, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
      * Get an emoji category
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      */
-    public getEmojiCategoryById(apiToken: string, emojiCategoryId: string, _options?: Configuration): Promise<SendBirdEmojiCategory> {
-        const result = this.api.getEmojiCategoryById(apiToken, emojiCategoryId, _options);
+    public getEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<SendBirdEmojiCategory> {
+        const result = this.api.getEmojiCategoryById(emojiCategoryId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1419,7 +1494,7 @@ export class PromiseMessageApi {
      * List all emojis and emoji categories
      * @param apiToken 
      */
-    public listAllEmojisAndEmojiCategories(apiToken: string, _options?: Configuration): Promise<ListAllEmojisAndEmojiCategoriesResponse> {
+    public listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Promise<ListAllEmojisAndEmojiCategoriesResponse> {
         const result = this.api.listAllEmojisAndEmojiCategories(apiToken, _options);
         return result.toPromise();
     }
@@ -1434,7 +1509,7 @@ export class PromiseMessageApi {
      * @param status 
      * @param announcementGroup 
      */
-    public listAnnouncements(apiToken: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<ListAnnouncementsResponse> {
+    public listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<ListAnnouncementsResponse> {
         const result = this.api.listAnnouncements(apiToken, token, limit, order, status, announcementGroup, _options);
         return result.toPromise();
     }
@@ -1444,7 +1519,7 @@ export class PromiseMessageApi {
      * List emojis
      * @param apiToken 
      */
-    public listEmojis(apiToken: string, _options?: Configuration): Promise<ListEmojisResponse> {
+    public listEmojis(apiToken?: string, _options?: Configuration): Promise<ListEmojisResponse> {
         const result = this.api.listEmojis(apiToken, _options);
         return result.toPromise();
     }
@@ -1452,9 +1527,9 @@ export class PromiseMessageApi {
     /**
      * ## List messages  Retrieves a list of past messages of a channel.  > This message retrieval is one of Sendbird's [premium features](https://sendbird.com/docs/chat/v3/platform-api/guides/application#-3-sendbird-s-premium-features). Contact our [sales team](https://get.sendbird.com/talk-to-sales.html) for further assistance.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-messages ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of past messages.
      * List messages
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param messageTs 
      * @param messageId 
      * @param prevLimit 
@@ -1468,148 +1543,150 @@ export class PromiseMessageApi {
      * @param messageType 
      * @param includingRemoved 
      * @param includeReactions 
+     * @param includeReplyType One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL
+     * @param includeParentMessageInfo 
      * @param withSortedMetaArray 
      * @param showSubchannelMessagesOnly 
      * @param userId 
      * @param customType 
      * @param withMetaArray 
      */
-    public listMessages(apiToken: string, channelType: string, channelUrl: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<ListMessagesResponse> {
-        const result = this.api.listMessages(apiToken, channelType, channelUrl, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
+    public listMessages(channelType: string, channelUrl: string, apiToken?: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<ListMessagesResponse> {
+        const result = this.api.listMessages(channelType, channelUrl, apiToken, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, includeReplyType, includeParentMessageInfo, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
         return result.toPromise();
     }
 
     /**
      * ## List reactions of a message  Retrieves a list of reactions made to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-reactions-of-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to add a reaction to.
      * List reactions of a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param listUsers 
      */
-    public listReactionsOfMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, listUsers?: boolean, _options?: Configuration): Promise<ListReactionsOfMessageResponse> {
-        const result = this.api.listReactionsOfMessage(apiToken, channelType, channelUrl, messageId, listUsers, _options);
+    public listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Promise<ListReactionsOfMessageResponse> {
+        const result = this.api.listReactionsOfMessage(channelType, channelUrl, messageId, apiToken, listUsers, _options);
         return result.toPromise();
     }
 
     /**
      * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
      * Migrate messages
-     * @param apiToken 
      * @param targetChannelUrl 
+     * @param apiToken 
      * @param body 
      */
-    public migrateMessagesByUrl(apiToken: string, targetChannelUrl: string, body?: any, _options?: Configuration): Promise<void> {
-        const result = this.api.migrateMessagesByUrl(apiToken, targetChannelUrl, body, _options);
+    public migrateMessagesByUrl(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<void> {
+        const result = this.api.migrateMessagesByUrl(targetChannelUrl, apiToken, body, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-extra-data-from-a-message ----------------------------
      * Remove extra data from a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param keys 
      */
-    public removeExtraDataFromMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, keys?: Array<string>, _options?: Configuration): Promise<any> {
-        const result = this.api.removeExtraDataFromMessage(apiToken, channelType, channelUrl, messageId, keys, _options);
+    public removeExtraDataFromMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, keys?: Array<string>, _options?: Configuration): Promise<any> {
+        const result = this.api.removeExtraDataFromMessage(channelType, channelUrl, messageId, apiToken, keys, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove a reaction from a message  Removes a specific reaction from a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-a-reaction-from-a-message ----------------------------
      * Remove a reaction from a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param userId 
      * @param reaction 
      */
-    public removeReactionFromAMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, userId?: string, reaction?: string, _options?: Configuration): Promise<RemoveReactionFromAMessageResponse> {
-        const result = this.api.removeReactionFromAMessage(apiToken, channelType, channelUrl, messageId, userId, reaction, _options);
+    public removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Promise<RemoveReactionFromAMessageResponse> {
+        const result = this.api.removeReactionFromAMessage(channelType, channelUrl, messageId, apiToken, userId, reaction, _options);
         return result.toPromise();
     }
 
     /**
      * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
      * Send a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param sendMessageData 
      */
-    public sendMessage(apiToken: string, channelType: string, channelUrl: string, sendMessageData?: SendMessageData, _options?: Configuration): Promise<SendBirdMessageResponse> {
-        const result = this.api.sendMessage(apiToken, channelType, channelUrl, sendMessageData, _options);
+    public sendMessage(channelType: string, channelUrl: string, apiToken?: string, sendMessageData?: SendMessageData, _options?: Configuration): Promise<SendBirdMessageResponse> {
+        const result = this.api.sendMessage(channelType, channelUrl, apiToken, sendMessageData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Translate a message into other languages  Translates a message into specific languages. Only text messages of which type is MESG can be translated into other languages.  > __Note__: Message translation is powered by [Google Cloud Translation API recognition engine](https://cloud.google.com/translate/). Find language codes supported by the engine in the [Miscellaneous](https://sendbird.com/docs/chat/v3/platform-api/guides/Miscellaneous) page or visit the [Language Support](https://cloud.google.com/translate/docs/languages) for Google Cloud Translation.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-translate-a-message-into-other-languages ----------------------------
      * Translate a message into other languages
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param translateMessageIntoOtherLanguagesData 
      */
-    public translateMessageIntoOtherLanguages(apiToken: string, channelType: string, channelUrl: string, messageId: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Promise<SendBirdMessageResponse> {
-        const result = this.api.translateMessageIntoOtherLanguages(apiToken, channelType, channelUrl, messageId, translateMessageIntoOtherLanguagesData, _options);
+    public translateMessageIntoOtherLanguages(channelType: string, channelUrl: string, messageId: string, apiToken?: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Promise<SendBirdMessageResponse> {
+        const result = this.api.translateMessageIntoOtherLanguages(channelType, channelUrl, messageId, apiToken, translateMessageIntoOtherLanguagesData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
      * Update an emoji category URL
-     * @param apiToken 
      * @param emojiCategoryId 
+     * @param apiToken 
      * @param updateEmojiCategoryUrlByIdData 
      */
-    public updateEmojiCategoryUrlById(apiToken: string, emojiCategoryId: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<SendBirdEmojiCategory> {
-        const result = this.api.updateEmojiCategoryUrlById(apiToken, emojiCategoryId, updateEmojiCategoryUrlByIdData, _options);
+    public updateEmojiCategoryUrlById(emojiCategoryId: string, apiToken?: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<SendBirdEmojiCategory> {
+        const result = this.api.updateEmojiCategoryUrlById(emojiCategoryId, apiToken, updateEmojiCategoryUrlByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
      * Update an emoji URL
-     * @param apiToken 
      * @param emojiKey 
+     * @param apiToken 
      * @param updateEmojiUrlByKeyData 
      */
-    public updateEmojiUrlByKey(apiToken: string, emojiKey: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<SendBirdEmoji> {
-        const result = this.api.updateEmojiUrlByKey(apiToken, emojiKey, updateEmojiUrlByKeyData, _options);
+    public updateEmojiUrlByKey(emojiKey: string, apiToken?: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<SendBirdEmoji> {
+        const result = this.api.updateEmojiUrlByKey(emojiKey, apiToken, updateEmojiUrlByKeyData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-extra-data-in-a-message ----------------------------
      * Update extra data in a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param updateExtraDataInMessageData 
      */
-    public updateExtraDataInMessage(apiToken: string, channelType: string, channelUrl: string, messageId: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Promise<UpdateExtraDataInMessageResponse> {
-        const result = this.api.updateExtraDataInMessage(apiToken, channelType, channelUrl, messageId, updateExtraDataInMessageData, _options);
+    public updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Promise<UpdateExtraDataInMessageResponse> {
+        const result = this.api.updateExtraDataInMessage(channelType, channelUrl, messageId, apiToken, updateExtraDataInMessageData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a message  Updates information on a message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-a-message ----------------------------
      * Update a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param updateMessageByIdData 
      */
-    public updateMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Promise<SendBirdMessageResponse> {
-        const result = this.api.updateMessageById(apiToken, channelType, channelUrl, messageId, updateMessageByIdData, _options);
+    public updateMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Promise<SendBirdMessageResponse> {
+        const result = this.api.updateMessageById(channelType, channelUrl, messageId, apiToken, updateMessageByIdData, _options);
         return result.toPromise();
     }
 
@@ -1619,7 +1696,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param useDefaultEmojisData 
      */
-    public useDefaultEmojis(apiToken: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<UseDefaultEmojisResponse> {
+    public useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<UseDefaultEmojisResponse> {
         const result = this.api.useDefaultEmojis(apiToken, useDefaultEmojisData, _options);
         return result.toPromise();
     }
@@ -1627,27 +1704,28 @@ export class PromiseMessageApi {
     /**
      * ## View a message  Retrieves information on a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
      * View a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param withSortedMetaArray 
      * @param withMetaArray 
+     * @param includeParentMessageInfo 
      */
-    public viewMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, _options?: Configuration): Promise<SendBirdMessageResponse> {
-        const result = this.api.viewMessageById(apiToken, channelType, channelUrl, messageId, withSortedMetaArray, withMetaArray, _options);
+    public viewMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, includeParentMessageInfo?: boolean, _options?: Configuration): Promise<SendBirdMessageResponse> {
+        const result = this.api.viewMessageById(channelType, channelUrl, messageId, apiToken, withSortedMetaArray, withMetaArray, includeParentMessageInfo, _options);
         return result.toPromise();
     }
 
     /**
      * ## View total number of messages in a channel  Retrieves the total number of messages in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-total-number-of-messages-in-a-channel ----------------------------
      * View total number of messages in a channel
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public viewTotalNumberOfMessagesInChannel(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Promise<ViewTotalNumberOfMessagesInChannelResponse> {
-        const result = this.api.viewTotalNumberOfMessagesInChannel(apiToken, channelType, channelUrl, _options);
+    public viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<ViewTotalNumberOfMessagesInChannelResponse> {
+        const result = this.api.viewTotalNumberOfMessagesInChannel(channelType, channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1673,271 +1751,271 @@ export class PromiseMetadataApi {
     /**
      * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
      * Create a channel metacounter
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param createChannelMetacounterData 
      */
-    public createChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Promise<any> {
-        const result = this.api.createChannelMetacounter(apiToken, channelType, channelUrl, createChannelMetacounterData, _options);
+    public createChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Promise<any> {
+        const result = this.api.createChannelMetacounter(channelType, channelUrl, apiToken, createChannelMetacounterData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
      * Create a channel metadata
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param createChannelMetadataData 
      */
-    public createChannelMetadata(apiToken: string, channelType: string, channelUrl: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Promise<CreateChannelMetadataResponse> {
-        const result = this.api.createChannelMetadata(apiToken, channelType, channelUrl, createChannelMetadataData, _options);
+    public createChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Promise<CreateChannelMetadataResponse> {
+        const result = this.api.createChannelMetadata(channelType, channelUrl, apiToken, createChannelMetadataData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
      * Create a user metadata
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param createUserMetadataData 
      */
-    public createUserMetadata(apiToken: string, userId: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Promise<CreateUserMetadataResponse> {
-        const result = this.api.createUserMetadata(apiToken, userId, createUserMetadataData, _options);
+    public createUserMetadata(userId: string, apiToken?: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Promise<CreateUserMetadataResponse> {
+        const result = this.api.createUserMetadata(userId, apiToken, createUserMetadataData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
      * Delete a channel metacounter - When deleting all items of a channel metacounter
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public deleteChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteChannelMetacounter(apiToken, channelType, channelUrl, _options);
+    public deleteChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteChannelMetacounter(channelType, channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      */
-    public deleteChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteChannelMetacounterByKey(apiToken, channelType, channelUrl, key, _options);
+    public deleteChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteChannelMetacounterByKey(channelType, channelUrl, key, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
      * Delete a channel metadata - When deleting all items of a channel metadata
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param key 
      */
-    public deleteChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteChannelMetadata(apiToken, channelType, channelUrl, key, _options);
+    public deleteChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteChannelMetadata(channelType, channelUrl, apiToken, key, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      */
-    public deleteChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
+    public deleteChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteChannelMetadataByKey(channelType, channelUrl, key, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
      * Delete a user metadata - When deleting all items of a user metadata
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param key 
      */
-    public deleteUserMetadata(apiToken: string, userId: string, key?: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteUserMetadata(apiToken, userId, key, _options);
+    public deleteUserMetadata(userId: string, apiToken?: string, key?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteUserMetadata(userId, apiToken, key, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     * @param apiToken 
      * @param userId 
      * @param key 
+     * @param apiToken 
      */
-    public deleteUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<void> {
-        const result = this.api.deleteUserMetadataByKey(apiToken, userId, key, _options);
+    public deleteUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.deleteUserMetadataByKey(userId, key, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param updateChannelMetacounterData 
      */
-    public updateChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Promise<any> {
-        const result = this.api.updateChannelMetacounter(apiToken, channelType, channelUrl, updateChannelMetacounterData, _options);
+    public updateChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Promise<any> {
+        const result = this.api.updateChannelMetacounter(channelType, channelUrl, apiToken, updateChannelMetacounterData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      * @param body 
      */
-    public updateChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.updateChannelMetacounterByKey(apiToken, channelType, channelUrl, key, body, _options);
+    public updateChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.updateChannelMetacounterByKey(channelType, channelUrl, key, apiToken, body, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param updateChannelMetadataData 
      */
-    public updateChannelMetadata(apiToken: string, channelType: string, channelUrl: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.updateChannelMetadata(apiToken, channelType, channelUrl, updateChannelMetadataData, _options);
+    public updateChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.updateChannelMetadata(channelType, channelUrl, apiToken, updateChannelMetadataData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      * @param body 
      */
-    public updateChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.updateChannelMetadataByKey(apiToken, channelType, channelUrl, key, body, _options);
+    public updateChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.updateChannelMetadataByKey(channelType, channelUrl, key, apiToken, body, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updateUserMetadataData 
      */
-    public updateUserMetadata(apiToken: string, userId: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Promise<UpdateUserMetadataResponse> {
-        const result = this.api.updateUserMetadata(apiToken, userId, updateUserMetadataData, _options);
+    public updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Promise<UpdateUserMetadataResponse> {
+        const result = this.api.updateUserMetadata(userId, apiToken, updateUserMetadataData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
      * Update a user metadata - When updating a specific item of a user metadata by its key
-     * @param apiToken 
      * @param userId 
      * @param key 
+     * @param apiToken 
      * @param body 
      */
-    public updateUserMetadataByKey(apiToken: string, userId: string, key: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.updateUserMetadataByKey(apiToken, userId, key, body, _options);
+    public updateUserMetadataByKey(userId: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.updateUserMetadataByKey(userId, key, apiToken, body, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving all items of a channel metacounter
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param key 
      * @param keys 
      */
-    public viewChannelMetacounter(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.viewChannelMetacounter(apiToken, channelType, channelUrl, key, keys, _options);
+    public viewChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.viewChannelMetacounter(channelType, channelUrl, apiToken, key, keys, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      */
-    public viewChannelMetacounterByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<any> {
-        const result = this.api.viewChannelMetacounterByKey(apiToken, channelType, channelUrl, key, _options);
+    public viewChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.viewChannelMetacounterByKey(channelType, channelUrl, key, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metadata - When retrieving all items of a channel metadata
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param key 
      * @param keys 
      */
-    public viewChannelMetadata(apiToken: string, channelType: string, channelUrl: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.viewChannelMetadata(apiToken, channelType, channelUrl, key, keys, _options);
+    public viewChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.viewChannelMetadata(channelType, channelUrl, apiToken, key, keys, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param key 
+     * @param apiToken 
      */
-    public viewChannelMetadataByKey(apiToken: string, channelType: string, channelUrl: string, key: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.viewChannelMetadataByKey(apiToken, channelType, channelUrl, key, _options);
+    public viewChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.viewChannelMetadataByKey(channelType, channelUrl, key, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
      * View a user metadata - When retrieving all items of a user metadata
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param key 
      * @param keys 
      */
-    public viewUserMetadata(apiToken: string, userId: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<ViewUserMetadataResponse> {
-        const result = this.api.viewUserMetadata(apiToken, userId, key, keys, _options);
+    public viewUserMetadata(userId: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Promise<ViewUserMetadataResponse> {
+        const result = this.api.viewUserMetadata(userId, apiToken, key, keys, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
      * View a user metadata - When retrieving a specific item of a user metadata by its key
-     * @param apiToken 
      * @param userId 
      * @param key 
+     * @param apiToken 
      */
-    public viewUserMetadataByKey(apiToken: string, userId: string, key: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
-        const result = this.api.viewUserMetadataByKey(apiToken, userId, key, _options);
+    public viewUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<{ [key: string]: string; }> {
+        const result = this.api.viewUserMetadataByKey(userId, key, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1963,336 +2041,336 @@ export class PromiseModerationApi {
     /**
      * ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
      * Ban from channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param banFromChannelsWithCustomChannelTypesData 
      */
-    public banFromChannelsWithCustomChannelTypes(apiToken: string, userId: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
-        const result = this.api.banFromChannelsWithCustomChannelTypes(apiToken, userId, banFromChannelsWithCustomChannelTypesData, _options);
+    public banFromChannelsWithCustomChannelTypes(userId: string, apiToken?: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
+        const result = this.api.banFromChannelsWithCustomChannelTypes(userId, apiToken, banFromChannelsWithCustomChannelTypesData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
      * Block a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param blockUserData 
      */
-    public blockUser(apiToken: string, userId: string, blockUserData?: BlockUserData, _options?: Configuration): Promise<BlockUserResponse> {
-        const result = this.api.blockUser(apiToken, userId, blockUserData, _options);
+    public blockUser(userId: string, apiToken?: string, blockUserData?: BlockUserData, _options?: Configuration): Promise<BlockUserResponse> {
+        const result = this.api.blockUser(userId, apiToken, blockUserData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
      * Ban a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcBanUserData 
      */
-    public gcBanUser(apiToken: string, channelUrl: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Promise<GcBanUserResponse> {
-        const result = this.api.gcBanUser(apiToken, channelUrl, gcBanUserData, _options);
+    public gcBanUser(channelUrl: string, apiToken?: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Promise<GcBanUserResponse> {
+        const result = this.api.gcBanUser(channelUrl, apiToken, gcBanUserData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
      * Freeze a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcFreezeChannelData 
      */
-    public gcFreezeChannel(apiToken: string, channelUrl: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcFreezeChannel(apiToken, channelUrl, gcFreezeChannelData, _options);
+    public gcFreezeChannel(channelUrl: string, apiToken?: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcFreezeChannel(channelUrl, apiToken, gcFreezeChannelData, _options);
         return result.toPromise();
     }
 
     /**
      * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
      * List banned users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public gcListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListBannedUsersResponse> {
-        const result = this.api.gcListBannedUsers(apiToken, channelUrl, token, limit, _options);
+    public gcListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListBannedUsersResponse> {
+        const result = this.api.gcListBannedUsers(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
      * List muted users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public gcListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListMutedUsersResponse> {
-        const result = this.api.gcListMutedUsers(apiToken, channelUrl, token, limit, _options);
+    public gcListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<GcListMutedUsersResponse> {
+        const result = this.api.gcListMutedUsers(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
      * Mute a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param gcMuteUserData 
      */
-    public gcMuteUser(apiToken: string, channelUrl: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Promise<SendBirdGroupChannel> {
-        const result = this.api.gcMuteUser(apiToken, channelUrl, gcMuteUserData, _options);
+    public gcMuteUser(channelUrl: string, apiToken?: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Promise<SendBirdGroupChannel> {
+        const result = this.api.gcMuteUser(channelUrl, apiToken, gcMuteUserData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
      * Unban a user
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public gcUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
+    public gcUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcUnbanUserById(channelUrl, bannedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
      * Unmute a user
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public gcUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.gcUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
+    public gcUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.gcUnmuteUserById(channelUrl, mutedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
      * Update a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      * @param gcUpdateBanByIdData 
      */
-    public gcUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Promise<GcUpdateBanByIdResponse> {
-        const result = this.api.gcUpdateBanById(apiToken, channelUrl, bannedUserId, gcUpdateBanByIdData, _options);
+    public gcUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Promise<GcUpdateBanByIdResponse> {
+        const result = this.api.gcUpdateBanById(channelUrl, bannedUserId, apiToken, gcUpdateBanByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
      * View a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public gcViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<GcViewBanByIdResponse> {
-        const result = this.api.gcViewBanById(apiToken, channelUrl, bannedUserId, _options);
+    public gcViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<GcViewBanByIdResponse> {
+        const result = this.api.gcViewBanById(channelUrl, bannedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
      * View a mute
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public gcViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<GcViewMuteByIdResponse> {
-        const result = this.api.gcViewMuteById(apiToken, channelUrl, mutedUserId, _options);
+    public gcViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<GcViewMuteByIdResponse> {
+        const result = this.api.gcViewMuteById(channelUrl, mutedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List banned channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listBannedChannels(apiToken: string, userId: string, token?: string, limit?: number, _options?: Configuration): Promise<ListBannedChannelsResponse> {
-        const result = this.api.listBannedChannels(apiToken, userId, token, limit, _options);
+    public listBannedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListBannedChannelsResponse> {
+        const result = this.api.listBannedChannels(userId, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List blocked users
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param userIds 
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public listBlockedUsers(apiToken: string, userId: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<ListBlockedUsersResponse> {
-        const result = this.api.listBlockedUsers(apiToken, userId, token, limit, userIds, metadatakey, metadatavaluesIn, _options);
+    public listBlockedUsers(userId: string, apiToken?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<ListBlockedUsersResponse> {
+        const result = this.api.listBlockedUsers(userId, apiToken, token, limit, userIds, metadatakey, metadatavaluesIn, _options);
         return result.toPromise();
     }
 
     /**
      * ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List muted channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listMutedChannels(apiToken: string, userId: string, token?: string, limit?: number, _options?: Configuration): Promise<ListMutedChannelsResponse> {
-        const result = this.api.listMutedChannels(apiToken, userId, token, limit, _options);
+    public listMutedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListMutedChannelsResponse> {
+        const result = this.api.listMutedChannels(userId, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
      * Mute in channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param muteInChannelsWithCustomChannelTypesData 
      */
-    public muteInChannelsWithCustomChannelTypes(apiToken: string, userId: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
-        const result = this.api.muteInChannelsWithCustomChannelTypes(apiToken, userId, muteInChannelsWithCustomChannelTypesData, _options);
+    public muteInChannelsWithCustomChannelTypes(userId: string, apiToken?: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
+        const result = this.api.muteInChannelsWithCustomChannelTypes(userId, apiToken, muteInChannelsWithCustomChannelTypesData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
      * Ban a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocBanUserData 
      */
-    public ocBanUser(apiToken: string, channelUrl: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Promise<OcBanUserResponse> {
-        const result = this.api.ocBanUser(apiToken, channelUrl, ocBanUserData, _options);
+    public ocBanUser(channelUrl: string, apiToken?: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Promise<OcBanUserResponse> {
+        const result = this.api.ocBanUser(channelUrl, apiToken, ocBanUserData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
      * Freeze a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocFreezeChannelData 
      */
-    public ocFreezeChannel(apiToken: string, channelUrl: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Promise<SendBirdOpenChannel> {
-        const result = this.api.ocFreezeChannel(apiToken, channelUrl, ocFreezeChannelData, _options);
+    public ocFreezeChannel(channelUrl: string, apiToken?: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Promise<SendBirdOpenChannel> {
+        const result = this.api.ocFreezeChannel(channelUrl, apiToken, ocFreezeChannelData, _options);
         return result.toPromise();
     }
 
     /**
      * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
      * List banned users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public ocListBannedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListBannedUsersResponse> {
-        const result = this.api.ocListBannedUsers(apiToken, channelUrl, token, limit, _options);
+    public ocListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListBannedUsersResponse> {
+        const result = this.api.ocListBannedUsers(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
      * List muted users
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public ocListMutedUsers(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListMutedUsersResponse> {
-        const result = this.api.ocListMutedUsers(apiToken, channelUrl, token, limit, _options);
+    public ocListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListMutedUsersResponse> {
+        const result = this.api.ocListMutedUsers(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
      * Mute a user
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocMuteUserData 
      */
-    public ocMuteUser(apiToken: string, channelUrl: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Promise<SendBirdOpenChannel> {
-        const result = this.api.ocMuteUser(apiToken, channelUrl, ocMuteUserData, _options);
+    public ocMuteUser(channelUrl: string, apiToken?: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Promise<SendBirdOpenChannel> {
+        const result = this.api.ocMuteUser(channelUrl, apiToken, ocMuteUserData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
      * Unban a user
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public ocUnbanUserById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.ocUnbanUserById(apiToken, channelUrl, bannedUserId, _options);
+    public ocUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.ocUnbanUserById(channelUrl, bannedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
      * Unmute a user
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public ocUnmuteUserById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.ocUnmuteUserById(apiToken, channelUrl, mutedUserId, _options);
+    public ocUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.ocUnmuteUserById(channelUrl, mutedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
      * Update a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      * @param ocUpdateBanByIdData 
      */
-    public ocUpdateBanById(apiToken: string, channelUrl: string, bannedUserId: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Promise<OcUpdateBanByIdResponse> {
-        const result = this.api.ocUpdateBanById(apiToken, channelUrl, bannedUserId, ocUpdateBanByIdData, _options);
+    public ocUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Promise<OcUpdateBanByIdResponse> {
+        const result = this.api.ocUpdateBanById(channelUrl, bannedUserId, apiToken, ocUpdateBanByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
      * View a ban
-     * @param apiToken 
      * @param channelUrl 
      * @param bannedUserId 
+     * @param apiToken 
      */
-    public ocViewBanById(apiToken: string, channelUrl: string, bannedUserId: string, _options?: Configuration): Promise<OcViewBanByIdResponse> {
-        const result = this.api.ocViewBanById(apiToken, channelUrl, bannedUserId, _options);
+    public ocViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcViewBanByIdResponse> {
+        const result = this.api.ocViewBanById(channelUrl, bannedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
      * View a mute
-     * @param apiToken 
      * @param channelUrl 
      * @param mutedUserId 
+     * @param apiToken 
      */
-    public ocViewMuteById(apiToken: string, channelUrl: string, mutedUserId: string, _options?: Configuration): Promise<OcViewMuteByIdResponse> {
-        const result = this.api.ocViewMuteById(apiToken, channelUrl, mutedUserId, _options);
+    public ocViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Promise<OcViewMuteByIdResponse> {
+        const result = this.api.ocViewMuteById(channelUrl, mutedUserId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
      * Unblock a user
-     * @param apiToken 
      * @param userId 
      * @param targetId 
+     * @param apiToken 
      */
-    public unblockUserById(apiToken: string, userId: string, targetId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.unblockUserById(apiToken, userId, targetId, _options);
+    public unblockUserById(userId: string, targetId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.unblockUserById(userId, targetId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -2318,13 +2396,13 @@ export class PromiseOpenChannelApi {
     /**
      * ## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
-     * @param apiToken 
      * @param channelUrl 
      * @param operatorIds 
+     * @param apiToken 
      * @param deleteAll 
      */
-    public ocCancelTheRegistrationOfOperators(apiToken: string, channelUrl: string, operatorIds: Array<string>, deleteAll?: boolean, _options?: Configuration): Promise<void> {
-        const result = this.api.ocCancelTheRegistrationOfOperators(apiToken, channelUrl, operatorIds, deleteAll, _options);
+    public ocCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Promise<void> {
+        const result = this.api.ocCancelTheRegistrationOfOperators(channelUrl, operatorIds, apiToken, deleteAll, _options);
         return result.toPromise();
     }
 
@@ -2334,7 +2412,7 @@ export class PromiseOpenChannelApi {
      * @param apiToken 
      * @param ocCreateChannelData 
      */
-    public ocCreateChannel(apiToken: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Promise<SendBirdOpenChannel> {
+    public ocCreateChannel(apiToken?: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Promise<SendBirdOpenChannel> {
         const result = this.api.ocCreateChannel(apiToken, ocCreateChannelData, _options);
         return result.toPromise();
     }
@@ -2342,11 +2420,11 @@ export class PromiseOpenChannelApi {
     /**
      * ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
      * Delete a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public ocDeleteChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.ocDeleteChannelByUrl(apiToken, channelUrl, _options);
+    public ocDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.ocDeleteChannelByUrl(channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
@@ -2363,7 +2441,7 @@ export class PromiseOpenChannelApi {
      * @param showMetadata 
      * @param customType 
      */
-    public ocListChannels(apiToken: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Promise<OcListChannelsResponse> {
+    public ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Promise<OcListChannelsResponse> {
         const result = this.api.ocListChannels(apiToken, token, limit, customTypes, nameContains, urlContains, showFrozen, showMetadata, customType, _options);
         return result.toPromise();
     }
@@ -2371,61 +2449,259 @@ export class PromiseOpenChannelApi {
     /**
      * ## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public ocListOperators(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListOperatorsResponse> {
-        const result = this.api.ocListOperators(apiToken, channelUrl, token, limit, _options);
+    public ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListOperatorsResponse> {
+        const result = this.api.ocListOperators(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
      * List participants
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public ocListParticipants(apiToken: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListParticipantsResponse> {
-        const result = this.api.ocListParticipants(apiToken, channelUrl, token, limit, _options);
+    public ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<OcListParticipantsResponse> {
+        const result = this.api.ocListParticipants(channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
      * Register operators
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocRegisterOperatorsData 
      */
-    public ocRegisterOperators(apiToken: string, channelUrl: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
-        const result = this.api.ocRegisterOperators(apiToken, channelUrl, ocRegisterOperatorsData, _options);
+    public ocRegisterOperators(channelUrl: string, apiToken?: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Promise<OcDeleteChannelByUrl200Response> {
+        const result = this.api.ocRegisterOperators(channelUrl, apiToken, ocRegisterOperatorsData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a channel  Updates information on an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-channel ----------------------------
      * Update a channel
-     * @param apiToken 
      * @param channelUrl 
+     * @param apiToken 
      * @param ocUpdateChannelByUrlData 
      */
-    public ocUpdateChannelByUrl(apiToken: string, channelUrl: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Promise<SendBirdOpenChannel> {
-        const result = this.api.ocUpdateChannelByUrl(apiToken, channelUrl, ocUpdateChannelByUrlData, _options);
+    public ocUpdateChannelByUrl(channelUrl: string, apiToken?: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Promise<SendBirdOpenChannel> {
+        const result = this.api.ocUpdateChannelByUrl(channelUrl, apiToken, ocUpdateChannelByUrlData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
      * View a channel
+     * @param channelUrl 
+     * @param apiToken 
+     */
+    public ocViewChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<SendBirdOpenChannel> {
+        const result = this.api.ocViewChannelByUrl(channelUrl, apiToken, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePinAMessageApi } from './ObservableAPI';
+
+import { PinAMessageApiRequestFactory, PinAMessageApiResponseProcessor} from "../apis/PinAMessageApi";
+export class PromisePinAMessageApi {
+    private api: ObservablePinAMessageApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PinAMessageApiRequestFactory,
+        responseProcessor?: PinAMessageApiResponseProcessor
+    ) {
+        this.api = new ObservablePinAMessageApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Add a new pin Pin a message to its channel. -----------------------------  
+     * Add a new pin
+     * @param channelType 
+     * @param channelUrl 
+     * @param messageId 
+     * @param apiToken 
+     */
+    public v3ChannelTypeChannelUrlMessagesMessageIdPinPost(channelType: string, channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Promise<SendBirdChannelResponse> {
+        const result = this.api.v3ChannelTypeChannelUrlMessagesMessageIdPinPost(channelType, channelUrl, messageId, apiToken, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePollApi } from './ObservableAPI';
+
+import { PollApiRequestFactory, PollApiResponseProcessor} from "../apis/PollApi";
+export class PromisePollApi {
+    private api: ObservablePollApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PollApiRequestFactory,
+        responseProcessor?: PollApiResponseProcessor
+    ) {
+        this.api = new ObservablePollApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## List polls This action retrieves a paginated list of both open and closed polls in an application or a specific channel. To retrieve polls in a specific channel, the channel_url must be specified. https://sendbird.com/docs/chat/v3/platform-api/message/polls/list-polls  -----------------------------
+     * List polls
      * @param apiToken 
      * @param channelUrl 
+     * @param channelType 
+     * @param token 
+     * @param limit 
      */
-    public ocViewChannelByUrl(apiToken: string, channelUrl: string, _options?: Configuration): Promise<SendBirdOpenChannel> {
-        const result = this.api.ocViewChannelByUrl(apiToken, channelUrl, _options);
+    public v3PollsGet(apiToken?: string, channelUrl?: string, channelType?: string, token?: string, limit?: number, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsGet(apiToken, channelUrl, channelType, token, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Close a poll This action closes a poll and prevents users from voting any further. https://sendbird.com/docs/chat/v3/platform-api/message/polls/close-a-poll -----------------------------  
+     * Close a poll
+     * @param pollId 
+     * @param apiToken 
+     */
+    public v3PollsPollIdClosePut(pollId: number, apiToken?: string, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdClosePut(pollId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Delete a poll This action deletes a poll. Once a poll is deleted, you can't retrieve its data. https://sendbird.com/docs/chat/v3/platform-api/message/polls/delete-a-poll -----------------------------  
+     * Delete a poll
+     * @param pollId 
+     * @param apiToken 
+     */
+    public v3PollsPollIdDelete(pollId: number, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.v3PollsPollIdDelete(pollId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Get a poll This action retrieves information on a specific poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/get-a-poll -----------------------------
+     * Get a poll
+     * @param pollId 
+     * @param apiToken 
+     * @param v3PollsPollIdDeleteRequest 
+     */
+    public v3PollsPollIdGet(pollId: number, apiToken?: string, v3PollsPollIdDeleteRequest?: V3PollsPollIdDeleteRequest, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdGet(pollId, apiToken, v3PollsPollIdDeleteRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Delete a poll option This action deletes an option from a poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/delete-a-poll-option ----------------------------- 
+     * Delete a poll option
+     * @param pollId 
+     * @param optionId 
+     * @param apiToken 
+     */
+    public v3PollsPollIdOptionsOptionIdDelete(pollId: number, optionId: number, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.v3PollsPollIdOptionsOptionIdDelete(pollId, optionId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Get a poll option This action retrieves a poll option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/get-a-poll-option -----------------------------  
+     * Get a poll option
+     * @param pollId 
+     * @param optionId 
+     * @param apiToken 
+     */
+    public v3PollsPollIdOptionsOptionIdGet(pollId: number, optionId: number, apiToken?: string, _options?: Configuration): Promise<SendBirdPollOption> {
+        const result = this.api.v3PollsPollIdOptionsOptionIdGet(pollId, optionId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Update a poll option This action updates the content of a poll option. Voting for an option doesn't update the option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/update-a-poll-option -----------------------------  
+     * Update a poll option
+     * @param pollId 
+     * @param optionId 
+     * @param apiToken 
+     * @param v3PollsPollIdOptionsOptionIdDeleteRequest 
+     */
+    public v3PollsPollIdOptionsOptionIdPut(pollId: number, optionId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdDeleteRequest?: V3PollsPollIdOptionsOptionIdDeleteRequest, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdOptionsOptionIdPut(pollId, optionId, apiToken, v3PollsPollIdOptionsOptionIdDeleteRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## List voters of a poll option This action retrieves a list of users who voted for a poll option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/list-voters-of-a-poll-option  -----------------------------  
+     * List voters of a poll option
+     * @param pollId 
+     * @param optionId 
+     * @param apiToken 
+     * @param v3PollsPollIdOptionsOptionIdVotersGetRequest 
+     */
+    public v3PollsPollIdOptionsOptionIdVotersGet(pollId: number, optionId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdVotersGetRequest?: V3PollsPollIdOptionsOptionIdVotersGetRequest, _options?: Configuration): Promise<V3PollsPollIdOptionsOptionIdVotersGet200Response> {
+        const result = this.api.v3PollsPollIdOptionsOptionIdVotersGet(pollId, optionId, apiToken, v3PollsPollIdOptionsOptionIdVotersGetRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Add a poll option This action adds a new option to a poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/add-a-poll-option -----------------------------  
+     * Add a poll option
+     * @param pollId 
+     * @param apiToken 
+     * @param v3PollsPollIdOptionsOptionIdDeleteRequest 
+     */
+    public v3PollsPollIdOptionsPost(pollId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdDeleteRequest?: V3PollsPollIdOptionsOptionIdDeleteRequest, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdOptionsPost(pollId, apiToken, v3PollsPollIdOptionsOptionIdDeleteRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Update a poll This action updates information of a poll. To change the content of a poll option, see the update a poll option page. https://sendbird.com/docs/chat/v3/platform-api/message/polls/update-a-poll -----------------------------  
+     * Update a poll
+     * @param pollId 
+     * @param apiToken 
+     * @param v3PollsPollIdDeleteRequest1 
+     */
+    public v3PollsPollIdPut(pollId: number, apiToken?: string, v3PollsPollIdDeleteRequest1?: V3PollsPollIdDeleteRequest1, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdPut(pollId, apiToken, v3PollsPollIdDeleteRequest1, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Cast or cancel a vote This action adds or removes a vote from a poll option, changing the number of votes given to each option. Use this action to override a previous vote and update the user's final choice of poll options. https://sendbird.com/docs/chat/v3/platform-api/message/polls/cast-or-cancel-a-vote -----------------------------  
+     * Cast or cancel a vote
+     * @param pollId 
+     * @param apiToken 
+     * @param v3PollsPollIdVotePutRequest 
+     */
+    public v3PollsPollIdVotePut(pollId: number, apiToken?: string, v3PollsPollIdVotePutRequest?: V3PollsPollIdVotePutRequest, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPollIdVotePut(pollId, apiToken, v3PollsPollIdVotePutRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Create a poll This action creates a poll with at least one option.You can configure various settings for your poll, including when the poll will close and whether to allow voting for multiple options. After creating a poll, to share the poll with other users in a channel, the poll must be sent as a message. https://sendbird.com/docs/chat/v3/platform-api/message/polls/create-a-poll -----------------------------
+     * Create a poll
+     * @param title 
+     * @param options 
+     * @param apiToken 
+     * @param v3PollsGetRequest 
+     */
+    public v3PollsPost(title: string, options: Array<string>, apiToken?: string, v3PollsGetRequest?: V3PollsGetRequest, _options?: Configuration): Promise<SendBirdPoll> {
+        const result = this.api.v3PollsPost(title, options, apiToken, v3PollsGetRequest, _options);
         return result.toPromise();
     }
 
@@ -2451,11 +2727,11 @@ export class PromisePrivacyApi {
     /**
      * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
      * Cancel the registration of a GDPR request
-     * @param apiToken 
      * @param requestId 
+     * @param apiToken 
      */
-    public cancelTheRegistrationOfGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<void> {
-        const result = this.api.cancelTheRegistrationOfGdprRequestById(apiToken, requestId, _options);
+    public cancelTheRegistrationOfGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.cancelTheRegistrationOfGdprRequestById(requestId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -2466,7 +2742,7 @@ export class PromisePrivacyApi {
      * @param token 
      * @param limit 
      */
-    public listGdprRequests(apiToken: string, token?: string, limit?: number, _options?: Configuration): Promise<ListGdprRequestsResponse> {
+    public listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListGdprRequestsResponse> {
         const result = this.api.listGdprRequests(apiToken, token, limit, _options);
         return result.toPromise();
     }
@@ -2477,7 +2753,7 @@ export class PromisePrivacyApi {
      * @param apiToken 
      * @param registerGdprRequestData 
      */
-    public registerGdprRequest(apiToken: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RegisterGdprRequestResponse> {
+    public registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Promise<RegisterGdprRequestResponse> {
         const result = this.api.registerGdprRequest(apiToken, registerGdprRequestData, _options);
         return result.toPromise();
     }
@@ -2485,11 +2761,51 @@ export class PromisePrivacyApi {
     /**
      * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
      * View a GDPR request
-     * @param apiToken 
      * @param requestId 
+     * @param apiToken 
      */
-    public viewGdprRequestById(apiToken: string, requestId: string, _options?: Configuration): Promise<ViewGdprRequestByIdResponse> {
-        const result = this.api.viewGdprRequestById(apiToken, requestId, _options);
+    public viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Promise<ViewGdprRequestByIdResponse> {
+        const result = this.api.viewGdprRequestById(requestId, apiToken, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePushNotificationsApi } from './ObservableAPI';
+
+import { PushNotificationsApiRequestFactory, PushNotificationsApiResponseProcessor} from "../apis/PushNotificationsApi";
+export class PromisePushNotificationsApi {
+    private api: ObservablePushNotificationsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PushNotificationsApiRequestFactory,
+        responseProcessor?: PushNotificationsApiResponseProcessor
+    ) {
+        this.api = new ObservablePushNotificationsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Check push notifications Shows whether the push notifications feature is turned on for an application. https://sendbird.com/docs/chat/v3/platform-api/application/managing-notifications/check-push-notifications -----------------------------  
+     * Check push notifications
+     * @param apiToken 
+     */
+    public v3ApplicationsPushSettingsGet(apiToken?: string, _options?: Configuration): Promise<V3ApplicationsPushSettingsGet200Response> {
+        const result = this.api.v3ApplicationsPushSettingsGet(apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Turn on push notifications Determines whether to turn on the push notifications feature for an application. https://sendbird.com/docs/chat/v3/platform-api/application/managing-notifications/turn-on-push-notifications -----------------------------  
+     * Turn on push notifications
+     * @param apiToken 
+     * @param v3ApplicationsPushSettingsGetRequest 
+     */
+    public v3ApplicationsPushSettingsPut(apiToken?: string, v3ApplicationsPushSettingsGetRequest?: V3ApplicationsPushSettingsGetRequest, _options?: Configuration): Promise<ListPushConfigurationsResponse> {
+        const result = this.api.v3ApplicationsPushSettingsPut(apiToken, v3ApplicationsPushSettingsGetRequest, _options);
         return result.toPromise();
     }
 
@@ -2521,7 +2837,7 @@ export class PromiseReportApi {
      * @param startTs 
      * @param endTs 
      */
-    public listReports(apiToken: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Promise<ListReportsResponse> {
+    public listReports(apiToken?: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Promise<ListReportsResponse> {
         const result = this.api.listReports(apiToken, token, limit, startTs, endTs, _options);
         return result.toPromise();
     }
@@ -2529,94 +2845,209 @@ export class PromiseReportApi {
     /**
      * ## List reports on a channel  Retrieves a list of reports on a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-channel ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which is reported for offensive messages or inappropriate activities.
      * List reports on a channel
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listReportsOnChannelByUrl(apiToken: string, channelType: string, channelUrl: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnChannelByUrlResponse> {
-        const result = this.api.listReportsOnChannelByUrl(apiToken, channelType, channelUrl, token, limit, _options);
+    public listReportsOnChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnChannelByUrlResponse> {
+        const result = this.api.listReportsOnChannelByUrl(channelType, channelUrl, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List reports on a message  Retrieves a list of reports on a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel where the reported message is in.  `message_id`      Type: string      Description: Specifies the unique ID of the reported message.
      * List reports on a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listReportsOnMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnMessageByIdResponse> {
-        const result = this.api.listReportsOnMessageById(apiToken, channelType, channelUrl, messageId, token, limit, _options);
+    public listReportsOnMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnMessageByIdResponse> {
+        const result = this.api.listReportsOnMessageById(channelType, channelUrl, messageId, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## List reports on a user  Retrieves a list of reports on a user who sends an offensive message.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-user ----------------------------   `offending_user_id`      Type: string      Description: Specifies the unique ID of the user who has sent the message to report.
      * List reports on a user
-     * @param apiToken 
      * @param offendingUserId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      */
-    public listReportsOnUserById(apiToken: string, offendingUserId: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnUserByIdResponse> {
-        const result = this.api.listReportsOnUserById(apiToken, offendingUserId, token, limit, _options);
+    public listReportsOnUserById(offendingUserId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<ListReportsOnUserByIdResponse> {
+        const result = this.api.listReportsOnUserById(offendingUserId, apiToken, token, limit, _options);
         return result.toPromise();
     }
 
     /**
      * ## Report a channel  Reports a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-channel ----------------------------
      * Report a channel
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
+     * @param apiToken 
      * @param reportChannelByUrlData 
      */
-    public reportChannelByUrl(apiToken: string, channelType: string, channelUrl: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Promise<ReportChannelByUrlResponse> {
-        const result = this.api.reportChannelByUrl(apiToken, channelType, channelUrl, reportChannelByUrlData, _options);
+    public reportChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Promise<ReportChannelByUrlResponse> {
+        const result = this.api.reportChannelByUrl(channelType, channelUrl, apiToken, reportChannelByUrlData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Report a message  Reports a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-message ----------------------------
      * Report a message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      * @param reportMessageByIdData 
      */
-    public reportMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Promise<ReportMessageByIdResponse> {
-        const result = this.api.reportMessageById(apiToken, channelType, channelUrl, messageId, reportMessageByIdData, _options);
+    public reportMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Promise<ReportMessageByIdResponse> {
+        const result = this.api.reportMessageById(channelType, channelUrl, messageId, apiToken, reportMessageByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Report a user  Reports a user who sends an offensive message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-user ----------------------------
      * Report a user
-     * @param apiToken 
      * @param offendingUserId 
+     * @param apiToken 
      * @param reportUserByIdData 
      */
-    public reportUserById(apiToken: string, offendingUserId: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Promise<ReportUserByIdResponse> {
-        const result = this.api.reportUserById(apiToken, offendingUserId, reportUserByIdData, _options);
+    public reportUserById(offendingUserId: string, apiToken?: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Promise<ReportUserByIdResponse> {
+        const result = this.api.reportUserById(offendingUserId, apiToken, reportUserByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a moderated message  Retrieves information on a message that has been moderated by the [profanity filter](https://sendbird.com/docs/chat/v3/platform-api/guides/filter-and-moderation#2-profanity-filter).  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-view-a-moderated-message ----------------------------
      * View a moderated message
-     * @param apiToken 
      * @param channelType 
      * @param channelUrl 
      * @param messageId 
+     * @param apiToken 
      */
-    public viewModeratedMessageById(apiToken: string, channelType: string, channelUrl: string, messageId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.viewModeratedMessageById(apiToken, channelType, channelUrl, messageId, _options);
+    public viewModeratedMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.viewModeratedMessageById(channelType, channelUrl, messageId, apiToken, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableScheduledMessageApi } from './ObservableAPI';
+
+import { ScheduledMessageApiRequestFactory, ScheduledMessageApiResponseProcessor} from "../apis/ScheduledMessageApi";
+export class PromiseScheduledMessageApi {
+    private api: ObservableScheduledMessageApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ScheduledMessageApiRequestFactory,
+        responseProcessor?: ScheduledMessageApiResponseProcessor
+    ) {
+        this.api = new ObservableScheduledMessageApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Send a scheduled message immediately This action sends a scheduled message immediately. A user can only send their own scheduled messages immediately. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/send-a-scheduled-message-immediately -----------------------------  
+     * Send a scheduled message immediately
+     * @param channelType 
+     * @param channelUrl 
+     * @param scheduledMessageId 
+     * @param apiToken 
+     */
+    public v3ChannelTypeChannelUrlScheduledMessagesScheduledMessageIdSendNowPost(channelType: string, channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.v3ChannelTypeChannelUrlScheduledMessagesScheduledMessageIdSendNowPost(channelType, channelUrl, scheduledMessageId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Create a scheduled message This action creates a new scheduled message. If a user leaves the channel before the scheduled time for the message to be sent, the scheduled message will be removed. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/create-a-scheduled-message -----------------------------  
+     * Create a scheduled message
+     * @param channelUrl 
+     * @param apiToken 
+     * @param v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest 
+     */
+    public v3GroupChannelsChannelUrlScheduledMessagesPost(channelUrl: string, apiToken?: string, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest?: V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options?: Configuration): Promise<V3ScheduledMessagesGet200Response> {
+        const result = this.api.v3GroupChannelsChannelUrlScheduledMessagesPost(channelUrl, apiToken, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Cancel a scheduled message This action cancels a message that a user has scheduled to send at a later time. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/cancel-a-scheduled-message -----------------------------                      
+     * Cancel a scheduled message
+     * @param channelUrl 
+     * @param scheduledMessageId 
+     * @param apiToken 
+     */
+    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDelete(channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Promise<V3ScheduledMessagesGet200Response> {
+        const result = this.api.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDelete(channelUrl, scheduledMessageId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## View a scheduled message This action retrieves information on a specific scheduled message. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/view-a-scheduled-message -----------------------------                      
+     * View a scheduled message
+     * @param channelUrl 
+     * @param scheduledMessageId 
+     * @param apiToken 
+     */
+    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdGet(channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Promise<V3ScheduledMessagesGet200Response> {
+        const result = this.api.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdGet(channelUrl, scheduledMessageId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Update a scheduled message This action updates information on a specific scheduled message. You can’t change the message type. Update operation should be done at least 5 minutes prior to the original scheduled time. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/update-a-scheduled-message -----------------------------      
+     * Update a scheduled message
+     * @param channelUrl 
+     * @param scheduledMessageId 
+     * @param apiToken 
+     * @param v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest 
+     */
+    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdPost(channelUrl: string, scheduledMessageId: number, apiToken?: string, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest?: V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options?: Configuration): Promise<V3ScheduledMessagesGet200Response> {
+        const result = this.api.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdPost(channelUrl, scheduledMessageId, apiToken, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## View number of scheduled messages This action retrieves the total number of scheduled messages that a user has. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/view-number-of-scheduled-messages -----------------------------  
+     * View number of scheduled messages
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param senderId 
+     * @param status 
+     * @param messageType 
+     */
+    public v3ScheduledMessagesCountGet(apiToken?: string, channelType?: string, channelUrl?: string, senderId?: string, status?: Array<any>, messageType?: string, _options?: Configuration): Promise<V3ScheduledMessagesCountGet200Response> {
+        const result = this.api.v3ScheduledMessagesCountGet(apiToken, channelType, channelUrl, senderId, status, messageType, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## List scheduled messages This action retrieves a list of scheduled messages. A user can only see the list of their own scheduled messages. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/list-scheduled-messages -----------------------------  
+     * List scheduled messages
+     * @param apiToken 
+     * @param channelType 
+     * @param channelUrl 
+     * @param senderId 
+     * @param token 
+     * @param limit 
+     * @param order 
+     * @param reverse 
+     * @param status 
+     * @param messageType 
+     */
+    public v3ScheduledMessagesGet(apiToken?: string, channelType?: string, channelUrl?: string, senderId?: string, token?: string, limit?: number, order?: string, reverse?: boolean, status?: Array<any>, messageType?: string, _options?: Configuration): Promise<V3ScheduledMessagesGet200Response> {
+        const result = this.api.v3ScheduledMessagesGet(apiToken, channelType, channelUrl, senderId, token, limit, order, reverse, status, messageType, _options);
         return result.toPromise();
     }
 
@@ -2642,27 +3073,27 @@ export class PromiseStatisticsApi {
     /**
      * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
      * Get detailed open rate of an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      */
-    public getDetailedOpenRateOfAnnouncementById(apiToken: string, uniqueId: string, _options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
-        const result = this.api.getDetailedOpenRateOfAnnouncementById(apiToken, uniqueId, _options);
+    public getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Promise<GetDetailedOpenRateOfAnnouncementByIdResponse> {
+        const result = this.api.getDetailedOpenRateOfAnnouncementById(uniqueId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
      * Get detailed open status of an announcement
-     * @param apiToken 
      * @param uniqueId 
+     * @param apiToken 
      * @param limit 
      * @param next 
      * @param uniqueIds 
      * @param channelUrls 
      * @param hasOpened 
      */
-    public getDetailedOpenStatusOfAnnouncementById(apiToken: string, uniqueId: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
-        const result = this.api.getDetailedOpenStatusOfAnnouncementById(apiToken, uniqueId, limit, next, uniqueIds, channelUrls, hasOpened, _options);
+    public getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Promise<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
+        const result = this.api.getDetailedOpenStatusOfAnnouncementById(uniqueId, apiToken, limit, next, uniqueIds, channelUrls, hasOpened, _options);
         return result.toPromise();
     }
 
@@ -2671,7 +3102,7 @@ export class PromiseStatisticsApi {
      * Retrieve Advanced analytics metrics
      * @param apiToken 
      */
-    public retrieveAdvancedAnalyticsMetrics(apiToken: string, _options?: Configuration): Promise<RetrieveAdvancedAnalyticsMetricsResponse> {
+    public retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Promise<RetrieveAdvancedAnalyticsMetricsResponse> {
         const result = this.api.retrieveAdvancedAnalyticsMetrics(apiToken, _options);
         return result.toPromise();
     }
@@ -2681,7 +3112,7 @@ export class PromiseStatisticsApi {
      * View number of concurrent connections
      * @param apiToken 
      */
-    public viewNumberOfConcurrentConnections(apiToken: string, _options?: Configuration): Promise<ViewNumberOfConcurrentConnectionsResponse> {
+    public viewNumberOfConcurrentConnections(apiToken?: string, _options?: Configuration): Promise<ViewNumberOfConcurrentConnectionsResponse> {
         const result = this.api.viewNumberOfConcurrentConnections(apiToken, _options);
         return result.toPromise();
     }
@@ -2692,7 +3123,7 @@ export class PromiseStatisticsApi {
      * @param apiToken 
      * @param date 
      */
-    public viewNumberOfDailyActiveUsers(apiToken: string, date?: string, _options?: Configuration): Promise<ViewNumberOfDailyActiveUsersResponse> {
+    public viewNumberOfDailyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Promise<ViewNumberOfDailyActiveUsersResponse> {
         const result = this.api.viewNumberOfDailyActiveUsers(apiToken, date, _options);
         return result.toPromise();
     }
@@ -2703,7 +3134,7 @@ export class PromiseStatisticsApi {
      * @param apiToken 
      * @param date 
      */
-    public viewNumberOfMonthlyActiveUsers(apiToken: string, date?: string, _options?: Configuration): Promise<ViewNumberOfMonthlyActiveUsersResponse> {
+    public viewNumberOfMonthlyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Promise<ViewNumberOfMonthlyActiveUsersResponse> {
         const result = this.api.viewNumberOfMonthlyActiveUsers(apiToken, date, _options);
         return result.toPromise();
     }
@@ -2711,17 +3142,17 @@ export class PromiseStatisticsApi {
     /**
      * ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
      * View number of peak connections
-     * @param apiToken 
      * @param timeDimension 
      * @param startYear 
      * @param startMonth 
      * @param endYear 
      * @param endMonth 
+     * @param apiToken 
      * @param startDay 
      * @param endDay 
      */
-    public viewNumberOfPeakConnections(apiToken: string, timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, startDay?: number, endDay?: number, _options?: Configuration): Promise<ViewNumberOfPeakConnectionsResponse> {
-        const result = this.api.viewNumberOfPeakConnections(apiToken, timeDimension, startYear, startMonth, endYear, endMonth, startDay, endDay, _options);
+    public viewNumberOfPeakConnections(timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, apiToken?: string, startDay?: number, endDay?: number, _options?: Configuration): Promise<ViewNumberOfPeakConnectionsResponse> {
+        const result = this.api.viewNumberOfPeakConnections(timeDimension, startYear, startMonth, endYear, endMonth, apiToken, startDay, endDay, _options);
         return result.toPromise();
     }
 
@@ -2747,25 +3178,25 @@ export class PromiseUserApi {
     /**
      * ## Add a registration or device token  > __Note__: A user can have up to 20 FCM registration tokens, 20 HMS device tokens, and 20 APNs device tokens each. The oldest token will be deleted before a new token is added for a user who already has 20 registration or device tokens. Only the 20 newest tokens will be maintained for users who already have more than 20 of each token type.  To send notification requests to push notification services on behalf of your server, adds a specific user's FCM registration token, HMS device token, or APNs device token to Sendbird server. Depending on which push service you are using, you can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`.  A FCM registration token and an APNs device token allow identification of each client app instance on each device, and are generated and registered by Android and iOS apps through the corresponding SDKs. Use this method if you need to register a token via your own server.  > __Note__: For more information on the registration token and device token, visit the Google's [FCM](https://firebase.google.com/docs/auth/admin/verify-id-tokens) page, Huawei's [Push kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050040060) and Apple's [APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) page.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-add-a-registration-or-device-token ----------------------------
      * Add a registration or device token
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
+     * @param apiToken 
      * @param addRegistrationOrDeviceTokenData 
      */
-    public addRegistrationOrDeviceToken(apiToken: string, userId: string, tokenType: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Promise<AddRegistrationOrDeviceTokenResponse> {
-        const result = this.api.addRegistrationOrDeviceToken(apiToken, userId, tokenType, addRegistrationOrDeviceTokenData, _options);
+    public addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Promise<AddRegistrationOrDeviceTokenResponse> {
+        const result = this.api.addRegistrationOrDeviceToken(userId, tokenType, apiToken, addRegistrationOrDeviceTokenData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
      * Choose a push notification content template
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param body 
      */
-    public choosePushNotificationContentTemplate(apiToken: string, userId: string, body?: any, _options?: Configuration): Promise<ChoosePushNotificationContentTemplateResponse> {
-        const result = this.api.choosePushNotificationContentTemplate(apiToken, userId, body, _options);
+    public choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Promise<ChoosePushNotificationContentTemplateResponse> {
+        const result = this.api.choosePushNotificationContentTemplate(userId, apiToken, body, _options);
         return result.toPromise();
     }
 
@@ -2775,7 +3206,7 @@ export class PromiseUserApi {
      * @param apiToken 
      * @param createUserData 
      */
-    public createUser(apiToken: string, createUserData?: CreateUserData, _options?: Configuration): Promise<SendBirdUser> {
+    public createUser(apiToken?: string, createUserData?: CreateUserData, _options?: Configuration): Promise<SendBirdUser> {
         const result = this.api.createUser(apiToken, createUserData, _options);
         return result.toPromise();
     }
@@ -2783,43 +3214,43 @@ export class PromiseUserApi {
     /**
      * ## Create user token
      * Create user token
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param createUserTokenData 
      */
-    public createUserToken(apiToken: string, userId: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<CreateUserTokenResponse> {
-        const result = this.api.createUserToken(apiToken, userId, createUserTokenData, _options);
+    public createUserToken(userId: string, apiToken?: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<CreateUserTokenResponse> {
+        const result = this.api.createUserToken(userId, apiToken, createUserTokenData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
      * Delete a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public deleteUserById(apiToken: string, userId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteUserById(apiToken, userId, _options);
+    public deleteUserById(userId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteUserById(userId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
      * Leave my group channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param leaveMyGroupChannelsData 
      */
-    public leaveMyGroupChannels(apiToken: string, userId: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Promise<any> {
-        const result = this.api.leaveMyGroupChannels(apiToken, userId, leaveMyGroupChannelsData, _options);
+    public leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Promise<any> {
+        const result = this.api.leaveMyGroupChannels(userId, apiToken, leaveMyGroupChannelsData, _options);
         return result.toPromise();
     }
 
     /**
      * ## List my group channels  Retrieves all group channels that the user has joined. You can create a request based on various query parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
      * List my group channels
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param token 
      * @param limit 
      * @param distinctMode 
@@ -2861,20 +3292,20 @@ export class PromiseUserApi {
      * @param metacounterValueLte 
      * @param customType 
      */
-    public listMyGroupChannels(apiToken: string, userId: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Promise<ListMyGroupChannelsResponse> {
-        const result = this.api.listMyGroupChannels(apiToken, userId, token, limit, distinctMode, publicMode, superMode, hiddenMode, memberStateFilter, unreadFilter, createdAfter, createdBefore, showEmpty, showFrozen, showMember, showDeliveryReceipt, showReadReceipt, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, customType, _options);
+    public listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Promise<ListMyGroupChannelsResponse> {
+        const result = this.api.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, hiddenMode, memberStateFilter, unreadFilter, createdAfter, createdBefore, showEmpty, showFrozen, showMember, showDeliveryReceipt, showReadReceipt, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, customType, _options);
         return result.toPromise();
     }
 
     /**
      * ## List registration or device tokens  Retrieves a list of a specific user's FCM registration tokens, HMS device tokens, or APNs device tokens. You can specify either `gcm`, `huawei`, or `apns` in the `token_type` parameter, depending on which push notification service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-registration-or-device-tokens ----------------------------
      * List registration or device tokens
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
+     * @param apiToken 
      */
-    public listRegistrationOrDeviceTokens(apiToken: string, userId: string, tokenType: string, _options?: Configuration): Promise<ListRegistrationOrDeviceTokensResponse> {
-        const result = this.api.listRegistrationOrDeviceTokens(apiToken, userId, tokenType, _options);
+    public listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Promise<ListRegistrationOrDeviceTokensResponse> {
+        const result = this.api.listRegistrationOrDeviceTokens(userId, tokenType, apiToken, _options);
         return result.toPromise();
     }
 
@@ -2892,7 +3323,7 @@ export class PromiseUserApi {
      * @param metadatakey 
      * @param metadatavaluesIn 
      */
-    public listUsers(apiToken: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<ListUsersResponse> {
+    public listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<ListUsersResponse> {
         const result = this.api.listUsers(apiToken, token, limit, activeMode, showBot, userIds, nickname, nicknameStartswith, metadatakey, metadatavaluesIn, _options);
         return result.toPromise();
     }
@@ -2900,256 +3331,256 @@ export class PromiseUserApi {
     /**
      * ## Mark all messages as read  Marks all of a user's unread messages as read in the joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mark-all-messages-as-read ----------------------------
      * Mark all messages as read
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param markAllMessagesAsReadData 
      */
-    public markAllMessagesAsRead(apiToken: string, userId: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Promise<any> {
-        const result = this.api.markAllMessagesAsRead(apiToken, userId, markAllMessagesAsReadData, _options);
+    public markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Promise<any> {
+        const result = this.api.markAllMessagesAsRead(userId, apiToken, markAllMessagesAsReadData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Register as an operator to channels with custom channel types  Registers a user as an operator to channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-register-as-an-operator-to-channels-with-custom-channel-types ----------------------------
      * Register as an operator to channels with custom channel types
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param registerAsOperatorToChannelsWithCustomChannelTypesData 
      */
-    public registerAsOperatorToChannelsWithCustomChannelTypes(apiToken: string, userId: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
-        const result = this.api.registerAsOperatorToChannelsWithCustomChannelTypes(apiToken, userId, registerAsOperatorToChannelsWithCustomChannelTypesData, _options);
+    public registerAsOperatorToChannelsWithCustomChannelTypes(userId: string, apiToken?: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<any> {
+        const result = this.api.registerAsOperatorToChannelsWithCustomChannelTypes(userId, apiToken, registerAsOperatorToChannelsWithCustomChannelTypesData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
      * Remove a registration or device token - When unregistering all device tokens
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public removeRegistrationOrDeviceToken(apiToken: string, userId: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenResponse> {
-        const result = this.api.removeRegistrationOrDeviceToken(apiToken, userId, _options);
+    public removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenResponse> {
+        const result = this.api.removeRegistrationOrDeviceToken(userId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
      * Remove a registration or device token - When unregistering a specific token
-     * @param apiToken 
      * @param userId 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenByToken(apiToken: string, userId: string, tokenType: string, token: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenByTokenResponse> {
-        const result = this.api.removeRegistrationOrDeviceTokenByToken(apiToken, userId, tokenType, token, _options);
+    public removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenByTokenResponse> {
+        const result = this.api.removeRegistrationOrDeviceTokenByToken(userId, tokenType, token, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who owns it. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token-from-an-owner ----------------------------
      * Remove a registration or device token from an owner
-     * @param apiToken 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenFromOwnerByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse> {
-        const result = this.api.removeRegistrationOrDeviceTokenFromOwnerByToken(apiToken, tokenType, token, _options);
+    public removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse> {
+        const result = this.api.removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType, token, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Reset push preferences  Resets a user's push preferences. After performing this action,   `do_not_disturb` and `snooze_enabled` are set to false.  The values of the parameters associated with the time frame are all set to 0.  `timezone` is reset to `UTC`.  `push_sound` is reset to `default`.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-reset-push-preferences ----------------------------
      * Reset push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public resetPushPreferences(apiToken: string, userId: string, _options?: Configuration): Promise<ResetPushPreferencesResponse> {
-        const result = this.api.resetPushPreferences(apiToken, userId, _options);
+    public resetPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<ResetPushPreferencesResponse> {
+        const result = this.api.resetPushPreferences(userId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
      * Update channel invitation preference
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updateChannelInvitationPreferenceData 
      */
-    public updateChannelInvitationPreference(apiToken: string, userId: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Promise<UpdateChannelInvitationPreferenceResponse> {
-        const result = this.api.updateChannelInvitationPreference(apiToken, userId, updateChannelInvitationPreferenceData, _options);
+    public updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Promise<UpdateChannelInvitationPreferenceResponse> {
+        const result = this.api.updateChannelInvitationPreference(userId, apiToken, updateChannelInvitationPreferenceData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
      * Update count preference of a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      * @param updateCountPreferenceOfChannelByUrlData 
      */
-    public updateCountPreferenceOfChannelByUrl(apiToken: string, userId: string, channelUrl: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Promise<UpdateCountPreferenceOfChannelByUrlResponse> {
-        const result = this.api.updateCountPreferenceOfChannelByUrl(apiToken, userId, channelUrl, updateCountPreferenceOfChannelByUrlData, _options);
+    public updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Promise<UpdateCountPreferenceOfChannelByUrlResponse> {
+        const result = this.api.updateCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, updateCountPreferenceOfChannelByUrlData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update push preferences  Updates a user's push preferences. Through this action, you can set `do_not_disturb` for a user, and update the time frame in which the setting applies.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences ----------------------------
      * Update push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updatePushPreferencesData 
      */
-    public updatePushPreferences(apiToken: string, userId: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Promise<UpdatePushPreferencesResponse> {
-        const result = this.api.updatePushPreferences(apiToken, userId, updatePushPreferencesData, _options);
+    public updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Promise<UpdatePushPreferencesResponse> {
+        const result = this.api.updatePushPreferences(userId, apiToken, updatePushPreferencesData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update push preferences for a channel  Updates push preferences for a user's specific group channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences-for-a-channel ----------------------------
      * Update push preferences for a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      * @param updatePushPreferencesForChannelByUrlData 
      */
-    public updatePushPreferencesForChannelByUrl(apiToken: string, userId: string, channelUrl: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Promise<UpdatePushPreferencesForChannelByUrlResponse> {
-        const result = this.api.updatePushPreferencesForChannelByUrl(apiToken, userId, channelUrl, updatePushPreferencesForChannelByUrlData, _options);
+    public updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Promise<UpdatePushPreferencesForChannelByUrlResponse> {
+        const result = this.api.updatePushPreferencesForChannelByUrl(userId, channelUrl, apiToken, updatePushPreferencesForChannelByUrlData, _options);
         return result.toPromise();
     }
 
     /**
      * ## Update a user  Updates information on a user. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user. If the `leave_all_when_deactivated` is true (which it is by default), a user leaves all joined group channels when deactivated.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-a-user ----------------------------
      * Update a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param updateUserByIdData 
      */
-    public updateUserById(apiToken: string, userId: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Promise<SendBirdUser> {
-        const result = this.api.updateUserById(apiToken, userId, updateUserByIdData, _options);
+    public updateUserById(userId: string, apiToken?: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Promise<SendBirdUser> {
+        const result = this.api.updateUserById(userId, apiToken, updateUserByIdData, _options);
         return result.toPromise();
     }
 
     /**
      * ## View channel invitation preference  Retrieves channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [view default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference) action, you can retrieve the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference
      * View channel invitation preference
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public viewChannelInvitationPreference(apiToken: string, userId: string, _options?: Configuration): Promise<ViewChannelInvitationPreferenceResponse> {
-        const result = this.api.viewChannelInvitationPreference(apiToken, userId, _options);
+    public viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Promise<ViewChannelInvitationPreferenceResponse> {
+        const result = this.api.viewChannelInvitationPreference(userId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View count preference of a channel  Retrieves count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-count-preference-of-a-channel ----------------------------
      * View count preference of a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public viewCountPreferenceOfChannelByUrl(apiToken: string, userId: string, channelUrl: string, _options?: Configuration): Promise<ViewCountPreferenceOfChannelByUrlResponse> {
-        const result = this.api.viewCountPreferenceOfChannelByUrl(apiToken, userId, channelUrl, _options);
+    public viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<ViewCountPreferenceOfChannelByUrlResponse> {
+        const result = this.api.viewCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View number of channels by join status  Retrieves the number of a user's group channels by their join status.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-by-join-status ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
      * View number of channels by join status
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param state 
      */
-    public viewNumberOfChannelsByJoinStatus(apiToken: string, userId: string, state?: string, _options?: Configuration): Promise<ViewNumberOfChannelsByJoinStatusResponse> {
-        const result = this.api.viewNumberOfChannelsByJoinStatus(apiToken, userId, state, _options);
+    public viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Promise<ViewNumberOfChannelsByJoinStatusResponse> {
+        const result = this.api.viewNumberOfChannelsByJoinStatus(userId, apiToken, state, _options);
         return result.toPromise();
     }
 
     /**
      * ## View number of channels with unread messages  Retrieves the total number of a user's group channels with unread messages.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-with-unread-messages ----------------------------
      * View number of channels with unread messages
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customTypes 
      * @param superMode 
      */
-    public viewNumberOfChannelsWithUnreadMessages(apiToken: string, userId: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Promise<ViewNumberOfChannelsWithUnreadMessagesResponse> {
-        const result = this.api.viewNumberOfChannelsWithUnreadMessages(apiToken, userId, customTypes, superMode, _options);
+    public viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Promise<ViewNumberOfChannelsWithUnreadMessagesResponse> {
+        const result = this.api.viewNumberOfChannelsWithUnreadMessages(userId, apiToken, customTypes, superMode, _options);
         return result.toPromise();
     }
 
     /**
      * ## View number of unread items  Retrieves a set of total numbers of a user's unread messages, unread mentioned messages, or received invitations in either super or non-super group channels. This action is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-items ----------------------------
      * View number of unread items
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customType 
      * @param itemKeys 
      */
-    public viewNumberOfUnreadItems(apiToken: string, userId: string, customType?: string, itemKeys?: string, _options?: Configuration): Promise<ViewNumberOfUnreadItemsResponse> {
-        const result = this.api.viewNumberOfUnreadItems(apiToken, userId, customType, itemKeys, _options);
+    public viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Promise<ViewNumberOfUnreadItemsResponse> {
+        const result = this.api.viewNumberOfUnreadItems(userId, apiToken, customType, itemKeys, _options);
         return result.toPromise();
     }
 
     /**
      * ## View number of unread messages  Retrieves the total number of a user's currently unread messages in the group channels. The unread counts feature is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-messages ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
      * View number of unread messages
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param customTypes 
      * @param superMode 
      */
-    public viewNumberOfUnreadMessages(apiToken: string, userId: string, customTypes?: string, superMode?: string, _options?: Configuration): Promise<ViewNumberOfUnreadMessagesResponse> {
-        const result = this.api.viewNumberOfUnreadMessages(apiToken, userId, customTypes, superMode, _options);
+    public viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Promise<ViewNumberOfUnreadMessagesResponse> {
+        const result = this.api.viewNumberOfUnreadMessages(userId, apiToken, customTypes, superMode, _options);
         return result.toPromise();
     }
 
     /**
      * ## View push preferences  Retrieves a user's push preferences about whether the user has set `do_not_disturb` to pause notifications for a certain period of time, and the time frame in which the user has applied the setting.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences ----------------------------
      * View push preferences
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      */
-    public viewPushPreferences(apiToken: string, userId: string, _options?: Configuration): Promise<ViewPushPreferencesResponse> {
-        const result = this.api.viewPushPreferences(apiToken, userId, _options);
+    public viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<ViewPushPreferencesResponse> {
+        const result = this.api.viewPushPreferences(userId, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View push preferences for a channel  Retrieves whether a user has turned on notification messages for a specific channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences-for-a-channel ----------------------------
      * View push preferences for a channel
-     * @param apiToken 
      * @param userId 
      * @param channelUrl 
+     * @param apiToken 
      */
-    public viewPushPreferencesForChannelByUrl(apiToken: string, userId: string, channelUrl: string, _options?: Configuration): Promise<ViewPushPreferencesForChannelByUrlResponse> {
-        const result = this.api.viewPushPreferencesForChannelByUrl(apiToken, userId, channelUrl, _options);
+    public viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<ViewPushPreferencesForChannelByUrlResponse> {
+        const result = this.api.viewPushPreferencesForChannelByUrl(userId, channelUrl, apiToken, _options);
         return result.toPromise();
     }
 
     /**
      * ## View a user  Retrieves information on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-a-user ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve.
      * View a user
-     * @param apiToken 
      * @param userId 
+     * @param apiToken 
      * @param includeUnreadCount 
      * @param customTypes 
      * @param superMode 
      */
-    public viewUserById(apiToken: string, userId: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Promise<SendBirdUser> {
-        const result = this.api.viewUserById(apiToken, userId, includeUnreadCount, customTypes, superMode, _options);
+    public viewUserById(userId: string, apiToken?: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Promise<SendBirdUser> {
+        const result = this.api.viewUserById(userId, apiToken, includeUnreadCount, customTypes, superMode, _options);
         return result.toPromise();
     }
 
     /**
      * ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
      * View who owns a registration or device token
-     * @param apiToken 
      * @param tokenType 
      * @param token 
+     * @param apiToken 
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken: string, tokenType: string, token: string, _options?: Configuration): Promise<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>> {
-        const result = this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(apiToken, tokenType, token, _options);
+    public viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>> {
+        const result = this.api.viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType, token, apiToken, _options);
         return result.toPromise();
     }
 
@@ -3178,7 +3609,7 @@ export class PromiseWebhookApi {
      * @param apiToken 
      * @param chooseWhichEventsToSubscribeToData 
      */
-    public chooseWhichEventsToSubscribeTo(apiToken: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Promise<ChooseWhichEventsToSubscribeToResponse> {
+    public chooseWhichEventsToSubscribeTo(apiToken?: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Promise<ChooseWhichEventsToSubscribeToResponse> {
         const result = this.api.chooseWhichEventsToSubscribeTo(apiToken, chooseWhichEventsToSubscribeToData, _options);
         return result.toPromise();
     }
@@ -3189,7 +3620,7 @@ export class PromiseWebhookApi {
      * @param apiToken 
      * @param displayAllWebhookCategories 
      */
-    public retrieveListOfSubscribedEvents(apiToken: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Promise<RetrieveListOfSubscribedEventsResponse> {
+    public retrieveListOfSubscribedEvents(apiToken?: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Promise<RetrieveListOfSubscribedEventsResponse> {
         const result = this.api.retrieveListOfSubscribedEvents(apiToken, displayAllWebhookCategories, _options);
         return result.toPromise();
     }

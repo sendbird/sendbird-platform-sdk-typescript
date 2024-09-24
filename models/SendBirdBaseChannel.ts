@@ -20,7 +20,6 @@ export class SendBirdBaseChannel {
     'customType'?: string;
     'data'?: string;
     'isEphemeral'?: boolean;
-    'isFrozen'?: boolean;
     'name'?: string;
     'url'?: string;
 
@@ -60,12 +59,6 @@ export class SendBirdBaseChannel {
         {
             "name": "isEphemeral",
             "baseName": "is_ephemeral",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFrozen",
-            "baseName": "is_frozen",
             "type": "boolean",
             "format": ""
         },

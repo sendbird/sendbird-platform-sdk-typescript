@@ -12,25 +12,23 @@
 
 import { Function } from './Function';
 import { HttpFile } from '../http/http';
-
 export class SBObject {
-    'constructor'?: Function;
+    'sbConstructor'?: Function; // Rename from 'constructor' to 'sbConstructor'
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+    static readonly attributeTypeMap: Array<{ name: string, baseName: string, type: string, format: string; }> = [
         {
-            "name": "constructor",
+            "name": "sbConstructor",
             "baseName": "constructor",
             "type": "Function",
             "format": ""
-        }    ];
+        }
+    ];
 
     static getAttributeTypeMap() {
         return SBObject.attributeTypeMap;
     }
 
-    public constructor() {
-    }
+    public constructor() { }
 }
-

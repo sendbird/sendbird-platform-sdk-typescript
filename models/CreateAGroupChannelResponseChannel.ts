@@ -10,22 +10,39 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdFile } from './SendbirdFile';
-import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
-export class SendbirdParentMessageInfo {
+export class CreateAGroupChannelResponseChannel {
+    'channelUrl'?: string;
+    'coverUrl'?: string;
+    'createdAt'?: number;
     'customType'?: string;
-    'message'?: string;
-    'type'?: string;
-    'ts'?: number;
-    'user'?: SendbirdUser;
-    'file'?: SendbirdFile;
-    'files'?: Array<SendbirdFile>;
+    'data'?: string;
+    'maxLengthMessage'?: number;
+    'memberCount'?: number;
+    'name'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "channelUrl",
+            "baseName": "channel_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "coverUrl",
+            "baseName": "cover_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": "int64"
+        },
         {
             "name": "customType",
             "baseName": "custom_type",
@@ -33,44 +50,32 @@ export class SendbirdParentMessageInfo {
             "format": ""
         },
         {
-            "name": "message",
-            "baseName": "message",
+            "name": "data",
+            "baseName": "data",
             "type": "string",
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ts",
-            "baseName": "ts",
+            "name": "maxLengthMessage",
+            "baseName": "max_length_message",
             "type": "number",
             "format": ""
         },
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendbirdUser",
+            "name": "memberCount",
+            "baseName": "member_count",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "file",
-            "baseName": "file",
-            "type": "SendbirdFile",
-            "format": ""
-        },
-        {
-            "name": "files",
-            "baseName": "files",
-            "type": "Array<SendbirdFile>",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdParentMessageInfo.attributeTypeMap;
+        return CreateAGroupChannelResponseChannel.attributeTypeMap;
     }
 
     public constructor() {

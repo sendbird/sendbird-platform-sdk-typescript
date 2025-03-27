@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { OcDeleteChannelByUrl200Response } from './OcDeleteChannelByUrl200Response';
+import { SendbirdMessageResponseMentionedUsersInnerMetadata } from './SendbirdMessageResponseMentionedUsersInnerMetadata';
 import { HttpFile } from '../http/http';
 
-export class SendBirdMessageResponseMentionedUsersInner {
+export class SendbirdMessageResponseMentionedUsersInner {
     'userId'?: string;
     'nickname'?: string;
     'profileUrl'?: string;
-    'metadata'?: OcDeleteChannelByUrl200Response;
+    'metadata'?: SendbirdMessageResponseMentionedUsersInnerMetadata;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,12 +43,12 @@ export class SendBirdMessageResponseMentionedUsersInner {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "OcDeleteChannelByUrl200Response",
+            "type": "SendbirdMessageResponseMentionedUsersInnerMetadata",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdMessageResponseMentionedUsersInner.attributeTypeMap;
+        return SendbirdMessageResponseMentionedUsersInner.attributeTypeMap;
     }
 
     public constructor() {

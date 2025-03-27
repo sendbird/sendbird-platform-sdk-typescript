@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -12,10 +12,10 @@
 
 import { HttpFile } from '../http/http';
 
-export class SendBirdRestrictionInfo {
+export class SendbirdRestrictionInfo {
     'description'?: string;
     'endAt'?: number;
-    'restrictionType'?: SendBirdRestrictionInfoRestrictionTypeEnum;
+    'restrictionType'?: SendbirdRestrictionInfoRestrictionTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,17 +30,17 @@ export class SendBirdRestrictionInfo {
             "name": "endAt",
             "baseName": "end_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "restrictionType",
             "baseName": "restriction_type",
-            "type": "SendBirdRestrictionInfoRestrictionTypeEnum",
+            "type": "SendbirdRestrictionInfoRestrictionTypeEnum",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdRestrictionInfo.attributeTypeMap;
+        return SendbirdRestrictionInfo.attributeTypeMap;
     }
 
     public constructor() {
@@ -48,5 +48,5 @@ export class SendBirdRestrictionInfo {
 }
 
 
-export type SendBirdRestrictionInfoRestrictionTypeEnum = "banned" | "muted" ;
+export type SendbirdRestrictionInfoRestrictionTypeEnum = "banned" | "muted" ;
 

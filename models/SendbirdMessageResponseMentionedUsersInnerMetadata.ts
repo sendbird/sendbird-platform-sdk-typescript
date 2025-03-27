@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,24 +10,23 @@
  * Do not edit the class manually.
  */
 
-import { Function } from './Function';
 import { HttpFile } from '../http/http';
 
-export class SBObject {
-    //'constructor'?: Function;
+export class SendbirdMessageResponseMentionedUsersInnerMetadata {
+    'anyOf'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "constructor",
-            "baseName": "constructor",
-            "type": "Function",
+            "name": "anyOf",
+            "baseName": "anyOf",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SBObject.attributeTypeMap;
+        return SendbirdMessageResponseMentionedUsersInnerMetadata.attributeTypeMap;
     }
 
     public constructor() {

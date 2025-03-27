@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,50 +10,43 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdRestrictionInfo } from './SendBirdRestrictionInfo';
+import { SendbirdRestrictionInfo } from './SendbirdRestrictionInfo';
 import { HttpFile } from '../http/http';
 
-export class SendBirdMember {
-    'connectionStatus'?: string;
-    'friendDiscoveryKey'?: string;
-    'friendName'?: string;
+export class SendbirdMember {
+    'deliveredTs'?: number;
+    'doNotDisturb'?: boolean;
     'isActive'?: boolean;
     'isMuted'?: boolean;
-    'lastSeenAt'?: number;
-    'nickname'?: string;
-    'plainProfileUrl'?: string;
-    'preferredLanguages'?: Array<string>;
-    'profileUrl'?: string;
-    'requireAuth'?: boolean;
-    'requireAuthForProfileImage'?: boolean;
-    'metadata'?: any;
     'isOnline'?: boolean;
-    'mutedEndAt'?: number;
+    'lastSeenAt'?: number;
+    'metadata'?: any;
     'mutedDescription'?: string;
-    'restrictionInfo'?: SendBirdRestrictionInfo;
-    'role'?: SendBirdMemberRoleEnum;
-    'state'?: SendBirdMemberStateEnum;
+    'mutedEndAt'?: number;
+    'nickname'?: string;
+    'pushEnabled'?: boolean;
+    'pushTriggerOption'?: string;
+    'profileUrl'?: string;
+    'requireAuthForProfileImage'?: boolean;
+    'readTs'?: number;
+    'restrictionInfo'?: SendbirdRestrictionInfo;
+    'role'?: SendbirdMemberRoleEnum;
+    'state'?: SendbirdMemberStateEnum;
     'userId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "connectionStatus",
-            "baseName": "connection_status",
-            "type": "string",
-            "format": ""
+            "name": "deliveredTs",
+            "baseName": "delivered_ts",
+            "type": "number",
+            "format": "int64"
         },
         {
-            "name": "friendDiscoveryKey",
-            "baseName": "friend_discovery_key",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "friendName",
-            "baseName": "friend_name",
-            "type": "string",
+            "name": "doNotDisturb",
+            "baseName": "do_not_disturb",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -69,8 +62,32 @@ export class SendBirdMember {
             "format": ""
         },
         {
+            "name": "isOnline",
+            "baseName": "is_online",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "lastSeenAt",
             "baseName": "last_seen_at",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "mutedDescription",
+            "baseName": "muted_description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mutedEndAt",
+            "baseName": "muted_end_at",
             "type": "number",
             "format": "int64"
         },
@@ -81,15 +98,15 @@ export class SendBirdMember {
             "format": ""
         },
         {
-            "name": "plainProfileUrl",
-            "baseName": "plain_profile_url",
-            "type": "string",
+            "name": "pushEnabled",
+            "baseName": "push_enabled",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "preferredLanguages",
-            "baseName": "preferred_languages",
-            "type": "Array<string>",
+            "name": "pushTriggerOption",
+            "baseName": "push_trigger_option",
+            "type": "string",
             "format": ""
         },
         {
@@ -99,57 +116,33 @@ export class SendBirdMember {
             "format": ""
         },
         {
-            "name": "requireAuth",
-            "baseName": "require_auth",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "requireAuthForProfileImage",
             "baseName": "require_auth_for_profile_image",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "isOnline",
-            "baseName": "is_online",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "mutedEndAt",
-            "baseName": "muted_end_at",
+            "name": "readTs",
+            "baseName": "read_ts",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "mutedDescription",
-            "baseName": "muted_description",
-            "type": "string",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "restrictionInfo",
             "baseName": "restriction_info",
-            "type": "SendBirdRestrictionInfo",
+            "type": "SendbirdRestrictionInfo",
             "format": ""
         },
         {
             "name": "role",
             "baseName": "role",
-            "type": "SendBirdMemberRoleEnum",
+            "type": "SendbirdMemberRoleEnum",
             "format": ""
         },
         {
             "name": "state",
             "baseName": "state",
-            "type": "SendBirdMemberStateEnum",
+            "type": "SendbirdMemberStateEnum",
             "format": ""
         },
         {
@@ -160,7 +153,7 @@ export class SendBirdMember {
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdMember.attributeTypeMap;
+        return SendbirdMember.attributeTypeMap;
     }
 
     public constructor() {
@@ -168,6 +161,6 @@ export class SendBirdMember {
 }
 
 
-export type SendBirdMemberRoleEnum = "" | "none" | "operator" ;
-export type SendBirdMemberStateEnum = "" | "invited" | "joined" ;
+export type SendbirdMemberRoleEnum = "" | "none" | "operator" ;
+export type SendbirdMemberStateEnum = "" | "invited" | "joined" ;
 

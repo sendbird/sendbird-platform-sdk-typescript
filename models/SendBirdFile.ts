@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,15 +10,15 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdThumbnailSBObject } from './SendBirdThumbnailSBObject';
+import { SendbirdThumbnail } from './SendbirdThumbnail';
 import { HttpFile } from '../http/http';
 
-export class SendBirdFile {
+export class SendbirdFile {
     'url'?: string;
     'fileName'?: string;
     'fileSize'?: number;
     'fileType'?: string;
-    'thumbnails'?: Array<SendBirdThumbnailSBObject>;
+    'thumbnails'?: Array<SendbirdThumbnail>;
     'requireAuth'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -51,7 +51,7 @@ export class SendBirdFile {
         {
             "name": "thumbnails",
             "baseName": "thumbnails",
-            "type": "Array<SendBirdThumbnailSBObject>",
+            "type": "Array<SendbirdThumbnail>",
             "format": ""
         },
         {
@@ -62,7 +62,7 @@ export class SendBirdFile {
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdFile.attributeTypeMap;
+        return SendbirdFile.attributeTypeMap;
     }
 
     public constructor() {

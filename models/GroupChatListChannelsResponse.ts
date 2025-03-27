@@ -10,37 +10,26 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdFile } from './SendbirdFile';
-import { SendbirdUser } from './SendbirdUser';
+import { SendbirdGroupChannel } from './SendbirdGroupChannel';
 import { HttpFile } from '../http/http';
 
-export class SendbirdParentMessageInfo {
-    'customType'?: string;
-    'message'?: string;
-    'type'?: string;
+export class GroupChatListChannelsResponse {
+    'channels'?: Array<SendbirdGroupChannel>;
+    'next'?: string;
     'ts'?: number;
-    'user'?: SendbirdUser;
-    'file'?: SendbirdFile;
-    'files'?: Array<SendbirdFile>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "customType",
-            "baseName": "custom_type",
-            "type": "string",
+            "name": "channels",
+            "baseName": "channels",
+            "type": "Array<SendbirdGroupChannel>",
             "format": ""
         },
         {
-            "name": "message",
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
+            "name": "next",
+            "baseName": "next",
             "type": "string",
             "format": ""
         },
@@ -48,29 +37,11 @@ export class SendbirdParentMessageInfo {
             "name": "ts",
             "baseName": "ts",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendbirdUser",
-            "format": ""
-        },
-        {
-            "name": "file",
-            "baseName": "file",
-            "type": "SendbirdFile",
-            "format": ""
-        },
-        {
-            "name": "files",
-            "baseName": "files",
-            "type": "Array<SendbirdFile>",
-            "format": ""
+            "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdParentMessageInfo.attributeTypeMap;
+        return GroupChatListChannelsResponse.attributeTypeMap;
     }
 
     public constructor() {

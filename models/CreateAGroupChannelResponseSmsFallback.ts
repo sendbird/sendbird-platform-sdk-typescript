@@ -12,28 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class SendbirdGroupChannelDisappearingMessage {
-    'messageSurvivalSeconds'?: number;
-    'isTriggeredByMessageRead'?: boolean;
+export class CreateAGroupChannelResponseSmsFallback {
+    'excludeUserIds'?: Array<string>;
+    'waitSeconds'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "messageSurvivalSeconds",
-            "baseName": "message_survival_seconds",
-            "type": "number",
+            "name": "excludeUserIds",
+            "baseName": "exclude_user_ids",
+            "type": "Array<string>",
             "format": ""
         },
         {
-            "name": "isTriggeredByMessageRead",
-            "baseName": "is_triggered_by_message_read",
-            "type": "boolean",
+            "name": "waitSeconds",
+            "baseName": "wait_seconds",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdGroupChannelDisappearingMessage.attributeTypeMap;
+        return CreateAGroupChannelResponseSmsFallback.attributeTypeMap;
     }
 
     public constructor() {

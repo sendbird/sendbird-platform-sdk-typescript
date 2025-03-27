@@ -10,67 +10,58 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdFile } from './SendbirdFile';
-import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
-export class SendbirdParentMessageInfo {
-    'customType'?: string;
-    'message'?: string;
-    'type'?: string;
-    'ts'?: number;
-    'user'?: SendbirdUser;
-    'file'?: SendbirdFile;
-    'files'?: Array<SendbirdFile>;
+export class SendbirdThumbnail {
+    'height'?: number;
+    'plainUrl'?: string;
+    'realHeight'?: number;
+    'realWidth'?: number;
+    'url'?: string;
+    'width'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "customType",
-            "baseName": "custom_type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "message",
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ts",
-            "baseName": "ts",
+            "name": "height",
+            "baseName": "height",
             "type": "number",
             "format": ""
         },
         {
-            "name": "user",
-            "baseName": "user",
-            "type": "SendbirdUser",
+            "name": "plainUrl",
+            "baseName": "plain_url",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "file",
-            "baseName": "file",
-            "type": "SendbirdFile",
+            "name": "realHeight",
+            "baseName": "real_height",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "files",
-            "baseName": "files",
-            "type": "Array<SendbirdFile>",
+            "name": "realWidth",
+            "baseName": "real_width",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "width",
+            "baseName": "width",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdParentMessageInfo.attributeTypeMap;
+        return SendbirdThumbnail.attributeTypeMap;
     }
 
     public constructor() {

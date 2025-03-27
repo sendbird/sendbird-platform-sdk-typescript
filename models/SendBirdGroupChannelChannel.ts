@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -12,7 +12,7 @@
 
 import { HttpFile } from '../http/http';
 
-export class SendBirdGroupChannelChannel {
+export class SendbirdGroupChannelChannel {
     'channelUrl'?: string;
     'name'?: string;
     'coverUrl'?: string;
@@ -53,7 +53,7 @@ export class SendBirdGroupChannelChannel {
             "name": "createdAt",
             "baseName": "created_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "customType",
@@ -75,7 +75,7 @@ export class SendBirdGroupChannelChannel {
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdGroupChannelChannel.attributeTypeMap;
+        return SendbirdGroupChannelChannel.attributeTypeMap;
     }
 
     public constructor() {

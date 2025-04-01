@@ -30,7 +30,6 @@ models/SendbirdMessageResponseMentionedUsersInner.ts
 models/SendbirdMessageResponseMentionedUsersInnerMetadata.ts
 models/SendbirdMessageResponseUser.ts
 models/SendbirdParentMessageInfo.ts
-models/SendbirdRestrictionInfo.ts
 models/SendbirdThumbnail.ts
 models/SendbirdUser.ts
 models/all.ts

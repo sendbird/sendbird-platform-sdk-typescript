@@ -15,6 +15,7 @@ import { CreateAGroupChannelResponseDisappearingMessage } from './CreateAGroupCh
 import { CreateAGroupChannelResponseSmsFallback } from './CreateAGroupChannelResponseSmsFallback';
 import { SendbirdGroupChannelCreatedBy } from './SendbirdGroupChannelCreatedBy';
 import { SendbirdMember } from './SendbirdMember';
+import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
@@ -41,6 +42,7 @@ export class CreateAGroupChannelResponse {
     'isPublic'?: boolean;
     'isSuper'?: boolean;
     'joinedMemberCount'?: number;
+    'lastMessage'?: SendbirdMessageResponse;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
     'members'?: Array<SendbirdMember>;
@@ -184,6 +186,12 @@ export class CreateAGroupChannelResponse {
             "name": "joinedMemberCount",
             "baseName": "joined_member_count",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "lastMessage",
+            "baseName": "last_message",
+            "type": "SendbirdMessageResponse",
             "format": ""
         },
         {

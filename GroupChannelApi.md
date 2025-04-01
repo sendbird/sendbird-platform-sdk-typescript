@@ -24,10 +24,6 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiCreateAGroupChannelRequest = {
-  // string | (Required) 
-  channelType: "channel_type_example",
-  // string | (Required) 
-  channelUrl: "channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
   // CreateAGroupChannelRequest (optional)
@@ -35,7 +31,7 @@ let body:Sendbird.GroupChannelApiCreateAGroupChannelRequest = {
     accessCode: "accessCode_example",
     blockSdkUserChannelJoin: true,
     channelUrl: "channelUrl_example",
-    coverFile: "coverFile_example",
+    coverFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
     coverUrl: "coverUrl_example",
     customType: "customType_example",
     data: "data_example",
@@ -76,6 +72,7 @@ let body:Sendbird.GroupChannelApiCreateAGroupChannelRequest = {
         profileUrl: "profileUrl_example",
         requireAuthForProfileImage: true,
         userId: "userId_example",
+        state: "",
       },
     ],
   },
@@ -92,8 +89,6 @@ apiInstance.createAGroupChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createAGroupChannelRequest** | **CreateAGroupChannelRequest**|  |
- **channelType** | [**string**] | (Required)  | defaults to undefined
- **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -134,10 +129,6 @@ const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.GroupChannelApi(configuration);
 
 let body:Sendbird.GroupChannelApiListChannelsRequest = {
-  // string | (Required) 
-  channelType: "channel_type_example",
-  // string | (Required) 
-  channelUrl: "channel_url_example",
   // string
   apiToken: "{{API_TOKEN}}",
   // string | Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
@@ -236,8 +227,6 @@ apiInstance.listChannels(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelType** | [**string**] | (Required)  | defaults to undefined
- **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | defaults to undefined
  **token** | [**string**] | Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. | (optional) defaults to undefined
  **limit** | [**number**] | Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) | (optional) defaults to undefined

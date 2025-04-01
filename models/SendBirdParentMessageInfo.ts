@@ -48,7 +48,7 @@ export class SendbirdParentMessageInfo {
             "name": "ts",
             "baseName": "ts",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "user",

@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdRestrictionInfo } from './SendbirdRestrictionInfo';
 import { HttpFile } from '../http/http';
 
 export class SendbirdMember {
     'deliveredTs'?: number;
     'doNotDisturb'?: boolean;
+    'friendDiscoveryKey'?: Array<string>;
     'isActive'?: boolean;
     'isMuted'?: boolean;
     'isOnline'?: boolean;
@@ -29,7 +29,6 @@ export class SendbirdMember {
     'profileUrl'?: string;
     'requireAuthForProfileImage'?: boolean;
     'readTs'?: number;
-    'restrictionInfo'?: SendbirdRestrictionInfo;
     'role'?: SendbirdMemberRoleEnum;
     'state'?: SendbirdMemberStateEnum;
     'userId'?: string;
@@ -47,6 +46,12 @@ export class SendbirdMember {
             "name": "doNotDisturb",
             "baseName": "do_not_disturb",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "friendDiscoveryKey",
+            "baseName": "friend_discovery_key",
+            "type": "Array<string>",
             "format": ""
         },
         {
@@ -126,12 +131,6 @@ export class SendbirdMember {
             "baseName": "read_ts",
             "type": "number",
             "format": "int64"
-        },
-        {
-            "name": "restrictionInfo",
-            "baseName": "restriction_info",
-            "type": "SendbirdRestrictionInfo",
-            "format": ""
         },
         {
             "name": "role",

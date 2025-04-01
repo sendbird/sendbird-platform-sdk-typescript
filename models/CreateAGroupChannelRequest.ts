@@ -17,7 +17,10 @@ export class CreateAGroupChannelRequest {
     'accessCode'?: string;
     'blockSdkUserChannelJoin'?: boolean;
     'channelUrl'?: string;
-    'coverFile'?: string;
+    /**
+    * Uploads a file for the channel cover image.
+    */
+    'coverFile'?: HttpFile;
     'coverUrl'?: string;
     'customType'?: string;
     'data'?: string;
@@ -38,7 +41,7 @@ export class CreateAGroupChannelRequest {
     'operatorIds'?: Array<string>;
     'strict'?: boolean;
     'userIds'?: Array<string>;
-    'users'?: Array<SendbirdUser>;
+    'users': Array<SendbirdUser>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -64,8 +67,8 @@ export class CreateAGroupChannelRequest {
         {
             "name": "coverFile",
             "baseName": "cover_file",
-            "type": "string",
-            "format": ""
+            "type": "HttpFile",
+            "format": "binary"
         },
         {
             "name": "coverUrl",

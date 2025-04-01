@@ -20,7 +20,6 @@ import { SendbirdMessageResponseMentionedUsersInner } from '../models/SendbirdMe
 import { SendbirdMessageResponseMentionedUsersInnerMetadata } from '../models/SendbirdMessageResponseMentionedUsersInnerMetadata';
 import { SendbirdMessageResponseUser } from '../models/SendbirdMessageResponseUser';
 import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
-import { SendbirdRestrictionInfo } from '../models/SendbirdRestrictionInfo';
 import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
 import { SendbirdUser } from '../models/SendbirdUser';
 
@@ -28,18 +27,6 @@ import { ObservableGroupChannelApi } from "./ObservableAPI";
 import { GroupChannelApiRequestFactory, GroupChannelApiResponseProcessor} from "../apis/GroupChannelApi";
 
 export interface GroupChannelApiCreateAGroupChannelRequest {
-    /**
-     * (Required) 
-     * @type string
-     * @memberof GroupChannelApicreateAGroupChannel
-     */
-    channelType: string
-    /**
-     * (Required) 
-     * @type string
-     * @memberof GroupChannelApicreateAGroupChannel
-     */
-    channelUrl: string
     /**
      * 
      * @type string
@@ -55,18 +42,6 @@ export interface GroupChannelApiCreateAGroupChannelRequest {
 }
 
 export interface GroupChannelApiListChannelsRequest {
-    /**
-     * (Required) 
-     * @type string
-     * @memberof GroupChannelApilistChannels
-     */
-    channelType: string
-    /**
-     * (Required) 
-     * @type string
-     * @memberof GroupChannelApilistChannels
-     */
-    channelUrl: string
     /**
      * 
      * @type string
@@ -339,8 +314,8 @@ export class ObjectGroupChannelApi {
      * Create a group channel
      * @param param the request object
      */
-    public createAGroupChannel(param: GroupChannelApiCreateAGroupChannelRequest, options?: Configuration): Promise<CreateAGroupChannelResponse> {
-        return this.api.createAGroupChannel(param.channelType, param.channelUrl, param.apiToken, param.createAGroupChannelRequest,  options).toPromise();
+    public createAGroupChannel(param: GroupChannelApiCreateAGroupChannelRequest = {}, options?: Configuration): Promise<CreateAGroupChannelResponse> {
+        return this.api.createAGroupChannel(param.apiToken, param.createAGroupChannelRequest,  options).toPromise();
     }
 
     /**
@@ -349,7 +324,7 @@ export class ObjectGroupChannelApi {
      * @param param the request object
      */
     public listChannels(param: GroupChannelApiListChannelsRequest, options?: Configuration): Promise<GroupChatListChannelsResponse> {
-        return this.api.listChannels(param.channelType, param.channelUrl, param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId,  options).toPromise();
+        return this.api.listChannels(param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId,  options).toPromise();
     }
 
 }

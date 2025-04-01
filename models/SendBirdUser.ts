@@ -32,6 +32,7 @@ export class SendbirdUser {
     'profileUrl'?: string;
     'requireAuthForProfileImage'?: boolean;
     'userId'?: string;
+    'state'?: SendbirdUserStateEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -131,6 +132,12 @@ export class SendbirdUser {
             "baseName": "user_id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "state",
+            "baseName": "state",
+            "type": "SendbirdUserStateEnum",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
@@ -140,4 +147,7 @@ export class SendbirdUser {
     public constructor() {
     }
 }
+
+
+export type SendbirdUserStateEnum = "" | "invited" | "joined" ;
 

@@ -16,7 +16,6 @@ export * from './SendbirdMessageResponseMentionedUsersInner';
 export * from './SendbirdMessageResponseMentionedUsersInnerMetadata';
 export * from './SendbirdMessageResponseUser';
 export * from './SendbirdParentMessageInfo';
-export * from './SendbirdRestrictionInfo';
 export * from './SendbirdThumbnail';
 export * from './SendbirdUser';
 
@@ -38,9 +37,8 @@ import { SendbirdMessageResponseMentionedUsersInner } from './SendbirdMessageRes
 import { SendbirdMessageResponseMentionedUsersInnerMetadata } from './SendbirdMessageResponseMentionedUsersInnerMetadata';
 import { SendbirdMessageResponseUser } from './SendbirdMessageResponseUser';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
-import { SendbirdRestrictionInfo  , SendbirdRestrictionInfoRestrictionTypeEnum   } from './SendbirdRestrictionInfo';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
-import { SendbirdUser } from './SendbirdUser';
+import { SendbirdUser                , SendbirdUserStateEnum   } from './SendbirdUser';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -69,7 +67,7 @@ let enumsMap: Set<string> = new Set<string>([
     "SendbirdGroupChannelMyRoleEnum",
     "SendbirdMemberRoleEnum",
     "SendbirdMemberStateEnum",
-    "SendbirdRestrictionInfoRestrictionTypeEnum",
+    "SendbirdUserStateEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {
@@ -91,7 +89,6 @@ let typeMap: {[index: string]: any} = {
     "SendbirdMessageResponseMentionedUsersInnerMetadata": SendbirdMessageResponseMentionedUsersInnerMetadata,
     "SendbirdMessageResponseUser": SendbirdMessageResponseUser,
     "SendbirdParentMessageInfo": SendbirdParentMessageInfo,
-    "SendbirdRestrictionInfo": SendbirdRestrictionInfo,
     "SendbirdThumbnail": SendbirdThumbnail,
     "SendbirdUser": SendbirdUser,
 }

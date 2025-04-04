@@ -20,7 +20,6 @@ models/GroupChatListChannelsResponse.ts
 models/ObjectSerializer.ts
 models/SendbirdFile.ts
 models/SendbirdGroupChannel.ts
-models/SendbirdGroupChannelChannel.ts
 models/SendbirdGroupChannelCreatedBy.ts
 models/SendbirdGroupChannelDisappearingMessage.ts
 models/SendbirdGroupChannelSmsFallback.ts

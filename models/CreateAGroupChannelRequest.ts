@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
+import { SendbirdUser } from './SendBirdUser';
 
 export class CreateAGroupChannelRequest {
     'accessCode'?: string;

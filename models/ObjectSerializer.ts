@@ -6,7 +6,6 @@ export * from './CreateAGroupChannelResponseSmsFallback';
 export * from './GroupChatListChannelsResponse';
 export * from './SendbirdFile';
 export * from './SendbirdGroupChannel';
-export * from './SendbirdGroupChannelChannel';
 export * from './SendbirdGroupChannelCreatedBy';
 export * from './SendbirdGroupChannelDisappearingMessage';
 export * from './SendbirdGroupChannelSmsFallback';
@@ -26,8 +25,7 @@ import { CreateAGroupChannelResponseDisappearingMessage } from './CreateAGroupCh
 import { CreateAGroupChannelResponseSmsFallback } from './CreateAGroupChannelResponseSmsFallback';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { SendbirdFile } from './SendbirdFile';
-import { SendbirdGroupChannel          , SendbirdGroupChannelHiddenStateEnum                        , SendbirdGroupChannelMyMemberStateEnum  , SendbirdGroupChannelMyMutedStateEnum  , SendbirdGroupChannelMyPushTriggerOptionEnum  , SendbirdGroupChannelMyRoleEnum          } from './SendbirdGroupChannel';
-import { SendbirdGroupChannelChannel } from './SendbirdGroupChannelChannel';
+import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum   , SendbirdGroupChannelPushTriggerOptionEnum         } from './SendbirdGroupChannel';
 import { SendbirdGroupChannelCreatedBy } from './SendbirdGroupChannelCreatedBy';
 import { SendbirdGroupChannelDisappearingMessage } from './SendbirdGroupChannelDisappearingMessage';
 import { SendbirdGroupChannelSmsFallback } from './SendbirdGroupChannelSmsFallback';
@@ -60,11 +58,11 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "SendbirdGroupChannelCountPreferenceEnum",
     "SendbirdGroupChannelHiddenStateEnum",
-    "SendbirdGroupChannelMyMemberStateEnum",
-    "SendbirdGroupChannelMyMutedStateEnum",
-    "SendbirdGroupChannelMyPushTriggerOptionEnum",
+    "SendbirdGroupChannelMemberStateEnum",
     "SendbirdGroupChannelMyRoleEnum",
+    "SendbirdGroupChannelPushTriggerOptionEnum",
     "SendbirdMemberRoleEnum",
     "SendbirdMemberStateEnum",
     "SendbirdUserStateEnum",
@@ -79,7 +77,6 @@ let typeMap: {[index: string]: any} = {
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
     "SendbirdFile": SendbirdFile,
     "SendbirdGroupChannel": SendbirdGroupChannel,
-    "SendbirdGroupChannelChannel": SendbirdGroupChannelChannel,
     "SendbirdGroupChannelCreatedBy": SendbirdGroupChannelCreatedBy,
     "SendbirdGroupChannelDisappearingMessage": SendbirdGroupChannelDisappearingMessage,
     "SendbirdGroupChannelSmsFallback": SendbirdGroupChannelSmsFallback,

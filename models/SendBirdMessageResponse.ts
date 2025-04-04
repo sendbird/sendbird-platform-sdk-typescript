@@ -39,12 +39,13 @@ export class SendbirdMessageResponse {
     'mentionType'?: string;
     'channelUrl'?: string;
     'messageId'?: number;
-    'size'?: number;
     'sortedMetaarray'?: Array<any>;
     'threadInfo'?: any;
     'parentMessageId'?: number;
     'parentMessageInfo'?: SendbirdParentMessageInfo;
     'isReplyToChannel'?: boolean;
+    'messageEvents'?: any;
+    'extendedMessagePayload'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -182,12 +183,6 @@ export class SendbirdMessageResponse {
             "format": ""
         },
         {
-            "name": "size",
-            "baseName": "size",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "sortedMetaarray",
             "baseName": "sorted_metaarray",
             "type": "Array<any>",
@@ -215,6 +210,18 @@ export class SendbirdMessageResponse {
             "name": "isReplyToChannel",
             "baseName": "is_reply_to_channel",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "messageEvents",
+            "baseName": "message_events",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "extendedMessagePayload",
+            "baseName": "extended_message_payload",
+            "type": "any",
             "format": ""
         }    ];
 

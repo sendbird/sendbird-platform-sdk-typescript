@@ -11,7 +11,6 @@ import { CreateAGroupChannelResponseSmsFallback } from '../models/CreateAGroupCh
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { SendbirdFile } from '../models/SendbirdFile';
 import { SendbirdGroupChannel } from '../models/SendbirdGroupChannel';
-import { SendbirdGroupChannelChannel } from '../models/SendbirdGroupChannelChannel';
 import { SendbirdGroupChannelCreatedBy } from '../models/SendbirdGroupChannelCreatedBy';
 import { SendbirdGroupChannelDisappearingMessage } from '../models/SendbirdGroupChannelDisappearingMessage';
 import { SendbirdGroupChannelSmsFallback } from '../models/SendbirdGroupChannelSmsFallback';

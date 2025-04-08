@@ -16,8 +16,8 @@ import {
   SendbirdGroupChannelPushTriggerOptionEnum,
   SendbirdGroupChannelSmsFallback,
   SendbirdMessageResponse,
+  SendbirdUser,
 } from "../../models/ObjectSerializer";
-import { SendbirdUser } from "../../models/SendBirdUser";
 import { ObservableGroupChannelApi } from "../../types/ObservableAPI";
 import { PromiseGroupChannelApi } from "../../types/PromiseAPI";
 

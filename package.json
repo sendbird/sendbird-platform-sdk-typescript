@@ -1,6 +1,6 @@
 {
   "name": "sendbird-platform-sdk-typescript",
-  "version": "1.0.27",
+  "version": "2.0.0",
   "description": "OpenAPI client for sendbird-platform-sdk-typescript",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
@@ -28,7 +28,6 @@
   "dependencies": {
     "@types/node": "*",
     "@types/node-fetch": "^2.5.7",
-    "axios": "^1.8.4",
     "btoa": "^1.2.1",
     "es6-promise": "^4.2.4",
     "form-data": "^2.5.0",

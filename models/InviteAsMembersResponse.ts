@@ -10,16 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
+import { SendbirdGroupChannel } from './SendbirdGroupChannel';
 import { SendbirdMember } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
+import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
-export class SendbirdGroupChannel {
+export class InviteAsMembersResponse {
     'channelUrl': string;
-    'countPreference'?: SendbirdGroupChannelCountPreferenceEnum;
+    'countPreference'?: InviteAsMembersResponseCountPreferenceEnum;
     'coverUrl'?: string;
     'createdAt'?: number;
     'createdBy'?: SendbirdBasicUserInfo;
@@ -30,7 +33,7 @@ export class SendbirdGroupChannel {
     'freeze'?: boolean;
     'hasAiBot'?: boolean;
     'hasBot'?: boolean;
-    'hiddenState'?: SendbirdGroupChannelHiddenStateEnum;
+    'hiddenState'?: InviteAsMembersResponseHiddenStateEnum;
     'ignoreProfanityFilter'?: boolean;
     'invitedAt'?: number;
     'inviter'?: SendbirdBasicUserInfo;
@@ -50,19 +53,20 @@ export class SendbirdGroupChannel {
     'lastMessage'?: SendbirdMessageResponse;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
-    'memberState'?: SendbirdGroupChannelMemberStateEnum;
+    'memberState'?: InviteAsMembersResponseMemberStateEnum;
     'members'?: Array<SendbirdMember>;
     'messageSurvivalSeconds'?: number;
     'metadata'?: any;
-    'myRole'?: SendbirdGroupChannelMyRoleEnum;
+    'myRole'?: InviteAsMembersResponseMyRoleEnum;
     'name'?: string;
-    'pushTriggerOption'?: SendbirdGroupChannelPushTriggerOptionEnum;
+    'pushTriggerOption'?: InviteAsMembersResponsePushTriggerOptionEnum;
     'readReceipt'?: { [key: string]: number; };
     'smsFallback'?: SendbirdSmsFallback;
     'tsMessageOffset'?: number;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
     'userLastRead'?: number;
+    'operators'?: Array<SendbirdUser>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -76,7 +80,7 @@ export class SendbirdGroupChannel {
         {
             "name": "countPreference",
             "baseName": "count_preference",
-            "type": "SendbirdGroupChannelCountPreferenceEnum",
+            "type": "InviteAsMembersResponseCountPreferenceEnum",
             "format": ""
         },
         {
@@ -142,7 +146,7 @@ export class SendbirdGroupChannel {
         {
             "name": "hiddenState",
             "baseName": "hidden_state",
-            "type": "SendbirdGroupChannelHiddenStateEnum",
+            "type": "InviteAsMembersResponseHiddenStateEnum",
             "format": ""
         },
         {
@@ -262,7 +266,7 @@ export class SendbirdGroupChannel {
         {
             "name": "memberState",
             "baseName": "member_state",
-            "type": "SendbirdGroupChannelMemberStateEnum",
+            "type": "InviteAsMembersResponseMemberStateEnum",
             "format": ""
         },
         {
@@ -286,7 +290,7 @@ export class SendbirdGroupChannel {
         {
             "name": "myRole",
             "baseName": "my_role",
-            "type": "SendbirdGroupChannelMyRoleEnum",
+            "type": "InviteAsMembersResponseMyRoleEnum",
             "format": ""
         },
         {
@@ -298,7 +302,7 @@ export class SendbirdGroupChannel {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "SendbirdGroupChannelPushTriggerOptionEnum",
+            "type": "InviteAsMembersResponsePushTriggerOptionEnum",
             "format": ""
         },
         {
@@ -336,10 +340,16 @@ export class SendbirdGroupChannel {
             "baseName": "user_last_read",
             "type": "number",
             "format": "int64"
+        },
+        {
+            "name": "operators",
+            "baseName": "operators",
+            "type": "Array<SendbirdUser>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdGroupChannel.attributeTypeMap;
+        return InviteAsMembersResponse.attributeTypeMap;
     }
 
     public constructor() {
@@ -347,9 +357,9 @@ export class SendbirdGroupChannel {
 }
 
 
-export type SendbirdGroupChannelCountPreferenceEnum = "false" | "all" | "unread_message_count_only" | "unread_mentioned_count_only" ;
-export type SendbirdGroupChannelHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
-export type SendbirdGroupChannelMemberStateEnum = "invited" | "joined" | "none" ;
-export type SendbirdGroupChannelMyRoleEnum = "" | "none" | "operator" ;
-export type SendbirdGroupChannelPushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
+export type InviteAsMembersResponseCountPreferenceEnum = "false" | "all" | "unread_message_count_only" | "unread_mentioned_count_only" ;
+export type InviteAsMembersResponseHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
+export type InviteAsMembersResponseMemberStateEnum = "invited" | "joined" | "none" ;
+export type InviteAsMembersResponseMyRoleEnum = "" | "none" | "operator" ;
+export type InviteAsMembersResponsePushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
 

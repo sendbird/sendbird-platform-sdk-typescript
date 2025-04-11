@@ -11,11 +11,11 @@
  */
 
 import { CreateAGroupChannelResponseChannel } from './CreateAGroupChannelResponseChannel';
-import { CreateAGroupChannelResponseDisappearingMessage } from './CreateAGroupChannelResponseDisappearingMessage';
-import { CreateAGroupChannelResponseSmsFallback } from './CreateAGroupChannelResponseSmsFallback';
-import { SendbirdGroupChannelCreatedBy } from './SendbirdGroupChannelCreatedBy';
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdMember } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
 
@@ -24,10 +24,10 @@ export class CreateAGroupChannelResponse {
     'channelUrl'?: string;
     'coverUrl'?: string;
     'createdAt'?: number;
-    'createdBy'?: SendbirdGroupChannelCreatedBy;
+    'createdBy'?: SendbirdBasicUserInfo;
     'customType'?: string;
     'data'?: string;
-    'disappearingMessage'?: CreateAGroupChannelResponseDisappearingMessage;
+    'disappearingMessage'?: SendbirdDisappearingMessage;
     'freeze'?: boolean;
     'hasAiBot'?: boolean;
     'hasBot'?: boolean;
@@ -49,7 +49,7 @@ export class CreateAGroupChannelResponse {
     'messageSurvivalSeconds'?: number;
     'name'?: string;
     'operators'?: Array<SendbirdUser>;
-    'smsFallback'?: CreateAGroupChannelResponseSmsFallback;
+    'smsFallback'?: SendbirdSmsFallback;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
 
@@ -83,7 +83,7 @@ export class CreateAGroupChannelResponse {
         {
             "name": "createdBy",
             "baseName": "created_by",
-            "type": "SendbirdGroupChannelCreatedBy",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         },
         {
@@ -101,7 +101,7 @@ export class CreateAGroupChannelResponse {
         {
             "name": "disappearingMessage",
             "baseName": "disappearing_message",
-            "type": "CreateAGroupChannelResponseDisappearingMessage",
+            "type": "SendbirdDisappearingMessage",
             "format": ""
         },
         {
@@ -233,7 +233,7 @@ export class CreateAGroupChannelResponse {
         {
             "name": "smsFallback",
             "baseName": "sms_fallback",
-            "type": "CreateAGroupChannelResponseSmsFallback",
+            "type": "SendbirdSmsFallback",
             "format": ""
         },
         {

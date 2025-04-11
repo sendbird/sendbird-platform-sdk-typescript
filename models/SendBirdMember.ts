@@ -16,7 +16,10 @@ export class SendbirdMember {
     'deliveredTs'?: number;
     'doNotDisturb'?: boolean;
     'friendDiscoveryKey'?: Array<string>;
+    'friendName'?: string;
     'isActive'?: boolean;
+    'isBlockedByMe'?: boolean;
+    'isBlockingMe'?: boolean;
     'isMuted'?: boolean;
     'isOnline'?: boolean;
     'lastSeenAt'?: number;
@@ -55,8 +58,26 @@ export class SendbirdMember {
             "format": ""
         },
         {
+            "name": "friendName",
+            "baseName": "friend_name",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "isActive",
             "baseName": "is_active",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isBlockedByMe",
+            "baseName": "is_blocked_by_me",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isBlockingMe",
+            "baseName": "is_blocking_me",
             "type": "boolean",
             "format": ""
         },

@@ -3,25 +3,34 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
 import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
 import { CreateAGroupChannelResponseChannel } from '../models/CreateAGroupChannelResponseChannel';
-import { CreateAGroupChannelResponseDisappearingMessage } from '../models/CreateAGroupChannelResponseDisappearingMessage';
-import { CreateAGroupChannelResponseSmsFallback } from '../models/CreateAGroupChannelResponseSmsFallback';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
+import { HideAChannelRequest } from '../models/HideAChannelRequest';
+import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
+import { InviteAsMembersResponse } from '../models/InviteAsMembersResponse';
+import { InviteAsMembersResponseAllOf } from '../models/InviteAsMembersResponseAllOf';
+import { JoinAChannelRequest } from '../models/JoinAChannelRequest';
+import { SendbirdBasicUserInfo } from '../models/SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from '../models/SendbirdDisappearingMessage';
 import { SendbirdFile } from '../models/SendbirdFile';
 import { SendbirdGroupChannel } from '../models/SendbirdGroupChannel';
-import { SendbirdGroupChannelCreatedBy } from '../models/SendbirdGroupChannelCreatedBy';
-import { SendbirdGroupChannelDisappearingMessage } from '../models/SendbirdGroupChannelDisappearingMessage';
-import { SendbirdGroupChannelSmsFallback } from '../models/SendbirdGroupChannelSmsFallback';
+import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
+import { SendbirdGroupChannelDetailChannel } from '../models/SendbirdGroupChannelDetailChannel';
 import { SendbirdMember } from '../models/SendbirdMember';
 import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
 import { SendbirdMessageResponseMentionedUsersInner } from '../models/SendbirdMessageResponseMentionedUsersInner';
 import { SendbirdMessageResponseMentionedUsersInnerMetadata } from '../models/SendbirdMessageResponseMentionedUsersInnerMetadata';
 import { SendbirdMessageResponseUser } from '../models/SendbirdMessageResponseUser';
 import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
+import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
 import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
 import { SendbirdUser } from '../models/SendbirdUser';
+import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
+import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
+import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 
 import { GroupChannelApiRequestFactory, GroupChannelApiResponseProcessor} from "../apis/GroupChannelApi";
 export class ObservableGroupChannelApi {
@@ -37,6 +46,32 @@ export class ObservableGroupChannelApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new GroupChannelApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new GroupChannelApiResponseProcessor();
+    }
+
+    /**
+     * ## Accept an invitation  Accepts an invitation from a group channel for a user to join. A single user may join up to 2,000 group channels, and any invitation to a user who is at capacity will be automatically canceled. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: This action is only available when the `auto_accept` property of an application is set to **false**. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) action, or the [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference) action.      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation)
+     * Accept an invitation
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param acceptAnInvitationRequest 
+     */
+    public acceptAnInvitation(channelUrl: string, apiToken?: string, acceptAnInvitationRequest?: AcceptAnInvitationRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.acceptAnInvitation(channelUrl, apiToken, acceptAnInvitationRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.acceptAnInvitation(rsp)));
+            }));
     }
 
     /**
@@ -61,6 +96,138 @@ export class ObservableGroupChannelApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a group channel  You can delete a group channel or a Supergroup channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel)
+     * Delete a group channel
+     * @param channelUrl 
+     * @param apiToken 
+     */
+    public deleteAGroupChannel(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAGroupChannel(channelUrl, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Get a group channel  This action retrieves information about a specific [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use the optional query parameters to determine whether to include delivery receipt, read receipt, or member information in the response.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-a-group-channel#1-get-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve.
+     * Get a group channel
+     * @param channelUrl 
+     * @param showDeliveryReceipt 
+     * @param showReadReceipt 
+     * @param showMember 
+     * @param memberActiveMode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all)
+     * @param apiToken 
+     */
+    public getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', apiToken?: string, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.getAGroupChannel(channelUrl, showDeliveryReceipt, showReadReceipt, showMember, memberActiveMode, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Hide a channel  This action allows you to hide a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) from a user's channel list. Hiding a channel gives users the ability to archive channels so that they can focus on channels that need the most attention.  With this API, you can allow users to hide a channel from themselves or from all channel members. You can also determine whether to have the channel remain hidden when a new message is sent to the channel. Note that only group channels can be hidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel)
+     * Hide a channel
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param hideAChannelRequest 
+     */
+    public hideAChannel(channelUrl: string, apiToken?: string, hideAChannelRequest?: HideAChannelRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.hideAChannel(channelUrl, apiToken, hideAChannelRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.hideAChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Invite as members  Invites one or more users as members to a group channel. Users can join a group channel immediately after receiving an invitation, without having to accept it. To give users an option to accept or decline an invitation, see [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) or [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference). See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: By default, [blocked users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users) are included when sending invitations. If you wish to exclude blocked users, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members)
+     * Invite as members
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param inviteAsMembersRequest 
+     */
+    public inviteAsMembers(channelUrl: string, apiToken?: string, inviteAsMembersRequest?: InviteAsMembersRequest, _options?: Configuration): Observable<InviteAsMembersResponse> {
+        const requestContextPromise = this.requestFactory.inviteAsMembers(channelUrl, apiToken, inviteAsMembersRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.inviteAsMembers(rsp)));
+            }));
+    }
+
+    /**
+     * ## Join a channel  This API allows a user to join a [public](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-group-channel-types) group channel. Users can only join public group channels where the `is_public` property is set to `true` using this API. A single user can join up to 2,000 group channels, and a user who reaches the capacity can’t join a new channel. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel)
+     * Join a channel
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param joinAChannelRequest 
+     */
+    public joinAChannel(channelUrl: string, apiToken?: string, joinAChannelRequest?: JoinAChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.joinAChannel(channelUrl, apiToken, joinAChannelRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.joinAChannel(rsp)));
             }));
     }
 
@@ -127,6 +294,111 @@ export class ObservableGroupChannelApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listChannels(rsp)));
+            }));
+    }
+
+    /**
+     * ## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  If you're looking for an easy way to show typing indicators on your app, check out Sendbird UIKit for a ready-to-use UI feature that can be customized to fit your needs.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators#1-start-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
+     * Start typing indicators
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param startTypingIndicatorsRequest 
+     */
+    public startTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.startTypingIndicators(channelUrl, apiToken, startTypingIndicatorsRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.startTypingIndicators(rsp)));
+            }));
+    }
+
+    /**
+     * ## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators#1-stop-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
+     * Stop typing indicators
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param stopTypingIndicatorsRequest 
+     */
+    public stopTypingIndicators(channelUrl: string, apiToken?: string, stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.stopTypingIndicators(channelUrl, apiToken, stopTypingIndicatorsRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.stopTypingIndicators(rsp)));
+            }));
+    }
+
+    /**
+     * ## Unhide a channel  This action lets a hidden [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) reappear on the channel list of a specific user or every member in the group channel. Hiding or unhiding a channel lets users organize their channel list based on those that require the most attention. Note that only group channels can be hidden or unhidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to unhide or unarchive.
+     * Unhide a channel
+     * @param channelUrl (Required) 
+     * @param userId (Required) 
+     * @param shouldUnhideAll 
+     * @param apiToken 
+     */
+    public unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.unhideAChannel(channelUrl, userId, shouldUnhideAll, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unhideAChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update a group channel  You can update information about a group channel or a Supergroup channel using this API. You can't make any changes to the members of a channel with this API. To change members, see [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) instead. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-a-group-channel#1-update-a-group-channel
+     * Update a group channel
+     * @param channelUrl 
+     * @param apiToken 
+     * @param updateAGroupChannelRequest 
+     */
+    public updateAGroupChannel(channelUrl: string, apiToken?: string, updateAGroupChannelRequest?: UpdateAGroupChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.updateAGroupChannel(channelUrl, apiToken, updateAGroupChannelRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAGroupChannel(rsp)));
             }));
     }
 

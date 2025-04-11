@@ -1,42 +1,60 @@
+export * from './AcceptAnInvitationRequest';
 export * from './CreateAGroupChannelRequest';
 export * from './CreateAGroupChannelResponse';
 export * from './CreateAGroupChannelResponseChannel';
-export * from './CreateAGroupChannelResponseDisappearingMessage';
-export * from './CreateAGroupChannelResponseSmsFallback';
 export * from './GroupChatListChannelsResponse';
+export * from './HideAChannelRequest';
+export * from './InviteAsMembersRequest';
+export * from './InviteAsMembersResponse';
+export * from './InviteAsMembersResponseAllOf';
+export * from './JoinAChannelRequest';
+export * from './SendbirdBasicUserInfo';
+export * from './SendbirdDisappearingMessage';
 export * from './SendbirdFile';
 export * from './SendbirdGroupChannel';
-export * from './SendbirdGroupChannelCreatedBy';
-export * from './SendbirdGroupChannelDisappearingMessage';
-export * from './SendbirdGroupChannelSmsFallback';
+export * from './SendbirdGroupChannelDetail';
+export * from './SendbirdGroupChannelDetailChannel';
 export * from './SendbirdMember';
 export * from './SendbirdMessageResponse';
 export * from './SendbirdMessageResponseMentionedUsersInner';
 export * from './SendbirdMessageResponseMentionedUsersInnerMetadata';
 export * from './SendbirdMessageResponseUser';
 export * from './SendbirdParentMessageInfo';
+export * from './SendbirdSmsFallback';
 export * from './SendbirdThumbnail';
 export * from './SendbirdUser';
+export * from './StartTypingIndicatorsRequest';
+export * from './StopTypingIndicatorsRequest';
+export * from './UpdateAGroupChannelRequest';
 
+import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
 import { CreateAGroupChannelResponse } from './CreateAGroupChannelResponse';
 import { CreateAGroupChannelResponseChannel } from './CreateAGroupChannelResponseChannel';
-import { CreateAGroupChannelResponseDisappearingMessage } from './CreateAGroupChannelResponseDisappearingMessage';
-import { CreateAGroupChannelResponseSmsFallback } from './CreateAGroupChannelResponseSmsFallback';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
+import { HideAChannelRequest } from './HideAChannelRequest';
+import { InviteAsMembersRequest } from './InviteAsMembersRequest';
+import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum   , InviteAsMembersResponsePushTriggerOptionEnum          } from './InviteAsMembersResponse';
+import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
+import { JoinAChannelRequest } from './JoinAChannelRequest';
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdFile } from './SendbirdFile';
 import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum   , SendbirdGroupChannelPushTriggerOptionEnum         } from './SendbirdGroupChannel';
-import { SendbirdGroupChannelCreatedBy } from './SendbirdGroupChannelCreatedBy';
-import { SendbirdGroupChannelDisappearingMessage } from './SendbirdGroupChannelDisappearingMessage';
-import { SendbirdGroupChannelSmsFallback } from './SendbirdGroupChannelSmsFallback';
-import { SendbirdMember                , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
+import { SendbirdGroupChannelDetail } from './SendbirdGroupChannelDetail';
+import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
+import { SendbirdMember                   , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdMessageResponseMentionedUsersInner } from './SendbirdMessageResponseMentionedUsersInner';
 import { SendbirdMessageResponseMentionedUsersInnerMetadata } from './SendbirdMessageResponseMentionedUsersInnerMetadata';
 import { SendbirdMessageResponseUser } from './SendbirdMessageResponseUser';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
 import { SendbirdUser                , SendbirdUserStateEnum   } from './SendbirdUser';
+import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
+import { StopTypingIndicatorsRequest } from './StopTypingIndicatorsRequest';
+import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -58,6 +76,11 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "InviteAsMembersResponseCountPreferenceEnum",
+    "InviteAsMembersResponseHiddenStateEnum",
+    "InviteAsMembersResponseMemberStateEnum",
+    "InviteAsMembersResponseMyRoleEnum",
+    "InviteAsMembersResponsePushTriggerOptionEnum",
     "SendbirdGroupChannelCountPreferenceEnum",
     "SendbirdGroupChannelHiddenStateEnum",
     "SendbirdGroupChannelMemberStateEnum",
@@ -69,25 +92,34 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "AcceptAnInvitationRequest": AcceptAnInvitationRequest,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
     "CreateAGroupChannelResponse": CreateAGroupChannelResponse,
     "CreateAGroupChannelResponseChannel": CreateAGroupChannelResponseChannel,
-    "CreateAGroupChannelResponseDisappearingMessage": CreateAGroupChannelResponseDisappearingMessage,
-    "CreateAGroupChannelResponseSmsFallback": CreateAGroupChannelResponseSmsFallback,
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
+    "HideAChannelRequest": HideAChannelRequest,
+    "InviteAsMembersRequest": InviteAsMembersRequest,
+    "InviteAsMembersResponse": InviteAsMembersResponse,
+    "InviteAsMembersResponseAllOf": InviteAsMembersResponseAllOf,
+    "JoinAChannelRequest": JoinAChannelRequest,
+    "SendbirdBasicUserInfo": SendbirdBasicUserInfo,
+    "SendbirdDisappearingMessage": SendbirdDisappearingMessage,
     "SendbirdFile": SendbirdFile,
     "SendbirdGroupChannel": SendbirdGroupChannel,
-    "SendbirdGroupChannelCreatedBy": SendbirdGroupChannelCreatedBy,
-    "SendbirdGroupChannelDisappearingMessage": SendbirdGroupChannelDisappearingMessage,
-    "SendbirdGroupChannelSmsFallback": SendbirdGroupChannelSmsFallback,
+    "SendbirdGroupChannelDetail": SendbirdGroupChannelDetail,
+    "SendbirdGroupChannelDetailChannel": SendbirdGroupChannelDetailChannel,
     "SendbirdMember": SendbirdMember,
     "SendbirdMessageResponse": SendbirdMessageResponse,
     "SendbirdMessageResponseMentionedUsersInner": SendbirdMessageResponseMentionedUsersInner,
     "SendbirdMessageResponseMentionedUsersInnerMetadata": SendbirdMessageResponseMentionedUsersInnerMetadata,
     "SendbirdMessageResponseUser": SendbirdMessageResponseUser,
     "SendbirdParentMessageInfo": SendbirdParentMessageInfo,
+    "SendbirdSmsFallback": SendbirdSmsFallback,
     "SendbirdThumbnail": SendbirdThumbnail,
     "SendbirdUser": SendbirdUser,
+    "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
+    "StopTypingIndicatorsRequest": StopTypingIndicatorsRequest,
+    "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
 }
 
 export class ObjectSerializer {

@@ -4,9 +4,82 @@ All URIs are relative to *https://api-APP_ID.sendbird.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**acceptAnInvitation**](GroupChannelApi.md#acceptAnInvitation) | **PUT** /v3/group_channels/{channel_url}/accept | Accept an invitation
 [**createAGroupChannel**](GroupChannelApi.md#createAGroupChannel) | **POST** /v3/group_channels | Create a group channel
+[**deleteAGroupChannel**](GroupChannelApi.md#deleteAGroupChannel) | **DELETE** /v3/group_channels/{channel_url} | Delete a group channel
+[**getAGroupChannel**](GroupChannelApi.md#getAGroupChannel) | **GET** /v3/group_channels/{channel_url} | Get a group channel
+[**hideAChannel**](GroupChannelApi.md#hideAChannel) | **PUT** /v3/group_channels/{channel_url}/hide | Hide a channel
+[**inviteAsMembers**](GroupChannelApi.md#inviteAsMembers) | **POST** /v3/group_channels/{channel_url}/invite | Invite as members
+[**joinAChannel**](GroupChannelApi.md#joinAChannel) | **PUT** /v3/group_channels/{channel_url}/join | Join a channel
 [**listChannels**](GroupChannelApi.md#listChannels) | **GET** /v3/group_channels | List channels
+[**startTypingIndicators**](GroupChannelApi.md#startTypingIndicators) | **POST** /v3/group_channels/{channel_url}/typing | Start typing indicators
+[**stopTypingIndicators**](GroupChannelApi.md#stopTypingIndicators) | **DELETE** /v3/group_channels/{channel_url}/typing | Stop typing indicators
+[**unhideAChannel**](GroupChannelApi.md#unhideAChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide a channel
+[**updateAGroupChannel**](GroupChannelApi.md#updateAGroupChannel) | **PUT** /v3/group_channels/{channel_url} | Update a group channel
 
+
+# **acceptAnInvitation**
+> SendbirdGroupChannelDetail acceptAnInvitation()
+
+## Accept an invitation  Accepts an invitation from a group channel for a user to join. A single user may join up to 2,000 group channels, and any invitation to a user who is at capacity will be automatically canceled. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: This action is only available when the `auto_accept` property of an application is set to **false**. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) action, or the [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference) action.      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiAcceptAnInvitationRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // AcceptAnInvitationRequest (optional)
+  acceptAnInvitationRequest: {
+    accessCode: "accessCode_example",
+    userId: "userId_example",
+  },
+};
+
+apiInstance.acceptAnInvitation(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **acceptAnInvitationRequest** | **AcceptAnInvitationRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**SendbirdGroupChannelDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **createAGroupChannel**
 > CreateAGroupChannelResponse createAGroupChannel()
@@ -110,6 +183,327 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteAGroupChannel**
+> any deleteAGroupChannel()
+
+## Delete a group channel  You can delete a group channel or a Supergroup channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiDeleteAGroupChannelRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.deleteAGroupChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getAGroupChannel**
+> SendbirdGroupChannelDetail getAGroupChannel()
+
+## Get a group channel  This action retrieves information about a specific [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use the optional query parameters to determine whether to include delivery receipt, read receipt, or member information in the response.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-a-group-channel#1-get-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiGetAGroupChannelRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // boolean (optional)
+  showDeliveryReceipt: true,
+  // boolean (optional)
+  showReadReceipt: true,
+  // boolean (optional)
+  showMember: true,
+  // 'all' | 'activated' | 'deactivated' | Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+  memberActiveMode: "all",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.getAGroupChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
+ **showReadReceipt** | [**boolean**] |  | (optional) defaults to undefined
+ **showMember** | [**boolean**] |  | (optional) defaults to undefined
+ **memberActiveMode** | [**&#39;all&#39; | &#39;activated&#39; | &#39;deactivated&#39;**]**Array<&#39;all&#39; &#124; &#39;activated&#39; &#124; &#39;deactivated&#39;>** | Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**SendbirdGroupChannelDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **hideAChannel**
+> any hideAChannel()
+
+## Hide a channel  This action allows you to hide a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) from a user's channel list. Hiding a channel gives users the ability to archive channels so that they can focus on channels that need the most attention.  With this API, you can allow users to hide a channel from themselves or from all channel members. You can also determine whether to have the channel remain hidden when a new message is sent to the channel. Note that only group channels can be hidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiHideAChannelRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // HideAChannelRequest (optional)
+  hideAChannelRequest: {
+    allowAutoUnhide: true,
+    hidePreviousMessages: true,
+    shouldHideAll: true,
+    userId: "userId_example",
+  },
+};
+
+apiInstance.hideAChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hideAChannelRequest** | **HideAChannelRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **inviteAsMembers**
+> InviteAsMembersResponse inviteAsMembers()
+
+## Invite as members  Invites one or more users as members to a group channel. Users can join a group channel immediately after receiving an invitation, without having to accept it. To give users an option to accept or decline an invitation, see [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) or [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference). See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: By default, [blocked users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users) are included when sending invitations. If you wish to exclude blocked users, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiInviteAsMembersRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // InviteAsMembersRequest (optional)
+  inviteAsMembersRequest: {
+    hiddenStatus: {},
+    invitationStatus: {},
+    inviterId: "inviterId_example",
+    userIds: [
+      "userIds_example",
+    ],
+  },
+};
+
+apiInstance.inviteAsMembers(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inviteAsMembersRequest** | **InviteAsMembersRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**InviteAsMembersResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **joinAChannel**
+> SendbirdGroupChannelDetail joinAChannel()
+
+## Join a channel  This API allows a user to join a [public](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-group-channel-types) group channel. Users can only join public group channels where the `is_public` property is set to `true` using this API. A single user can join up to 2,000 group channels, and a user who reaches the capacity can’t join a new channel. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiJoinAChannelRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // JoinAChannelRequest (optional)
+  joinAChannelRequest: {
+    userId: "userId_example",
+    accessCode: "accessCode_example",
+  },
+};
+
+apiInstance.joinAChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **joinAChannelRequest** | **JoinAChannelRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**SendbirdGroupChannelDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Join a channel |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -283,6 +677,270 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **startTypingIndicators**
+> any startTypingIndicators()
+
+## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  If you're looking for an easy way to show typing indicators on your app, check out Sendbird UIKit for a ready-to-use UI feature that can be customized to fit your needs.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators#1-start-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiStartTypingIndicatorsRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // StartTypingIndicatorsRequest (optional)
+  startTypingIndicatorsRequest: {
+    userIds: [
+      "userIds_example",
+    ],
+  },
+};
+
+apiInstance.startTypingIndicators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startTypingIndicatorsRequest** | **StartTypingIndicatorsRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **stopTypingIndicators**
+> any stopTypingIndicators()
+
+## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators#1-stop-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiStopTypingIndicatorsRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // StopTypingIndicatorsRequest (optional)
+  stopTypingIndicatorsRequest: {
+    userIds: [
+      "userIds_example",
+    ],
+  },
+};
+
+apiInstance.stopTypingIndicators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stopTypingIndicatorsRequest** | **StopTypingIndicatorsRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **unhideAChannel**
+> any unhideAChannel()
+
+## Unhide a channel  This action lets a hidden [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) reappear on the channel list of a specific user or every member in the group channel. Hiding or unhiding a channel lets users organize their channel list based on those that require the most attention. Note that only group channels can be hidden or unhidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to unhide or unarchive.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiUnhideAChannelRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string | (Required)  (optional)
+  userId: "user_id_example",
+  // boolean (optional)
+  shouldUnhideAll: true,
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.unhideAChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **userId** | [**string**] | (Required)  | (optional) defaults to undefined
+ **shouldUnhideAll** | [**boolean**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateAGroupChannel**
+> SendbirdGroupChannelDetail updateAGroupChannel()
+
+## Update a group channel  You can update information about a group channel or a Supergroup channel using this API. You can't make any changes to the members of a channel with this API. To change members, see [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) instead. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-a-group-channel#1-update-a-group-channel
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiUpdateAGroupChannelRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // UpdateAGroupChannelRequest (optional)
+  updateAGroupChannelRequest: {
+    accessCode: "accessCode_example",
+    coverFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
+    coverUrl: "coverUrl_example",
+    customType: "customType_example",
+    data: "data_example",
+    isDistinct: true,
+    isPublic: true,
+    isSuper: true,
+    name: "name_example",
+    operatorIds: [
+      "operatorIds_example",
+    ],
+  },
+};
+
+apiInstance.updateAGroupChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateAGroupChannelRequest** | **UpdateAGroupChannelRequest**|  |
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**SendbirdGroupChannelDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

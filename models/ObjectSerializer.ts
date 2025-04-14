@@ -1,11 +1,20 @@
 export * from './AcceptAnInvitationRequest';
+export * from './CheckIfMemberResponse';
 export * from './CreateAGroupChannelRequest';
+export * from './FreezeAGroupChannelRequest';
+export * from './GroupChannelListMembersResponse';
 export * from './GroupChatListChannelsResponse';
 export * from './HideAChannelRequest';
 export * from './InviteAsMembersRequest';
 export * from './InviteAsMembersResponse';
 export * from './InviteAsMembersResponseAllOf';
 export * from './JoinAChannelRequest';
+export * from './LeaveAChannelRequest';
+export * from './ListOperatorsResponse';
+export * from './MarkAllMessagesAsReadRequest';
+export * from './RegisterOperatorsToAGroupChannelRequest';
+export * from './ResetChatHistoryRequest';
+export * from './ResetChatHistoryResponse';
 export * from './SendbirdBasicUserInfo';
 export * from './SendbirdDisappearingMessage';
 export * from './SendbirdFile';
@@ -24,15 +33,26 @@ export * from './SendbirdUser';
 export * from './StartTypingIndicatorsRequest';
 export * from './StopTypingIndicatorsRequest';
 export * from './UpdateAGroupChannelRequest';
+export * from './ViewNumberOfDailyActiveUsersResponse';
+export * from './ViewNumberOfMonthlyActiveUsersResponse';
 
 import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
+import { CheckIfMemberResponse , CheckIfMemberResponseStateEnum   } from './CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
+import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
+import { GroupChannelListMembersResponse } from './GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { HideAChannelRequest } from './HideAChannelRequest';
 import { InviteAsMembersRequest } from './InviteAsMembersRequest';
 import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum   , InviteAsMembersResponsePushTriggerOptionEnum          } from './InviteAsMembersResponse';
 import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { JoinAChannelRequest } from './JoinAChannelRequest';
+import { LeaveAChannelRequest } from './LeaveAChannelRequest';
+import { ListOperatorsResponse } from './ListOperatorsResponse';
+import { MarkAllMessagesAsReadRequest } from './MarkAllMessagesAsReadRequest';
+import { RegisterOperatorsToAGroupChannelRequest } from './RegisterOperatorsToAGroupChannelRequest';
+import { ResetChatHistoryRequest } from './ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from './ResetChatHistoryResponse';
 import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdFile } from './SendbirdFile';
@@ -51,6 +71,8 @@ import { SendbirdUser                , SendbirdUserStateEnum   } from './Sendbir
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
 import { StopTypingIndicatorsRequest } from './StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
+import { ViewNumberOfDailyActiveUsersResponse } from './ViewNumberOfDailyActiveUsersResponse';
+import { ViewNumberOfMonthlyActiveUsersResponse } from './ViewNumberOfMonthlyActiveUsersResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -72,6 +94,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "CheckIfMemberResponseStateEnum",
     "InviteAsMembersResponseCountPreferenceEnum",
     "InviteAsMembersResponseHiddenStateEnum",
     "InviteAsMembersResponseMemberStateEnum",
@@ -89,13 +112,22 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "AcceptAnInvitationRequest": AcceptAnInvitationRequest,
+    "CheckIfMemberResponse": CheckIfMemberResponse,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
+    "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
+    "GroupChannelListMembersResponse": GroupChannelListMembersResponse,
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
     "HideAChannelRequest": HideAChannelRequest,
     "InviteAsMembersRequest": InviteAsMembersRequest,
     "InviteAsMembersResponse": InviteAsMembersResponse,
     "InviteAsMembersResponseAllOf": InviteAsMembersResponseAllOf,
     "JoinAChannelRequest": JoinAChannelRequest,
+    "LeaveAChannelRequest": LeaveAChannelRequest,
+    "ListOperatorsResponse": ListOperatorsResponse,
+    "MarkAllMessagesAsReadRequest": MarkAllMessagesAsReadRequest,
+    "RegisterOperatorsToAGroupChannelRequest": RegisterOperatorsToAGroupChannelRequest,
+    "ResetChatHistoryRequest": ResetChatHistoryRequest,
+    "ResetChatHistoryResponse": ResetChatHistoryResponse,
     "SendbirdBasicUserInfo": SendbirdBasicUserInfo,
     "SendbirdDisappearingMessage": SendbirdDisappearingMessage,
     "SendbirdFile": SendbirdFile,
@@ -114,6 +146,8 @@ let typeMap: {[index: string]: any} = {
     "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
     "StopTypingIndicatorsRequest": StopTypingIndicatorsRequest,
     "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
+    "ViewNumberOfDailyActiveUsersResponse": ViewNumberOfDailyActiveUsersResponse,
+    "ViewNumberOfMonthlyActiveUsersResponse": ViewNumberOfMonthlyActiveUsersResponse,
 }
 
 export class ObjectSerializer {

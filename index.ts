@@ -8,5 +8,5 @@ export * from "./servers";
 export { RequiredError } from "./apis/baseapi";
 
 export { PromiseMiddleware as Middleware } from './middleware';
-export { PromiseGroupChannelApi as GroupChannelApi } from './types/PromiseAPI';
+export { PromiseGroupChannelApi as GroupChannelApi,  PromiseModerationApi as ModerationApi,  PromiseStatisticsApi as StatisticsApi,  PromiseUserApi as UserApi } from './types/PromiseAPI';
 

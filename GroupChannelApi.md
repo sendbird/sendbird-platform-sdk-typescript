@@ -5,13 +5,20 @@ All URIs are relative to *https://api-APP_ID.sendbird.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**acceptAnInvitation**](GroupChannelApi.md#acceptAnInvitation) | **PUT** /v3/group_channels/{channel_url}/accept | Accept an invitation
+[**cancelTheRegistrationOfOperators**](GroupChannelApi.md#cancelTheRegistrationOfOperators) | **DELETE** /v3/group_channels/{channel_url}/operators | Cancel the registration of operators
+[**checkIfMember**](GroupChannelApi.md#checkIfMember) | **GET** /v3/group_channels/{channel_url}/members/{user_id} | Check if member
 [**createAGroupChannel**](GroupChannelApi.md#createAGroupChannel) | **POST** /v3/group_channels | Create a group channel
 [**deleteAGroupChannel**](GroupChannelApi.md#deleteAGroupChannel) | **DELETE** /v3/group_channels/{channel_url} | Delete a group channel
 [**getAGroupChannel**](GroupChannelApi.md#getAGroupChannel) | **GET** /v3/group_channels/{channel_url} | Get a group channel
 [**hideAChannel**](GroupChannelApi.md#hideAChannel) | **PUT** /v3/group_channels/{channel_url}/hide | Hide a channel
 [**inviteAsMembers**](GroupChannelApi.md#inviteAsMembers) | **POST** /v3/group_channels/{channel_url}/invite | Invite as members
 [**joinAChannel**](GroupChannelApi.md#joinAChannel) | **PUT** /v3/group_channels/{channel_url}/join | Join a channel
+[**leaveAChannel**](GroupChannelApi.md#leaveAChannel) | **PUT** /v3/group_channels/{channel_url}/leave | Leave a channel
 [**listChannels**](GroupChannelApi.md#listChannels) | **GET** /v3/group_channels | List channels
+[**listMembers**](GroupChannelApi.md#listMembers) | **GET** /v3/group_channels/{channel_url}/members | List members
+[**listOperators**](GroupChannelApi.md#listOperators) | **GET** /v3/group_channels/{channel_url}/operators | List operators
+[**registerOperatorsToAGroupChannel**](GroupChannelApi.md#registerOperatorsToAGroupChannel) | **POST** /v3/group_channels/{channel_url}/operators | Register operators to a group channel
+[**resetChatHistory**](GroupChannelApi.md#resetChatHistory) | **PUT** /v3/group_channels/{channel_url}/reset_user_history | Reset chat history
 [**startTypingIndicators**](GroupChannelApi.md#startTypingIndicators) | **POST** /v3/group_channels/{channel_url}/typing | Start typing indicators
 [**stopTypingIndicators**](GroupChannelApi.md#stopTypingIndicators) | **DELETE** /v3/group_channels/{channel_url}/typing | Stop typing indicators
 [**unhideAChannel**](GroupChannelApi.md#unhideAChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide a channel
@@ -71,6 +78,129 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **cancelTheRegistrationOfOperators**
+> any cancelTheRegistrationOfOperators()
+
+## Unregister operators from a group channel  You can unregister operators in a group channel but keep them in the channel as members using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-a-group-channel#1-unregister-operators-from-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiCancelTheRegistrationOfOperatorsRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids=urlencoded_id_1,urlencoded_id_2.
+  operatorIds: "operator_ids_example",
+  // string (optional)
+  deleteAll: "delete_all_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.cancelTheRegistrationOfOperators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **operatorIds** | [**string**] | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. | defaults to undefined
+ **deleteAll** | [**string**] |  | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **checkIfMember**
+> CheckIfMemberResponse checkIfMember()
+
+## Check if user is a member  Checks if a user is a member of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiCheckIfMemberRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string | (Required) 
+  userId: "user_id_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.checkIfMember(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **userId** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**CheckIfMemberResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -507,6 +637,71 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **leaveAChannel**
+> any leaveAChannel()
+
+## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiLeaveAChannelRequest = {
+  // string
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // LeaveAChannelRequest (optional)
+  leaveAChannelRequest: {
+    userIds: [
+      "userIds_example",
+    ],
+    shouldLeaveAll: true,
+  },
+};
+
+apiInstance.leaveAChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **leaveAChannelRequest** | **LeaveAChannelRequest**|  |
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **listChannels**
 > GroupChatListChannelsResponse listChannels()
 
@@ -677,6 +872,292 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **listMembers**
+> GroupChannelListMembersResponse listMembers()
+
+## List members  Retrieves a list of members of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of members of.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiListMembersRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  token: "token_example",
+  // number | Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+  limit: 1,
+  // string | Specifies the unique ID of a user. If `user_id` is provided, the response will include two additional boolean properties about each user in the members list. - `is_blocking_me`: Indicates whether the listed user is blocking the user specified in the user_id parameter. - `is_blocked_by_me`: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
+  userId: "user_id_example",
+  // boolean (optional)
+  showDeliveryReceipt: true,
+  // boolean (optional)
+  showReadReceipt: true,
+  // boolean (optional)
+  showMemberIsMuted: true,
+  // 'member_nickname_alphabetical' | 'operator_then_member_alphabetical' | Specifies the method to sort a list of results. Acceptable values are the following: - `member_nickname_alphabetical` (default): sorts by the member nicknames in alphabetical order. - `operator_then_member_alphabetical`: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+  order: "member_nickname_alphabetical",
+  // 'all' | 'operator' | 'nonoperator' | Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - `all` (default): no filter is applied to the list. - `operator`: only channel operators are retrieved. - `nonoperator`: all channel members, except channel operators, are retrieved. (optional)
+  operatorFilter: "all",
+  // 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend' | Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are `invited_only`, `joined_only`, `invited_by_friend`, `invited_by_non_friend`, and `all`. (Default: `all`) (optional)
+  memberStateFilter: "all",
+  // 'all' | 'muted' | 'unmuted' | Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are `all`, `muted`, and `unmuted`. (Default: `all`) (optional)
+  mutedMemberFilter: "all",
+  // 'activated' | 'deactivated' | Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are `all`, `activated`, and `deactivated`. (default: `activated`) (optional)
+  memberActiveModeFilter: "activated",
+  // string | Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+  nicknameStartswith: "nickname_startswith_example",
+  // 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false' | Determines whether to include information about the push preference of each member, such as `push_enabled`, `push_trigger_option`, and `do_not_disturb`. (Default: `false`) (optional)
+  includePushPreference: "push_enabled",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.listMembers(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **token** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] | Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) | (optional) defaults to undefined
+ **userId** | [**string**] | Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. | (optional) defaults to undefined
+ **showDeliveryReceipt** | [**boolean**] |  | (optional) defaults to undefined
+ **showReadReceipt** | [**boolean**] |  | (optional) defaults to undefined
+ **showMemberIsMuted** | [**boolean**] |  | (optional) defaults to undefined
+ **order** | [**&#39;member_nickname_alphabetical&#39; | &#39;operator_then_member_alphabetical&#39;**]**Array<&#39;member_nickname_alphabetical&#39; &#124; &#39;operator_then_member_alphabetical&#39;>** | Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. | (optional) defaults to undefined
+ **operatorFilter** | [**&#39;all&#39; | &#39;operator&#39; | &#39;nonoperator&#39;**]**Array<&#39;all&#39; &#124; &#39;operator&#39; &#124; &#39;nonoperator&#39;>** | Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. | (optional) defaults to undefined
+ **memberStateFilter** | [**&#39;all&#39; | &#39;invited_only&#39; | &#39;joined_only&#39; | &#39;invited_by_friend&#39; | &#39;invited_by_non_friend&#39;**]**Array<&#39;all&#39; &#124; &#39;invited_only&#39; &#124; &#39;joined_only&#39; &#124; &#39;invited_by_friend&#39; &#124; &#39;invited_by_non_friend&#39;>** | Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) | (optional) defaults to undefined
+ **mutedMemberFilter** | [**&#39;all&#39; | &#39;muted&#39; | &#39;unmuted&#39;**]**Array<&#39;all&#39; &#124; &#39;muted&#39; &#124; &#39;unmuted&#39;>** | Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) | (optional) defaults to undefined
+ **memberActiveModeFilter** | [**&#39;activated&#39; | &#39;deactivated&#39;**]**Array<&#39;activated&#39; &#124; &#39;deactivated&#39;>** | Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) | (optional) defaults to undefined
+ **nicknameStartswith** | [**string**] | Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. | (optional) defaults to undefined
+ **includePushPreference** | [**&#39;push_enabled&#39; | &#39;push_trigger_option&#39; | &#39;do_not_disturb&#39; | &#39;false&#39;**]**Array<&#39;push_enabled&#39; &#124; &#39;push_trigger_option&#39; &#124; &#39;do_not_disturb&#39; &#124; &#39;false&#39;>** | Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**GroupChannelListMembersResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **listOperators**
+> ListOperatorsResponse listOperators()
+
+## List operators  You can retrieve a list of operators of a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-a-group-channel#1-list-operators-of-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiListOperatorsRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  token: "token_example",
+  // number | Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+  limit: 1,
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.listOperators(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **token** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] | Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) | (optional) defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ListOperatorsResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **registerOperatorsToAGroupChannel**
+> any registerOperatorsToAGroupChannel()
+
+## Register operators to a group channel  You can register one or more operators to a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-a-group-channel#1-register-operators-to-a-group-channel
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiRegisterOperatorsToAGroupChannelRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // RegisterOperatorsToAGroupChannelRequest (optional)
+  registerOperatorsToAGroupChannelRequest: {
+    operatorIds: [
+      "operatorIds_example",
+    ],
+  },
+};
+
+apiInstance.registerOperatorsToAGroupChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registerOperatorsToAGroupChannelRequest** | **RegisterOperatorsToAGroupChannelRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **resetChatHistory**
+> ResetChatHistoryResponse resetChatHistory()
+
+## Reset chat history  This action resets the properties related to a specific user's chat history in a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel), clearing existing messages in a channel from only the specified user's end. Because this action doesn't delete messages from the Sendbird database, other members in the channel can still retrieve and see the messages.  This action clears the messages for the specified user by updating the `last_message` and `read_receipt` properties of the [group channel resource](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-list-of-properties-for-group-channels) in addition to other internally managed data such as the count of a user's unread messages.  Using the `reset_all` property, you can also reset the properties related to the chat history of all members in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/reset-chat-history#1-reset-chat-history
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.GroupChannelApi(configuration);
+
+let body:Sendbird.GroupChannelApiResetChatHistoryRequest = {
+  // string | (Required) 
+  channelUrl: "channel_url_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+  // ResetChatHistoryRequest (optional)
+  resetChatHistoryRequest: {
+    resetAll: true,
+    userId: "userId_example",
+  },
+};
+
+apiInstance.resetChatHistory(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **resetChatHistoryRequest** | **ResetChatHistoryRequest**|  |
+ **channelUrl** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ResetChatHistoryResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

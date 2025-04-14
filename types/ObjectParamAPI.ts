@@ -3,13 +3,22 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
+import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
+import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
 import { InviteAsMembersResponse } from '../models/InviteAsMembersResponse';
 import { InviteAsMembersResponseAllOf } from '../models/InviteAsMembersResponseAllOf';
 import { JoinAChannelRequest } from '../models/JoinAChannelRequest';
+import { LeaveAChannelRequest } from '../models/LeaveAChannelRequest';
+import { ListOperatorsResponse } from '../models/ListOperatorsResponse';
+import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
+import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
+import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
 import { SendbirdBasicUserInfo } from '../models/SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from '../models/SendbirdDisappearingMessage';
 import { SendbirdFile } from '../models/SendbirdFile';
@@ -28,6 +37,8 @@ import { SendbirdUser } from '../models/SendbirdUser';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
 import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
+import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
+import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
 
 import { ObservableGroupChannelApi } from "./ObservableAPI";
 import { GroupChannelApiRequestFactory, GroupChannelApiResponseProcessor} from "../apis/GroupChannelApi";
@@ -51,6 +62,54 @@ export interface GroupChannelApiAcceptAnInvitationRequest {
      * @memberof GroupChannelApiacceptAnInvitation
      */
     acceptAnInvitationRequest?: AcceptAnInvitationRequest
+}
+
+export interface GroupChannelApiCancelTheRegistrationOfOperatorsRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApicancelTheRegistrationOfOperators
+     */
+    channelUrl: string
+    /**
+     * Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
+     * @type string
+     * @memberof GroupChannelApicancelTheRegistrationOfOperators
+     */
+    operatorIds: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApicancelTheRegistrationOfOperators
+     */
+    deleteAll?: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApicancelTheRegistrationOfOperators
+     */
+    apiToken?: string
+}
+
+export interface GroupChannelApiCheckIfMemberRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApicheckIfMember
+     */
+    channelUrl: string
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApicheckIfMember
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApicheckIfMember
+     */
+    apiToken?: string
 }
 
 export interface GroupChannelApiCreateAGroupChannelRequest {
@@ -183,6 +242,27 @@ export interface GroupChannelApiJoinAChannelRequest {
      * @memberof GroupChannelApijoinAChannel
      */
     joinAChannelRequest?: JoinAChannelRequest
+}
+
+export interface GroupChannelApiLeaveAChannelRequest {
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApileaveAChannel
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApileaveAChannel
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type LeaveAChannelRequest
+     * @memberof GroupChannelApileaveAChannel
+     */
+    leaveAChannelRequest?: LeaveAChannelRequest
 }
 
 export interface GroupChannelApiListChannelsRequest {
@@ -446,6 +526,168 @@ export interface GroupChannelApiListChannelsRequest {
     userId?: string
 }
 
+export interface GroupChannelApiListMembersRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApilistMembers
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApilistMembers
+     */
+    token?: string
+    /**
+     * Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
+     * @type number
+     * @memberof GroupChannelApilistMembers
+     */
+    limit?: number
+    /**
+     * Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter.
+     * @type string
+     * @memberof GroupChannelApilistMembers
+     */
+    userId?: string
+    /**
+     * 
+     * @type boolean
+     * @memberof GroupChannelApilistMembers
+     */
+    showDeliveryReceipt?: boolean
+    /**
+     * 
+     * @type boolean
+     * @memberof GroupChannelApilistMembers
+     */
+    showReadReceipt?: boolean
+    /**
+     * 
+     * @type boolean
+     * @memberof GroupChannelApilistMembers
+     */
+    showMemberIsMuted?: boolean
+    /**
+     * Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members.
+     * @type &#39;member_nickname_alphabetical&#39; | &#39;operator_then_member_alphabetical&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical'
+    /**
+     * Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved.
+     * @type &#39;all&#39; | &#39;operator&#39; | &#39;nonoperator&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    operatorFilter?: 'all' | 'operator' | 'nonoperator'
+    /**
+     * Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;)
+     * @type &#39;all&#39; | &#39;invited_only&#39; | &#39;joined_only&#39; | &#39;invited_by_friend&#39; | &#39;invited_by_non_friend&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend'
+    /**
+     * Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;)
+     * @type &#39;all&#39; | &#39;muted&#39; | &#39;unmuted&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    mutedMemberFilter?: 'all' | 'muted' | 'unmuted'
+    /**
+     * Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;)
+     * @type &#39;activated&#39; | &#39;deactivated&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    memberActiveModeFilter?: 'activated' | 'deactivated'
+    /**
+     * Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended.
+     * @type string
+     * @memberof GroupChannelApilistMembers
+     */
+    nicknameStartswith?: string
+    /**
+     * Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
+     * @type &#39;push_enabled&#39; | &#39;push_trigger_option&#39; | &#39;do_not_disturb&#39; | &#39;false&#39;
+     * @memberof GroupChannelApilistMembers
+     */
+    includePushPreference?: 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false'
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApilistMembers
+     */
+    apiToken?: string
+}
+
+export interface GroupChannelApiListOperatorsRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApilistOperators
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApilistOperators
+     */
+    token?: string
+    /**
+     * Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
+     * @type number
+     * @memberof GroupChannelApilistOperators
+     */
+    limit?: number
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApilistOperators
+     */
+    apiToken?: string
+}
+
+export interface GroupChannelApiRegisterOperatorsToAGroupChannelRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApiregisterOperatorsToAGroupChannel
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApiregisterOperatorsToAGroupChannel
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type RegisterOperatorsToAGroupChannelRequest
+     * @memberof GroupChannelApiregisterOperatorsToAGroupChannel
+     */
+    registerOperatorsToAGroupChannelRequest?: RegisterOperatorsToAGroupChannelRequest
+}
+
+export interface GroupChannelApiResetChatHistoryRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof GroupChannelApiresetChatHistory
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApiresetChatHistory
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type ResetChatHistoryRequest
+     * @memberof GroupChannelApiresetChatHistory
+     */
+    resetChatHistoryRequest?: ResetChatHistoryRequest
+}
+
 export interface GroupChannelApiStartTypingIndicatorsRequest {
     /**
      * (Required) 
@@ -553,6 +795,24 @@ export class ObjectGroupChannelApi {
     }
 
     /**
+     * ## Unregister operators from a group channel  You can unregister operators in a group channel but keep them in the channel as members using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-a-group-channel#1-unregister-operators-from-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
+     * Cancel the registration of operators
+     * @param param the request object
+     */
+    public cancelTheRegistrationOfOperators(param: GroupChannelApiCancelTheRegistrationOfOperatorsRequest, options?: Configuration): Promise<any> {
+        return this.api.cancelTheRegistrationOfOperators(param.channelUrl, param.operatorIds, param.deleteAll, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Check if user is a member  Checks if a user is a member of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member)
+     * Check if member
+     * @param param the request object
+     */
+    public checkIfMember(param: GroupChannelApiCheckIfMemberRequest, options?: Configuration): Promise<CheckIfMemberResponse> {
+        return this.api.checkIfMember(param.channelUrl, param.userId, param.apiToken,  options).toPromise();
+    }
+
+    /**
      * ## Create a group channel  You can create a group channel for 1-to-1 and 1-to-N conversations. By default, group channels are used for conversations between up to 100 members. This number can stretch up to tens of thousands in Supergroup channels. Group channels can either be private and invite only, or public. They support typing indicators, unread count and read receipts, allowing for an interactive chat experience. A user can join up to 2000 group channels, and higher numbers would negatively impact the performance for the end user. The Chat history is turned off by default and its settings can be changed on Sendbird Dashboard by going to Settings > Chat > Channels > Group channels > Chat history. To learn more about group channels, see Channel Overview.  > If you are seeing the error message Maximum \"channel join\" count reached., then consider deleting channels that are no longer used. For situations where an agent connects with many customers such as support, delivery logistics or sales, we recommend using Sendbird Desk.  https://sendbird.com/docs/chat/platform-api/v3/channel/creating-a-channel/create-a-group-channel#1-create-a-group-channel
      * Create a group channel
      * @param param the request object
@@ -607,12 +867,57 @@ export class ObjectGroupChannelApi {
     }
 
     /**
+     * ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
+     * Leave a channel
+     * @param param the request object
+     */
+    public leaveAChannel(param: GroupChannelApiLeaveAChannelRequest, options?: Configuration): Promise<any> {
+        return this.api.leaveAChannel(param.channelUrl, param.apiToken, param.leaveAChannelRequest,  options).toPromise();
+    }
+
+    /**
      * ## List group channels  This action retrieves a list of [group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  If you want to retrieve a list of group channels that a specific user has joined, use the [list group channels by user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/list-group-channels-by-user) action under the User section.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-group-channels#1-list-group-channels
      * List channels
      * @param param the request object
      */
     public listChannels(param: GroupChannelApiListChannelsRequest, options?: Configuration): Promise<GroupChatListChannelsResponse> {
         return this.api.listChannels(param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId,  options).toPromise();
+    }
+
+    /**
+     * ## List members  Retrieves a list of members of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of members of.
+     * List members
+     * @param param the request object
+     */
+    public listMembers(param: GroupChannelApiListMembersRequest, options?: Configuration): Promise<GroupChannelListMembersResponse> {
+        return this.api.listMembers(param.channelUrl, param.token, param.limit, param.userId, param.showDeliveryReceipt, param.showReadReceipt, param.showMemberIsMuted, param.order, param.operatorFilter, param.memberStateFilter, param.mutedMemberFilter, param.memberActiveModeFilter, param.nicknameStartswith, param.includePushPreference, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## List operators  You can retrieve a list of operators of a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-a-group-channel#1-list-operators-of-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+     * List operators
+     * @param param the request object
+     */
+    public listOperators(param: GroupChannelApiListOperatorsRequest, options?: Configuration): Promise<ListOperatorsResponse> {
+        return this.api.listOperators(param.channelUrl, param.token, param.limit, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Register operators to a group channel  You can register one or more operators to a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-a-group-channel#1-register-operators-to-a-group-channel
+     * Register operators to a group channel
+     * @param param the request object
+     */
+    public registerOperatorsToAGroupChannel(param: GroupChannelApiRegisterOperatorsToAGroupChannelRequest, options?: Configuration): Promise<any> {
+        return this.api.registerOperatorsToAGroupChannel(param.channelUrl, param.apiToken, param.registerOperatorsToAGroupChannelRequest,  options).toPromise();
+    }
+
+    /**
+     * ## Reset chat history  This action resets the properties related to a specific user's chat history in a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel), clearing existing messages in a channel from only the specified user's end. Because this action doesn't delete messages from the Sendbird database, other members in the channel can still retrieve and see the messages.  This action clears the messages for the specified user by updating the `last_message` and `read_receipt` properties of the [group channel resource](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-list-of-properties-for-group-channels) in addition to other internally managed data such as the count of a user's unread messages.  Using the `reset_all` property, you can also reset the properties related to the chat history of all members in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/reset-chat-history#1-reset-chat-history
+     * Reset chat history
+     * @param param the request object
+     */
+    public resetChatHistory(param: GroupChannelApiResetChatHistoryRequest, options?: Configuration): Promise<ResetChatHistoryResponse> {
+        return this.api.resetChatHistory(param.channelUrl, param.apiToken, param.resetChatHistoryRequest,  options).toPromise();
     }
 
     /**
@@ -649,6 +954,150 @@ export class ObjectGroupChannelApi {
      */
     public updateAGroupChannel(param: GroupChannelApiUpdateAGroupChannelRequest, options?: Configuration): Promise<SendbirdGroupChannelDetail> {
         return this.api.updateAGroupChannel(param.channelUrl, param.apiToken, param.updateAGroupChannelRequest,  options).toPromise();
+    }
+
+}
+
+import { ObservableModerationApi } from "./ObservableAPI";
+import { ModerationApiRequestFactory, ModerationApiResponseProcessor} from "../apis/ModerationApi";
+
+export interface ModerationApiFreezeAGroupChannelRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof ModerationApifreezeAGroupChannel
+     */
+    channelUrl: string
+    /**
+     * 
+     * @type string
+     * @memberof ModerationApifreezeAGroupChannel
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type FreezeAGroupChannelRequest
+     * @memberof ModerationApifreezeAGroupChannel
+     */
+    freezeAGroupChannelRequest?: FreezeAGroupChannelRequest
+}
+
+export class ObjectModerationApi {
+    private api: ObservableModerationApi
+
+    public constructor(configuration: Configuration, requestFactory?: ModerationApiRequestFactory, responseProcessor?: ModerationApiResponseProcessor) {
+        this.api = new ObservableModerationApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Freeze a group channel  Freezes or unfreezes a group channel.  > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).      [https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-a-group-channel#1-freeze-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-a-group-channel#1-freeze-a-group-channel)
+     * Freeze a group channel
+     * @param param the request object
+     */
+    public freezeAGroupChannel(param: ModerationApiFreezeAGroupChannelRequest, options?: Configuration): Promise<SendbirdGroupChannelDetail> {
+        return this.api.freezeAGroupChannel(param.channelUrl, param.apiToken, param.freezeAGroupChannelRequest,  options).toPromise();
+    }
+
+}
+
+import { ObservableStatisticsApi } from "./ObservableAPI";
+import { StatisticsApiRequestFactory, StatisticsApiResponseProcessor} from "../apis/StatisticsApi";
+
+export interface StatisticsApiViewNumberOfDailyActiveUsersRequest {
+    /**
+     * YYYY-MM-DD
+     * @type string
+     * @memberof StatisticsApiviewNumberOfDailyActiveUsers
+     */
+    date?: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfDailyActiveUsers
+     */
+    apiToken?: string
+}
+
+export interface StatisticsApiViewNumberOfMonthlyActiveUsersRequest {
+    /**
+     * YYYY-MM-DD
+     * @type string
+     * @memberof StatisticsApiviewNumberOfMonthlyActiveUsers
+     */
+    date?: string
+    /**
+     * 
+     * @type string
+     * @memberof StatisticsApiviewNumberOfMonthlyActiveUsers
+     */
+    apiToken?: string
+}
+
+export class ObjectStatisticsApi {
+    private api: ObservableStatisticsApi
+
+    public constructor(configuration: Configuration, requestFactory?: StatisticsApiRequestFactory, responseProcessor?: StatisticsApiResponseProcessor) {
+        this.api = new ObservableStatisticsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## View number of daily active users  Retrieves the number of daily active users of an application.  > **Note**: This metric is scheduled to be calculated every 30 minutes, starting at 00:00 UTC, with the first update at 00:30 UTC.      [https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-daily-active-users#1-get-number-of-daily-active-users](https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-daily-active-users#1-get-number-of-daily-active-users)
+     * View number of daily active users
+     * @param param the request object
+     */
+    public viewNumberOfDailyActiveUsers(param: StatisticsApiViewNumberOfDailyActiveUsersRequest = {}, options?: Configuration): Promise<ViewNumberOfDailyActiveUsersResponse> {
+        return this.api.viewNumberOfDailyActiveUsers(param.date, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## View number of monthly active users  Retrieves the number of monthly active users of an application.  > **Note**: This metric is scheduled to be calculated every 30 minutes, starting at 00:00 UTC, with the first update at 00:30 UTC.      [https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-monthly-active-users#1-get-number-of-monthly-active-users](https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-monthly-active-users#1-get-number-of-monthly-active-users)
+     * View number of monthly active users
+     * @param param the request object
+     */
+    public viewNumberOfMonthlyActiveUsers(param: StatisticsApiViewNumberOfMonthlyActiveUsersRequest = {}, options?: Configuration): Promise<ViewNumberOfMonthlyActiveUsersResponse> {
+        return this.api.viewNumberOfMonthlyActiveUsers(param.date, param.apiToken,  options).toPromise();
+    }
+
+}
+
+import { ObservableUserApi } from "./ObservableAPI";
+import { UserApiRequestFactory, UserApiResponseProcessor} from "../apis/UserApi";
+
+export interface UserApiMarkAllMessagesAsReadRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApimarkAllMessagesAsRead
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApimarkAllMessagesAsRead
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type MarkAllMessagesAsReadRequest
+     * @memberof UserApimarkAllMessagesAsRead
+     */
+    markAllMessagesAsReadRequest?: MarkAllMessagesAsReadRequest
+}
+
+export class ObjectUserApi {
+    private api: ObservableUserApi
+
+    public constructor(configuration: Configuration, requestFactory?: UserApiRequestFactory, responseProcessor?: UserApiResponseProcessor) {
+        this.api = new ObservableUserApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * ## Mark all messages as read  This action marks all of a user's unread messages as read in certain group channels. If channels aren't specified, the user's unread messages in all group channels are marked as read.  https://sendbird.com/docs/chat/platform-api/v3/user/marking-messages-as-read/mark-all-of-a-users-messages-as-read#1-mark-all-of-a-user-s-messages-as-read
+     * Mark all messages as read
+     * @param param the request object
+     */
+    public markAllMessagesAsRead(param: UserApiMarkAllMessagesAsReadRequest, options?: Configuration): Promise<any> {
+        return this.api.markAllMessagesAsRead(param.userId, param.apiToken, param.markAllMessagesAsReadRequest,  options).toPromise();
     }
 
 }

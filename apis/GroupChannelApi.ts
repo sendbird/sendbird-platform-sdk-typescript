@@ -12,7 +12,6 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
@@ -941,22 +940,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to createAGroupChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createAGroupChannel(response: ResponseContext): Promise<CreateAGroupChannelResponse > {
+     public async createAGroupChannel(response: ResponseContext): Promise<SendbirdGroupChannelDetail > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CreateAGroupChannelResponse = ObjectSerializer.deserialize(
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateAGroupChannelResponse", ""
-            ) as CreateAGroupChannelResponse;
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CreateAGroupChannelResponse = ObjectSerializer.deserialize(
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateAGroupChannelResponse", ""
-            ) as CreateAGroupChannelResponse;
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
             return body;
         }
 

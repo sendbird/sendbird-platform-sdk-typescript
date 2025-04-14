@@ -1,7 +1,5 @@
 export * from './AcceptAnInvitationRequest';
 export * from './CreateAGroupChannelRequest';
-export * from './CreateAGroupChannelResponse';
-export * from './CreateAGroupChannelResponseChannel';
 export * from './GroupChatListChannelsResponse';
 export * from './HideAChannelRequest';
 export * from './InviteAsMembersRequest';
@@ -29,8 +27,6 @@ export * from './UpdateAGroupChannelRequest';
 
 import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from './CreateAGroupChannelResponse';
-import { CreateAGroupChannelResponseChannel } from './CreateAGroupChannelResponseChannel';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { HideAChannelRequest } from './HideAChannelRequest';
 import { InviteAsMembersRequest } from './InviteAsMembersRequest';
@@ -94,8 +90,6 @@ let enumsMap: Set<string> = new Set<string>([
 let typeMap: {[index: string]: any} = {
     "AcceptAnInvitationRequest": AcceptAnInvitationRequest,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
-    "CreateAGroupChannelResponse": CreateAGroupChannelResponse,
-    "CreateAGroupChannelResponseChannel": CreateAGroupChannelResponseChannel,
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
     "HideAChannelRequest": HideAChannelRequest,
     "InviteAsMembersRequest": InviteAsMembersRequest,

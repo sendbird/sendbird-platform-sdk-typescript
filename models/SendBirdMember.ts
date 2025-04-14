@@ -34,7 +34,7 @@ export class SendbirdMember {
     'readTs'?: number;
     'role'?: SendbirdMemberRoleEnum;
     'state'?: SendbirdMemberStateEnum;
-    'userId'?: string;
+    'userId': string;
 
     static readonly discriminator: string | undefined = undefined;
 

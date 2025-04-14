@@ -31,7 +31,7 @@ export class SendbirdUser {
     'preferredLanguages'?: Array<string>;
     'profileUrl'?: string;
     'requireAuthForProfileImage'?: boolean;
-    'userId'?: string;
+    'userId': string;
     'state'?: SendbirdUserStateEnum;
 
     static readonly discriminator: string | undefined = undefined;

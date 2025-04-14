@@ -390,8 +390,6 @@ describe("Group Channel API", () => {
     expect(response.customType).toBe('data');
     expect(typeof response.customType).toBe('string');
 
-    if (response.channelUrl) {
-      await groupChannelApi.deleteAGroupChannel(response.channelUrl, API_TOKEN);
-    }
+    await groupChannelApi.deleteAGroupChannel(response.channelUrl, API_TOKEN);
   });
 });

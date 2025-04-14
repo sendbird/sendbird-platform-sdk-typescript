@@ -4,8 +4,6 @@ import { Configuration} from '../configuration'
 
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
-import { CreateAGroupChannelResponseChannel } from '../models/CreateAGroupChannelResponseChannel';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
@@ -559,7 +557,7 @@ export class ObjectGroupChannelApi {
      * Create a group channel
      * @param param the request object
      */
-    public createAGroupChannel(param: GroupChannelApiCreateAGroupChannelRequest = {}, options?: Configuration): Promise<CreateAGroupChannelResponse> {
+    public createAGroupChannel(param: GroupChannelApiCreateAGroupChannelRequest = {}, options?: Configuration): Promise<SendbirdGroupChannelDetail> {
         return this.api.createAGroupChannel(param.apiToken, param.createAGroupChannelRequest,  options).toPromise();
     }
 

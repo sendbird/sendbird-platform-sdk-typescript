@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 export class SendbirdBasicUserInfo {
     'requireAuthForProfileImage'?: boolean;
     'nickname'?: string;
-    'userId'?: string;
+    'userId': string;
     'profileUrl'?: string;
     'metadata'?: any;
 

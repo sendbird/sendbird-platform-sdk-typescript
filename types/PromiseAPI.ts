@@ -4,8 +4,6 @@ import { Configuration} from '../configuration'
 
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
-import { CreateAGroupChannelResponseChannel } from '../models/CreateAGroupChannelResponseChannel';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
@@ -62,7 +60,7 @@ export class PromiseGroupChannelApi {
      * @param apiToken 
      * @param createAGroupChannelRequest 
      */
-    public createAGroupChannel(apiToken?: string, createAGroupChannelRequest?: CreateAGroupChannelRequest, _options?: Configuration): Promise<CreateAGroupChannelResponse> {
+    public createAGroupChannel(apiToken?: string, createAGroupChannelRequest?: CreateAGroupChannelRequest, _options?: Configuration): Promise<SendbirdGroupChannelDetail> {
         const result = this.api.createAGroupChannel(apiToken, createAGroupChannelRequest, _options);
         return result.toPromise();
     }

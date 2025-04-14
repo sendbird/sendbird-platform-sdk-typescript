@@ -5,8 +5,6 @@ import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
-import { CreateAGroupChannelResponseChannel } from '../models/CreateAGroupChannelResponseChannel';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
@@ -80,7 +78,7 @@ export class ObservableGroupChannelApi {
      * @param apiToken 
      * @param createAGroupChannelRequest 
      */
-    public createAGroupChannel(apiToken?: string, createAGroupChannelRequest?: CreateAGroupChannelRequest, _options?: Configuration): Observable<CreateAGroupChannelResponse> {
+    public createAGroupChannel(apiToken?: string, createAGroupChannelRequest?: CreateAGroupChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
         const requestContextPromise = this.requestFactory.createAGroupChannel(apiToken, createAGroupChannelRequest, _options);
 
         // build promise chain

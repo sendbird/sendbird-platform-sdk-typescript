@@ -13,8 +13,6 @@ index.ts
 middleware.ts
 models/AcceptAnInvitationRequest.ts
 models/CreateAGroupChannelRequest.ts
-models/CreateAGroupChannelResponse.ts
-models/CreateAGroupChannelResponseChannel.ts
 models/GroupChatListChannelsResponse.ts
 models/HideAChannelRequest.ts
 models/InviteAsMembersRequest.ts

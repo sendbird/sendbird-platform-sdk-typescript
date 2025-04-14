@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class SendbirdGroupChannelDetailChannel {
-    'channelUrl': string;
+    'channelUrl'?: string;
     'coverUrl'?: string;
     'createdAt'?: number;
     'customType'?: string;

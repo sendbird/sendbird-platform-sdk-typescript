@@ -1,7 +1,5 @@
 export * from './AcceptAnInvitationRequest'
 export * from './CreateAGroupChannelRequest'
-export * from './CreateAGroupChannelResponse'
-export * from './CreateAGroupChannelResponseChannel'
 export * from './GroupChatListChannelsResponse'
 export * from './HideAChannelRequest'
 export * from './InviteAsMembersRequest'

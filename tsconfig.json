@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     /* Basic Options */
-    "target": "es5",
+    "target": "ES2015",
     "moduleResolution": "node",
     "declaration": true,
 
@@ -16,7 +16,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "noLib": false,
-    "lib": [ "es6" ],
+    "lib": [ "ES2015" ],
     "types": ["jest"]
   },
   "exclude": [

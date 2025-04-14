@@ -11,14 +11,15 @@ import {
   SendbirdSmsFallback,
   SendbirdUser,
 } from "../../models/ObjectSerializer";
-import { PromiseGroupChannelApi } from "../../types/PromiseAPI";
-import * as sendbird from "../..";
 import { hasValidField } from "./helper";
+import { ServerConfiguration } from "../../servers";
+import { createConfiguration } from "../../configuration";
+import { GroupChannelApi } from "../../index";
 
 describe("Group Channel API", () => {
   const APP_ID = process.env.APP_ID || '';
   const API_TOKEN = process.env.API_TOKEN || '';
-  let groupChannelApi: PromiseGroupChannelApi;
+  let groupChannelApi: GroupChannelApi;
   const validSendbirdGroupChannelCountPreferenceEnum: (
     | SendbirdGroupChannelCountPreferenceEnum
     | undefined
@@ -49,14 +50,14 @@ describe("Group Channel API", () => {
   )[] = ["all", "default", "false", "mention_only"];
 
   beforeEach(() => {
-    const serverConfig = new sendbird.ServerConfiguration(
-      "https://api-AE479FF2-A3BC-49C2-A3FD-B7F779B7F4C5.sendbird.com",
+    const serverConfig = new ServerConfiguration(
+      `https://api-${APP_ID}.sendbird.com`,
       { app_id: APP_ID }
     );
-    const configuration = sendbird.createConfiguration({
+    const configuration = createConfiguration({
       baseServer: serverConfig,
     });
-    groupChannelApi = new sendbird.GroupChannelApi(configuration);
+    groupChannelApi = new GroupChannelApi(configuration);
   });
 
   it("call listChannels with positive query params", async () => {

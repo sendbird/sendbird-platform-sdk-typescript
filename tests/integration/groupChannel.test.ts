@@ -17,8 +17,8 @@ import { createConfiguration } from "../../configuration";
 import { GroupChannelApi } from "../../index";
 
 describe("Group Channel API", () => {
-  const APP_ID = process.env.APP_ID || '';
-  const API_TOKEN = process.env.API_TOKEN || '';
+  const APP_ID = process.env.APP_ID || "";
+  const API_TOKEN = process.env.API_TOKEN || "";
   let groupChannelApi: GroupChannelApi;
   const validSendbirdGroupChannelCountPreferenceEnum: (
     | SendbirdGroupChannelCountPreferenceEnum
@@ -61,22 +61,19 @@ describe("Group Channel API", () => {
   });
 
   it("call listChannels with positive query params", async () => {
-    const response = await groupChannelApi.listChannels(
-      API_TOKEN,
-      undefined,
-      10,
-      "all",
-      "all",
-      "all",
-      undefined,
-      undefined,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true
-    );
+    const response = await groupChannelApi.listChannels({
+      apiToken: API_TOKEN,
+      limit: 10,
+      distinctMode: "all",
+      publicMode: "all",
+      superMode: "all",
+      showEmpty: true,
+      showMember: true,
+      showDeliveryReceipt: true,
+      showReadReceipt: true,
+      showMetadata: true,
+      showFrozen: true,
+    });
     expect(response).toHaveProperty("channels");
     expect(Array.isArray(response.channels)).toBe(true);
 
@@ -259,22 +256,19 @@ describe("Group Channel API", () => {
   });
 
   it("call listChannels with negative query params", async () => {
-    const response = await groupChannelApi.listChannels(
-      API_TOKEN,
-      undefined,
-      10,
-      "all",
-      "all",
-      "all",
-      undefined,
-      undefined,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    );
+    const response = await groupChannelApi.listChannels({
+      apiToken: API_TOKEN,
+      limit: 10,
+      distinctMode: "all",
+      publicMode: "all",
+      superMode: "all",
+      showEmpty: false,
+      showMember: false,
+      showDeliveryReceipt: false,
+      showReadReceipt: false,
+      showMetadata: false,
+      showFrozen: false,
+    });
     expect(response).toHaveProperty("channels");
     expect(Array.isArray(response.channels)).toBe(true);
 
@@ -313,8 +307,8 @@ describe("Group Channel API", () => {
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
       invitationStatus: {
-        "ttsYcp4M5USFbhDxPqM2ETwM1vB2": 'joined',
-        'lK7U9lvxcZWVNa5SgZnLv81DG2R2': 'joined'
+        ttsYcp4M5USFbhDxPqM2ETwM1vB2: "joined",
+        lK7U9lvxcZWVNa5SgZnLv81DG2R2: "joined",
       },
       inviterId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
       isDistinct: true,
@@ -333,15 +327,14 @@ describe("Group Channel API", () => {
     };
 
     try {
-      await groupChannelApi.createAGroupChannel(
-        API_TOKEN,
-        request
-      );
-    } catch(error) {
-      expect(JSON.parse(((error as any).body)).code).toBe(400111)
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+    } catch (error) {
+      expect(JSON.parse((error as any).body).code).toBe(400111);
     }
   });
-
 
   it("call createAGroupChannel and deleteAGroupChannel", async () => {
     const request: CreateAGroupChannelRequest = {
@@ -355,8 +348,8 @@ describe("Group Channel API", () => {
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
       invitationStatus: {
-        "ttsYcp4M5USFbhDxPqM2ETwM1vB2": 'joined',
-        'lK7U9lvxcZWVNa5SgZnLv81DG2R2': 'joined'
+        ttsYcp4M5USFbhDxPqM2ETwM1vB2: "joined",
+        lK7U9lvxcZWVNa5SgZnLv81DG2R2: "joined",
       },
       inviterId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
       isDistinct: false,
@@ -373,24 +366,27 @@ describe("Group Channel API", () => {
         { userId: "lK7U9lvxcZWVNa5SgZnLv81DG2R2" },
       ],
     };
-    
-    const response = await groupChannelApi.createAGroupChannel(
-      API_TOKEN,
-      request
-    );
 
-    expect(response).toHaveProperty('channelUrl')
-    expect(response.channelUrl).toBe('integration-test');
-    expect(typeof response.channelUrl).toBe('string');
+    const response = await groupChannelApi.createAGroupChannel({
+      apiToken: API_TOKEN,
+      createAGroupChannelRequest: request,
+    });
 
-    expect(response).toHaveProperty('coverUrl')
-    expect(response.coverUrl).toBe('empty');
-    expect(typeof response.coverUrl).toBe('string');
+    expect(response).toHaveProperty("channelUrl");
+    expect(response.channelUrl).toBe("integration-test");
+    expect(typeof response.channelUrl).toBe("string");
 
-    expect(response).toHaveProperty('customType')
-    expect(response.customType).toBe('data');
-    expect(typeof response.customType).toBe('string');
+    expect(response).toHaveProperty("coverUrl");
+    expect(response.coverUrl).toBe("empty");
+    expect(typeof response.coverUrl).toBe("string");
 
-    await groupChannelApi.deleteAGroupChannel(response.channelUrl, API_TOKEN);
+    expect(response).toHaveProperty("customType");
+    expect(response.customType).toBe("data");
+    expect(typeof response.customType).toBe("string");
+
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: response.channelUrl,
+      apiToken: API_TOKEN,
+    });
   });
 });

@@ -1,3 +1,4 @@
+import { ListOperatorsResponse } from "./../../models/ListOperatorsResponse";
 import {
   CreateAGroupChannelRequest,
   SendbirdBasicUserInfo,
@@ -10,11 +11,20 @@ import {
   SendbirdMessageResponse,
   SendbirdSmsFallback,
   SendbirdUser,
+  SendbirdMemberRoleEnum,
+  SendbirdMemberStateEnum,
+  SendbirdGroupChannelDetailChannel,
 } from "../../models/ObjectSerializer";
 import { hasValidField } from "./helper";
 import { ServerConfiguration } from "../../servers";
 import { createConfiguration } from "../../configuration";
 import { GroupChannelApi } from "../../index";
+import {
+  GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+  MASTER_USER_ID,
+  SECOND_USER_ID,
+  USERS,
+} from "./constants";
 
 describe("Group Channel API", () => {
   const APP_ID = process.env.APP_ID || "";
@@ -48,6 +58,15 @@ describe("Group Channel API", () => {
     | SendbirdGroupChannelPushTriggerOptionEnum
     | undefined
   )[] = ["all", "default", "false", "mention_only"];
+
+  const validSendbirdMemberRoleEnum: (SendbirdMemberRoleEnum | undefined)[] = [
+    "",
+    "none",
+    "operator",
+  ];
+
+  const validSendbirdMemberStateEnum: (SendbirdMemberStateEnum | undefined)[] =
+    ["", "invited", "joined"];
 
   beforeEach(() => {
     const serverConfig = new ServerConfiguration(
@@ -162,7 +181,7 @@ describe("Group Channel API", () => {
         expect(typeof channel.isHidden).toBe("boolean");
       }
 
-      Object(channel).hasProe;
+      // Object(channel).hasProe;
       if ("isMuted" in channel) {
         expect(typeof channel.isMuted).toBe("boolean");
       }
@@ -389,4 +408,559 @@ describe("Group Channel API", () => {
       apiToken: API_TOKEN,
     });
   });
+
+  it("call getAGroupChannel", async () => {
+    const CHANNEL_URL = "get-group-channel-test-channel-url";
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+    expect(typeof createGroupChannelresponse.channelUrl).toBe("string");
+
+    const groupChannelResponse = await groupChannelApi.getAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      showDeliveryReceipt: true,
+      showReadReceipt: true,
+      showMember: true,
+      memberActiveMode: "all",
+    });
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+
+    const channel = groupChannelResponse;
+    expect(channel).toHaveProperty("channelUrl");
+    expect(channel.channelUrl).toBe(CHANNEL_URL);
+
+    expect(channel).toHaveProperty("channel");
+    expect(channel.channel).toBeInstanceOf(SendbirdGroupChannelDetailChannel);
+
+    expect(channel.channel).toHaveProperty("channelUrl");
+    expect(typeof channel.channel?.channelUrl).toBe("string");
+
+    expect(channel.channel).toHaveProperty("coverUrl");
+    expect(typeof channel.channel?.coverUrl).toBe("string");
+
+    expect(channel.channel).toHaveProperty("createdAt");
+    expect(typeof channel.channel?.createdAt).toBe("number");
+
+    expect(channel.channel).toHaveProperty("customType");
+    expect(typeof channel.channel?.customType).toBe("string");
+
+    expect(channel.channel).toHaveProperty("data");
+    expect(typeof channel.channel?.data).toBe("string");
+
+    expect(channel.channel).toHaveProperty("maxLengthMessage");
+    expect(typeof channel.channel?.maxLengthMessage).toBe("number");
+
+    expect(channel.channel).toHaveProperty("memberCount");
+    expect(typeof channel.channel?.memberCount).toBe("number");
+
+    expect(channel.channel).toHaveProperty("name");
+    expect(typeof channel.channel?.name).toBe("string");
+
+    expect(channel).toHaveProperty("name");
+    expect(typeof channel.name).toBe("string");
+
+    expect(channel).toHaveProperty("coverUrl");
+    expect(typeof channel.coverUrl).toBe("string");
+
+    expect(channel).toHaveProperty("createdAt");
+    expect(typeof channel.createdAt).toBe("number");
+
+    if (hasValidField(channel, "createdBy")) {
+      expect(channel.createdBy).toBeInstanceOf(SendbirdBasicUserInfo);
+    }
+
+    expect(channel).toHaveProperty("customType");
+    expect(typeof channel.customType).toBe("string");
+
+    expect(channel).toHaveProperty("data");
+    expect(typeof channel.data).toBe("string");
+
+    expect(channel).toHaveProperty("deliveryReceipt");
+    expect(typeof channel.deliveryReceipt).toBe("object");
+
+    expect(channel).toHaveProperty("disappearingMessage");
+    expect(channel.disappearingMessage).toBeInstanceOf(
+      SendbirdDisappearingMessage
+    );
+
+    expect(channel).toHaveProperty("freeze");
+    expect(typeof channel.freeze).toBe("boolean");
+
+    expect(channel).toHaveProperty("hasAiBot");
+    expect(typeof channel.hasAiBot).toBe("boolean");
+
+    expect(channel).toHaveProperty("hasBot");
+    expect(typeof channel.hasBot).toBe("boolean");
+
+    expect(channel).toHaveProperty("ignoreProfanityFilter");
+    expect(typeof channel.ignoreProfanityFilter).toBe("boolean");
+
+    expect(channel).toHaveProperty("isAccessCodeRequired");
+    expect(typeof channel.isAccessCodeRequired).toBe("boolean");
+
+    expect(channel).toHaveProperty("isBroadcast");
+    expect(typeof channel.isBroadcast).toBe("boolean");
+
+    expect(channel).toHaveProperty("isDiscoverable");
+    expect(typeof channel.isDiscoverable).toBe("boolean");
+
+    expect(channel).toHaveProperty("isDistinct");
+    expect(typeof channel.isDistinct).toBe("boolean");
+
+    expect(channel).toHaveProperty("isEphemeral");
+    expect(typeof channel.isEphemeral).toBe("boolean");
+
+    if ("isHidden" in channel) {
+      expect(typeof channel.isHidden).toBe("boolean");
+    }
+
+    if ("isMuted" in channel) {
+      expect(typeof channel.isMuted).toBe("boolean");
+    }
+
+    if ("isPublic" in channel) {
+      expect(typeof channel.isPublic).toBe("boolean");
+    }
+
+    if ("isPushEnabled" in channel) {
+      expect(typeof channel.isPushEnabled).toBe("boolean");
+    }
+
+    expect(channel).toHaveProperty("isSuper");
+    expect(typeof channel.isSuper).toBe("boolean");
+
+    expect(channel).toHaveProperty("joinedMemberCount");
+    expect(typeof channel.joinedMemberCount).toBe("number");
+
+    if (hasValidField(channel, "lastMessage")) {
+      expect(channel.lastMessage).toBeInstanceOf(SendbirdMessageResponse);
+    }
+
+    expect(channel).toHaveProperty("maxLengthMessage");
+    expect(typeof channel.maxLengthMessage).toBe("number");
+
+    expect(channel).toHaveProperty("memberCount");
+    expect(typeof channel.memberCount).toBe("number");
+
+    expect(channel).toHaveProperty("members");
+    expect(Array.isArray(channel.members)).toBe(true);
+
+    expect(channel).toHaveProperty("messageSurvivalSeconds");
+    expect(typeof channel.messageSurvivalSeconds).toBe("number");
+
+    expect(channel).toHaveProperty("name");
+    expect(typeof channel.name).toBe("string");
+
+    expect(channel).toHaveProperty("readReceipt");
+    expect(typeof channel.readReceipt).toBe("object");
+
+    expect(channel).toHaveProperty("smsFallback");
+    expect(channel.smsFallback).toBeInstanceOf(SendbirdSmsFallback);
+
+    expect(channel).toHaveProperty("unreadMentionCount");
+    expect(typeof channel.unreadMentionCount).toBe("number");
+
+    expect(channel).toHaveProperty("unreadMessageCount");
+    expect(typeof channel.unreadMessageCount).toBe("number");
+  });
+
+  it("call listMembers", async () => {
+    const listResponse = await groupChannelApi.listChannels({
+      apiToken: API_TOKEN,
+      limit: 1,
+      distinctMode: "all",
+      publicMode: "all",
+      superMode: "all",
+      showEmpty: true,
+      showMember: true,
+      showDeliveryReceipt: true,
+      showReadReceipt: true,
+      showMetadata: true,
+      showFrozen: true,
+    });
+    expect(listResponse).toHaveProperty("channels");
+    expect(Array.isArray(listResponse.channels)).toBe(true);
+    expect(listResponse.channels?.length).toBe(1);
+
+    const channel = listResponse.channels?.[0];
+    expect(channel).toBeDefined();
+
+    if (channel) {
+      const listMembersResponse = await groupChannelApi.listMembers({
+        apiToken: API_TOKEN,
+        channelUrl: channel.channelUrl,
+      });
+
+      expect(listMembersResponse).toHaveProperty("members");
+      expect(Array.isArray(listMembersResponse.members)).toBe(true);
+      listMembersResponse.members.forEach((member) => {
+        expect(member).toHaveProperty("userId");
+        expect(typeof member.userId).toBe("string");
+
+        if (hasValidField(member, "deliveredTs")) {
+          expect(typeof member.deliveredTs).toBe("number");
+        }
+
+        if (hasValidField(member, "doNotDisturb")) {
+          expect(typeof member.doNotDisturb).toBe("boolean");
+        }
+
+        if (hasValidField(member, "friendDiscoveryKey")) {
+          expect(Array.isArray(member.friendDiscoveryKey)).toBe(true);
+        }
+
+        if (hasValidField(member, "friendName")) {
+          expect(typeof member.friendName).toBe("string");
+        }
+
+        if (hasValidField(member, "isActive")) {
+          expect(typeof member.isActive).toBe("boolean");
+        }
+
+        if (hasValidField(member, "isBlockedByMe")) {
+          expect(typeof member.isBlockedByMe).toBe("boolean");
+        }
+
+        if (hasValidField(member, "isBlockingMe")) {
+          expect(typeof member.isBlockingMe).toBe("boolean");
+        }
+
+        if (hasValidField(member, "isMuted")) {
+          expect(typeof member.isMuted).toBe("boolean");
+        }
+
+        if (hasValidField(member, "isOnline")) {
+          expect(typeof member.isOnline).toBe("boolean");
+        }
+
+        if (hasValidField(member, "lastSeenAt")) {
+          expect(typeof member.lastSeenAt).toBe("number");
+        }
+
+        if (hasValidField(member, "metadata")) {
+          expect(typeof member.metadata).toBe("object");
+        }
+
+        if (hasValidField(member, "mutedDescription")) {
+          expect(typeof member.mutedDescription).toBe("string");
+        }
+
+        if (hasValidField(member, "mutedEndAt")) {
+          expect(typeof member.mutedEndAt).toBe("number");
+        }
+
+        if (hasValidField(member, "nickname")) {
+          expect(typeof member.nickname).toBe("string");
+        }
+
+        if (hasValidField(member, "pushEnabled")) {
+          expect(typeof member.pushEnabled).toBe("boolean");
+        }
+
+        if (hasValidField(member, "pushTriggerOption")) {
+          expect(typeof member.pushTriggerOption).toBe("string");
+        }
+
+        if (hasValidField(member, "profileUrl")) {
+          expect(typeof member.profileUrl).toBe("string");
+        }
+
+        if (hasValidField(member, "requireAuthForProfileImage")) {
+          expect(typeof member.requireAuthForProfileImage).toBe("boolean");
+        }
+
+        if (hasValidField(member, "readTs")) {
+          expect(typeof member.readTs).toBe("number");
+        }
+
+        if (hasValidField(member, "role")) {
+          expect(typeof member.role).toBe("string");
+          expect(validSendbirdMemberRoleEnum.includes(member.role)).toBe(true);
+        }
+
+        if (hasValidField(member, "state")) {
+          expect(typeof member.state).toBe("string");
+          expect(validSendbirdMemberStateEnum.includes(member.state)).toBe(
+            true
+          );
+        }
+      });
+    }
+  });
+
+  it("call registerOperatorsToAGroupChannel, listOperators then cancelTheRegistrationOfOperators", async () => {
+    const CHANNEL_URL = "list-operator-test-channel-url";
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+    expect(typeof createGroupChannelresponse.channelUrl).toBe("string");
+
+    expect(createGroupChannelresponse).toHaveProperty("operators");
+    expect(createGroupChannelresponse.operators?.length || 0).toBe(0);
+
+    const registerOperatorResponse =
+      await groupChannelApi.registerOperatorsToAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        registerOperatorsToAGroupChannelRequest: {
+          operatorIds: [MASTER_USER_ID],
+        },
+      });
+
+    expect(registerOperatorResponse).toBeDefined();
+
+    const listOperatorsResponse = await groupChannelApi.listOperators({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+
+    expect(listOperatorsResponse).toHaveProperty("operators");
+    expect(Object.keys(listOperatorsResponse).length).toBe(2);
+
+    expect(listOperatorsResponse.operators?.length || 0).toBe(1);
+
+    listOperatorsResponse.operators?.map((operator) => {
+      expect(operator.userId).toEqual(MASTER_USER_ID);
+      expect(operator).toHaveProperty("nickname");
+      expect(typeof operator.nickname).toBe("string");
+      expect(operator).toHaveProperty("profileUrl");
+      expect(typeof operator.profileUrl).toBe("string");
+      expect(operator).toHaveProperty("metadata");
+      expect(typeof operator.metadata).toBe("object");
+      expect(operator).toHaveProperty("requireAuthForProfileImage");
+      expect(typeof operator.requireAuthForProfileImage).toBe("boolean");
+    });
+
+    const cancelTheRegistrationOfOperatorsResponse =
+      await groupChannelApi.cancelTheRegistrationOfOperators({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        operatorIds: MASTER_USER_ID,
+      });
+
+    expect(cancelTheRegistrationOfOperatorsResponse).toBeDefined();
+
+    const listOperatorsAfterCancelRegistrationResponse =
+      await groupChannelApi.listOperators({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+
+    expect(listOperatorsAfterCancelRegistrationResponse).toHaveProperty(
+      "operators"
+    );
+    expect(
+      Object.keys(listOperatorsAfterCancelRegistrationResponse).length
+    ).toBe(2);
+
+    expect(
+      listOperatorsAfterCancelRegistrationResponse.operators?.length || 0
+    ).toBe(0);
+
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+  });
+
+  it("call startTypingIndicators and stopTypingIndicators", async () => {
+    const CHANNEL_URL = "group-channel-typing-indicators-test-channel-url";
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    const startTypingResponse = await groupChannelApi.startTypingIndicators({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      startTypingIndicatorsRequest: {
+        userIds: [MASTER_USER_ID],
+      },
+    });
+
+    const stopTypingResponse = await groupChannelApi.startTypingIndicators({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      startTypingIndicatorsRequest: {
+        userIds: [MASTER_USER_ID],
+      },
+    });
+
+    expect(startTypingResponse).toBeDefined();
+    expect(stopTypingResponse).toBeDefined();
+
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+  });
+
+  it("call hideAChannel then unhideAChannel", async () => {
+    const CHANNEL_URL = "group-channel-hide-test-channel-url";
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: {
+        MASTER_USER_ID: 'joined',
+      },
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    const hideAChannelResponse = await groupChannelApi.hideAChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      hideAChannelRequest: {
+        userId: SECOND_USER_ID,
+        allowAutoUnhide: true,
+        shouldHideAll: false,
+      }
+    });
+    const groupChannelAfterHideResponse = await groupChannelApi.getAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      showDeliveryReceipt: true,
+      showReadReceipt: true,
+      showMember: true,
+      memberActiveMode: "all",
+    });
+
+    const unhideAChannelResponse = await groupChannelApi.unhideAChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      shouldUnhideAll: false,
+      userId: SECOND_USER_ID,
+    });
+
+    const groupChannelAfterUnHideResponse = await groupChannelApi.getAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      showDeliveryReceipt: true,
+      showReadReceipt: true,
+      showMember: true,
+      memberActiveMode: "all",
+    });
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+
+    expect(hideAChannelResponse).toBeDefined();
+    expect(unhideAChannelResponse).toBeDefined();
+  });
+
+  it.todo("call inviteAsMembers then acceptAnInvitation and checkIfMember");
+
+  it.todo("call joinAChannel then leaveAChannel");
+
+  it.todo("call updateAGroupChannel");
+
+  it.todo("call resetChatHistory");
 });

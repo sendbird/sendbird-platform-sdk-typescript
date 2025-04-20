@@ -4,8 +4,9 @@ import {
 import { ServerConfiguration } from "../../servers";
 import { createConfiguration } from "../../configuration";
 import { ModerationApi, GroupChannelApi } from "../../index";
+import { GLOBAL_GROUP_CHANNEL_ACCESS_CODE, MASTER_USER_ID, USERS } from "./constants";
 
-describe("Group Channel API", () => {
+describe("Moderation API", () => {
   const APP_ID = process.env.APP_ID || "";
   const API_TOKEN = process.env.API_TOKEN || "";
   let moderationApi: ModerationApi;
@@ -24,22 +25,20 @@ describe("Group Channel API", () => {
     moderationApi = new ModerationApi(configuration);
   });
 
-  it("call listChannels with positive query params", async () => {
+  it("call freezeAGroupChannel from new created channel", async () => {
+    const CHANNEL_URL = 'freeze-integration-test-channel-url';
     const request: CreateAGroupChannelRequest = {
-      accessCode: "integration",
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
-      channelUrl: "integration-test",
+      channelUrl: CHANNEL_URL,
       coverUrl: "empty",
       customType: "data",
       data: "data",
       /**
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
-      invitationStatus: {
-        ttsYcp4M5USFbhDxPqM2ETwM1vB2: "joined",
-        lK7U9lvxcZWVNa5SgZnLv81DG2R2: "joined",
-      },
-      inviterId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
       isDistinct: false,
       isEphemeral: true,
       isPublic: true,
@@ -47,26 +46,38 @@ describe("Group Channel API", () => {
       name: "test",
       operatorIds: [],
       strict: true,
-      users: [
-        {
-          userId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
-        },
-        { userId: "lK7U9lvxcZWVNa5SgZnLv81DG2R2" },
-      ],
+      users: USERS.map((id) => ({userId: id})),
     };
 
-    const response = await groupChannelApi.createAGroupChannel({
+    const createGroupChannelresponse = await groupChannelApi.createAGroupChannel({
       apiToken: API_TOKEN,
       createAGroupChannelRequest: request,
     });
-    const freezeResponse = await moderationApi.freezeAGroupChannel({
-      channelUrl: response.channelUrl,
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+    expect(typeof createGroupChannelresponse.channelUrl).toBe("string");
+
+    expect(createGroupChannelresponse).toHaveProperty("freeze");
+    expect(createGroupChannelresponse.freeze).toBe(false);
+
+    const freezeChannelResponse = await moderationApi.freezeAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
       apiToken: API_TOKEN,
       freezeAGroupChannelRequest: { freeze: true },
     });
     
-    expect(response).toHaveProperty("channelUrl");
-    expect(response.channelUrl).toBe("integration-test");
-    expect(typeof response.channelUrl).toBe("string");
+    expect(freezeChannelResponse).toHaveProperty("channelUrl");
+    expect(freezeChannelResponse.channelUrl).toBe(CHANNEL_URL);
+    expect(typeof freezeChannelResponse.channelUrl).toBe("string");
+
+    expect(freezeChannelResponse).not.toEqual(createGroupChannelresponse);
+    expect(freezeChannelResponse).toHaveProperty("freeze");
+    expect(freezeChannelResponse.freeze).toBe(true);
+
+    await groupChannelApi.deleteAGroupChannel({
+      apiToken: API_TOKEN,
+      channelUrl: createGroupChannelresponse.channelUrl,
+    });
   });
 });

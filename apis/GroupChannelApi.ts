@@ -13,6 +13,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
+import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
 import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
@@ -272,15 +273,17 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param showReadReceipt 
      * @param showMember 
      * @param memberActiveMode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all)
+     * @param userId 
      * @param apiToken 
      */
-    public async getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', userId?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "getAGroupChannel", "channelUrl");
         }
+
 
 
 
@@ -314,6 +317,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (memberActiveMode !== undefined) {
             requestContext.setQueryParam("member_active_mode", ObjectSerializer.serialize(memberActiveMode, "'all' | 'activated' | 'deactivated'", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId, "string", ""));
         }
 
         // Header Params
@@ -1244,7 +1252,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param shouldUnhideAll 
      * @param apiToken 
      */
-    public async unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -1252,6 +1260,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             throw new RequiredError("GroupChannelApi", "unhideAChannel", "channelUrl");
         }
 
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("GroupChannelApi", "unhideAChannel", "userId");
+        }
 
 
 
@@ -1493,22 +1506,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to getAGroupChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAGroupChannel(response: ResponseContext): Promise<SendbirdGroupChannelDetail > {
+     public async getAGroupChannel(response: ResponseContext): Promise<GetAGroupChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+            const body: GetAGroupChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendbirdGroupChannelDetail", ""
-            ) as SendbirdGroupChannelDetail;
+                "GetAGroupChannelResponse", ""
+            ) as GetAGroupChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+            const body: GetAGroupChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendbirdGroupChannelDetail", ""
-            ) as SendbirdGroupChannelDetail;
+                "GetAGroupChannelResponse", ""
+            ) as GetAGroupChannelResponse;
             return body;
         }
 

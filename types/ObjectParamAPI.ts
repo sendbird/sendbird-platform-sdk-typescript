@@ -6,6 +6,8 @@ import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from '../models/GetAGroupChannelResponseAllOf';
 import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
@@ -173,6 +175,12 @@ export interface GroupChannelApiGetAGroupChannelRequest {
      * @memberof GroupChannelApigetAGroupChannel
      */
     memberActiveMode?: 'all' | 'activated' | 'deactivated'
+    /**
+     * 
+     * @type string
+     * @memberof GroupChannelApigetAGroupChannel
+     */
+    userId?: string
     /**
      * 
      * @type string
@@ -742,7 +750,7 @@ export interface GroupChannelApiUnhideAChannelRequest {
      * @type string
      * @memberof GroupChannelApiunhideAChannel
      */
-    userId?: string
+    userId: string
     /**
      * 
      * @type boolean
@@ -835,8 +843,8 @@ export class ObjectGroupChannelApi {
      * Get a group channel
      * @param param the request object
      */
-    public getAGroupChannel(param: GroupChannelApiGetAGroupChannelRequest, options?: Configuration): Promise<SendbirdGroupChannelDetail> {
-        return this.api.getAGroupChannel(param.channelUrl, param.showDeliveryReceipt, param.showReadReceipt, param.showMember, param.memberActiveMode, param.apiToken,  options).toPromise();
+    public getAGroupChannel(param: GroupChannelApiGetAGroupChannelRequest, options?: Configuration): Promise<GetAGroupChannelResponse> {
+        return this.api.getAGroupChannel(param.channelUrl, param.showDeliveryReceipt, param.showReadReceipt, param.showMember, param.memberActiveMode, param.userId, param.apiToken,  options).toPromise();
     }
 
     /**

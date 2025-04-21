@@ -7,6 +7,8 @@ import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
 import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from '../models/GetAGroupChannelResponseAllOf';
 import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
@@ -194,10 +196,11 @@ export class ObservableGroupChannelApi {
      * @param showReadReceipt 
      * @param showMember 
      * @param memberActiveMode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all)
+     * @param userId 
      * @param apiToken 
      */
-    public getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', apiToken?: string, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
-        const requestContextPromise = this.requestFactory.getAGroupChannel(channelUrl, showDeliveryReceipt, showReadReceipt, showMember, memberActiveMode, apiToken, _options);
+    public getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', userId?: string, apiToken?: string, _options?: Configuration): Observable<GetAGroupChannelResponse> {
+        const requestContextPromise = this.requestFactory.getAGroupChannel(channelUrl, showDeliveryReceipt, showReadReceipt, showMember, memberActiveMode, userId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -562,7 +565,7 @@ export class ObservableGroupChannelApi {
      * @param shouldUnhideAll 
      * @param apiToken 
      */
-    public unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+    public unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.unhideAChannel(channelUrl, userId, shouldUnhideAll, apiToken, _options);
 
         // build promise chain

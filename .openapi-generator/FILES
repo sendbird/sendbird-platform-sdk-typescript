@@ -21,6 +21,8 @@ models/AcceptAnInvitationRequest.ts
 models/CheckIfMemberResponse.ts
 models/CreateAGroupChannelRequest.ts
 models/FreezeAGroupChannelRequest.ts
+models/GetAGroupChannelResponse.ts
+models/GetAGroupChannelResponseAllOf.ts
 models/GroupChannelListMembersResponse.ts
 models/GroupChatListChannelsResponse.ts
 models/HideAChannelRequest.ts

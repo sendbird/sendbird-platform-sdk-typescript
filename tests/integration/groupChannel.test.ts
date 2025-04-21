@@ -892,7 +892,7 @@ describe("Group Channel API", () => {
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
       invitationStatus: {
-        MASTER_USER_ID: 'joined',
+        MASTER_USER_ID: "joined",
       },
       inviterId: MASTER_USER_ID,
       isDistinct: false,
@@ -921,16 +921,19 @@ describe("Group Channel API", () => {
         userId: SECOND_USER_ID,
         allowAutoUnhide: true,
         shouldHideAll: false,
-      }
+      },
     });
-    const groupChannelAfterHideResponse = await groupChannelApi.getAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-      showDeliveryReceipt: true,
-      showReadReceipt: true,
-      showMember: true,
-      memberActiveMode: "all",
-    });
+
+    const groupChannelAfterHideResponse =
+      await groupChannelApi.getAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        showDeliveryReceipt: true,
+        showReadReceipt: true,
+        showMember: true,
+        memberActiveMode: "all",
+        userId: SECOND_USER_ID,
+      });
 
     const unhideAChannelResponse = await groupChannelApi.unhideAChannel({
       channelUrl: createGroupChannelresponse.channelUrl,
@@ -939,28 +942,376 @@ describe("Group Channel API", () => {
       userId: SECOND_USER_ID,
     });
 
-    const groupChannelAfterUnHideResponse = await groupChannelApi.getAGroupChannel({
+    const groupChannelAfterUnHideResponse =
+      await groupChannelApi.getAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        showDeliveryReceipt: true,
+        showReadReceipt: true,
+        showMember: true,
+        memberActiveMode: "all",
+        userId: SECOND_USER_ID,
+      });
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+    expect(groupChannelAfterHideResponse.channelUrl).toBe(CHANNEL_URL);
+    expect(groupChannelAfterHideResponse).toHaveProperty("hiddenState");
+    expect(groupChannelAfterHideResponse.isHidden).toBeTruthy();
+
+    expect(groupChannelAfterHideResponse).toHaveProperty("hiddenState");
+    expect(groupChannelAfterHideResponse.hiddenState).toBe(
+      "hidden_allow_auto_unhide"
+    );
+    expect(
+      validSendbirdGroupChannelHiddenStateEnum.includes(
+        groupChannelAfterHideResponse.hiddenState
+      )
+    ).toBeTruthy();
+
+    expect(groupChannelAfterUnHideResponse).toHaveProperty("hiddenState");
+    expect(groupChannelAfterUnHideResponse.isHidden).toBeFalsy();
+    expect(groupChannelAfterUnHideResponse).toHaveProperty("hiddenState");
+    expect(groupChannelAfterUnHideResponse.hiddenState).toBe("unhidden");
+    expect(
+      validSendbirdGroupChannelHiddenStateEnum.includes(
+        groupChannelAfterUnHideResponse.hiddenState
+      )
+    ).toBeTruthy();
+
+    expect(hideAChannelResponse).toBeDefined();
+    expect(unhideAChannelResponse).toBeDefined();
+  });
+
+  it("call inviteAsMembers then acceptAnInvitation and checkIfMember", async () => {
+    const CHANNEL_URL = "group-channel-member-invitation-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: {
+        MASTER_USER_ID: "joined",
+      },
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    const inviteAsMembersResponse = await groupChannelApi.inviteAsMembers({
+      channelUrl: CHANNEL_URL,
+      apiToken: API_TOKEN,
+      inviteAsMembersRequest: {
+        inviterId: MASTER_USER_ID,
+        userIds: [SECOND_USER_ID],
+      },
+    });
+
+    const groupChannelAfterInviteResponse =
+      await groupChannelApi.getAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        showDeliveryReceipt: true,
+        showReadReceipt: true,
+        showMember: true,
+        memberActiveMode: "all",
+        userId: SECOND_USER_ID,
+      });
+
+    const acceptAnInvitationResponse = await groupChannelApi.acceptAnInvitation(
+      {
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        acceptAnInvitationRequest: {
+          userId: SECOND_USER_ID,
+          accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+        },
+      }
+    );
+
+    const checkIfMemberResponse = await groupChannelApi.checkIfMember({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      userId: SECOND_USER_ID,
+    });
+
+    const groupChannelAfterJoinedResponse =
+      await groupChannelApi.getAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+        showDeliveryReceipt: true,
+        showReadReceipt: true,
+        showMember: true,
+        memberActiveMode: "all",
+        userId: SECOND_USER_ID,
+      });
+
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
+
+    expect(inviteAsMembersResponse).toHaveProperty("invitedAt");
+    expect(inviteAsMembersResponse).toHaveProperty("inviter");
+    expect(inviteAsMembersResponse.inviter?.userId).toBe(MASTER_USER_ID);
+    expect(inviteAsMembersResponse.inviter).toBeInstanceOf(
+      SendbirdBasicUserInfo
+    );
+
+    expect(groupChannelAfterInviteResponse).toHaveProperty("memberState");
+    expect(groupChannelAfterInviteResponse.memberState).toBe("invited");
+    expect(groupChannelAfterInviteResponse.memberCount).toBe(2);
+    expect(groupChannelAfterInviteResponse.joinedMemberCount).toBe(1);
+
+    expect(acceptAnInvitationResponse.joinedMemberCount).toBe(2);
+    expect(
+      acceptAnInvitationResponse.members?.find(
+        (member) => (member.state = "joined")
+      )?.userId
+    ).toBe(SECOND_USER_ID);
+
+    expect(groupChannelAfterJoinedResponse).toHaveProperty("memberState");
+    expect(groupChannelAfterJoinedResponse).toHaveProperty("joinedTs");
+    expect(groupChannelAfterJoinedResponse.joinedTs?.toString().length).toBe(
+      10
+    );
+    expect(groupChannelAfterJoinedResponse.memberState).toBe("joined");
+    expect(groupChannelAfterJoinedResponse.memberCount).toBe(2);
+    expect(groupChannelAfterJoinedResponse.joinedMemberCount).toBe(2);
+
+    expect(checkIfMemberResponse).toHaveProperty("isMember");
+    expect(checkIfMemberResponse.isMember).toBeTruthy();
+    expect(typeof checkIfMemberResponse.isMember).toBe("boolean");
+
+    expect(checkIfMemberResponse).toHaveProperty("state");
+    expect(checkIfMemberResponse.state).toBeTruthy();
+    expect(typeof checkIfMemberResponse.state).toBe("string");
+    expect(
+      validSendbirdGroupChannelMemberStateEnum.includes(
+        checkIfMemberResponse.state
+      )
+    ).toBeTruthy();
+  });
+
+  it("call joinAChannel then leaveAChannel", async () => {
+    const CHANNEL_URL = "group-channel-join-leave-channel-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: {
+        MASTER_USER_ID: "joined",
+      },
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    const joinAChannelResponse = await groupChannelApi.joinAChannel({
+      channelUrl: CHANNEL_URL,
+      apiToken: API_TOKEN,
+      joinAChannelRequest: {
+        userId: SECOND_USER_ID,
+        accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      },
+    });
+
+    const leaveAChannelResponse = await groupChannelApi.leaveAChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+      leaveAChannelRequest: {
+        shouldLeaveAll: false,
+        userIds: [SECOND_USER_ID],
+      },
+    });
+
+    const getAGroupChannelResponse = await groupChannelApi.getAGroupChannel({
       channelUrl: createGroupChannelresponse.channelUrl,
       apiToken: API_TOKEN,
       showDeliveryReceipt: true,
       showReadReceipt: true,
       showMember: true,
       memberActiveMode: "all",
+      userId: MASTER_USER_ID,
     });
+
     await groupChannelApi.deleteAGroupChannel({
       channelUrl: createGroupChannelresponse.channelUrl,
       apiToken: API_TOKEN,
     });
 
-    expect(hideAChannelResponse).toBeDefined();
-    expect(unhideAChannelResponse).toBeDefined();
+    expect(joinAChannelResponse.memberCount).toBe(2);
+    expect(joinAChannelResponse.joinedMemberCount).toBe(2);
+
+    expect(leaveAChannelResponse).toBeDefined();
+
+    expect(getAGroupChannelResponse.memberCount).toBe(1);
+    expect(getAGroupChannelResponse.joinedMemberCount).toBe(1);
   });
 
-  it.todo("call inviteAsMembers then acceptAnInvitation and checkIfMember");
+  it("call updateAGroupChannel", async () => {
+    const CHANNEL_URL = "group-channel-update-channel-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: {
+        MASTER_USER_ID: "joined",
+      },
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
 
-  it.todo("call joinAChannel then leaveAChannel");
+    const createGroupChannelResponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
 
-  it.todo("call updateAGroupChannel");
+    expect(createGroupChannelResponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelResponse.channelUrl).toBe(CHANNEL_URL);
 
-  it.todo("call resetChatHistory");
+    const updateAGroupChannelResponse =
+      await groupChannelApi.updateAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+        updateAGroupChannelRequest: {
+          name: "test2",
+          data: "data2",
+        },
+      });
+
+    expect(updateAGroupChannelResponse.name).toBe("test2");
+    expect(updateAGroupChannelResponse.data).toBe("data2");
+  });
+
+  it("call resetChatHistory", async () => {
+    const CHANNEL_URL = "group-channel-reset-chat-history-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    const resetChatHistoryresponse = await groupChannelApi.resetChatHistory({
+      apiToken: API_TOKEN,
+      channelUrl: createGroupChannelresponse.channelUrl,
+      resetChatHistoryRequest: {
+        resetAll: true,
+      },
+    });
+
+    expect(resetChatHistoryresponse).toHaveProperty("tsMessageOffset");
+    expect(typeof resetChatHistoryresponse.tsMessageOffset).toBe("number");
+    expect(resetChatHistoryresponse.tsMessageOffset?.toString().length).toBe(
+      13
+    );
+  });
 });

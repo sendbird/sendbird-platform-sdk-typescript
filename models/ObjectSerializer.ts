@@ -2,6 +2,8 @@ export * from './AcceptAnInvitationRequest';
 export * from './CheckIfMemberResponse';
 export * from './CreateAGroupChannelRequest';
 export * from './FreezeAGroupChannelRequest';
+export * from './GetAGroupChannelResponse';
+export * from './GetAGroupChannelResponseAllOf';
 export * from './GroupChannelListMembersResponse';
 export * from './GroupChatListChannelsResponse';
 export * from './HideAChannelRequest';
@@ -40,6 +42,8 @@ import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
 import { CheckIfMemberResponse , CheckIfMemberResponseStateEnum   } from './CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
 import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
+import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum   , GetAGroupChannelResponsePushTriggerOptionEnum         } from './GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from './GetAGroupChannelResponseAllOf';
 import { GroupChannelListMembersResponse } from './GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { HideAChannelRequest } from './HideAChannelRequest';
@@ -95,6 +99,11 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 let enumsMap: Set<string> = new Set<string>([
     "CheckIfMemberResponseStateEnum",
+    "GetAGroupChannelResponseCountPreferenceEnum",
+    "GetAGroupChannelResponseHiddenStateEnum",
+    "GetAGroupChannelResponseMemberStateEnum",
+    "GetAGroupChannelResponseMyRoleEnum",
+    "GetAGroupChannelResponsePushTriggerOptionEnum",
     "InviteAsMembersResponseCountPreferenceEnum",
     "InviteAsMembersResponseHiddenStateEnum",
     "InviteAsMembersResponseMemberStateEnum",
@@ -115,6 +124,8 @@ let typeMap: {[index: string]: any} = {
     "CheckIfMemberResponse": CheckIfMemberResponse,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
     "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
+    "GetAGroupChannelResponse": GetAGroupChannelResponse,
+    "GetAGroupChannelResponseAllOf": GetAGroupChannelResponseAllOf,
     "GroupChannelListMembersResponse": GroupChannelListMembersResponse,
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
     "HideAChannelRequest": HideAChannelRequest,

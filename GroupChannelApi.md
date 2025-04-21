@@ -374,7 +374,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getAGroupChannel**
-> SendbirdGroupChannelDetail getAGroupChannel()
+> GetAGroupChannelResponse getAGroupChannel()
 
 ## Get a group channel  This action retrieves information about a specific [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use the optional query parameters to determine whether to include delivery receipt, read receipt, or member information in the response.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-a-group-channel#1-get-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve.
 
@@ -400,6 +400,8 @@ let body:Sendbird.GroupChannelApiGetAGroupChannelRequest = {
   // 'all' | 'activated' | 'deactivated' | Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
   memberActiveMode: "all",
   // string (optional)
+  userId: "user_id_example",
+  // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
@@ -418,12 +420,13 @@ Name | Type | Description  | Notes
  **showReadReceipt** | [**boolean**] |  | (optional) defaults to undefined
  **showMember** | [**boolean**] |  | (optional) defaults to undefined
  **memberActiveMode** | [**&#39;all&#39; | &#39;activated&#39; | &#39;deactivated&#39;**]**Array<&#39;all&#39; &#124; &#39;activated&#39; &#124; &#39;deactivated&#39;>** | Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) | (optional) defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**SendbirdGroupChannelDetail**
+**GetAGroupChannelResponse**
 
 ### Authorization
 
@@ -1314,7 +1317,7 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 let body:Sendbird.GroupChannelApiUnhideAChannelRequest = {
   // string | (Required) 
   channelUrl: "channel_url_example",
-  // string | (Required)  (optional)
+  // string | (Required) 
   userId: "user_id_example",
   // boolean (optional)
   shouldUnhideAll: true,
@@ -1333,7 +1336,7 @@ apiInstance.unhideAChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
- **userId** | [**string**] | (Required)  | (optional) defaults to undefined
+ **userId** | [**string**] | (Required)  | defaults to undefined
  **shouldUnhideAll** | [**boolean**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 

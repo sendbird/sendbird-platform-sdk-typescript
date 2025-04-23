@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { SendbirdUser } from './SendbirdUser';
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { HttpFile } from '../http/http';
 
 export class ListOperatorsResponse {
     'next'?: string;
-    'operators'?: Array<SendbirdUser>;
+    'operators'?: Array<SendbirdBasicUserInfo>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -29,7 +29,7 @@ export class ListOperatorsResponse {
         {
             "name": "operators",
             "baseName": "operators",
-            "type": "Array<SendbirdUser>",
+            "type": "Array<SendbirdBasicUserInfo>",
             "format": ""
         }    ];
 

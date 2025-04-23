@@ -1307,6 +1307,10 @@ describe("Group Channel API", () => {
         resetAll: true,
       },
     });
+    await groupChannelApi.deleteAGroupChannel({
+      channelUrl: createGroupChannelresponse.channelUrl,
+      apiToken: API_TOKEN,
+    });
 
     expect(resetChatHistoryresponse).toHaveProperty("tsMessageOffset");
     expect(typeof resetChatHistoryresponse.tsMessageOffset).toBe("number");

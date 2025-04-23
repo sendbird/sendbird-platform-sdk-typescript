@@ -7,3 +7,4 @@ export const USERS = [
 
 export const MASTER_USER_ID = USERS[0];
 export const SECOND_USER_ID = USERS[1];
+export const TEST_USER_ID = 'test-user-integration-id';

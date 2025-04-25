@@ -301,7 +301,6 @@ let body:Sendbird.BotApiSendABotMessageRequest = {
     ],
     message: "message_example",
     sendPush: true,
-    targetMessageId: 1,
   },
 };
 

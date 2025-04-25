@@ -17,7 +17,7 @@ export class CreateABotRequest {
     /**
     * Specifies the bot's nickname. The length is limited to 80 characters.
     */
-    'botNickname'?: string;
+    'botNickname': string;
     'botProfileUrl': string;
     'botType': string;
     /**

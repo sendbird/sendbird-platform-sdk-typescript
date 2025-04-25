@@ -117,7 +117,7 @@ describe("Moderation API", () => {
     const freezeChannelResponse = await moderationApi.freezeAnOpenChannel({
       channelUrl: createAnOpenChannelresponse.channelUrl,
       apiToken: API_TOKEN,
-      freezeAGroupChannelRequest: { freeze: true },
+      freezeAnOpenChannelRequest: { freeze: true },
     });
     await openChannelApi.deleteAnOpenChannel({
       apiToken: API_TOKEN,

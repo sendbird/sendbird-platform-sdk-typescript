@@ -77,7 +77,7 @@ export class ScheduleAnAnnouncementRequest {
             "name": "endAt",
             "baseName": "end_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "keepChannelHiddenForSender",

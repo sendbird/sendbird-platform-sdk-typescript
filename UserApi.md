@@ -165,7 +165,7 @@ No authorization required
 # **createAUser**
 > SendbirdUser createAUser()
 
-## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  [https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user)
+## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#1-create-a-user
 
 ### Example
 
@@ -1119,7 +1119,6 @@ let body:Sendbird.UserApiUpdateAUserRequest = {
     ],
     isActive: true,
     issueAccessToken: true,
-    issueSessionToken: true,
     lastSeenAt: 1,
     leaveAllWhenDeactivated: true,
     nickname: "nickname_example",
@@ -1128,7 +1127,6 @@ let body:Sendbird.UserApiUpdateAUserRequest = {
     ],
     profileFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
     profileUrl: "profileUrl_example",
-    sessionTokenExpiresAt: 1,
   },
 };
 

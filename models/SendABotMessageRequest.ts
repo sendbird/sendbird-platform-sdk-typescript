@@ -24,7 +24,6 @@ export class SendABotMessageRequest {
     'mentioned'?: Array<string>;
     'message': string;
     'sendPush'?: boolean;
-    'targetMessageId'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -87,12 +86,6 @@ export class SendABotMessageRequest {
             "name": "sendPush",
             "baseName": "send_push",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "targetMessageId",
-            "baseName": "target_message_id",
-            "type": "number",
             "format": ""
         }    ];
 

@@ -11,13 +11,13 @@
  */
 
 import { CreateABotResponseBot } from './CreateABotResponseBot';
-import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
+import { CreateABotResponseBotStyle } from './CreateABotResponseBotStyle';
 import { HttpFile } from '../http/http';
 
 export class CreateABotResponse {
     'bot': CreateABotResponseBot;
     'botCallbackUrl'?: string;
-    'botStyle'?: ListBotsResponseBotsInnerBotStyle;
+    'botStyle'?: CreateABotResponseBotStyle;
     'channelInvitationPreference'?: number;
     'createdAt'?: number;
     'enableMarkAsRead'?: boolean;
@@ -42,7 +42,7 @@ export class CreateABotResponse {
         {
             "name": "botStyle",
             "baseName": "bot_style",
-            "type": "ListBotsResponseBotsInnerBotStyle",
+            "type": "CreateABotResponseBotStyle",
             "format": ""
         },
         {

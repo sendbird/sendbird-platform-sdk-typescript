@@ -106,14 +106,16 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
      * Get an open channel
      * @param channelUrl (Required) 
      * @param apiToken 
+     * @param includeOperators Determines whether to include a list of operators in the response. (Default: false)
      */
-    public async getAnOpenChannel(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getAnOpenChannel(channelUrl: string, apiToken?: string, includeOperators?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("OpenChannelApi", "getAnOpenChannel", "channelUrl");
         }
+
 
 
 
@@ -124,6 +126,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (includeOperators !== undefined) {
+            requestContext.setQueryParam("include_operators", ObjectSerializer.serialize(includeOperators, "boolean", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
@@ -193,16 +200,16 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
      * ## List open channels  This action retrieves a list of [open channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels)
      * List open channels
      * @param token 
+     * @param channelUrls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
      * @param limit 
-     * @param customTypes 
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type.
      * @param nameContains 
      * @param urlContains 
-     * @param showFrozen 
-     * @param showMetadata 
-     * @param customType 
+     * @param showFrozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true)
+     * @param showMetadata Determines whether to include channel metadata in the response. (Default: false)
      * @param apiToken 
      */
-    public async listOpenChannels(token?: string, limit?: string, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: string, showMetadata?: string, customType?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listOpenChannels(token?: string, channelUrls?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -227,8 +234,13 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (channelUrls !== undefined) {
+            requestContext.setQueryParam("channel_urls", ObjectSerializer.serialize(channelUrls, "string", ""));
+        }
+
+        // Query Params
         if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "string", ""));
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
         }
 
         // Query Params
@@ -248,17 +260,12 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (showFrozen !== undefined) {
-            requestContext.setQueryParam("show_frozen", ObjectSerializer.serialize(showFrozen, "string", ""));
+            requestContext.setQueryParam("show_frozen", ObjectSerializer.serialize(showFrozen, "boolean", ""));
         }
 
         // Query Params
         if (showMetadata !== undefined) {
-            requestContext.setQueryParam("show_metadata", ObjectSerializer.serialize(showMetadata, "string", ""));
-        }
-
-        // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
+            requestContext.setQueryParam("show_metadata", ObjectSerializer.serialize(showMetadata, "boolean", ""));
         }
 
         // Header Params

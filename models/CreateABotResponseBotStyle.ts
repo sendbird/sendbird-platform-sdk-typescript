@@ -10,58 +10,45 @@
  * Do not edit the class manually.
  */
 
+import { ListBotsResponseBotsInnerBotStyleColor } from './ListBotsResponseBotsInnerBotStyleColor';
 import { HttpFile } from '../http/http';
 
-export class UpdateAnOpenChannelRequest {
-    'coverFile'?: HttpFile;
-    'coverUrl'?: string;
-    'customType'?: string;
-    'data'?: string;
-    'name'?: string;
-    'operatorIds'?: Array<string>;
+export class CreateABotResponseBotStyle {
+    'autoOpen'?: boolean;
+    'color'?: ListBotsResponseBotsInnerBotStyleColor;
+    'toggleButtonType'?: string;
+    'toggleButtonUrl'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "coverFile",
-            "baseName": "cover_file",
-            "type": "HttpFile",
-            "format": "binary"
+            "name": "autoOpen",
+            "baseName": "auto_open",
+            "type": "boolean",
+            "format": ""
         },
         {
-            "name": "coverUrl",
-            "baseName": "cover_url",
+            "name": "color",
+            "baseName": "color",
+            "type": "ListBotsResponseBotsInnerBotStyleColor",
+            "format": ""
+        },
+        {
+            "name": "toggleButtonType",
+            "baseName": "toggle_button_type",
             "type": "string",
             "format": ""
         },
         {
-            "name": "customType",
-            "baseName": "custom_type",
+            "name": "toggleButtonUrl",
+            "baseName": "toggle_button_url",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "operatorIds",
-            "baseName": "operator_ids",
-            "type": "Array<string>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return UpdateAnOpenChannelRequest.attributeTypeMap;
+        return CreateABotResponseBotStyle.attributeTypeMap;
     }
 
     public constructor() {

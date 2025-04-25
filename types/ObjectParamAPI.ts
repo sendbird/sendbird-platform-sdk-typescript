@@ -15,6 +15,7 @@ import { ChooseAPushNotificationContentTemplateResponse } from '../models/Choose
 import { CreateABotRequest } from '../models/CreateABotRequest';
 import { CreateABotResponse } from '../models/CreateABotResponse';
 import { CreateABotResponseBot } from '../models/CreateABotResponseBot';
+import { CreateABotResponseBotStyle } from '../models/CreateABotResponseBotStyle';
 import { CreateAChannelMetadataRequest } from '../models/CreateAChannelMetadataRequest';
 import { CreateAChannelMetadataResponse } from '../models/CreateAChannelMetadataResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
@@ -23,6 +24,7 @@ import { CreateAnOpenChannelRequest } from '../models/CreateAnOpenChannelRequest
 import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from '../models/FreezeAnOpenChannelRequest';
 import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
 import { GetAGroupChannelResponseAllOf } from '../models/GetAGroupChannelResponseAllOf';
 import { GetChannelInvitationPreferenceResponse } from '../models/GetChannelInvitationPreferenceResponse';
@@ -90,7 +92,6 @@ import { SendbirdSortedMetaarrayInner } from '../models/SendbirdSortedMetaarrayI
 import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
 import { SendbirdUser } from '../models/SendbirdUser';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAChannelMetadataRequest } from '../models/UpdateAChannelMetadataRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 import { UpdateAMessageRequest } from '../models/UpdateAMessageRequest';
@@ -346,10 +347,10 @@ export interface GroupChannelApiCancelTheRegistrationOfOperatorsRequest {
     operatorIds: string
     /**
      * 
-     * @type string
+     * @type boolean
      * @memberof GroupChannelApicancelTheRegistrationOfOperators
      */
-    deleteAll?: string
+    deleteAll?: boolean
     /**
      * 
      * @type string
@@ -880,10 +881,10 @@ export interface GroupChannelApiListMembersRequest {
     nicknameStartswith?: string
     /**
      * Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
-     * @type &#39;push_enabled&#39; | &#39;push_trigger_option&#39; | &#39;do_not_disturb&#39; | &#39;false&#39;
+     * @type boolean
      * @memberof GroupChannelApilistMembers
      */
-    includePushPreference?: 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false'
+    includePushPreference?: boolean
     /**
      * 
      * @type string
@@ -997,10 +998,10 @@ export interface GroupChannelApiStopTypingIndicatorsRequest {
     apiToken?: string
     /**
      * 
-     * @type StopTypingIndicatorsRequest
+     * @type StartTypingIndicatorsRequest
      * @memberof GroupChannelApistopTypingIndicators
      */
-    stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest
+    startTypingIndicatorsRequest?: StartTypingIndicatorsRequest
 }
 
 export interface GroupChannelApiUnhideAChannelRequest {
@@ -1208,7 +1209,7 @@ export class ObjectGroupChannelApi {
      * @param param the request object
      */
     public stopTypingIndicators(param: GroupChannelApiStopTypingIndicatorsRequest, options?: Configuration): Promise<any> {
-        return this.api.stopTypingIndicators(param.channelUrl, param.apiToken, param.stopTypingIndicatorsRequest,  options).toPromise();
+        return this.api.stopTypingIndicators(param.channelUrl, param.apiToken, param.startTypingIndicatorsRequest,  options).toPromise();
     }
 
     /**
@@ -2011,10 +2012,10 @@ export interface ModerationApiFreezeAnOpenChannelRequest {
     apiToken?: string
     /**
      * 
-     * @type FreezeAGroupChannelRequest
+     * @type FreezeAnOpenChannelRequest
      * @memberof ModerationApifreezeAnOpenChannel
      */
-    freezeAGroupChannelRequest?: FreezeAGroupChannelRequest
+    freezeAnOpenChannelRequest?: FreezeAnOpenChannelRequest
 }
 
 export interface ModerationApiListBlockedUsersRequest {
@@ -2120,7 +2121,7 @@ export class ObjectModerationApi {
      * @param param the request object
      */
     public freezeAnOpenChannel(param: ModerationApiFreezeAnOpenChannelRequest, options?: Configuration): Promise<SendbirdOpenChannel> {
-        return this.api.freezeAnOpenChannel(param.channelUrl, param.apiToken, param.freezeAGroupChannelRequest,  options).toPromise();
+        return this.api.freezeAnOpenChannel(param.channelUrl, param.apiToken, param.freezeAnOpenChannelRequest,  options).toPromise();
     }
 
     /**
@@ -2189,6 +2190,12 @@ export interface OpenChannelApiGetAnOpenChannelRequest {
      * @memberof OpenChannelApigetAnOpenChannel
      */
     apiToken?: string
+    /**
+     * Determines whether to include a list of operators in the response. (Default: false)
+     * @type boolean
+     * @memberof OpenChannelApigetAnOpenChannel
+     */
+    includeOperators?: boolean
 }
 
 export interface OpenChannelApiListChannelOperatorsRequest {
@@ -2226,13 +2233,19 @@ export interface OpenChannelApiListOpenChannelsRequest {
      */
     token?: string
     /**
-     * 
+     * Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
      * @type string
      * @memberof OpenChannelApilistOpenChannels
      */
-    limit?: string
+    channelUrls?: string
     /**
      * 
+     * @type number
+     * @memberof OpenChannelApilistOpenChannels
+     */
+    limit?: number
+    /**
+     * Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type.
      * @type string
      * @memberof OpenChannelApilistOpenChannels
      */
@@ -2250,23 +2263,17 @@ export interface OpenChannelApiListOpenChannelsRequest {
      */
     urlContains?: string
     /**
-     * 
-     * @type string
+     * Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true)
+     * @type boolean
      * @memberof OpenChannelApilistOpenChannels
      */
-    showFrozen?: string
+    showFrozen?: boolean
     /**
-     * 
-     * @type string
+     * Determines whether to include channel metadata in the response. (Default: false)
+     * @type boolean
      * @memberof OpenChannelApilistOpenChannels
      */
-    showMetadata?: string
-    /**
-     * 
-     * @type string
-     * @memberof OpenChannelApilistOpenChannels
-     */
-    customType?: string
+    showMetadata?: boolean
     /**
      * 
      * @type string
@@ -2375,7 +2382,7 @@ export class ObjectOpenChannelApi {
      * @param param the request object
      */
     public getAnOpenChannel(param: OpenChannelApiGetAnOpenChannelRequest, options?: Configuration): Promise<SendbirdOpenChannel> {
-        return this.api.getAnOpenChannel(param.channelUrl, param.apiToken,  options).toPromise();
+        return this.api.getAnOpenChannel(param.channelUrl, param.apiToken, param.includeOperators,  options).toPromise();
     }
 
     /**
@@ -2393,7 +2400,7 @@ export class ObjectOpenChannelApi {
      * @param param the request object
      */
     public listOpenChannels(param: OpenChannelApiListOpenChannelsRequest = {}, options?: Configuration): Promise<ListOpenChannelsResponse> {
-        return this.api.listOpenChannels(param.token, param.limit, param.customTypes, param.nameContains, param.urlContains, param.showFrozen, param.showMetadata, param.customType, param.apiToken,  options).toPromise();
+        return this.api.listOpenChannels(param.token, param.channelUrls, param.limit, param.customTypes, param.nameContains, param.urlContains, param.showFrozen, param.showMetadata, param.apiToken,  options).toPromise();
     }
 
     /**
@@ -3381,7 +3388,7 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  [https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user)
+     * ## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#1-create-a-user
      * Create a user
      * @param param the request object
      */

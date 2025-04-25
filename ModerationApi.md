@@ -158,8 +158,8 @@ let body:Sendbird.ModerationApiFreezeAnOpenChannelRequest = {
   channelUrl: "channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
-  // FreezeAGroupChannelRequest (optional)
-  freezeAGroupChannelRequest: {
+  // FreezeAnOpenChannelRequest (optional)
+  freezeAnOpenChannelRequest: {
     freeze: true,
   },
 };
@@ -174,7 +174,7 @@ apiInstance.freezeAnOpenChannel(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **freezeAGroupChannelRequest** | **FreezeAGroupChannelRequest**|  |
+ **freezeAnOpenChannelRequest** | **FreezeAnOpenChannelRequest**|  |
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 

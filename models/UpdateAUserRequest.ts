@@ -16,14 +16,12 @@ export class UpdateAUserRequest {
     'discoveryKeys'?: Array<string>;
     'isActive'?: boolean;
     'issueAccessToken'?: boolean;
-    'issueSessionToken'?: boolean;
     'lastSeenAt'?: number;
     'leaveAllWhenDeactivated'?: boolean;
     'nickname'?: string;
     'preferredLanguages'?: Array<string>;
     'profileFile'?: HttpFile;
     'profileUrl'?: string;
-    'sessionTokenExpiresAt'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,12 +41,6 @@ export class UpdateAUserRequest {
         {
             "name": "issueAccessToken",
             "baseName": "issue_access_token",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "issueSessionToken",
-            "baseName": "issue_session_token",
             "type": "boolean",
             "format": ""
         },
@@ -87,12 +79,6 @@ export class UpdateAUserRequest {
             "baseName": "profile_url",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "sessionTokenExpiresAt",
-            "baseName": "session_token_expires_at",
-            "type": "number",
-            "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {

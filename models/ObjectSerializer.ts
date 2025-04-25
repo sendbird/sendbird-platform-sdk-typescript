@@ -11,6 +11,7 @@ export * from './ChooseAPushNotificationContentTemplateResponse';
 export * from './CreateABotRequest';
 export * from './CreateABotResponse';
 export * from './CreateABotResponseBot';
+export * from './CreateABotResponseBotStyle';
 export * from './CreateAChannelMetadataRequest';
 export * from './CreateAChannelMetadataResponse';
 export * from './CreateAGroupChannelRequest';
@@ -19,6 +20,7 @@ export * from './CreateAnOpenChannelRequest';
 export * from './CreateUserTokenRequest';
 export * from './CreateUserTokenResponse';
 export * from './FreezeAGroupChannelRequest';
+export * from './FreezeAnOpenChannelRequest';
 export * from './GetAGroupChannelResponse';
 export * from './GetAGroupChannelResponseAllOf';
 export * from './GetChannelInvitationPreferenceResponse';
@@ -86,7 +88,6 @@ export * from './SendbirdSortedMetaarrayInner';
 export * from './SendbirdThumbnail';
 export * from './SendbirdUser';
 export * from './StartTypingIndicatorsRequest';
-export * from './StopTypingIndicatorsRequest';
 export * from './UpdateAChannelMetadataRequest';
 export * from './UpdateAGroupChannelRequest';
 export * from './UpdateAMessageRequest';
@@ -124,6 +125,7 @@ import { ChooseAPushNotificationContentTemplateResponse } from './ChooseAPushNot
 import { CreateABotRequest } from './CreateABotRequest';
 import { CreateABotResponse } from './CreateABotResponse';
 import { CreateABotResponseBot } from './CreateABotResponseBot';
+import { CreateABotResponseBotStyle } from './CreateABotResponseBotStyle';
 import { CreateAChannelMetadataRequest } from './CreateAChannelMetadataRequest';
 import { CreateAChannelMetadataResponse } from './CreateAChannelMetadataResponse';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
@@ -132,6 +134,7 @@ import { CreateAnOpenChannelRequest } from './CreateAnOpenChannelRequest';
 import { CreateUserTokenRequest } from './CreateUserTokenRequest';
 import { CreateUserTokenResponse } from './CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from './FreezeAnOpenChannelRequest';
 import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum   , GetAGroupChannelResponsePushTriggerOptionEnum         } from './GetAGroupChannelResponse';
 import { GetAGroupChannelResponseAllOf } from './GetAGroupChannelResponseAllOf';
 import { GetChannelInvitationPreferenceResponse } from './GetChannelInvitationPreferenceResponse';
@@ -197,9 +200,8 @@ import { SendbirdReaction } from './SendbirdReaction';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
-import { SendbirdUser                , SendbirdUserStateEnum       } from './SendbirdUser';
+import { SendbirdUser                , SendbirdUserStateEnum        } from './SendbirdUser';
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from './StopTypingIndicatorsRequest';
 import { UpdateAChannelMetadataRequest } from './UpdateAChannelMetadataRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
 import { UpdateAMessageRequest     , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
@@ -293,6 +295,7 @@ let typeMap: {[index: string]: any} = {
     "CreateABotRequest": CreateABotRequest,
     "CreateABotResponse": CreateABotResponse,
     "CreateABotResponseBot": CreateABotResponseBot,
+    "CreateABotResponseBotStyle": CreateABotResponseBotStyle,
     "CreateAChannelMetadataRequest": CreateAChannelMetadataRequest,
     "CreateAChannelMetadataResponse": CreateAChannelMetadataResponse,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
@@ -301,6 +304,7 @@ let typeMap: {[index: string]: any} = {
     "CreateUserTokenRequest": CreateUserTokenRequest,
     "CreateUserTokenResponse": CreateUserTokenResponse,
     "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
+    "FreezeAnOpenChannelRequest": FreezeAnOpenChannelRequest,
     "GetAGroupChannelResponse": GetAGroupChannelResponse,
     "GetAGroupChannelResponseAllOf": GetAGroupChannelResponseAllOf,
     "GetChannelInvitationPreferenceResponse": GetChannelInvitationPreferenceResponse,
@@ -368,7 +372,6 @@ let typeMap: {[index: string]: any} = {
     "SendbirdThumbnail": SendbirdThumbnail,
     "SendbirdUser": SendbirdUser,
     "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
-    "StopTypingIndicatorsRequest": StopTypingIndicatorsRequest,
     "UpdateAChannelMetadataRequest": UpdateAChannelMetadataRequest,
     "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
     "UpdateAMessageRequest": UpdateAMessageRequest,

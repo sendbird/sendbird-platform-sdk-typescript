@@ -1304,6 +1304,7 @@ describe("Group Channel API", () => {
       apiToken: API_TOKEN,
       channelUrl: createGroupChannelresponse.channelUrl,
       resetChatHistoryRequest: {
+        userId: MASTER_USER_ID,
         resetAll: true,
       },
     });

@@ -13,6 +13,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { BlockAUserRequest } from '../models/BlockAUserRequest';
 import { BlockAUserResponse } from '../models/BlockAUserResponse';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from '../models/FreezeAnOpenChannelRequest';
 import { ListBlockedUsersResponse } from '../models/ListBlockedUsersResponse';
 import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
 import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
@@ -127,9 +128,9 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
      * Freeze an open channel
      * @param channelUrl (Required) 
      * @param apiToken 
-     * @param freezeAGroupChannelRequest 
+     * @param freezeAnOpenChannelRequest 
      */
-    public async freezeAnOpenChannel(channelUrl: string, apiToken?: string, freezeAGroupChannelRequest?: FreezeAGroupChannelRequest, _options?: Configuration): Promise<RequestContext> {
+    public async freezeAnOpenChannel(channelUrl: string, apiToken?: string, freezeAnOpenChannelRequest?: FreezeAnOpenChannelRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -158,7 +159,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(freezeAGroupChannelRequest, "FreezeAGroupChannelRequest", ""),
+            ObjectSerializer.serialize(freezeAnOpenChannelRequest, "FreezeAnOpenChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

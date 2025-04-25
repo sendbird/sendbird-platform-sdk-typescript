@@ -40,6 +40,7 @@ models/ChooseAPushNotificationContentTemplateResponse.ts
 models/CreateABotRequest.ts
 models/CreateABotResponse.ts
 models/CreateABotResponseBot.ts
+models/CreateABotResponseBotStyle.ts
 models/CreateAChannelMetadataRequest.ts
 models/CreateAChannelMetadataResponse.ts
 models/CreateAGroupChannelRequest.ts
@@ -48,6 +49,7 @@ models/CreateAnOpenChannelRequest.ts
 models/CreateUserTokenRequest.ts
 models/CreateUserTokenResponse.ts
 models/FreezeAGroupChannelRequest.ts
+models/FreezeAnOpenChannelRequest.ts
 models/GetAGroupChannelResponse.ts
 models/GetAGroupChannelResponseAllOf.ts
 models/GetChannelInvitationPreferenceResponse.ts
@@ -116,7 +118,6 @@ models/SendbirdSortedMetaarrayInner.ts
 models/SendbirdThumbnail.ts
 models/SendbirdUser.ts
 models/StartTypingIndicatorsRequest.ts
-models/StopTypingIndicatorsRequest.ts
 models/UpdateAChannelMetadataRequest.ts
 models/UpdateAGroupChannelRequest.ts
 models/UpdateAMessageRequest.ts

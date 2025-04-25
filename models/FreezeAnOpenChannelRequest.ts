@@ -12,28 +12,24 @@
 
 import { HttpFile } from '../http/http';
 
-export class ResetChatHistoryRequest {
-    'resetAll'?: boolean;
-    'userId': string;
+export class FreezeAnOpenChannelRequest {
+    /**
+    * Determines whether to freeze the channel. (Default: true)
+    */
+    'freeze': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "resetAll",
-            "baseName": "reset_all",
+            "name": "freeze",
+            "baseName": "freeze",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ResetChatHistoryRequest.attributeTypeMap;
+        return FreezeAnOpenChannelRequest.attributeTypeMap;
     }
 
     public constructor() {

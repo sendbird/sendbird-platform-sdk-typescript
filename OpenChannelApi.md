@@ -160,6 +160,8 @@ let body:Sendbird.OpenChannelApiGetAnOpenChannelRequest = {
   channelUrl: "channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
+  // boolean | Determines whether to include a list of operators in the response. (Default: false) (optional)
+  includeOperators: true,
 };
 
 apiInstance.getAnOpenChannel(body).then((data:any) => {
@@ -174,6 +176,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
+ **includeOperators** | [**boolean**] | Determines whether to include a list of operators in the response. (Default: false) | (optional) defaults to undefined
 
 
 ### Return type
@@ -278,20 +281,20 @@ const apiInstance = new Sendbird.OpenChannelApi(configuration);
 let body:Sendbird.OpenChannelApiListOpenChannelsRequest = {
   // string (optional)
   token: "token_example",
-  // string (optional)
-  limit: "limit_example",
-  // string (optional)
+  // string | Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+  channelUrls: "channel_urls_example",
+  // number (optional)
+  limit: 1,
+  // string | Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types=urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
   customTypes: "custom_types_example",
   // string (optional)
   nameContains: "name_contains_example",
   // string (optional)
   urlContains: "url_contains_example",
-  // string (optional)
-  showFrozen: "show_frozen_example",
-  // string (optional)
-  showMetadata: "show_metadata_example",
-  // string (optional)
-  customType: "custom_type_example",
+  // boolean | Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+  showFrozen: true,
+  // boolean | Determines whether to include channel metadata in the response. (Default: false) (optional)
+  showMetadata: true,
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
@@ -307,13 +310,13 @@ apiInstance.listOpenChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | [**string**] |  | (optional) defaults to undefined
- **limit** | [**string**] |  | (optional) defaults to undefined
- **customTypes** | [**string**] |  | (optional) defaults to undefined
+ **channelUrls** | [**string**] | Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **customTypes** | [**string**] | Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. | (optional) defaults to undefined
  **nameContains** | [**string**] |  | (optional) defaults to undefined
  **urlContains** | [**string**] |  | (optional) defaults to undefined
- **showFrozen** | [**string**] |  | (optional) defaults to undefined
- **showMetadata** | [**string**] |  | (optional) defaults to undefined
- **customType** | [**string**] |  | (optional) defaults to undefined
+ **showFrozen** | [**boolean**] | Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) | (optional) defaults to undefined
+ **showMetadata** | [**boolean**] | Determines whether to include channel metadata in the response. (Default: false) | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -487,7 +490,6 @@ let body:Sendbird.OpenChannelApiUpdateAnOpenChannelRequest = {
   apiToken: "{{API_TOKEN}}",
   // UpdateAnOpenChannelRequest (optional)
   updateAnOpenChannelRequest: {
-    channelUrl: "channelUrl_example",
     coverFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
     coverUrl: "coverUrl_example",
     customType: "customType_example",

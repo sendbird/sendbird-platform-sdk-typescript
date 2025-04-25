@@ -17,6 +17,9 @@ export class CreateAUserRequest {
     'issueAccessToken'?: boolean;
     'metadata'?: any;
     'nickname': string;
+    /**
+    * Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
+    */
     'profileFile'?: HttpFile;
     'profileUrl': string;
     'userId': string;

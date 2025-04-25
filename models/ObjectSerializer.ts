@@ -50,7 +50,7 @@ import { InviteAsMembersRequest } from './InviteAsMembersRequest';
 import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum   , InviteAsMembersResponsePushTriggerOptionEnum          } from './InviteAsMembersResponse';
 import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { JoinAChannelRequest } from './JoinAChannelRequest';
-import { LeaveAChannelRequest } from './LeaveAChannelRequest';
+import { LeaveAChannelRequest   , LeaveAChannelRequestReasonEnum   } from './LeaveAChannelRequest';
 import { ListOperatorsResponse } from './ListOperatorsResponse';
 import { MarkAllMessagesAsReadRequest } from './MarkAllMessagesAsReadRequest';
 import { RegisterOperatorsToAGroupChannelRequest } from './RegisterOperatorsToAGroupChannelRequest';
@@ -107,6 +107,7 @@ let enumsMap: Set<string> = new Set<string>([
     "InviteAsMembersResponseMemberStateEnum",
     "InviteAsMembersResponseMyRoleEnum",
     "InviteAsMembersResponsePushTriggerOptionEnum",
+    "LeaveAChannelRequestReasonEnum",
     "SendbirdGroupChannelCountPreferenceEnum",
     "SendbirdGroupChannelHiddenStateEnum",
     "SendbirdGroupChannelMemberStateEnum",

@@ -667,7 +667,7 @@ let body:Sendbird.GroupChannelApiLeaveAChannelRequest = {
     ],
     shouldLeaveAll: true,
     shouldRemoveOperatorStatus: true,
-    reason: "reason_example",
+    reason: "LEFT_BY_OWN_CHOICE",
   },
 };
 

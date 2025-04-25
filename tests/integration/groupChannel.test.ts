@@ -14,6 +14,7 @@ import {
   SendbirdMemberRoleEnum,
   SendbirdMemberStateEnum,
   SendbirdGroupChannelDetailChannel,
+  LeaveAChannelRequestReasonEnum,
 } from "../../models/ObjectSerializer";
 import { hasValidField } from "./helper";
 import { ServerConfiguration } from "../../servers";
@@ -617,14 +618,19 @@ describe("Group Channel API", () => {
     expect(channel).toBeDefined();
 
     if (channel) {
+      const LIMIT = 10;
       const listMembersResponse = await groupChannelApi.listMembers({
         apiToken: API_TOKEN,
+        limit: LIMIT,
         channelUrl: channel.channelUrl,
+        includePushPreference: true,
       });
 
       expect(listMembersResponse).toHaveProperty("members");
       expect(Array.isArray(listMembersResponse.members)).toBe(true);
+      expect((listMembersResponse.members.length)).toBeLessThanOrEqual(LIMIT);
       listMembersResponse.members.forEach((member) => {
+        console.log(member);
         expect(member).toHaveProperty("userId");
         expect(typeof member.userId).toBe("string");
 
@@ -1177,6 +1183,8 @@ describe("Group Channel API", () => {
       apiToken: API_TOKEN,
       leaveAChannelRequest: {
         shouldLeaveAll: false,
+        shouldRemoveOperatorStatus: true,
+        reason: 'LEFT_BY_OWN_CHOICE',
         userIds: [SECOND_USER_ID],
       },
     });

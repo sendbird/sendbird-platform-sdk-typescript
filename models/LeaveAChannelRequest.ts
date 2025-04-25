@@ -28,7 +28,7 @@ export class LeaveAChannelRequest {
     /**
     * Specifies the reason for leaving a channel. Acceptable values are admin_removed, admin_deleted, admin_deactivated, left_by_own_choice, and channel_operator_removed.
     */
-    'reason'?: string;
+    'reason'?: LeaveAChannelRequestReasonEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -54,7 +54,7 @@ export class LeaveAChannelRequest {
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "string",
+            "type": "LeaveAChannelRequestReasonEnum",
             "format": ""
         }    ];
 
@@ -65,4 +65,7 @@ export class LeaveAChannelRequest {
     public constructor() {
     }
 }
+
+
+export type LeaveAChannelRequestReasonEnum = "LEFT_BY_OWN_CHOICE" | "CHANNEL_OPERATOR_REMOVED" | "ADMIN_REMOVED" | "ADMIN_DELETED" | "ADMIN_DEACTIVATED" ;
 

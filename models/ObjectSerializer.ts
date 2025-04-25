@@ -33,7 +33,6 @@ export * from './SendbirdSmsFallback';
 export * from './SendbirdThumbnail';
 export * from './SendbirdUser';
 export * from './StartTypingIndicatorsRequest';
-export * from './StopTypingIndicatorsRequest';
 export * from './UpdateAGroupChannelRequest';
 export * from './ViewNumberOfDailyActiveUsersResponse';
 export * from './ViewNumberOfMonthlyActiveUsersResponse';
@@ -73,7 +72,6 @@ import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
 import { SendbirdUser                , SendbirdUserStateEnum   } from './SendbirdUser';
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from './StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
 import { ViewNumberOfDailyActiveUsersResponse } from './ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from './ViewNumberOfMonthlyActiveUsersResponse';
@@ -155,7 +153,6 @@ let typeMap: {[index: string]: any} = {
     "SendbirdThumbnail": SendbirdThumbnail,
     "SendbirdUser": SendbirdUser,
     "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
-    "StopTypingIndicatorsRequest": StopTypingIndicatorsRequest,
     "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
     "ViewNumberOfDailyActiveUsersResponse": ViewNumberOfDailyActiveUsersResponse,
     "ViewNumberOfMonthlyActiveUsersResponse": ViewNumberOfMonthlyActiveUsersResponse,

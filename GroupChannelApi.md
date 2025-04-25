@@ -108,8 +108,8 @@ let body:Sendbird.GroupChannelApiCancelTheRegistrationOfOperatorsRequest = {
   channelUrl: "channel_url_example",
   // string | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids=urlencoded_id_1,urlencoded_id_2.
   operatorIds: "operator_ids_example",
-  // string (optional)
-  deleteAll: "delete_all_example",
+  // boolean (optional)
+  deleteAll: true,
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **operatorIds** | [**string**] | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. | defaults to undefined
- **deleteAll** | [**string**] |  | (optional) defaults to undefined
+ **deleteAll** | [**boolean**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -666,6 +666,8 @@ let body:Sendbird.GroupChannelApiLeaveAChannelRequest = {
       "userIds_example",
     ],
     shouldLeaveAll: true,
+    shouldRemoveOperatorStatus: true,
+    reason: "reason_example",
   },
 };
 
@@ -927,8 +929,8 @@ let body:Sendbird.GroupChannelApiListMembersRequest = {
   memberActiveModeFilter: "activated",
   // string | Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
   nicknameStartswith: "nickname_startswith_example",
-  // 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false' | Determines whether to include information about the push preference of each member, such as `push_enabled`, `push_trigger_option`, and `do_not_disturb`. (Default: `false`) (optional)
-  includePushPreference: "push_enabled",
+  // boolean | Determines whether to include information about the push preference of each member, such as `push_enabled`, `push_trigger_option`, and `do_not_disturb`. (Default: `false`) (optional)
+  includePushPreference: true,
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
@@ -956,7 +958,7 @@ Name | Type | Description  | Notes
  **mutedMemberFilter** | [**&#39;all&#39; | &#39;muted&#39; | &#39;unmuted&#39;**]**Array<&#39;all&#39; &#124; &#39;muted&#39; &#124; &#39;unmuted&#39;>** | Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) | (optional) defaults to undefined
  **memberActiveModeFilter** | [**&#39;activated&#39; | &#39;deactivated&#39;**]**Array<&#39;activated&#39; &#124; &#39;deactivated&#39;>** | Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) | (optional) defaults to undefined
  **nicknameStartswith** | [**string**] | Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. | (optional) defaults to undefined
- **includePushPreference** | [**&#39;push_enabled&#39; | &#39;push_trigger_option&#39; | &#39;do_not_disturb&#39; | &#39;false&#39;**]**Array<&#39;push_enabled&#39; &#124; &#39;push_trigger_option&#39; &#124; &#39;do_not_disturb&#39; &#124; &#39;false&#39;>** | Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) | (optional) defaults to undefined
+ **includePushPreference** | [**boolean**] | Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -1255,8 +1257,8 @@ let body:Sendbird.GroupChannelApiStopTypingIndicatorsRequest = {
   channelUrl: "channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
-  // StopTypingIndicatorsRequest (optional)
-  stopTypingIndicatorsRequest: {
+  // StartTypingIndicatorsRequest (optional)
+  startTypingIndicatorsRequest: {
     userIds: [
       "userIds_example",
     ],
@@ -1273,7 +1275,7 @@ apiInstance.stopTypingIndicators(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stopTypingIndicatorsRequest** | **StopTypingIndicatorsRequest**|  |
+ **startTypingIndicatorsRequest** | **StartTypingIndicatorsRequest**|  |
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
@@ -1317,7 +1319,7 @@ const apiInstance = new Sendbird.GroupChannelApi(configuration);
 let body:Sendbird.GroupChannelApiUnhideAChannelRequest = {
   // string | (Required) 
   channelUrl: "channel_url_example",
-  // string | (Required) 
+  // string | (Required)  (optional)
   userId: "user_id_example",
   // boolean (optional)
   shouldUnhideAll: true,
@@ -1336,7 +1338,7 @@ apiInstance.unhideAChannel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
- **userId** | [**string**] | (Required)  | defaults to undefined
+ **userId** | [**string**] | (Required)  | (optional) defaults to undefined
  **shouldUnhideAll** | [**boolean**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 

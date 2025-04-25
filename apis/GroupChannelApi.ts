@@ -27,7 +27,6 @@ import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
 import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
 import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 
 /**
@@ -93,7 +92,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param deleteAll 
      * @param apiToken 
      */
-    public async cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -125,7 +124,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (deleteAll !== undefined) {
-            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "string", ""));
+            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "boolean", ""));
         }
 
         // Header Params
@@ -884,7 +883,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param includePushPreference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
      * @param apiToken 
      */
-    public async listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -977,7 +976,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (includePushPreference !== undefined) {
-            requestContext.setQueryParam("include_push_preference", ObjectSerializer.serialize(includePushPreference, "'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false'", ""));
+            requestContext.setQueryParam("include_push_preference", ObjectSerializer.serialize(includePushPreference, "boolean", ""));
         }
 
         // Header Params
@@ -1199,9 +1198,9 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * Stop typing indicators
      * @param channelUrl (Required) 
      * @param apiToken 
-     * @param stopTypingIndicatorsRequest 
+     * @param startTypingIndicatorsRequest 
      */
-    public async stopTypingIndicators(channelUrl: string, apiToken?: string, stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest, _options?: Configuration): Promise<RequestContext> {
+    public async stopTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -1230,7 +1229,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(stopTypingIndicatorsRequest, "StopTypingIndicatorsRequest", ""),
+            ObjectSerializer.serialize(startTypingIndicatorsRequest, "StartTypingIndicatorsRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1252,7 +1251,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param shouldUnhideAll 
      * @param apiToken 
      */
-    public async unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -1260,11 +1259,6 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             throw new RequiredError("GroupChannelApi", "unhideAChannel", "channelUrl");
         }
 
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("GroupChannelApi", "unhideAChannel", "userId");
-        }
 
 
 

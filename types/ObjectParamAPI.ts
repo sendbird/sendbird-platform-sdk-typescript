@@ -37,7 +37,6 @@ import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
 import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
 import { SendbirdUser } from '../models/SendbirdUser';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
@@ -81,10 +80,10 @@ export interface GroupChannelApiCancelTheRegistrationOfOperatorsRequest {
     operatorIds: string
     /**
      * 
-     * @type string
+     * @type boolean
      * @memberof GroupChannelApicancelTheRegistrationOfOperators
      */
-    deleteAll?: string
+    deleteAll?: boolean
     /**
      * 
      * @type string
@@ -615,10 +614,10 @@ export interface GroupChannelApiListMembersRequest {
     nicknameStartswith?: string
     /**
      * Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
-     * @type &#39;push_enabled&#39; | &#39;push_trigger_option&#39; | &#39;do_not_disturb&#39; | &#39;false&#39;
+     * @type boolean
      * @memberof GroupChannelApilistMembers
      */
-    includePushPreference?: 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false'
+    includePushPreference?: boolean
     /**
      * 
      * @type string
@@ -732,10 +731,10 @@ export interface GroupChannelApiStopTypingIndicatorsRequest {
     apiToken?: string
     /**
      * 
-     * @type StopTypingIndicatorsRequest
+     * @type StartTypingIndicatorsRequest
      * @memberof GroupChannelApistopTypingIndicators
      */
-    stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest
+    startTypingIndicatorsRequest?: StartTypingIndicatorsRequest
 }
 
 export interface GroupChannelApiUnhideAChannelRequest {
@@ -750,7 +749,7 @@ export interface GroupChannelApiUnhideAChannelRequest {
      * @type string
      * @memberof GroupChannelApiunhideAChannel
      */
-    userId: string
+    userId?: string
     /**
      * 
      * @type boolean
@@ -943,7 +942,7 @@ export class ObjectGroupChannelApi {
      * @param param the request object
      */
     public stopTypingIndicators(param: GroupChannelApiStopTypingIndicatorsRequest, options?: Configuration): Promise<any> {
-        return this.api.stopTypingIndicators(param.channelUrl, param.apiToken, param.stopTypingIndicatorsRequest,  options).toPromise();
+        return this.api.stopTypingIndicators(param.channelUrl, param.apiToken, param.startTypingIndicatorsRequest,  options).toPromise();
     }
 
     /**

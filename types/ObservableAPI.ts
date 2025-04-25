@@ -38,7 +38,6 @@ import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
 import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
 import { SendbirdUser } from '../models/SendbirdUser';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
@@ -93,7 +92,7 @@ export class ObservableGroupChannelApi {
      * @param deleteAll 
      * @param apiToken 
      */
-    public cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: string, apiToken?: string, _options?: Configuration): Observable<any> {
+    public cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.cancelTheRegistrationOfOperators(channelUrl, operatorIds, deleteAll, apiToken, _options);
 
         // build promise chain
@@ -407,7 +406,7 @@ export class ObservableGroupChannelApi {
      * @param includePushPreference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
      * @param apiToken 
      */
-    public listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: 'push_enabled' | 'push_trigger_option' | 'do_not_disturb' | 'false', apiToken?: string, _options?: Configuration): Observable<GroupChannelListMembersResponse> {
+    public listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: boolean, apiToken?: string, _options?: Configuration): Observable<GroupChannelListMembersResponse> {
         const requestContextPromise = this.requestFactory.listMembers(channelUrl, token, limit, userId, showDeliveryReceipt, showReadReceipt, showMemberIsMuted, order, operatorFilter, memberStateFilter, mutedMemberFilter, memberActiveModeFilter, nicknameStartswith, includePushPreference, apiToken, _options);
 
         // build promise chain
@@ -536,10 +535,10 @@ export class ObservableGroupChannelApi {
      * Stop typing indicators
      * @param channelUrl (Required) 
      * @param apiToken 
-     * @param stopTypingIndicatorsRequest 
+     * @param startTypingIndicatorsRequest 
      */
-    public stopTypingIndicators(channelUrl: string, apiToken?: string, stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.stopTypingIndicators(channelUrl, apiToken, stopTypingIndicatorsRequest, _options);
+    public stopTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.stopTypingIndicators(channelUrl, apiToken, startTypingIndicatorsRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -565,7 +564,7 @@ export class ObservableGroupChannelApi {
      * @param shouldUnhideAll 
      * @param apiToken 
      */
-    public unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+    public unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.unhideAChannel(channelUrl, userId, shouldUnhideAll, apiToken, _options);
 
         // build promise chain

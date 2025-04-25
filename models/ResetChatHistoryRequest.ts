@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class ResetChatHistoryRequest {
     'resetAll'?: boolean;
-    'userId'?: string;
+    'userId': string;
 
     static readonly discriminator: string | undefined = undefined;
 

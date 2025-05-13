@@ -23,8 +23,9 @@ import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsRespon
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
 import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse';
+import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { RemoveARegistrationOrDeviceTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from '../models/RemoveAllRegistrationOrDeviceTokenResponse';
 import { SendbirdUser } from '../models/SendbirdUser';
 import { UpdateAUserRequest } from '../models/UpdateAUserRequest';
 import { UpdateChannelInvitationPreferenceRequest } from '../models/UpdateChannelInvitationPreferenceRequest';
@@ -40,7 +41,6 @@ import { ViewNumberOfChannelsWithUnreadMessagesResponse } from '../models/ViewNu
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
 import { ViewPushPreferencesForAChannelResponse } from '../models/ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
-import { ViewWhoOwnsARegistrationOrDeviceTokenResponseInner } from '../models/ViewWhoOwnsARegistrationOrDeviceTokenResponseInner';
 
 /**
  * no description
@@ -55,7 +55,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addARegistrationOrDeviceTokenRequest 
      */
-    public async addARegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Promise<RequestContext> {
+    public async addARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -402,6 +402,9 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param queryType Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND)
      * @param membersNickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended.
      * @param membersNicknameContains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues.
+     * @param membersNicknameStartswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended.
+     * @param searchQuery Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended.
+     * @param searchFields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together)
      * @param metadataKey Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
      * @param metadataValues Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified.
      * @param metadataValueStartswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified.
@@ -412,14 +415,11 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
-     * @param customType (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @param readReceipt (Deprecated) Superseded by show_read_receipt.
-     * @param member (Deprecated) Superseded by show_member.
-     * @param isDistinct (Deprecated) Superseded by distinct_mode.
-     * @param membersIn (Deprecated) Superseded by members_exactly_in.
-     * @param userId2 (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
+     * @param hiddenMode Restricts the search scope to group channels that match a specific hidden_status and operating behavior
+     * @param unreadFilter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all)
+     * @param memberStateFilter 
      */
-    public async listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId2?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, membersNicknameStartswith?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, hiddenMode?: 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all', unreadFilter?: 'all' | 'unread_message', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -615,6 +615,21 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (membersNicknameStartswith !== undefined) {
+            requestContext.setQueryParam("members_nickname_startswith", ObjectSerializer.serialize(membersNicknameStartswith, "string", ""));
+        }
+
+        // Query Params
+        if (searchQuery !== undefined) {
+            requestContext.setQueryParam("search_query", ObjectSerializer.serialize(searchQuery, "string", ""));
+        }
+
+        // Query Params
+        if (searchFields !== undefined) {
+            requestContext.setQueryParam("search_fields", ObjectSerializer.serialize(searchFields, "string", ""));
+        }
+
+        // Query Params
         if (metadataKey !== undefined) {
             requestContext.setQueryParam("metadata_key", ObjectSerializer.serialize(metadataKey, "string", ""));
         }
@@ -665,33 +680,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
+        if (hiddenMode !== undefined) {
+            requestContext.setQueryParam("hidden_mode", ObjectSerializer.serialize(hiddenMode, "'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all'", ""));
         }
 
         // Query Params
-        if (readReceipt !== undefined) {
-            requestContext.setQueryParam("read_receipt", ObjectSerializer.serialize(readReceipt, "boolean", ""));
+        if (unreadFilter !== undefined) {
+            requestContext.setQueryParam("unread_filter", ObjectSerializer.serialize(unreadFilter, "'all' | 'unread_message'", ""));
         }
 
         // Query Params
-        if (member !== undefined) {
-            requestContext.setQueryParam("member", ObjectSerializer.serialize(member, "boolean", ""));
-        }
-
-        // Query Params
-        if (isDistinct !== undefined) {
-            requestContext.setQueryParam("is_distinct", ObjectSerializer.serialize(isDistinct, "boolean", ""));
-        }
-
-        // Query Params
-        if (membersIn !== undefined) {
-            requestContext.setQueryParam("members_in", ObjectSerializer.serialize(membersIn, "string", ""));
-        }
-
-        // Query Params
-        if (userId2 !== undefined) {
-            requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId2, "string", ""));
+        if (memberStateFilter !== undefined) {
+            requestContext.setQueryParam("member_state_filter", ObjectSerializer.serialize(memberStateFilter, "'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend'", ""));
         }
 
         // Header Params
@@ -714,7 +714,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
      * @param tokenType (Required) 
      * @param apiToken 
      */
-    public async listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listRegistrationOrDeviceTokens(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -895,6 +895,59 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
+     * Remove a registration or device token - When unregistering a specific token
+     * @param userId (Required) 
+     * @param tokenType (Required) 
+     * @param token (Required) 
+     * @param apiToken 
+     */
+    public async removeARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "userId");
+        }
+
+
+        // verify required parameter 'tokenType' is not null or undefined
+        if (tokenType === null || tokenType === undefined) {
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "tokenType");
+        }
+
+
+        // verify required parameter 'token' is not null or undefined
+        if (token === null || token === undefined) {
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "token");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/push/{token_type}/{token}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)))
+            .replace('{' + 'token_type' + '}', encodeURIComponent(String(tokenType)))
+            .replace('{' + 'token' + '}', encodeURIComponent(String(token)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
      * Remove a registration or device token from an owner
      * @param tokenType (Required) 
@@ -941,69 +994,16 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
-     * Remove a registration or device token - When unregistering a specific token
-     * @param userId (Required) 
-     * @param tokenType (Required) 
-     * @param token (Required) 
-     * @param apiToken 
-     */
-    public async removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken", "userId");
-        }
-
-
-        // verify required parameter 'tokenType' is not null or undefined
-        if (tokenType === null || tokenType === undefined) {
-            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken", "tokenType");
-        }
-
-
-        // verify required parameter 'token' is not null or undefined
-        if (token === null || token === undefined) {
-            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken", "token");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/push/{token_type}/{token}'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)))
-            .replace('{' + 'token_type' + '}', encodeURIComponent(String(tokenType)))
-            .replace('{' + 'token' + '}', encodeURIComponent(String(token)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
      * Remove a registration or device token - When unregistering all device tokens
      * @param userId (Required) 
      * @param apiToken 
      */
-    public async removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeAllRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens", "userId");
+            throw new RequiredError("UserApi", "removeAllRegistrationOrDeviceToken", "userId");
         }
 
 
@@ -1991,25 +1991,54 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to removeARegistrationOrDeviceToken
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async removeARegistrationOrDeviceToken(response: ResponseContext): Promise<RemoveARegistrationOrDeviceTokenResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: RemoveARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RemoveARegistrationOrDeviceTokenResponse", ""
+            ) as RemoveARegistrationOrDeviceTokenResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: RemoveARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RemoveARegistrationOrDeviceTokenResponse", ""
+            ) as RemoveARegistrationOrDeviceTokenResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to removeARegistrationOrDeviceTokenFromAnOwner
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeARegistrationOrDeviceTokenFromAnOwner(response: ResponseContext): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> > {
+     public async removeARegistrationOrDeviceTokenFromAnOwner(response: ResponseContext): Promise<Array<MarkChannelMessagesAsReadRequest> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
@@ -2020,54 +2049,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken
+     * @params response Response returned by the server for a request to removeAllRegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(response: ResponseContext): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse > {
+     public async removeAllRegistrationOrDeviceToken(response: ResponseContext): Promise<RemoveAllRegistrationOrDeviceTokenResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse = ObjectSerializer.deserialize(
+            const body: RemoveAllRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse", ""
-            ) as RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse;
+                "RemoveAllRegistrationOrDeviceTokenResponse", ""
+            ) as RemoveAllRegistrationOrDeviceTokenResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse = ObjectSerializer.deserialize(
+            const body: RemoveAllRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse", ""
-            ) as RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(response: ResponseContext): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse", ""
-            ) as RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse", ""
-            ) as RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse;
+                "RemoveAllRegistrationOrDeviceTokenResponse", ""
+            ) as RemoveAllRegistrationOrDeviceTokenResponse;
             return body;
         }
 
@@ -2429,22 +2429,22 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to viewWhoOwnsARegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewWhoOwnsARegistrationOrDeviceToken(response: ResponseContext): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> > {
+     public async viewWhoOwnsARegistrationOrDeviceToken(response: ResponseContext): Promise<Array<MarkChannelMessagesAsReadRequest> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 

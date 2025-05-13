@@ -10,23 +10,31 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { HttpFile } from '../http/http';
 
-export class StopTypingIndicatorsRequest {
-    'userIds'?: Array<string>;
+export class RemoveARegistrationOrDeviceTokenResponse {
+    'token'?: string;
+    'user'?: SendbirdBasicUserInfo;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "userIds",
-            "baseName": "user_ids",
-            "type": "Array<string>",
+            "name": "token",
+            "baseName": "token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "user",
+            "baseName": "user",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return StopTypingIndicatorsRequest.attributeTypeMap;
+        return RemoveARegistrationOrDeviceTokenResponse.attributeTypeMap;
     }
 
     public constructor() {

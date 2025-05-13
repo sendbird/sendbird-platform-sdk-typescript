@@ -95,7 +95,7 @@ No authorization required
 # **deleteAMessage**
 > any deleteAMessage()
 
-## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
 
 ### Example
 
@@ -347,7 +347,7 @@ let body:Sendbird.MessageApiListMessagesRequest = {
   includeThreadInfo: true,
   // boolean | Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings > Chat > Features on Sendbird Dashboard. (optional)
   includePollDetails: true,
-  // boolean (optional)
+  // boolean | Determines whether to include the sorted_metaarray property in the response. (Default: false) (optional)
   withSortedMetaArray: true,
   // boolean (optional)
   showSubchannelMessagesOnly: true,
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
  **includeParentMessageInfo** | [**boolean**] |  | (optional) defaults to undefined
  **includeThreadInfo** | [**boolean**] |  | (optional) defaults to undefined
  **includePollDetails** | [**boolean**] | Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard. | (optional) defaults to undefined
- **withSortedMetaArray** | [**boolean**] |  | (optional) defaults to undefined
+ **withSortedMetaArray** | [**boolean**] | Determines whether to include the sorted_metaarray property in the response. (Default: false) | (optional) defaults to undefined
  **showSubchannelMessagesOnly** | [**boolean**] |  | (optional) defaults to undefined
  **userId** | [**string**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
@@ -435,7 +435,6 @@ let body:Sendbird.MessageApiMarkChannelMessagesAsReadRequest = {
   apiToken: "{{API_TOKEN}}",
   // MarkChannelMessagesAsReadRequest (optional)
   markChannelMessagesAsReadRequest: {
-    timestamp: 3.14,
     userId: "userId_example",
   },
 };
@@ -496,8 +495,14 @@ let body:Sendbird.MessageApiMigrateMessagesRequest = {
   targetChannelUrl: "target_channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
-  // any (optional)
-  body: {},
+  // MigrateMessagesRequest (optional)
+  migrateMessagesRequest: {
+    messages: [
+      null,
+    ],
+    updateReadTs: true,
+    rewindReadTs: true,
+  },
 };
 
 apiInstance.migrateMessages(body).then((data:any) => {
@@ -510,7 +515,7 @@ apiInstance.migrateMessages(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **any**|  |
+ **migrateMessagesRequest** | **MigrateMessagesRequest**|  |
  **targetChannelUrl** | [**string**] | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
@@ -698,6 +703,7 @@ let body:Sendbird.MessageApiUpdateAMessageRequest = {
       "mentionedUserIds_example",
     ],
     message: "message_example",
+    url: "url_example",
     messageType: "MESG",
   },
 };

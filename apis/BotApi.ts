@@ -116,20 +116,63 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
-     * Leave channels - When leaving all channels
-     * @param botUserid (Required) 
+     * ## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving a specific channel
      * @param channelUrl 
+     * @param botUserid (Required) 
      * @param apiToken 
      */
-    public async leaveChannels(botUserid: string, channelUrl?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async leaveAGroupChannel(channelUrl: string, botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("BotApi", "leaveAGroupChannel", "channelUrl");
+        }
+
+
+        // verify required parameter 'botUserid' is not null or undefined
+        if (botUserid === null || botUserid === undefined) {
+            throw new RequiredError("BotApi", "leaveAGroupChannel", "botUserid");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/bots/{bot_userid}/channels/{channel_url}'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
+            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving all channels
+     * @param botUserid (Required) 
+     * @param apiToken 
+     */
+    public async leaveGroupChannels(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "leaveChannels", "botUserid");
+            throw new RequiredError("BotApi", "leaveGroupChannels", "botUserid");
         }
-
 
 
 
@@ -140,11 +183,6 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (channelUrl !== undefined) {
-            requestContext.setQueryParam("channel_url", ObjectSerializer.serialize(channelUrl, "string", ""));
-        }
 
         // Header Params
         requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
@@ -318,10 +356,39 @@ export class BotApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to leaveChannels
+     * @params response Response returned by the server for a request to leaveAGroupChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async leaveChannels(response: ResponseContext): Promise<any > {
+     public async leaveAGroupChannel(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to leaveGroupChannels
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async leaveGroupChannels(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(

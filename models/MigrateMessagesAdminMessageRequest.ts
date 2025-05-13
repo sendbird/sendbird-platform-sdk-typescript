@@ -12,43 +12,54 @@
 
 import { HttpFile } from '../http/http';
 
-export class UpdateAChannelRequest {
-    'accessCode'?: string;
-    'coverFile'?: string;
-    'coverUrl'?: string;
+export class MigrateMessagesAdminMessageRequest {
+    'messageType': MigrateMessagesAdminMessageRequestMessageTypeEnum;
+    'message': string;
+    'timestamp': number;
     'customType'?: string;
+    'isSilent'?: boolean;
+    'mentionedUserIds'?: Array<string>;
     'data'?: string;
-    'isDistinct'?: boolean;
-    'isPublic'?: boolean;
-    'isSuper'?: boolean;
-    'name'?: string;
-    'operatorIds'?: Array<string>;
+    'dedupId'?: string;
+    'sortedMetaarray'?: Array<any>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "accessCode",
-            "baseName": "access_code",
+            "name": "messageType",
+            "baseName": "message_type",
+            "type": "MigrateMessagesAdminMessageRequestMessageTypeEnum",
+            "format": ""
+        },
+        {
+            "name": "message",
+            "baseName": "message",
             "type": "string",
             "format": ""
         },
         {
-            "name": "coverFile",
-            "baseName": "cover_file",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "coverUrl",
-            "baseName": "cover_url",
-            "type": "string",
-            "format": ""
+            "name": "timestamp",
+            "baseName": "timestamp",
+            "type": "number",
+            "format": "int64"
         },
         {
             "name": "customType",
             "baseName": "custom_type",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isSilent",
+            "baseName": "is_silent",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "mentionedUserIds",
+            "baseName": "mentioned_user_ids",
+            "type": "Array<string>",
             "format": ""
         },
         {
@@ -58,41 +69,26 @@ export class UpdateAChannelRequest {
             "format": ""
         },
         {
-            "name": "isDistinct",
-            "baseName": "is_distinct",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isPublic",
-            "baseName": "is_public",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isSuper",
-            "baseName": "is_super",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
+            "name": "dedupId",
+            "baseName": "dedup_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "operatorIds",
-            "baseName": "operator_ids",
-            "type": "Array<string>",
+            "name": "sortedMetaarray",
+            "baseName": "sorted_metaarray",
+            "type": "Array<any>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return UpdateAChannelRequest.attributeTypeMap;
+        return MigrateMessagesAdminMessageRequest.attributeTypeMap;
     }
 
     public constructor() {
     }
 }
+
+
+export type MigrateMessagesAdminMessageRequestMessageTypeEnum = "ADMM" ;
 

@@ -12,24 +12,4 @@
 
 import { HttpFile } from '../http/http';
 
-export class MarkChannelMessagesAsReadRequest {
-    'userId'?: string;
-
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "userId",
-            "baseName": "user_id",
-            "type": "string",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return MarkChannelMessagesAsReadRequest.attributeTypeMap;
-    }
-
-    public constructor() {
-    }
-}
-
+export type SendbirdPushTriggerOption = "all" | "mention_only" | "off" ;

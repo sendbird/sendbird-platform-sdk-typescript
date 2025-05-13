@@ -17,6 +17,7 @@ import { SendbirdGroupChannel } from './SendbirdGroupChannel';
 import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
 import { SendbirdMember } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { HttpFile } from '../http/http';
 
@@ -60,7 +61,7 @@ export class GetAGroupChannelResponse {
     'metadata'?: any;
     'myRole'?: GetAGroupChannelResponseMyRoleEnum;
     'name'?: string;
-    'pushTriggerOption'?: GetAGroupChannelResponsePushTriggerOptionEnum;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
     'readReceipt'?: { [key: string]: number; };
     'smsFallback'?: SendbirdSmsFallback;
     'tsMessageOffset'?: number;
@@ -308,7 +309,7 @@ export class GetAGroupChannelResponse {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "GetAGroupChannelResponsePushTriggerOptionEnum",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
         },
         {
@@ -361,5 +362,4 @@ export type GetAGroupChannelResponseCountPreferenceEnum = "false" | "all" | "unr
 export type GetAGroupChannelResponseHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
 export type GetAGroupChannelResponseMemberStateEnum = "invited" | "joined" | "none" ;
 export type GetAGroupChannelResponseMyRoleEnum = "" | "none" | "operator" ;
-export type GetAGroupChannelResponsePushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
 

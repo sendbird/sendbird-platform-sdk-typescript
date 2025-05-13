@@ -12,34 +12,41 @@
 
 import { HttpFile } from '../http/http';
 
-export class CreateAGroupChannelResponseChannel {
-    'channelUrl'?: string;
-    'coverUrl'?: string;
-    'createdAt'?: number;
+export class MigrateMessagesTextMessageRequest {
+    'userId': string;
+    'messageType': MigrateMessagesTextMessageRequestMessageTypeEnum;
+    'message': string;
+    'timestamp': number;
     'customType'?: string;
+    'mentionedUserIds'?: Array<string>;
     'data'?: string;
-    'maxLengthMessage'?: number;
-    'memberCount'?: number;
-    'name'?: string;
+    'dedupId'?: string;
+    'sortedMetaarray'?: Array<any>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "channelUrl",
-            "baseName": "channel_url",
+            "name": "userId",
+            "baseName": "user_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "coverUrl",
-            "baseName": "cover_url",
+            "name": "messageType",
+            "baseName": "message_type",
+            "type": "MigrateMessagesTextMessageRequestMessageTypeEnum",
+            "format": ""
+        },
+        {
+            "name": "message",
+            "baseName": "message",
             "type": "string",
             "format": ""
         },
         {
-            "name": "createdAt",
-            "baseName": "created_at",
+            "name": "timestamp",
+            "baseName": "timestamp",
             "type": "number",
             "format": "int64"
         },
@@ -50,35 +57,38 @@ export class CreateAGroupChannelResponseChannel {
             "format": ""
         },
         {
+            "name": "mentionedUserIds",
+            "baseName": "mentioned_user_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
             "name": "data",
             "baseName": "data",
             "type": "string",
             "format": ""
         },
         {
-            "name": "maxLengthMessage",
-            "baseName": "max_length_message",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "memberCount",
-            "baseName": "member_count",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
+            "name": "dedupId",
+            "baseName": "dedup_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "sortedMetaarray",
+            "baseName": "sorted_metaarray",
+            "type": "Array<any>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateAGroupChannelResponseChannel.attributeTypeMap;
+        return MigrateMessagesTextMessageRequest.attributeTypeMap;
     }
 
     public constructor() {
     }
 }
+
+
+export type MigrateMessagesTextMessageRequestMessageTypeEnum = "MESG" ;
 

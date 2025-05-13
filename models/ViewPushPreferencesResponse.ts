@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { HttpFile } from '../http/http';
 
 export class ViewPushPreferencesResponse {
@@ -20,7 +21,7 @@ export class ViewPushPreferencesResponse {
     'endMin'?: number;
     'pushBlockedBotIds'?: Array<string>;
     'pushSound'?: string;
-    'pushTriggerOption'?: string;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
     'snoozeEnabled'?: boolean;
     'snoozeEndTs'?: number;
     'snoozeStartTs'?: number;
@@ -76,7 +77,7 @@ export class ViewPushPreferencesResponse {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "string",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
         },
         {

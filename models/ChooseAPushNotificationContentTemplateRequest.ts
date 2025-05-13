@@ -13,7 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class ChooseAPushNotificationContentTemplateRequest {
-    'name': string;
+    /**
+    * Specifies the name of a template used for notifications. Acceptable values are default and alternative. (Default: default)
+    */
+    'name': ChooseAPushNotificationContentTemplateRequestNameEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -21,7 +24,7 @@ export class ChooseAPushNotificationContentTemplateRequest {
         {
             "name": "name",
             "baseName": "name",
-            "type": "string",
+            "type": "ChooseAPushNotificationContentTemplateRequestNameEnum",
             "format": ""
         }    ];
 
@@ -32,4 +35,7 @@ export class ChooseAPushNotificationContentTemplateRequest {
     public constructor() {
     }
 }
+
+
+export type ChooseAPushNotificationContentTemplateRequestNameEnum = "default" | "alternative" ;
 

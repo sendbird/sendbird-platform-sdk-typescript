@@ -218,8 +218,8 @@ const apiInstance = new Sendbird.ModerationApi(configuration);
 let body:Sendbird.ModerationApiListBlockedUsersRequest = {
   // string | (Required) 
   userId: "user_id_example",
-  // string | Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The `me` in the values refers to the user specified in the parameter. (Default: blocked_by_me) (optional)
-  list: "list_example",
+  // 'blocked_by_me' | 'blocking_me' | Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The `me` in the values refers to the user specified in the parameter. (Default: blocked_by_me) (optional)
+  list: "blocked_by_me",
   // string (optional)
   token: "token_example",
   // number (optional)
@@ -245,7 +245,7 @@ apiInstance.listBlockedUsers(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | [**string**] | (Required)  | defaults to undefined
- **list** | [**string**] | Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The &#x60;me&#x60; in the values refers to the user specified in the parameter. (Default: blocked_by_me) | (optional) defaults to undefined
+ **list** | [**&#39;blocked_by_me&#39; | &#39;blocking_me&#39;**]**Array<&#39;blocked_by_me&#39; &#124; &#39;blocking_me&#39;>** | Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The &#x60;me&#x60; in the values refers to the user specified in the parameter. (Default: blocked_by_me) | (optional) defaults to undefined
  **token** | [**string**] |  | (optional) defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
  **userIds** | [**string**] | Specifies the user IDs of the blocked or blocking users to search for. The value should be a comma-separated string that consists of multiple URL encoded user IDs. | (optional) defaults to undefined

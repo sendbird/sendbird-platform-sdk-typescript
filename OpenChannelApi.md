@@ -425,8 +425,8 @@ let body:Sendbird.OpenChannelApiUnregisterOperatorsRequest = {
   channelUrl: "channel_url_example",
   // string | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids=urlencoded_id_1,urlencoded_id_2.
   operatorIds: "operator_ids_example",
-  // string (optional)
-  deleteAll: "delete_all_example",
+  // boolean | Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn't effective and doesn't need to be specified in the request. (Default: false) (optional)
+  deleteAll: true,
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelUrl** | [**string**] | (Required)  | defaults to undefined
  **operatorIds** | [**string**] | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. | defaults to undefined
- **deleteAll** | [**string**] |  | (optional) defaults to undefined
+ **deleteAll** | [**boolean**] | Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 

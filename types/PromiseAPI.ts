@@ -57,9 +57,15 @@ import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrati
 import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
 import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest } from '../models/MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest } from '../models/MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from '../models/MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from '../models/MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner } from '../models/MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest } from '../models/MigrateMessagesTextMessageRequest';
 import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse';
+import { RemoveARegistrationOrDeviceTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from '../models/RemoveAllRegistrationOrDeviceTokenResponse';
 import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
 import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
 import { ScheduleAnAnnouncementRequest } from '../models/ScheduleAnAnnouncementRequest';
@@ -86,6 +92,7 @@ import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
 import { SendbirdMessageResponseMessageEvents } from '../models/SendbirdMessageResponseMessageEvents';
 import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from '../models/SendbirdPushTriggerOption';
 import { SendbirdReaction } from '../models/SendbirdReaction';
 import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
 import { SendbirdSortedMetaarrayInner } from '../models/SendbirdSortedMetaarrayInner';
@@ -114,7 +121,6 @@ import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMo
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
 import { ViewPushPreferencesForAChannelResponse } from '../models/ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
-import { ViewWhoOwnsARegistrationOrDeviceTokenResponseInner } from '../models/ViewWhoOwnsARegistrationOrDeviceTokenResponseInner';
 import { ObservableAnnouncementApi } from './ObservableAPI';
 
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
@@ -183,14 +189,25 @@ export class PromiseBotApi {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
-     * Leave channels - When leaving all channels
-     * @param botUserid (Required) 
+     * ## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving a specific channel
      * @param channelUrl 
+     * @param botUserid (Required) 
      * @param apiToken 
      */
-    public leaveChannels(botUserid: string, channelUrl?: string, apiToken?: string, _options?: Configuration): Promise<any> {
-        const result = this.api.leaveChannels(botUserid, channelUrl, apiToken, _options);
+    public leaveAGroupChannel(channelUrl: string, botUserid: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.leaveAGroupChannel(channelUrl, botUserid, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving all channels
+     * @param botUserid (Required) 
+     * @param apiToken 
+     */
+    public leaveGroupChannels(botUserid: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.leaveGroupChannels(botUserid, apiToken, _options);
         return result.toPromise();
     }
 
@@ -400,15 +417,9 @@ export class PromiseGroupChannelApi {
      * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
-     * @param customType (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @param readReceipt (Deprecated) Superseded by show_read_receipt.
-     * @param member (Deprecated) Superseded by show_member.
-     * @param isDistinct (Deprecated) Superseded by distinct_mode.
-     * @param membersIn (Deprecated) Superseded by members_exactly_in.
-     * @param userId (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
      */
-    public listChannels(apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<GroupChatListChannelsResponse> {
-        const result = this.api.listChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, customType, readReceipt, member, isDistinct, membersIn, userId, _options);
+    public listChannels(apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, _options?: Configuration): Promise<GroupChatListChannelsResponse> {
+        const result = this.api.listChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, _options);
         return result.toPromise();
     }
 
@@ -556,7 +567,7 @@ export class PromiseMessageApi {
     }
 
     /**
-     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
      * Delete a message
      * @param channelType (Required) 
      * @param channelUrl (Required) 
@@ -620,7 +631,7 @@ export class PromiseMessageApi {
      * @param includeParentMessageInfo 
      * @param includeThreadInfo 
      * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
-     * @param withSortedMetaArray 
+     * @param withSortedMetaArray Determines whether to include the sorted_metaarray property in the response. (Default: false)
      * @param showSubchannelMessagesOnly 
      * @param userId 
      * @param apiToken 
@@ -647,10 +658,10 @@ export class PromiseMessageApi {
      * Migrate messages
      * @param targetChannelUrl (Required) 
      * @param apiToken 
-     * @param body 
+     * @param migrateMessagesRequest 
      */
-    public migrateMessages(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<any> {
-        const result = this.api.migrateMessages(targetChannelUrl, apiToken, body, _options);
+    public migrateMessages(targetChannelUrl: string, apiToken?: string, migrateMessagesRequest?: MigrateMessagesRequest, _options?: Configuration): Promise<any> {
+        const result = this.api.migrateMessages(targetChannelUrl, apiToken, migrateMessagesRequest, _options);
         return result.toPromise();
     }
 
@@ -848,7 +859,7 @@ export class PromiseModerationApi {
      * @param metadatavaluesIn 
      * @param apiToken 
      */
-    public listBlockedUsers(userId: string, list?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Promise<ListBlockedUsersResponse> {
+    public listBlockedUsers(userId: string, list?: 'blocked_by_me' | 'blocking_me', token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Promise<ListBlockedUsersResponse> {
         const result = this.api.listBlockedUsers(userId, list, token, limit, userIds, metadatakey, metadatavaluesIn, apiToken, _options);
         return result.toPromise();
     }
@@ -966,10 +977,10 @@ export class PromiseOpenChannelApi {
      * Unregister operators from an open channel
      * @param channelUrl (Required) 
      * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
-     * @param deleteAll 
+     * @param deleteAll Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false)
      * @param apiToken 
      */
-    public unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: string, apiToken?: string, _options?: Configuration): Promise<any> {
+    public unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Promise<any> {
         const result = this.api.unregisterOperators(channelUrl, operatorIds, deleteAll, apiToken, _options);
         return result.toPromise();
     }
@@ -1054,7 +1065,7 @@ export class PromiseUserApi {
      * @param apiToken 
      * @param addARegistrationOrDeviceTokenRequest 
      */
-    public addARegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Promise<AddARegistrationOrDeviceTokenResponse> {
+    public addARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Promise<AddARegistrationOrDeviceTokenResponse> {
         const result = this.api.addARegistrationOrDeviceToken(userId, tokenType, apiToken, addARegistrationOrDeviceTokenRequest, _options);
         return result.toPromise();
     }
@@ -1159,6 +1170,9 @@ export class PromiseUserApi {
      * @param queryType Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND)
      * @param membersNickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended.
      * @param membersNicknameContains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues.
+     * @param membersNicknameStartswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended.
+     * @param searchQuery Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended.
+     * @param searchFields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together)
      * @param metadataKey Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
      * @param metadataValues Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified.
      * @param metadataValueStartswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified.
@@ -1169,15 +1183,12 @@ export class PromiseUserApi {
      * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
-     * @param customType (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @param readReceipt (Deprecated) Superseded by show_read_receipt.
-     * @param member (Deprecated) Superseded by show_member.
-     * @param isDistinct (Deprecated) Superseded by distinct_mode.
-     * @param membersIn (Deprecated) Superseded by members_exactly_in.
-     * @param userId2 (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
+     * @param hiddenMode Restricts the search scope to group channels that match a specific hidden_status and operating behavior
+     * @param unreadFilter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all)
+     * @param memberStateFilter 
      */
-    public listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId2?: string, _options?: Configuration): Promise<ListMyGroupChannelsResponse> {
-        const result = this.api.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, customType, readReceipt, member, isDistinct, membersIn, userId2, _options);
+    public listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, membersNicknameStartswith?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, hiddenMode?: 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all', unreadFilter?: 'all' | 'unread_message', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', _options?: Configuration): Promise<ListMyGroupChannelsResponse> {
+        const result = this.api.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, membersNicknameStartswith, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, hiddenMode, unreadFilter, memberStateFilter, _options);
         return result.toPromise();
     }
 
@@ -1188,7 +1199,7 @@ export class PromiseUserApi {
      * @param tokenType (Required) 
      * @param apiToken 
      */
-    public listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Promise<ListRegistrationOrDeviceTokensResponse> {
+    public listRegistrationOrDeviceTokens(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, _options?: Configuration): Promise<ListRegistrationOrDeviceTokensResponse> {
         const result = this.api.listRegistrationOrDeviceTokens(userId, tokenType, apiToken, _options);
         return result.toPromise();
     }
@@ -1225,18 +1236,6 @@ export class PromiseUserApi {
     }
 
     /**
-     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
-     * Remove a registration or device token from an owner
-     * @param tokenType (Required) 
-     * @param token (Required) 
-     * @param apiToken 
-     */
-    public removeARegistrationOrDeviceTokenFromAnOwner(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>> {
-        const result = this.api.removeARegistrationOrDeviceTokenFromAnOwner(tokenType, token, apiToken, _options);
-        return result.toPromise();
-    }
-
-    /**
      * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
      * Remove a registration or device token - When unregistering a specific token
      * @param userId (Required) 
@@ -1244,8 +1243,20 @@ export class PromiseUserApi {
      * @param token (Required) 
      * @param apiToken 
      */
-    public removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse> {
-        const result = this.api.removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(userId, tokenType, token, apiToken, _options);
+    public removeARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', token: string, apiToken?: string, _options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenResponse> {
+        const result = this.api.removeARegistrationOrDeviceToken(userId, tokenType, token, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
+     * Remove a registration or device token from an owner
+     * @param tokenType (Required) 
+     * @param token (Required) 
+     * @param apiToken 
+     */
+    public removeARegistrationOrDeviceTokenFromAnOwner(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<Array<MarkChannelMessagesAsReadRequest>> {
+        const result = this.api.removeARegistrationOrDeviceTokenFromAnOwner(tokenType, token, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1255,8 +1266,8 @@ export class PromiseUserApi {
      * @param userId (Required) 
      * @param apiToken 
      */
-    public removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(userId: string, apiToken?: string, _options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse> {
-        const result = this.api.removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(userId, apiToken, _options);
+    public removeAllRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RemoveAllRegistrationOrDeviceTokenResponse> {
+        const result = this.api.removeAllRegistrationOrDeviceToken(userId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1415,7 +1426,7 @@ export class PromiseUserApi {
      * @param token (Required) 
      * @param apiToken 
      */
-    public viewWhoOwnsARegistrationOrDeviceToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>> {
+    public viewWhoOwnsARegistrationOrDeviceToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<Array<MarkChannelMessagesAsReadRequest>> {
         const result = this.api.viewWhoOwnsARegistrationOrDeviceToken(tokenType, token, apiToken, _options);
         return result.toPromise();
     }

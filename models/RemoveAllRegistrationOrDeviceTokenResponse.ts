@@ -10,23 +10,31 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { HttpFile } from '../http/http';
 
-export class SendbirdMessageResponseMentionedUsersInnerMetadata {
-    'anyOf'?: string;
+export class RemoveAllRegistrationOrDeviceTokenResponse {
+    'token'?: Array<string>;
+    'user'?: SendbirdBasicUserInfo;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "anyOf",
-            "baseName": "anyOf",
-            "type": "string",
+            "name": "token",
+            "baseName": "token",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "user",
+            "baseName": "user",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdMessageResponseMentionedUsersInnerMetadata.attributeTypeMap;
+        return RemoveAllRegistrationOrDeviceTokenResponse.attributeTypeMap;
     }
 
     public constructor() {

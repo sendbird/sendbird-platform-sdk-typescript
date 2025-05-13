@@ -10,30 +10,38 @@
  * Do not edit the class manually.
  */
 
+import { MigrateMessagesRequestMessagesInner } from './MigrateMessagesRequestMessagesInner';
 import { HttpFile } from '../http/http';
 
-export class CreateAGroupChannelResponseSmsFallback {
-    'excludeUserIds'?: Array<string>;
-    'waitSeconds'?: number;
+export class MigrateMessagesRequest {
+    'messages'?: Array<MigrateMessagesRequestMessagesInner>;
+    'updateReadTs'?: boolean;
+    'rewindReadTs'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "excludeUserIds",
-            "baseName": "exclude_user_ids",
-            "type": "Array<string>",
+            "name": "messages",
+            "baseName": "messages",
+            "type": "Array<MigrateMessagesRequestMessagesInner>",
             "format": ""
         },
         {
-            "name": "waitSeconds",
-            "baseName": "wait_seconds",
-            "type": "number",
+            "name": "updateReadTs",
+            "baseName": "update_read_ts",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "rewindReadTs",
+            "baseName": "rewind_read_ts",
+            "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateAGroupChannelResponseSmsFallback.attributeTypeMap;
+        return MigrateMessagesRequest.attributeTypeMap;
     }
 
     public constructor() {

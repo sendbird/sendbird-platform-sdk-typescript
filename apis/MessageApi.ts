@@ -15,6 +15,7 @@ import { AddExtraDataToAMessageResponse } from '../models/AddExtraDataToAMessage
 import { GetTotalNumberOfMessagesInAChannelResponse } from '../models/GetTotalNumberOfMessagesInAChannelResponse';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
 import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesRequest } from '../models/MigrateMessagesRequest';
 import { SendAMessageRequest } from '../models/SendAMessageRequest';
 import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
 import { UpdateAMessageRequest } from '../models/UpdateAMessageRequest';
@@ -93,7 +94,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
      * Delete a message
      * @param channelType (Required) 
      * @param channelUrl (Required) 
@@ -300,7 +301,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param includeParentMessageInfo 
      * @param includeThreadInfo 
      * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
-     * @param withSortedMetaArray 
+     * @param withSortedMetaArray Determines whether to include the sorted_metaarray property in the response. (Default: false)
      * @param showSubchannelMessagesOnly 
      * @param userId 
      * @param apiToken 
@@ -528,9 +529,9 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * Migrate messages
      * @param targetChannelUrl (Required) 
      * @param apiToken 
-     * @param body 
+     * @param migrateMessagesRequest 
      */
-    public async migrateMessages(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async migrateMessages(targetChannelUrl: string, apiToken?: string, migrateMessagesRequest?: MigrateMessagesRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'targetChannelUrl' is not null or undefined
@@ -559,7 +560,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "any", ""),
+            ObjectSerializer.serialize(migrateMessagesRequest, "MigrateMessagesRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

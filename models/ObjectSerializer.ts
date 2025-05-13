@@ -53,9 +53,15 @@ export * from './ListRegistrationOrDeviceTokensResponse';
 export * from './ListUsersResponse';
 export * from './MarkAllMessagesAsReadRequest';
 export * from './MarkChannelMessagesAsReadRequest';
+export * from './MigrateMessagesAdminMessageRequest';
+export * from './MigrateMessagesFileMessageRequest';
+export * from './MigrateMessagesFileMessageRequestThumbnailsInner';
+export * from './MigrateMessagesRequest';
+export * from './MigrateMessagesRequestMessagesInner';
+export * from './MigrateMessagesTextMessageRequest';
 export * from './RegisterOperatorsToAGroupChannelRequest';
-export * from './RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse';
-export * from './RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse';
+export * from './RemoveARegistrationOrDeviceTokenResponse';
+export * from './RemoveAllRegistrationOrDeviceTokenResponse';
 export * from './ResetChatHistoryRequest';
 export * from './ResetChatHistoryResponse';
 export * from './ScheduleAnAnnouncementRequest';
@@ -82,6 +88,7 @@ export * from './SendbirdMessageResponse';
 export * from './SendbirdMessageResponseMessageEvents';
 export * from './SendbirdOpenChannel';
 export * from './SendbirdParentMessageInfo';
+export * from './SendbirdPushTriggerOption';
 export * from './SendbirdReaction';
 export * from './SendbirdSmsFallback';
 export * from './SendbirdSortedMetaarrayInner';
@@ -110,7 +117,6 @@ export * from './ViewNumberOfMonthlyActiveUsersResponse';
 export * from './ViewNumberOfUnreadMessagesResponse';
 export * from './ViewPushPreferencesForAChannelResponse';
 export * from './ViewPushPreferencesResponse';
-export * from './ViewWhoOwnsARegistrationOrDeviceTokenResponseInner';
 
 import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
 import { AddARegistrationOrDeviceTokenRequest } from './AddARegistrationOrDeviceTokenRequest';
@@ -120,7 +126,7 @@ import { AddExtraDataToAMessageResponse } from './AddExtraDataToAMessageResponse
 import { BlockAUserRequest } from './BlockAUserRequest';
 import { BlockAUserResponse } from './BlockAUserResponse';
 import { CheckIfMemberResponse , CheckIfMemberResponseStateEnum   } from './CheckIfMemberResponse';
-import { ChooseAPushNotificationContentTemplateRequest } from './ChooseAPushNotificationContentTemplateRequest';
+import { ChooseAPushNotificationContentTemplateRequest, ChooseAPushNotificationContentTemplateRequestNameEnum   } from './ChooseAPushNotificationContentTemplateRequest';
 import { ChooseAPushNotificationContentTemplateResponse } from './ChooseAPushNotificationContentTemplateResponse';
 import { CreateABotRequest } from './CreateABotRequest';
 import { CreateABotResponse } from './CreateABotResponse';
@@ -135,7 +141,7 @@ import { CreateUserTokenRequest } from './CreateUserTokenRequest';
 import { CreateUserTokenResponse } from './CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
 import { FreezeAnOpenChannelRequest } from './FreezeAnOpenChannelRequest';
-import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum   , GetAGroupChannelResponsePushTriggerOptionEnum         } from './GetAGroupChannelResponse';
+import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum           } from './GetAGroupChannelResponse';
 import { GetAGroupChannelResponseAllOf } from './GetAGroupChannelResponseAllOf';
 import { GetChannelInvitationPreferenceResponse } from './GetChannelInvitationPreferenceResponse';
 import { GetTotalNumberOfMessagesInAChannelResponse } from './GetTotalNumberOfMessagesInAChannelResponse';
@@ -143,11 +149,11 @@ import { GroupChannelListMembersResponse } from './GroupChannelListMembersRespon
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { HideAChannelRequest } from './HideAChannelRequest';
 import { InviteAsMembersRequest } from './InviteAsMembersRequest';
-import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum   , InviteAsMembersResponsePushTriggerOptionEnum          } from './InviteAsMembersResponse';
+import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum            } from './InviteAsMembersResponse';
 import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { JoinAChannelRequest } from './JoinAChannelRequest';
 import { JoinChannelsRequest } from './JoinChannelsRequest';
-import { LeaveAChannelRequest } from './LeaveAChannelRequest';
+import { LeaveAChannelRequest   , LeaveAChannelRequestReasonEnum   } from './LeaveAChannelRequest';
 import { LeaveMyGroupChannelsRequest } from './LeaveMyGroupChannelsRequest';
 import { ListBlockedUsersResponse } from './ListBlockedUsersResponse';
 import { ListBotsResponse } from './ListBotsResponse';
@@ -167,9 +173,15 @@ import { ListRegistrationOrDeviceTokensResponse } from './ListRegistrationOrDevi
 import { ListUsersResponse } from './ListUsersResponse';
 import { MarkAllMessagesAsReadRequest } from './MarkAllMessagesAsReadRequest';
 import { MarkChannelMessagesAsReadRequest } from './MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest, MigrateMessagesAdminMessageRequestMessageTypeEnum           } from './MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest , MigrateMessagesFileMessageRequestMessageTypeEnum               } from './MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from './MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from './MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner , MigrateMessagesRequestMessagesInnerMessageTypeEnum                  } from './MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest , MigrateMessagesTextMessageRequestMessageTypeEnum          } from './MigrateMessagesTextMessageRequest';
 import { RegisterOperatorsToAGroupChannelRequest } from './RegisterOperatorsToAGroupChannelRequest';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse } from './RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse } from './RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse';
+import { RemoveARegistrationOrDeviceTokenResponse } from './RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from './RemoveAllRegistrationOrDeviceTokenResponse';
 import { ResetChatHistoryRequest } from './ResetChatHistoryRequest';
 import { ResetChatHistoryResponse } from './ResetChatHistoryResponse';
 import { ScheduleAnAnnouncementRequest } from './ScheduleAnAnnouncementRequest';
@@ -188,7 +200,7 @@ import { SendbirdBasicUserInfo   , SendbirdBasicUserInfoRoleEnum       } from '.
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
 import { SendbirdFile } from './SendbirdFile';
-import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum   , SendbirdGroupChannelPushTriggerOptionEnum         } from './SendbirdGroupChannel';
+import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum           } from './SendbirdGroupChannel';
 import { SendbirdGroupChannelDetail } from './SendbirdGroupChannelDetail';
 import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
 import { SendbirdMember                   , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
@@ -196,6 +208,7 @@ import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
 import { SendbirdOpenChannel } from './SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { SendbirdReaction } from './SendbirdReaction';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
@@ -204,7 +217,7 @@ import { SendbirdUser                , SendbirdUserStateEnum        } from './Se
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
 import { UpdateAChannelMetadataRequest } from './UpdateAChannelMetadataRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
-import { UpdateAMessageRequest     , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
+import { UpdateAMessageRequest      , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
 import { UpdateAUserRequest } from './UpdateAUserRequest';
 import { UpdateAnOpenChannelRequest } from './UpdateAnOpenChannelRequest';
 import { UpdateChannelInvitationPreferenceRequest } from './UpdateChannelInvitationPreferenceRequest';
@@ -224,7 +237,6 @@ import { ViewNumberOfMonthlyActiveUsersResponse } from './ViewNumberOfMonthlyAct
 import { ViewNumberOfUnreadMessagesResponse } from './ViewNumberOfUnreadMessagesResponse';
 import { ViewPushPreferencesForAChannelResponse } from './ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from './ViewPushPreferencesResponse';
-import { ViewWhoOwnsARegistrationOrDeviceTokenResponseInner } from './ViewWhoOwnsARegistrationOrDeviceTokenResponseInner';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -247,16 +259,20 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 let enumsMap: Set<string> = new Set<string>([
     "CheckIfMemberResponseStateEnum",
+    "ChooseAPushNotificationContentTemplateRequestNameEnum",
     "GetAGroupChannelResponseCountPreferenceEnum",
     "GetAGroupChannelResponseHiddenStateEnum",
     "GetAGroupChannelResponseMemberStateEnum",
     "GetAGroupChannelResponseMyRoleEnum",
-    "GetAGroupChannelResponsePushTriggerOptionEnum",
     "InviteAsMembersResponseCountPreferenceEnum",
     "InviteAsMembersResponseHiddenStateEnum",
     "InviteAsMembersResponseMemberStateEnum",
     "InviteAsMembersResponseMyRoleEnum",
-    "InviteAsMembersResponsePushTriggerOptionEnum",
+    "LeaveAChannelRequestReasonEnum",
+    "MigrateMessagesAdminMessageRequestMessageTypeEnum",
+    "MigrateMessagesFileMessageRequestMessageTypeEnum",
+    "MigrateMessagesRequestMessagesInnerMessageTypeEnum",
+    "MigrateMessagesTextMessageRequestMessageTypeEnum",
     "SendAMessageRequestMentionTypeEnum",
     "SendAMessageRequestMessageTypeEnum",
     "SendAdminMessageRequestBodyMentionTypeEnum",
@@ -270,9 +286,9 @@ let enumsMap: Set<string> = new Set<string>([
     "SendbirdGroupChannelHiddenStateEnum",
     "SendbirdGroupChannelMemberStateEnum",
     "SendbirdGroupChannelMyRoleEnum",
-    "SendbirdGroupChannelPushTriggerOptionEnum",
     "SendbirdMemberRoleEnum",
     "SendbirdMemberStateEnum",
+    "SendbirdPushTriggerOption",
     "SendbirdUserStateEnum",
     "UpdateAMessageRequestMessageTypeEnum",
     "UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum",
@@ -337,9 +353,15 @@ let typeMap: {[index: string]: any} = {
     "ListUsersResponse": ListUsersResponse,
     "MarkAllMessagesAsReadRequest": MarkAllMessagesAsReadRequest,
     "MarkChannelMessagesAsReadRequest": MarkChannelMessagesAsReadRequest,
+    "MigrateMessagesAdminMessageRequest": MigrateMessagesAdminMessageRequest,
+    "MigrateMessagesFileMessageRequest": MigrateMessagesFileMessageRequest,
+    "MigrateMessagesFileMessageRequestThumbnailsInner": MigrateMessagesFileMessageRequestThumbnailsInner,
+    "MigrateMessagesRequest": MigrateMessagesRequest,
+    "MigrateMessagesRequestMessagesInner": MigrateMessagesRequestMessagesInner,
+    "MigrateMessagesTextMessageRequest": MigrateMessagesTextMessageRequest,
     "RegisterOperatorsToAGroupChannelRequest": RegisterOperatorsToAGroupChannelRequest,
-    "RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse": RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse,
-    "RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse": RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse,
+    "RemoveARegistrationOrDeviceTokenResponse": RemoveARegistrationOrDeviceTokenResponse,
+    "RemoveAllRegistrationOrDeviceTokenResponse": RemoveAllRegistrationOrDeviceTokenResponse,
     "ResetChatHistoryRequest": ResetChatHistoryRequest,
     "ResetChatHistoryResponse": ResetChatHistoryResponse,
     "ScheduleAnAnnouncementRequest": ScheduleAnAnnouncementRequest,
@@ -394,7 +416,6 @@ let typeMap: {[index: string]: any} = {
     "ViewNumberOfUnreadMessagesResponse": ViewNumberOfUnreadMessagesResponse,
     "ViewPushPreferencesForAChannelResponse": ViewPushPreferencesForAChannelResponse,
     "ViewPushPreferencesResponse": ViewPushPreferencesResponse,
-    "ViewWhoOwnsARegistrationOrDeviceTokenResponseInner": ViewWhoOwnsARegistrationOrDeviceTokenResponseInner,
 }
 
 export class ObjectSerializer {

@@ -10,12 +10,13 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { HttpFile } from '../http/http';
 
 export class ViewPushPreferencesForAChannelResponse {
     'enable'?: boolean;
     'pushSound'?: string;
-    'pushTriggerOption'?: string;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,7 +36,7 @@ export class ViewPushPreferencesForAChannelResponse {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "string",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
         }    ];
 

@@ -14,6 +14,9 @@ import { HttpFile } from '../http/http';
 
 export class BlockAUserRequest {
     'targetId'?: string;
+    /**
+    * Specifies an array of IDs of all the users to block. This property can be used interchangeably with the users[] property when blocking multiple users at once.
+    */
     'userIds'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;

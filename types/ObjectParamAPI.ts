@@ -57,9 +57,15 @@ import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrati
 import { ListUsersResponse } from '../models/ListUsersResponse';
 import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
 import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest } from '../models/MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest } from '../models/MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from '../models/MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from '../models/MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner } from '../models/MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest } from '../models/MigrateMessagesTextMessageRequest';
 import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse';
-import { RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse } from '../models/RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse';
+import { RemoveARegistrationOrDeviceTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from '../models/RemoveAllRegistrationOrDeviceTokenResponse';
 import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
 import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
 import { ScheduleAnAnnouncementRequest } from '../models/ScheduleAnAnnouncementRequest';
@@ -86,6 +92,7 @@ import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
 import { SendbirdMessageResponseMessageEvents } from '../models/SendbirdMessageResponseMessageEvents';
 import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from '../models/SendbirdPushTriggerOption';
 import { SendbirdReaction } from '../models/SendbirdReaction';
 import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
 import { SendbirdSortedMetaarrayInner } from '../models/SendbirdSortedMetaarrayInner';
@@ -114,7 +121,6 @@ import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMo
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
 import { ViewPushPreferencesForAChannelResponse } from '../models/ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
-import { ViewWhoOwnsARegistrationOrDeviceTokenResponseInner } from '../models/ViewWhoOwnsARegistrationOrDeviceTokenResponseInner';
 
 import { ObservableAnnouncementApi } from "./ObservableAPI";
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
@@ -191,23 +197,38 @@ export interface BotApiJoinChannelsRequest {
     joinChannelsRequest?: JoinChannelsRequest
 }
 
-export interface BotApiLeaveChannelsRequest {
+export interface BotApiLeaveAGroupChannelRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BotApileaveAGroupChannel
+     */
+    channelUrl: string
     /**
      * (Required) 
      * @type string
-     * @memberof BotApileaveChannels
+     * @memberof BotApileaveAGroupChannel
      */
     botUserid: string
     /**
      * 
      * @type string
-     * @memberof BotApileaveChannels
+     * @memberof BotApileaveAGroupChannel
      */
-    channelUrl?: string
+    apiToken?: string
+}
+
+export interface BotApiLeaveGroupChannelsRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof BotApileaveGroupChannels
+     */
+    botUserid: string
     /**
      * 
      * @type string
-     * @memberof BotApileaveChannels
+     * @memberof BotApileaveGroupChannels
      */
     apiToken?: string
 }
@@ -280,12 +301,21 @@ export class ObjectBotApi {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * ## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving a specific channel
+     * @param param the request object
+     */
+    public leaveAGroupChannel(param: BotApiLeaveAGroupChannelRequest, options?: Configuration): Promise<any> {
+        return this.api.leaveAGroupChannel(param.channelUrl, param.botUserid, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
      * Leave channels - When leaving all channels
      * @param param the request object
      */
-    public leaveChannels(param: BotApiLeaveChannelsRequest, options?: Configuration): Promise<any> {
-        return this.api.leaveChannels(param.botUserid, param.channelUrl, param.apiToken,  options).toPromise();
+    public leaveGroupChannels(param: BotApiLeaveGroupChannelsRequest, options?: Configuration): Promise<any> {
+        return this.api.leaveGroupChannels(param.botUserid, param.apiToken,  options).toPromise();
     }
 
     /**
@@ -762,42 +792,6 @@ export interface GroupChannelApiListChannelsRequest {
      * @memberof GroupChannelApilistChannels
      */
     includeSortedMetaarrayInLastMessage?: boolean
-    /**
-     * (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @type string
-     * @memberof GroupChannelApilistChannels
-     */
-    customType?: string
-    /**
-     * (Deprecated) Superseded by show_read_receipt.
-     * @type boolean
-     * @memberof GroupChannelApilistChannels
-     */
-    readReceipt?: boolean
-    /**
-     * (Deprecated) Superseded by show_member.
-     * @type boolean
-     * @memberof GroupChannelApilistChannels
-     */
-    member?: boolean
-    /**
-     * (Deprecated) Superseded by distinct_mode.
-     * @type boolean
-     * @memberof GroupChannelApilistChannels
-     */
-    isDistinct?: boolean
-    /**
-     * (Deprecated) Superseded by members_exactly_in.
-     * @type string
-     * @memberof GroupChannelApilistChannels
-     */
-    membersIn?: string
-    /**
-     * (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
-     * @type string
-     * @memberof GroupChannelApilistChannels
-     */
-    userId?: string
 }
 
 export interface GroupChannelApiListMembersRequest {
@@ -1155,7 +1149,7 @@ export class ObjectGroupChannelApi {
      * @param param the request object
      */
     public listChannels(param: GroupChannelApiListChannelsRequest, options?: Configuration): Promise<GroupChatListChannelsResponse> {
-        return this.api.listChannels(param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId,  options).toPromise();
+        return this.api.listChannels(param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage,  options).toPromise();
     }
 
     /**
@@ -1489,7 +1483,7 @@ export interface MessageApiListMessagesRequest {
      */
     includePollDetails?: boolean
     /**
-     * 
+     * Determines whether to include the sorted_metaarray property in the response. (Default: false)
      * @type boolean
      * @memberof MessageApilistMessages
      */
@@ -1550,10 +1544,10 @@ export interface MessageApiMigrateMessagesRequest {
     apiToken?: string
     /**
      * 
-     * @type any
+     * @type MigrateMessagesRequest
      * @memberof MessageApimigrateMessages
      */
-    body?: any
+    migrateMessagesRequest?: MigrateMessagesRequest
 }
 
 export interface MessageApiRemoveExtraDataFromAMessageRequest {
@@ -1699,7 +1693,7 @@ export class ObjectMessageApi {
     }
 
     /**
-     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
      * Delete a message
      * @param param the request object
      */
@@ -1749,7 +1743,7 @@ export class ObjectMessageApi {
      * @param param the request object
      */
     public migrateMessages(param: MessageApiMigrateMessagesRequest, options?: Configuration): Promise<any> {
-        return this.api.migrateMessages(param.targetChannelUrl, param.apiToken, param.body,  options).toPromise();
+        return this.api.migrateMessages(param.targetChannelUrl, param.apiToken, param.migrateMessagesRequest,  options).toPromise();
     }
 
     /**
@@ -2027,10 +2021,10 @@ export interface ModerationApiListBlockedUsersRequest {
     userId: string
     /**
      * Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The &#x60;me&#x60; in the values refers to the user specified in the parameter. (Default: blocked_by_me)
-     * @type string
+     * @type &#39;blocked_by_me&#39; | &#39;blocking_me&#39;
      * @memberof ModerationApilistBlockedUsers
      */
-    list?: string
+    list?: 'blocked_by_me' | 'blocking_me'
     /**
      * 
      * @type string
@@ -2317,11 +2311,11 @@ export interface OpenChannelApiUnregisterOperatorsRequest {
      */
     operatorIds: string
     /**
-     * 
-     * @type string
+     * Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false)
+     * @type boolean
      * @memberof OpenChannelApiunregisterOperators
      */
-    deleteAll?: string
+    deleteAll?: boolean
     /**
      * 
      * @type string
@@ -2504,10 +2498,10 @@ export interface UserApiAddARegistrationOrDeviceTokenRequest {
     userId: string
     /**
      * (Required) 
-     * @type string
+     * @type &#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;
      * @memberof UserApiaddARegistrationOrDeviceToken
      */
-    tokenType: string
+    tokenType: 'gcm' | 'huawei' | 'apns'
     /**
      * 
      * @type string
@@ -2800,6 +2794,24 @@ export interface UserApiListMyGroupChannelsRequest {
      */
     membersNicknameContains?: string
     /**
+     * Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended.
+     * @type string
+     * @memberof UserApilistMyGroupChannels
+     */
+    membersNicknameStartswith?: string
+    /**
+     * Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended.
+     * @type string
+     * @memberof UserApilistMyGroupChannels
+     */
+    searchQuery?: string
+    /**
+     * Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together)
+     * @type string
+     * @memberof UserApilistMyGroupChannels
+     */
+    searchFields?: string
+    /**
      * Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
      * @type string
      * @memberof UserApilistMyGroupChannels
@@ -2860,41 +2872,23 @@ export interface UserApiListMyGroupChannelsRequest {
      */
     includeSortedMetaarrayInLastMessage?: boolean
     /**
-     * (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @type string
+     * Restricts the search scope to group channels that match a specific hidden_status and operating behavior
+     * @type &#39;unhidden_only&#39; | &#39;hidden_only&#39; | &#39;hidden_allow_auto_unhide&#39; | &#39;hidden_prevent_auto_unhide&#39; | &#39;all&#39;
      * @memberof UserApilistMyGroupChannels
      */
-    customType?: string
+    hiddenMode?: 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all'
     /**
-     * (Deprecated) Superseded by show_read_receipt.
-     * @type boolean
+     * Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all)
+     * @type &#39;all&#39; | &#39;unread_message&#39;
      * @memberof UserApilistMyGroupChannels
      */
-    readReceipt?: boolean
+    unreadFilter?: 'all' | 'unread_message'
     /**
-     * (Deprecated) Superseded by show_member.
-     * @type boolean
+     * 
+     * @type &#39;all&#39; | &#39;invited_only&#39; | &#39;joined_only&#39; | &#39;invited_by_friend&#39; | &#39;invited_by_non_friend&#39;
      * @memberof UserApilistMyGroupChannels
      */
-    member?: boolean
-    /**
-     * (Deprecated) Superseded by distinct_mode.
-     * @type boolean
-     * @memberof UserApilistMyGroupChannels
-     */
-    isDistinct?: boolean
-    /**
-     * (Deprecated) Superseded by members_exactly_in.
-     * @type string
-     * @memberof UserApilistMyGroupChannels
-     */
-    membersIn?: string
-    /**
-     * (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
-     * @type string
-     * @memberof UserApilistMyGroupChannels
-     */
-    userId2?: string
+    memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend'
 }
 
 export interface UserApiListRegistrationOrDeviceTokensRequest {
@@ -2906,10 +2900,10 @@ export interface UserApiListRegistrationOrDeviceTokensRequest {
     userId: string
     /**
      * (Required) 
-     * @type string
+     * @type &#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;
      * @memberof UserApilistRegistrationOrDeviceTokens
      */
-    tokenType: string
+    tokenType: 'gcm' | 'huawei' | 'apns'
     /**
      * 
      * @type string
@@ -3002,6 +2996,33 @@ export interface UserApiMarkAllMessagesAsReadRequest {
     markAllMessagesAsReadRequest?: MarkAllMessagesAsReadRequest
 }
 
+export interface UserApiRemoveARegistrationOrDeviceTokenRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApiremoveARegistrationOrDeviceToken
+     */
+    userId: string
+    /**
+     * (Required) 
+     * @type &#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;
+     * @memberof UserApiremoveARegistrationOrDeviceToken
+     */
+    tokenType: 'gcm' | 'huawei' | 'apns'
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApiremoveARegistrationOrDeviceToken
+     */
+    token: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiremoveARegistrationOrDeviceToken
+     */
+    apiToken?: string
+}
+
 export interface UserApiRemoveARegistrationOrDeviceTokenFromAnOwnerRequest {
     /**
      * (Required) 
@@ -3023,44 +3044,17 @@ export interface UserApiRemoveARegistrationOrDeviceTokenFromAnOwnerRequest {
     apiToken?: string
 }
 
-export interface UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenRequest {
+export interface UserApiRemoveAllRegistrationOrDeviceTokenRequest {
     /**
      * (Required) 
      * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringASpecificToken
-     */
-    userId: string
-    /**
-     * (Required) 
-     * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringASpecificToken
-     */
-    tokenType: string
-    /**
-     * (Required) 
-     * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringASpecificToken
-     */
-    token: string
-    /**
-     * 
-     * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringASpecificToken
-     */
-    apiToken?: string
-}
-
-export interface UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensRequest {
-    /**
-     * (Required) 
-     * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens
+     * @memberof UserApiremoveAllRegistrationOrDeviceToken
      */
     userId: string
     /**
      * 
      * @type string
-     * @memberof UserApiremoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens
+     * @memberof UserApiremoveAllRegistrationOrDeviceToken
      */
     apiToken?: string
 }
@@ -3438,7 +3432,7 @@ export class ObjectUserApi {
      * @param param the request object
      */
     public listMyGroupChannels(param: UserApiListMyGroupChannelsRequest, options?: Configuration): Promise<ListMyGroupChannelsResponse> {
-        return this.api.listMyGroupChannels(param.userId, param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.customType, param.readReceipt, param.member, param.isDistinct, param.membersIn, param.userId2,  options).toPromise();
+        return this.api.listMyGroupChannels(param.userId, param.apiToken, param.token, param.limit, param.distinctMode, param.publicMode, param.superMode, param.createdAfter, param.createdBefore, param.showEmpty, param.showMember, param.showDeliveryReceipt, param.showReadReceipt, param.showMetadata, param.showFrozen, param.order, param.metadataOrderKey, param.customTypes, param.customTypeStartswith, param.channelUrls, param.name, param.nameContains, param.nameStartswith, param.membersExactlyIn, param.membersIncludeIn, param.queryType, param.membersNickname, param.membersNicknameContains, param.membersNicknameStartswith, param.searchQuery, param.searchFields, param.metadataKey, param.metadataValues, param.metadataValueStartswith, param.metacounterKey, param.metacounterValues, param.metacounterValueGt, param.metacounterValueGte, param.metacounterValueLt, param.metacounterValueLte, param.includeSortedMetaarrayInLastMessage, param.hiddenMode, param.unreadFilter, param.memberStateFilter,  options).toPromise();
     }
 
     /**
@@ -3469,21 +3463,21 @@ export class ObjectUserApi {
     }
 
     /**
-     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
-     * Remove a registration or device token from an owner
-     * @param param the request object
-     */
-    public removeARegistrationOrDeviceTokenFromAnOwner(param: UserApiRemoveARegistrationOrDeviceTokenFromAnOwnerRequest, options?: Configuration): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>> {
-        return this.api.removeARegistrationOrDeviceTokenFromAnOwner(param.tokenType, param.token, param.apiToken,  options).toPromise();
-    }
-
-    /**
      * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
      * Remove a registration or device token - When unregistering a specific token
      * @param param the request object
      */
-    public removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(param: UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenRequest, options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse> {
-        return this.api.removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(param.userId, param.tokenType, param.token, param.apiToken,  options).toPromise();
+    public removeARegistrationOrDeviceToken(param: UserApiRemoveARegistrationOrDeviceTokenRequest, options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenResponse> {
+        return this.api.removeARegistrationOrDeviceToken(param.userId, param.tokenType, param.token, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
+     * Remove a registration or device token from an owner
+     * @param param the request object
+     */
+    public removeARegistrationOrDeviceTokenFromAnOwner(param: UserApiRemoveARegistrationOrDeviceTokenFromAnOwnerRequest, options?: Configuration): Promise<Array<MarkChannelMessagesAsReadRequest>> {
+        return this.api.removeARegistrationOrDeviceTokenFromAnOwner(param.tokenType, param.token, param.apiToken,  options).toPromise();
     }
 
     /**
@@ -3491,8 +3485,8 @@ export class ObjectUserApi {
      * Remove a registration or device token - When unregistering all device tokens
      * @param param the request object
      */
-    public removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(param: UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensRequest, options?: Configuration): Promise<RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse> {
-        return this.api.removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(param.userId, param.apiToken,  options).toPromise();
+    public removeAllRegistrationOrDeviceToken(param: UserApiRemoveAllRegistrationOrDeviceTokenRequest, options?: Configuration): Promise<RemoveAllRegistrationOrDeviceTokenResponse> {
+        return this.api.removeAllRegistrationOrDeviceToken(param.userId, param.apiToken,  options).toPromise();
     }
 
     /**
@@ -3608,7 +3602,7 @@ export class ObjectUserApi {
      * View who owns a registration or device token
      * @param param the request object
      */
-    public viewWhoOwnsARegistrationOrDeviceToken(param: UserApiViewWhoOwnsARegistrationOrDeviceTokenRequest, options?: Configuration): Promise<Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>> {
+    public viewWhoOwnsARegistrationOrDeviceToken(param: UserApiViewWhoOwnsARegistrationOrDeviceTokenRequest, options?: Configuration): Promise<Array<MarkChannelMessagesAsReadRequest>> {
         return this.api.viewWhoOwnsARegistrationOrDeviceToken(param.tokenType, param.token, param.apiToken,  options).toPromise();
     }
 

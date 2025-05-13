@@ -674,7 +674,7 @@ let body:Sendbird.GroupChannelApiLeaveAChannelRequest = {
     ],
     shouldLeaveAll: true,
     shouldRemoveOperatorStatus: true,
-    reason: "reason_example",
+    reason: "LEFT_BY_OWN_CHOICE",
   },
 };
 
@@ -804,18 +804,6 @@ let body:Sendbird.GroupChannelApiListChannelsRequest = {
   metacounterValueLte: "metacounter_value_lte_example",
   // boolean | Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
   includeSortedMetaarrayInLastMessage: false,
-  // string | (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded. (optional)
-  customType: "ANNOUNCEMENT",
-  // boolean | (Deprecated) Superseded by show_read_receipt. (optional)
-  readReceipt: false,
-  // boolean | (Deprecated) Superseded by show_member. (optional)
-  member: true,
-  // boolean | (Deprecated) Superseded by distinct_mode. (optional)
-  isDistinct: true,
-  // string | (Deprecated) Superseded by members_exactly_in. (optional)
-  membersIn: "members_in_example",
-  // string | (Deprecated) Restricts the search scope to only retrieve the target user's group channels. It's recommended to use the list group channels by user action instead. (optional)
-  userId: "user_id_example",
 };
 
 apiInstance.listChannels(body).then((data:any) => {
@@ -865,12 +853,6 @@ Name | Type | Description  | Notes
  **metacounterValueLt** | [**string**] | Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. | (optional) defaults to undefined
  **metacounterValueLte** | [**string**] | Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. | (optional) defaults to undefined
  **includeSortedMetaarrayInLastMessage** | [**boolean**] | Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. | (optional) defaults to undefined
- **customType** | [**string**] | (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded. | (optional) defaults to undefined
- **readReceipt** | [**boolean**] | (Deprecated) Superseded by show_read_receipt. | (optional) defaults to undefined
- **member** | [**boolean**] | (Deprecated) Superseded by show_member. | (optional) defaults to undefined
- **isDistinct** | [**boolean**] | (Deprecated) Superseded by distinct_mode. | (optional) defaults to undefined
- **membersIn** | [**string**] | (Deprecated) Superseded by members_exactly_in. | (optional) defaults to undefined
- **userId** | [**string**] | (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead. | (optional) defaults to undefined
 
 
 ### Return type

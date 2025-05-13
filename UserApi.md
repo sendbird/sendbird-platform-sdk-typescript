@@ -15,9 +15,9 @@ Method | HTTP request | Description
 [**listRegistrationOrDeviceTokens**](UserApi.md#listRegistrationOrDeviceTokens) | **GET** /v3/users/{user_id}/push/{token_type} | List registration or device tokens
 [**listUsers**](UserApi.md#listUsers) | **GET** /v3/users | List users
 [**markAllMessagesAsRead**](UserApi.md#markAllMessagesAsRead) | **PUT** /v3/users/{user_id}/mark_as_read_all | Mark all messages as read
+[**removeARegistrationOrDeviceToken**](UserApi.md#removeARegistrationOrDeviceToken) | **DELETE** /v3/users/{user_id}/push/{token_type}/{token} | Remove a registration or device token - When unregistering a specific token
 [**removeARegistrationOrDeviceTokenFromAnOwner**](UserApi.md#removeARegistrationOrDeviceTokenFromAnOwner) | **DELETE** /v3/push/device_tokens/{token_type}/{token} | Remove a registration or device token from an owner
-[**removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken**](UserApi.md#removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken) | **DELETE** /v3/users/{user_id}/push/{token_type}/{token} | Remove a registration or device token - When unregistering a specific token
-[**removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens**](UserApi.md#removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens) | **DELETE** /v3/users/{user_id}/push | Remove a registration or device token - When unregistering all device tokens
+[**removeAllRegistrationOrDeviceToken**](UserApi.md#removeAllRegistrationOrDeviceToken) | **DELETE** /v3/users/{user_id}/push | Remove a registration or device token - When unregistering all device tokens
 [**resetPushPreferences**](UserApi.md#resetPushPreferences) | **DELETE** /v3/users/{user_id}/push_preference | Reset push preferences
 [**updateAUser**](UserApi.md#updateAUser) | **PUT** /v3/users/{user_id} | Update a user
 [**updateChannelInvitationPreference**](UserApi.md#updateChannelInvitationPreference) | **PUT** /v3/users/{user_id}/channel_invitation_preference | Update channel invitation preference
@@ -51,8 +51,8 @@ const apiInstance = new Sendbird.UserApi(configuration);
 let body:Sendbird.UserApiAddARegistrationOrDeviceTokenRequest = {
   // string | (Required) 
   userId: "user_id_example",
-  // string | (Required) 
-  tokenType: "token_type_example",
+  // 'gcm' | 'huawei' | 'apns' | (Required) 
+  tokenType: "gcm",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
   // AddARegistrationOrDeviceTokenRequest (optional)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addARegistrationOrDeviceTokenRequest** | **AddARegistrationOrDeviceTokenRequest**|  |
  **userId** | [**string**] | (Required)  | defaults to undefined
- **tokenType** | [**string**] | (Required)  | defaults to undefined
+ **tokenType** | [**&#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;**]**Array<&#39;gcm&#39; &#124; &#39;huawei&#39; &#124; &#39;apns&#39;>** | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -122,7 +122,7 @@ let body:Sendbird.UserApiChooseAPushNotificationContentTemplateRequest = {
   apiToken: "{{API_TOKEN}}",
   // ChooseAPushNotificationContentTemplateRequest (optional)
   chooseAPushNotificationContentTemplateRequest: {
-    name: "name_example",
+    name: "default",
   },
 };
 
@@ -539,6 +539,12 @@ let body:Sendbird.UserApiListMyGroupChannelsRequest = {
   membersNickname: "members_nickname_example",
   // string | Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
   membersNicknameContains: "members_nickname_contains_example",
+  // string | Searches for group channels with members whose nicknames begin with the specified value. This parameter isn't case-sensitive. URL encoding the value is recommended. (optional)
+  membersNicknameStartswith: "members_nickname_startswith_example",
+  // string | Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn't case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+  searchQuery: "search_query_example",
+  // string | Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+  searchFields: "search_fields_example",
   // string | Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
   metadataKey: "metadata_key_example",
   // string | Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
@@ -559,18 +565,12 @@ let body:Sendbird.UserApiListMyGroupChannelsRequest = {
   metacounterValueLte: "metacounter_value_lte_example",
   // boolean | Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
   includeSortedMetaarrayInLastMessage: false,
-  // string | (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded. (optional)
-  customType: "ANNOUNCEMENT",
-  // boolean | (Deprecated) Superseded by show_read_receipt. (optional)
-  readReceipt: false,
-  // boolean | (Deprecated) Superseded by show_member. (optional)
-  member: true,
-  // boolean | (Deprecated) Superseded by distinct_mode. (optional)
-  isDistinct: true,
-  // string | (Deprecated) Superseded by members_exactly_in. (optional)
-  membersIn: "members_in_example",
-  // string | (Deprecated) Restricts the search scope to only retrieve the target user's group channels. It's recommended to use the list group channels by user action instead. (optional)
-  userId2: "user_id_example",
+  // 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all' | Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+  hiddenMode: "unhidden_only",
+  // 'all' | 'unread_message' | Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn't support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+  unreadFilter: "all",
+  // 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend' (optional)
+  memberStateFilter: "all",
 };
 
 apiInstance.listMyGroupChannels(body).then((data:any) => {
@@ -611,6 +611,9 @@ Name | Type | Description  | Notes
  **queryType** | [**string**] | Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) | (optional) defaults to undefined
  **membersNickname** | [**string**] | Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. | (optional) defaults to undefined
  **membersNicknameContains** | [**string**] | Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. | (optional) defaults to undefined
+ **membersNicknameStartswith** | [**string**] | Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. | (optional) defaults to undefined
+ **searchQuery** | [**string**] | Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. | (optional) defaults to undefined
+ **searchFields** | [**string**] | Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) | (optional) defaults to undefined
  **metadataKey** | [**string**] | Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. | (optional) defaults to undefined
  **metadataValues** | [**string**] | Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. | (optional) defaults to undefined
  **metadataValueStartswith** | [**string**] | Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. | (optional) defaults to undefined
@@ -621,12 +624,9 @@ Name | Type | Description  | Notes
  **metacounterValueLt** | [**string**] | Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. | (optional) defaults to undefined
  **metacounterValueLte** | [**string**] | Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. | (optional) defaults to undefined
  **includeSortedMetaarrayInLastMessage** | [**boolean**] | Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. | (optional) defaults to undefined
- **customType** | [**string**] | (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded. | (optional) defaults to undefined
- **readReceipt** | [**boolean**] | (Deprecated) Superseded by show_read_receipt. | (optional) defaults to undefined
- **member** | [**boolean**] | (Deprecated) Superseded by show_member. | (optional) defaults to undefined
- **isDistinct** | [**boolean**] | (Deprecated) Superseded by distinct_mode. | (optional) defaults to undefined
- **membersIn** | [**string**] | (Deprecated) Superseded by members_exactly_in. | (optional) defaults to undefined
- **userId2** | [**string**] | (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead. | (optional) defaults to undefined
+ **hiddenMode** | [**&#39;unhidden_only&#39; | &#39;hidden_only&#39; | &#39;hidden_allow_auto_unhide&#39; | &#39;hidden_prevent_auto_unhide&#39; | &#39;all&#39;**]**Array<&#39;unhidden_only&#39; &#124; &#39;hidden_only&#39; &#124; &#39;hidden_allow_auto_unhide&#39; &#124; &#39;hidden_prevent_auto_unhide&#39; &#124; &#39;all&#39;>** | Restricts the search scope to group channels that match a specific hidden_status and operating behavior | (optional) defaults to undefined
+ **unreadFilter** | [**&#39;all&#39; | &#39;unread_message&#39;**]**Array<&#39;all&#39; &#124; &#39;unread_message&#39;>** | Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) | (optional) defaults to undefined
+ **memberStateFilter** | [**&#39;all&#39; | &#39;invited_only&#39; | &#39;joined_only&#39; | &#39;invited_by_friend&#39; | &#39;invited_by_non_friend&#39;**]**Array<&#39;all&#39; &#124; &#39;invited_only&#39; &#124; &#39;joined_only&#39; &#124; &#39;invited_by_friend&#39; &#124; &#39;invited_by_non_friend&#39;>** |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -668,8 +668,8 @@ const apiInstance = new Sendbird.UserApi(configuration);
 let body:Sendbird.UserApiListRegistrationOrDeviceTokensRequest = {
   // string | (Required) 
   userId: "user_id_example",
-  // string | (Required) 
-  tokenType: "token_type_example",
+  // 'gcm' | 'huawei' | 'apns' | (Required) 
+  tokenType: "gcm",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
@@ -685,7 +685,7 @@ apiInstance.listRegistrationOrDeviceTokens(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | [**string**] | (Required)  | defaults to undefined
- **tokenType** | [**string**] | (Required)  | defaults to undefined
+ **tokenType** | [**&#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;**]**Array<&#39;gcm&#39; &#124; &#39;huawei&#39; &#124; &#39;apns&#39;>** | (Required)  | defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -855,8 +855,71 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **removeARegistrationOrDeviceToken**
+> RemoveARegistrationOrDeviceTokenResponse removeARegistrationOrDeviceToken()
+
+## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.UserApi(configuration);
+
+let body:Sendbird.UserApiRemoveARegistrationOrDeviceTokenRequest = {
+  // string | (Required) 
+  userId: "user_id_example",
+  // 'gcm' | 'huawei' | 'apns' | (Required) 
+  tokenType: "gcm",
+  // string | (Required) 
+  token: "token_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.removeARegistrationOrDeviceToken(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**string**] | (Required)  | defaults to undefined
+ **tokenType** | [**&#39;gcm&#39; | &#39;huawei&#39; | &#39;apns&#39;**]**Array<&#39;gcm&#39; &#124; &#39;huawei&#39; &#124; &#39;apns&#39;>** | (Required)  | defaults to undefined
+ **token** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**RemoveARegistrationOrDeviceTokenResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **removeARegistrationOrDeviceTokenFromAnOwner**
-> Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> removeARegistrationOrDeviceTokenFromAnOwner()
+> Array<MarkChannelMessagesAsReadRequest> removeARegistrationOrDeviceTokenFromAnOwner()
 
 ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
 
@@ -896,7 +959,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>**
+**Array<MarkChannelMessagesAsReadRequest>**
 
 ### Authorization
 
@@ -915,8 +978,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken**
-> RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken()
+# **removeAllRegistrationOrDeviceToken**
+> RemoveAllRegistrationOrDeviceTokenResponse removeAllRegistrationOrDeviceToken()
 
 ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
 
@@ -930,77 +993,14 @@ import * as fs from 'fs';
 const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.UserApi(configuration);
 
-let body:Sendbird.UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenRequest = {
-  // string | (Required) 
-  userId: "user_id_example",
-  // string | (Required) 
-  tokenType: "token_type_example",
-  // string | (Required) 
-  token: "token_example",
-  // string (optional)
-  apiToken: "{{API_TOKEN}}",
-};
-
-apiInstance.removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | [**string**] | (Required)  | defaults to undefined
- **tokenType** | [**string**] | (Required)  | defaults to undefined
- **token** | [**string**] | (Required)  | defaults to undefined
- **apiToken** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens**
-> RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens()
-
-## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
-
-### Example
-
-
-```typescript
-import { Sendbird } from 'sendbird-platform-sdk';
-import * as fs from 'fs';
-
-const configuration = Sendbird.createConfiguration();
-const apiInstance = new Sendbird.UserApi(configuration);
-
-let body:Sendbird.UserApiRemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensRequest = {
+let body:Sendbird.UserApiRemoveAllRegistrationOrDeviceTokenRequest = {
   // string | (Required) 
   userId: "user_id_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
-apiInstance.removeARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokens(body).then((data:any) => {
+apiInstance.removeAllRegistrationOrDeviceToken(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1016,7 +1016,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse**
+**RemoveAllRegistrationOrDeviceTokenResponse**
 
 ### Authorization
 
@@ -1324,7 +1324,7 @@ let body:Sendbird.UserApiUpdatePushPreferencesRequest = {
       "pushBlockedBotIds_example",
     ],
     pushSound: "pushSound_example",
-    pushTriggerOption: "pushTriggerOption_example",
+    pushTriggerOption: "all",
     snoozeEnabled: true,
     snoozeEndTs: 1,
     snoozeStartTs: 1,
@@ -1806,7 +1806,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **viewWhoOwnsARegistrationOrDeviceToken**
-> Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner> viewWhoOwnsARegistrationOrDeviceToken()
+> Array<MarkChannelMessagesAsReadRequest> viewWhoOwnsARegistrationOrDeviceToken()
 
 ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
 
@@ -1846,7 +1846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Array<ViewWhoOwnsARegistrationOrDeviceTokenResponseInner>**
+**Array<MarkChannelMessagesAsReadRequest>**
 
 ### Authorization
 

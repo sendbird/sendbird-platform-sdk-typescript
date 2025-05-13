@@ -185,7 +185,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
      * @param metadatavaluesIn 
      * @param apiToken 
      */
-    public async listBlockedUsers(userId: string, list?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listBlockedUsers(userId: string, list?: 'blocked_by_me' | 'blocking_me', token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -211,7 +211,7 @@ export class ModerationApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (list !== undefined) {
-            requestContext.setQueryParam("list", ObjectSerializer.serialize(list, "string", ""));
+            requestContext.setQueryParam("list", ObjectSerializer.serialize(list, "'blocked_by_me' | 'blocking_me'", ""));
         }
 
         // Query Params

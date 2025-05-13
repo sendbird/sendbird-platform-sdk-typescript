@@ -6,7 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createABot**](BotApi.md#createABot) | **POST** /v3/bots | Create a bot
 [**joinChannels**](BotApi.md#joinChannels) | **POST** /v3/bots/{bot_userid}/channels | Join channels
-[**leaveChannels**](BotApi.md#leaveChannels) | **DELETE** /v3/bots/{bot_userid}/channels | Leave channels - When leaving all channels
+[**leaveAGroupChannel**](BotApi.md#leaveAGroupChannel) | **DELETE** /v3/bots/{bot_userid}/channels/{channel_url} | Leave channels - When leaving a specific channel
+[**leaveGroupChannels**](BotApi.md#leaveGroupChannels) | **DELETE** /v3/bots/{bot_userid}/channels | Leave channels - When leaving all channels
 [**listBots**](BotApi.md#listBots) | **GET** /v3/bots | List bots
 [**sendABotMessage**](BotApi.md#sendABotMessage) | **POST** /v3/bots/{bot_userid}/send | Send a bot&#39;s message
 
@@ -142,10 +143,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **leaveChannels**
-> any leaveChannels()
+# **leaveAGroupChannel**
+> any leaveAGroupChannel()
 
-## Leave channels  Makes a bot leave one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
 
 ### Example
 
@@ -157,16 +158,74 @@ import * as fs from 'fs';
 const configuration = Sendbird.createConfiguration();
 const apiInstance = new Sendbird.BotApi(configuration);
 
-let body:Sendbird.BotApiLeaveChannelsRequest = {
+let body:Sendbird.BotApiLeaveAGroupChannelRequest = {
+  // string
+  channelUrl: "channel_url_example",
   // string | (Required) 
   botUserid: "bot_userid_example",
-  // string (optional)
-  channelUrl: "channel_url_example",
   // string (optional)
   apiToken: "{{API_TOKEN}}",
 };
 
-apiInstance.leaveChannels(body).then((data:any) => {
+apiInstance.leaveAGroupChannel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelUrl** | [**string**] |  | defaults to undefined
+ **botUserid** | [**string**] | (Required)  | defaults to undefined
+ **apiToken** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **leaveGroupChannels**
+> any leaveGroupChannels()
+
+## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+
+### Example
+
+
+```typescript
+import { Sendbird } from 'sendbird-platform-sdk';
+import * as fs from 'fs';
+
+const configuration = Sendbird.createConfiguration();
+const apiInstance = new Sendbird.BotApi(configuration);
+
+let body:Sendbird.BotApiLeaveGroupChannelsRequest = {
+  // string | (Required) 
+  botUserid: "bot_userid_example",
+  // string (optional)
+  apiToken: "{{API_TOKEN}}",
+};
+
+apiInstance.leaveGroupChannels(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -177,7 +236,6 @@ apiInstance.leaveChannels(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **botUserid** | [**string**] | (Required)  | defaults to undefined
- **channelUrl** | [**string**] |  | (optional) defaults to undefined
  **apiToken** | [**string**] |  | (optional) defaults to undefined
 
 

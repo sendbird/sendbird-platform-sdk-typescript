@@ -336,10 +336,10 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
      * Unregister operators from an open channel
      * @param channelUrl (Required) 
      * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
-     * @param deleteAll 
+     * @param deleteAll Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false)
      * @param apiToken 
      */
-    public async unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -371,7 +371,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (deleteAll !== undefined) {
-            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "string", ""));
+            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "boolean", ""));
         }
 
         // Header Params

@@ -82,10 +82,16 @@ models/ListRegistrationOrDeviceTokensResponse.ts
 models/ListUsersResponse.ts
 models/MarkAllMessagesAsReadRequest.ts
 models/MarkChannelMessagesAsReadRequest.ts
+models/MigrateMessagesAdminMessageRequest.ts
+models/MigrateMessagesFileMessageRequest.ts
+models/MigrateMessagesFileMessageRequestThumbnailsInner.ts
+models/MigrateMessagesRequest.ts
+models/MigrateMessagesRequestMessagesInner.ts
+models/MigrateMessagesTextMessageRequest.ts
 models/ObjectSerializer.ts
 models/RegisterOperatorsToAGroupChannelRequest.ts
-models/RemoveARegistrationOrDeviceTokenWhenUnregisteringASpecificTokenResponse.ts
-models/RemoveARegistrationOrDeviceTokenWhenUnregisteringAllDeviceTokensResponse.ts
+models/RemoveARegistrationOrDeviceTokenResponse.ts
+models/RemoveAllRegistrationOrDeviceTokenResponse.ts
 models/ResetChatHistoryRequest.ts
 models/ResetChatHistoryResponse.ts
 models/ScheduleAnAnnouncementRequest.ts
@@ -112,6 +118,7 @@ models/SendbirdMessageResponse.ts
 models/SendbirdMessageResponseMessageEvents.ts
 models/SendbirdOpenChannel.ts
 models/SendbirdParentMessageInfo.ts
+models/SendbirdPushTriggerOption.ts
 models/SendbirdReaction.ts
 models/SendbirdSmsFallback.ts
 models/SendbirdSortedMetaarrayInner.ts
@@ -140,7 +147,6 @@ models/ViewNumberOfMonthlyActiveUsersResponse.ts
 models/ViewNumberOfUnreadMessagesResponse.ts
 models/ViewPushPreferencesForAChannelResponse.ts
 models/ViewPushPreferencesResponse.ts
-models/ViewWhoOwnsARegistrationOrDeviceTokenResponseInner.ts
 models/all.ts
 package.json
 rxjsStub.ts

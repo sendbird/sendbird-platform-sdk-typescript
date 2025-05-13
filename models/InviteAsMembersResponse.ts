@@ -16,6 +16,7 @@ import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdGroupChannel } from './SendbirdGroupChannel';
 import { SendbirdMember } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdUser } from './SendbirdUser';
 import { HttpFile } from '../http/http';
@@ -59,7 +60,7 @@ export class InviteAsMembersResponse {
     'metadata'?: any;
     'myRole'?: InviteAsMembersResponseMyRoleEnum;
     'name'?: string;
-    'pushTriggerOption'?: InviteAsMembersResponsePushTriggerOptionEnum;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
     'readReceipt'?: { [key: string]: number; };
     'smsFallback'?: SendbirdSmsFallback;
     'tsMessageOffset'?: number;
@@ -302,7 +303,7 @@ export class InviteAsMembersResponse {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "InviteAsMembersResponsePushTriggerOptionEnum",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
         },
         {
@@ -361,5 +362,4 @@ export type InviteAsMembersResponseCountPreferenceEnum = "false" | "all" | "unre
 export type InviteAsMembersResponseHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
 export type InviteAsMembersResponseMemberStateEnum = "invited" | "joined" | "none" ;
 export type InviteAsMembersResponseMyRoleEnum = "" | "none" | "operator" ;
-export type InviteAsMembersResponsePushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
 

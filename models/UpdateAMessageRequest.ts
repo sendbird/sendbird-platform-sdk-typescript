@@ -18,6 +18,7 @@ export class UpdateAMessageRequest {
     'mentionType'?: string;
     'mentionedUserIds'?: Array<string>;
     'message'?: string;
+    'url'?: string;
     'messageType': UpdateAMessageRequestMessageTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
@@ -50,6 +51,12 @@ export class UpdateAMessageRequest {
         {
             "name": "message",
             "baseName": "message",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
             "type": "string",
             "format": ""
         },

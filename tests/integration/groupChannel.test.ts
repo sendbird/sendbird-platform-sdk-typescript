@@ -630,7 +630,6 @@ describe("Group Channel API", () => {
       expect(Array.isArray(listMembersResponse.members)).toBe(true);
       expect((listMembersResponse.members.length)).toBeLessThanOrEqual(LIMIT);
       listMembersResponse.members.forEach((member) => {
-        console.log(member);
         expect(member).toHaveProperty("userId");
         expect(typeof member.userId).toBe("string");
 
@@ -727,6 +726,14 @@ describe("Group Channel API", () => {
 
   it("call registerOperatorsToAGroupChannel, listOperators then cancelTheRegistrationOfOperators", async () => {
     const CHANNEL_URL = "list-operator-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,

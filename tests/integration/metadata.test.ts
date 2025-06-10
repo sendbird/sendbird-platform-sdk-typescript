@@ -18,5 +18,5 @@ describe("Metadata API", () => {
     metadataApi = new MetadataApi(configuration);
   });
 
-  it.todo("create test case");
+  it.todo("no need test case for now");
 });

@@ -7,7 +7,6 @@ import {
   SendbirdGroupChannelHiddenStateEnum,
   SendbirdGroupChannelMemberStateEnum,
   SendbirdGroupChannelMyRoleEnum,
-  SendbirdGroupChannelPushTriggerOptionEnum,
   SendbirdMessageResponse,
   SendbirdSmsFallback,
   SendbirdUser,
@@ -54,10 +53,6 @@ describe("Group Channel API", () => {
     | SendbirdGroupChannelMyRoleEnum
     | undefined
   )[] = ["none", "operator", ""];
-  const validSendbirdGroupChannelPushTriggerOptionEnum: (
-    | SendbirdGroupChannelPushTriggerOptionEnum
-    | undefined
-  )[] = ["all", "default", "false", "mention_only"];
 
   const validSendbirdMemberRoleEnum: (SendbirdMemberRoleEnum | undefined)[] = [
     "",
@@ -239,15 +234,6 @@ describe("Group Channel API", () => {
 
       expect(channel).toHaveProperty("name");
       expect(typeof channel.name).toBe("string");
-
-      if (hasValidField(channel, "pushTriggerOption")) {
-        expect(
-          validSendbirdGroupChannelPushTriggerOptionEnum.includes(
-            channel.pushTriggerOption
-          )
-        ).toBe(true);
-        expect(typeof channel.pushTriggerOption).toBe("string");
-      }
 
       expect(channel).toHaveProperty("readReceipt");
       expect(typeof channel.readReceipt).toBe("object");

@@ -105,16 +105,12 @@ export class MetadataApiRequestFactory extends BaseAPIRequestFactory {
         // Path Params
         const localVarPath = '/v3/{channel_type}/{channel_url}/metadata'
             .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
+            .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (key !== undefined) {
-            requestContext.setQueryParam("key", ObjectSerializer.serialize(key, "string", ""));
-        }
 
         // Header Params
         requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));

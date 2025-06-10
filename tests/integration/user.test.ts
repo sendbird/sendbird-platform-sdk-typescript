@@ -118,7 +118,7 @@ describe("User API", () => {
       await userApi.addARegistrationOrDeviceToken({
         apiToken: API_TOKEN,
         userId: MASTER_USER_ID,
-        tokenType: TOKEN_TYPE.toLowerCase(),
+        tokenType: 'gcm',
         addARegistrationOrDeviceTokenRequest: {
           gcmRegToken: TEST_GCM_TOKEN,
         },
@@ -136,15 +136,15 @@ describe("User API", () => {
       await userApi.listRegistrationOrDeviceTokens({
         apiToken: API_TOKEN,
         userId: MASTER_USER_ID,
-        tokenType: TOKEN_TYPE.toLowerCase(),
+        tokenType: 'gcm',
       });
 
     const deleteTokenResponse =
-      await userApi.removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken(
+      await userApi.removeARegistrationOrDeviceToken(
         {
           apiToken: API_TOKEN,
           userId: MASTER_USER_ID,
-          tokenType: TOKEN_TYPE.toLowerCase(),
+          tokenType: 'gcm',
           token: TEST_GCM_TOKEN,
         }
       );

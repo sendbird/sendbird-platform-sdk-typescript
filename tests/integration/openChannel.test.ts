@@ -1,6 +1,8 @@
+import { CreateAnOpenChannelRequest } from "./../../models/CreateAnOpenChannelRequest";
 import { ServerConfiguration } from "../../servers";
 import { createConfiguration } from "../../configuration";
 import { OpenChannelApi } from "../../index";
+import { hasValidField } from "./helper";
 
 describe("Open Channel API", () => {
   const APP_ID = process.env.APP_ID || "";
@@ -18,5 +20,155 @@ describe("Open Channel API", () => {
     openChannelApi = new OpenChannelApi(configuration);
   });
 
-  it.todo("create test case");
+  it("call createAnOpenChannel", async () => {
+    const CHANNEL_URL = "test-create-open-channel-url";
+    // Cleanup first
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch {}
+    const request: CreateAnOpenChannelRequest = {
+      isDynamicPartitioned: false,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "string",
+      customType: "custom",
+      data: "data",
+      isEphemeral: false,
+      name: CHANNEL_URL,
+      operatorIds: [],
+    };
+
+    const createAnOpenChannelResponse =
+      await openChannelApi.createAnOpenChannel({
+        apiToken: API_TOKEN,
+        createAnOpenChannelRequest: request,
+      });
+
+    expect(createAnOpenChannelResponse).toHaveProperty("channelUrl");
+    expect(typeof createAnOpenChannelResponse.channelUrl).toBe("string");
+
+    if (hasValidField(createAnOpenChannelResponse, "coverUrl")) {
+      expect(typeof createAnOpenChannelResponse.coverUrl).toBe("string");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "createdAt")) {
+      expect(typeof createAnOpenChannelResponse.createdAt).toBe("number");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "customType")) {
+      expect(typeof createAnOpenChannelResponse.customType).toBe("string");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "data")) {
+      expect(typeof createAnOpenChannelResponse.data).toBe("string");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "freeze")) {
+      expect(typeof createAnOpenChannelResponse.freeze).toBe("boolean");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "isDynamicPartitioned")) {
+      expect(typeof createAnOpenChannelResponse.isDynamicPartitioned).toBe(
+        "boolean"
+      );
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "isEphemeral")) {
+      expect(typeof createAnOpenChannelResponse.isEphemeral).toBe("boolean");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "maxLengthMessage")) {
+      expect(typeof createAnOpenChannelResponse.maxLengthMessage).toBe(
+        "number"
+      );
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "name")) {
+      expect(typeof createAnOpenChannelResponse.name).toBe("string");
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "operators")) {
+      expect(Array.isArray(createAnOpenChannelResponse.operators)).toBe(true);
+      createAnOpenChannelResponse.operators?.forEach((op) => {
+        expect(op).toHaveProperty("userId");
+        expect(typeof op.userId).toBe("string");
+      });
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "participantCount")) {
+      expect(typeof createAnOpenChannelResponse.participantCount).toBe(
+        "number"
+      );
+    }
+
+    if (hasValidField(createAnOpenChannelResponse, "metadata")) {
+      expect(typeof createAnOpenChannelResponse.metadata).toBe("object");
+    }
+  });
+
+  it("call listOpenChannels", async () => {
+    const listOpenChannelsResponse = await openChannelApi.listOpenChannels({
+      apiToken: API_TOKEN,
+    });
+
+    expect(listOpenChannelsResponse).toHaveProperty("channels");
+    listOpenChannelsResponse.channels?.forEach((channel) => {
+      expect(channel).toHaveProperty("channelUrl");
+      expect(typeof channel.channelUrl).toBe("string");
+
+      if (hasValidField(channel, "coverUrl")) {
+        expect(typeof channel.coverUrl).toBe("string");
+      }
+
+      if (hasValidField(channel, "createdAt")) {
+        expect(typeof channel.createdAt).toBe("number");
+      }
+
+      if (hasValidField(channel, "customType")) {
+        expect(typeof channel.customType).toBe("string");
+      }
+
+      if (hasValidField(channel, "data")) {
+        expect(typeof channel.data).toBe("string");
+      }
+
+      if (hasValidField(channel, "freeze")) {
+        expect(typeof channel.freeze).toBe("boolean");
+      }
+
+      if (hasValidField(channel, "isDynamicPartitioned")) {
+        expect(typeof channel.isDynamicPartitioned).toBe("boolean");
+      }
+
+      if (hasValidField(channel, "isEphemeral")) {
+        expect(typeof channel.isEphemeral).toBe("boolean");
+      }
+
+      if (hasValidField(channel, "maxLengthMessage")) {
+        expect(typeof channel.maxLengthMessage).toBe("number");
+      }
+
+      if (hasValidField(channel, "name")) {
+        expect(typeof channel.name).toBe("string");
+      }
+
+      if (hasValidField(channel, "operators")) {
+        expect(Array.isArray(channel.operators)).toBe(true);
+        channel.operators?.forEach((op) => {
+          expect(op).toHaveProperty("userId");
+          expect(typeof op.userId).toBe("string");
+        });
+      }
+
+      if (hasValidField(channel, "participantCount")) {
+        expect(typeof channel.participantCount).toBe("number");
+      }
+
+      if (hasValidField(channel, "metadata")) {
+        expect(typeof channel.metadata).toBe("object");
+      }
+    });
+  });
 });

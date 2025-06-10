@@ -225,6 +225,9 @@ describe("User API", () => {
         channelUrl: CHANNEL_URL,
       });
     } catch {}
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -253,6 +256,9 @@ describe("User API", () => {
         createAGroupChannelRequest: request,
       });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    
     const COUNT_PREFERENCE = "unread_message_count_only";
 
     const updateCountPreferenceOfAChannelResponse =

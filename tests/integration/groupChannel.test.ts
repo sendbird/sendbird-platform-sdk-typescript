@@ -979,6 +979,9 @@ describe("Group Channel API", () => {
         apiToken: API_TOKEN,
       });
     } catch {}
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -1011,6 +1014,8 @@ describe("Group Channel API", () => {
 
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const inviteAsMembersResponse = await groupChannelApi.inviteAsMembers({
       channelUrl: CHANNEL_URL,
@@ -1199,7 +1204,12 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch {}
+    } catch(e) {
+      //ignore
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -1232,6 +1242,8 @@ describe("Group Channel API", () => {
 
     expect(createGroupChannelResponse).toHaveProperty("channelUrl");
     expect(createGroupChannelResponse.channelUrl).toBe(CHANNEL_URL);
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const updateAGroupChannelResponse =
       await groupChannelApi.updateAGroupChannel({

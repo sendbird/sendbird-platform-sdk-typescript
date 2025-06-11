@@ -167,7 +167,12 @@ describe("User API", () => {
         apiToken: API_TOKEN,
         channelUrl: CHANNEL_URL,
       });
-    } catch {}
+    } catch(e) {
+      console.warn('ignoring error deleting channel:', e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -224,9 +229,11 @@ describe("User API", () => {
         apiToken: API_TOKEN,
         channelUrl: CHANNEL_URL,
       });
-    } catch {}
+    } catch(e) {
+      console.warn("Failed to delete channel:", e);
+    }
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
@@ -258,7 +265,7 @@ describe("User API", () => {
 
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    
+
     const COUNT_PREFERENCE = "unread_message_count_only";
 
     const updateCountPreferenceOfAChannelResponse =
@@ -278,6 +285,7 @@ describe("User API", () => {
     expect(updateCountPreferenceOfAChannelResponse.countPreference).toBe(
       COUNT_PREFERENCE
     );
+    
     await groupChannelApi.deleteAGroupChannel({
       apiToken: API_TOKEN,
       channelUrl: CHANNEL_URL,

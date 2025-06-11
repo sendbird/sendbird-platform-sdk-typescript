@@ -938,6 +938,7 @@ describe("Group Channel API", () => {
         memberActiveMode: "all",
         userId: SECOND_USER_ID,
       });
+
     await groupChannelApi.deleteAGroupChannel({
       channelUrl: createGroupChannelresponse.channelUrl,
       apiToken: API_TOKEN,
@@ -978,9 +979,11 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch {}
+    } catch(e) {
+      console.warn('ignore error in cleanup', e);
+    }
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
@@ -1120,7 +1123,12 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch {}
+    } catch(e) {
+      console.warn('ignore error in cleanup', e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -1206,6 +1214,7 @@ describe("Group Channel API", () => {
       });
     } catch(e) {
       //ignore
+      console.warn('ignore error in cleanup', e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -1267,7 +1276,13 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch {}
+    } catch(e) {
+      //ignore
+      console.warn('ignore error in cleanup', e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -1306,6 +1321,7 @@ describe("Group Channel API", () => {
         resetAll: true,
       },
     });
+    
     await groupChannelApi.deleteAGroupChannel({
       channelUrl: createGroupChannelresponse.channelUrl,
       apiToken: API_TOKEN,

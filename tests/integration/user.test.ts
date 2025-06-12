@@ -358,7 +358,6 @@ describe("User API", () => {
         leaveAllWhenDeactivated: true,
       },
     });
-    console.log(updateAUserResponse);
 
     const deleteAUserResponse = await userApi.deleteAUser({
       userId: USER_ID,

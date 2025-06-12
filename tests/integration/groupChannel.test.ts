@@ -75,6 +75,51 @@ describe("Group Channel API", () => {
   });
 
   it("call listChannels with positive query params", async () => {
+    const CHANNEL_URL =
+      "create-group-channel-before-call-list-channels-with-positive-params-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toBeDefined();
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const response = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
       limit: 10,
@@ -258,9 +303,64 @@ describe("Group Channel API", () => {
 
     expect(response).toHaveProperty("next");
     expect(typeof response.next).toBe("string");
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call listChannels with negative query params", async () => {
+    const CHANNEL_URL =
+      "create-group-channel-before-call-list-channels-with-negative-params-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toBeDefined();
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const response = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
       limit: 10,
@@ -298,24 +398,43 @@ describe("Group Channel API", () => {
 
     expect(response).toHaveProperty("next");
     expect(typeof response.next).toBe("string");
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call createAGroupChannel with Error", async () => {
+    const CHANNEL_URL = "create-group-channel-with-error-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const request: CreateAGroupChannelRequest = {
       accessCode: "integration",
       blockSdkUserChannelJoin: true,
-      channelUrl: "integration-test",
+      channelUrl: CHANNEL_URL,
       coverUrl: "empty",
       customType: "data",
       data: "data",
       /**
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
-      invitationStatus: {
-        ttsYcp4M5USFbhDxPqM2ETwM1vB2: "joined",
-        lK7U9lvxcZWVNa5SgZnLv81DG2R2: "joined",
-      },
-      inviterId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
       isDistinct: true,
       isEphemeral: true,
       isPublic: true,
@@ -323,12 +442,7 @@ describe("Group Channel API", () => {
       name: "test",
       operatorIds: [],
       strict: true,
-      users: [
-        {
-          userId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
-        },
-        { userId: "lK7U9lvxcZWVNa5SgZnLv81DG2R2" },
-      ],
+      users: USERS.map((id) => ({ userId: id })),
     };
 
     try {
@@ -342,21 +456,31 @@ describe("Group Channel API", () => {
   });
 
   it("call createAGroupChannel and deleteAGroupChannel", async () => {
+    const CHANNEL_URL = "create-then-delete-group-channel-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: "integration",
       blockSdkUserChannelJoin: true,
-      channelUrl: "integration-test",
+      channelUrl: CHANNEL_URL,
       coverUrl: "empty",
       customType: "data",
       data: "data",
       /**
        * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
        */
-      invitationStatus: {
-        ttsYcp4M5USFbhDxPqM2ETwM1vB2: "joined",
-        lK7U9lvxcZWVNa5SgZnLv81DG2R2: "joined",
-      },
-      inviterId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
       isDistinct: false,
       isEphemeral: true,
       isPublic: true,
@@ -364,12 +488,7 @@ describe("Group Channel API", () => {
       name: "test",
       operatorIds: [],
       strict: true,
-      users: [
-        {
-          userId: "ttsYcp4M5USFbhDxPqM2ETwM1vB2",
-        },
-        { userId: "lK7U9lvxcZWVNa5SgZnLv81DG2R2" },
-      ],
+      users: USERS.map((id) => ({ userId: id })),
     };
 
     const response = await groupChannelApi.createAGroupChannel({
@@ -378,7 +497,7 @@ describe("Group Channel API", () => {
     });
 
     expect(response).toHaveProperty("channelUrl");
-    expect(response.channelUrl).toBe("integration-test");
+    expect(response.channelUrl).toBe(CHANNEL_URL);
     expect(typeof response.channelUrl).toBe("string");
 
     expect(response).toHaveProperty("coverUrl");
@@ -389,14 +508,31 @@ describe("Group Channel API", () => {
     expect(response.customType).toBe("data");
     expect(typeof response.customType).toBe("string");
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: response.channelUrl,
-      apiToken: API_TOKEN,
-    });
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: response.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call getAGroupChannel", async () => {
     const CHANNEL_URL = "get-group-channel-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -436,10 +572,6 @@ describe("Group Channel API", () => {
       showReadReceipt: true,
       showMember: true,
       memberActiveMode: "all",
-    });
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
     });
 
     const channel = groupChannelResponse;
@@ -579,9 +711,64 @@ describe("Group Channel API", () => {
 
     expect(channel).toHaveProperty("unreadMessageCount");
     expect(typeof channel.unreadMessageCount).toBe("number");
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call listMembers", async () => {
+    const CHANNEL_URL =
+      "create-group-channel-before-call-list-channels-with-then-list-members-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const request: CreateAGroupChannelRequest = {
+      accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+      blockSdkUserChannelJoin: true,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "empty",
+      customType: "data",
+      data: "data",
+      /**
+       * Specifies one or more key-value pair items which set the invitation status of each user invited to the channel. The key should be a user_id and the value should be their joining status. Acceptable values are joined, invited_by_friend, and invited_by_non_friend. (Default: joined)
+       */
+      invitationStatus: Object.fromEntries(USERS.map((id) => [id, "joined"])),
+      inviterId: MASTER_USER_ID,
+      isDistinct: false,
+      isEphemeral: true,
+      isPublic: true,
+      isSuper: true,
+      name: "test",
+      operatorIds: [],
+      strict: true,
+      users: USERS.map((id) => ({ userId: id })),
+    };
+
+    const createGroupChannelresponse =
+      await groupChannelApi.createAGroupChannel({
+        apiToken: API_TOKEN,
+        createAGroupChannelRequest: request,
+      });
+
+    expect(createGroupChannelresponse).toBeDefined();
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const listResponse = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
       limit: 1,
@@ -703,10 +890,32 @@ describe("Group Channel API", () => {
         }
       });
     }
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call registerOperatorsToAGroupChannel, listOperators then cancelTheRegistrationOfOperators", async () => {
     const CHANNEL_URL = "list-operator-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -801,14 +1010,31 @@ describe("Group Channel API", () => {
       listOperatorsAfterCancelRegistrationResponse.operators?.length || 0
     ).toBe(0);
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call startTypingIndicators and stopTypingIndicators", async () => {
     const CHANNEL_URL = "group-channel-typing-indicators-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -859,14 +1085,31 @@ describe("Group Channel API", () => {
     expect(startTypingResponse).toBeDefined();
     expect(stopTypingResponse).toBeDefined();
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call hideAChannel then unhideAChannel", async () => {
     const CHANNEL_URL = "group-channel-hide-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -939,10 +1182,6 @@ describe("Group Channel API", () => {
         userId: SECOND_USER_ID,
       });
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
     expect(groupChannelAfterHideResponse.channelUrl).toBe(CHANNEL_URL);
     expect(groupChannelAfterHideResponse).toHaveProperty("hiddenState");
     expect(groupChannelAfterHideResponse.isHidden).toBeTruthy();
@@ -969,6 +1208,16 @@ describe("Group Channel API", () => {
 
     expect(hideAChannelResponse).toBeDefined();
     expect(unhideAChannelResponse).toBeDefined();
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call inviteAsMembers then acceptAnInvitation and checkIfMember", async () => {
@@ -979,8 +1228,8 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch(e) {
-      console.warn('ignore error in cleanup', e);
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -1068,11 +1317,6 @@ describe("Group Channel API", () => {
         userId: SECOND_USER_ID,
       });
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
-
     expect(inviteAsMembersResponse).toHaveProperty("invitedAt");
     expect(inviteAsMembersResponse).toHaveProperty("inviter");
     expect(inviteAsMembersResponse.inviter?.userId).toBe(MASTER_USER_ID);
@@ -1113,6 +1357,16 @@ describe("Group Channel API", () => {
         checkIfMemberResponse.state
       )
     ).toBeTruthy();
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call joinAChannel then leaveAChannel", async () => {
@@ -1123,8 +1377,8 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch(e) {
-      console.warn('ignore error in cleanup', e);
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -1190,11 +1444,6 @@ describe("Group Channel API", () => {
       userId: MASTER_USER_ID,
     });
 
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
-
     expect(joinAChannelResponse.memberCount).toBe(2);
     expect(joinAChannelResponse.joinedMemberCount).toBe(2);
 
@@ -1202,6 +1451,16 @@ describe("Group Channel API", () => {
 
     expect(getAGroupChannelResponse.memberCount).toBe(1);
     expect(getAGroupChannelResponse.joinedMemberCount).toBe(1);
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call updateAGroupChannel", async () => {
@@ -1212,9 +1471,9 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch(e) {
+    } catch (e) {
       //ignore
-      console.warn('ignore error in cleanup', e);
+      console.warn("ignore error in cleanup", e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -1266,6 +1525,16 @@ describe("Group Channel API", () => {
 
     expect(updateAGroupChannelResponse.name).toBe("test2");
     expect(updateAGroupChannelResponse.data).toBe("data2");
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call resetChatHistory", async () => {
@@ -1276,9 +1545,9 @@ describe("Group Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch(e) {
+    } catch (e) {
       //ignore
-      console.warn('ignore error in cleanup', e);
+      console.warn("ignore error in cleanup", e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -1321,16 +1590,21 @@ describe("Group Channel API", () => {
         resetAll: true,
       },
     });
-    
-    await groupChannelApi.deleteAGroupChannel({
-      channelUrl: createGroupChannelresponse.channelUrl,
-      apiToken: API_TOKEN,
-    });
 
     expect(resetChatHistoryresponse).toHaveProperty("tsMessageOffset");
     expect(typeof resetChatHistoryresponse.tsMessageOffset).toBe("number");
     expect(resetChatHistoryresponse.tsMessageOffset?.toString().length).toBe(
       13
     );
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 });

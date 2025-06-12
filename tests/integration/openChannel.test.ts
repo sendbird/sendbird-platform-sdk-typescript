@@ -28,7 +28,13 @@ describe("Open Channel API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch {}
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAnOpenChannelRequest = {
       isDynamicPartitioned: false,
       channelUrl: CHANNEL_URL,
@@ -45,6 +51,8 @@ describe("Open Channel API", () => {
         apiToken: API_TOKEN,
         createAnOpenChannelRequest: request,
       });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(createAnOpenChannelResponse).toHaveProperty("channelUrl");
     expect(typeof createAnOpenChannelResponse.channelUrl).toBe("string");
@@ -106,9 +114,55 @@ describe("Open Channel API", () => {
     if (hasValidField(createAnOpenChannelResponse, "metadata")) {
       expect(typeof createAnOpenChannelResponse.metadata).toBe("object");
     }
+
+    // Cleanup last
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call listOpenChannels", async () => {
+    const CHANNEL_URL = "test-create-open-before-list-channels-channel-url";
+    // Cleanup first
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const request: CreateAnOpenChannelRequest = {
+      isDynamicPartitioned: false,
+      channelUrl: CHANNEL_URL,
+      coverUrl: "string",
+      customType: "custom",
+      data: "data",
+      isEphemeral: false,
+      name: CHANNEL_URL,
+      operatorIds: [],
+    };
+
+    const createAnOpenChannelResponse =
+      await openChannelApi.createAnOpenChannel({
+        apiToken: API_TOKEN,
+        createAnOpenChannelRequest: request,
+      });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    expect(createAnOpenChannelResponse).toBeDefined();
+
     const listOpenChannelsResponse = await openChannelApi.listOpenChannels({
       apiToken: API_TOKEN,
     });
@@ -170,5 +224,16 @@ describe("Open Channel API", () => {
         expect(typeof channel.metadata).toBe("object");
       }
     });
+
+    // Cleanup last
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
   });
 });

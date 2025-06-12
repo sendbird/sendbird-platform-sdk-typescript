@@ -118,7 +118,7 @@ describe("User API", () => {
       await userApi.addARegistrationOrDeviceToken({
         apiToken: API_TOKEN,
         userId: MASTER_USER_ID,
-        tokenType: 'gcm',
+        tokenType: "gcm",
         addARegistrationOrDeviceTokenRequest: {
           gcmRegToken: TEST_GCM_TOKEN,
         },
@@ -136,18 +136,15 @@ describe("User API", () => {
       await userApi.listRegistrationOrDeviceTokens({
         apiToken: API_TOKEN,
         userId: MASTER_USER_ID,
-        tokenType: 'gcm',
+        tokenType: "gcm",
       });
 
-    const deleteTokenResponse =
-      await userApi.removeARegistrationOrDeviceToken(
-        {
-          apiToken: API_TOKEN,
-          userId: MASTER_USER_ID,
-          tokenType: 'gcm',
-          token: TEST_GCM_TOKEN,
-        }
-      );
+    const deleteTokenResponse = await userApi.removeARegistrationOrDeviceToken({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      tokenType: "gcm",
+      token: TEST_GCM_TOKEN,
+    });
     expect(listRegistrationOrDeviceTokensResponse).toBeDefined();
     expect(
       listRegistrationOrDeviceTokensResponse.tokens ||
@@ -167,8 +164,8 @@ describe("User API", () => {
         apiToken: API_TOKEN,
         channelUrl: CHANNEL_URL,
       });
-    } catch(e) {
-      console.warn('ignoring error deleting channel:', e);
+    } catch (e) {
+      console.warn("ignoring error deleting channel:", e);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -201,17 +198,14 @@ describe("User API", () => {
         createAGroupChannelRequest: request,
       });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     const viewCountPreferenceOfAChannelResponse =
       await userApi.viewCountPreferenceOfAChannel({
         apiToken: API_TOKEN,
         userId: MASTER_USER_ID,
         channelUrl: createGroupChannelresponse.channelUrl,
       });
-
-    await groupChannelApi.deleteAGroupChannel({
-      apiToken: API_TOKEN,
-      channelUrl: createGroupChannelresponse.channelUrl,
-    });
 
     expect(viewCountPreferenceOfAChannelResponse).toBeDefined();
     expect(viewCountPreferenceOfAChannelResponse).toHaveProperty(
@@ -220,6 +214,16 @@ describe("User API", () => {
     expect(COUNT_PREFERENCES).toContain(
       viewCountPreferenceOfAChannelResponse.countPreference
     );
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        apiToken: API_TOKEN,
+        channelUrl: createGroupChannelresponse.channelUrl,
+      });
+    } catch (e) {
+      console.warn("Failed to delete channel:", e);
+    }
   });
 
   it("call updateCountPreferenceOfAChannel", async () => {
@@ -229,7 +233,7 @@ describe("User API", () => {
         apiToken: API_TOKEN,
         channelUrl: CHANNEL_URL,
       });
-    } catch(e) {
+    } catch (e) {
       console.warn("Failed to delete channel:", e);
     }
 
@@ -265,7 +269,6 @@ describe("User API", () => {
 
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-
     const COUNT_PREFERENCE = "unread_message_count_only";
 
     const updateCountPreferenceOfAChannelResponse =
@@ -285,11 +288,16 @@ describe("User API", () => {
     expect(updateCountPreferenceOfAChannelResponse.countPreference).toBe(
       COUNT_PREFERENCE
     );
-    
-    await groupChannelApi.deleteAGroupChannel({
-      apiToken: API_TOKEN,
-      channelUrl: CHANNEL_URL,
-    });
+
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        apiToken: API_TOKEN,
+        channelUrl: CHANNEL_URL,
+      });
+    } catch (e) {
+      console.warn("Failed to delete channel:", e);
+    }
   });
 
   it("call getChannelInvitationPreference", async () => {
@@ -441,7 +449,7 @@ describe("User API", () => {
     expect(viewAUserResponse).toHaveProperty("accessToken");
     expect(viewAUserResponse.accessToken).toBe("");
     expect(typeof viewAUserResponse.accessToken).toBe("string");
-    
+
     expect(viewAUserResponse).toHaveProperty("createdAt");
     expect(typeof viewAUserResponse.createdAt).toBe("number");
 
@@ -526,7 +534,9 @@ describe("User API", () => {
     expect(typeof updateAUserResponse.createdAt).toBe("number");
 
     expect(updateAUserResponse).toHaveProperty("discoveryKeys");
-    expect(updateAUserResponse.discoveryKeys?.sort()).toStrictEqual(DISCOVERY_KEYS.sort());
+    expect(updateAUserResponse.discoveryKeys?.sort()).toStrictEqual(
+      DISCOVERY_KEYS.sort()
+    );
     expect(Array.isArray(updateAUserResponse.discoveryKeys)).toBeTruthy();
 
     expect(updateAUserResponse).toHaveProperty("isHideMeFromFriends");
@@ -560,7 +570,9 @@ describe("User API", () => {
     expect(updateAUserResponse).not.toHaveProperty("isCreated");
 
     expect(updateAUserResponse).toHaveProperty("preferredLanguages");
-    expect(updateAUserResponse.preferredLanguages?.sort()).toStrictEqual(PREFERRED_LANGUAGES.sort());
+    expect(updateAUserResponse.preferredLanguages?.sort()).toStrictEqual(
+      PREFERRED_LANGUAGES.sort()
+    );
     expect(Array.isArray(updateAUserResponse.preferredLanguages)).toBeTruthy();
 
     expect(updateAUserResponse).toHaveProperty("locale");

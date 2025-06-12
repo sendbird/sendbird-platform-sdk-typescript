@@ -33,6 +33,19 @@ describe("Moderation API", () => {
 
   it("call freezeAGroupChannel from new created group channel", async () => {
     const CHANNEL_URL = "freeze-integration-test-channel-url";
+    // Cleanup first
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAGroupChannelRequest = {
       accessCode: GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
       blockSdkUserChannelJoin: true,
@@ -82,14 +95,32 @@ describe("Moderation API", () => {
     expect(freezeChannelResponse).toHaveProperty("freeze");
     expect(freezeChannelResponse.freeze).toBe(true);
 
-    await groupChannelApi.deleteAGroupChannel({
-      apiToken: API_TOKEN,
-      channelUrl: createGroupChannelresponse.channelUrl,
-    });
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: createGroupChannelresponse.channelUrl,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
+    }
   });
 
   it("call freezeAGroupChannel from new created open channel", async () => {
     const CHANNEL_URL = "freeze-open-channel-integration-test-channel-url";
+    // Cleanup first
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     const request: CreateAnOpenChannelRequest = {
       isDynamicPartitioned: true,
       channelUrl: CHANNEL_URL,
@@ -119,10 +150,6 @@ describe("Moderation API", () => {
       apiToken: API_TOKEN,
       freezeAnOpenChannelRequest: { freeze: true },
     });
-    await openChannelApi.deleteAnOpenChannel({
-      apiToken: API_TOKEN,
-      channelUrl: createAnOpenChannelresponse.channelUrl,
-    });
 
     expect(freezeChannelResponse).toHaveProperty("channelUrl");
     expect(freezeChannelResponse.channelUrl).toBe(CHANNEL_URL);
@@ -131,5 +158,15 @@ describe("Moderation API", () => {
     expect(freezeChannelResponse).not.toEqual(createAnOpenChannelresponse);
     expect(freezeChannelResponse).toHaveProperty("freeze");
     expect(freezeChannelResponse.freeze).toBe(true);
+    // Cleanup last
+    try {
+      await openChannelApi.deleteAnOpenChannel({
+        apiToken: API_TOKEN,
+        channelUrl: createAnOpenChannelresponse.channelUrl,
+      });
+    } catch (e) {
+      //ignore
+      console.warn("ignore error in cleanup", e);
+    }
   });
 });

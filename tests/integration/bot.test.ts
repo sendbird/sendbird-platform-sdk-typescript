@@ -1,9 +1,18 @@
 import { CreateAnOpenChannelRequest } from "./../../models/CreateAnOpenChannelRequest";
 import { ServerConfiguration } from "../../servers";
 import { createConfiguration } from "../../configuration";
-import { BotApi, CreateABotRequest, CreateAGroupChannelRequest, GroupChannelApi } from "../../index";
+import {
+  BotApi,
+  CreateABotRequest,
+  CreateAGroupChannelRequest,
+  GroupChannelApi,
+} from "../../index";
 import { hasValidField } from "./helper";
-import { GLOBAL_GROUP_CHANNEL_ACCESS_CODE, MASTER_USER_ID, USERS } from "./constants";
+import {
+  GLOBAL_GROUP_CHANNEL_ACCESS_CODE,
+  MASTER_USER_ID,
+  USERS,
+} from "./constants";
 
 describe("Bot API", () => {
   const APP_ID = process.env.APP_ID || "";
@@ -31,7 +40,7 @@ describe("Bot API", () => {
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
       });
-    } catch(e) {
+    } catch (e) {
       console.warn("Failed to delete channel:", e);
     }
 
@@ -61,18 +70,16 @@ describe("Bot API", () => {
       users: USERS.map((id) => ({ userId: id })),
     };
 
-    try {
-      const createGroupChannelresponse =
+    const createGroupChannelresponse =
       await groupChannelApi.createAGroupChannel({
         apiToken: API_TOKEN,
         createAGroupChannelRequest: request,
       });
 
-      expect(createGroupChannelresponse).toHaveProperty("channelUrl");
-      expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
-    } catch (e) {
-      fail(`Failed to create channel ${e}`);
-    }
+    expect(createGroupChannelresponse).toHaveProperty("channelUrl");
+    expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const listBotsResponse = await botApi.listBots({
       apiToken: API_TOKEN,
@@ -84,7 +91,6 @@ describe("Bot API", () => {
     if ((listBotsResponse.bots?.length || 0) > 0) {
       botUserId = listBotsResponse.bots?.[0].bot?.botUserid;
       listBotsResponse.bots?.forEach((bot) => {
-
         if (hasValidField(bot, "botCallbackUrl")) {
           expect(typeof bot.botCallbackUrl).toBe("string");
         }
@@ -110,7 +116,6 @@ describe("Bot API", () => {
         }
       });
     } else {
-      
       const BOT_NICKNAME = "test-integration-bot-nickname";
       const BOT_USER_ID = "test-integration-bot-user-id";
       const request: CreateABotRequest = {
@@ -144,7 +149,7 @@ describe("Bot API", () => {
       await botApi.joinChannels({
         botUserid: botUserId,
         joinChannelsRequest: {
-          channelUrls: [CHANNEL_URL]
+          channelUrls: [CHANNEL_URL],
         },
         apiToken: API_TOKEN,
       });
@@ -152,11 +157,11 @@ describe("Bot API", () => {
       const groupChannelResponse = await groupChannelApi.getAGroupChannel({
         channelUrl: CHANNEL_URL,
         apiToken: API_TOKEN,
-      })
+      });
 
       expect(groupChannelResponse).toHaveProperty("channelUrl");
       expect(groupChannelResponse.channelUrl).toBe(CHANNEL_URL);
-      
+
       expect(groupChannelResponse).toHaveProperty("hasBot");
       expect(groupChannelResponse.hasBot).toBe(true);
 
@@ -167,6 +172,15 @@ describe("Bot API", () => {
       });
 
       expect(leaveAGroupChannelResponse).toBeDefined();
+    }
+    // Cleanup last
+    try {
+      await groupChannelApi.deleteAGroupChannel({
+        channelUrl: CHANNEL_URL,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignore error in cleanup", e);
     }
   });
 });

@@ -118,7 +118,7 @@ describe("Group Channel API", () => {
       });
 
     expect(createGroupChannelresponse).toBeDefined();
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const response = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
@@ -359,7 +359,7 @@ describe("Group Channel API", () => {
       });
 
     expect(createGroupChannelresponse).toBeDefined();
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const response = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
@@ -496,6 +496,8 @@ describe("Group Channel API", () => {
       createAGroupChannelRequest: request,
     });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     expect(response).toHaveProperty("channelUrl");
     expect(response.channelUrl).toBe(CHANNEL_URL);
     expect(typeof response.channelUrl).toBe("string");
@@ -560,6 +562,8 @@ describe("Group Channel API", () => {
         apiToken: API_TOKEN,
         createAGroupChannelRequest: request,
       });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
@@ -767,7 +771,7 @@ describe("Group Channel API", () => {
       });
 
     expect(createGroupChannelresponse).toBeDefined();
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const listResponse = await groupChannelApi.listChannels({
       apiToken: API_TOKEN,
@@ -944,6 +948,8 @@ describe("Group Channel API", () => {
         createAGroupChannelRequest: request,
       });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
     expect(typeof createGroupChannelresponse.channelUrl).toBe("string");
@@ -1063,6 +1069,8 @@ describe("Group Channel API", () => {
         createAGroupChannelRequest: request,
       });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
 
@@ -1139,6 +1147,8 @@ describe("Group Channel API", () => {
         apiToken: API_TOKEN,
         createAGroupChannelRequest: request,
       });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
@@ -1413,6 +1423,8 @@ describe("Group Channel API", () => {
         createAGroupChannelRequest: request,
       });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);
 
@@ -1578,6 +1590,8 @@ describe("Group Channel API", () => {
         apiToken: API_TOKEN,
         createAGroupChannelRequest: request,
       });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(createGroupChannelresponse).toHaveProperty("channelUrl");
     expect(createGroupChannelresponse.channelUrl).toBe(CHANNEL_URL);

@@ -54,7 +54,7 @@ console.log("User created:\n", user);
 
 # ⚠️ Warnings
 
- 1. This library is intended for server to server requests. **Do not use in a browser environment**. This SDK uses the Master API Token, which should never be exposed to the outside world like in a webpage or app.
+ 1. This library is intended for server to server requests. **Do not use in a browser environment**. This SDK uses the Master API Token, which must never be exposed in public environments such as web pages or apps.
 
 # ⚒️ Prerequisite
 

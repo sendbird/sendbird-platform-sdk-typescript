@@ -14,8 +14,11 @@ import { HttpFile } from '../http/http';
 
 export class SendbirdBasicUserInfo {
     'requireAuthForProfileImage'?: boolean;
+    'isActive'?: boolean;
+    'isBlockedByMe'?: boolean;
+    'role'?: SendbirdBasicUserInfoRoleEnum;
     'nickname'?: string;
-    'userId'?: string;
+    'userId': string;
     'profileUrl'?: string;
     'metadata'?: any;
 
@@ -26,6 +29,24 @@ export class SendbirdBasicUserInfo {
             "name": "requireAuthForProfileImage",
             "baseName": "require_auth_for_profile_image",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isActive",
+            "baseName": "is_active",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isBlockedByMe",
+            "baseName": "is_blocked_by_me",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "role",
+            "baseName": "role",
+            "type": "SendbirdBasicUserInfoRoleEnum",
             "format": ""
         },
         {
@@ -60,4 +81,7 @@ export class SendbirdBasicUserInfo {
     public constructor() {
     }
 }
+
+
+export type SendbirdBasicUserInfoRoleEnum = "" | "none" | "operator" ;
 

@@ -31,8 +31,13 @@ export class SendbirdUser {
     'preferredLanguages'?: Array<string>;
     'profileUrl'?: string;
     'requireAuthForProfileImage'?: boolean;
-    'userId'?: string;
+    'userId': string;
     'state'?: SendbirdUserStateEnum;
+    'unreadChannelCount'?: number;
+    'unreadMessageCount'?: number;
+    'phoneNumber'?: string;
+    'isCreated'?: boolean;
+    'sessionTokens'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -137,6 +142,36 @@ export class SendbirdUser {
             "name": "state",
             "baseName": "state",
             "type": "SendbirdUserStateEnum",
+            "format": ""
+        },
+        {
+            "name": "unreadChannelCount",
+            "baseName": "unread_channel_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "unreadMessageCount",
+            "baseName": "unread_message_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "phoneNumber",
+            "baseName": "phone_number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isCreated",
+            "baseName": "is_created",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sessionTokens",
+            "baseName": "session_tokens",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

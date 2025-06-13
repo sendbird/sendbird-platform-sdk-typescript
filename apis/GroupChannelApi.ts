@@ -11,16 +11,22 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
+import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from '../models/CreateAGroupChannelResponse';
+import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
+import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
 import { HideAChannelRequest } from '../models/HideAChannelRequest';
 import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
 import { InviteAsMembersResponse } from '../models/InviteAsMembersResponse';
 import { JoinAChannelRequest } from '../models/JoinAChannelRequest';
+import { LeaveAChannelRequest } from '../models/LeaveAChannelRequest';
+import { ListOperatorsResponse } from '../models/ListOperatorsResponse';
+import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
+import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
 import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
 import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from '../models/StopTypingIndicatorsRequest';
 import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
 
 /**
@@ -68,6 +74,107 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             contentType
         );
         requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Unregister operators from a group channel  You can unregister operators in a group channel but keep them in the channel as members using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-a-group-channel#1-unregister-operators-from-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
+     * Cancel the registration of operators
+     * @param channelUrl (Required) 
+     * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
+     * @param deleteAll 
+     * @param apiToken 
+     */
+    public async cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "cancelTheRegistrationOfOperators", "channelUrl");
+        }
+
+
+        // verify required parameter 'operatorIds' is not null or undefined
+        if (operatorIds === null || operatorIds === undefined) {
+            throw new RequiredError("GroupChannelApi", "cancelTheRegistrationOfOperators", "operatorIds");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/operators'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (operatorIds !== undefined) {
+            requestContext.setQueryParam("operator_ids", ObjectSerializer.serialize(operatorIds, "string", ""));
+        }
+
+        // Query Params
+        if (deleteAll !== undefined) {
+            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "boolean", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Check if user is a member  Checks if a user is a member of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member)
+     * Check if member
+     * @param channelUrl (Required) 
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public async checkIfMember(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "checkIfMember", "channelUrl");
+        }
+
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("GroupChannelApi", "checkIfMember", "userId");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/members/{user_id}'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -165,15 +272,17 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param showReadReceipt 
      * @param showMember 
      * @param memberActiveMode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all)
+     * @param userId 
      * @param apiToken 
      */
-    public async getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', userId?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
             throw new RequiredError("GroupChannelApi", "getAGroupChannel", "channelUrl");
         }
+
 
 
 
@@ -207,6 +316,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (memberActiveMode !== undefined) {
             requestContext.setQueryParam("member_active_mode", ObjectSerializer.serialize(memberActiveMode, "'all' | 'activated' | 'deactivated'", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId, "string", ""));
         }
 
         // Header Params
@@ -373,6 +487,56 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
+     * Leave a channel
+     * @param channelUrl 
+     * @param apiToken 
+     * @param leaveAChannelRequest 
+     */
+    public async leaveAChannel(channelUrl: string, apiToken?: string, leaveAChannelRequest?: LeaveAChannelRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "leaveAChannel", "channelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/leave'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(leaveAChannelRequest, "LeaveAChannelRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## List group channels  This action retrieves a list of [group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  If you want to retrieve a list of group channels that a specific user has joined, use the [list group channels by user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/list-group-channels-by-user) action under the User section.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-group-channels#1-list-group-channels
      * List channels
      * @param apiToken 
@@ -412,26 +576,14 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
      * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
-     * @param customType (Deprecated) Returns channels whose custom_type matches the given value. If this field is not specified, all channels are returned, regardless of their custom type. The string passed here must be urlencoded.
-     * @param readReceipt (Deprecated) Superseded by show_read_receipt.
-     * @param member (Deprecated) Superseded by show_member.
-     * @param isDistinct (Deprecated) Superseded by distinct_mode.
-     * @param membersIn (Deprecated) Superseded by members_exactly_in.
-     * @param userId (Deprecated) Restricts the search scope to only retrieve the target user&#39;s group channels. It&#39;s recommended to use the list group channels by user action instead.
      */
-    public async listChannels(apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listChannels(apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'apiToken' is not null or undefined
         if (apiToken === null || apiToken === undefined) {
             throw new RequiredError("GroupChannelApi", "listChannels", "apiToken");
         }
-
-
-
-
-
-
 
 
 
@@ -657,29 +809,77 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("include_sorted_metaarray_in_last_message", ObjectSerializer.serialize(includeSortedMetaarrayInLastMessage, "boolean", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## List members  Retrieves a list of members of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of members of.
+     * List members
+     * @param channelUrl (Required) 
+     * @param token 
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
+     * @param userId Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter.
+     * @param showDeliveryReceipt 
+     * @param showReadReceipt 
+     * @param showMemberIsMuted 
+     * @param order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members.
+     * @param operatorFilter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved.
+     * @param memberStateFilter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;)
+     * @param mutedMemberFilter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;)
+     * @param memberActiveModeFilter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;)
+     * @param nicknameStartswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended.
+     * @param includePushPreference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
+     * @param apiToken 
+     */
+    public async listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "listMembers", "channelUrl");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/members'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
         // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
+        if (token !== undefined) {
+            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
         }
 
         // Query Params
-        if (readReceipt !== undefined) {
-            requestContext.setQueryParam("read_receipt", ObjectSerializer.serialize(readReceipt, "boolean", ""));
-        }
-
-        // Query Params
-        if (member !== undefined) {
-            requestContext.setQueryParam("member", ObjectSerializer.serialize(member, "boolean", ""));
-        }
-
-        // Query Params
-        if (isDistinct !== undefined) {
-            requestContext.setQueryParam("is_distinct", ObjectSerializer.serialize(isDistinct, "boolean", ""));
-        }
-
-        // Query Params
-        if (membersIn !== undefined) {
-            requestContext.setQueryParam("members_in", ObjectSerializer.serialize(membersIn, "string", ""));
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
         }
 
         // Query Params
@@ -687,9 +887,210 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId, "string", ""));
         }
 
+        // Query Params
+        if (showDeliveryReceipt !== undefined) {
+            requestContext.setQueryParam("show_delivery_receipt", ObjectSerializer.serialize(showDeliveryReceipt, "boolean", ""));
+        }
+
+        // Query Params
+        if (showReadReceipt !== undefined) {
+            requestContext.setQueryParam("show_read_receipt", ObjectSerializer.serialize(showReadReceipt, "boolean", ""));
+        }
+
+        // Query Params
+        if (showMemberIsMuted !== undefined) {
+            requestContext.setQueryParam("show_member_is_muted", ObjectSerializer.serialize(showMemberIsMuted, "boolean", ""));
+        }
+
+        // Query Params
+        if (order !== undefined) {
+            requestContext.setQueryParam("order", ObjectSerializer.serialize(order, "'member_nickname_alphabetical' | 'operator_then_member_alphabetical'", ""));
+        }
+
+        // Query Params
+        if (operatorFilter !== undefined) {
+            requestContext.setQueryParam("operator_filter", ObjectSerializer.serialize(operatorFilter, "'all' | 'operator' | 'nonoperator'", ""));
+        }
+
+        // Query Params
+        if (memberStateFilter !== undefined) {
+            requestContext.setQueryParam("member_state_filter", ObjectSerializer.serialize(memberStateFilter, "'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend'", ""));
+        }
+
+        // Query Params
+        if (mutedMemberFilter !== undefined) {
+            requestContext.setQueryParam("muted_member_filter", ObjectSerializer.serialize(mutedMemberFilter, "'all' | 'muted' | 'unmuted'", ""));
+        }
+
+        // Query Params
+        if (memberActiveModeFilter !== undefined) {
+            requestContext.setQueryParam("member_active_mode_filter", ObjectSerializer.serialize(memberActiveModeFilter, "'activated' | 'deactivated'", ""));
+        }
+
+        // Query Params
+        if (nicknameStartswith !== undefined) {
+            requestContext.setQueryParam("nickname_startswith", ObjectSerializer.serialize(nicknameStartswith, "string", ""));
+        }
+
+        // Query Params
+        if (includePushPreference !== undefined) {
+            requestContext.setQueryParam("include_push_preference", ObjectSerializer.serialize(includePushPreference, "boolean", ""));
+        }
+
         // Header Params
         requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## List operators  You can retrieve a list of operators of a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-a-group-channel#1-list-operators-of-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+     * List operators
+     * @param channelUrl (Required) 
+     * @param token 
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
+     * @param apiToken 
+     */
+    public async listOperators(channelUrl: string, token?: string, limit?: number, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "listOperators", "channelUrl");
+        }
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/operators'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (token !== undefined) {
+            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
+        }
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Register operators to a group channel  You can register one or more operators to a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-a-group-channel#1-register-operators-to-a-group-channel
+     * Register operators to a group channel
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param registerOperatorsToAGroupChannelRequest 
+     */
+    public async registerOperatorsToAGroupChannel(channelUrl: string, apiToken?: string, registerOperatorsToAGroupChannelRequest?: RegisterOperatorsToAGroupChannelRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "registerOperatorsToAGroupChannel", "channelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/operators'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(registerOperatorsToAGroupChannelRequest, "RegisterOperatorsToAGroupChannelRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Reset chat history  This action resets the properties related to a specific user's chat history in a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel), clearing existing messages in a channel from only the specified user's end. Because this action doesn't delete messages from the Sendbird database, other members in the channel can still retrieve and see the messages.  This action clears the messages for the specified user by updating the `last_message` and `read_receipt` properties of the [group channel resource](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-list-of-properties-for-group-channels) in addition to other internally managed data such as the count of a user's unread messages.  Using the `reset_all` property, you can also reset the properties related to the chat history of all members in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/reset-chat-history#1-reset-chat-history
+     * Reset chat history
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param resetChatHistoryRequest 
+     */
+    public async resetChatHistory(channelUrl: string, apiToken?: string, resetChatHistoryRequest?: ResetChatHistoryRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("GroupChannelApi", "resetChatHistory", "channelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/group_channels/{channel_url}/reset_user_history'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(resetChatHistoryRequest, "ResetChatHistoryRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -755,9 +1156,9 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * Stop typing indicators
      * @param channelUrl (Required) 
      * @param apiToken 
-     * @param stopTypingIndicatorsRequest 
+     * @param startTypingIndicatorsRequest 
      */
-    public async stopTypingIndicators(channelUrl: string, apiToken?: string, stopTypingIndicatorsRequest?: StopTypingIndicatorsRequest, _options?: Configuration): Promise<RequestContext> {
+    public async stopTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -786,7 +1187,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(stopTypingIndicatorsRequest, "StopTypingIndicatorsRequest", ""),
+            ObjectSerializer.serialize(startTypingIndicatorsRequest, "StartTypingIndicatorsRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -808,7 +1209,7 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
      * @param shouldUnhideAll 
      * @param apiToken 
      */
-    public async unhideAChannel(channelUrl: string, userId?: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
@@ -816,6 +1217,11 @@ export class GroupChannelApiRequestFactory extends BaseAPIRequestFactory {
             throw new RequiredError("GroupChannelApi", "unhideAChannel", "channelUrl");
         }
 
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("GroupChannelApi", "unhideAChannel", "userId");
+        }
 
 
 
@@ -938,25 +1344,83 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createAGroupChannel
+     * @params response Response returned by the server for a request to cancelTheRegistrationOfOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createAGroupChannel(response: ResponseContext): Promise<CreateAGroupChannelResponse > {
+     public async cancelTheRegistrationOfOperators(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CreateAGroupChannelResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateAGroupChannelResponse", ""
-            ) as CreateAGroupChannelResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CreateAGroupChannelResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateAGroupChannelResponse", ""
-            ) as CreateAGroupChannelResponse;
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to checkIfMember
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async checkIfMember(response: ResponseContext): Promise<CheckIfMemberResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: CheckIfMemberResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CheckIfMemberResponse", ""
+            ) as CheckIfMemberResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: CheckIfMemberResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CheckIfMemberResponse", ""
+            ) as CheckIfMemberResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createAGroupChannel
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createAGroupChannel(response: ResponseContext): Promise<SendbirdGroupChannelDetail > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
             return body;
         }
 
@@ -999,22 +1463,22 @@ export class GroupChannelApiResponseProcessor {
      * @params response Response returned by the server for a request to getAGroupChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAGroupChannel(response: ResponseContext): Promise<SendbirdGroupChannelDetail > {
+     public async getAGroupChannel(response: ResponseContext): Promise<GetAGroupChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+            const body: GetAGroupChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendbirdGroupChannelDetail", ""
-            ) as SendbirdGroupChannelDetail;
+                "GetAGroupChannelResponse", ""
+            ) as GetAGroupChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
+            const body: GetAGroupChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendbirdGroupChannelDetail", ""
-            ) as SendbirdGroupChannelDetail;
+                "GetAGroupChannelResponse", ""
+            ) as GetAGroupChannelResponse;
             return body;
         }
 
@@ -1112,6 +1576,35 @@ export class GroupChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to leaveAChannel
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async leaveAChannel(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to listChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1131,6 +1624,122 @@ export class GroupChannelApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "GroupChatListChannelsResponse", ""
             ) as GroupChatListChannelsResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listMembers
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async listMembers(response: ResponseContext): Promise<GroupChannelListMembersResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GroupChannelListMembersResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GroupChannelListMembersResponse", ""
+            ) as GroupChannelListMembersResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GroupChannelListMembersResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GroupChannelListMembersResponse", ""
+            ) as GroupChannelListMembersResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listOperators
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async listOperators(response: ResponseContext): Promise<ListOperatorsResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: ListOperatorsResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ListOperatorsResponse", ""
+            ) as ListOperatorsResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: ListOperatorsResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ListOperatorsResponse", ""
+            ) as ListOperatorsResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to registerOperatorsToAGroupChannel
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async registerOperatorsToAGroupChannel(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to resetChatHistory
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async resetChatHistory(response: ResponseContext): Promise<ResetChatHistoryResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: ResetChatHistoryResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ResetChatHistoryResponse", ""
+            ) as ResetChatHistoryResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: ResetChatHistoryResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ResetChatHistoryResponse", ""
+            ) as ResetChatHistoryResponse;
             return body;
         }
 

@@ -10,22 +10,26 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
 import { SendbirdFile } from './SendbirdFile';
-import { SendbirdMessageResponseMentionedUsersInner } from './SendbirdMessageResponseMentionedUsersInner';
-import { SendbirdMessageResponseUser } from './SendbirdMessageResponseUser';
+import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdReaction } from './SendbirdReaction';
+import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { HttpFile } from '../http/http';
 
 export class SendbirdMessageResponse {
     'requireAuth'?: boolean;
     'messageSurvivalSeconds'?: number;
     'customType'?: string;
-    'mentionedUsers'?: Array<SendbirdMessageResponseMentionedUsersInner>;
+    'mentionedUsers'?: Array<SendbirdBasicUserInfo>;
     'translations'?: any;
     'updatedAt'?: number;
     'isOpMsg'?: boolean;
+    'reactions'?: Array<SendbirdReaction>;
     'isRemoved'?: boolean;
-    'user'?: SendbirdMessageResponseUser;
+    'user'?: SendbirdBasicUserInfo;
     'file'?: any;
     'files'?: Array<SendbirdFile>;
     'message'?: string;
@@ -39,13 +43,13 @@ export class SendbirdMessageResponse {
     'mentionType'?: string;
     'channelUrl'?: string;
     'messageId'?: number;
-    'sortedMetaarray'?: Array<any>;
+    'sortedMetaarray'?: Array<SendbirdSortedMetaarrayInner>;
     'threadInfo'?: any;
     'parentMessageId'?: number;
     'parentMessageInfo'?: SendbirdParentMessageInfo;
     'isReplyToChannel'?: boolean;
-    'messageEvents'?: any;
-    'extendedMessagePayload'?: any;
+    'messageEvents'?: SendbirdMessageResponseMessageEvents;
+    'extendedMessagePayload'?: SendbirdExtendedMessagePayload;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -71,7 +75,7 @@ export class SendbirdMessageResponse {
         {
             "name": "mentionedUsers",
             "baseName": "mentioned_users",
-            "type": "Array<SendbirdMessageResponseMentionedUsersInner>",
+            "type": "Array<SendbirdBasicUserInfo>",
             "format": ""
         },
         {
@@ -93,6 +97,12 @@ export class SendbirdMessageResponse {
             "format": ""
         },
         {
+            "name": "reactions",
+            "baseName": "reactions",
+            "type": "Array<SendbirdReaction>",
+            "format": ""
+        },
+        {
             "name": "isRemoved",
             "baseName": "is_removed",
             "type": "boolean",
@@ -101,7 +111,7 @@ export class SendbirdMessageResponse {
         {
             "name": "user",
             "baseName": "user",
-            "type": "SendbirdMessageResponseUser",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         },
         {
@@ -185,7 +195,7 @@ export class SendbirdMessageResponse {
         {
             "name": "sortedMetaarray",
             "baseName": "sorted_metaarray",
-            "type": "Array<any>",
+            "type": "Array<SendbirdSortedMetaarrayInner>",
             "format": ""
         },
         {
@@ -215,13 +225,13 @@ export class SendbirdMessageResponse {
         {
             "name": "messageEvents",
             "baseName": "message_events",
-            "type": "any",
+            "type": "SendbirdMessageResponseMessageEvents",
             "format": ""
         },
         {
             "name": "extendedMessagePayload",
             "baseName": "extended_message_payload",
-            "type": "any",
+            "type": "SendbirdExtendedMessagePayload",
             "format": ""
         }    ];
 

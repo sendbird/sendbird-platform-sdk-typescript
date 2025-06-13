@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { HttpFile } from '../http/http';
 
 export class SendbirdMember {
@@ -28,13 +29,13 @@ export class SendbirdMember {
     'mutedEndAt'?: number;
     'nickname'?: string;
     'pushEnabled'?: boolean;
-    'pushTriggerOption'?: string;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
     'profileUrl'?: string;
     'requireAuthForProfileImage'?: boolean;
     'readTs'?: number;
     'role'?: SendbirdMemberRoleEnum;
     'state'?: SendbirdMemberStateEnum;
-    'userId'?: string;
+    'userId': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -132,7 +133,7 @@ export class SendbirdMember {
         {
             "name": "pushTriggerOption",
             "baseName": "push_trigger_option",
-            "type": "string",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
         },
         {

@@ -1,60 +1,242 @@
 export * from './AcceptAnInvitationRequest';
+export * from './AddARegistrationOrDeviceTokenRequest';
+export * from './AddARegistrationOrDeviceTokenResponse';
+export * from './AddExtraDataToAMessageRequest';
+export * from './AddExtraDataToAMessageResponse';
+export * from './BlockAUserRequest';
+export * from './BlockAUserResponse';
+export * from './CheckIfMemberResponse';
+export * from './ChooseAPushNotificationContentTemplateRequest';
+export * from './ChooseAPushNotificationContentTemplateResponse';
+export * from './CreateABotRequest';
+export * from './CreateABotResponse';
+export * from './CreateABotResponseBot';
+export * from './CreateABotResponseBotStyle';
+export * from './CreateAChannelMetadataRequest';
+export * from './CreateAChannelMetadataResponse';
 export * from './CreateAGroupChannelRequest';
-export * from './CreateAGroupChannelResponse';
-export * from './CreateAGroupChannelResponseChannel';
+export * from './CreateAUserRequest';
+export * from './CreateAnOpenChannelRequest';
+export * from './CreateUserTokenRequest';
+export * from './CreateUserTokenResponse';
+export * from './FreezeAGroupChannelRequest';
+export * from './FreezeAnOpenChannelRequest';
+export * from './GetAGroupChannelResponse';
+export * from './GetAGroupChannelResponseAllOf';
+export * from './GetChannelInvitationPreferenceResponse';
+export * from './GetTotalNumberOfMessagesInAChannelResponse';
+export * from './GroupChannelListMembersResponse';
 export * from './GroupChatListChannelsResponse';
 export * from './HideAChannelRequest';
 export * from './InviteAsMembersRequest';
 export * from './InviteAsMembersResponse';
 export * from './InviteAsMembersResponseAllOf';
 export * from './JoinAChannelRequest';
+export * from './JoinChannelsRequest';
+export * from './LeaveAChannelRequest';
+export * from './LeaveMyGroupChannelsRequest';
+export * from './ListBlockedUsersResponse';
+export * from './ListBotsResponse';
+export * from './ListBotsResponseBotsInner';
+export * from './ListBotsResponseBotsInnerAi';
+export * from './ListBotsResponseBotsInnerBot';
+export * from './ListBotsResponseBotsInnerBotStyle';
+export * from './ListBotsResponseBotsInnerBotStyleColor';
+export * from './ListBotsResponseBotsInnerFirstMessagesInner';
+export * from './ListBotsResponseBotsInnerFirstMessagesInnerData';
+export * from './ListBotsResponseBotsInnerSafeguard';
+export * from './ListMessagesResponse';
+export * from './ListMyGroupChannelsResponse';
+export * from './ListOpenChannelsResponse';
+export * from './ListOperatorsResponse';
+export * from './ListRegistrationOrDeviceTokensResponse';
+export * from './ListUsersResponse';
+export * from './MarkAllMessagesAsReadRequest';
+export * from './MarkChannelMessagesAsReadRequest';
+export * from './MigrateMessagesAdminMessageRequest';
+export * from './MigrateMessagesFileMessageRequest';
+export * from './MigrateMessagesFileMessageRequestThumbnailsInner';
+export * from './MigrateMessagesRequest';
+export * from './MigrateMessagesRequestMessagesInner';
+export * from './MigrateMessagesTextMessageRequest';
+export * from './RegisterOperatorsToAGroupChannelRequest';
+export * from './RemoveARegistrationOrDeviceTokenResponse';
+export * from './RemoveAllRegistrationOrDeviceTokenResponse';
+export * from './ResetChatHistoryRequest';
+export * from './ResetChatHistoryResponse';
+export * from './ScheduleAnAnnouncementRequest';
+export * from './ScheduleAnAnnouncementRequestCreateChannelOptions';
+export * from './ScheduleAnAnnouncementRequestMessage';
+export * from './ScheduleAnAnnouncementResponse';
+export * from './ScheduleAnAnnouncementResponseMessage';
+export * from './SendABotMessageRequest';
+export * from './SendAMessageRequest';
+export * from './SendAdminMessageRequestBody';
+export * from './SendFileMessageRequestBody';
+export * from './SendTextMessageRequestBody';
+export * from './SendTextMessageRequestBodyPushMessageTemplate';
+export * from './SendTextMessageRequestBodyPushMessageTemplateOneOf';
 export * from './SendbirdBasicUserInfo';
 export * from './SendbirdDisappearingMessage';
+export * from './SendbirdExtendedMessagePayload';
 export * from './SendbirdFile';
 export * from './SendbirdGroupChannel';
 export * from './SendbirdGroupChannelDetail';
 export * from './SendbirdGroupChannelDetailChannel';
 export * from './SendbirdMember';
 export * from './SendbirdMessageResponse';
-export * from './SendbirdMessageResponseMentionedUsersInner';
-export * from './SendbirdMessageResponseMentionedUsersInnerMetadata';
-export * from './SendbirdMessageResponseUser';
+export * from './SendbirdMessageResponseMessageEvents';
+export * from './SendbirdOpenChannel';
 export * from './SendbirdParentMessageInfo';
+export * from './SendbirdPushTriggerOption';
+export * from './SendbirdReaction';
 export * from './SendbirdSmsFallback';
+export * from './SendbirdSortedMetaarrayInner';
 export * from './SendbirdThumbnail';
 export * from './SendbirdUser';
 export * from './StartTypingIndicatorsRequest';
-export * from './StopTypingIndicatorsRequest';
+export * from './UpdateAChannelMetadataRequest';
 export * from './UpdateAGroupChannelRequest';
+export * from './UpdateAMessageRequest';
+export * from './UpdateAUserRequest';
+export * from './UpdateAnOpenChannelRequest';
+export * from './UpdateChannelInvitationPreferenceRequest';
+export * from './UpdateChannelInvitationPreferenceResponse';
+export * from './UpdateCountPreferenceOfAChannelRequest';
+export * from './UpdateCountPreferenceOfChannelByUrlResponse';
+export * from './UpdateExtraDataInAMessageRequest';
+export * from './UpdateExtraDataInAMessageResponse';
+export * from './UpdatePushPreferencesForAChannelRequest';
+export * from './UpdatePushPreferencesForAChannelResponse';
+export * from './UpdatePushPreferencesRequest';
+export * from './UpdatePushPreferencesResponse';
+export * from './ViewCountPreferenceOfAChannelResponse';
+export * from './ViewNumberOfChannelsWithUnreadMessagesResponse';
+export * from './ViewNumberOfDailyActiveUsersResponse';
+export * from './ViewNumberOfMonthlyActiveUsersResponse';
+export * from './ViewNumberOfUnreadMessagesResponse';
+export * from './ViewPushPreferencesForAChannelResponse';
+export * from './ViewPushPreferencesResponse';
 
 import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
+import { AddARegistrationOrDeviceTokenRequest } from './AddARegistrationOrDeviceTokenRequest';
+import { AddARegistrationOrDeviceTokenResponse } from './AddARegistrationOrDeviceTokenResponse';
+import { AddExtraDataToAMessageRequest } from './AddExtraDataToAMessageRequest';
+import { AddExtraDataToAMessageResponse } from './AddExtraDataToAMessageResponse';
+import { BlockAUserRequest } from './BlockAUserRequest';
+import { BlockAUserResponse } from './BlockAUserResponse';
+import { CheckIfMemberResponse , CheckIfMemberResponseStateEnum   } from './CheckIfMemberResponse';
+import { ChooseAPushNotificationContentTemplateRequest, ChooseAPushNotificationContentTemplateRequestNameEnum   } from './ChooseAPushNotificationContentTemplateRequest';
+import { ChooseAPushNotificationContentTemplateResponse } from './ChooseAPushNotificationContentTemplateResponse';
+import { CreateABotRequest } from './CreateABotRequest';
+import { CreateABotResponse } from './CreateABotResponse';
+import { CreateABotResponseBot } from './CreateABotResponseBot';
+import { CreateABotResponseBotStyle } from './CreateABotResponseBotStyle';
+import { CreateAChannelMetadataRequest } from './CreateAChannelMetadataRequest';
+import { CreateAChannelMetadataResponse } from './CreateAChannelMetadataResponse';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
-import { CreateAGroupChannelResponse } from './CreateAGroupChannelResponse';
-import { CreateAGroupChannelResponseChannel } from './CreateAGroupChannelResponseChannel';
+import { CreateAUserRequest } from './CreateAUserRequest';
+import { CreateAnOpenChannelRequest } from './CreateAnOpenChannelRequest';
+import { CreateUserTokenRequest } from './CreateUserTokenRequest';
+import { CreateUserTokenResponse } from './CreateUserTokenResponse';
+import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from './FreezeAnOpenChannelRequest';
+import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum           } from './GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from './GetAGroupChannelResponseAllOf';
+import { GetChannelInvitationPreferenceResponse } from './GetChannelInvitationPreferenceResponse';
+import { GetTotalNumberOfMessagesInAChannelResponse } from './GetTotalNumberOfMessagesInAChannelResponse';
+import { GroupChannelListMembersResponse } from './GroupChannelListMembersResponse';
 import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
 import { HideAChannelRequest } from './HideAChannelRequest';
 import { InviteAsMembersRequest } from './InviteAsMembersRequest';
-import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum   , InviteAsMembersResponsePushTriggerOptionEnum          } from './InviteAsMembersResponse';
+import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum            } from './InviteAsMembersResponse';
 import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { JoinAChannelRequest } from './JoinAChannelRequest';
-import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { JoinChannelsRequest } from './JoinChannelsRequest';
+import { LeaveAChannelRequest   , LeaveAChannelRequestReasonEnum   } from './LeaveAChannelRequest';
+import { LeaveMyGroupChannelsRequest } from './LeaveMyGroupChannelsRequest';
+import { ListBlockedUsersResponse } from './ListBlockedUsersResponse';
+import { ListBotsResponse } from './ListBotsResponse';
+import { ListBotsResponseBotsInner } from './ListBotsResponseBotsInner';
+import { ListBotsResponseBotsInnerAi } from './ListBotsResponseBotsInnerAi';
+import { ListBotsResponseBotsInnerBot } from './ListBotsResponseBotsInnerBot';
+import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
+import { ListBotsResponseBotsInnerBotStyleColor } from './ListBotsResponseBotsInnerBotStyleColor';
+import { ListBotsResponseBotsInnerFirstMessagesInner } from './ListBotsResponseBotsInnerFirstMessagesInner';
+import { ListBotsResponseBotsInnerFirstMessagesInnerData } from './ListBotsResponseBotsInnerFirstMessagesInnerData';
+import { ListBotsResponseBotsInnerSafeguard } from './ListBotsResponseBotsInnerSafeguard';
+import { ListMessagesResponse } from './ListMessagesResponse';
+import { ListMyGroupChannelsResponse } from './ListMyGroupChannelsResponse';
+import { ListOpenChannelsResponse } from './ListOpenChannelsResponse';
+import { ListOperatorsResponse } from './ListOperatorsResponse';
+import { ListRegistrationOrDeviceTokensResponse } from './ListRegistrationOrDeviceTokensResponse';
+import { ListUsersResponse } from './ListUsersResponse';
+import { MarkAllMessagesAsReadRequest } from './MarkAllMessagesAsReadRequest';
+import { MarkChannelMessagesAsReadRequest } from './MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest, MigrateMessagesAdminMessageRequestMessageTypeEnum           } from './MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest , MigrateMessagesFileMessageRequestMessageTypeEnum               } from './MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from './MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from './MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner , MigrateMessagesRequestMessagesInnerMessageTypeEnum                  } from './MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest , MigrateMessagesTextMessageRequestMessageTypeEnum          } from './MigrateMessagesTextMessageRequest';
+import { RegisterOperatorsToAGroupChannelRequest } from './RegisterOperatorsToAGroupChannelRequest';
+import { RemoveARegistrationOrDeviceTokenResponse } from './RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from './RemoveAllRegistrationOrDeviceTokenResponse';
+import { ResetChatHistoryRequest } from './ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from './ResetChatHistoryResponse';
+import { ScheduleAnAnnouncementRequest } from './ScheduleAnAnnouncementRequest';
+import { ScheduleAnAnnouncementRequestCreateChannelOptions } from './ScheduleAnAnnouncementRequestCreateChannelOptions';
+import { ScheduleAnAnnouncementRequestMessage } from './ScheduleAnAnnouncementRequestMessage';
+import { ScheduleAnAnnouncementResponse } from './ScheduleAnAnnouncementResponse';
+import { ScheduleAnAnnouncementResponseMessage } from './ScheduleAnAnnouncementResponseMessage';
+import { SendABotMessageRequest } from './SendABotMessageRequest';
+import { SendAMessageRequest         , SendAMessageRequestMentionTypeEnum    , SendAMessageRequestMessageTypeEnum               } from './SendAMessageRequest';
+import { SendAdminMessageRequestBody     , SendAdminMessageRequestBodyMentionTypeEnum    , SendAdminMessageRequestBodyMessageTypeEnum      } from './SendAdminMessageRequestBody';
+import { SendFileMessageRequestBody         , SendFileMessageRequestBodyMentionTypeEnum   , SendFileMessageRequestBodyMessageTypeEnum            } from './SendFileMessageRequestBody';
+import { SendTextMessageRequestBody         , SendTextMessageRequestBodyMentionTypeEnum    , SendTextMessageRequestBodyMessageTypeEnum         } from './SendTextMessageRequestBody';
+import { SendTextMessageRequestBodyPushMessageTemplate } from './SendTextMessageRequestBodyPushMessageTemplate';
+import { SendTextMessageRequestBodyPushMessageTemplateOneOf } from './SendTextMessageRequestBodyPushMessageTemplateOneOf';
+import { SendbirdBasicUserInfo   , SendbirdBasicUserInfoRoleEnum       } from './SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
+import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
 import { SendbirdFile } from './SendbirdFile';
-import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum   , SendbirdGroupChannelPushTriggerOptionEnum         } from './SendbirdGroupChannel';
+import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum           } from './SendbirdGroupChannel';
 import { SendbirdGroupChannelDetail } from './SendbirdGroupChannelDetail';
 import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
 import { SendbirdMember                   , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
-import { SendbirdMessageResponseMentionedUsersInner } from './SendbirdMessageResponseMentionedUsersInner';
-import { SendbirdMessageResponseMentionedUsersInnerMetadata } from './SendbirdMessageResponseMentionedUsersInnerMetadata';
-import { SendbirdMessageResponseUser } from './SendbirdMessageResponseUser';
+import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
+import { SendbirdOpenChannel } from './SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
+import { SendbirdReaction } from './SendbirdReaction';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
+import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
-import { SendbirdUser                , SendbirdUserStateEnum   } from './SendbirdUser';
+import { SendbirdUser                , SendbirdUserStateEnum        } from './SendbirdUser';
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
-import { StopTypingIndicatorsRequest } from './StopTypingIndicatorsRequest';
+import { UpdateAChannelMetadataRequest } from './UpdateAChannelMetadataRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
+import { UpdateAMessageRequest      , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
+import { UpdateAUserRequest } from './UpdateAUserRequest';
+import { UpdateAnOpenChannelRequest } from './UpdateAnOpenChannelRequest';
+import { UpdateChannelInvitationPreferenceRequest } from './UpdateChannelInvitationPreferenceRequest';
+import { UpdateChannelInvitationPreferenceResponse } from './UpdateChannelInvitationPreferenceResponse';
+import { UpdateCountPreferenceOfAChannelRequest, UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum   } from './UpdateCountPreferenceOfAChannelRequest';
+import { UpdateCountPreferenceOfChannelByUrlResponse, UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum   } from './UpdateCountPreferenceOfChannelByUrlResponse';
+import { UpdateExtraDataInAMessageRequest } from './UpdateExtraDataInAMessageRequest';
+import { UpdateExtraDataInAMessageResponse } from './UpdateExtraDataInAMessageResponse';
+import { UpdatePushPreferencesForAChannelRequest, UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum    } from './UpdatePushPreferencesForAChannelRequest';
+import { UpdatePushPreferencesForAChannelResponse } from './UpdatePushPreferencesForAChannelResponse';
+import { UpdatePushPreferencesRequest } from './UpdatePushPreferencesRequest';
+import { UpdatePushPreferencesResponse } from './UpdatePushPreferencesResponse';
+import { ViewCountPreferenceOfAChannelResponse, ViewCountPreferenceOfAChannelResponseCountPreferenceEnum   } from './ViewCountPreferenceOfAChannelResponse';
+import { ViewNumberOfChannelsWithUnreadMessagesResponse } from './ViewNumberOfChannelsWithUnreadMessagesResponse';
+import { ViewNumberOfDailyActiveUsersResponse } from './ViewNumberOfDailyActiveUsersResponse';
+import { ViewNumberOfMonthlyActiveUsersResponse } from './ViewNumberOfMonthlyActiveUsersResponse';
+import { ViewNumberOfUnreadMessagesResponse } from './ViewNumberOfUnreadMessagesResponse';
+import { ViewPushPreferencesForAChannelResponse } from './ViewPushPreferencesForAChannelResponse';
+import { ViewPushPreferencesResponse } from './ViewPushPreferencesResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -76,50 +258,164 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "CheckIfMemberResponseStateEnum",
+    "ChooseAPushNotificationContentTemplateRequestNameEnum",
+    "GetAGroupChannelResponseCountPreferenceEnum",
+    "GetAGroupChannelResponseHiddenStateEnum",
+    "GetAGroupChannelResponseMemberStateEnum",
+    "GetAGroupChannelResponseMyRoleEnum",
     "InviteAsMembersResponseCountPreferenceEnum",
     "InviteAsMembersResponseHiddenStateEnum",
     "InviteAsMembersResponseMemberStateEnum",
     "InviteAsMembersResponseMyRoleEnum",
-    "InviteAsMembersResponsePushTriggerOptionEnum",
+    "LeaveAChannelRequestReasonEnum",
+    "MigrateMessagesAdminMessageRequestMessageTypeEnum",
+    "MigrateMessagesFileMessageRequestMessageTypeEnum",
+    "MigrateMessagesRequestMessagesInnerMessageTypeEnum",
+    "MigrateMessagesTextMessageRequestMessageTypeEnum",
+    "SendAMessageRequestMentionTypeEnum",
+    "SendAMessageRequestMessageTypeEnum",
+    "SendAdminMessageRequestBodyMentionTypeEnum",
+    "SendAdminMessageRequestBodyMessageTypeEnum",
+    "SendFileMessageRequestBodyMentionTypeEnum",
+    "SendFileMessageRequestBodyMessageTypeEnum",
+    "SendTextMessageRequestBodyMentionTypeEnum",
+    "SendTextMessageRequestBodyMessageTypeEnum",
+    "SendbirdBasicUserInfoRoleEnum",
     "SendbirdGroupChannelCountPreferenceEnum",
     "SendbirdGroupChannelHiddenStateEnum",
     "SendbirdGroupChannelMemberStateEnum",
     "SendbirdGroupChannelMyRoleEnum",
-    "SendbirdGroupChannelPushTriggerOptionEnum",
     "SendbirdMemberRoleEnum",
     "SendbirdMemberStateEnum",
+    "SendbirdPushTriggerOption",
     "SendbirdUserStateEnum",
+    "UpdateAMessageRequestMessageTypeEnum",
+    "UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum",
+    "UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum",
+    "UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum",
+    "ViewCountPreferenceOfAChannelResponseCountPreferenceEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {
     "AcceptAnInvitationRequest": AcceptAnInvitationRequest,
+    "AddARegistrationOrDeviceTokenRequest": AddARegistrationOrDeviceTokenRequest,
+    "AddARegistrationOrDeviceTokenResponse": AddARegistrationOrDeviceTokenResponse,
+    "AddExtraDataToAMessageRequest": AddExtraDataToAMessageRequest,
+    "AddExtraDataToAMessageResponse": AddExtraDataToAMessageResponse,
+    "BlockAUserRequest": BlockAUserRequest,
+    "BlockAUserResponse": BlockAUserResponse,
+    "CheckIfMemberResponse": CheckIfMemberResponse,
+    "ChooseAPushNotificationContentTemplateRequest": ChooseAPushNotificationContentTemplateRequest,
+    "ChooseAPushNotificationContentTemplateResponse": ChooseAPushNotificationContentTemplateResponse,
+    "CreateABotRequest": CreateABotRequest,
+    "CreateABotResponse": CreateABotResponse,
+    "CreateABotResponseBot": CreateABotResponseBot,
+    "CreateABotResponseBotStyle": CreateABotResponseBotStyle,
+    "CreateAChannelMetadataRequest": CreateAChannelMetadataRequest,
+    "CreateAChannelMetadataResponse": CreateAChannelMetadataResponse,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
-    "CreateAGroupChannelResponse": CreateAGroupChannelResponse,
-    "CreateAGroupChannelResponseChannel": CreateAGroupChannelResponseChannel,
+    "CreateAUserRequest": CreateAUserRequest,
+    "CreateAnOpenChannelRequest": CreateAnOpenChannelRequest,
+    "CreateUserTokenRequest": CreateUserTokenRequest,
+    "CreateUserTokenResponse": CreateUserTokenResponse,
+    "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
+    "FreezeAnOpenChannelRequest": FreezeAnOpenChannelRequest,
+    "GetAGroupChannelResponse": GetAGroupChannelResponse,
+    "GetAGroupChannelResponseAllOf": GetAGroupChannelResponseAllOf,
+    "GetChannelInvitationPreferenceResponse": GetChannelInvitationPreferenceResponse,
+    "GetTotalNumberOfMessagesInAChannelResponse": GetTotalNumberOfMessagesInAChannelResponse,
+    "GroupChannelListMembersResponse": GroupChannelListMembersResponse,
     "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
     "HideAChannelRequest": HideAChannelRequest,
     "InviteAsMembersRequest": InviteAsMembersRequest,
     "InviteAsMembersResponse": InviteAsMembersResponse,
     "InviteAsMembersResponseAllOf": InviteAsMembersResponseAllOf,
     "JoinAChannelRequest": JoinAChannelRequest,
+    "JoinChannelsRequest": JoinChannelsRequest,
+    "LeaveAChannelRequest": LeaveAChannelRequest,
+    "LeaveMyGroupChannelsRequest": LeaveMyGroupChannelsRequest,
+    "ListBlockedUsersResponse": ListBlockedUsersResponse,
+    "ListBotsResponse": ListBotsResponse,
+    "ListBotsResponseBotsInner": ListBotsResponseBotsInner,
+    "ListBotsResponseBotsInnerAi": ListBotsResponseBotsInnerAi,
+    "ListBotsResponseBotsInnerBot": ListBotsResponseBotsInnerBot,
+    "ListBotsResponseBotsInnerBotStyle": ListBotsResponseBotsInnerBotStyle,
+    "ListBotsResponseBotsInnerBotStyleColor": ListBotsResponseBotsInnerBotStyleColor,
+    "ListBotsResponseBotsInnerFirstMessagesInner": ListBotsResponseBotsInnerFirstMessagesInner,
+    "ListBotsResponseBotsInnerFirstMessagesInnerData": ListBotsResponseBotsInnerFirstMessagesInnerData,
+    "ListBotsResponseBotsInnerSafeguard": ListBotsResponseBotsInnerSafeguard,
+    "ListMessagesResponse": ListMessagesResponse,
+    "ListMyGroupChannelsResponse": ListMyGroupChannelsResponse,
+    "ListOpenChannelsResponse": ListOpenChannelsResponse,
+    "ListOperatorsResponse": ListOperatorsResponse,
+    "ListRegistrationOrDeviceTokensResponse": ListRegistrationOrDeviceTokensResponse,
+    "ListUsersResponse": ListUsersResponse,
+    "MarkAllMessagesAsReadRequest": MarkAllMessagesAsReadRequest,
+    "MarkChannelMessagesAsReadRequest": MarkChannelMessagesAsReadRequest,
+    "MigrateMessagesAdminMessageRequest": MigrateMessagesAdminMessageRequest,
+    "MigrateMessagesFileMessageRequest": MigrateMessagesFileMessageRequest,
+    "MigrateMessagesFileMessageRequestThumbnailsInner": MigrateMessagesFileMessageRequestThumbnailsInner,
+    "MigrateMessagesRequest": MigrateMessagesRequest,
+    "MigrateMessagesRequestMessagesInner": MigrateMessagesRequestMessagesInner,
+    "MigrateMessagesTextMessageRequest": MigrateMessagesTextMessageRequest,
+    "RegisterOperatorsToAGroupChannelRequest": RegisterOperatorsToAGroupChannelRequest,
+    "RemoveARegistrationOrDeviceTokenResponse": RemoveARegistrationOrDeviceTokenResponse,
+    "RemoveAllRegistrationOrDeviceTokenResponse": RemoveAllRegistrationOrDeviceTokenResponse,
+    "ResetChatHistoryRequest": ResetChatHistoryRequest,
+    "ResetChatHistoryResponse": ResetChatHistoryResponse,
+    "ScheduleAnAnnouncementRequest": ScheduleAnAnnouncementRequest,
+    "ScheduleAnAnnouncementRequestCreateChannelOptions": ScheduleAnAnnouncementRequestCreateChannelOptions,
+    "ScheduleAnAnnouncementRequestMessage": ScheduleAnAnnouncementRequestMessage,
+    "ScheduleAnAnnouncementResponse": ScheduleAnAnnouncementResponse,
+    "ScheduleAnAnnouncementResponseMessage": ScheduleAnAnnouncementResponseMessage,
+    "SendABotMessageRequest": SendABotMessageRequest,
+    "SendAMessageRequest": SendAMessageRequest,
+    "SendAdminMessageRequestBody": SendAdminMessageRequestBody,
+    "SendFileMessageRequestBody": SendFileMessageRequestBody,
+    "SendTextMessageRequestBody": SendTextMessageRequestBody,
+    "SendTextMessageRequestBodyPushMessageTemplate": SendTextMessageRequestBodyPushMessageTemplate,
+    "SendTextMessageRequestBodyPushMessageTemplateOneOf": SendTextMessageRequestBodyPushMessageTemplateOneOf,
     "SendbirdBasicUserInfo": SendbirdBasicUserInfo,
     "SendbirdDisappearingMessage": SendbirdDisappearingMessage,
+    "SendbirdExtendedMessagePayload": SendbirdExtendedMessagePayload,
     "SendbirdFile": SendbirdFile,
     "SendbirdGroupChannel": SendbirdGroupChannel,
     "SendbirdGroupChannelDetail": SendbirdGroupChannelDetail,
     "SendbirdGroupChannelDetailChannel": SendbirdGroupChannelDetailChannel,
     "SendbirdMember": SendbirdMember,
     "SendbirdMessageResponse": SendbirdMessageResponse,
-    "SendbirdMessageResponseMentionedUsersInner": SendbirdMessageResponseMentionedUsersInner,
-    "SendbirdMessageResponseMentionedUsersInnerMetadata": SendbirdMessageResponseMentionedUsersInnerMetadata,
-    "SendbirdMessageResponseUser": SendbirdMessageResponseUser,
+    "SendbirdMessageResponseMessageEvents": SendbirdMessageResponseMessageEvents,
+    "SendbirdOpenChannel": SendbirdOpenChannel,
     "SendbirdParentMessageInfo": SendbirdParentMessageInfo,
+    "SendbirdReaction": SendbirdReaction,
     "SendbirdSmsFallback": SendbirdSmsFallback,
+    "SendbirdSortedMetaarrayInner": SendbirdSortedMetaarrayInner,
     "SendbirdThumbnail": SendbirdThumbnail,
     "SendbirdUser": SendbirdUser,
     "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
-    "StopTypingIndicatorsRequest": StopTypingIndicatorsRequest,
+    "UpdateAChannelMetadataRequest": UpdateAChannelMetadataRequest,
     "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
+    "UpdateAMessageRequest": UpdateAMessageRequest,
+    "UpdateAUserRequest": UpdateAUserRequest,
+    "UpdateAnOpenChannelRequest": UpdateAnOpenChannelRequest,
+    "UpdateChannelInvitationPreferenceRequest": UpdateChannelInvitationPreferenceRequest,
+    "UpdateChannelInvitationPreferenceResponse": UpdateChannelInvitationPreferenceResponse,
+    "UpdateCountPreferenceOfAChannelRequest": UpdateCountPreferenceOfAChannelRequest,
+    "UpdateCountPreferenceOfChannelByUrlResponse": UpdateCountPreferenceOfChannelByUrlResponse,
+    "UpdateExtraDataInAMessageRequest": UpdateExtraDataInAMessageRequest,
+    "UpdateExtraDataInAMessageResponse": UpdateExtraDataInAMessageResponse,
+    "UpdatePushPreferencesForAChannelRequest": UpdatePushPreferencesForAChannelRequest,
+    "UpdatePushPreferencesForAChannelResponse": UpdatePushPreferencesForAChannelResponse,
+    "UpdatePushPreferencesRequest": UpdatePushPreferencesRequest,
+    "UpdatePushPreferencesResponse": UpdatePushPreferencesResponse,
+    "ViewCountPreferenceOfAChannelResponse": ViewCountPreferenceOfAChannelResponse,
+    "ViewNumberOfChannelsWithUnreadMessagesResponse": ViewNumberOfChannelsWithUnreadMessagesResponse,
+    "ViewNumberOfDailyActiveUsersResponse": ViewNumberOfDailyActiveUsersResponse,
+    "ViewNumberOfMonthlyActiveUsersResponse": ViewNumberOfMonthlyActiveUsersResponse,
+    "ViewNumberOfUnreadMessagesResponse": ViewNumberOfUnreadMessagesResponse,
+    "ViewPushPreferencesForAChannelResponse": ViewPushPreferencesForAChannelResponse,
+    "ViewPushPreferencesResponse": ViewPushPreferencesResponse,
 }
 
 export class ObjectSerializer {

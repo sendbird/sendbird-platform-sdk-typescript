@@ -75,7 +75,7 @@ npm install sendbird-platform-sdk-typescript
 # Using yarn
 yarn add sendbird-platform-sdk-typescript
 ```
-> ⚠️ This SDK is intended for use in server-side environments only. Do not use it in browsers or frontend applications.
+> ⚠️ This SDK is intended for the server-side environment only. Do not use this in browsers or frontend applications.
 
 # 🤓 Local Development
 

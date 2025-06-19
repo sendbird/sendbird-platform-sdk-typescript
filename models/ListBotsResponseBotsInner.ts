@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,24 +10,39 @@
  * Do not edit the class manually.
  */
 
-import { CreateBotResponseBot } from './CreateBotResponseBot';
+import { ListBotsResponseBotsInnerAi } from './ListBotsResponseBotsInnerAi';
+import { ListBotsResponseBotsInnerBot } from './ListBotsResponseBotsInnerBot';
+import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
+import { ListBotsResponseBotsInnerFirstMessagesInner } from './ListBotsResponseBotsInnerFirstMessagesInner';
+import { ListBotsResponseBotsInnerSafeguard } from './ListBotsResponseBotsInnerSafeguard';
 import { HttpFile } from '../http/http';
 
 export class ListBotsResponseBotsInner {
-    'bot'?: CreateBotResponseBot;
+    'ai'?: ListBotsResponseBotsInnerAi;
+    'bot'?: ListBotsResponseBotsInnerBot;
     'botCallbackUrl'?: string;
-    'enableMarkAsRead'?: boolean;
-    'isPrivacyMode'?: boolean;
-    'showMember'?: boolean;
+    'botStyle'?: ListBotsResponseBotsInnerBotStyle;
     'channelInvitationPreference'?: number;
+    'createdAt'?: number;
+    'enableMarkAsRead'?: boolean;
+    'firstMessages'?: Array<ListBotsResponseBotsInnerFirstMessagesInner>;
+    'isPrivacyMode'?: boolean;
+    'safeguard'?: ListBotsResponseBotsInnerSafeguard;
+    'showMember'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "ai",
+            "baseName": "ai",
+            "type": "ListBotsResponseBotsInnerAi",
+            "format": ""
+        },
+        {
             "name": "bot",
             "baseName": "bot",
-            "type": "CreateBotResponseBot",
+            "type": "ListBotsResponseBotsInnerBot",
             "format": ""
         },
         {
@@ -37,9 +52,33 @@ export class ListBotsResponseBotsInner {
             "format": ""
         },
         {
+            "name": "botStyle",
+            "baseName": "bot_style",
+            "type": "ListBotsResponseBotsInnerBotStyle",
+            "format": ""
+        },
+        {
+            "name": "channelInvitationPreference",
+            "baseName": "channel_invitation_preference",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "enableMarkAsRead",
             "baseName": "enable_mark_as_read",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "firstMessages",
+            "baseName": "first_messages",
+            "type": "Array<ListBotsResponseBotsInnerFirstMessagesInner>",
             "format": ""
         },
         {
@@ -49,15 +88,15 @@ export class ListBotsResponseBotsInner {
             "format": ""
         },
         {
-            "name": "showMember",
-            "baseName": "show_member",
-            "type": "boolean",
+            "name": "safeguard",
+            "baseName": "safeguard",
+            "type": "ListBotsResponseBotsInnerSafeguard",
             "format": ""
         },
         {
-            "name": "channelInvitationPreference",
-            "baseName": "channel_invitation_preference",
-            "type": "number",
+            "name": "showMember",
+            "baseName": "show_member",
+            "type": "boolean",
             "format": ""
         }    ];
 

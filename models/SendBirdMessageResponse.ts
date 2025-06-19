@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,24 +10,28 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdFile } from './SendBirdFile';
-import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
-import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
-import { SendBirdParentMessageInfo } from './SendBirdParentMessageInfo';
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
+import { SendbirdFile } from './SendbirdFile';
+import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
+import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdReaction } from './SendbirdReaction';
+import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { HttpFile } from '../http/http';
 
-export class SendBirdMessageResponse {
+export class SendbirdMessageResponse {
     'requireAuth'?: boolean;
     'messageSurvivalSeconds'?: number;
     'customType'?: string;
-    'mentionedUsers'?: Array<SendBirdMessageResponseMentionedUsersInner>;
+    'mentionedUsers'?: Array<SendbirdBasicUserInfo>;
     'translations'?: any;
     'updatedAt'?: number;
     'isOpMsg'?: boolean;
+    'reactions'?: Array<SendbirdReaction>;
     'isRemoved'?: boolean;
-    'user'?: SendBirdMessageResponseUser;
+    'user'?: SendbirdBasicUserInfo;
     'file'?: any;
-    'files'?: Array<SendBirdFile>;
+    'files'?: Array<SendbirdFile>;
     'message'?: string;
     'data'?: string;
     'messageRetentionHour'?: number;
@@ -39,12 +43,13 @@ export class SendBirdMessageResponse {
     'mentionType'?: string;
     'channelUrl'?: string;
     'messageId'?: number;
-    'size'?: number;
-    'sortedMetaarray'?: Array<any>;
+    'sortedMetaarray'?: Array<SendbirdSortedMetaarrayInner>;
     'threadInfo'?: any;
     'parentMessageId'?: number;
-    'parentMessageInfo'?: SendBirdParentMessageInfo;
+    'parentMessageInfo'?: SendbirdParentMessageInfo;
     'isReplyToChannel'?: boolean;
+    'messageEvents'?: SendbirdMessageResponseMessageEvents;
+    'extendedMessagePayload'?: SendbirdExtendedMessagePayload;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -70,7 +75,7 @@ export class SendBirdMessageResponse {
         {
             "name": "mentionedUsers",
             "baseName": "mentioned_users",
-            "type": "Array<SendBirdMessageResponseMentionedUsersInner>",
+            "type": "Array<SendbirdBasicUserInfo>",
             "format": ""
         },
         {
@@ -83,12 +88,18 @@ export class SendBirdMessageResponse {
             "name": "updatedAt",
             "baseName": "updated_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "isOpMsg",
             "baseName": "is_op_msg",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "reactions",
+            "baseName": "reactions",
+            "type": "Array<SendbirdReaction>",
             "format": ""
         },
         {
@@ -100,7 +111,7 @@ export class SendBirdMessageResponse {
         {
             "name": "user",
             "baseName": "user",
-            "type": "SendBirdMessageResponseUser",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         },
         {
@@ -112,7 +123,7 @@ export class SendBirdMessageResponse {
         {
             "name": "files",
             "baseName": "files",
-            "type": "Array<SendBirdFile>",
+            "type": "Array<SendbirdFile>",
             "format": ""
         },
         {
@@ -149,7 +160,7 @@ export class SendBirdMessageResponse {
             "name": "createdAt",
             "baseName": "created_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "channelType",
@@ -182,15 +193,9 @@ export class SendBirdMessageResponse {
             "format": ""
         },
         {
-            "name": "size",
-            "baseName": "size",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "sortedMetaarray",
             "baseName": "sorted_metaarray",
-            "type": "Array<any>",
+            "type": "Array<SendbirdSortedMetaarrayInner>",
             "format": ""
         },
         {
@@ -208,7 +213,7 @@ export class SendBirdMessageResponse {
         {
             "name": "parentMessageInfo",
             "baseName": "parent_message_info",
-            "type": "SendBirdParentMessageInfo",
+            "type": "SendbirdParentMessageInfo",
             "format": ""
         },
         {
@@ -216,10 +221,22 @@ export class SendBirdMessageResponse {
             "baseName": "is_reply_to_channel",
             "type": "boolean",
             "format": ""
+        },
+        {
+            "name": "messageEvents",
+            "baseName": "message_events",
+            "type": "SendbirdMessageResponseMessageEvents",
+            "format": ""
+        },
+        {
+            "name": "extendedMessagePayload",
+            "baseName": "extended_message_payload",
+            "type": "SendbirdExtendedMessagePayload",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdMessageResponse.attributeTypeMap;
+        return SendbirdMessageResponse.attributeTypeMap;
     }
 
     public constructor() {

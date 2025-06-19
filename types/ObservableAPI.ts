@@ -3,318 +3,125 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
-import { AddApnsPushConfigurationData } from '../models/AddApnsPushConfigurationData';
-import { AddApnsPushConfigurationResponse } from '../models/AddApnsPushConfigurationResponse';
-import { AddApnsPushConfigurationResponsePushConfigurationsInner } from '../models/AddApnsPushConfigurationResponsePushConfigurationsInner';
-import { AddEmojiCategoriesResponse } from '../models/AddEmojiCategoriesResponse';
-import { AddEmojiCategoriesResponseEmojiCategoriesInner } from '../models/AddEmojiCategoriesResponseEmojiCategoriesInner';
-import { AddEmojisData } from '../models/AddEmojisData';
-import { AddEmojisResponse } from '../models/AddEmojisResponse';
-import { AddExtraDataToMessageData } from '../models/AddExtraDataToMessageData';
-import { AddExtraDataToMessageResponse } from '../models/AddExtraDataToMessageResponse';
-import { AddFcmPushConfigurationData } from '../models/AddFcmPushConfigurationData';
-import { AddFcmPushConfigurationResponse } from '../models/AddFcmPushConfigurationResponse';
-import { AddFcmPushConfigurationResponsePushConfigurationsInner } from '../models/AddFcmPushConfigurationResponsePushConfigurationsInner';
-import { AddHmsPushConfigurationData } from '../models/AddHmsPushConfigurationData';
-import { AddHmsPushConfigurationResponse } from '../models/AddHmsPushConfigurationResponse';
-import { AddHmsPushConfigurationResponsePushConfigurationsInner } from '../models/AddHmsPushConfigurationResponsePushConfigurationsInner';
-import { AddIpToWhitelistData } from '../models/AddIpToWhitelistData';
-import { AddIpToWhitelistResponse } from '../models/AddIpToWhitelistResponse';
-import { AddReactionToAMessageData } from '../models/AddReactionToAMessageData';
-import { AddReactionToAMessageResponse } from '../models/AddReactionToAMessageResponse';
-import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDeviceTokenData';
-import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
-import { BanFromChannelsWithCustomChannelTypesData } from '../models/BanFromChannelsWithCustomChannelTypesData';
-import { BanUsersInChannelsWithCustomChannelTypeData } from '../models/BanUsersInChannelsWithCustomChannelTypeData';
-import { BanUsersInChannelsWithCustomChannelTypeDataBannedListInner } from '../models/BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
-import { Blob } from '../models/Blob';
-import { BlockUserData } from '../models/BlockUserData';
-import { BlockUserResponse } from '../models/BlockUserResponse';
-import { ChoosePushNotificationContentTemplateResponse } from '../models/ChoosePushNotificationContentTemplateResponse';
-import { ChooseWhichEventsToSubscribeToData } from '../models/ChooseWhichEventsToSubscribeToData';
-import { ChooseWhichEventsToSubscribeToResponse } from '../models/ChooseWhichEventsToSubscribeToResponse';
-import { ChooseWhichEventsToSubscribeToResponseWebhook } from '../models/ChooseWhichEventsToSubscribeToResponseWebhook';
-import { ConfigureAutoEventData } from '../models/ConfigureAutoEventData';
-import { ConfigureAutoEventDataAutoEventMessage } from '../models/ConfigureAutoEventDataAutoEventMessage';
-import { CreateBotData } from '../models/CreateBotData';
-import { CreateBotResponse } from '../models/CreateBotResponse';
-import { CreateBotResponseBot } from '../models/CreateBotResponseBot';
-import { CreateChannelMetacounterData } from '../models/CreateChannelMetacounterData';
-import { CreateChannelMetadataData } from '../models/CreateChannelMetadataData';
-import { CreateChannelMetadataResponse } from '../models/CreateChannelMetadataResponse';
-import { CreateUserData } from '../models/CreateUserData';
-import { CreateUserMetadataData } from '../models/CreateUserMetadataData';
-import { CreateUserMetadataResponse } from '../models/CreateUserMetadataResponse';
-import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { AcceptAnInvitationRequest } from '../models/AcceptAnInvitationRequest';
+import { AddARegistrationOrDeviceTokenRequest } from '../models/AddARegistrationOrDeviceTokenRequest';
+import { AddARegistrationOrDeviceTokenResponse } from '../models/AddARegistrationOrDeviceTokenResponse';
+import { AddExtraDataToAMessageRequest } from '../models/AddExtraDataToAMessageRequest';
+import { AddExtraDataToAMessageResponse } from '../models/AddExtraDataToAMessageResponse';
+import { BlockAUserRequest } from '../models/BlockAUserRequest';
+import { BlockAUserResponse } from '../models/BlockAUserResponse';
+import { CheckIfMemberResponse } from '../models/CheckIfMemberResponse';
+import { ChooseAPushNotificationContentTemplateRequest } from '../models/ChooseAPushNotificationContentTemplateRequest';
+import { ChooseAPushNotificationContentTemplateResponse } from '../models/ChooseAPushNotificationContentTemplateResponse';
+import { CreateABotRequest } from '../models/CreateABotRequest';
+import { CreateABotResponse } from '../models/CreateABotResponse';
+import { CreateABotResponseBot } from '../models/CreateABotResponseBot';
+import { CreateABotResponseBotStyle } from '../models/CreateABotResponseBotStyle';
+import { CreateAChannelMetadataRequest } from '../models/CreateAChannelMetadataRequest';
+import { CreateAChannelMetadataResponse } from '../models/CreateAChannelMetadataResponse';
+import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
+import { CreateAUserRequest } from '../models/CreateAUserRequest';
+import { CreateAnOpenChannelRequest } from '../models/CreateAnOpenChannelRequest';
+import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
-import { CustomTypeListBannedUsersResponse } from '../models/CustomTypeListBannedUsersResponse';
-import { DeleteAllowedIpsFromWhitelistResponse } from '../models/DeleteAllowedIpsFromWhitelistResponse';
-import { DeleteApnsCertificateByIdResponse } from '../models/DeleteApnsCertificateByIdResponse';
-import { EnableReactionsData } from '../models/EnableReactionsData';
-import { EnableReactionsResponse } from '../models/EnableReactionsResponse';
-import { Function } from '../models/Function';
-import { GcAcceptInvitationData } from '../models/GcAcceptInvitationData';
-import { GcBanUserData } from '../models/GcBanUserData';
-import { GcBanUserResponse } from '../models/GcBanUserResponse';
-import { GcCheckIfMemberByIdResponse } from '../models/GcCheckIfMemberByIdResponse';
-import { GcCreateChannelData } from '../models/GcCreateChannelData';
-import { GcDeclineInvitationData } from '../models/GcDeclineInvitationData';
-import { GcFreezeChannelData } from '../models/GcFreezeChannelData';
-import { GcHideOrArchiveChannelData } from '../models/GcHideOrArchiveChannelData';
-import { GcInviteAsMembersData } from '../models/GcInviteAsMembersData';
-import { GcJoinChannelData } from '../models/GcJoinChannelData';
-import { GcLeaveChannelData } from '../models/GcLeaveChannelData';
-import { GcListBannedUsersResponse } from '../models/GcListBannedUsersResponse';
-import { GcListChannelsResponse } from '../models/GcListChannelsResponse';
-import { GcListMembersResponse } from '../models/GcListMembersResponse';
-import { GcListMutedUsersResponse } from '../models/GcListMutedUsersResponse';
-import { GcListOperatorsResponse } from '../models/GcListOperatorsResponse';
-import { GcMarkAllMessagesAsDeliveredData } from '../models/GcMarkAllMessagesAsDeliveredData';
-import { GcMarkAllMessagesAsDeliveredResponse } from '../models/GcMarkAllMessagesAsDeliveredResponse';
-import { GcMarkAllMessagesAsReadData } from '../models/GcMarkAllMessagesAsReadData';
-import { GcMuteUserData } from '../models/GcMuteUserData';
-import { GcRegisterOperatorsData } from '../models/GcRegisterOperatorsData';
-import { GcRegisterOperatorsResponse } from '../models/GcRegisterOperatorsResponse';
-import { GcResetChatHistoryData } from '../models/GcResetChatHistoryData';
-import { GcResetChatHistoryResponse } from '../models/GcResetChatHistoryResponse';
-import { GcTypingIndicatorsData } from '../models/GcTypingIndicatorsData';
-import { GcUpdateBanByIdData } from '../models/GcUpdateBanByIdData';
-import { GcUpdateBanByIdResponse } from '../models/GcUpdateBanByIdResponse';
-import { GcUpdateChannelByUrlData } from '../models/GcUpdateChannelByUrlData';
-import { GcViewBanByIdResponse } from '../models/GcViewBanByIdResponse';
-import { GcViewMuteByIdResponse } from '../models/GcViewMuteByIdResponse';
-import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GenerateSecondaryApiTokenData } from '../models/GenerateSecondaryApiTokenData';
-import { GenerateSecondaryApiTokenResponse } from '../models/GenerateSecondaryApiTokenResponse';
-import { GetDetailedOpenRateOfAnnouncementByIdResponse } from '../models/GetDetailedOpenRateOfAnnouncementByIdResponse';
-import { GetDetailedOpenRateOfAnnouncementGroupResponse } from '../models/GetDetailedOpenRateOfAnnouncementGroupResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner } from '../models/GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
-import { GetStatisticsDailyResponse } from '../models/GetStatisticsDailyResponse';
-import { GetStatisticsDailyResponseStatisticsInner } from '../models/GetStatisticsDailyResponseStatisticsInner';
-import { GetStatisticsMonthlyResponse } from '../models/GetStatisticsMonthlyResponse';
-import { GetStatisticsResponse } from '../models/GetStatisticsResponse';
-import { JoinChannelsData } from '../models/JoinChannelsData';
-import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
-import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
-import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner } from '../models/ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner';
-import { ListAnnouncementGroupsResponse } from '../models/ListAnnouncementGroupsResponse';
-import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
-import { ListAnnouncementsResponseAnnouncementsInner } from '../models/ListAnnouncementsResponseAnnouncementsInner';
-import { ListBannedChannelsResponse } from '../models/ListBannedChannelsResponse';
-import { ListBannedChannelsResponseBannedChannelsInner } from '../models/ListBannedChannelsResponseBannedChannelsInner';
+import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from '../models/FreezeAnOpenChannelRequest';
+import { GetAGroupChannelResponse } from '../models/GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from '../models/GetAGroupChannelResponseAllOf';
+import { GetChannelInvitationPreferenceResponse } from '../models/GetChannelInvitationPreferenceResponse';
+import { GetTotalNumberOfMessagesInAChannelResponse } from '../models/GetTotalNumberOfMessagesInAChannelResponse';
+import { GroupChannelListMembersResponse } from '../models/GroupChannelListMembersResponse';
+import { GroupChatListChannelsResponse } from '../models/GroupChatListChannelsResponse';
+import { HideAChannelRequest } from '../models/HideAChannelRequest';
+import { InviteAsMembersRequest } from '../models/InviteAsMembersRequest';
+import { InviteAsMembersResponse } from '../models/InviteAsMembersResponse';
+import { InviteAsMembersResponseAllOf } from '../models/InviteAsMembersResponseAllOf';
+import { JoinAChannelRequest } from '../models/JoinAChannelRequest';
+import { JoinChannelsRequest } from '../models/JoinChannelsRequest';
+import { LeaveAChannelRequest } from '../models/LeaveAChannelRequest';
+import { LeaveMyGroupChannelsRequest } from '../models/LeaveMyGroupChannelsRequest';
 import { ListBlockedUsersResponse } from '../models/ListBlockedUsersResponse';
 import { ListBotsResponse } from '../models/ListBotsResponse';
 import { ListBotsResponseBotsInner } from '../models/ListBotsResponseBotsInner';
-import { ListDataExportsByMessageChannelOrUserResponse } from '../models/ListDataExportsByMessageChannelOrUserResponse';
-import { ListDataExportsByMessageChannelOrUserResponseExportedDataInner } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
-import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from '../models/ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
-import { ListEmojisResponse } from '../models/ListEmojisResponse';
-import { ListGdprRequestsResponse } from '../models/ListGdprRequestsResponse';
-import { ListGdprRequestsResponseRequestsInner } from '../models/ListGdprRequestsResponseRequestsInner';
+import { ListBotsResponseBotsInnerAi } from '../models/ListBotsResponseBotsInnerAi';
+import { ListBotsResponseBotsInnerBot } from '../models/ListBotsResponseBotsInnerBot';
+import { ListBotsResponseBotsInnerBotStyle } from '../models/ListBotsResponseBotsInnerBotStyle';
+import { ListBotsResponseBotsInnerBotStyleColor } from '../models/ListBotsResponseBotsInnerBotStyleColor';
+import { ListBotsResponseBotsInnerFirstMessagesInner } from '../models/ListBotsResponseBotsInnerFirstMessagesInner';
+import { ListBotsResponseBotsInnerFirstMessagesInnerData } from '../models/ListBotsResponseBotsInnerFirstMessagesInnerData';
+import { ListBotsResponseBotsInnerSafeguard } from '../models/ListBotsResponseBotsInnerSafeguard';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
-import { ListMessagesResponseMessagesInner } from '../models/ListMessagesResponseMessagesInner';
-import { ListMessagesResponseMessagesInnerOgTag } from '../models/ListMessagesResponseMessagesInnerOgTag';
-import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from '../models/ListMessagesResponseMessagesInnerSortedMetaarrayInner';
-import { ListMutedChannelsResponse } from '../models/ListMutedChannelsResponse';
-import { ListMutedUsersInChannelsWithCustomChannelType200Response } from '../models/ListMutedUsersInChannelsWithCustomChannelType200Response';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
-import { ListPushConfigurationsResponse } from '../models/ListPushConfigurationsResponse';
-import { ListPushConfigurationsResponsePushConfigurationsInner } from '../models/ListPushConfigurationsResponsePushConfigurationsInner';
-import { ListPushNotificationContentTemplatesResponse } from '../models/ListPushNotificationContentTemplatesResponse';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate } from '../models/ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate';
-import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
+import { ListOpenChannelsResponse } from '../models/ListOpenChannelsResponse';
+import { ListOperatorsResponse } from '../models/ListOperatorsResponse';
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
-import { ListReportsOnChannelByUrlResponse } from '../models/ListReportsOnChannelByUrlResponse';
-import { ListReportsOnMessageByIdResponse } from '../models/ListReportsOnMessageByIdResponse';
-import { ListReportsOnMessageByIdResponseReportLogsInner } from '../models/ListReportsOnMessageByIdResponseReportLogsInner';
-import { ListReportsOnUserByIdResponse } from '../models/ListReportsOnUserByIdResponse';
-import { ListReportsResponse } from '../models/ListReportsResponse';
-import { ListReportsResponseReportLogsInner } from '../models/ListReportsResponseReportLogsInner';
-import { ListSecondaryApiTokensResponse } from '../models/ListSecondaryApiTokensResponse';
-import { ListSecondaryApiTokensResponseApiTokensInner } from '../models/ListSecondaryApiTokensResponseApiTokensInner';
 import { ListUsersResponse } from '../models/ListUsersResponse';
-import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
-import { ModelFile } from '../models/ModelFile';
-import { MuteInChannelsWithCustomChannelTypesData } from '../models/MuteInChannelsWithCustomChannelTypesData';
-import { MuteUsersInChannelsWithCustomChannelTypeData } from '../models/MuteUsersInChannelsWithCustomChannelTypeData';
-import { OcBanUserData } from '../models/OcBanUserData';
-import { OcBanUserResponse } from '../models/OcBanUserResponse';
-import { OcCreateChannelData } from '../models/OcCreateChannelData';
-import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
-import { OcFreezeChannelData } from '../models/OcFreezeChannelData';
-import { OcListBannedUsersResponse } from '../models/OcListBannedUsersResponse';
-import { OcListBannedUsersResponseBannedListInner } from '../models/OcListBannedUsersResponseBannedListInner';
-import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
-import { OcListMutedUsersResponse } from '../models/OcListMutedUsersResponse';
-import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
-import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse';
-import { OcMuteUserData } from '../models/OcMuteUserData';
-import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
-import { OcUpdateBanByIdData } from '../models/OcUpdateBanByIdData';
-import { OcUpdateBanByIdResponse } from '../models/OcUpdateBanByIdResponse';
-import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
-import { OcViewBanByIdResponse } from '../models/OcViewBanByIdResponse';
-import { OcViewMuteByIdResponse } from '../models/OcViewMuteByIdResponse';
-import { RegisterAndScheduleDataExportData } from '../models/RegisterAndScheduleDataExportData';
-import { RegisterAndScheduleDataExportResponse } from '../models/RegisterAndScheduleDataExportResponse';
-import { RegisterAsOperatorToChannelsWithCustomChannelTypesData } from '../models/RegisterAsOperatorToChannelsWithCustomChannelTypesData';
-import { RegisterGdprRequestData } from '../models/RegisterGdprRequestData';
-import { RegisterGdprRequestResponse } from '../models/RegisterGdprRequestResponse';
-import { RemovePushConfigurationByIdResponse } from '../models/RemovePushConfigurationByIdResponse';
-import { RemoveReactionFromAMessageResponse } from '../models/RemoveReactionFromAMessageResponse';
-import { RemoveRegistrationOrDeviceTokenByTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenResponse';
-import { ReportChannelByUrlData } from '../models/ReportChannelByUrlData';
-import { ReportChannelByUrlResponse } from '../models/ReportChannelByUrlResponse';
-import { ReportMessageByIdData } from '../models/ReportMessageByIdData';
-import { ReportMessageByIdResponse } from '../models/ReportMessageByIdResponse';
-import { ReportUserByIdData } from '../models/ReportUserByIdData';
-import { ReportUserByIdResponse } from '../models/ReportUserByIdResponse';
-import { ResetPushPreferencesResponse } from '../models/ResetPushPreferencesResponse';
-import { RetrieveAdvancedAnalyticsMetricsResponse } from '../models/RetrieveAdvancedAnalyticsMetricsResponse';
-import { RetrieveIpWhitelistResponse } from '../models/RetrieveIpWhitelistResponse';
-import { RetrieveListOfSubscribedEventsResponse } from '../models/RetrieveListOfSubscribedEventsResponse';
-import { RetrieveListOfSubscribedEventsResponseWebhook } from '../models/RetrieveListOfSubscribedEventsResponseWebhook';
-import { RevokeSecondaryApiTokenByTokenResponse } from '../models/RevokeSecondaryApiTokenByTokenResponse';
-import { SBObject } from '../models/SBObject';
-import { ScheduleAnnouncementData } from '../models/ScheduleAnnouncementData';
-import { ScheduleAnnouncementDataMessage } from '../models/ScheduleAnnouncementDataMessage';
-import { ScheduleAnnouncementResponse } from '../models/ScheduleAnnouncementResponse';
-import { ScheduleAnnouncementResponseCreateChannelOptions } from '../models/ScheduleAnnouncementResponseCreateChannelOptions';
-import { ScheduleAnnouncementResponseMessage } from '../models/ScheduleAnnouncementResponseMessage';
-import { SendBirdAdminMessage } from '../models/SendBirdAdminMessage';
-import { SendBirdAppleCriticalAlertOptions } from '../models/SendBirdAppleCriticalAlertOptions';
-import { SendBirdAutoEventMessageSettings } from '../models/SendBirdAutoEventMessageSettings';
-import { SendBirdBaseChannel } from '../models/SendBirdBaseChannel';
-import { SendBirdBaseMessageInstance } from '../models/SendBirdBaseMessageInstance';
-import { SendBirdBotsMessageResponse } from '../models/SendBirdBotsMessageResponse';
-import { SendBirdBotsMessageResponseMessage } from '../models/SendBirdBotsMessageResponseMessage';
-import { SendBirdBotsMessageResponseMessageExtendedMessagePayload } from '../models/SendBirdBotsMessageResponseMessageExtendedMessagePayload';
-import { SendBirdBotsMessageResponseMessageMessageEvents } from '../models/SendBirdBotsMessageResponseMessageMessageEvents';
-import { SendBirdChannelResponse } from '../models/SendBirdChannelResponse';
-import { SendBirdEmoji } from '../models/SendBirdEmoji';
-import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
-import { SendBirdFile } from '../models/SendBirdFile';
-import { SendBirdFileMessageParams } from '../models/SendBirdFileMessageParams';
-import { SendBirdGroupChannel } from '../models/SendBirdGroupChannel';
-import { SendBirdGroupChannelChannel } from '../models/SendBirdGroupChannelChannel';
-import { SendBirdGroupChannelCollection } from '../models/SendBirdGroupChannelCollection';
-import { SendBirdGroupChannelCreatedBy } from '../models/SendBirdGroupChannelCreatedBy';
-import { SendBirdGroupChannelDisappearingMessage } from '../models/SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelSmsFallback } from '../models/SendBirdGroupChannelSmsFallback';
-import { SendBirdMember } from '../models/SendBirdMember';
-import { SendBirdMessageMetaArray } from '../models/SendBirdMessageMetaArray';
-import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
-import { SendBirdMessageResponseMentionedUsersInner } from '../models/SendBirdMessageResponseMentionedUsersInner';
-import { SendBirdMessageResponseUser } from '../models/SendBirdMessageResponseUser';
-import { SendBirdOGImage } from '../models/SendBirdOGImage';
-import { SendBirdOGMetaData } from '../models/SendBirdOGMetaData';
-import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
-import { SendBirdParentMessageInfo } from '../models/SendBirdParentMessageInfo';
-import { SendBirdPlugin } from '../models/SendBirdPlugin';
-import { SendBirdPoll } from '../models/SendBirdPoll';
-import { SendBirdPollDetails } from '../models/SendBirdPollDetails';
-import { SendBirdPollOption } from '../models/SendBirdPollOption';
-import { SendBirdPollUpdatedVoteCount } from '../models/SendBirdPollUpdatedVoteCount';
-import { SendBirdReaction } from '../models/SendBirdReaction';
-import { SendBirdRestrictionInfo } from '../models/SendBirdRestrictionInfo';
-import { SendBirdScheduledMessage } from '../models/SendBirdScheduledMessage';
-import { SendBirdSender } from '../models/SendBirdSender';
-import { SendBirdThreadInfo } from '../models/SendBirdThreadInfo';
-import { SendBirdThumbnailSBObject } from '../models/SendBirdThumbnailSBObject';
-import { SendBirdThumbnailSize } from '../models/SendBirdThumbnailSize';
-import { SendBirdUser } from '../models/SendBirdUser';
-import { SendBirdUserMessageParams } from '../models/SendBirdUserMessageParams';
-import { SendBotSMessageData } from '../models/SendBotSMessageData';
-import { SendBotSMessageDataExtendedMessagePayload } from '../models/SendBotSMessageDataExtendedMessagePayload';
-import { SendMessageData } from '../models/SendMessageData';
-import { SetDomainFilterData } from '../models/SetDomainFilterData';
-import { SetDomainFilterDataDomainFilter } from '../models/SetDomainFilterDataDomainFilter';
-import { SetDomainFilterDataImageModeration } from '../models/SetDomainFilterDataImageModeration';
-import { SetDomainFilterDataImageModerationLimits } from '../models/SetDomainFilterDataImageModerationLimits';
-import { SetDomainFilterDataProfanityFilter } from '../models/SetDomainFilterDataProfanityFilter';
-import { SetDomainFilterDataProfanityFilterRegexFiltersInner } from '../models/SetDomainFilterDataProfanityFilterRegexFiltersInner';
-import { SetDomainFilterDataProfanityTriggeredModeration } from '../models/SetDomainFilterDataProfanityTriggeredModeration';
-import { TranslateMessageIntoOtherLanguagesData } from '../models/TranslateMessageIntoOtherLanguagesData';
-import { UpdateAnnouncementByIdData } from '../models/UpdateAnnouncementByIdData';
-import { UpdateAnnouncementByIdResponse } from '../models/UpdateAnnouncementByIdResponse';
-import { UpdateAnnouncementByIdResponseMessage } from '../models/UpdateAnnouncementByIdResponseMessage';
-import { UpdateApnsPushConfigurationByIdData } from '../models/UpdateApnsPushConfigurationByIdData';
-import { UpdateApnsPushConfigurationByIdResponse } from '../models/UpdateApnsPushConfigurationByIdResponse';
-import { UpdateBotByIdData } from '../models/UpdateBotByIdData';
-import { UpdateBotByIdResponse } from '../models/UpdateBotByIdResponse';
-import { UpdateChannelInvitationPreferenceData } from '../models/UpdateChannelInvitationPreferenceData';
+import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
+import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest } from '../models/MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest } from '../models/MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from '../models/MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from '../models/MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner } from '../models/MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest } from '../models/MigrateMessagesTextMessageRequest';
+import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
+import { RemoveARegistrationOrDeviceTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from '../models/RemoveAllRegistrationOrDeviceTokenResponse';
+import { ResetChatHistoryRequest } from '../models/ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from '../models/ResetChatHistoryResponse';
+import { ScheduleAnAnnouncementRequest } from '../models/ScheduleAnAnnouncementRequest';
+import { ScheduleAnAnnouncementRequestCreateChannelOptions } from '../models/ScheduleAnAnnouncementRequestCreateChannelOptions';
+import { ScheduleAnAnnouncementRequestMessage } from '../models/ScheduleAnAnnouncementRequestMessage';
+import { ScheduleAnAnnouncementResponse } from '../models/ScheduleAnAnnouncementResponse';
+import { ScheduleAnAnnouncementResponseMessage } from '../models/ScheduleAnAnnouncementResponseMessage';
+import { SendABotMessageRequest } from '../models/SendABotMessageRequest';
+import { SendAMessageRequest } from '../models/SendAMessageRequest';
+import { SendAdminMessageRequestBody } from '../models/SendAdminMessageRequestBody';
+import { SendFileMessageRequestBody } from '../models/SendFileMessageRequestBody';
+import { SendTextMessageRequestBody } from '../models/SendTextMessageRequestBody';
+import { SendTextMessageRequestBodyPushMessageTemplate } from '../models/SendTextMessageRequestBodyPushMessageTemplate';
+import { SendTextMessageRequestBodyPushMessageTemplateOneOf } from '../models/SendTextMessageRequestBodyPushMessageTemplateOneOf';
+import { SendbirdBasicUserInfo } from '../models/SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from '../models/SendbirdDisappearingMessage';
+import { SendbirdExtendedMessagePayload } from '../models/SendbirdExtendedMessagePayload';
+import { SendbirdFile } from '../models/SendbirdFile';
+import { SendbirdGroupChannel } from '../models/SendbirdGroupChannel';
+import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
+import { SendbirdGroupChannelDetailChannel } from '../models/SendbirdGroupChannelDetailChannel';
+import { SendbirdMember } from '../models/SendbirdMember';
+import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
+import { SendbirdMessageResponseMessageEvents } from '../models/SendbirdMessageResponseMessageEvents';
+import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
+import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from '../models/SendbirdPushTriggerOption';
+import { SendbirdReaction } from '../models/SendbirdReaction';
+import { SendbirdSmsFallback } from '../models/SendbirdSmsFallback';
+import { SendbirdSortedMetaarrayInner } from '../models/SendbirdSortedMetaarrayInner';
+import { SendbirdThumbnail } from '../models/SendbirdThumbnail';
+import { SendbirdUser } from '../models/SendbirdUser';
+import { StartTypingIndicatorsRequest } from '../models/StartTypingIndicatorsRequest';
+import { UpdateAChannelMetadataRequest } from '../models/UpdateAChannelMetadataRequest';
+import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest';
+import { UpdateAMessageRequest } from '../models/UpdateAMessageRequest';
+import { UpdateAUserRequest } from '../models/UpdateAUserRequest';
+import { UpdateAnOpenChannelRequest } from '../models/UpdateAnOpenChannelRequest';
+import { UpdateChannelInvitationPreferenceRequest } from '../models/UpdateChannelInvitationPreferenceRequest';
 import { UpdateChannelInvitationPreferenceResponse } from '../models/UpdateChannelInvitationPreferenceResponse';
-import { UpdateChannelMetacounterData } from '../models/UpdateChannelMetacounterData';
-import { UpdateChannelMetadataData } from '../models/UpdateChannelMetadataData';
-import { UpdateCountPreferenceOfChannelByUrlData } from '../models/UpdateCountPreferenceOfChannelByUrlData';
+import { UpdateCountPreferenceOfAChannelRequest } from '../models/UpdateCountPreferenceOfAChannelRequest';
 import { UpdateCountPreferenceOfChannelByUrlResponse } from '../models/UpdateCountPreferenceOfChannelByUrlResponse';
-import { UpdateDefaultChannelInvitationPreferenceData } from '../models/UpdateDefaultChannelInvitationPreferenceData';
-import { UpdateDefaultChannelInvitationPreferenceResponse } from '../models/UpdateDefaultChannelInvitationPreferenceResponse';
-import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrlByIdData';
-import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
-import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
-import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
-import { UpdateExtraDataInMessageResponseSortedMetaarrayInner } from '../models/UpdateExtraDataInMessageResponseSortedMetaarrayInner';
-import { UpdateFcmPushConfigurationByIdData } from '../models/UpdateFcmPushConfigurationByIdData';
-import { UpdateFcmPushConfigurationByIdResponse } from '../models/UpdateFcmPushConfigurationByIdResponse';
-import { UpdateHmsPushConfigurationByIdData } from '../models/UpdateHmsPushConfigurationByIdData';
-import { UpdateHmsPushConfigurationByIdResponse } from '../models/UpdateHmsPushConfigurationByIdResponse';
-import { UpdateMessageByIdData } from '../models/UpdateMessageByIdData';
-import { UpdatePushNotificationContentTemplateData } from '../models/UpdatePushNotificationContentTemplateData';
-import { UpdatePushNotificationContentTemplateResponse } from '../models/UpdatePushNotificationContentTemplateResponse';
-import { UpdatePushPreferencesData } from '../models/UpdatePushPreferencesData';
-import { UpdatePushPreferencesForChannelByUrlData } from '../models/UpdatePushPreferencesForChannelByUrlData';
-import { UpdatePushPreferencesForChannelByUrlResponse } from '../models/UpdatePushPreferencesForChannelByUrlResponse';
+import { UpdateExtraDataInAMessageRequest } from '../models/UpdateExtraDataInAMessageRequest';
+import { UpdateExtraDataInAMessageResponse } from '../models/UpdateExtraDataInAMessageResponse';
+import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPreferencesForAChannelRequest';
+import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
+import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
-import { UpdateUserByIdData } from '../models/UpdateUserByIdData';
-import { UpdateUserMetadataData } from '../models/UpdateUserMetadataData';
-import { UpdateUserMetadataResponse } from '../models/UpdateUserMetadataResponse';
-import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
-import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
-import { V3ApplicationsPushSettingsGet200Response } from '../models/V3ApplicationsPushSettingsGet200Response';
-import { V3ApplicationsPushSettingsGetRequest } from '../models/V3ApplicationsPushSettingsGetRequest';
-import { V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest } from '../models/V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
-import { V3PollsGetRequest } from '../models/V3PollsGetRequest';
-import { V3PollsPollIdDeleteRequest } from '../models/V3PollsPollIdDeleteRequest';
-import { V3PollsPollIdDeleteRequest1 } from '../models/V3PollsPollIdDeleteRequest1';
-import { V3PollsPollIdOptionsOptionIdDeleteRequest } from '../models/V3PollsPollIdOptionsOptionIdDeleteRequest';
-import { V3PollsPollIdOptionsOptionIdVotersGet200Response } from '../models/V3PollsPollIdOptionsOptionIdVotersGet200Response';
-import { V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner } from '../models/V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
-import { V3PollsPollIdOptionsOptionIdVotersGetRequest } from '../models/V3PollsPollIdOptionsOptionIdVotersGetRequest';
-import { V3PollsPollIdVotePutRequest } from '../models/V3PollsPollIdVotePutRequest';
-import { V3ScheduledMessagesCountGet200Response } from '../models/V3ScheduledMessagesCountGet200Response';
-import { V3ScheduledMessagesGet200Response } from '../models/V3ScheduledMessagesGet200Response';
-import { ViewAnnouncementByIdResponse } from '../models/ViewAnnouncementByIdResponse';
-import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
-import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
-import { ViewCountPreferenceOfChannelByUrlResponse } from '../models/ViewCountPreferenceOfChannelByUrlResponse';
-import { ViewDataExportByIdResponse } from '../models/ViewDataExportByIdResponse';
-import { ViewDefaultChannelInvitationPreferenceResponse } from '../models/ViewDefaultChannelInvitationPreferenceResponse';
-import { ViewGdprRequestByIdResponse } from '../models/ViewGdprRequestByIdResponse';
-import { ViewNumberOfChannelsByJoinStatusResponse } from '../models/ViewNumberOfChannelsByJoinStatusResponse';
+import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from '../models/ViewNumberOfChannelsWithUnreadMessagesResponse';
-import { ViewNumberOfConcurrentConnectionsResponse } from '../models/ViewNumberOfConcurrentConnectionsResponse';
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from '../models/ViewNumberOfMonthlyActiveUsersResponse';
-import { ViewNumberOfPeakConnectionsResponse } from '../models/ViewNumberOfPeakConnectionsResponse';
-import { ViewNumberOfPeakConnectionsResponsePeakConnectionsInner } from '../models/ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
-import { ViewNumberOfUnreadItemsResponse } from '../models/ViewNumberOfUnreadItemsResponse';
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
-import { ViewPushConfigurationByIdResponse } from '../models/ViewPushConfigurationByIdResponse';
-import { ViewPushNotificationContentTemplateResponse } from '../models/ViewPushNotificationContentTemplateResponse';
-import { ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner } from '../models/ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
-import { ViewPushPreferencesForChannelByUrlResponse } from '../models/ViewPushPreferencesForChannelByUrlResponse';
+import { ViewPushPreferencesForAChannelResponse } from '../models/ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
-import { ViewSecondaryApiTokenByTokenResponse } from '../models/ViewSecondaryApiTokenByTokenResponse';
-import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
-import { ViewUserMetadataResponse } from '../models/ViewUserMetadataResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
 import { AnnouncementApiRequestFactory, AnnouncementApiResponseProcessor} from "../apis/AnnouncementApi";
 export class ObservableAnnouncementApi {
@@ -333,143 +140,13 @@ export class ObservableAnnouncementApi {
     }
 
     /**
-     * ## Get detailed open rate of an announcement group  Retrieves the detailed open rate information of an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement-group ----------------------------
-     * Get detailed open rate of an announcement group
-     * @param announcementGroup 
-     * @param apiToken 
-     */
-    public getDetailedOpenRateOfAnnouncementGroup(announcementGroup: string, apiToken?: string, _options?: Configuration): Observable<GetDetailedOpenRateOfAnnouncementGroupResponse> {
-        const requestContextPromise = this.requestFactory.getDetailedOpenRateOfAnnouncementGroup(announcementGroup, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getDetailedOpenRateOfAnnouncementGroup(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - weekly
-     * @param apiToken 
-     */
-    public getStatistics(apiToken?: string, _options?: Configuration): Observable<GetStatisticsResponse> {
-        const requestContextPromise = this.requestFactory.getStatistics(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getStatistics(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - daily
-     * @param startDate 
-     * @param endDate 
-     * @param startWeek 
-     * @param endWeek 
-     * @param startMonth 
-     * @param endMonth 
-     * @param apiToken 
-     * @param announcementGroup 
-     */
-    public getStatisticsDaily(startDate: string, endDate: string, startWeek: string, endWeek: string, startMonth: string, endMonth: string, apiToken?: string, announcementGroup?: string, _options?: Configuration): Observable<GetStatisticsDailyResponse> {
-        const requestContextPromise = this.requestFactory.getStatisticsDaily(startDate, endDate, startWeek, endWeek, startMonth, endMonth, apiToken, announcementGroup, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getStatisticsDaily(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get statistics  Retrieves the daily, weekly or monthly statistics of an announcement or an announcement group.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-statistics ----------------------------
-     * Get statistics - monthly
-     * @param apiToken 
-     */
-    public getStatisticsMonthly(apiToken?: string, _options?: Configuration): Observable<GetStatisticsMonthlyResponse> {
-        const requestContextPromise = this.requestFactory.getStatisticsMonthly(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getStatisticsMonthly(rsp)));
-            }));
-    }
-
-    /**
-     * ## List announcement groups  Retrieves a list of announcement groups.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcement-groups ----------------------------
-     * List announcement groups
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listAnnouncementGroups(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListAnnouncementGroupsResponse> {
-        const requestContextPromise = this.requestFactory.listAnnouncementGroups(apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listAnnouncementGroups(rsp)));
-            }));
-    }
-
-    /**
-     * ## Schedule an announcement  Schedules a new announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-schedule-an-announcement
+     * ## Schedule an announcement  Creates an announcement. You can also schedule an announcement in the [Sendbird Dashboard](https://dashboard.sendbird.com).  [https://sendbird.com/docs/chat/platform-api/v3/message/announcements/create-an-announcement#1-create-an-announcement](https://sendbird.com/docs/chat/platform-api/v3/message/announcements/create-an-announcement#1-create-an-announcement)
      * Schedule an announcement
      * @param apiToken 
-     * @param scheduleAnnouncementData 
+     * @param scheduleAnAnnouncementRequest 
      */
-    public scheduleAnnouncement(apiToken?: string, scheduleAnnouncementData?: ScheduleAnnouncementData, _options?: Configuration): Observable<ScheduleAnnouncementResponse> {
-        const requestContextPromise = this.requestFactory.scheduleAnnouncement(apiToken, scheduleAnnouncementData, _options);
+    public scheduleAnAnnouncement(apiToken?: string, scheduleAnAnnouncementRequest?: ScheduleAnAnnouncementRequest, _options?: Configuration): Observable<ScheduleAnAnnouncementResponse> {
+        const requestContextPromise = this.requestFactory.scheduleAnAnnouncement(apiToken, scheduleAnAnnouncementRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -483,861 +160,7 @@ export class ObservableAnnouncementApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.scheduleAnnouncement(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update an announcement  Updates information of a specific announcement before it starts or changes the status of a specific announcement after it starts. For the 2 different applications, refer to the request body below.  >__Note__: Updating information of an announcement is possible only when the announcement status is scheduled, indicating it hasn't started yet.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-update-an-announcement ----------------------------
-     * Update an announcement
-     * @param uniqueId 
-     * @param apiToken 
-     * @param updateAnnouncementByIdData 
-     */
-    public updateAnnouncementById(uniqueId: string, apiToken?: string, updateAnnouncementByIdData?: UpdateAnnouncementByIdData, _options?: Configuration): Observable<UpdateAnnouncementByIdResponse> {
-        const requestContextPromise = this.requestFactory.updateAnnouncementById(uniqueId, apiToken, updateAnnouncementByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAnnouncementById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View an announcement  Retrieves information on a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-view-an-announcement ----------------------------
-     * View an announcement
-     * @param uniqueId 
-     * @param apiToken 
-     */
-    public viewAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<ViewAnnouncementByIdResponse> {
-        const requestContextPromise = this.requestFactory.viewAnnouncementById(uniqueId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewAnnouncementById(rsp)));
-            }));
-    }
-
-}
-
-import { ApplicationApiRequestFactory, ApplicationApiResponseProcessor} from "../apis/ApplicationApi";
-export class ObservableApplicationApi {
-    private requestFactory: ApplicationApiRequestFactory;
-    private responseProcessor: ApplicationApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: ApplicationApiRequestFactory,
-        responseProcessor?: ApplicationApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new ApplicationApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new ApplicationApiResponseProcessor();
-    }
-
-    /**
-     * ## Add an APNs push configuration  Registers an APNs (Apple Push Notification service) push configuration for your client app. To send push notifications to iOS devices, your should first register the APNs push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: To upload a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-apns-push-configuration
-     * Add an APNs push configuration
-     * @param apiToken 
-     * @param addApnsPushConfigurationData 
-     */
-    public addApnsPushConfiguration(apiToken?: string, addApnsPushConfigurationData?: AddApnsPushConfigurationData, _options?: Configuration): Observable<AddApnsPushConfigurationResponse> {
-        const requestContextPromise = this.requestFactory.addApnsPushConfiguration(apiToken, addApnsPushConfigurationData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addApnsPushConfiguration(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add a FCM push configuration  Registers a FCM (Firebase Cloud Messaging) push configuration for your client app. To send push notifications to Android devices, you should first register the FCM push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-a-fcm-push-configuration
-     * Add a FCM push configuration
-     * @param apiToken 
-     * @param addFcmPushConfigurationData 
-     */
-    public addFcmPushConfiguration(apiToken?: string, addFcmPushConfigurationData?: AddFcmPushConfigurationData, _options?: Configuration): Observable<AddFcmPushConfigurationResponse> {
-        const requestContextPromise = this.requestFactory.addFcmPushConfiguration(apiToken, addFcmPushConfigurationData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addFcmPushConfiguration(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add an HMS push configuration  Registers an HMS (Huawei Mobile Services) push configuration for your client app. To send push notifications to Android devices for HMS, you should first register the HMS push configuration. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-hms-push-configuration
-     * Add an HMS push configuration
-     * @param apiToken 
-     * @param addHmsPushConfigurationData 
-     */
-    public addHmsPushConfiguration(apiToken?: string, addHmsPushConfigurationData?: AddHmsPushConfigurationData, _options?: Configuration): Observable<AddHmsPushConfigurationResponse> {
-        const requestContextPromise = this.requestFactory.addHmsPushConfiguration(apiToken, addHmsPushConfigurationData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addHmsPushConfiguration(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add an IP to a whitelist  Adds IP addresses and ranges to your Sendbird application settings. Both currently added and any previously added IPs are granted API access. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-add-an-ip-to-a-whitelist
-     * Add an IP to a whitelist
-     * @param apiToken 
-     * @param addIpToWhitelistData 
-     */
-    public addIpToWhitelist(apiToken?: string, addIpToWhitelistData?: AddIpToWhitelistData, _options?: Configuration): Observable<AddIpToWhitelistResponse> {
-        const requestContextPromise = this.requestFactory.addIpToWhitelist(apiToken, addIpToWhitelistData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addIpToWhitelist(rsp)));
-            }));
-    }
-
-    /**
-     * ## Ban specified users in channels with a custom channel type at once.
-     * Ban users in channels with a custom channel type
-     * @param customType 
-     * @param apiToken 
-     * @param banUsersInChannelsWithCustomChannelTypeData 
-     */
-    public banUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, banUsersInChannelsWithCustomChannelTypeData?: BanUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.banUsersInChannelsWithCustomChannelType(customType, apiToken, banUsersInChannelsWithCustomChannelTypeData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.banUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## Configure auto event message settings  Determines whether to automatically send event messages to group channels when events take place in an application. You can choose which auto event message to receive on the Sendbird Dashboard  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/configure-auto-event-message-settings ----------------------------
-     * Configure auto event message settings
-     * @param apiToken 
-     * @param configureAutoEventData 
-     */
-    public configureAutoEventMessages(apiToken?: string, configureAutoEventData?: ConfigureAutoEventData, _options?: Configuration): Observable<SendBirdAutoEventMessageSettings> {
-        const requestContextPromise = this.requestFactory.configureAutoEventMessages(apiToken, configureAutoEventData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.configureAutoEventMessages(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete allowed IPs from a whitelist  Deletes allowed IPs from the whitelist by specifying their IP addresses or ranges. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-allowed-ips-from-a-whitelist
-     * Delete allowed IPs from a whitelist
-     * @param ipWhitelistAddresses 
-     * @param apiToken 
-     */
-    public deleteAllowedIpsFromWhitelist(ipWhitelistAddresses: Array<string>, apiToken?: string, _options?: Configuration): Observable<DeleteAllowedIpsFromWhitelistResponse> {
-        const requestContextPromise = this.requestFactory.deleteAllowedIpsFromWhitelist(ipWhitelistAddresses, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAllowedIpsFromWhitelist(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete an APNs certificate  Deletes a specific APNs certificate.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-delete-an-apns-certificate ----------------------------
-     * Delete an APNs certificate
-     * @param providerId 
-     * @param apiToken 
-     */
-    public deleteApnsCertificateById(providerId: string, apiToken?: string, _options?: Configuration): Observable<DeleteApnsCertificateByIdResponse> {
-        const requestContextPromise = this.requestFactory.deleteApnsCertificateById(providerId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteApnsCertificateById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Generate a secondary API token  Generates a new secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-generate-a-secondary-api-token
-     * Generate a secondary API token
-     * @param apiToken 
-     * @param generateSecondaryApiTokenData 
-     */
-    public generateSecondaryApiToken(apiToken?: string, generateSecondaryApiTokenData?: GenerateSecondaryApiTokenData, _options?: Configuration): Observable<GenerateSecondaryApiTokenResponse> {
-        const requestContextPromise = this.requestFactory.generateSecondaryApiToken(apiToken, generateSecondaryApiTokenData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.generateSecondaryApiToken(rsp)));
-            }));
-    }
-
-    /**
-     * ## List auto event messages  Retrieves a list of auto event messages that are sent in a specified application and indicates which ones are in use. Auto event messages are Admin messages that are automatically generated when a specific event occurs.  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/list-auto-event-messages ----------------------------
-     * List auto event messages
-     * @param apiToken 
-     */
-    public listAutoEventMessages(apiToken?: string, _options?: Configuration): Observable<SendBirdAutoEventMessageSettings> {
-        const requestContextPromise = this.requestFactory.listAutoEventMessages(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listAutoEventMessages(rsp)));
-            }));
-    }
-
-    /**
-     * ## Retrieves a list of users banned from channels with the specified custom channel type.
-     * List banned users in channels with a custom channel type
-     * @param customType 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listBannedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<CustomTypeListBannedUsersResponse> {
-        const requestContextPromise = this.requestFactory.listBannedUsersInChannelsWithCustomChannelType(customType, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listBannedUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## Retrieves a list of the muted users in channels with a custom channel type.
-     * List muted users in channels with a custom channel type
-     * @param customType 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listMutedUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListMutedUsersInChannelsWithCustomChannelType200Response> {
-        const requestContextPromise = this.requestFactory.listMutedUsersInChannelsWithCustomChannelType(customType, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listMutedUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## List push configurations  Retrieves a list of an application's registered push configurations.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-configurations ----------------------------
-     * List push configurations
-     * @param pushType 
-     * @param apiToken 
-     */
-    public listPushConfigurations(pushType: string, apiToken?: string, _options?: Configuration): Observable<ListPushConfigurationsResponse> {
-        const requestContextPromise = this.requestFactory.listPushConfigurations(pushType, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listPushConfigurations(rsp)));
-            }));
-    }
-
-    /**
-     * ## List push notification content templates  Retrieves a list of push notification content templates of an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-push-notification-content-templates
-     * List push notification content templates
-     * @param apiToken 
-     */
-    public listPushNotificationContentTemplates(apiToken?: string, _options?: Configuration): Observable<ListPushNotificationContentTemplatesResponse> {
-        const requestContextPromise = this.requestFactory.listPushNotificationContentTemplates(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listPushNotificationContentTemplates(rsp)));
-            }));
-    }
-
-    /**
-     * ## List secondary API tokens  Retrieves a list of secondary API tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-list-secondary-api-tokens
-     * List secondary API tokens
-     * @param apiToken 
-     */
-    public listSecondaryApiTokens(apiToken?: string, _options?: Configuration): Observable<ListSecondaryApiTokensResponse> {
-        const requestContextPromise = this.requestFactory.listSecondaryApiTokens(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listSecondaryApiTokens(rsp)));
-            }));
-    }
-
-    /**
-     * ## Mutes specified users in channels with a custom channel type at once.
-     * Mute users in channels with a custom channel type
-     * @param customType 
-     * @param apiToken 
-     * @param muteUsersInChannelsWithCustomChannelTypeData 
-     */
-    public muteUsersInChannelsWithCustomChannelType(customType: string, apiToken?: string, muteUsersInChannelsWithCustomChannelTypeData?: MuteUsersInChannelsWithCustomChannelTypeData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.muteUsersInChannelsWithCustomChannelType(customType, apiToken, muteUsersInChannelsWithCustomChannelTypeData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.muteUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## Remove a push configuration  Removes a specific push configuration from an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-remove-a-push-configuration ----------------------------
-     * Remove a push configuration
-     * @param pushType 
-     * @param providerId 
-     * @param apiToken 
-     */
-    public removePushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<RemovePushConfigurationByIdResponse> {
-        const requestContextPromise = this.requestFactory.removePushConfigurationById(pushType, providerId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removePushConfigurationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Retrieve an IP whitelist  Retrieves a list of all the IP ranges and addresses that have access to your Sendbird application. This list is called an IP whitelist and its addresses are granted API access when the IP whitelist API enables [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notations.  If you specify which IP addresses or ranges to include in the whitelist, any unlisted foreign IP addresses will be denied access. If you don't specify any IP address or range to include in the whitelist, all IP addresses will be granted API access. You can configure the IP whitelist under Settings > Security > Allowed IPs in the [Sendbird Dashboard](https://dashboard.sendbird.com).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-retrieve-an-ip-whitelist
-     * Retrieve an IP whitelist
-     * @param apiToken 
-     */
-    public retrieveIpWhitelist(apiToken?: string, _options?: Configuration): Observable<RetrieveIpWhitelistResponse> {
-        const requestContextPromise = this.requestFactory.retrieveIpWhitelist(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieveIpWhitelist(rsp)));
-            }));
-    }
-
-    /**
-     * ## Revoke a secondary API token  Revokes a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-revoke-a-secondary-api-token
-     * Revoke a secondary API token
-     * @param apiToken2 
-     * @param apiToken 
-     */
-    public revokeSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<RevokeSecondaryApiTokenByTokenResponse> {
-        const requestContextPromise = this.requestFactory.revokeSecondaryApiTokenByToken(apiToken2, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.revokeSecondaryApiTokenByToken(rsp)));
-            }));
-    }
-
-    /**
-     * ## 
-     * Message moderation
-     * @param customType 
-     * @param apiToken 
-     * @param setDomainFilterData 
-     */
-    public setDomainFilter(customType: string, apiToken?: string, setDomainFilterData?: SetDomainFilterData, _options?: Configuration): Observable<SendBirdChannelResponse> {
-        const requestContextPromise = this.requestFactory.setDomainFilter(customType, apiToken, setDomainFilterData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.setDomainFilter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unban specified users in channels with a custom channel type at once.
-     * Unban users in channels with a custom channel type
-     * @param customType 
-     * @param userIds 
-     * @param apiToken 
-     */
-    public unbanUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.unbanUsersInChannelsWithCustomChannelType(customType, userIds, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unbanUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unmute specified users in channels with a custom channel type at once.
-     * Unmute users in channels with a custom channel type
-     * @param customType 
-     * @param userIds 
-     * @param apiToken 
-     */
-    public unmuteUsersInChannelsWithCustomChannelType(customType: string, userIds: Array<string>, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.unmuteUsersInChannelsWithCustomChannelType(customType, userIds, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unmuteUsersInChannelsWithCustomChannelType(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update an APNs push configuration  Updates a specific APNs (Apple Push Notification service) push configuration for your client app. You can also register the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  > __Note__: If your HTTP request body contains a [.p12](https://sendbird.com/docs/chat/v3/ios/guides/push-notifications#2-step-3-export-a-p12-file-and-upload-to-sendbird-dashboard) certificate file to upload to Sendbird server, you should send a [Multipart request](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api#2-headers-3-multipart-requests) .  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-apns-push-configuration ----------------------------
-     * Update an APNs push configuration
-     * @param providerId 
-     * @param apiToken 
-     * @param updateApnsPushConfigurationByIdData 
-     */
-    public updateApnsPushConfigurationById(providerId: string, apiToken?: string, updateApnsPushConfigurationByIdData?: UpdateApnsPushConfigurationByIdData, _options?: Configuration): Observable<UpdateApnsPushConfigurationByIdResponse> {
-        const requestContextPromise = this.requestFactory.updateApnsPushConfigurationById(providerId, apiToken, updateApnsPushConfigurationByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateApnsPushConfigurationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update default channel invitation preference  Updates the default channel invitation preference of an application.  > __Note__: Using the [update channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can update the value of a specific user's channel invitation preference, which can be set individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference
-     * Update default channel invitation preference
-     * @param apiToken 
-     * @param updateDefaultChannelInvitationPreferenceData 
-     */
-    public updateDefaultChannelInvitationPreference(apiToken?: string, updateDefaultChannelInvitationPreferenceData?: UpdateDefaultChannelInvitationPreferenceData, _options?: Configuration): Observable<UpdateDefaultChannelInvitationPreferenceResponse> {
-        const requestContextPromise = this.requestFactory.updateDefaultChannelInvitationPreference(apiToken, updateDefaultChannelInvitationPreferenceData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateDefaultChannelInvitationPreference(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a FCM push configuration  Updates a specific FCM (Firebase Cloud Messaging) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-fcm-push-configuration ----------------------------
-     * Update a FCM push configuration
-     * @param providerId 
-     * @param apiToken 
-     * @param updateFcmPushConfigurationByIdData 
-     */
-    public updateFcmPushConfigurationById(providerId: string, apiToken?: string, updateFcmPushConfigurationByIdData?: UpdateFcmPushConfigurationByIdData, _options?: Configuration): Observable<UpdateFcmPushConfigurationByIdResponse> {
-        const requestContextPromise = this.requestFactory.updateFcmPushConfigurationById(providerId, apiToken, updateFcmPushConfigurationByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateFcmPushConfigurationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update an HMS push configuration  Updates a specific HMS (Huawei Mobile Services) push configuration for your client app. You can also update the configurations in your [dashboard](https://dashboard.sendbird.com) under Settings > Application > Notifications.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-an-hms-push-configuration ----------------------------
-     * Update an HMS push configuration
-     * @param providerId 
-     * @param apiToken 
-     * @param updateHmsPushConfigurationByIdData 
-     */
-    public updateHmsPushConfigurationById(providerId: string, apiToken?: string, updateHmsPushConfigurationByIdData?: UpdateHmsPushConfigurationByIdData, _options?: Configuration): Observable<UpdateHmsPushConfigurationByIdResponse> {
-        const requestContextPromise = this.requestFactory.updateHmsPushConfigurationById(providerId, apiToken, updateHmsPushConfigurationByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateHmsPushConfigurationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a push notification content template  Updates a specific push notification content template of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-a-push-notification-content-template ----------------------------
-     * Update a push notification content template
-     * @param templateName 
-     * @param apiToken 
-     * @param updatePushNotificationContentTemplateData 
-     */
-    public updatePushNotificationContentTemplate(templateName: string, apiToken?: string, updatePushNotificationContentTemplateData?: UpdatePushNotificationContentTemplateData, _options?: Configuration): Observable<UpdatePushNotificationContentTemplateResponse> {
-        const requestContextPromise = this.requestFactory.updatePushNotificationContentTemplate(templateName, apiToken, updatePushNotificationContentTemplateData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updatePushNotificationContentTemplate(rsp)));
-            }));
-    }
-
-    /**
-     * ## View default channel invitation preference  Retrieves the default channel invitation preference of an application.  > __Note__: Using the [view channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference) action, you can retrieve the value of a specific user's channel invitation preference, which can be set individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference
-     * View default channel invitation preference
-     * @param apiToken 
-     */
-    public viewDefaultChannelInvitationPreference(apiToken?: string, _options?: Configuration): Observable<ViewDefaultChannelInvitationPreferenceResponse> {
-        const requestContextPromise = this.requestFactory.viewDefaultChannelInvitationPreference(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewDefaultChannelInvitationPreference(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a push configuration  Retrieves a specific push configuration of an application. The type of a push configuration is either `fcm`, `huawei`, or `apns`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-configuration ----------------------------
-     * View a push configuration
-     * @param pushType 
-     * @param providerId 
-     * @param apiToken 
-     */
-    public viewPushConfigurationById(pushType: string, providerId: string, apiToken?: string, _options?: Configuration): Observable<ViewPushConfigurationByIdResponse> {
-        const requestContextPromise = this.requestFactory.viewPushConfigurationById(pushType, providerId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewPushConfigurationById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get a push notification content template  Retrieves information on a specific push notification content templates of an application. The name of a content template is either `default` or `alternative`.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-push-notification-content-template ----------------------------
-     * Get a push notification content template
-     * @param templateName 
-     * @param apiToken 
-     */
-    public viewPushNotificationContentTemplate(templateName: string, apiToken?: string, _options?: Configuration): Observable<ViewPushNotificationContentTemplateResponse> {
-        const requestContextPromise = this.requestFactory.viewPushNotificationContentTemplate(templateName, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewPushNotificationContentTemplate(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a secondary API token  Retrieves the information on a secondary API token.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-a-secondary-api-token
-     * View a secondary API token
-     * @param apiToken2 
-     * @param apiToken 
-     */
-    public viewSecondaryApiTokenByToken(apiToken2: string, apiToken?: string, _options?: Configuration): Observable<ViewSecondaryApiTokenByTokenResponse> {
-        const requestContextPromise = this.requestFactory.viewSecondaryApiTokenByToken(apiToken2, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewSecondaryApiTokenByToken(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.scheduleAnAnnouncement(rsp)));
             }));
     }
 
@@ -1360,13 +183,13 @@ export class ObservableBotApi {
     }
 
     /**
-     * ## Create a bot  Creates a new bot within the application. Creating a bot is similar to creating a normal user, except that a callback URL is specified in order for the bot to receive events.  > __Note__: The bot must [join](#2-join-channels) a group channel first to interact with users. In group channels, you can invite a bot through the [invite as members](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-create-a-bot
+     * ## Create a bot  Creates a new bot within an application. Creating a bot is similar to creating a normal user, except a callback URL should be specified for a bot to receive events.  > **Note**: The bot must first [join a group channel](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels) to interact with users. In group channels, you can also invite a bot through the [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) action.      [https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot](https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot)
      * Create a bot
      * @param apiToken 
-     * @param createBotData 
+     * @param createABotRequest 
      */
-    public createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Observable<CreateBotResponse> {
-        const requestContextPromise = this.requestFactory.createBot(apiToken, createBotData, _options);
+    public createABot(apiToken?: string, createABotRequest?: CreateABotRequest, _options?: Configuration): Observable<CreateABotResponse> {
+        const requestContextPromise = this.requestFactory.createABot(apiToken, createABotRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1380,44 +203,19 @@ export class ObservableBotApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createBot(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createABot(rsp)));
             }));
     }
 
     /**
-     * ## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
-     * Delete a bot
-     * @param botUserid 
-     * @param apiToken 
-     */
-    public deleteBotById(botUserid: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteBotById(botUserid, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteBotById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Join channels  Makes a bot join one or more channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-join-channels ----------------------------
+     * ## Join channels  Makes a bot join one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels)
      * Join channels
-     * @param botUserid 
+     * @param botUserid (Required) 
      * @param apiToken 
-     * @param joinChannelsData 
+     * @param joinChannelsRequest 
      */
-    public joinChannels(botUserid: string, apiToken?: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Observable<JoinChannelsResponse> {
-        const requestContextPromise = this.requestFactory.joinChannels(botUserid, apiToken, joinChannelsData, _options);
+    public joinChannels(botUserid: string, apiToken?: string, joinChannelsRequest?: JoinChannelsRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.joinChannels(botUserid, apiToken, joinChannelsRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1436,14 +234,39 @@ export class ObservableBotApi {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
+     * ## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving a specific channel
+     * @param channelUrl 
+     * @param botUserid (Required) 
+     * @param apiToken 
+     */
+    public leaveAGroupChannel(channelUrl: string, botUserid: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.leaveAGroupChannel(channelUrl, botUserid, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.leaveAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
      * Leave channels - When leaving all channels
-     * @param botUserid 
+     * @param botUserid (Required) 
      * @param apiToken 
-     * @param channelUrl 
      */
-    public leaveChannels(botUserid: string, apiToken?: string, channelUrl?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.leaveChannels(botUserid, apiToken, channelUrl, _options);
+    public leaveGroupChannels(botUserid: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.leaveGroupChannels(botUserid, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1457,45 +280,19 @@ export class ObservableBotApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.leaveChannels(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.leaveGroupChannels(rsp)));
             }));
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
-     * Leave channels - When leaving a channel by its channel URL
-     * @param botUserid 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public leaveChannelsByUrl(botUserid: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.leaveChannelsByUrl(botUserid, channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.leaveChannelsByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-list-bots ----------------------------
+     * ## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/platform-api/v3/bot/listing-bots/list-bots#1-list-bots
      * List bots
-     * @param apiToken 
      * @param token 
      * @param limit 
+     * @param apiToken 
      */
-    public listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListBotsResponse> {
-        const requestContextPromise = this.requestFactory.listBots(apiToken, token, limit, _options);
+    public listBots(token?: string, limit?: number, apiToken?: string, _options?: Configuration): Observable<ListBotsResponse> {
+        const requestContextPromise = this.requestFactory.listBots(token, limit, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1514,14 +311,14 @@ export class ObservableBotApi {
     }
 
     /**
-     * ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
+     * ## Send a bot message  Sends a bot message to a group channel.  [https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message](https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message)  `bot_userid`   Type: string   Description: Specifies the ID of the bot to send a message.
      * Send a bot's message
-     * @param botUserid 
+     * @param botUserid (Required) 
      * @param apiToken 
-     * @param sendBotSMessageData 
+     * @param sendABotMessageRequest 
      */
-    public sendBotsMessage(botUserid: string, apiToken?: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Observable<SendBirdBotsMessageResponse> {
-        const requestContextPromise = this.requestFactory.sendBotsMessage(botUserid, apiToken, sendBotSMessageData, _options);
+    public sendABotMessage(botUserid: string, apiToken?: string, sendABotMessageRequest?: SendABotMessageRequest, _options?: Configuration): Observable<SendbirdMessageResponse> {
+        const requestContextPromise = this.requestFactory.sendABotMessage(botUserid, apiToken, sendABotMessageRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1535,200 +332,7 @@ export class ObservableBotApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendBotsMessage(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
-     * Update a bot
-     * @param botUserid 
-     * @param apiToken 
-     * @param updateBotByIdData 
-     */
-    public updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Observable<UpdateBotByIdResponse> {
-        const requestContextPromise = this.requestFactory.updateBotById(botUserid, apiToken, updateBotByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateBotById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
-     * View a bot
-     * @param botUserid 
-     * @param apiToken 
-     */
-    public viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Observable<ViewBotByIdResponse> {
-        const requestContextPromise = this.requestFactory.viewBotById(botUserid, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewBotById(rsp)));
-            }));
-    }
-
-}
-
-import { DataExportApiRequestFactory, DataExportApiResponseProcessor} from "../apis/DataExportApi";
-export class ObservableDataExportApi {
-    private requestFactory: DataExportApiRequestFactory;
-    private responseProcessor: DataExportApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: DataExportApiRequestFactory,
-        responseProcessor?: DataExportApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new DataExportApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new DataExportApiResponseProcessor();
-    }
-
-    /**
-     * ## List data exports by message, channel, or user  Retrieves a list of message, channel or user data exports  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-list-data-exports-by-message,-channel,-or-user ----------------------------   `data_type`      Type: string      Description: Specifies the type of a data export to retrieve. Acceptable values are messages, channels, users, and failed_webhooks.
-     * List data exports by message, channel, or user
-     * @param dataType 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listDataExportsByMessageChannelOrUser(dataType: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListDataExportsByMessageChannelOrUserResponse> {
-        const requestContextPromise = this.requestFactory.listDataExportsByMessageChannelOrUser(dataType, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listDataExportsByMessageChannelOrUser(rsp)));
-            }));
-    }
-
-    /**
-     * ## Register and schedule a data export  Registers and schedules a message, channel, or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-register-and-schedule-a-data-export ----------------------------
-     * Register and schedule a data export
-     * @param dataType 
-     * @param apiToken 
-     * @param registerAndScheduleDataExportData 
-     */
-    public registerAndScheduleDataExport(dataType: string, apiToken?: string, registerAndScheduleDataExportData?: RegisterAndScheduleDataExportData, _options?: Configuration): Observable<RegisterAndScheduleDataExportResponse> {
-        const requestContextPromise = this.requestFactory.registerAndScheduleDataExport(dataType, apiToken, registerAndScheduleDataExportData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.registerAndScheduleDataExport(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a data export  Retrieves information on a message, channel or user data export.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-export#2-view-a-data-export ----------------------------   `data_type`      Type: string      Description: Specifies the type of a targeted data export. Acceptable values are messages, channels,  users, and failed_webhooks.  `request_id`      Type: string      Description: Specifies the unique ID of a data export to retrieve.
-     * View a data export
-     * @param dataType 
-     * @param requestId 
-     * @param apiToken 
-     */
-    public viewDataExportById(dataType: string, requestId: string, apiToken?: string, _options?: Configuration): Observable<ViewDataExportByIdResponse> {
-        const requestContextPromise = this.requestFactory.viewDataExportById(dataType, requestId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewDataExportById(rsp)));
-            }));
-    }
-
-}
-
-import { DeleteAPinApiRequestFactory, DeleteAPinApiResponseProcessor} from "../apis/DeleteAPinApi";
-export class ObservableDeleteAPinApi {
-    private requestFactory: DeleteAPinApiRequestFactory;
-    private responseProcessor: DeleteAPinApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: DeleteAPinApiRequestFactory,
-        responseProcessor?: DeleteAPinApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new DeleteAPinApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new DeleteAPinApiResponseProcessor();
-    }
-
-    /**
-     * ## Delete a pin Unpin a message from its channel. -----------------------------  
-     * Delete a pin
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     */
-    public v3ChannelTypeChannelUrlMessagesMessageIdPinDelete(channelType: string, channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Observable<SendBirdChannelResponse> {
-        const requestContextPromise = this.requestFactory.v3ChannelTypeChannelUrlMessagesMessageIdPinDelete(channelType, channelUrl, messageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ChannelTypeChannelUrlMessagesMessageIdPinDelete(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendABotMessage(rsp)));
             }));
     }
 
@@ -1751,14 +355,14 @@ export class ObservableGroupChannelApi {
     }
 
     /**
-     * ## Accept an invitation  Accepts an invitation from a [private](#4-private-vs-public) group channel for a user to join. Since a user is allowed to join up to 2,000 group channels, the invitation to a user who already belongs to a maximum number of group channels will be canceled automatically.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-accept-an-invitation ----------------------------
+     * ## Accept an invitation  Accepts an invitation from a group channel for a user to join. A single user may join up to 2,000 group channels, and any invitation to a user who is at capacity will be automatically canceled. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: This action is only available when the `auto_accept` property of an application is set to **false**. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) action, or the [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference) action.      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/accept-an-invitation-channel#1-accept-an-invitation)
      * Accept an invitation
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcAcceptInvitationData 
+     * @param acceptAnInvitationRequest 
      */
-    public gcAcceptInvitation(channelUrl: string, apiToken?: string, gcAcceptInvitationData?: GcAcceptInvitationData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcAcceptInvitation(channelUrl, apiToken, gcAcceptInvitationData, _options);
+    public acceptAnInvitation(channelUrl: string, apiToken?: string, acceptAnInvitationRequest?: AcceptAnInvitationRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.acceptAnInvitation(channelUrl, apiToken, acceptAnInvitationRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1772,20 +376,20 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcAcceptInvitation(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.acceptAnInvitation(rsp)));
             }));
     }
 
     /**
-     * ## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
+     * ## Unregister operators from a group channel  You can unregister operators in a group channel but keep them in the channel as members using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-a-group-channel#1-unregister-operators-from-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
      * Cancel the registration of operators
-     * @param channelUrl 
-     * @param operatorIds 
-     * @param apiToken 
+     * @param channelUrl (Required) 
+     * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
      * @param deleteAll 
+     * @param apiToken 
      */
-    public gcCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcCancelTheRegistrationOfOperators(channelUrl, operatorIds, apiToken, deleteAll, _options);
+    public cancelTheRegistrationOfOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.cancelTheRegistrationOfOperators(channelUrl, operatorIds, deleteAll, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1799,19 +403,99 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcCancelTheRegistrationOfOperators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cancelTheRegistrationOfOperators(rsp)));
             }));
     }
 
     /**
-     * ## Check if member  Checks whether the user is a member of the group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-check-if-member ----------------------------
+     * ## Check if user is a member  Checks if a user is a member of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/check-if-user-is-a-member#1-check-if-user-is-a-member)
      * Check if member
+     * @param channelUrl (Required) 
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public checkIfMember(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Observable<CheckIfMemberResponse> {
+        const requestContextPromise = this.requestFactory.checkIfMember(channelUrl, userId, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.checkIfMember(rsp)));
+            }));
+    }
+
+    /**
+     * ## Create a group channel  You can create a group channel for 1-to-1 and 1-to-N conversations. By default, group channels are used for conversations between up to 100 members. This number can stretch up to tens of thousands in Supergroup channels. Group channels can either be private and invite only, or public. They support typing indicators, unread count and read receipts, allowing for an interactive chat experience. A user can join up to 2000 group channels, and higher numbers would negatively impact the performance for the end user. The Chat history is turned off by default and its settings can be changed on Sendbird Dashboard by going to Settings > Chat > Channels > Group channels > Chat history. To learn more about group channels, see Channel Overview.  > If you are seeing the error message Maximum \"channel join\" count reached., then consider deleting channels that are no longer used. For situations where an agent connects with many customers such as support, delivery logistics or sales, we recommend using Sendbird Desk.  https://sendbird.com/docs/chat/platform-api/v3/channel/creating-a-channel/create-a-group-channel#1-create-a-group-channel
+     * Create a group channel
+     * @param apiToken 
+     * @param createAGroupChannelRequest 
+     */
+    public createAGroupChannel(apiToken?: string, createAGroupChannelRequest?: CreateAGroupChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.createAGroupChannel(apiToken, createAGroupChannelRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Delete a group channel  You can delete a group channel or a Supergroup channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-a-group-channel#1-delete-a-group-channel)
+     * Delete a group channel
      * @param channelUrl 
+     * @param apiToken 
+     */
+    public deleteAGroupChannel(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAGroupChannel(channelUrl, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Get a group channel  This action retrieves information about a specific [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use the optional query parameters to determine whether to include delivery receipt, read receipt, or member information in the response.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-a-group-channel#1-get-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve.
+     * Get a group channel
+     * @param channelUrl 
+     * @param showDeliveryReceipt 
+     * @param showReadReceipt 
+     * @param showMember 
+     * @param memberActiveMode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all)
      * @param userId 
      * @param apiToken 
      */
-    public gcCheckIfMemberById(channelUrl: string, userId: string, apiToken?: string, _options?: Configuration): Observable<GcCheckIfMemberByIdResponse> {
-        const requestContextPromise = this.requestFactory.gcCheckIfMemberById(channelUrl, userId, apiToken, _options);
+    public getAGroupChannel(channelUrl: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, memberActiveMode?: 'all' | 'activated' | 'deactivated', userId?: string, apiToken?: string, _options?: Configuration): Observable<GetAGroupChannelResponse> {
+        const requestContextPromise = this.requestFactory.getAGroupChannel(channelUrl, showDeliveryReceipt, showReadReceipt, showMember, memberActiveMode, userId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1825,18 +509,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcCheckIfMemberById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAGroupChannel(rsp)));
             }));
     }
 
     /**
-     * ## Create a channel  Creates a new group channel.  > If you are creating a 1-on-1 direct messaging channel for a user, it is recommended that you turn on the `distinct` property. If the property is turned off, a user can create a new channel even if they have had the previous chat between them, and therefore can't see previously sent messages or data in the new channel. On the other hand, if the `distinct` property is turned on, every 1-on-1 conversation between the same two users occurs within the same channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel
-     * Create a channel
+     * ## Hide a channel  This action allows you to hide a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) from a user's channel list. Hiding a channel gives users the ability to archive channels so that they can focus on channels that need the most attention.  With this API, you can allow users to hide a channel from themselves or from all channel members. You can also determine whether to have the channel remain hidden when a new message is sent to the channel. Note that only group channels can be hidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/hide-a-channel#1-hide-a-channel)
+     * Hide a channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcCreateChannelData 
+     * @param hideAChannelRequest 
      */
-    public gcCreateChannel(apiToken?: string, gcCreateChannelData?: GcCreateChannelData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcCreateChannel(apiToken, gcCreateChannelData, _options);
+    public hideAChannel(channelUrl: string, apiToken?: string, hideAChannelRequest?: HideAChannelRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.hideAChannel(channelUrl, apiToken, hideAChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1850,96 +535,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcCreateChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.hideAChannel(rsp)));
             }));
     }
 
     /**
-     * ## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
-     * Decline an invitation
-     * @param channelUrl 
-     * @param apiToken 
-     * @param gcDeclineInvitationData 
-     */
-    public gcDeclineInvitation(channelUrl: string, apiToken?: string, gcDeclineInvitationData?: GcDeclineInvitationData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcDeclineInvitation(channelUrl, apiToken, gcDeclineInvitationData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcDeclineInvitation(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
-     * Delete a channel
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public gcDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcDeleteChannelByUrl(channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcDeleteChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
-     * Hide or archive a channel
-     * @param channelUrl 
-     * @param apiToken 
-     * @param gcHideOrArchiveChannelData 
-     */
-    public gcHideOrArchiveChannel(channelUrl: string, apiToken?: string, gcHideOrArchiveChannelData?: GcHideOrArchiveChannelData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcHideOrArchiveChannel(channelUrl, apiToken, gcHideOrArchiveChannelData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcHideOrArchiveChannel(rsp)));
-            }));
-    }
-
-    /**
-     * ## Invite as members  Invites one or more users as members into the group channel.  > __Note__: By default, users in your application automatically join a [private](#4-private-vs-public) group channel promptly from an invitation without having to accept it. If you want to give them the option to decide whether to accept or decline an invitation, you should set the value of channel invitation preference to false through the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action. Or using the [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can also allow the option individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members ----------------------------
+     * ## Invite as members  Invites one or more users as members to a group channel. Users can join a group channel immediately after receiving an invitation, without having to accept it. To give users an option to accept or decline an invitation, see [update default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) or [update channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference). See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  > **Note**: By default, [blocked users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users) are included when sending invitations. If you wish to exclude blocked users, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      [https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel#1-invite-as-members)
      * Invite as members
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcInviteAsMembersData 
+     * @param inviteAsMembersRequest 
      */
-    public gcInviteAsMembers(channelUrl: string, apiToken?: string, gcInviteAsMembersData?: GcInviteAsMembersData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcInviteAsMembers(channelUrl, apiToken, gcInviteAsMembersData, _options);
+    public inviteAsMembers(channelUrl: string, apiToken?: string, inviteAsMembersRequest?: InviteAsMembersRequest, _options?: Configuration): Observable<InviteAsMembersResponse> {
+        const requestContextPromise = this.requestFactory.inviteAsMembers(channelUrl, apiToken, inviteAsMembersRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1953,19 +561,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcInviteAsMembers(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.inviteAsMembers(rsp)));
             }));
     }
 
     /**
-     * ## Join a channel  Allows a user to join a [public](#4-private-vs-public) group channel. Since a user is allowed to join up to 2,000 group channels, a user who already belongs to a maximum number of group channels can't join a new channel.  > __Note__: This action is only permitted for public group channels where the `is_public` property is true.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-join-a-channel ----------------------------
+     * ## Join a channel  This API allows a user to join a [public](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-group-channel-types) group channel. Users can only join public group channels where the `is_public` property is set to `true` using this API. A single user can join up to 2,000 group channels, and a user who reaches the capacity can’t join a new channel. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/join-a-channel#1-join-a-channel)
      * Join a channel
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcJoinChannelData 
+     * @param joinAChannelRequest 
      */
-    public gcJoinChannel(channelUrl: string, apiToken?: string, gcJoinChannelData?: GcJoinChannelData, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.gcJoinChannel(channelUrl, apiToken, gcJoinChannelData, _options);
+    public joinAChannel(channelUrl: string, apiToken?: string, joinAChannelRequest?: JoinAChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.joinAChannel(channelUrl, apiToken, joinAChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1979,7 +587,7 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcJoinChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.joinAChannel(rsp)));
             }));
     }
 
@@ -1988,10 +596,10 @@ export class ObservableGroupChannelApi {
      * Leave a channel
      * @param channelUrl 
      * @param apiToken 
-     * @param gcLeaveChannelData 
+     * @param leaveAChannelRequest 
      */
-    public gcLeaveChannel(channelUrl: string, apiToken?: string, gcLeaveChannelData?: GcLeaveChannelData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcLeaveChannel(channelUrl, apiToken, gcLeaveChannelData, _options);
+    public leaveAChannel(channelUrl: string, apiToken?: string, leaveAChannelRequest?: LeaveAChannelRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.leaveAChannel(channelUrl, apiToken, leaveAChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2005,21 +613,21 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcLeaveChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.leaveAChannel(rsp)));
             }));
     }
 
     /**
-     * ## List channels  Retrieves a list of group channels in the application.  > __Note__: If you want to get a list of a specific user's group channels, use the [list my group channels](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-channels ----------------------------
+     * ## List group channels  This action retrieves a list of [group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  If you want to retrieve a list of group channels that a specific user has joined, use the [list group channels by user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/list-group-channels-by-user) action under the User section.  https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-group-channels#1-list-group-channels
      * List channels
      * @param apiToken 
-     * @param token 
-     * @param limit 
+     * @param token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0.
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
      * @param distinctMode 
      * @param publicMode 
      * @param superMode 
-     * @param createdAfter 
-     * @param createdBefore 
+     * @param createdAfter Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format.
+     * @param createdBefore Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format.
      * @param showEmpty 
      * @param showMember 
      * @param showDeliveryReceipt 
@@ -2027,37 +635,31 @@ export class ObservableGroupChannelApi {
      * @param showMetadata 
      * @param showFrozen 
      * @param order 
-     * @param metadataOrderKey 
-     * @param customTypes 
-     * @param customTypeStartswith 
-     * @param channelUrls 
-     * @param name 
-     * @param nameContains 
-     * @param nameStartswith 
-     * @param membersExactlyIn 
-     * @param membersIncludeIn 
-     * @param queryType 
-     * @param membersNickname 
-     * @param membersNicknameContains 
-     * @param metadataKey 
-     * @param metadataValues 
-     * @param metadataValueStartswith 
-     * @param metacounterKey 
-     * @param metacounterValues 
-     * @param metacounterValueGt 
-     * @param metacounterValueGte 
-     * @param metacounterValueLt 
-     * @param metacounterValueLte 
-     * @param includeSortedMetaarrayInLastMessage 
-     * @param customType 
-     * @param readReceipt 
-     * @param member 
-     * @param isDistinct 
-     * @param membersIn 
-     * @param userId 
+     * @param metadataOrderKey Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key.
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type.
+     * @param customTypeStartswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended.
+     * @param channelUrls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+     * @param name Specifies one or more group channel names.
+     * @param nameContains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param nameStartswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param membersExactlyIn Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param membersIncludeIn Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param queryType Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND)
+     * @param membersNickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended.
+     * @param membersNicknameContains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues.
+     * @param metadataKey Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
+     * @param metadataValues Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metadataValueStartswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metacounterKey Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified.
+     * @param metacounterValues Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
      */
-    public gcListChannels(apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, customType?: string, readReceipt?: boolean, member?: boolean, isDistinct?: boolean, membersIn?: string, userId?: string, _options?: Configuration): Observable<GcListChannelsResponse> {
-        const requestContextPromise = this.requestFactory.gcListChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, customType, readReceipt, member, isDistinct, membersIn, userId, _options);
+    public listChannels(apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, _options?: Configuration): Observable<GroupChatListChannelsResponse> {
+        const requestContextPromise = this.requestFactory.listChannels(apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2071,27 +673,31 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcListChannels(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listChannels(rsp)));
             }));
     }
 
     /**
-     * ## List members  Retrieves a list of members of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-members ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of members of.
+     * ## List members  Retrieves a list of members of a group channel.  > **Note**: See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.      [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-users/list-members-of-a-group-channel#1-list-members-of-a-group-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of members of.
      * List members
-     * @param channelUrl 
-     * @param apiToken 
+     * @param channelUrl (Required) 
      * @param token 
-     * @param limit 
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
+     * @param userId Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter.
      * @param showDeliveryReceipt 
      * @param showReadReceipt 
-     * @param order 
-     * @param operatorFilter 
-     * @param memberStateFilter 
-     * @param mutedMemberFilter 
-     * @param nicknameStartswith 
+     * @param showMemberIsMuted 
+     * @param order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members.
+     * @param operatorFilter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved.
+     * @param memberStateFilter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;)
+     * @param mutedMemberFilter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;)
+     * @param memberActiveModeFilter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;)
+     * @param nicknameStartswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended.
+     * @param includePushPreference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;)
+     * @param apiToken 
      */
-    public gcListMembers(channelUrl: string, apiToken?: string, token?: string, limit?: number, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, operatorFilter?: string, memberStateFilter?: string, mutedMemberFilter?: string, nicknameStartswith?: string, _options?: Configuration): Observable<GcListMembersResponse> {
-        const requestContextPromise = this.requestFactory.gcListMembers(channelUrl, apiToken, token, limit, showDeliveryReceipt, showReadReceipt, order, operatorFilter, memberStateFilter, mutedMemberFilter, nicknameStartswith, _options);
+    public listMembers(channelUrl: string, token?: string, limit?: number, userId?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMemberIsMuted?: boolean, order?: 'member_nickname_alphabetical' | 'operator_then_member_alphabetical', operatorFilter?: 'all' | 'operator' | 'nonoperator', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', mutedMemberFilter?: 'all' | 'muted' | 'unmuted', memberActiveModeFilter?: 'activated' | 'deactivated', nicknameStartswith?: string, includePushPreference?: boolean, apiToken?: string, _options?: Configuration): Observable<GroupChannelListMembersResponse> {
+        const requestContextPromise = this.requestFactory.listMembers(channelUrl, token, limit, userId, showDeliveryReceipt, showReadReceipt, showMemberIsMuted, order, operatorFilter, memberStateFilter, mutedMemberFilter, memberActiveModeFilter, nicknameStartswith, includePushPreference, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2105,46 +711,20 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcListMembers(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listMembers(rsp)));
             }));
     }
 
     /**
-     * ## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
+     * ## List operators  You can retrieve a list of operators of a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-a-group-channel#1-list-operators-of-a-group-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
      * List operators
-     * @param channelUrl 
-     * @param apiToken 
+     * @param channelUrl (Required) 
      * @param token 
-     * @param limit 
-     */
-    public gcListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<GcListOperatorsResponse> {
-        const requestContextPromise = this.requestFactory.gcListOperators(channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcListOperators(rsp)));
-            }));
-    }
-
-    /**
-     * ## Register operators  Registers one or more operators to a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-register-operators ----------------------------
-     * Register operators
-     * @param channelUrl 
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
      * @param apiToken 
-     * @param gcRegisterOperatorsData 
      */
-    public gcRegisterOperators(channelUrl: string, apiToken?: string, gcRegisterOperatorsData?: GcRegisterOperatorsData, _options?: Configuration): Observable<GcRegisterOperatorsResponse> {
-        const requestContextPromise = this.requestFactory.gcRegisterOperators(channelUrl, apiToken, gcRegisterOperatorsData, _options);
+    public listOperators(channelUrl: string, token?: string, limit?: number, apiToken?: string, _options?: Configuration): Observable<ListOperatorsResponse> {
+        const requestContextPromise = this.requestFactory.listOperators(channelUrl, token, limit, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2158,19 +738,45 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcRegisterOperators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listOperators(rsp)));
             }));
     }
 
     /**
-     * ## Reset chat history  Resets the properties related to a user's chat history in a group channel, then clears the existing messages in the channel on the user's side only. A user can no longer see the messages in a group channel once this action is called, but those messages are not deleted from the database of the Sendbird system. All other members in the channel can retrieve and see the messages.  This action simply clears the messages for the user by updating the `last_message` and `read_receipt` properties of the [channel](#2-types-of-a-channel-3-resource-representation) resource in addition to other internally managed data such as the number of the user's unread message.  Using the `reset_all` property, you can also reset the properties related to all users' chat history in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-reset-chat-history ----------------------------
+     * ## Register operators to a group channel  You can register one or more operators to a group channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-a-group-channel#1-register-operators-to-a-group-channel
+     * Register operators to a group channel
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param registerOperatorsToAGroupChannelRequest 
+     */
+    public registerOperatorsToAGroupChannel(channelUrl: string, apiToken?: string, registerOperatorsToAGroupChannelRequest?: RegisterOperatorsToAGroupChannelRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.registerOperatorsToAGroupChannel(channelUrl, apiToken, registerOperatorsToAGroupChannelRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.registerOperatorsToAGroupChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## Reset chat history  This action resets the properties related to a specific user's chat history in a [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel), clearing existing messages in a channel from only the specified user's end. Because this action doesn't delete messages from the Sendbird database, other members in the channel can still retrieve and see the messages.  This action clears the messages for the specified user by updating the `last_message` and `read_receipt` properties of the [group channel resource](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-list-of-properties-for-group-channels) in addition to other internally managed data such as the count of a user's unread messages.  Using the `reset_all` property, you can also reset the properties related to the chat history of all members in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/reset-chat-history#1-reset-chat-history
      * Reset chat history
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcResetChatHistoryData 
+     * @param resetChatHistoryRequest 
      */
-    public gcResetChatHistory(channelUrl: string, apiToken?: string, gcResetChatHistoryData?: GcResetChatHistoryData, _options?: Configuration): Observable<GcResetChatHistoryResponse> {
-        const requestContextPromise = this.requestFactory.gcResetChatHistory(channelUrl, apiToken, gcResetChatHistoryData, _options);
+    public resetChatHistory(channelUrl: string, apiToken?: string, resetChatHistoryRequest?: ResetChatHistoryRequest, _options?: Configuration): Observable<ResetChatHistoryResponse> {
+        const requestContextPromise = this.requestFactory.resetChatHistory(channelUrl, apiToken, resetChatHistoryRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2184,19 +790,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcResetChatHistory(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.resetChatHistory(rsp)));
             }));
     }
 
     /**
-     * ## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * ## Start typing indicators  You can start showing a typing indicator using this API. Seeing whether other users are typing can help a more interactive conversation environment by showing real-time engagement of other users.  If you're looking for an easy way to show typing indicators on your app, check out Sendbird UIKit for a ready-to-use UI feature that can be customized to fit your needs.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/start-typing-indicators#1-start-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
      * Start typing indicators
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcTypingIndicatorsData 
+     * @param startTypingIndicatorsRequest 
      */
-    public gcStartTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcStartTypingIndicators(channelUrl, apiToken, gcTypingIndicatorsData, _options);
+    public startTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.startTypingIndicators(channelUrl, apiToken, startTypingIndicatorsRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2210,19 +816,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcStartTypingIndicators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.startTypingIndicators(rsp)));
             }));
     }
 
     /**
-     * ## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to set typing indicators.
+     * ## Stop typing indicators  You can stop showing a typing indicator using this API. To signal that a user is no longer typing, you can let the indicator disappear when the user sends a message or completely deletes the message text.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-typing-indicators/stop-typing-indicators#1-stop-typing-indicators  `channel_url`   Type: string   Description: Specifies the URL of the channel to set typing indicators.
      * Stop typing indicators
-     * @param channelUrl 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcTypingIndicatorsData 
+     * @param startTypingIndicatorsRequest 
      */
-    public gcStopTypingIndicators(channelUrl: string, apiToken?: string, gcTypingIndicatorsData?: GcTypingIndicatorsData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcStopTypingIndicators(channelUrl, apiToken, gcTypingIndicatorsData, _options);
+    public stopTypingIndicators(channelUrl: string, apiToken?: string, startTypingIndicatorsRequest?: StartTypingIndicatorsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.stopTypingIndicators(channelUrl, apiToken, startTypingIndicatorsRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2236,20 +842,20 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcStopTypingIndicators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.stopTypingIndicators(rsp)));
             }));
     }
 
     /**
-     * ## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
-     * Unhide or unarchive a channel
-     * @param channelUrl 
-     * @param userId 
-     * @param apiToken 
+     * ## Unhide a channel  This action lets a hidden [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) reappear on the channel list of a specific user or every member in the group channel. Hiding or unhiding a channel lets users organize their channel list based on those that require the most attention. Note that only group channels can be hidden or unhidden.  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/unhide-a-channel#1-unhide-a-channel)  `channel_url`   Type: string   Description: Specifies the URL of the channel to unhide or unarchive.
+     * Unhide a channel
+     * @param channelUrl (Required) 
+     * @param userId (Required) 
      * @param shouldUnhideAll 
+     * @param apiToken 
      */
-    public gcUnhideOrUnarchiveChannel(channelUrl: string, userId: string, apiToken?: string, shouldUnhideAll?: boolean, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcUnhideOrUnarchiveChannel(channelUrl, userId, apiToken, shouldUnhideAll, _options);
+    public unhideAChannel(channelUrl: string, userId: string, shouldUnhideAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.unhideAChannel(channelUrl, userId, shouldUnhideAll, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2263,19 +869,19 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcUnhideOrUnarchiveChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unhideAChannel(rsp)));
             }));
     }
 
     /**
-     * ## Update a channel  Updates information on a group channel.  > __Note__: You can't change the members of the channel here. To do so, see [invite as members](#2-invite-as-members) action below.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-channel ----------------------------
-     * Update a channel
+     * ## Update a group channel  You can update information about a group channel or a Supergroup channel using this API. You can't make any changes to the members of a channel with this API. To change members, see [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) instead. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-a-group-channel#1-update-a-group-channel
+     * Update a group channel
      * @param channelUrl 
      * @param apiToken 
-     * @param gcUpdateChannelByUrlData 
+     * @param updateAGroupChannelRequest 
      */
-    public gcUpdateChannelByUrl(channelUrl: string, apiToken?: string, gcUpdateChannelByUrlData?: GcUpdateChannelByUrlData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcUpdateChannelByUrl(channelUrl, apiToken, gcUpdateChannelByUrlData, _options);
+    public updateAGroupChannel(channelUrl: string, apiToken?: string, updateAGroupChannelRequest?: UpdateAGroupChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.updateAGroupChannel(channelUrl, apiToken, updateAGroupChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2289,37 +895,7 @@ export class ObservableGroupChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcUpdateChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel  Retrieves information on a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve.
-     * View a channel
-     * @param channelUrl 
-     * @param apiToken 
-     * @param showDeliveryReceipt 
-     * @param showReadReceipt 
-     * @param showMember 
-     * @param readReceipt 
-     * @param member 
-     */
-    public gcViewChannelByUrl(channelUrl: string, apiToken?: string, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMember?: boolean, readReceipt?: boolean, member?: boolean, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcViewChannelByUrl(channelUrl, apiToken, showDeliveryReceipt, showReadReceipt, showMember, readReceipt, member, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcViewChannelByUrl(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAGroupChannel(rsp)));
             }));
     }
 
@@ -2342,66 +918,16 @@ export class ObservableMessageApi {
     }
 
     /**
-     * ## Add emoji categories  Adds a list of one or more new emoji categories to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emoji-categories
-     * Add emoji categories
-     * @param apiToken 
-     * @param body 
-     */
-    public addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Observable<AddEmojiCategoriesResponse> {
-        const requestContextPromise = this.requestFactory.addEmojiCategories(apiToken, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addEmojiCategories(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add emojis  Adds a list of one or more new emojis to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emojis
-     * Add emojis
-     * @param apiToken 
-     * @param addEmojisData 
-     */
-    public addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Observable<AddEmojisResponse> {
-        const requestContextPromise = this.requestFactory.addEmojis(apiToken, addEmojisData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addEmojis(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-extra-data-to-a-message ----------------------------
+     * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-add-metadata#1-add-metadata ----------------------------
      * Add extra data to a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param addExtraDataToMessageData 
+     * @param addExtraDataToAMessageRequest 
      */
-    public addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Observable<AddExtraDataToMessageResponse> {
-        const requestContextPromise = this.requestFactory.addExtraDataToMessage(channelType, channelUrl, messageId, apiToken, addExtraDataToMessageData, _options);
+    public addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Observable<AddExtraDataToAMessageResponse> {
+        const requestContextPromise = this.requestFactory.addExtraDataToAMessage(channelType, channelUrl, messageId, apiToken, addExtraDataToAMessageRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2415,98 +941,20 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addExtraDataToMessage(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addExtraDataToAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Add a reaction to a message  Adds a specific reaction to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-a-reaction-to-a-message ----------------------------
-     * Add a reaction to a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param addReactionToAMessageData 
-     */
-    public addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Observable<AddReactionToAMessageResponse> {
-        const requestContextPromise = this.requestFactory.addReactionToAMessage(channelType, channelUrl, messageId, apiToken, addReactionToAMessageData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addReactionToAMessage(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
-     * Delete an emoji
-     * @param emojiKey 
-     * @param apiToken 
-     */
-    public deleteEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteEmojiByKey(emojiKey, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteEmojiByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
-     * Delete an emoji category
-     * @param emojiCategoryId 
-     * @param apiToken 
-     */
-    public deleteEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteEmojiCategoryById(emojiCategoryId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteEmojiCategoryById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
      * Delete a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
      */
-    public deleteMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteMessageById(channelType, channelUrl, messageId, apiToken, _options);
+    public deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAMessage(channelType, channelUrl, messageId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2520,18 +968,25 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteMessageById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Enable reactions  Turn on or off reactions in a Sendbird application.  > __Note__: This action also allows reactions in UIKit.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-enable-reactions
-     * Enable reactions
+     * ## Get a message  Retrieves information on a specific message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/get-a-message#1-get-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
+     * Get a message
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
+     * @param includeReactions 
+     * @param includeThreadInfo 
+     * @param includeParentMessageInfo 
+     * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
+     * @param withSortedMetaArray 
      * @param apiToken 
-     * @param enableReactionsData 
      */
-    public enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Observable<EnableReactionsResponse> {
-        const requestContextPromise = this.requestFactory.enableReactions(apiToken, enableReactionsData, _options);
+    public getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Observable<SendbirdMessageResponse> {
+        const requestContextPromise = this.requestFactory.getAMessage(channelType, channelUrl, messageId, includeReactions, includeThreadInfo, includeParentMessageInfo, includePollDetails, withSortedMetaArray, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2545,19 +1000,19 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.enableReactions(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Mark all messages as delivered  Marks all messages in a group channel as delivered for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-delivered ----------------------------
-     * Mark all messages as delivered
-     * @param channelUrl 
+     * ## Get total number of messages in a channel  Retrieves the total number of messages in a specific channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/get-total-number-of-messages-in-a-channel#1-get-total-number-of-messages-in-a-channel ----------------------------
+     * Get total number of messages in a channel
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcMarkAllMessagesAsDeliveredData 
      */
-    public gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Observable<GcMarkAllMessagesAsDeliveredResponse> {
-        const requestContextPromise = this.requestFactory.gcMarkAllMessagesAsDelivered(channelUrl, apiToken, gcMarkAllMessagesAsDeliveredData, _options);
+    public getTotalNumberOfMessagesInAChannel(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, _options?: Configuration): Observable<GetTotalNumberOfMessagesInAChannelResponse> {
+        const requestContextPromise = this.requestFactory.getTotalNumberOfMessagesInAChannel(channelType, channelUrl, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2571,218 +1026,39 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcMarkAllMessagesAsDelivered(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getTotalNumberOfMessagesInAChannel(rsp)));
             }));
     }
 
     /**
-     * ## Mark all messages as read  Marks all messages in a group channel as read for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-read ----------------------------
-     * Mark all messages as read
-     * @param channelUrl 
-     * @param apiToken 
-     * @param gcMarkAllMessagesAsReadData 
-     */
-    public gcMarkAllMessagesAsRead(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.gcMarkAllMessagesAsRead(channelUrl, apiToken, gcMarkAllMessagesAsReadData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcMarkAllMessagesAsRead(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of each member's unread messages  Retrieves the total number of each member's unread messages in a group channel. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-number-of-each-member-s-unread-messages ----------------------------
-     * View number of each member's unread messages
-     * @param channelUrl 
-     * @param apiToken 
-     * @param userIds 
-     */
-    public gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: Array<string>, _options?: Configuration): Observable<GcViewNumberOfEachMembersUnreadMessagesResponse> {
-        const requestContextPromise = this.requestFactory.gcViewNumberOfEachMembersUnreadMessages(channelUrl, apiToken, userIds, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcViewNumberOfEachMembersUnreadMessages(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
-     * Get an emoji
-     * @param emojiKey 
-     * @param apiToken 
-     */
-    public getEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Observable<SendBirdEmoji> {
-        const requestContextPromise = this.requestFactory.getEmojiByKey(emojiKey, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEmojiByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
-     * Get an emoji category
-     * @param emojiCategoryId 
-     * @param apiToken 
-     */
-    public getEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Observable<SendBirdEmojiCategory> {
-        const requestContextPromise = this.requestFactory.getEmojiCategoryById(emojiCategoryId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEmojiCategoryById(rsp)));
-            }));
-    }
-
-    /**
-     * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
-     * List all emojis and emoji categories
-     * @param apiToken 
-     */
-    public listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Observable<ListAllEmojisAndEmojiCategoriesResponse> {
-        const requestContextPromise = this.requestFactory.listAllEmojisAndEmojiCategories(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listAllEmojisAndEmojiCategories(rsp)));
-            }));
-    }
-
-    /**
-     * ## List announcements  Retrieves a list of announcements.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcements ----------------------------
-     * List announcements
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     * @param order 
-     * @param status 
-     * @param announcementGroup 
-     */
-    public listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Observable<ListAnnouncementsResponse> {
-        const requestContextPromise = this.requestFactory.listAnnouncements(apiToken, token, limit, order, status, announcementGroup, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listAnnouncements(rsp)));
-            }));
-    }
-
-    /**
-     * ## List emojis  Retrieves a list of all emojis registered to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-emojis
-     * List emojis
-     * @param apiToken 
-     */
-    public listEmojis(apiToken?: string, _options?: Configuration): Observable<ListEmojisResponse> {
-        const requestContextPromise = this.requestFactory.listEmojis(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listEmojis(rsp)));
-            }));
-    }
-
-    /**
-     * ## List messages  Retrieves a list of past messages of a channel.  > This message retrieval is one of Sendbird's [premium features](https://sendbird.com/docs/chat/v3/platform-api/guides/application#-3-sendbird-s-premium-features). Contact our [sales team](https://get.sendbird.com/talk-to-sales.html) for further assistance.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-messages ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of past messages.
+     * ## List messages  You can retrieve a list of past messages of a specific channel with this API.  By default, this action returns a list of messages in the order they were created. Replies in threaded messages are also listed in the chronological order of their creation like other messages, not grouped with their parent messages.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/list-messages#1-list-messages  `channel_type`   Type: string   Description: Specifies the type of the channel. Either open_channels or group_channels.   `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of past messages.
      * List messages
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param messageTs 
-     * @param messageId 
-     * @param prevLimit 
-     * @param nextLimit 
-     * @param include 
-     * @param reverse 
-     * @param senderId 
-     * @param senderIds 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageTs Specifies the timestamp to be the reference point of the query in Unix milliseconds. Either this or the message_id parameter below should be specified in your query URL to retrieve a list. It fetches messages that were sent prior to and after the specified message_ts and the default value for both prev_limit and next_limit is 15.
+     * @param messageId Specifies the unique ID of the message to be the reference point of the query. Either this or the message_ts parameter above should be specified in your query URL to retrieve a list. It fetches messages that were sent prior to and after the specified message_id and the default value for both prev_limit and next_limit is 15.
+     * @param prevLimit Specifies the number of previously sent messages to retrieve before message_ts. For example, if message_ts&#x3D;1484202848298, then prev_limit&#x3D;50 returns 50 messages sent by 1484202848297 (message_ts - 1). Acceptable values range from 0 to 200. (Default: 15)
+     * @param nextLimit Specifies the number of sent messages to retrieve after message_ts. For example, if message_ts&#x3D;1484202848298, then next_limit&#x3D;50 returns 50 messages sent from 1484202848299 (message_ts + 1). Acceptable values range from 0 to 200. (Default: 15)
+     * @param include Determines whether to include messages sent exactly on the specified message_ts in the results. (Default: true)
+     * @param reverse Determines whether to sort the results in reverse chronological order. If set to true, messages appear in reverse chronological order where the newest comes first and the oldest last. (Default: false)
+     * @param senderId Restricts the search scope to only retrieve messages sent by the user with the specified ID.
+     * @param senderIds Restricts the search scope to only retrieve messages sent by one or more users with the specified IDs listed in a comma-separated string.
      * @param operatorFilter 
-     * @param customTypes 
+     * @param customTypes Specifies a comma-separated string of one or more custom message types to retrieve. The value set to this parameter can serve as a filter as follows: - A string of specific custom types: Messages with the corresponding custom types are returned. - Empty like &amp;custom_types&#x3D;&amp;...: Messages whose custom_type property is empty or has a value of null are returned. - An asterisk (\\*) (default): All messages are returned regardless of their custom_type.
      * @param messageType 
      * @param includingRemoved 
      * @param includeReactions 
      * @param includeReplyType One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL
      * @param includeParentMessageInfo 
-     * @param withSortedMetaArray 
+     * @param includeThreadInfo 
+     * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
+     * @param withSortedMetaArray Determines whether to include the sorted_metaarray property in the response. (Default: false)
      * @param showSubchannelMessagesOnly 
      * @param userId 
-     * @param customType 
-     * @param withMetaArray 
+     * @param apiToken 
      */
-    public listMessages(channelType: string, channelUrl: string, apiToken?: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Observable<ListMessagesResponse> {
-        const requestContextPromise = this.requestFactory.listMessages(channelType, channelUrl, apiToken, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, includeReplyType, includeParentMessageInfo, withSortedMetaArray, showSubchannelMessagesOnly, userId, customType, withMetaArray, _options);
+    public listMessages(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageTs: number, messageId: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: 'all' | 'operator' | 'nonoperator', customTypes?: string, messageType?: 'MESG' | 'FILE' | 'ADMM', includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, includeThreadInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, apiToken?: string, _options?: Configuration): Observable<ListMessagesResponse> {
+        const requestContextPromise = this.requestFactory.listMessages(channelType, channelUrl, messageTs, messageId, prevLimit, nextLimit, include, reverse, senderId, senderIds, operatorFilter, customTypes, messageType, includingRemoved, includeReactions, includeReplyType, includeParentMessageInfo, includeThreadInfo, includePollDetails, withSortedMetaArray, showSubchannelMessagesOnly, userId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2801,16 +1077,14 @@ export class ObservableMessageApi {
     }
 
     /**
-     * ## List reactions of a message  Retrieves a list of reactions made to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-reactions-of-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to add a reaction to.
-     * List reactions of a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * ## Mark all messages as read  Marks all messages in a group channel as read for a specific user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/message/read-receipts/mark-all-messages-as-read-message#1-mark-all-messages-as-read
+     * Mark all messages as read
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param listUsers 
+     * @param markChannelMessagesAsReadRequest 
      */
-    public listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Observable<ListReactionsOfMessageResponse> {
-        const requestContextPromise = this.requestFactory.listReactionsOfMessage(channelType, channelUrl, messageId, apiToken, listUsers, _options);
+    public markChannelMessagesAsRead(channelUrl: string, apiToken?: string, markChannelMessagesAsReadRequest?: MarkChannelMessagesAsReadRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.markChannelMessagesAsRead(channelUrl, apiToken, markChannelMessagesAsReadRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2824,19 +1098,19 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listReactionsOfMessage(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.markChannelMessagesAsRead(rsp)));
             }));
     }
 
     /**
-     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
+     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).      There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user).      2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically.      3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.       https://sendbird.com/docs/chat/platform-api/v3/message/migration/migrate-messages#1-migrate-messages
      * Migrate messages
-     * @param targetChannelUrl 
+     * @param targetChannelUrl (Required) 
      * @param apiToken 
-     * @param body 
+     * @param migrateMessagesRequest 
      */
-    public migrateMessagesByUrl(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.migrateMessagesByUrl(targetChannelUrl, apiToken, body, _options);
+    public migrateMessages(targetChannelUrl: string, apiToken?: string, migrateMessagesRequest?: MigrateMessagesRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.migrateMessages(targetChannelUrl, apiToken, migrateMessagesRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2850,50 +1124,21 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.migrateMessagesByUrl(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.migrateMessages(rsp)));
             }));
     }
 
     /**
-     * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-extra-data-from-a-message ----------------------------
+     * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-remove-metadata#1-remove-metadata ----------------------------
      * Remove extra data from a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param keys 
-     */
-    public removeExtraDataFromMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, keys?: Array<string>, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.removeExtraDataFromMessage(channelType, channelUrl, messageId, apiToken, keys, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeExtraDataFromMessage(rsp)));
-            }));
-    }
-
-    /**
-     * ## Remove a reaction from a message  Removes a specific reaction from a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-a-reaction-from-a-message ----------------------------
-     * Remove a reaction from a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
      * @param apiToken 
-     * @param userId 
-     * @param reaction 
      */
-    public removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Observable<RemoveReactionFromAMessageResponse> {
-        const requestContextPromise = this.requestFactory.removeReactionFromAMessage(channelType, channelUrl, messageId, apiToken, userId, reaction, _options);
+    public removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, keys?: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.removeExtraDataFromAMessage(channelType, channelUrl, messageId, keys, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2907,20 +1152,20 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeReactionFromAMessage(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeExtraDataFromAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
+     * ## Send a message  You can use this action to send a text message, a file message, or an admin message to a specific channel. Sendbird Chat SDKs and the platform API allows you to upload any type of files in messages to the Sendbird server. See [Message Overview](https://sendbird.com/docs/chat/platform-api/v3/message/message-overview) for more information on each message type. Messages are sent between client devices running the Sendbird Chat SDK or UIKit as well as programmatically from businesses to their customers. For instance, a delivery app can automatically send a message like \"Arriving in one minute!\" on behalf of a delivery driver.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/send-a-message#1-send-a-message ----------------------------
      * Send a message
-     * @param channelType 
-     * @param channelUrl 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param sendMessageData 
+     * @param sendAMessageRequest 
      */
-    public sendMessage(channelType: string, channelUrl: string, apiToken?: string, sendMessageData?: SendMessageData, _options?: Configuration): Observable<SendBirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.sendMessage(channelType, channelUrl, apiToken, sendMessageData, _options);
+    public sendAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, sendAMessageRequest?: SendAMessageRequest, _options?: Configuration): Observable<SendbirdMessageResponse> {
+        const requestContextPromise = this.requestFactory.sendAMessage(channelType, channelUrl, apiToken, sendAMessageRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2934,129 +1179,21 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendMessage(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Translate a message into other languages  Translates a message into specific languages. Only text messages of which type is MESG can be translated into other languages.  > __Note__: Message translation is powered by [Google Cloud Translation API recognition engine](https://cloud.google.com/translate/). Find language codes supported by the engine in the [Miscellaneous](https://sendbird.com/docs/chat/v3/platform-api/guides/Miscellaneous) page or visit the [Language Support](https://cloud.google.com/translate/docs/languages) for Google Cloud Translation.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-translate-a-message-into-other-languages ----------------------------
-     * Translate a message into other languages
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param translateMessageIntoOtherLanguagesData 
-     */
-    public translateMessageIntoOtherLanguages(channelType: string, channelUrl: string, messageId: string, apiToken?: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Observable<SendBirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.translateMessageIntoOtherLanguages(channelType, channelUrl, messageId, apiToken, translateMessageIntoOtherLanguagesData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.translateMessageIntoOtherLanguages(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
-     * Update an emoji category URL
-     * @param emojiCategoryId 
-     * @param apiToken 
-     * @param updateEmojiCategoryUrlByIdData 
-     */
-    public updateEmojiCategoryUrlById(emojiCategoryId: string, apiToken?: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Observable<SendBirdEmojiCategory> {
-        const requestContextPromise = this.requestFactory.updateEmojiCategoryUrlById(emojiCategoryId, apiToken, updateEmojiCategoryUrlByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateEmojiCategoryUrlById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
-     * Update an emoji URL
-     * @param emojiKey 
-     * @param apiToken 
-     * @param updateEmojiUrlByKeyData 
-     */
-    public updateEmojiUrlByKey(emojiKey: string, apiToken?: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Observable<SendBirdEmoji> {
-        const requestContextPromise = this.requestFactory.updateEmojiUrlByKey(emojiKey, apiToken, updateEmojiUrlByKeyData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateEmojiUrlByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-extra-data-in-a-message ----------------------------
-     * Update extra data in a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param updateExtraDataInMessageData 
-     */
-    public updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Observable<UpdateExtraDataInMessageResponse> {
-        const requestContextPromise = this.requestFactory.updateExtraDataInMessage(channelType, channelUrl, messageId, apiToken, updateExtraDataInMessageData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateExtraDataInMessage(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a message  Updates information on a message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-a-message ----------------------------
+     * ## Update a message  Updates specific information on a message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/update-a-message#1-update-a-message ----------------------------
      * Update a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param updateMessageByIdData 
+     * @param updateAMessageRequest 
      */
-    public updateMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Observable<SendBirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.updateMessageById(channelType, channelUrl, messageId, apiToken, updateMessageByIdData, _options);
+    public updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Observable<SendbirdMessageResponse> {
+        const requestContextPromise = this.requestFactory.updateAMessage(channelType, channelUrl, messageId, apiToken, updateAMessageRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3070,18 +1207,21 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateMessageById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAMessage(rsp)));
             }));
     }
 
     /**
-     * ## Use default emojis  Determines whether to use the 7 default emojis initially provided.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-use-default-emojis
-     * Use default emojis
+     * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-update-metadata#1-update-metadata ----------------------------
+     * Update extra data in a message
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param useDefaultEmojisData 
+     * @param updateExtraDataInAMessageRequest 
      */
-    public useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Observable<UseDefaultEmojisResponse> {
-        const requestContextPromise = this.requestFactory.useDefaultEmojis(apiToken, useDefaultEmojisData, _options);
+    public updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Observable<UpdateExtraDataInAMessageResponse> {
+        const requestContextPromise = this.requestFactory.updateExtraDataInAMessage(channelType, channelUrl, messageId, apiToken, updateExtraDataInAMessageRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3095,63 +1235,7 @@ export class ObservableMessageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.useDefaultEmojis(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a message  Retrieves information on a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
-     * View a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param withSortedMetaArray 
-     * @param withMetaArray 
-     * @param includeParentMessageInfo 
-     */
-    public viewMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, includeParentMessageInfo?: boolean, _options?: Configuration): Observable<SendBirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.viewMessageById(channelType, channelUrl, messageId, apiToken, withSortedMetaArray, withMetaArray, includeParentMessageInfo, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewMessageById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View total number of messages in a channel  Retrieves the total number of messages in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-total-number-of-messages-in-a-channel ----------------------------
-     * View total number of messages in a channel
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<ViewTotalNumberOfMessagesInChannelResponse> {
-        const requestContextPromise = this.requestFactory.viewTotalNumberOfMessagesInChannel(channelType, channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewTotalNumberOfMessagesInChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateExtraDataInAMessage(rsp)));
             }));
     }
 
@@ -3174,42 +1258,15 @@ export class ObservableMetadataApi {
     }
 
     /**
-     * ## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
-     * Create a channel metacounter
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param createChannelMetacounterData 
-     */
-    public createChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, createChannelMetacounterData?: CreateChannelMetacounterData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.createChannelMetacounter(channelType, channelUrl, apiToken, createChannelMetacounterData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+     * ## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-metadata/channel-create-metadata#1-create-metadata ----------------------------
      * Create a channel metadata
-     * @param channelType 
-     * @param channelUrl 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param createChannelMetadataData 
+     * @param createAChannelMetadataRequest 
      */
-    public createChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, createChannelMetadataData?: CreateChannelMetadataData, _options?: Configuration): Observable<CreateChannelMetadataResponse> {
-        const requestContextPromise = this.requestFactory.createChannelMetadata(channelType, channelUrl, apiToken, createChannelMetadataData, _options);
+    public createAChannelMetadata(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, createAChannelMetadataRequest?: CreateAChannelMetadataRequest, _options?: Configuration): Observable<CreateAChannelMetadataResponse> {
+        const requestContextPromise = this.requestFactory.createAChannelMetadata(channelType, channelUrl, apiToken, createAChannelMetadataRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3223,126 +1280,20 @@ export class ObservableMetadataApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createChannelMetadata(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAChannelMetadata(rsp)));
             }));
     }
 
     /**
-     * ## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
-     * Create a user metadata
-     * @param userId 
-     * @param apiToken 
-     * @param createUserMetadataData 
-     */
-    public createUserMetadata(userId: string, apiToken?: string, createUserMetadataData?: CreateUserMetadataData, _options?: Configuration): Observable<CreateUserMetadataResponse> {
-        const requestContextPromise = this.requestFactory.createUserMetadata(userId, apiToken, createUserMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public deleteChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetacounter(channelType, channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param apiToken 
-     */
-    public deleteChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetacounterByKey(channelType, channelUrl, key, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetacounterByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-metadata/channel-delete-metadata#1-delete-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
      * Delete a channel metadata - When deleting all items of a channel metadata
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param key 
-     */
-    public deleteChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetadata(channelType, channelUrl, apiToken, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     * @param channelType 
-     * @param channelUrl 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param key 
      * @param apiToken 
      */
-    public deleteChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteChannelMetadataByKey(channelType, channelUrl, key, apiToken, _options);
+    public deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata(channelType: 'open_channels' | 'group_channels', channelUrl: string, key?: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata(channelType, channelUrl, key, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3356,127 +1307,20 @@ export class ObservableMetadataApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteChannelMetadataByKey(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata(rsp)));
             }));
     }
 
     /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting all items of a user metadata
-     * @param userId 
-     * @param apiToken 
-     * @param key 
-     */
-    public deleteUserMetadata(userId: string, apiToken?: string, key?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteUserMetadata(userId, apiToken, key, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     * @param userId 
-     * @param key 
-     * @param apiToken 
-     */
-    public deleteUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.deleteUserMetadataByKey(userId, key, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param updateChannelMetacounterData 
-     */
-    public updateChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetacounterData?: UpdateChannelMetacounterData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.updateChannelMetacounter(channelType, channelUrl, apiToken, updateChannelMetacounterData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param apiToken 
-     * @param body 
-     */
-    public updateChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetacounterByKey(channelType, channelUrl, key, apiToken, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetacounterByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-metadata/channel-update-metadata#1-update-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     * @param channelType 
-     * @param channelUrl 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param updateChannelMetadataData 
+     * @param updateAChannelMetadataRequest 
      */
-    public updateChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, updateChannelMetadataData?: UpdateChannelMetadataData, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetadata(channelType, channelUrl, apiToken, updateChannelMetadataData, _options);
+    public updateAChannelMetadata(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, updateAChannelMetadataRequest?: UpdateAChannelMetadataRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateAChannelMetadata(channelType, channelUrl, apiToken, updateAChannelMetadataRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3490,157 +1334,21 @@ export class ObservableMetadataApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadata(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAChannelMetadata(rsp)));
             }));
     }
 
     /**
-     * ## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param apiToken 
-     * @param body 
-     */
-    public updateChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateChannelMetadataByKey(channelType, channelUrl, key, apiToken, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateChannelMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     * @param userId 
-     * @param apiToken 
-     * @param updateUserMetadataData 
-     */
-    public updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataData?: UpdateUserMetadataData, _options?: Configuration): Observable<UpdateUserMetadataResponse> {
-        const requestContextPromise = this.requestFactory.updateUserMetadata(userId, apiToken, updateUserMetadataData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     * @param userId 
-     * @param key 
-     * @param apiToken 
-     * @param body 
-     */
-    public updateUserMetadataByKey(userId: string, key: string, apiToken?: string, body?: any, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.updateUserMetadataByKey(userId, key, apiToken, body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param key 
-     * @param keys 
-     */
-    public viewChannelMetacounter(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.viewChannelMetacounter(channelType, channelUrl, apiToken, key, keys, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewChannelMetacounter(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel metacounter  Retrieves channel metacounter's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param apiToken 
-     */
-    public viewChannelMetacounterByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.viewChannelMetacounterByKey(channelType, channelUrl, key, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewChannelMetacounterByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-metadata/channel-get-metadata#1-get-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
      * View a channel metadata - When retrieving all items of a channel metadata
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param key 
-     * @param keys 
+     * @param keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended.
+     * @param apiToken 
      */
-    public viewChannelMetadata(channelType: string, channelUrl: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.viewChannelMetadata(channelType, channelUrl, apiToken, key, keys, _options);
+    public viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata(channelType: 'open_channels' | 'group_channels', channelUrl: string, key?: string, keys?: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata(channelType, channelUrl, key, keys, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3654,87 +1362,7 @@ export class ObservableMetadataApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewChannelMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel metadata  Retrieves a channel metadata's one or more items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     * @param channelType 
-     * @param channelUrl 
-     * @param key 
-     * @param apiToken 
-     */
-    public viewChannelMetadataByKey(channelType: string, channelUrl: string, key: string, apiToken?: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.viewChannelMetadataByKey(channelType, channelUrl, key, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewChannelMetadataByKey(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
-     * View a user metadata - When retrieving all items of a user metadata
-     * @param userId 
-     * @param apiToken 
-     * @param key 
-     * @param keys 
-     */
-    public viewUserMetadata(userId: string, apiToken?: string, key?: string, keys?: Array<string>, _options?: Configuration): Observable<ViewUserMetadataResponse> {
-        const requestContextPromise = this.requestFactory.viewUserMetadata(userId, apiToken, key, keys, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewUserMetadata(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a user metadata  Retrieves a user metadata's one or more items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to retrieve the metadata in.
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     * @param userId 
-     * @param key 
-     * @param apiToken 
-     */
-    public viewUserMetadataByKey(userId: string, key: string, apiToken?: string, _options?: Configuration): Observable<{ [key: string]: string; }> {
-        const requestContextPromise = this.requestFactory.viewUserMetadataByKey(userId, key, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewUserMetadataByKey(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata(rsp)));
             }));
     }
 
@@ -3757,40 +1385,14 @@ export class ObservableModerationApi {
     }
 
     /**
-     * ## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
-     * Ban from channels with custom channel types
-     * @param userId 
-     * @param apiToken 
-     * @param banFromChannelsWithCustomChannelTypesData 
-     */
-    public banFromChannelsWithCustomChannelTypes(userId: string, apiToken?: string, banFromChannelsWithCustomChannelTypesData?: BanFromChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.banFromChannelsWithCustomChannelTypes(userId, apiToken, banFromChannelsWithCustomChannelTypesData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.banFromChannelsWithCustomChannelTypes(rsp)));
-            }));
-    }
-
-    /**
-     * ## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
+     * ## Block a user  A user can block another user if the user doesn't wish to receive any messages or notifications from the blocked user in a 1-to-1 group channel. In a 1-to-N group channel, the user can still receive messages from the blocked user, but this depends on the UI settings of the chat view. In any case, notifications from the blocked user won't be delivered to the 1-to-N group channel. You can choose whether or not the user can view [which users are blocked](https://sendbird.com/docs/chat/platform-api/v3/moderation/listing-blocked-and-blocking-users/list-blocked-and-blocking-users) in the channel UI.  Sendbird application provides two blocking options: include or exclude blocked users when sending invitations, and turn on or off notifications from blocked users. [Explicit and classic block modes](https://sendbird.com/docs/chat/platform-api/v3/deprecated#2-explicit-and-classic-block-modes) have been deprecated and are only supported for customers who started using them before they were deprecated.  - **Include or exclude blocked users when sending invitations**: Determines whether or not to automatically filter out blocked users when a user invites a group of users to a new group channel. By default, blocked users are included when sending invitations. The value of this option can be changed by Sendbird if your Sendbird application isn't integrated to the client app. If you want to change the value, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      - **Turn on or off notifications from blocked users**: Determines whether or not to receive message notifications from the blocked user in a specific 1-to-N group channel where they are both members. By default, a user doesn't receive notifications from blocked users. The value of this option can be set individually per channel. If you want to use this option, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).       > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).      The following tables explain what happens to a user's chat experience when the user blocks another user in a 1-to-1 or 1-to-N group channel. In the case of a 1-to-1 group channel, the block mode is only maintained with the original members. If other than the original members are added, the rules for 1-to-N group channel begin to apply.  [https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users)
      * Block a user
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param blockUserData 
+     * @param blockAUserRequest 
      */
-    public blockUser(userId: string, apiToken?: string, blockUserData?: BlockUserData, _options?: Configuration): Observable<BlockUserResponse> {
-        const requestContextPromise = this.requestFactory.blockUser(userId, apiToken, blockUserData, _options);
+    public blockAUser(userId: string, apiToken?: string, blockAUserRequest?: BlockAUserRequest, _options?: Configuration): Observable<BlockAUserResponse> {
+        const requestContextPromise = this.requestFactory.blockAUser(userId, apiToken, blockAUserRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3804,19 +1406,19 @@ export class ObservableModerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.blockUser(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.blockAUser(rsp)));
             }));
     }
 
     /**
-     * ## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param channelUrl 
+     * ## Freeze a group channel  Freezes or unfreezes a group channel.  > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).      [https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-a-group-channel#1-freeze-a-group-channel](https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-a-group-channel#1-freeze-a-group-channel)
+     * Freeze a group channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcBanUserData 
+     * @param freezeAGroupChannelRequest 
      */
-    public gcBanUser(channelUrl: string, apiToken?: string, gcBanUserData?: GcBanUserData, _options?: Configuration): Observable<GcBanUserResponse> {
-        const requestContextPromise = this.requestFactory.gcBanUser(channelUrl, apiToken, gcBanUserData, _options);
+    public freezeAGroupChannel(channelUrl: string, apiToken?: string, freezeAGroupChannelRequest?: FreezeAGroupChannelRequest, _options?: Configuration): Observable<SendbirdGroupChannelDetail> {
+        const requestContextPromise = this.requestFactory.freezeAGroupChannel(channelUrl, apiToken, freezeAGroupChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3830,19 +1432,19 @@ export class ObservableModerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcBanUser(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.freezeAGroupChannel(rsp)));
             }));
     }
 
     /**
-     * ## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param channelUrl 
+     * ## Freeze an open channel  Freezes or unfreezes an open channel.  > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).      [https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-an-open-channel#1-freeze-an-open-channel](https://sendbird.com/docs/chat/platform-api/v3/moderation/freezing-a-channel/freeze-an-open-channel#1-freeze-an-open-channel)
+     * Freeze an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcFreezeChannelData 
+     * @param freezeAnOpenChannelRequest 
      */
-    public gcFreezeChannel(channelUrl: string, apiToken?: string, gcFreezeChannelData?: GcFreezeChannelData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcFreezeChannel(channelUrl, apiToken, gcFreezeChannelData, _options);
+    public freezeAnOpenChannel(channelUrl: string, apiToken?: string, freezeAnOpenChannelRequest?: FreezeAnOpenChannelRequest, _options?: Configuration): Observable<SendbirdOpenChannel> {
+        const requestContextPromise = this.requestFactory.freezeAnOpenChannel(channelUrl, apiToken, freezeAnOpenChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3856,261 +1458,24 @@ export class ObservableModerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcFreezeChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.freezeAnOpenChannel(rsp)));
             }));
     }
 
     /**
-     * ## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public gcListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<GcListBannedUsersResponse> {
-        const requestContextPromise = this.requestFactory.gcListBannedUsers(channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcListBannedUsers(rsp)));
-            }));
-    }
-
-    /**
-     * ## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public gcListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<GcListMutedUsersResponse> {
-        const requestContextPromise = this.requestFactory.gcListMutedUsers(channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcListMutedUsers(rsp)));
-            }));
-    }
-
-    /**
-     * ## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
-     * Mute a user
-     * @param channelUrl 
-     * @param apiToken 
-     * @param gcMuteUserData 
-     */
-    public gcMuteUser(channelUrl: string, apiToken?: string, gcMuteUserData?: GcMuteUserData, _options?: Configuration): Observable<SendBirdGroupChannel> {
-        const requestContextPromise = this.requestFactory.gcMuteUser(channelUrl, apiToken, gcMuteUserData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcMuteUser(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     */
-    public gcUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcUnbanUserById(channelUrl, bannedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcUnbanUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param channelUrl 
-     * @param mutedUserId 
-     * @param apiToken 
-     */
-    public gcUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.gcUnmuteUserById(channelUrl, mutedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcUnmuteUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     * @param gcUpdateBanByIdData 
-     */
-    public gcUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, gcUpdateBanByIdData?: GcUpdateBanByIdData, _options?: Configuration): Observable<GcUpdateBanByIdResponse> {
-        const requestContextPromise = this.requestFactory.gcUpdateBanById(channelUrl, bannedUserId, apiToken, gcUpdateBanByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcUpdateBanById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     */
-    public gcViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Observable<GcViewBanByIdResponse> {
-        const requestContextPromise = this.requestFactory.gcViewBanById(channelUrl, bannedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcViewBanById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param channelUrl 
-     * @param mutedUserId 
-     * @param apiToken 
-     */
-    public gcViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<GcViewMuteByIdResponse> {
-        const requestContextPromise = this.requestFactory.gcViewMuteById(channelUrl, mutedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.gcViewMuteById(rsp)));
-            }));
-    }
-
-    /**
-     * ## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-     * List banned channels
-     * @param userId 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listBannedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListBannedChannelsResponse> {
-        const requestContextPromise = this.requestFactory.listBannedChannels(userId, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listBannedChannels(rsp)));
-            }));
-    }
-
-    /**
-     * ## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * ## List blocked by and blocking users  This action retrieves a list of users who are either blocked by a specific user or a list of users who are blocking a specific user.  [https://sendbird.com/docs/chat/platform-api/v3/moderation/listing-blocked-and-blocking-users/list-blocked-and-blocking-users#1-list-blocked-by-and-blocking-users](https://sendbird.com/docs/chat/platform-api/v3/moderation/listing-blocked-and-blocking-users/list-blocked-and-blocking-users#1-list-blocked-by-and-blocking-users)  `user_id`   Type: string   Description: Specifies the unique ID of the target user.
      * List blocked users
-     * @param userId 
-     * @param apiToken 
+     * @param userId (Required) 
+     * @param list Specifies whether to retrieve a list of users who are blocked by the specified user or a list of users who are blocking the specified user. Acceptable values are blocked_by_me and blocking_me. The &#x60;me&#x60; in the values refers to the user specified in the parameter. (Default: blocked_by_me)
      * @param token 
      * @param limit 
-     * @param userIds 
+     * @param userIds Specifies the user IDs of the blocked or blocking users to search for. The value should be a comma-separated string that consists of multiple URL encoded user IDs.
      * @param metadatakey 
      * @param metadatavaluesIn 
+     * @param apiToken 
      */
-    public listBlockedUsers(userId: string, apiToken?: string, token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<ListBlockedUsersResponse> {
-        const requestContextPromise = this.requestFactory.listBlockedUsers(userId, apiToken, token, limit, userIds, metadatakey, metadatavaluesIn, _options);
+    public listBlockedUsers(userId: string, list?: 'blocked_by_me' | 'blocking_me', token?: string, limit?: number, userIds?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Observable<ListBlockedUsersResponse> {
+        const requestContextPromise = this.requestFactory.listBlockedUsers(userId, list, token, limit, userIds, metadatakey, metadatavaluesIn, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4129,330 +1494,14 @@ export class ObservableModerationApi {
     }
 
     /**
-     * ## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-     * List muted channels
-     * @param userId 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listMutedChannels(userId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListMutedChannelsResponse> {
-        const requestContextPromise = this.requestFactory.listMutedChannels(userId, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listMutedChannels(rsp)));
-            }));
-    }
-
-    /**
-     * ## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
-     * Mute in channels with custom channel types
-     * @param userId 
-     * @param apiToken 
-     * @param muteInChannelsWithCustomChannelTypesData 
-     */
-    public muteInChannelsWithCustomChannelTypes(userId: string, apiToken?: string, muteInChannelsWithCustomChannelTypesData?: MuteInChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.muteInChannelsWithCustomChannelTypes(userId, apiToken, muteInChannelsWithCustomChannelTypesData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.muteInChannelsWithCustomChannelTypes(rsp)));
-            }));
-    }
-
-    /**
-     * ## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
-     * Ban a user
-     * @param channelUrl 
-     * @param apiToken 
-     * @param ocBanUserData 
-     */
-    public ocBanUser(channelUrl: string, apiToken?: string, ocBanUserData?: OcBanUserData, _options?: Configuration): Observable<OcBanUserResponse> {
-        const requestContextPromise = this.requestFactory.ocBanUser(channelUrl, apiToken, ocBanUserData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocBanUser(rsp)));
-            }));
-    }
-
-    /**
-     * ## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
-     * Freeze a channel
-     * @param channelUrl 
-     * @param apiToken 
-     * @param ocFreezeChannelData 
-     */
-    public ocFreezeChannel(channelUrl: string, apiToken?: string, ocFreezeChannelData?: OcFreezeChannelData, _options?: Configuration): Observable<SendBirdOpenChannel> {
-        const requestContextPromise = this.requestFactory.ocFreezeChannel(channelUrl, apiToken, ocFreezeChannelData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocFreezeChannel(rsp)));
-            }));
-    }
-
-    /**
-     * ## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-     * List banned users
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public ocListBannedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<OcListBannedUsersResponse> {
-        const requestContextPromise = this.requestFactory.ocListBannedUsers(channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocListBannedUsers(rsp)));
-            }));
-    }
-
-    /**
-     * ## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-     * List muted users
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public ocListMutedUsers(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<OcListMutedUsersResponse> {
-        const requestContextPromise = this.requestFactory.ocListMutedUsers(channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocListMutedUsers(rsp)));
-            }));
-    }
-
-    /**
-     * ## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
-     * Mute a user
-     * @param channelUrl 
-     * @param apiToken 
-     * @param ocMuteUserData 
-     */
-    public ocMuteUser(channelUrl: string, apiToken?: string, ocMuteUserData?: OcMuteUserData, _options?: Configuration): Observable<SendBirdOpenChannel> {
-        const requestContextPromise = this.requestFactory.ocMuteUser(channelUrl, apiToken, ocMuteUserData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocMuteUser(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
-     * Unban a user
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     */
-    public ocUnbanUserById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.ocUnbanUserById(channelUrl, bannedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocUnbanUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
-     * Unmute a user
-     * @param channelUrl 
-     * @param mutedUserId 
-     * @param apiToken 
-     */
-    public ocUnmuteUserById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.ocUnmuteUserById(channelUrl, mutedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocUnmuteUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
-     * Update a ban
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     * @param ocUpdateBanByIdData 
-     */
-    public ocUpdateBanById(channelUrl: string, bannedUserId: string, apiToken?: string, ocUpdateBanByIdData?: OcUpdateBanByIdData, _options?: Configuration): Observable<OcUpdateBanByIdResponse> {
-        const requestContextPromise = this.requestFactory.ocUpdateBanById(channelUrl, bannedUserId, apiToken, ocUpdateBanByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocUpdateBanById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
-     * View a ban
-     * @param channelUrl 
-     * @param bannedUserId 
-     * @param apiToken 
-     */
-    public ocViewBanById(channelUrl: string, bannedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcViewBanByIdResponse> {
-        const requestContextPromise = this.requestFactory.ocViewBanById(channelUrl, bannedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocViewBanById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
-     * View a mute
-     * @param channelUrl 
-     * @param mutedUserId 
-     * @param apiToken 
-     */
-    public ocViewMuteById(channelUrl: string, mutedUserId: string, apiToken?: string, _options?: Configuration): Observable<OcViewMuteByIdResponse> {
-        const requestContextPromise = this.requestFactory.ocViewMuteById(channelUrl, mutedUserId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocViewMuteById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
+     * ## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/unblock-a-user#1-unblock-a-user
      * Unblock a user
-     * @param userId 
-     * @param targetId 
+     * @param userId (Required) 
+     * @param targetId (Required) 
      * @param apiToken 
      */
-    public unblockUserById(userId: string, targetId: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.unblockUserById(userId, targetId, apiToken, _options);
+    public unblockAUser(userId: string, targetId: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.unblockAUser(userId, targetId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4466,7 +1515,7 @@ export class ObservableModerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unblockUserById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unblockAUser(rsp)));
             }));
     }
 
@@ -4489,15 +1538,13 @@ export class ObservableOpenChannelApi {
     }
 
     /**
-     * ## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
-     * Cancel the registration of operators
-     * @param channelUrl 
-     * @param operatorIds 
+     * ## Create an open channel  You can create an [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel) that facilitates conversations for millions of users. Open channels allow a seamless chat experience possible for all participants by using [dynamic partitioning](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-how-dynamic-partitioning-works) which creates subchannels that each handle up to tens of thousands of participants.  Because users don't need invitations to join open channels, short-lived live events like concerts or live streams that don't require a sustained membership are good use cases for open channels.  [https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel)
+     * Create an open channel
      * @param apiToken 
-     * @param deleteAll 
+     * @param createAnOpenChannelRequest 
      */
-    public ocCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.ocCancelTheRegistrationOfOperators(channelUrl, operatorIds, apiToken, deleteAll, _options);
+    public createAnOpenChannel(apiToken?: string, createAnOpenChannelRequest?: CreateAnOpenChannelRequest, _options?: Configuration): Observable<SendbirdOpenChannel> {
+        const requestContextPromise = this.requestFactory.createAnOpenChannel(apiToken, createAnOpenChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4511,18 +1558,18 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocCancelTheRegistrationOfOperators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAnOpenChannel(rsp)));
             }));
     }
 
     /**
-     * ## Create a channel  Creates an open channel.  >__Note__: Classic open channels created before the deprecation date of March 2021 will maintain their original form and functions. However, new applications created after December 15, 2020, will be able to create dynamic partitioning open channels only.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel
-     * Create a channel
+     * ## Delete an open channel  You can delete an open channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-an-open-channel#1-delete-an-open-channel
+     * Delete an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param ocCreateChannelData 
      */
-    public ocCreateChannel(apiToken?: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Observable<SendBirdOpenChannel> {
-        const requestContextPromise = this.requestFactory.ocCreateChannel(apiToken, ocCreateChannelData, _options);
+    public deleteAnOpenChannel(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAnOpenChannel(channelUrl, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4536,18 +1583,19 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocCreateChannel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAnOpenChannel(rsp)));
             }));
     }
 
     /**
-     * ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
-     * Delete a channel
-     * @param channelUrl 
+     * ## Get an open channel  This action retrieves information about a specific [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel).  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel)
+     * Get an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
+     * @param includeOperators Determines whether to include a list of operators in the response. (Default: false)
      */
-    public ocDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.ocDeleteChannelByUrl(channelUrl, apiToken, _options);
+    public getAnOpenChannel(channelUrl: string, apiToken?: string, includeOperators?: boolean, _options?: Configuration): Observable<SendbirdOpenChannel> {
+        const requestContextPromise = this.requestFactory.getAnOpenChannel(channelUrl, apiToken, includeOperators, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4561,25 +1609,52 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocDeleteChannelByUrl(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAnOpenChannel(rsp)));
             }));
     }
 
     /**
-     * ## List channels  Retrieves a list of open channels. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-channels ----------------------------
-     * List channels
-     * @param apiToken 
+     * ## List operators of an open channel  You can retrieve a list of operators of an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-an-open-channel#1-list-operators-of-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+     * List operators of an open channel
+     * @param channelUrl (Required) 
      * @param token 
      * @param limit 
-     * @param customTypes 
+     * @param apiToken 
+     */
+    public listChannelOperators(channelUrl: string, token?: string, limit?: number, apiToken?: string, _options?: Configuration): Observable<ListOperatorsResponse> {
+        const requestContextPromise = this.requestFactory.listChannelOperators(channelUrl, token, limit, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listChannelOperators(rsp)));
+            }));
+    }
+
+    /**
+     * ## List open channels  This action retrieves a list of [open channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels)
+     * List open channels
+     * @param token 
+     * @param channelUrls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+     * @param limit 
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type.
      * @param nameContains 
      * @param urlContains 
-     * @param showFrozen 
-     * @param showMetadata 
-     * @param customType 
+     * @param showFrozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true)
+     * @param showMetadata Determines whether to include channel metadata in the response. (Default: false)
+     * @param apiToken 
      */
-    public ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Observable<OcListChannelsResponse> {
-        const requestContextPromise = this.requestFactory.ocListChannels(apiToken, token, limit, customTypes, nameContains, urlContains, showFrozen, showMetadata, customType, _options);
+    public listOpenChannels(token?: string, channelUrls?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, apiToken?: string, _options?: Configuration): Observable<ListOpenChannelsResponse> {
+        const requestContextPromise = this.requestFactory.listOpenChannels(token, channelUrls, limit, customTypes, nameContains, urlContains, showFrozen, showMetadata, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4593,20 +1668,19 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocListChannels(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listOpenChannels(rsp)));
             }));
     }
 
     /**
-     * ## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
-     * List operators
-     * @param channelUrl 
+     * ## Register operators to an open channel  You can register one or more operators to an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-an-open-channel#1-register-operators-to-an-open-channel
+     * Register operators to an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param token 
-     * @param limit 
+     * @param registerOperatorsToAGroupChannelRequest 
      */
-    public ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<OcListOperatorsResponse> {
-        const requestContextPromise = this.requestFactory.ocListOperators(channelUrl, apiToken, token, limit, _options);
+    public registerOperators(channelUrl: string, apiToken?: string, registerOperatorsToAGroupChannelRequest?: RegisterOperatorsToAGroupChannelRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.registerOperators(channelUrl, apiToken, registerOperatorsToAGroupChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4620,20 +1694,20 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocListOperators(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.registerOperators(rsp)));
             }));
     }
 
     /**
-     * ## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
-     * List participants
-     * @param channelUrl 
+     * ## Unregister operators from an open channel  You can unregister operators in an open channel but keep them in the channel as participants using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-an-open-channel#1-unregister-operators-from-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
+     * Unregister operators from an open channel
+     * @param channelUrl (Required) 
+     * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
+     * @param deleteAll Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false)
      * @param apiToken 
-     * @param token 
-     * @param limit 
      */
-    public ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<OcListParticipantsResponse> {
-        const requestContextPromise = this.requestFactory.ocListParticipants(channelUrl, apiToken, token, limit, _options);
+    public unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.unregisterOperators(channelUrl, operatorIds, deleteAll, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4647,19 +1721,19 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocListParticipants(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.unregisterOperators(rsp)));
             }));
     }
 
     /**
-     * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
-     * Register operators
-     * @param channelUrl 
+     * ## Update an open channel  You can update information about an open channel using this API. You can add a cover image to a channel to better identify the channel or specify a custom channel type for grouping channels by custom type. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-an-open-channel#1-update-an-open-channel
+     * Update an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param ocRegisterOperatorsData 
+     * @param updateAnOpenChannelRequest 
      */
-    public ocRegisterOperators(channelUrl: string, apiToken?: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Observable<OcDeleteChannelByUrl200Response> {
-        const requestContextPromise = this.requestFactory.ocRegisterOperators(channelUrl, apiToken, ocRegisterOperatorsData, _options);
+    public updateAnOpenChannel(channelUrl: string, apiToken?: string, updateAnOpenChannelRequest?: UpdateAnOpenChannelRequest, _options?: Configuration): Observable<SendbirdOpenChannel> {
+        const requestContextPromise = this.requestFactory.updateAnOpenChannel(channelUrl, apiToken, updateAnOpenChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4673,1072 +1747,7 @@ export class ObservableOpenChannelApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocRegisterOperators(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a channel  Updates information on an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-channel ----------------------------
-     * Update a channel
-     * @param channelUrl 
-     * @param apiToken 
-     * @param ocUpdateChannelByUrlData 
-     */
-    public ocUpdateChannelByUrl(channelUrl: string, apiToken?: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Observable<SendBirdOpenChannel> {
-        const requestContextPromise = this.requestFactory.ocUpdateChannelByUrl(channelUrl, apiToken, ocUpdateChannelByUrlData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocUpdateChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
-     * View a channel
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public ocViewChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Observable<SendBirdOpenChannel> {
-        const requestContextPromise = this.requestFactory.ocViewChannelByUrl(channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ocViewChannelByUrl(rsp)));
-            }));
-    }
-
-}
-
-import { PinAMessageApiRequestFactory, PinAMessageApiResponseProcessor} from "../apis/PinAMessageApi";
-export class ObservablePinAMessageApi {
-    private requestFactory: PinAMessageApiRequestFactory;
-    private responseProcessor: PinAMessageApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: PinAMessageApiRequestFactory,
-        responseProcessor?: PinAMessageApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new PinAMessageApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new PinAMessageApiResponseProcessor();
-    }
-
-    /**
-     * ## Add a new pin Pin a message to its channel. -----------------------------  
-     * Add a new pin
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     */
-    public v3ChannelTypeChannelUrlMessagesMessageIdPinPost(channelType: string, channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Observable<SendBirdChannelResponse> {
-        const requestContextPromise = this.requestFactory.v3ChannelTypeChannelUrlMessagesMessageIdPinPost(channelType, channelUrl, messageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ChannelTypeChannelUrlMessagesMessageIdPinPost(rsp)));
-            }));
-    }
-
-}
-
-import { PollApiRequestFactory, PollApiResponseProcessor} from "../apis/PollApi";
-export class ObservablePollApi {
-    private requestFactory: PollApiRequestFactory;
-    private responseProcessor: PollApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: PollApiRequestFactory,
-        responseProcessor?: PollApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new PollApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new PollApiResponseProcessor();
-    }
-
-    /**
-     * ## List polls This action retrieves a paginated list of both open and closed polls in an application or a specific channel. To retrieve polls in a specific channel, the channel_url must be specified. https://sendbird.com/docs/chat/v3/platform-api/message/polls/list-polls  -----------------------------
-     * List polls
-     * @param apiToken 
-     * @param channelUrl 
-     * @param channelType 
-     * @param token 
-     * @param limit 
-     */
-    public v3PollsGet(apiToken?: string, channelUrl?: string, channelType?: string, token?: string, limit?: number, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsGet(apiToken, channelUrl, channelType, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Close a poll This action closes a poll and prevents users from voting any further. https://sendbird.com/docs/chat/v3/platform-api/message/polls/close-a-poll -----------------------------  
-     * Close a poll
-     * @param pollId 
-     * @param apiToken 
-     */
-    public v3PollsPollIdClosePut(pollId: number, apiToken?: string, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdClosePut(pollId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdClosePut(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a poll This action deletes a poll. Once a poll is deleted, you can't retrieve its data. https://sendbird.com/docs/chat/v3/platform-api/message/polls/delete-a-poll -----------------------------  
-     * Delete a poll
-     * @param pollId 
-     * @param apiToken 
-     */
-    public v3PollsPollIdDelete(pollId: number, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdDelete(pollId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdDelete(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get a poll This action retrieves information on a specific poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/get-a-poll -----------------------------
-     * Get a poll
-     * @param pollId 
-     * @param apiToken 
-     * @param v3PollsPollIdDeleteRequest 
-     */
-    public v3PollsPollIdGet(pollId: number, apiToken?: string, v3PollsPollIdDeleteRequest?: V3PollsPollIdDeleteRequest, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdGet(pollId, apiToken, v3PollsPollIdDeleteRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Delete a poll option This action deletes an option from a poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/delete-a-poll-option ----------------------------- 
-     * Delete a poll option
-     * @param pollId 
-     * @param optionId 
-     * @param apiToken 
-     */
-    public v3PollsPollIdOptionsOptionIdDelete(pollId: number, optionId: number, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdOptionsOptionIdDelete(pollId, optionId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdOptionsOptionIdDelete(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get a poll option This action retrieves a poll option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/get-a-poll-option -----------------------------  
-     * Get a poll option
-     * @param pollId 
-     * @param optionId 
-     * @param apiToken 
-     */
-    public v3PollsPollIdOptionsOptionIdGet(pollId: number, optionId: number, apiToken?: string, _options?: Configuration): Observable<SendBirdPollOption> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdOptionsOptionIdGet(pollId, optionId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdOptionsOptionIdGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a poll option This action updates the content of a poll option. Voting for an option doesn't update the option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/update-a-poll-option -----------------------------  
-     * Update a poll option
-     * @param pollId 
-     * @param optionId 
-     * @param apiToken 
-     * @param v3PollsPollIdOptionsOptionIdDeleteRequest 
-     */
-    public v3PollsPollIdOptionsOptionIdPut(pollId: number, optionId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdDeleteRequest?: V3PollsPollIdOptionsOptionIdDeleteRequest, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdOptionsOptionIdPut(pollId, optionId, apiToken, v3PollsPollIdOptionsOptionIdDeleteRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdOptionsOptionIdPut(rsp)));
-            }));
-    }
-
-    /**
-     * ## List voters of a poll option This action retrieves a list of users who voted for a poll option. https://sendbird.com/docs/chat/v3/platform-api/message/polls/list-voters-of-a-poll-option  -----------------------------  
-     * List voters of a poll option
-     * @param pollId 
-     * @param optionId 
-     * @param apiToken 
-     * @param v3PollsPollIdOptionsOptionIdVotersGetRequest 
-     */
-    public v3PollsPollIdOptionsOptionIdVotersGet(pollId: number, optionId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdVotersGetRequest?: V3PollsPollIdOptionsOptionIdVotersGetRequest, _options?: Configuration): Observable<V3PollsPollIdOptionsOptionIdVotersGet200Response> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdOptionsOptionIdVotersGet(pollId, optionId, apiToken, v3PollsPollIdOptionsOptionIdVotersGetRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdOptionsOptionIdVotersGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Add a poll option This action adds a new option to a poll. https://sendbird.com/docs/chat/v3/platform-api/message/polls/add-a-poll-option -----------------------------  
-     * Add a poll option
-     * @param pollId 
-     * @param apiToken 
-     * @param v3PollsPollIdOptionsOptionIdDeleteRequest 
-     */
-    public v3PollsPollIdOptionsPost(pollId: number, apiToken?: string, v3PollsPollIdOptionsOptionIdDeleteRequest?: V3PollsPollIdOptionsOptionIdDeleteRequest, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdOptionsPost(pollId, apiToken, v3PollsPollIdOptionsOptionIdDeleteRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdOptionsPost(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a poll This action updates information of a poll. To change the content of a poll option, see the update a poll option page. https://sendbird.com/docs/chat/v3/platform-api/message/polls/update-a-poll -----------------------------  
-     * Update a poll
-     * @param pollId 
-     * @param apiToken 
-     * @param v3PollsPollIdDeleteRequest1 
-     */
-    public v3PollsPollIdPut(pollId: number, apiToken?: string, v3PollsPollIdDeleteRequest1?: V3PollsPollIdDeleteRequest1, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdPut(pollId, apiToken, v3PollsPollIdDeleteRequest1, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdPut(rsp)));
-            }));
-    }
-
-    /**
-     * ## Cast or cancel a vote This action adds or removes a vote from a poll option, changing the number of votes given to each option. Use this action to override a previous vote and update the user's final choice of poll options. https://sendbird.com/docs/chat/v3/platform-api/message/polls/cast-or-cancel-a-vote -----------------------------  
-     * Cast or cancel a vote
-     * @param pollId 
-     * @param apiToken 
-     * @param v3PollsPollIdVotePutRequest 
-     */
-    public v3PollsPollIdVotePut(pollId: number, apiToken?: string, v3PollsPollIdVotePutRequest?: V3PollsPollIdVotePutRequest, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPollIdVotePut(pollId, apiToken, v3PollsPollIdVotePutRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPollIdVotePut(rsp)));
-            }));
-    }
-
-    /**
-     * ## Create a poll This action creates a poll with at least one option.You can configure various settings for your poll, including when the poll will close and whether to allow voting for multiple options. After creating a poll, to share the poll with other users in a channel, the poll must be sent as a message. https://sendbird.com/docs/chat/v3/platform-api/message/polls/create-a-poll -----------------------------
-     * Create a poll
-     * @param title 
-     * @param options 
-     * @param apiToken 
-     * @param v3PollsGetRequest 
-     */
-    public v3PollsPost(title: string, options: Array<string>, apiToken?: string, v3PollsGetRequest?: V3PollsGetRequest, _options?: Configuration): Observable<SendBirdPoll> {
-        const requestContextPromise = this.requestFactory.v3PollsPost(title, options, apiToken, v3PollsGetRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3PollsPost(rsp)));
-            }));
-    }
-
-}
-
-import { PrivacyApiRequestFactory, PrivacyApiResponseProcessor} from "../apis/PrivacyApi";
-export class ObservablePrivacyApi {
-    private requestFactory: PrivacyApiRequestFactory;
-    private responseProcessor: PrivacyApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: PrivacyApiRequestFactory,
-        responseProcessor?: PrivacyApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new PrivacyApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new PrivacyApiResponseProcessor();
-    }
-
-    /**
-     * ## Cancel the registration of a GDPR request  Cancels the registration of a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-cancel-the-registration-of-a-gdpr-request ----------------------------
-     * Cancel the registration of a GDPR request
-     * @param requestId 
-     * @param apiToken 
-     */
-    public cancelTheRegistrationOfGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.cancelTheRegistrationOfGdprRequestById(requestId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cancelTheRegistrationOfGdprRequestById(rsp)));
-            }));
-    }
-
-    /**
-     * ## List GDPR requests  Retrieves a list of GDPR requests of all types.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-list-gdpr-requests ----------------------------
-     * List GDPR requests
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listGdprRequests(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListGdprRequestsResponse> {
-        const requestContextPromise = this.requestFactory.listGdprRequests(apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listGdprRequests(rsp)));
-            }));
-    }
-
-    /**
-     * ## Register a GDPR request  Registers a specific type of GDPR request to meet the GDPR's requirements.  > __Note__: Currently, only delete and access of the user data are supported. The features for the [right to restriction of processing](https://gdpr-info.eu/art-18-gdpr/) and [right to object](https://gdpr-info.eu/art-21-gdpr/) will be available soon.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-register-a-gdpr-request
-     * Register a GDPR request
-     * @param apiToken 
-     * @param registerGdprRequestData 
-     */
-    public registerGdprRequest(apiToken?: string, registerGdprRequestData?: RegisterGdprRequestData, _options?: Configuration): Observable<RegisterGdprRequestResponse> {
-        const requestContextPromise = this.requestFactory.registerGdprRequest(apiToken, registerGdprRequestData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.registerGdprRequest(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a GDPR request  Retrieves a specific GDPR request.  https://sendbird.com/docs/chat/v3/platform-api/guides/data-privacy#2-view-a-gdpr-request ----------------------------
-     * View a GDPR request
-     * @param requestId 
-     * @param apiToken 
-     */
-    public viewGdprRequestById(requestId: string, apiToken?: string, _options?: Configuration): Observable<ViewGdprRequestByIdResponse> {
-        const requestContextPromise = this.requestFactory.viewGdprRequestById(requestId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewGdprRequestById(rsp)));
-            }));
-    }
-
-}
-
-import { PushNotificationsApiRequestFactory, PushNotificationsApiResponseProcessor} from "../apis/PushNotificationsApi";
-export class ObservablePushNotificationsApi {
-    private requestFactory: PushNotificationsApiRequestFactory;
-    private responseProcessor: PushNotificationsApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: PushNotificationsApiRequestFactory,
-        responseProcessor?: PushNotificationsApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new PushNotificationsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new PushNotificationsApiResponseProcessor();
-    }
-
-    /**
-     * ## Check push notifications Shows whether the push notifications feature is turned on for an application. https://sendbird.com/docs/chat/v3/platform-api/application/managing-notifications/check-push-notifications -----------------------------  
-     * Check push notifications
-     * @param apiToken 
-     */
-    public v3ApplicationsPushSettingsGet(apiToken?: string, _options?: Configuration): Observable<V3ApplicationsPushSettingsGet200Response> {
-        const requestContextPromise = this.requestFactory.v3ApplicationsPushSettingsGet(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ApplicationsPushSettingsGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Turn on push notifications Determines whether to turn on the push notifications feature for an application. https://sendbird.com/docs/chat/v3/platform-api/application/managing-notifications/turn-on-push-notifications -----------------------------  
-     * Turn on push notifications
-     * @param apiToken 
-     * @param v3ApplicationsPushSettingsGetRequest 
-     */
-    public v3ApplicationsPushSettingsPut(apiToken?: string, v3ApplicationsPushSettingsGetRequest?: V3ApplicationsPushSettingsGetRequest, _options?: Configuration): Observable<ListPushConfigurationsResponse> {
-        const requestContextPromise = this.requestFactory.v3ApplicationsPushSettingsPut(apiToken, v3ApplicationsPushSettingsGetRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ApplicationsPushSettingsPut(rsp)));
-            }));
-    }
-
-}
-
-import { ReportApiRequestFactory, ReportApiResponseProcessor} from "../apis/ReportApi";
-export class ObservableReportApi {
-    private requestFactory: ReportApiRequestFactory;
-    private responseProcessor: ReportApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: ReportApiRequestFactory,
-        responseProcessor?: ReportApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new ReportApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new ReportApiResponseProcessor();
-    }
-
-    /**
-     * ## List reports  Retrieves a list of reports within an application regardless of object types.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports ----------------------------
-     * List reports
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     * @param startTs 
-     * @param endTs 
-     */
-    public listReports(apiToken?: string, token?: string, limit?: number, startTs?: number, endTs?: number, _options?: Configuration): Observable<ListReportsResponse> {
-        const requestContextPromise = this.requestFactory.listReports(apiToken, token, limit, startTs, endTs, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listReports(rsp)));
-            }));
-    }
-
-    /**
-     * ## List reports on a channel  Retrieves a list of reports on a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-channel ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which is reported for offensive messages or inappropriate activities.
-     * List reports on a channel
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listReportsOnChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListReportsOnChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.listReportsOnChannelByUrl(channelType, channelUrl, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listReportsOnChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## List reports on a message  Retrieves a list of reports on a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel where the reported message is in.  `message_id`      Type: string      Description: Specifies the unique ID of the reported message.
-     * List reports on a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listReportsOnMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListReportsOnMessageByIdResponse> {
-        const requestContextPromise = this.requestFactory.listReportsOnMessageById(channelType, channelUrl, messageId, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listReportsOnMessageById(rsp)));
-            }));
-    }
-
-    /**
-     * ## List reports on a user  Retrieves a list of reports on a user who sends an offensive message.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-list-reports-on-a-user ----------------------------   `offending_user_id`      Type: string      Description: Specifies the unique ID of the user who has sent the message to report.
-     * List reports on a user
-     * @param offendingUserId 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public listReportsOnUserById(offendingUserId: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Observable<ListReportsOnUserByIdResponse> {
-        const requestContextPromise = this.requestFactory.listReportsOnUserById(offendingUserId, apiToken, token, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listReportsOnUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Report a channel  Reports a channel that has offensive messages or abusive activities.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-channel ----------------------------
-     * Report a channel
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param reportChannelByUrlData 
-     */
-    public reportChannelByUrl(channelType: string, channelUrl: string, apiToken?: string, reportChannelByUrlData?: ReportChannelByUrlData, _options?: Configuration): Observable<ReportChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.reportChannelByUrl(channelType, channelUrl, apiToken, reportChannelByUrlData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.reportChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## Report a message  Reports a message which contains suspicious, harassing, or inappropriate content.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-message ----------------------------
-     * Report a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param reportMessageByIdData 
-     */
-    public reportMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, reportMessageByIdData?: ReportMessageByIdData, _options?: Configuration): Observable<ReportMessageByIdResponse> {
-        const requestContextPromise = this.requestFactory.reportMessageById(channelType, channelUrl, messageId, apiToken, reportMessageByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.reportMessageById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Report a user  Reports a user who sends an offensive message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-report-a-user ----------------------------
-     * Report a user
-     * @param offendingUserId 
-     * @param apiToken 
-     * @param reportUserByIdData 
-     */
-    public reportUserById(offendingUserId: string, apiToken?: string, reportUserByIdData?: ReportUserByIdData, _options?: Configuration): Observable<ReportUserByIdResponse> {
-        const requestContextPromise = this.requestFactory.reportUserById(offendingUserId, apiToken, reportUserByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.reportUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a moderated message  Retrieves information on a message that has been moderated by the [profanity filter](https://sendbird.com/docs/chat/v3/platform-api/guides/filter-and-moderation#2-profanity-filter).  https://sendbird.com/docs/chat/v3/platform-api/guides/report-content-and-subject#2-view-a-moderated-message ----------------------------
-     * View a moderated message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     */
-    public viewModeratedMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.viewModeratedMessageById(channelType, channelUrl, messageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewModeratedMessageById(rsp)));
-            }));
-    }
-
-}
-
-import { ScheduledMessageApiRequestFactory, ScheduledMessageApiResponseProcessor} from "../apis/ScheduledMessageApi";
-export class ObservableScheduledMessageApi {
-    private requestFactory: ScheduledMessageApiRequestFactory;
-    private responseProcessor: ScheduledMessageApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: ScheduledMessageApiRequestFactory,
-        responseProcessor?: ScheduledMessageApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new ScheduledMessageApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new ScheduledMessageApiResponseProcessor();
-    }
-
-    /**
-     * ## Send a scheduled message immediately This action sends a scheduled message immediately. A user can only send their own scheduled messages immediately. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/send-a-scheduled-message-immediately -----------------------------  
-     * Send a scheduled message immediately
-     * @param channelType 
-     * @param channelUrl 
-     * @param scheduledMessageId 
-     * @param apiToken 
-     */
-    public v3ChannelTypeChannelUrlScheduledMessagesScheduledMessageIdSendNowPost(channelType: string, channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.v3ChannelTypeChannelUrlScheduledMessagesScheduledMessageIdSendNowPost(channelType, channelUrl, scheduledMessageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ChannelTypeChannelUrlScheduledMessagesScheduledMessageIdSendNowPost(rsp)));
-            }));
-    }
-
-    /**
-     * ## Create a scheduled message This action creates a new scheduled message. If a user leaves the channel before the scheduled time for the message to be sent, the scheduled message will be removed. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/create-a-scheduled-message -----------------------------  
-     * Create a scheduled message
-     * @param channelUrl 
-     * @param apiToken 
-     * @param v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest 
-     */
-    public v3GroupChannelsChannelUrlScheduledMessagesPost(channelUrl: string, apiToken?: string, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest?: V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options?: Configuration): Observable<V3ScheduledMessagesGet200Response> {
-        const requestContextPromise = this.requestFactory.v3GroupChannelsChannelUrlScheduledMessagesPost(channelUrl, apiToken, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3GroupChannelsChannelUrlScheduledMessagesPost(rsp)));
-            }));
-    }
-
-    /**
-     * ## Cancel a scheduled message This action cancels a message that a user has scheduled to send at a later time. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/cancel-a-scheduled-message -----------------------------                      
-     * Cancel a scheduled message
-     * @param channelUrl 
-     * @param scheduledMessageId 
-     * @param apiToken 
-     */
-    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDelete(channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Observable<V3ScheduledMessagesGet200Response> {
-        const requestContextPromise = this.requestFactory.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDelete(channelUrl, scheduledMessageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDelete(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a scheduled message This action retrieves information on a specific scheduled message. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/view-a-scheduled-message -----------------------------                      
-     * View a scheduled message
-     * @param channelUrl 
-     * @param scheduledMessageId 
-     * @param apiToken 
-     */
-    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdGet(channelUrl: string, scheduledMessageId: number, apiToken?: string, _options?: Configuration): Observable<V3ScheduledMessagesGet200Response> {
-        const requestContextPromise = this.requestFactory.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdGet(channelUrl, scheduledMessageId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## Update a scheduled message This action updates information on a specific scheduled message. You can’t change the message type. Update operation should be done at least 5 minutes prior to the original scheduled time. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/update-a-scheduled-message -----------------------------      
-     * Update a scheduled message
-     * @param channelUrl 
-     * @param scheduledMessageId 
-     * @param apiToken 
-     * @param v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest 
-     */
-    public v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdPost(channelUrl: string, scheduledMessageId: number, apiToken?: string, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest?: V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options?: Configuration): Observable<V3ScheduledMessagesGet200Response> {
-        const requestContextPromise = this.requestFactory.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdPost(channelUrl, scheduledMessageId, apiToken, v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdPost(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of scheduled messages This action retrieves the total number of scheduled messages that a user has. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/view-number-of-scheduled-messages -----------------------------  
-     * View number of scheduled messages
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param senderId 
-     * @param status 
-     * @param messageType 
-     */
-    public v3ScheduledMessagesCountGet(apiToken?: string, channelType?: string, channelUrl?: string, senderId?: string, status?: Array<any>, messageType?: string, _options?: Configuration): Observable<V3ScheduledMessagesCountGet200Response> {
-        const requestContextPromise = this.requestFactory.v3ScheduledMessagesCountGet(apiToken, channelType, channelUrl, senderId, status, messageType, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ScheduledMessagesCountGet(rsp)));
-            }));
-    }
-
-    /**
-     * ## List scheduled messages This action retrieves a list of scheduled messages. A user can only see the list of their own scheduled messages. https://sendbird.com/docs/chat/v3/platform-api/message/scheduled-messages/list-scheduled-messages -----------------------------  
-     * List scheduled messages
-     * @param apiToken 
-     * @param channelType 
-     * @param channelUrl 
-     * @param senderId 
-     * @param token 
-     * @param limit 
-     * @param order 
-     * @param reverse 
-     * @param status 
-     * @param messageType 
-     */
-    public v3ScheduledMessagesGet(apiToken?: string, channelType?: string, channelUrl?: string, senderId?: string, token?: string, limit?: number, order?: string, reverse?: boolean, status?: Array<any>, messageType?: string, _options?: Configuration): Observable<V3ScheduledMessagesGet200Response> {
-        const requestContextPromise = this.requestFactory.v3ScheduledMessagesGet(apiToken, channelType, channelUrl, senderId, token, limit, order, reverse, status, messageType, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v3ScheduledMessagesGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAnOpenChannel(rsp)));
             }));
     }
 
@@ -5761,116 +1770,13 @@ export class ObservableStatisticsApi {
     }
 
     /**
-     * ## Get detailed open rate of an announcement  Retrieves the detailed open rate information of an announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-rate-of-an-announcement ----------------------------   `unique_id`      Type: string      Description: Specifies the unique ID of the announcement to get its open rate.
-     * Get detailed open rate of an announcement
-     * @param uniqueId 
-     * @param apiToken 
-     */
-    public getDetailedOpenRateOfAnnouncementById(uniqueId: string, apiToken?: string, _options?: Configuration): Observable<GetDetailedOpenRateOfAnnouncementByIdResponse> {
-        const requestContextPromise = this.requestFactory.getDetailedOpenRateOfAnnouncementById(uniqueId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getDetailedOpenRateOfAnnouncementById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Get detailed open status of an announcement  Retrieves the detailed open status information of a specific announcement.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-get-detailed-open-status-of-an-announcement ----------------------------
-     * Get detailed open status of an announcement
-     * @param uniqueId 
-     * @param apiToken 
-     * @param limit 
-     * @param next 
-     * @param uniqueIds 
-     * @param channelUrls 
-     * @param hasOpened 
-     */
-    public getDetailedOpenStatusOfAnnouncementById(uniqueId: string, apiToken?: string, limit?: number, next?: string, uniqueIds?: Array<string>, channelUrls?: Array<string>, hasOpened?: boolean, _options?: Configuration): Observable<GetDetailedOpenStatusOfAnnouncementByIdResponse> {
-        const requestContextPromise = this.requestFactory.getDetailedOpenStatusOfAnnouncementById(uniqueId, apiToken, limit, next, uniqueIds, channelUrls, hasOpened, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getDetailedOpenStatusOfAnnouncementById(rsp)));
-            }));
-    }
-
-    /**
-     * ## Retrieve Advanced analytics metrics  Retrieves Advanced analytics metrics based on the specified parameters. You can retrieve either daily or monthly metrics using the time_dimension parameter.  >__Note__: Daily metrics are calculated and updated every three hours, starting at 1 a.m. in UTC. Meanwhile, monthly metrics are calculated after the last day of the month.  https://sendbird.com/docs/chat/v3/platform-api/guides/advanced-analytics#2-retrieve-advanced-analytics-metrics ----------------------------
-     * Retrieve Advanced analytics metrics
-     * @param apiToken 
-     */
-    public retrieveAdvancedAnalyticsMetrics(apiToken?: string, _options?: Configuration): Observable<RetrieveAdvancedAnalyticsMetricsResponse> {
-        const requestContextPromise = this.requestFactory.retrieveAdvancedAnalyticsMetrics(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieveAdvancedAnalyticsMetrics(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
-     * View number of concurrent connections
-     * @param apiToken 
-     */
-    public viewNumberOfConcurrentConnections(apiToken?: string, _options?: Configuration): Observable<ViewNumberOfConcurrentConnectionsResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfConcurrentConnections(apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewNumberOfConcurrentConnections(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
+     * ## View number of daily active users  Retrieves the number of daily active users of an application.  > **Note**: This metric is scheduled to be calculated every 30 minutes, starting at 00:00 UTC, with the first update at 00:30 UTC.      [https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-daily-active-users#1-get-number-of-daily-active-users](https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-daily-active-users#1-get-number-of-daily-active-users)
      * View number of daily active users
+     * @param date YYYY-MM-DD
      * @param apiToken 
-     * @param date 
      */
-    public viewNumberOfDailyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<ViewNumberOfDailyActiveUsersResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfDailyActiveUsers(apiToken, date, _options);
+    public viewNumberOfDailyActiveUsers(date?: string, apiToken?: string, _options?: Configuration): Observable<ViewNumberOfDailyActiveUsersResponse> {
+        const requestContextPromise = this.requestFactory.viewNumberOfDailyActiveUsers(date, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5889,13 +1795,13 @@ export class ObservableStatisticsApi {
     }
 
     /**
-     * ## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
+     * ## View number of monthly active users  Retrieves the number of monthly active users of an application.  > **Note**: This metric is scheduled to be calculated every 30 minutes, starting at 00:00 UTC, with the first update at 00:30 UTC.      [https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-monthly-active-users#1-get-number-of-monthly-active-users](https://sendbird.com/docs/chat/platform-api/v3/statistics/daus-and-maus/get-number-of-monthly-active-users#1-get-number-of-monthly-active-users)
      * View number of monthly active users
+     * @param date YYYY-MM-DD
      * @param apiToken 
-     * @param date 
      */
-    public viewNumberOfMonthlyActiveUsers(apiToken?: string, date?: string, _options?: Configuration): Observable<ViewNumberOfMonthlyActiveUsersResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfMonthlyActiveUsers(apiToken, date, _options);
+    public viewNumberOfMonthlyActiveUsers(date?: string, apiToken?: string, _options?: Configuration): Observable<ViewNumberOfMonthlyActiveUsersResponse> {
+        const requestContextPromise = this.requestFactory.viewNumberOfMonthlyActiveUsers(date, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5910,37 +1816,6 @@ export class ObservableStatisticsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewNumberOfMonthlyActiveUsers(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
-     * View number of peak connections
-     * @param timeDimension 
-     * @param startYear 
-     * @param startMonth 
-     * @param endYear 
-     * @param endMonth 
-     * @param apiToken 
-     * @param startDay 
-     * @param endDay 
-     */
-    public viewNumberOfPeakConnections(timeDimension: string, startYear: number, startMonth: number, endYear: number, endMonth: number, apiToken?: string, startDay?: number, endDay?: number, _options?: Configuration): Observable<ViewNumberOfPeakConnectionsResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfPeakConnections(timeDimension, startYear, startMonth, endYear, endMonth, apiToken, startDay, endDay, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewNumberOfPeakConnections(rsp)));
             }));
     }
 
@@ -5965,13 +1840,13 @@ export class ObservableUserApi {
     /**
      * ## Add a registration or device token  > __Note__: A user can have up to 20 FCM registration tokens, 20 HMS device tokens, and 20 APNs device tokens each. The oldest token will be deleted before a new token is added for a user who already has 20 registration or device tokens. Only the 20 newest tokens will be maintained for users who already have more than 20 of each token type.  To send notification requests to push notification services on behalf of your server, adds a specific user's FCM registration token, HMS device token, or APNs device token to Sendbird server. Depending on which push service you are using, you can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`.  A FCM registration token and an APNs device token allow identification of each client app instance on each device, and are generated and registered by Android and iOS apps through the corresponding SDKs. Use this method if you need to register a token via your own server.  > __Note__: For more information on the registration token and device token, visit the Google's [FCM](https://firebase.google.com/docs/auth/admin/verify-id-tokens) page, Huawei's [Push kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050040060) and Apple's [APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) page.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-add-a-registration-or-device-token ----------------------------
      * Add a registration or device token
-     * @param userId 
-     * @param tokenType 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
      * @param apiToken 
-     * @param addRegistrationOrDeviceTokenData 
+     * @param addARegistrationOrDeviceTokenRequest 
      */
-    public addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Observable<AddRegistrationOrDeviceTokenResponse> {
-        const requestContextPromise = this.requestFactory.addRegistrationOrDeviceToken(userId, tokenType, apiToken, addRegistrationOrDeviceTokenData, _options);
+    public addARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Observable<AddARegistrationOrDeviceTokenResponse> {
+        const requestContextPromise = this.requestFactory.addARegistrationOrDeviceToken(userId, tokenType, apiToken, addARegistrationOrDeviceTokenRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5985,19 +1860,19 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addRegistrationOrDeviceToken(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.addARegistrationOrDeviceToken(rsp)));
             }));
     }
 
     /**
-     * ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
+     * ## Choose a push notification content template  Users can choose a template to determine how push notifications appear to them. Push notification content templates are pre-formatted forms that can be customized to display your own push notification messages on a user's device. Sendbird provides two types: `default` and `alternative`. Go to **Settings** > **Chat** > **Push notifications** > **Push notification content templates** on [Sendbird Dashboard](https://dashboard.sendbird.com/auth/signin) to customize the templates.  If the `push_message_template` property is specified when [sending a message](https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/send-a-message), the content template customized for the message takes precedence over the user's choice.  > **Note**: Push notifications are only available for group channels.      https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/choose-a-push-notification-content-template#1-choose-a-push-notification-content-template
      * Choose a push notification content template
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param body 
+     * @param chooseAPushNotificationContentTemplateRequest 
      */
-    public choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Observable<ChoosePushNotificationContentTemplateResponse> {
-        const requestContextPromise = this.requestFactory.choosePushNotificationContentTemplate(userId, apiToken, body, _options);
+    public chooseAPushNotificationContentTemplate(userId: string, apiToken?: string, chooseAPushNotificationContentTemplateRequest?: ChooseAPushNotificationContentTemplateRequest, _options?: Configuration): Observable<ChooseAPushNotificationContentTemplateResponse> {
+        const requestContextPromise = this.requestFactory.chooseAPushNotificationContentTemplate(userId, apiToken, chooseAPushNotificationContentTemplateRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6011,18 +1886,18 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.choosePushNotificationContentTemplate(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.chooseAPushNotificationContentTemplate(rsp)));
             }));
     }
 
     /**
-     * ## Create a user  Creates a new user in the application. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user
+     * ## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#1-create-a-user
      * Create a user
      * @param apiToken 
-     * @param createUserData 
+     * @param createAUserRequest 
      */
-    public createUser(apiToken?: string, createUserData?: CreateUserData, _options?: Configuration): Observable<SendBirdUser> {
-        const requestContextPromise = this.requestFactory.createUser(apiToken, createUserData, _options);
+    public createAUser(apiToken?: string, createAUserRequest?: CreateAUserRequest, _options?: Configuration): Observable<SendbirdUser> {
+        const requestContextPromise = this.requestFactory.createAUser(apiToken, createAUserRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6036,19 +1911,19 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createUser(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAUser(rsp)));
             }));
     }
 
     /**
-     * ## Create user token
+     * ## Create user token  This action issues a session token for user authentication. Session tokens provide an efficient stateless authentication method by not storing the tokens in the Sendbird database, and thus improving the server's performance. See [access token vs. session token](https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#2-access-token-vs-session-token) to learn more about authenticating users.  > **Note**: The endpoint `/users/{user_id}` is deprecated. Use `/users/{user_id}/token` for greater efficiency.      https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token#1-issue-a-session-token
      * Create user token
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param createUserTokenData 
+     * @param createUserTokenRequest 
      */
-    public createUserToken(userId: string, apiToken?: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Observable<CreateUserTokenResponse> {
-        const requestContextPromise = this.requestFactory.createUserToken(userId, apiToken, createUserTokenData, _options);
+    public createUserToken(userId: string, apiToken?: string, createUserTokenRequest?: CreateUserTokenRequest, _options?: Configuration): Observable<CreateUserTokenResponse> {
+        const requestContextPromise = this.requestFactory.createUserToken(userId, apiToken, createUserTokenRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6067,13 +1942,13 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
+     * ## Delete a user  You can delete a user from your Sendbird application using this API.  > **Note**: This API deletes user data and metadata, except for their messages. If you wish to delete user data including their messages, use the [GDPR request](https://sendbird.com/docs/chat/platform-api/v3/privacy/privacy-overview).      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/delete-a-user#1-delete-a-user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/delete-a-user#1-delete-a-user)
      * Delete a user
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
      */
-    public deleteUserById(userId: string, apiToken?: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteUserById(userId, apiToken, _options);
+    public deleteAUser(userId: string, apiToken?: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.deleteAUser(userId, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6087,19 +1962,44 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteUserById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAUser(rsp)));
             }));
     }
 
     /**
-     * ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
-     * Leave my group channels
-     * @param userId 
+     * ## Get channel invitation preference  This action retrieves a user's [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) invitation preference. Users are subject to both user-specific and application-wide invitation preferences. Of the two, the invitation preference set for a specific user takes precedence over [the default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/get-default-invitation-preference).  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/get-channel-invitation-preference#1-get-channel-invitation-preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/get-channel-invitation-preference#1-get-channel-invitation-preference)
+     * Get channel invitation preference
+     * @param userId (Required) 
      * @param apiToken 
-     * @param leaveMyGroupChannelsData 
      */
-    public leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.leaveMyGroupChannels(userId, apiToken, leaveMyGroupChannelsData, _options);
+    public getChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Observable<GetChannelInvitationPreferenceResponse> {
+        const requestContextPromise = this.requestFactory.getChannelInvitationPreference(userId, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getChannelInvitationPreference(rsp)));
+            }));
+    }
+
+    /**
+     * ## Leave my group channels  This action allows a user to leave all group channels or channels with a specific custom type. This API is useful if you want to let a user leave a set of channels at once. To let a user leave only one of their group channels, use the [leave a channel API](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/leave-a-channel) instead.  Since this API can't be called for a deactivated user, ensure that the [<code>leave_all_when_deactivated</code>](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#2-request-body) property of the user is set to its default value of `true` to let the user leave all joined group channels upon deactivation.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/leave-group-channels#1-leave-group-channels  `user_id`   Type: string   Description: Specifies the unique ID of the user to leave all joined group channels.
+     * Leave my group channels
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param leaveMyGroupChannelsRequest 
+     */
+    public leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsRequest?: LeaveMyGroupChannelsRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.leaveMyGroupChannels(userId, apiToken, leaveMyGroupChannelsRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6118,53 +2018,55 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## List my group channels  Retrieves all group channels that the user has joined. You can create a request based on various query parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * ## List my group channels  This action retrieves a list of [group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) that a specific user has joined. You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  If you're looking to retrieve a list of group channels in a specific application, visit the [list group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-group-channels) page under the Channel section.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/list-group-channels-by-user#1-list-group-channels-by-user  `user_id`   Type: string   Description: Specifies the unique ID of the target user.
      * List my group channels
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param token 
-     * @param limit 
+     * @param token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0.
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
      * @param distinctMode 
      * @param publicMode 
      * @param superMode 
-     * @param hiddenMode 
-     * @param memberStateFilter 
-     * @param unreadFilter 
-     * @param createdAfter 
-     * @param createdBefore 
+     * @param createdAfter Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format.
+     * @param createdBefore Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format.
      * @param showEmpty 
-     * @param showFrozen 
      * @param showMember 
      * @param showDeliveryReceipt 
      * @param showReadReceipt 
+     * @param showMetadata 
+     * @param showFrozen 
      * @param order 
-     * @param metadataOrderKey 
-     * @param customTypes 
-     * @param customTypeStartswith 
-     * @param channelUrls 
-     * @param name 
-     * @param nameContains 
-     * @param nameStartswith 
-     * @param membersExactlyIn 
-     * @param membersIncludeIn 
-     * @param queryType 
-     * @param membersNickname 
-     * @param membersNicknameContains 
-     * @param searchQuery 
-     * @param searchFields 
-     * @param metadataKey 
-     * @param metadataValues 
-     * @param metadataValueStartswith 
-     * @param metacounterKey 
-     * @param metacounterValues 
-     * @param metacounterValueGt 
-     * @param metacounterValueGte 
-     * @param metacounterValueLt 
-     * @param metacounterValueLte 
-     * @param customType 
+     * @param metadataOrderKey Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key.
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type.
+     * @param customTypeStartswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended.
+     * @param channelUrls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+     * @param name Specifies one or more group channel names.
+     * @param nameContains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param nameStartswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param membersExactlyIn Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param membersIncludeIn Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param queryType Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND)
+     * @param membersNickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended.
+     * @param membersNicknameContains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues.
+     * @param membersNicknameStartswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended.
+     * @param searchQuery Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended.
+     * @param searchFields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together)
+     * @param metadataKey Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
+     * @param metadataValues Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metadataValueStartswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metacounterKey Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified.
+     * @param metacounterValues Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
+     * @param hiddenMode Restricts the search scope to group channels that match a specific hidden_status and operating behavior
+     * @param unreadFilter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all)
+     * @param memberStateFilter 
      */
-    public listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Observable<ListMyGroupChannelsResponse> {
-        const requestContextPromise = this.requestFactory.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, hiddenMode, memberStateFilter, unreadFilter, createdAfter, createdBefore, showEmpty, showFrozen, showMember, showDeliveryReceipt, showReadReceipt, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, customType, _options);
+    public listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, membersNicknameStartswith?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, hiddenMode?: 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all', unreadFilter?: 'all' | 'unread_message', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', _options?: Configuration): Observable<ListMyGroupChannelsResponse> {
+        const requestContextPromise = this.requestFactory.listMyGroupChannels(userId, apiToken, token, limit, distinctMode, publicMode, superMode, createdAfter, createdBefore, showEmpty, showMember, showDeliveryReceipt, showReadReceipt, showMetadata, showFrozen, order, metadataOrderKey, customTypes, customTypeStartswith, channelUrls, name, nameContains, nameStartswith, membersExactlyIn, membersIncludeIn, queryType, membersNickname, membersNicknameContains, membersNicknameStartswith, searchQuery, searchFields, metadataKey, metadataValues, metadataValueStartswith, metacounterKey, metacounterValues, metacounterValueGt, metacounterValueGte, metacounterValueLt, metacounterValueLte, includeSortedMetaarrayInLastMessage, hiddenMode, unreadFilter, memberStateFilter, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6183,13 +2085,13 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## List registration or device tokens  Retrieves a list of a specific user's FCM registration tokens, HMS device tokens, or APNs device tokens. You can specify either `gcm`, `huawei`, or `apns` in the `token_type` parameter, depending on which push notification service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-registration-or-device-tokens ----------------------------
+     * ## List registration or device tokens  Retrieves a list of a user's registration or device tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/list-registration-or-device-tokens#1-list-registration-or-device-tokens
      * List registration or device tokens
-     * @param userId 
-     * @param tokenType 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
      * @param apiToken 
      */
-    public listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Observable<ListRegistrationOrDeviceTokensResponse> {
+    public listRegistrationOrDeviceTokens(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, _options?: Configuration): Observable<ListRegistrationOrDeviceTokensResponse> {
         const requestContextPromise = this.requestFactory.listRegistrationOrDeviceTokens(userId, tokenType, apiToken, _options);
 
         // build promise chain
@@ -6209,21 +2111,21 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## List users  Retrieves a list of users in your application. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-users ----------------------------
+     * ## List users  You can retrieve a list of users in your Sendbird application using this API. You can generate a customized list using various parameter combinations.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/list-users#1-list-users
      * List users
-     * @param apiToken 
      * @param token 
      * @param limit 
-     * @param activeMode 
-     * @param showBot 
-     * @param userIds 
+     * @param activeMode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;)
+     * @param showBot Determines whether to include bots in the list. (Default: true)
+     * @param userIds Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret.
      * @param nickname 
      * @param nicknameStartswith 
      * @param metadatakey 
-     * @param metadatavaluesIn 
+     * @param metadatavaluesIn Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above.
+     * @param apiToken 
      */
-    public listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Observable<ListUsersResponse> {
-        const requestContextPromise = this.requestFactory.listUsers(apiToken, token, limit, activeMode, showBot, userIds, nickname, nicknameStartswith, metadatakey, metadatavaluesIn, _options);
+    public listUsers(token?: string, limit?: number, activeMode?: 'activated' | 'deactivated' | 'all', showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Observable<ListUsersResponse> {
+        const requestContextPromise = this.requestFactory.listUsers(token, limit, activeMode, showBot, userIds, nickname, nicknameStartswith, metadatakey, metadatavaluesIn, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6242,14 +2144,14 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Mark all messages as read  Marks all of a user's unread messages as read in the joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mark-all-messages-as-read ----------------------------
+     * ## Mark all messages as read  This action marks all of a user's unread messages as read in certain group channels. If channels aren't specified, the user's unread messages in all group channels are marked as read.  https://sendbird.com/docs/chat/platform-api/v3/user/marking-messages-as-read/mark-all-of-a-users-messages-as-read#1-mark-all-of-a-user-s-messages-as-read
      * Mark all messages as read
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param markAllMessagesAsReadData 
+     * @param markAllMessagesAsReadRequest 
      */
-    public markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.markAllMessagesAsRead(userId, apiToken, markAllMessagesAsReadData, _options);
+    public markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadRequest?: MarkAllMessagesAsReadRequest, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.markAllMessagesAsRead(userId, apiToken, markAllMessagesAsReadRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6268,66 +2170,15 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Register as an operator to channels with custom channel types  Registers a user as an operator to channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-register-as-an-operator-to-channels-with-custom-channel-types ----------------------------
-     * Register as an operator to channels with custom channel types
-     * @param userId 
-     * @param apiToken 
-     * @param registerAsOperatorToChannelsWithCustomChannelTypesData 
-     */
-    public registerAsOperatorToChannelsWithCustomChannelTypes(userId: string, apiToken?: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.registerAsOperatorToChannelsWithCustomChannelTypes(userId, apiToken, registerAsOperatorToChannelsWithCustomChannelTypesData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.registerAsOperatorToChannelsWithCustomChannelTypes(rsp)));
-            }));
-    }
-
-    /**
-     * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
-     * Remove a registration or device token - When unregistering all device tokens
-     * @param userId 
-     * @param apiToken 
-     */
-    public removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Observable<RemoveRegistrationOrDeviceTokenResponse> {
-        const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceToken(userId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeRegistrationOrDeviceToken(rsp)));
-            }));
-    }
-
-    /**
-     * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
+     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
      * Remove a registration or device token - When unregistering a specific token
-     * @param userId 
-     * @param tokenType 
-     * @param token 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<RemoveRegistrationOrDeviceTokenByTokenResponse> {
-        const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceTokenByToken(userId, tokenType, token, apiToken, _options);
+    public removeARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', token: string, apiToken?: string, _options?: Configuration): Observable<RemoveARegistrationOrDeviceTokenResponse> {
+        const requestContextPromise = this.requestFactory.removeARegistrationOrDeviceToken(userId, tokenType, token, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6341,19 +2192,19 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeRegistrationOrDeviceTokenByToken(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeARegistrationOrDeviceToken(rsp)));
             }));
     }
 
     /**
-     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who owns it. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token-from-an-owner ----------------------------
+     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
      * Remove a registration or device token from an owner
-     * @param tokenType 
-     * @param token 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse> {
-        const requestContextPromise = this.requestFactory.removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType, token, apiToken, _options);
+    public removeARegistrationOrDeviceTokenFromAnOwner(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<Array<MarkChannelMessagesAsReadRequest>> {
+        const requestContextPromise = this.requestFactory.removeARegistrationOrDeviceTokenFromAnOwner(tokenType, token, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6367,17 +2218,42 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeRegistrationOrDeviceTokenFromOwnerByToken(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeARegistrationOrDeviceTokenFromAnOwner(rsp)));
             }));
     }
 
     /**
-     * ## Reset push preferences  Resets a user's push preferences. After performing this action,   `do_not_disturb` and `snooze_enabled` are set to false.  The values of the parameters associated with the time frame are all set to 0.  `timezone` is reset to `UTC`.  `push_sound` is reset to `default`.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-reset-push-preferences ----------------------------
-     * Reset push preferences
-     * @param userId 
+     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
+     * Remove a registration or device token - When unregistering all device tokens
+     * @param userId (Required) 
      * @param apiToken 
      */
-    public resetPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Observable<ResetPushPreferencesResponse> {
+    public removeAllRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Observable<RemoveAllRegistrationOrDeviceTokenResponse> {
+        const requestContextPromise = this.requestFactory.removeAllRegistrationOrDeviceToken(userId, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeAllRegistrationOrDeviceToken(rsp)));
+            }));
+    }
+
+    /**
+     * ## Reset push preferences  You can reset a user's notifications preferences. The values are reset to the default as the following.  - The values for the `do_not_disturb` and `snooze_enabled` properties are set to `false`.      - The values of the parameters associated with the time frame are all set to `0`.      - The value for the `timezone` property is set to `UTC`.      - The value for the `push_sound` property is set to `default`.       > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/reset-push-notification-preferences#1-reset-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/reset-push-notification-preferences#1-reset-push-notification-preferences)
+     * Reset push preferences
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public resetPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.resetPushPreferences(userId, apiToken, _options);
 
         // build promise chain
@@ -6397,14 +2273,40 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
-     * Update channel invitation preference
-     * @param userId 
+     * ## Update a user  You can update information about a user using this API. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user using this API request. If the `leave_all_when_deactivated` is set to `true`, a user leaves all joined group channels and becomes deactivated.  > **Note**: Issuing session tokens through the `/users/{user_id}` endpoint is now deprecated and it&apos;s replaced with [&lt;code&gt;/users/{user_id}/token&lt;/code&gt;](https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token) endpoint for greater efficiency. For those who are currently using the old endpoint, you can start issuing tokens using the new endpoint.      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#1-update-a-user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#1-update-a-user)
+     * Update a user
+     * @param userId (Required) 
      * @param apiToken 
-     * @param updateChannelInvitationPreferenceData 
+     * @param updateAUserRequest 
      */
-    public updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Observable<UpdateChannelInvitationPreferenceResponse> {
-        const requestContextPromise = this.requestFactory.updateChannelInvitationPreference(userId, apiToken, updateChannelInvitationPreferenceData, _options);
+    public updateAUser(userId: string, apiToken?: string, updateAUserRequest?: UpdateAUserRequest, _options?: Configuration): Observable<SendbirdUser> {
+        const requestContextPromise = this.requestFactory.updateAUser(userId, apiToken, updateAUserRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAUser(rsp)));
+            }));
+    }
+
+    /**
+     * ## Update channel invitation preference  This action updates a user's [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) invitation preference. Updating the [application's default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) won't override existing users' individual channel invitation preferences. The changed preference only affects the users created after the update.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference#1-update-channel-invitation-preference
+     * Update channel invitation preference
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param updateChannelInvitationPreferenceRequest 
+     */
+    public updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceRequest?: UpdateChannelInvitationPreferenceRequest, _options?: Configuration): Observable<UpdateChannelInvitationPreferenceResponse> {
+        const requestContextPromise = this.requestFactory.updateChannelInvitationPreference(userId, apiToken, updateChannelInvitationPreferenceRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6423,15 +2325,15 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
+     * ## Update count preference of a channel  This action updates a user's count preference of a specific group channel. The count preference allows a user to either update the number of unread messages or the number of unread mentioned messages, or both in a specific group channel.  If you want to retrieve the total number count of a specific group channel, go to the [get count preference of a channel](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-count-preference-of-a-channel) page.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/update-count-preference-of-a-channel#1-update-count-preference-of-a-channel
      * Update count preference of a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param updateCountPreferenceOfChannelByUrlData 
+     * @param updateCountPreferenceOfAChannelRequest 
      */
-    public updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Observable<UpdateCountPreferenceOfChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.updateCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, updateCountPreferenceOfChannelByUrlData, _options);
+    public updateCountPreferenceOfAChannel(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfAChannelRequest?: UpdateCountPreferenceOfAChannelRequest, _options?: Configuration): Observable<UpdateCountPreferenceOfChannelByUrlResponse> {
+        const requestContextPromise = this.requestFactory.updateCountPreferenceOfAChannel(userId, channelUrl, apiToken, updateCountPreferenceOfAChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6445,19 +2347,19 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateCountPreferenceOfChannelByUrl(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateCountPreferenceOfAChannel(rsp)));
             }));
     }
 
     /**
-     * ## Update push preferences  Updates a user's push preferences. Through this action, you can set `do_not_disturb` for a user, and update the time frame in which the setting applies.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences ----------------------------
+     * ## Update push preferences  You can update a user's notifications preferences. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences#1-update-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences#1-update-push-notification-preferences)
      * Update push preferences
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param updatePushPreferencesData 
+     * @param updatePushPreferencesRequest 
      */
-    public updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Observable<UpdatePushPreferencesResponse> {
-        const requestContextPromise = this.requestFactory.updatePushPreferences(userId, apiToken, updatePushPreferencesData, _options);
+    public updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesRequest?: UpdatePushPreferencesRequest, _options?: Configuration): Observable<UpdatePushPreferencesResponse> {
+        const requestContextPromise = this.requestFactory.updatePushPreferences(userId, apiToken, updatePushPreferencesRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6476,15 +2378,15 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## Update push preferences for a channel  Updates push preferences for a user's specific group channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences-for-a-channel ----------------------------
+     * ## Update push preferences for a channel  You can update a user's notifications preferences for a specific channel. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences-for-a-channel#1-update-push-notification-preferences-for-a-channel](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences-for-a-channel#1-update-push-notification-preferences-for-a-channel)
      * Update push preferences for a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param updatePushPreferencesForChannelByUrlData 
+     * @param updatePushPreferencesForAChannelRequest 
      */
-    public updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Observable<UpdatePushPreferencesForChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.updatePushPreferencesForChannelByUrl(userId, channelUrl, apiToken, updatePushPreferencesForChannelByUrlData, _options);
+    public updatePushPreferencesForAChannel(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForAChannelRequest?: UpdatePushPreferencesForAChannelRequest, _options?: Configuration): Observable<UpdatePushPreferencesForAChannelResponse> {
+        const requestContextPromise = this.requestFactory.updatePushPreferencesForAChannel(userId, channelUrl, apiToken, updatePushPreferencesForAChannelRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6498,123 +2400,74 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updatePushPreferencesForChannelByUrl(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updatePushPreferencesForAChannel(rsp)));
             }));
     }
 
     /**
-     * ## Update a user  Updates information on a user. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user. If the `leave_all_when_deactivated` is true (which it is by default), a user leaves all joined group channels when deactivated.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-a-user ----------------------------
-     * Update a user
-     * @param userId 
-     * @param apiToken 
-     * @param updateUserByIdData 
-     */
-    public updateUserById(userId: string, apiToken?: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Observable<SendBirdUser> {
-        const requestContextPromise = this.requestFactory.updateUserById(userId, apiToken, updateUserByIdData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateUserById(rsp)));
-            }));
-    }
-
-    /**
-     * ## View channel invitation preference  Retrieves channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [view default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference) action, you can retrieve the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference
-     * View channel invitation preference
-     * @param userId 
-     * @param apiToken 
-     */
-    public viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Observable<ViewChannelInvitationPreferenceResponse> {
-        const requestContextPromise = this.requestFactory.viewChannelInvitationPreference(userId, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewChannelInvitationPreference(rsp)));
-            }));
-    }
-
-    /**
-     * ## View count preference of a channel  Retrieves count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-count-preference-of-a-channel ----------------------------
-     * View count preference of a channel
-     * @param userId 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<ViewCountPreferenceOfChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.viewCountPreferenceOfChannelByUrl(userId, channelUrl, apiToken, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewCountPreferenceOfChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of channels by join status  Retrieves the number of a user's group channels by their join status.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-by-join-status ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
-     * View number of channels by join status
-     * @param userId 
-     * @param apiToken 
-     * @param state 
-     */
-    public viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Observable<ViewNumberOfChannelsByJoinStatusResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfChannelsByJoinStatus(userId, apiToken, state, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewNumberOfChannelsByJoinStatus(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of channels with unread messages  Retrieves the total number of a user's group channels with unread messages.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-with-unread-messages ----------------------------
-     * View number of channels with unread messages
-     * @param userId 
-     * @param apiToken 
+     * ## View a user  You can retrieve information about a user using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/get-a-user#1-get-a-user  `user_id`   Type: string   Description: Specifies the unique ID of the user to retrieve.
+     * View a user
+     * @param userId (Required) 
+     * @param includeUnreadCount 
      * @param customTypes 
-     * @param superMode 
+     * @param superMode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;)
+     * @param apiToken 
      */
-    public viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Observable<ViewNumberOfChannelsWithUnreadMessagesResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfChannelsWithUnreadMessages(userId, apiToken, customTypes, superMode, _options);
+    public viewAUser(userId: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: 'all' | 'super' | 'nonsuper', apiToken?: string, _options?: Configuration): Observable<SendbirdUser> {
+        const requestContextPromise = this.requestFactory.viewAUser(userId, includeUnreadCount, customTypes, superMode, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewAUser(rsp)));
+            }));
+    }
+
+    /**
+     * ## View count preference of a channel  This action retrieves a user's count preference of a specific group channel. The count preference allows a user to either retrieve the number of unread messages or unread mentioned messages, or both in a specific group channel.  If you want to update the total number count of a specific group channel, visit the [update count preference of a channel](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/update-count-preference-of-a-channel).  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-count-preference-of-a-channel#1-get-count-preference-of-a-channel
+     * View count preference of a channel
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     */
+    public viewCountPreferenceOfAChannel(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<ViewCountPreferenceOfAChannelResponse> {
+        const requestContextPromise = this.requestFactory.viewCountPreferenceOfAChannel(userId, channelUrl, apiToken, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewCountPreferenceOfAChannel(rsp)));
+            }));
+    }
+
+    /**
+     * ## View number of channels with unread messages  This action retrieves the total number of group channels in which a user has unread messages. You can use various query parameters to determine the search scope of group channels.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-channels-with-unread-messages#1-get-number-of-channels-with-unread-messages
+     * View number of channels with unread messages
+     * @param userId (Required) 
+     * @param customTypes 
+     * @param superMode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all)
+     * @param apiToken 
+     */
+    public viewNumberOfChannelsWithUnreadMessages(userId: string, customTypes?: string, superMode?: 'all' | 'super' | 'nonsuper', apiToken?: string, _options?: Configuration): Observable<ViewNumberOfChannelsWithUnreadMessagesResponse> {
+        const requestContextPromise = this.requestFactory.viewNumberOfChannelsWithUnreadMessages(userId, customTypes, superMode, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6633,42 +2486,15 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## View number of unread items  Retrieves a set of total numbers of a user's unread messages, unread mentioned messages, or received invitations in either super or non-super group channels. This action is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-items ----------------------------
-     * View number of unread items
-     * @param userId 
-     * @param apiToken 
-     * @param customType 
-     * @param itemKeys 
-     */
-    public viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Observable<ViewNumberOfUnreadItemsResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfUnreadItems(userId, apiToken, customType, itemKeys, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewNumberOfUnreadItems(rsp)));
-            }));
-    }
-
-    /**
-     * ## View number of unread messages  Retrieves the total number of a user's currently unread messages in the group channels. The unread counts feature is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-messages ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
+     * ## View number of unread messages  This action retrieves a user's total number of unread messages in group channels.  > **Note**: The unread count feature is only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-unread-messages#1-get-number-of-unread-messages](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-unread-messages#1-get-number-of-unread-messages)  `user_id`   Type: string   Description: Specifies the unique ID of a user.
      * View number of unread messages
-     * @param userId 
+     * @param userId (Required) 
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type.
+     * @param superMode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;)
      * @param apiToken 
-     * @param customTypes 
-     * @param superMode 
      */
-    public viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Observable<ViewNumberOfUnreadMessagesResponse> {
-        const requestContextPromise = this.requestFactory.viewNumberOfUnreadMessages(userId, apiToken, customTypes, superMode, _options);
+    public viewNumberOfUnreadMessages(userId: string, customTypes?: string, superMode?: string, apiToken?: string, _options?: Configuration): Observable<ViewNumberOfUnreadMessagesResponse> {
+        const requestContextPromise = this.requestFactory.viewNumberOfUnreadMessages(userId, customTypes, superMode, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6687,9 +2513,9 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## View push preferences  Retrieves a user's push preferences about whether the user has set `do_not_disturb` to pause notifications for a certain period of time, and the time frame in which the user has applied the setting.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences ----------------------------
+     * ## View push preferences  You can retrieves a user's notifications preferences. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences#1-get-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences#1-get-push-notification-preferences)
      * View push preferences
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
      */
     public viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Observable<ViewPushPreferencesResponse> {
@@ -6712,14 +2538,14 @@ export class ObservableUserApi {
     }
 
     /**
-     * ## View push preferences for a channel  Retrieves whether a user has turned on notification messages for a specific channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences-for-a-channel ----------------------------
+     * ## View push preferences for a channel  You can retrieve a user's notifications preferences for a specific channel. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background. These notifications preferences can be configured.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences-for-a-channel#1-get-push-notification-preferences-for-a-channel](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences-for-a-channel#1-get-push-notification-preferences-for-a-channel)
      * View push preferences for a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
      */
-    public viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<ViewPushPreferencesForChannelByUrlResponse> {
-        const requestContextPromise = this.requestFactory.viewPushPreferencesForChannelByUrl(userId, channelUrl, apiToken, _options);
+    public viewPushPreferencesForAChannel(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Observable<ViewPushPreferencesForAChannelResponse> {
+        const requestContextPromise = this.requestFactory.viewPushPreferencesForAChannel(userId, channelUrl, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6733,47 +2559,19 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewPushPreferencesForChannelByUrl(rsp)));
-            }));
-    }
-
-    /**
-     * ## View a user  Retrieves information on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-a-user ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve.
-     * View a user
-     * @param userId 
-     * @param apiToken 
-     * @param includeUnreadCount 
-     * @param customTypes 
-     * @param superMode 
-     */
-    public viewUserById(userId: string, apiToken?: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Observable<SendBirdUser> {
-        const requestContextPromise = this.requestFactory.viewUserById(userId, apiToken, includeUnreadCount, customTypes, superMode, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewUserById(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewPushPreferencesForAChannel(rsp)));
             }));
     }
 
     /**
      * ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
      * View who owns a registration or device token
-     * @param tokenType 
-     * @param token 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>> {
-        const requestContextPromise = this.requestFactory.viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType, token, apiToken, _options);
+    public viewWhoOwnsARegistrationOrDeviceToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Observable<Array<MarkChannelMessagesAsReadRequest>> {
+        const requestContextPromise = this.requestFactory.viewWhoOwnsARegistrationOrDeviceToken(tokenType, token, apiToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6787,75 +2585,7 @@ export class ObservableUserApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewWhoOwnsRegistrationOrDeviceTokenByToken(rsp)));
-            }));
-    }
-
-}
-
-import { WebhookApiRequestFactory, WebhookApiResponseProcessor} from "../apis/WebhookApi";
-export class ObservableWebhookApi {
-    private requestFactory: WebhookApiRequestFactory;
-    private responseProcessor: WebhookApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: WebhookApiRequestFactory,
-        responseProcessor?: WebhookApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new WebhookApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new WebhookApiResponseProcessor();
-    }
-
-    /**
-     * ## Choose which events to subscribe to  Chooses which events for your webhook server to receive payloads for. By subscribing to specific events based on your own needs, you can control the number of HTTP requests to your webhook server.  https://sendbird.com/docs/chat/v3/platform-api/guides/webhooks#2-choose-which-events-to-subscribe-to
-     * Choose which events to subscribe to
-     * @param apiToken 
-     * @param chooseWhichEventsToSubscribeToData 
-     */
-    public chooseWhichEventsToSubscribeTo(apiToken?: string, chooseWhichEventsToSubscribeToData?: ChooseWhichEventsToSubscribeToData, _options?: Configuration): Observable<ChooseWhichEventsToSubscribeToResponse> {
-        const requestContextPromise = this.requestFactory.chooseWhichEventsToSubscribeTo(apiToken, chooseWhichEventsToSubscribeToData, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.chooseWhichEventsToSubscribeTo(rsp)));
-            }));
-    }
-
-    /**
-     * ## Retrieve a list of subscribed events  Retrieves a list of events for your webhook server to receive payloads for.  https://sendbird.com/docs/chat/v3/platform-api/guides/webhooks#2-retrieve-a-list-of-subscribed-events ----------------------------
-     * Retrieve a list of subscribed events
-     * @param apiToken 
-     * @param displayAllWebhookCategories 
-     */
-    public retrieveListOfSubscribedEvents(apiToken?: string, displayAllWebhookCategories?: boolean, _options?: Configuration): Observable<RetrieveListOfSubscribedEventsResponse> {
-        const requestContextPromise = this.requestFactory.retrieveListOfSubscribedEvents(apiToken, displayAllWebhookCategories, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieveListOfSubscribedEvents(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.viewWhoOwnsARegistrationOrDeviceToken(rsp)));
             }));
     }
 

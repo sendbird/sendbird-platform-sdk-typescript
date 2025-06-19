@@ -1,628 +1,242 @@
-export * from './AddApnsPushConfigurationData';
-export * from './AddApnsPushConfigurationResponse';
-export * from './AddApnsPushConfigurationResponsePushConfigurationsInner';
-export * from './AddEmojiCategoriesResponse';
-export * from './AddEmojiCategoriesResponseEmojiCategoriesInner';
-export * from './AddEmojisData';
-export * from './AddEmojisResponse';
-export * from './AddExtraDataToMessageData';
-export * from './AddExtraDataToMessageResponse';
-export * from './AddFcmPushConfigurationData';
-export * from './AddFcmPushConfigurationResponse';
-export * from './AddFcmPushConfigurationResponsePushConfigurationsInner';
-export * from './AddHmsPushConfigurationData';
-export * from './AddHmsPushConfigurationResponse';
-export * from './AddHmsPushConfigurationResponsePushConfigurationsInner';
-export * from './AddIpToWhitelistData';
-export * from './AddIpToWhitelistResponse';
-export * from './AddReactionToAMessageData';
-export * from './AddReactionToAMessageResponse';
-export * from './AddRegistrationOrDeviceTokenData';
-export * from './AddRegistrationOrDeviceTokenResponse';
-export * from './BanFromChannelsWithCustomChannelTypesData';
-export * from './BanUsersInChannelsWithCustomChannelTypeData';
-export * from './BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
-export * from './Blob';
-export * from './BlockUserData';
-export * from './BlockUserResponse';
-export * from './ChoosePushNotificationContentTemplateResponse';
-export * from './ChooseWhichEventsToSubscribeToData';
-export * from './ChooseWhichEventsToSubscribeToResponse';
-export * from './ChooseWhichEventsToSubscribeToResponseWebhook';
-export * from './ConfigureAutoEventData';
-export * from './ConfigureAutoEventDataAutoEventMessage';
-export * from './CreateBotData';
-export * from './CreateBotResponse';
-export * from './CreateBotResponseBot';
-export * from './CreateChannelMetacounterData';
-export * from './CreateChannelMetadataData';
-export * from './CreateChannelMetadataResponse';
-export * from './CreateUserData';
-export * from './CreateUserMetadataData';
-export * from './CreateUserMetadataResponse';
-export * from './CreateUserTokenData';
+export * from './AcceptAnInvitationRequest';
+export * from './AddARegistrationOrDeviceTokenRequest';
+export * from './AddARegistrationOrDeviceTokenResponse';
+export * from './AddExtraDataToAMessageRequest';
+export * from './AddExtraDataToAMessageResponse';
+export * from './BlockAUserRequest';
+export * from './BlockAUserResponse';
+export * from './CheckIfMemberResponse';
+export * from './ChooseAPushNotificationContentTemplateRequest';
+export * from './ChooseAPushNotificationContentTemplateResponse';
+export * from './CreateABotRequest';
+export * from './CreateABotResponse';
+export * from './CreateABotResponseBot';
+export * from './CreateABotResponseBotStyle';
+export * from './CreateAChannelMetadataRequest';
+export * from './CreateAChannelMetadataResponse';
+export * from './CreateAGroupChannelRequest';
+export * from './CreateAUserRequest';
+export * from './CreateAnOpenChannelRequest';
+export * from './CreateUserTokenRequest';
 export * from './CreateUserTokenResponse';
-export * from './CustomTypeListBannedUsersResponse';
-export * from './DeleteAllowedIpsFromWhitelistResponse';
-export * from './DeleteApnsCertificateByIdResponse';
-export * from './EnableReactionsData';
-export * from './EnableReactionsResponse';
-export * from './Function';
-export * from './GcAcceptInvitationData';
-export * from './GcBanUserData';
-export * from './GcBanUserResponse';
-export * from './GcCheckIfMemberByIdResponse';
-export * from './GcCreateChannelData';
-export * from './GcDeclineInvitationData';
-export * from './GcFreezeChannelData';
-export * from './GcHideOrArchiveChannelData';
-export * from './GcInviteAsMembersData';
-export * from './GcJoinChannelData';
-export * from './GcLeaveChannelData';
-export * from './GcListBannedUsersResponse';
-export * from './GcListChannelsResponse';
-export * from './GcListMembersResponse';
-export * from './GcListMutedUsersResponse';
-export * from './GcListOperatorsResponse';
-export * from './GcMarkAllMessagesAsDeliveredData';
-export * from './GcMarkAllMessagesAsDeliveredResponse';
-export * from './GcMarkAllMessagesAsReadData';
-export * from './GcMuteUserData';
-export * from './GcRegisterOperatorsData';
-export * from './GcRegisterOperatorsResponse';
-export * from './GcResetChatHistoryData';
-export * from './GcResetChatHistoryResponse';
-export * from './GcTypingIndicatorsData';
-export * from './GcUpdateBanByIdData';
-export * from './GcUpdateBanByIdResponse';
-export * from './GcUpdateChannelByUrlData';
-export * from './GcViewBanByIdResponse';
-export * from './GcViewMuteByIdResponse';
-export * from './GcViewNumberOfEachMembersUnreadMessagesResponse';
-export * from './GenerateSecondaryApiTokenData';
-export * from './GenerateSecondaryApiTokenResponse';
-export * from './GetDetailedOpenRateOfAnnouncementByIdResponse';
-export * from './GetDetailedOpenRateOfAnnouncementGroupResponse';
-export * from './GetDetailedOpenStatusOfAnnouncementByIdResponse';
-export * from './GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
-export * from './GetStatisticsDailyResponse';
-export * from './GetStatisticsDailyResponseStatisticsInner';
-export * from './GetStatisticsMonthlyResponse';
-export * from './GetStatisticsResponse';
-export * from './JoinChannelsData';
-export * from './JoinChannelsResponse';
-export * from './LeaveMyGroupChannelsData';
-export * from './ListAllEmojisAndEmojiCategoriesResponse';
-export * from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
-export * from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner';
-export * from './ListAnnouncementGroupsResponse';
-export * from './ListAnnouncementsResponse';
-export * from './ListAnnouncementsResponseAnnouncementsInner';
-export * from './ListBannedChannelsResponse';
-export * from './ListBannedChannelsResponseBannedChannelsInner';
+export * from './FreezeAGroupChannelRequest';
+export * from './FreezeAnOpenChannelRequest';
+export * from './GetAGroupChannelResponse';
+export * from './GetAGroupChannelResponseAllOf';
+export * from './GetChannelInvitationPreferenceResponse';
+export * from './GetTotalNumberOfMessagesInAChannelResponse';
+export * from './GroupChannelListMembersResponse';
+export * from './GroupChatListChannelsResponse';
+export * from './HideAChannelRequest';
+export * from './InviteAsMembersRequest';
+export * from './InviteAsMembersResponse';
+export * from './InviteAsMembersResponseAllOf';
+export * from './JoinAChannelRequest';
+export * from './JoinChannelsRequest';
+export * from './LeaveAChannelRequest';
+export * from './LeaveMyGroupChannelsRequest';
 export * from './ListBlockedUsersResponse';
 export * from './ListBotsResponse';
 export * from './ListBotsResponseBotsInner';
-export * from './ListDataExportsByMessageChannelOrUserResponse';
-export * from './ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
-export * from './ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
-export * from './ListEmojisResponse';
-export * from './ListGdprRequestsResponse';
-export * from './ListGdprRequestsResponseRequestsInner';
+export * from './ListBotsResponseBotsInnerAi';
+export * from './ListBotsResponseBotsInnerBot';
+export * from './ListBotsResponseBotsInnerBotStyle';
+export * from './ListBotsResponseBotsInnerBotStyleColor';
+export * from './ListBotsResponseBotsInnerFirstMessagesInner';
+export * from './ListBotsResponseBotsInnerFirstMessagesInnerData';
+export * from './ListBotsResponseBotsInnerSafeguard';
 export * from './ListMessagesResponse';
-export * from './ListMessagesResponseMessagesInner';
-export * from './ListMessagesResponseMessagesInnerOgTag';
-export * from './ListMessagesResponseMessagesInnerSortedMetaarrayInner';
-export * from './ListMutedChannelsResponse';
-export * from './ListMutedUsersInChannelsWithCustomChannelType200Response';
 export * from './ListMyGroupChannelsResponse';
-export * from './ListPushConfigurationsResponse';
-export * from './ListPushConfigurationsResponsePushConfigurationsInner';
-export * from './ListPushNotificationContentTemplatesResponse';
-export * from './ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
-export * from './ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate';
-export * from './ListReactionsOfMessageResponse';
+export * from './ListOpenChannelsResponse';
+export * from './ListOperatorsResponse';
 export * from './ListRegistrationOrDeviceTokensResponse';
-export * from './ListReportsOnChannelByUrlResponse';
-export * from './ListReportsOnMessageByIdResponse';
-export * from './ListReportsOnMessageByIdResponseReportLogsInner';
-export * from './ListReportsOnUserByIdResponse';
-export * from './ListReportsResponse';
-export * from './ListReportsResponseReportLogsInner';
-export * from './ListSecondaryApiTokensResponse';
-export * from './ListSecondaryApiTokensResponseApiTokensInner';
 export * from './ListUsersResponse';
-export * from './MarkAllMessagesAsReadData';
-export * from './ModelFile';
-export * from './MuteInChannelsWithCustomChannelTypesData';
-export * from './MuteUsersInChannelsWithCustomChannelTypeData';
-export * from './OcBanUserData';
-export * from './OcBanUserResponse';
-export * from './OcCreateChannelData';
-export * from './OcDeleteChannelByUrl200Response';
-export * from './OcFreezeChannelData';
-export * from './OcListBannedUsersResponse';
-export * from './OcListBannedUsersResponseBannedListInner';
-export * from './OcListChannelsResponse';
-export * from './OcListMutedUsersResponse';
-export * from './OcListOperatorsResponse';
-export * from './OcListParticipantsResponse';
-export * from './OcMuteUserData';
-export * from './OcRegisterOperatorsData';
-export * from './OcUpdateBanByIdData';
-export * from './OcUpdateBanByIdResponse';
-export * from './OcUpdateChannelByUrlData';
-export * from './OcViewBanByIdResponse';
-export * from './OcViewMuteByIdResponse';
-export * from './RegisterAndScheduleDataExportData';
-export * from './RegisterAndScheduleDataExportResponse';
-export * from './RegisterAsOperatorToChannelsWithCustomChannelTypesData';
-export * from './RegisterGdprRequestData';
-export * from './RegisterGdprRequestResponse';
-export * from './RemovePushConfigurationByIdResponse';
-export * from './RemoveReactionFromAMessageResponse';
-export * from './RemoveRegistrationOrDeviceTokenByTokenResponse';
-export * from './RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-export * from './RemoveRegistrationOrDeviceTokenResponse';
-export * from './ReportChannelByUrlData';
-export * from './ReportChannelByUrlResponse';
-export * from './ReportMessageByIdData';
-export * from './ReportMessageByIdResponse';
-export * from './ReportUserByIdData';
-export * from './ReportUserByIdResponse';
-export * from './ResetPushPreferencesResponse';
-export * from './RetrieveAdvancedAnalyticsMetricsResponse';
-export * from './RetrieveIpWhitelistResponse';
-export * from './RetrieveListOfSubscribedEventsResponse';
-export * from './RetrieveListOfSubscribedEventsResponseWebhook';
-export * from './RevokeSecondaryApiTokenByTokenResponse';
-export * from './SBObject';
-export * from './ScheduleAnnouncementData';
-export * from './ScheduleAnnouncementDataMessage';
-export * from './ScheduleAnnouncementResponse';
-export * from './ScheduleAnnouncementResponseCreateChannelOptions';
-export * from './ScheduleAnnouncementResponseMessage';
-export * from './SendBirdAdminMessage';
-export * from './SendBirdAppleCriticalAlertOptions';
-export * from './SendBirdAutoEventMessageSettings';
-export * from './SendBirdBaseChannel';
-export * from './SendBirdBaseMessageInstance';
-export * from './SendBirdBotsMessageResponse';
-export * from './SendBirdBotsMessageResponseMessage';
-export * from './SendBirdBotsMessageResponseMessageExtendedMessagePayload';
-export * from './SendBirdBotsMessageResponseMessageMessageEvents';
-export * from './SendBirdChannelResponse';
-export * from './SendBirdEmoji';
-export * from './SendBirdEmojiCategory';
-export * from './SendBirdFile';
-export * from './SendBirdFileMessageParams';
-export * from './SendBirdGroupChannel';
-export * from './SendBirdGroupChannelChannel';
-export * from './SendBirdGroupChannelCollection';
-export * from './SendBirdGroupChannelCreatedBy';
-export * from './SendBirdGroupChannelDisappearingMessage';
-export * from './SendBirdGroupChannelSmsFallback';
-export * from './SendBirdMember';
-export * from './SendBirdMessageMetaArray';
-export * from './SendBirdMessageResponse';
-export * from './SendBirdMessageResponseMentionedUsersInner';
-export * from './SendBirdMessageResponseUser';
-export * from './SendBirdOGImage';
-export * from './SendBirdOGMetaData';
-export * from './SendBirdOpenChannel';
-export * from './SendBirdParentMessageInfo';
-export * from './SendBirdPlugin';
-export * from './SendBirdPoll';
-export * from './SendBirdPollDetails';
-export * from './SendBirdPollOption';
-export * from './SendBirdPollUpdatedVoteCount';
-export * from './SendBirdReaction';
-export * from './SendBirdRestrictionInfo';
-export * from './SendBirdScheduledMessage';
-export * from './SendBirdSender';
-export * from './SendBirdThreadInfo';
-export * from './SendBirdThumbnailSBObject';
-export * from './SendBirdThumbnailSize';
-export * from './SendBirdUser';
-export * from './SendBirdUserMessageParams';
-export * from './SendBotSMessageData';
-export * from './SendBotSMessageDataExtendedMessagePayload';
-export * from './SendMessageData';
-export * from './SetDomainFilterData';
-export * from './SetDomainFilterDataDomainFilter';
-export * from './SetDomainFilterDataImageModeration';
-export * from './SetDomainFilterDataImageModerationLimits';
-export * from './SetDomainFilterDataProfanityFilter';
-export * from './SetDomainFilterDataProfanityFilterRegexFiltersInner';
-export * from './SetDomainFilterDataProfanityTriggeredModeration';
-export * from './TranslateMessageIntoOtherLanguagesData';
-export * from './UpdateAnnouncementByIdData';
-export * from './UpdateAnnouncementByIdResponse';
-export * from './UpdateAnnouncementByIdResponseMessage';
-export * from './UpdateApnsPushConfigurationByIdData';
-export * from './UpdateApnsPushConfigurationByIdResponse';
-export * from './UpdateBotByIdData';
-export * from './UpdateBotByIdResponse';
-export * from './UpdateChannelInvitationPreferenceData';
+export * from './MarkAllMessagesAsReadRequest';
+export * from './MarkChannelMessagesAsReadRequest';
+export * from './MigrateMessagesAdminMessageRequest';
+export * from './MigrateMessagesFileMessageRequest';
+export * from './MigrateMessagesFileMessageRequestThumbnailsInner';
+export * from './MigrateMessagesRequest';
+export * from './MigrateMessagesRequestMessagesInner';
+export * from './MigrateMessagesTextMessageRequest';
+export * from './RegisterOperatorsToAGroupChannelRequest';
+export * from './RemoveARegistrationOrDeviceTokenResponse';
+export * from './RemoveAllRegistrationOrDeviceTokenResponse';
+export * from './ResetChatHistoryRequest';
+export * from './ResetChatHistoryResponse';
+export * from './ScheduleAnAnnouncementRequest';
+export * from './ScheduleAnAnnouncementRequestCreateChannelOptions';
+export * from './ScheduleAnAnnouncementRequestMessage';
+export * from './ScheduleAnAnnouncementResponse';
+export * from './ScheduleAnAnnouncementResponseMessage';
+export * from './SendABotMessageRequest';
+export * from './SendAMessageRequest';
+export * from './SendAdminMessageRequestBody';
+export * from './SendFileMessageRequestBody';
+export * from './SendTextMessageRequestBody';
+export * from './SendTextMessageRequestBodyPushMessageTemplate';
+export * from './SendTextMessageRequestBodyPushMessageTemplateOneOf';
+export * from './SendbirdBasicUserInfo';
+export * from './SendbirdDisappearingMessage';
+export * from './SendbirdExtendedMessagePayload';
+export * from './SendbirdFile';
+export * from './SendbirdGroupChannel';
+export * from './SendbirdGroupChannelDetail';
+export * from './SendbirdGroupChannelDetailChannel';
+export * from './SendbirdMember';
+export * from './SendbirdMessageResponse';
+export * from './SendbirdMessageResponseMessageEvents';
+export * from './SendbirdOpenChannel';
+export * from './SendbirdParentMessageInfo';
+export * from './SendbirdPushTriggerOption';
+export * from './SendbirdReaction';
+export * from './SendbirdSmsFallback';
+export * from './SendbirdSortedMetaarrayInner';
+export * from './SendbirdThumbnail';
+export * from './SendbirdUser';
+export * from './StartTypingIndicatorsRequest';
+export * from './UpdateAChannelMetadataRequest';
+export * from './UpdateAGroupChannelRequest';
+export * from './UpdateAMessageRequest';
+export * from './UpdateAUserRequest';
+export * from './UpdateAnOpenChannelRequest';
+export * from './UpdateChannelInvitationPreferenceRequest';
 export * from './UpdateChannelInvitationPreferenceResponse';
-export * from './UpdateChannelMetacounterData';
-export * from './UpdateChannelMetadataData';
-export * from './UpdateCountPreferenceOfChannelByUrlData';
+export * from './UpdateCountPreferenceOfAChannelRequest';
 export * from './UpdateCountPreferenceOfChannelByUrlResponse';
-export * from './UpdateDefaultChannelInvitationPreferenceData';
-export * from './UpdateDefaultChannelInvitationPreferenceResponse';
-export * from './UpdateEmojiCategoryUrlByIdData';
-export * from './UpdateEmojiUrlByKeyData';
-export * from './UpdateExtraDataInMessageData';
-export * from './UpdateExtraDataInMessageResponse';
-export * from './UpdateExtraDataInMessageResponseSortedMetaarrayInner';
-export * from './UpdateFcmPushConfigurationByIdData';
-export * from './UpdateFcmPushConfigurationByIdResponse';
-export * from './UpdateHmsPushConfigurationByIdData';
-export * from './UpdateHmsPushConfigurationByIdResponse';
-export * from './UpdateMessageByIdData';
-export * from './UpdatePushNotificationContentTemplateData';
-export * from './UpdatePushNotificationContentTemplateResponse';
-export * from './UpdatePushPreferencesData';
-export * from './UpdatePushPreferencesForChannelByUrlData';
-export * from './UpdatePushPreferencesForChannelByUrlResponse';
+export * from './UpdateExtraDataInAMessageRequest';
+export * from './UpdateExtraDataInAMessageResponse';
+export * from './UpdatePushPreferencesForAChannelRequest';
+export * from './UpdatePushPreferencesForAChannelResponse';
+export * from './UpdatePushPreferencesRequest';
 export * from './UpdatePushPreferencesResponse';
-export * from './UpdateUserByIdData';
-export * from './UpdateUserMetadataData';
-export * from './UpdateUserMetadataResponse';
-export * from './UseDefaultEmojisData';
-export * from './UseDefaultEmojisResponse';
-export * from './V3ApplicationsPushSettingsGet200Response';
-export * from './V3ApplicationsPushSettingsGetRequest';
-export * from './V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
-export * from './V3PollsGetRequest';
-export * from './V3PollsPollIdDeleteRequest';
-export * from './V3PollsPollIdDeleteRequest1';
-export * from './V3PollsPollIdOptionsOptionIdDeleteRequest';
-export * from './V3PollsPollIdOptionsOptionIdVotersGet200Response';
-export * from './V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
-export * from './V3PollsPollIdOptionsOptionIdVotersGetRequest';
-export * from './V3PollsPollIdVotePutRequest';
-export * from './V3ScheduledMessagesCountGet200Response';
-export * from './V3ScheduledMessagesGet200Response';
-export * from './ViewAnnouncementByIdResponse';
-export * from './ViewBotByIdResponse';
-export * from './ViewChannelInvitationPreferenceResponse';
-export * from './ViewCountPreferenceOfChannelByUrlResponse';
-export * from './ViewDataExportByIdResponse';
-export * from './ViewDefaultChannelInvitationPreferenceResponse';
-export * from './ViewGdprRequestByIdResponse';
-export * from './ViewNumberOfChannelsByJoinStatusResponse';
+export * from './ViewCountPreferenceOfAChannelResponse';
 export * from './ViewNumberOfChannelsWithUnreadMessagesResponse';
-export * from './ViewNumberOfConcurrentConnectionsResponse';
 export * from './ViewNumberOfDailyActiveUsersResponse';
 export * from './ViewNumberOfMonthlyActiveUsersResponse';
-export * from './ViewNumberOfPeakConnectionsResponse';
-export * from './ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
-export * from './ViewNumberOfUnreadItemsResponse';
 export * from './ViewNumberOfUnreadMessagesResponse';
-export * from './ViewPushConfigurationByIdResponse';
-export * from './ViewPushNotificationContentTemplateResponse';
-export * from './ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
-export * from './ViewPushPreferencesForChannelByUrlResponse';
+export * from './ViewPushPreferencesForAChannelResponse';
 export * from './ViewPushPreferencesResponse';
-export * from './ViewSecondaryApiTokenByTokenResponse';
-export * from './ViewTotalNumberOfMessagesInChannelResponse';
-export * from './ViewUserMetadataResponse';
-export * from './ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
-import { AddApnsPushConfigurationData } from './AddApnsPushConfigurationData';
-import { AddApnsPushConfigurationResponse } from './AddApnsPushConfigurationResponse';
-import { AddApnsPushConfigurationResponsePushConfigurationsInner } from './AddApnsPushConfigurationResponsePushConfigurationsInner';
-import { AddEmojiCategoriesResponse } from './AddEmojiCategoriesResponse';
-import { AddEmojiCategoriesResponseEmojiCategoriesInner } from './AddEmojiCategoriesResponseEmojiCategoriesInner';
-import { AddEmojisData } from './AddEmojisData';
-import { AddEmojisResponse } from './AddEmojisResponse';
-import { AddExtraDataToMessageData } from './AddExtraDataToMessageData';
-import { AddExtraDataToMessageResponse } from './AddExtraDataToMessageResponse';
-import { AddFcmPushConfigurationData } from './AddFcmPushConfigurationData';
-import { AddFcmPushConfigurationResponse } from './AddFcmPushConfigurationResponse';
-import { AddFcmPushConfigurationResponsePushConfigurationsInner } from './AddFcmPushConfigurationResponsePushConfigurationsInner';
-import { AddHmsPushConfigurationData } from './AddHmsPushConfigurationData';
-import { AddHmsPushConfigurationResponse } from './AddHmsPushConfigurationResponse';
-import { AddHmsPushConfigurationResponsePushConfigurationsInner } from './AddHmsPushConfigurationResponsePushConfigurationsInner';
-import { AddIpToWhitelistData } from './AddIpToWhitelistData';
-import { AddIpToWhitelistResponse } from './AddIpToWhitelistResponse';
-import { AddReactionToAMessageData } from './AddReactionToAMessageData';
-import { AddReactionToAMessageResponse } from './AddReactionToAMessageResponse';
-import { AddRegistrationOrDeviceTokenData } from './AddRegistrationOrDeviceTokenData';
-import { AddRegistrationOrDeviceTokenResponse } from './AddRegistrationOrDeviceTokenResponse';
-import { BanFromChannelsWithCustomChannelTypesData } from './BanFromChannelsWithCustomChannelTypesData';
-import { BanUsersInChannelsWithCustomChannelTypeData } from './BanUsersInChannelsWithCustomChannelTypeData';
-import { BanUsersInChannelsWithCustomChannelTypeDataBannedListInner } from './BanUsersInChannelsWithCustomChannelTypeDataBannedListInner';
-import { Blob } from './Blob';
-import { BlockUserData } from './BlockUserData';
-import { BlockUserResponse } from './BlockUserResponse';
-import { ChoosePushNotificationContentTemplateResponse } from './ChoosePushNotificationContentTemplateResponse';
-import { ChooseWhichEventsToSubscribeToData } from './ChooseWhichEventsToSubscribeToData';
-import { ChooseWhichEventsToSubscribeToResponse } from './ChooseWhichEventsToSubscribeToResponse';
-import { ChooseWhichEventsToSubscribeToResponseWebhook } from './ChooseWhichEventsToSubscribeToResponseWebhook';
-import { ConfigureAutoEventData } from './ConfigureAutoEventData';
-import { ConfigureAutoEventDataAutoEventMessage } from './ConfigureAutoEventDataAutoEventMessage';
-import { CreateBotData } from './CreateBotData';
-import { CreateBotResponse } from './CreateBotResponse';
-import { CreateBotResponseBot } from './CreateBotResponseBot';
-import { CreateChannelMetacounterData } from './CreateChannelMetacounterData';
-import { CreateChannelMetadataData } from './CreateChannelMetadataData';
-import { CreateChannelMetadataResponse } from './CreateChannelMetadataResponse';
-import { CreateUserData } from './CreateUserData';
-import { CreateUserMetadataData } from './CreateUserMetadataData';
-import { CreateUserMetadataResponse } from './CreateUserMetadataResponse';
-import { CreateUserTokenData } from './CreateUserTokenData';
+import { AcceptAnInvitationRequest } from './AcceptAnInvitationRequest';
+import { AddARegistrationOrDeviceTokenRequest } from './AddARegistrationOrDeviceTokenRequest';
+import { AddARegistrationOrDeviceTokenResponse } from './AddARegistrationOrDeviceTokenResponse';
+import { AddExtraDataToAMessageRequest } from './AddExtraDataToAMessageRequest';
+import { AddExtraDataToAMessageResponse } from './AddExtraDataToAMessageResponse';
+import { BlockAUserRequest } from './BlockAUserRequest';
+import { BlockAUserResponse } from './BlockAUserResponse';
+import { CheckIfMemberResponse , CheckIfMemberResponseStateEnum   } from './CheckIfMemberResponse';
+import { ChooseAPushNotificationContentTemplateRequest, ChooseAPushNotificationContentTemplateRequestNameEnum   } from './ChooseAPushNotificationContentTemplateRequest';
+import { ChooseAPushNotificationContentTemplateResponse } from './ChooseAPushNotificationContentTemplateResponse';
+import { CreateABotRequest } from './CreateABotRequest';
+import { CreateABotResponse } from './CreateABotResponse';
+import { CreateABotResponseBot } from './CreateABotResponseBot';
+import { CreateABotResponseBotStyle } from './CreateABotResponseBotStyle';
+import { CreateAChannelMetadataRequest } from './CreateAChannelMetadataRequest';
+import { CreateAChannelMetadataResponse } from './CreateAChannelMetadataResponse';
+import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
+import { CreateAUserRequest } from './CreateAUserRequest';
+import { CreateAnOpenChannelRequest } from './CreateAnOpenChannelRequest';
+import { CreateUserTokenRequest } from './CreateUserTokenRequest';
 import { CreateUserTokenResponse } from './CreateUserTokenResponse';
-import { CustomTypeListBannedUsersResponse } from './CustomTypeListBannedUsersResponse';
-import { DeleteAllowedIpsFromWhitelistResponse } from './DeleteAllowedIpsFromWhitelistResponse';
-import { DeleteApnsCertificateByIdResponse } from './DeleteApnsCertificateByIdResponse';
-import { EnableReactionsData } from './EnableReactionsData';
-import { EnableReactionsResponse } from './EnableReactionsResponse';
-import { Function } from './Function';
-import { GcAcceptInvitationData } from './GcAcceptInvitationData';
-import { GcBanUserData } from './GcBanUserData';
-import { GcBanUserResponse } from './GcBanUserResponse';
-import { GcCheckIfMemberByIdResponse } from './GcCheckIfMemberByIdResponse';
-import { GcCreateChannelData } from './GcCreateChannelData';
-import { GcDeclineInvitationData } from './GcDeclineInvitationData';
-import { GcFreezeChannelData } from './GcFreezeChannelData';
-import { GcHideOrArchiveChannelData } from './GcHideOrArchiveChannelData';
-import { GcInviteAsMembersData } from './GcInviteAsMembersData';
-import { GcJoinChannelData } from './GcJoinChannelData';
-import { GcLeaveChannelData } from './GcLeaveChannelData';
-import { GcListBannedUsersResponse } from './GcListBannedUsersResponse';
-import { GcListChannelsResponse } from './GcListChannelsResponse';
-import { GcListMembersResponse } from './GcListMembersResponse';
-import { GcListMutedUsersResponse } from './GcListMutedUsersResponse';
-import { GcListOperatorsResponse } from './GcListOperatorsResponse';
-import { GcMarkAllMessagesAsDeliveredData } from './GcMarkAllMessagesAsDeliveredData';
-import { GcMarkAllMessagesAsDeliveredResponse } from './GcMarkAllMessagesAsDeliveredResponse';
-import { GcMarkAllMessagesAsReadData } from './GcMarkAllMessagesAsReadData';
-import { GcMuteUserData } from './GcMuteUserData';
-import { GcRegisterOperatorsData } from './GcRegisterOperatorsData';
-import { GcRegisterOperatorsResponse } from './GcRegisterOperatorsResponse';
-import { GcResetChatHistoryData } from './GcResetChatHistoryData';
-import { GcResetChatHistoryResponse } from './GcResetChatHistoryResponse';
-import { GcTypingIndicatorsData } from './GcTypingIndicatorsData';
-import { GcUpdateBanByIdData } from './GcUpdateBanByIdData';
-import { GcUpdateBanByIdResponse } from './GcUpdateBanByIdResponse';
-import { GcUpdateChannelByUrlData } from './GcUpdateChannelByUrlData';
-import { GcViewBanByIdResponse } from './GcViewBanByIdResponse';
-import { GcViewMuteByIdResponse } from './GcViewMuteByIdResponse';
-import { GcViewNumberOfEachMembersUnreadMessagesResponse } from './GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { GenerateSecondaryApiTokenData } from './GenerateSecondaryApiTokenData';
-import { GenerateSecondaryApiTokenResponse } from './GenerateSecondaryApiTokenResponse';
-import { GetDetailedOpenRateOfAnnouncementByIdResponse } from './GetDetailedOpenRateOfAnnouncementByIdResponse';
-import { GetDetailedOpenRateOfAnnouncementGroupResponse } from './GetDetailedOpenRateOfAnnouncementGroupResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponse } from './GetDetailedOpenStatusOfAnnouncementByIdResponse';
-import { GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner } from './GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner';
-import { GetStatisticsDailyResponse } from './GetStatisticsDailyResponse';
-import { GetStatisticsDailyResponseStatisticsInner } from './GetStatisticsDailyResponseStatisticsInner';
-import { GetStatisticsMonthlyResponse } from './GetStatisticsMonthlyResponse';
-import { GetStatisticsResponse } from './GetStatisticsResponse';
-import { JoinChannelsData } from './JoinChannelsData';
-import { JoinChannelsResponse } from './JoinChannelsResponse';
-import { LeaveMyGroupChannelsData } from './LeaveMyGroupChannelsData';
-import { ListAllEmojisAndEmojiCategoriesResponse } from './ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner } from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner';
-import { ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner } from './ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner';
-import { ListAnnouncementGroupsResponse } from './ListAnnouncementGroupsResponse';
-import { ListAnnouncementsResponse } from './ListAnnouncementsResponse';
-import { ListAnnouncementsResponseAnnouncementsInner } from './ListAnnouncementsResponseAnnouncementsInner';
-import { ListBannedChannelsResponse } from './ListBannedChannelsResponse';
-import { ListBannedChannelsResponseBannedChannelsInner } from './ListBannedChannelsResponseBannedChannelsInner';
+import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
+import { FreezeAnOpenChannelRequest } from './FreezeAnOpenChannelRequest';
+import { GetAGroupChannelResponse  , GetAGroupChannelResponseCountPreferenceEnum            , GetAGroupChannelResponseHiddenStateEnum                     , GetAGroupChannelResponseMemberStateEnum     , GetAGroupChannelResponseMyRoleEnum           } from './GetAGroupChannelResponse';
+import { GetAGroupChannelResponseAllOf } from './GetAGroupChannelResponseAllOf';
+import { GetChannelInvitationPreferenceResponse } from './GetChannelInvitationPreferenceResponse';
+import { GetTotalNumberOfMessagesInAChannelResponse } from './GetTotalNumberOfMessagesInAChannelResponse';
+import { GroupChannelListMembersResponse } from './GroupChannelListMembersResponse';
+import { GroupChatListChannelsResponse } from './GroupChatListChannelsResponse';
+import { HideAChannelRequest } from './HideAChannelRequest';
+import { InviteAsMembersRequest } from './InviteAsMembersRequest';
+import { InviteAsMembersResponse , InviteAsMembersResponseCountPreferenceEnum            , InviteAsMembersResponseHiddenStateEnum                     , InviteAsMembersResponseMemberStateEnum     , InviteAsMembersResponseMyRoleEnum            } from './InviteAsMembersResponse';
+import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
+import { JoinAChannelRequest } from './JoinAChannelRequest';
+import { JoinChannelsRequest } from './JoinChannelsRequest';
+import { LeaveAChannelRequest   , LeaveAChannelRequestReasonEnum   } from './LeaveAChannelRequest';
+import { LeaveMyGroupChannelsRequest } from './LeaveMyGroupChannelsRequest';
 import { ListBlockedUsersResponse } from './ListBlockedUsersResponse';
 import { ListBotsResponse } from './ListBotsResponse';
 import { ListBotsResponseBotsInner } from './ListBotsResponseBotsInner';
-import { ListDataExportsByMessageChannelOrUserResponse } from './ListDataExportsByMessageChannelOrUserResponse';
-import { ListDataExportsByMessageChannelOrUserResponseExportedDataInner } from './ListDataExportsByMessageChannelOrUserResponseExportedDataInner';
-import { ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile } from './ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile';
-import { ListEmojisResponse } from './ListEmojisResponse';
-import { ListGdprRequestsResponse } from './ListGdprRequestsResponse';
-import { ListGdprRequestsResponseRequestsInner } from './ListGdprRequestsResponseRequestsInner';
+import { ListBotsResponseBotsInnerAi } from './ListBotsResponseBotsInnerAi';
+import { ListBotsResponseBotsInnerBot } from './ListBotsResponseBotsInnerBot';
+import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
+import { ListBotsResponseBotsInnerBotStyleColor } from './ListBotsResponseBotsInnerBotStyleColor';
+import { ListBotsResponseBotsInnerFirstMessagesInner } from './ListBotsResponseBotsInnerFirstMessagesInner';
+import { ListBotsResponseBotsInnerFirstMessagesInnerData } from './ListBotsResponseBotsInnerFirstMessagesInnerData';
+import { ListBotsResponseBotsInnerSafeguard } from './ListBotsResponseBotsInnerSafeguard';
 import { ListMessagesResponse } from './ListMessagesResponse';
-import { ListMessagesResponseMessagesInner } from './ListMessagesResponseMessagesInner';
-import { ListMessagesResponseMessagesInnerOgTag } from './ListMessagesResponseMessagesInnerOgTag';
-import { ListMessagesResponseMessagesInnerSortedMetaarrayInner } from './ListMessagesResponseMessagesInnerSortedMetaarrayInner';
-import { ListMutedChannelsResponse } from './ListMutedChannelsResponse';
-import { ListMutedUsersInChannelsWithCustomChannelType200Response } from './ListMutedUsersInChannelsWithCustomChannelType200Response';
 import { ListMyGroupChannelsResponse } from './ListMyGroupChannelsResponse';
-import { ListPushConfigurationsResponse } from './ListPushConfigurationsResponse';
-import { ListPushConfigurationsResponsePushConfigurationsInner } from './ListPushConfigurationsResponsePushConfigurationsInner';
-import { ListPushNotificationContentTemplatesResponse } from './ListPushNotificationContentTemplatesResponse';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner } from './ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner';
-import { ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate } from './ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate';
-import { ListReactionsOfMessageResponse } from './ListReactionsOfMessageResponse';
+import { ListOpenChannelsResponse } from './ListOpenChannelsResponse';
+import { ListOperatorsResponse } from './ListOperatorsResponse';
 import { ListRegistrationOrDeviceTokensResponse } from './ListRegistrationOrDeviceTokensResponse';
-import { ListReportsOnChannelByUrlResponse } from './ListReportsOnChannelByUrlResponse';
-import { ListReportsOnMessageByIdResponse } from './ListReportsOnMessageByIdResponse';
-import { ListReportsOnMessageByIdResponseReportLogsInner } from './ListReportsOnMessageByIdResponseReportLogsInner';
-import { ListReportsOnUserByIdResponse } from './ListReportsOnUserByIdResponse';
-import { ListReportsResponse } from './ListReportsResponse';
-import { ListReportsResponseReportLogsInner } from './ListReportsResponseReportLogsInner';
-import { ListSecondaryApiTokensResponse } from './ListSecondaryApiTokensResponse';
-import { ListSecondaryApiTokensResponseApiTokensInner } from './ListSecondaryApiTokensResponseApiTokensInner';
 import { ListUsersResponse } from './ListUsersResponse';
-import { MarkAllMessagesAsReadData } from './MarkAllMessagesAsReadData';
-import { ModelFile } from './ModelFile';
-import { MuteInChannelsWithCustomChannelTypesData } from './MuteInChannelsWithCustomChannelTypesData';
-import { MuteUsersInChannelsWithCustomChannelTypeData } from './MuteUsersInChannelsWithCustomChannelTypeData';
-import { OcBanUserData } from './OcBanUserData';
-import { OcBanUserResponse } from './OcBanUserResponse';
-import { OcCreateChannelData } from './OcCreateChannelData';
-import { OcDeleteChannelByUrl200Response } from './OcDeleteChannelByUrl200Response';
-import { OcFreezeChannelData } from './OcFreezeChannelData';
-import { OcListBannedUsersResponse } from './OcListBannedUsersResponse';
-import { OcListBannedUsersResponseBannedListInner } from './OcListBannedUsersResponseBannedListInner';
-import { OcListChannelsResponse } from './OcListChannelsResponse';
-import { OcListMutedUsersResponse } from './OcListMutedUsersResponse';
-import { OcListOperatorsResponse } from './OcListOperatorsResponse';
-import { OcListParticipantsResponse } from './OcListParticipantsResponse';
-import { OcMuteUserData } from './OcMuteUserData';
-import { OcRegisterOperatorsData } from './OcRegisterOperatorsData';
-import { OcUpdateBanByIdData } from './OcUpdateBanByIdData';
-import { OcUpdateBanByIdResponse } from './OcUpdateBanByIdResponse';
-import { OcUpdateChannelByUrlData } from './OcUpdateChannelByUrlData';
-import { OcViewBanByIdResponse } from './OcViewBanByIdResponse';
-import { OcViewMuteByIdResponse } from './OcViewMuteByIdResponse';
-import { RegisterAndScheduleDataExportData } from './RegisterAndScheduleDataExportData';
-import { RegisterAndScheduleDataExportResponse } from './RegisterAndScheduleDataExportResponse';
-import { RegisterAsOperatorToChannelsWithCustomChannelTypesData } from './RegisterAsOperatorToChannelsWithCustomChannelTypesData';
-import { RegisterGdprRequestData } from './RegisterGdprRequestData';
-import { RegisterGdprRequestResponse } from './RegisterGdprRequestResponse';
-import { RemovePushConfigurationByIdResponse } from './RemovePushConfigurationByIdResponse';
-import { RemoveReactionFromAMessageResponse } from './RemoveReactionFromAMessageResponse';
-import { RemoveRegistrationOrDeviceTokenByTokenResponse } from './RemoveRegistrationOrDeviceTokenByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse } from './RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenResponse } from './RemoveRegistrationOrDeviceTokenResponse';
-import { ReportChannelByUrlData } from './ReportChannelByUrlData';
-import { ReportChannelByUrlResponse } from './ReportChannelByUrlResponse';
-import { ReportMessageByIdData } from './ReportMessageByIdData';
-import { ReportMessageByIdResponse } from './ReportMessageByIdResponse';
-import { ReportUserByIdData } from './ReportUserByIdData';
-import { ReportUserByIdResponse } from './ReportUserByIdResponse';
-import { ResetPushPreferencesResponse } from './ResetPushPreferencesResponse';
-import { RetrieveAdvancedAnalyticsMetricsResponse } from './RetrieveAdvancedAnalyticsMetricsResponse';
-import { RetrieveIpWhitelistResponse } from './RetrieveIpWhitelistResponse';
-import { RetrieveListOfSubscribedEventsResponse } from './RetrieveListOfSubscribedEventsResponse';
-import { RetrieveListOfSubscribedEventsResponseWebhook } from './RetrieveListOfSubscribedEventsResponseWebhook';
-import { RevokeSecondaryApiTokenByTokenResponse } from './RevokeSecondaryApiTokenByTokenResponse';
-import { SBObject } from './SBObject';
-import { ScheduleAnnouncementData } from './ScheduleAnnouncementData';
-import { ScheduleAnnouncementDataMessage } from './ScheduleAnnouncementDataMessage';
-import { ScheduleAnnouncementResponse } from './ScheduleAnnouncementResponse';
-import { ScheduleAnnouncementResponseCreateChannelOptions } from './ScheduleAnnouncementResponseCreateChannelOptions';
-import { ScheduleAnnouncementResponseMessage } from './ScheduleAnnouncementResponseMessage';
-import { SendBirdAdminMessage           , SendBirdAdminMessageMessageTypeEnum         , SendBirdAdminMessageSendingStatusEnum       } from './SendBirdAdminMessage';
-import { SendBirdAppleCriticalAlertOptions } from './SendBirdAppleCriticalAlertOptions';
-import { SendBirdAutoEventMessageSettings } from './SendBirdAutoEventMessageSettings';
-import { SendBirdBaseChannel } from './SendBirdBaseChannel';
-import { SendBirdBaseMessageInstance          , SendBirdBaseMessageInstanceMessageTypeEnum         , SendBirdBaseMessageInstanceSendingStatusEnum      } from './SendBirdBaseMessageInstance';
-import { SendBirdBotsMessageResponse } from './SendBirdBotsMessageResponse';
-import { SendBirdBotsMessageResponseMessage } from './SendBirdBotsMessageResponseMessage';
-import { SendBirdBotsMessageResponseMessageExtendedMessagePayload } from './SendBirdBotsMessageResponseMessageExtendedMessagePayload';
-import { SendBirdBotsMessageResponseMessageMessageEvents } from './SendBirdBotsMessageResponseMessageMessageEvents';
-import { SendBirdChannelResponse          , SendBirdChannelResponseHiddenStateEnum                        , SendBirdChannelResponseMyMemberStateEnum  , SendBirdChannelResponseMyMutedStateEnum  , SendBirdChannelResponseMyPushTriggerOptionEnum  , SendBirdChannelResponseMyRoleEnum            } from './SendBirdChannelResponse';
-import { SendBirdEmoji } from './SendBirdEmoji';
-import { SendBirdEmojiCategory } from './SendBirdEmojiCategory';
-import { SendBirdFile } from './SendBirdFile';
-import { SendBirdFileMessageParams        , SendBirdFileMessageParamsMentionTypeEnum        , SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum    } from './SendBirdFileMessageParams';
-import { SendBirdGroupChannel          , SendBirdGroupChannelHiddenStateEnum                        , SendBirdGroupChannelMyMemberStateEnum  , SendBirdGroupChannelMyMutedStateEnum  , SendBirdGroupChannelMyPushTriggerOptionEnum  , SendBirdGroupChannelMyRoleEnum          } from './SendBirdGroupChannel';
-import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
-import { SendBirdGroupChannelCollection } from './SendBirdGroupChannelCollection';
-import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
-import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
-import { SendBirdMember                 , SendBirdMemberRoleEnum  , SendBirdMemberStateEnum    } from './SendBirdMember';
-import { SendBirdMessageMetaArray } from './SendBirdMessageMetaArray';
-import { SendBirdMessageResponse } from './SendBirdMessageResponse';
-import { SendBirdMessageResponseMentionedUsersInner } from './SendBirdMessageResponseMentionedUsersInner';
-import { SendBirdMessageResponseUser } from './SendBirdMessageResponseUser';
-import { SendBirdOGImage } from './SendBirdOGImage';
-import { SendBirdOGMetaData } from './SendBirdOGMetaData';
-import { SendBirdOpenChannel } from './SendBirdOpenChannel';
-import { SendBirdParentMessageInfo } from './SendBirdParentMessageInfo';
-import { SendBirdPlugin } from './SendBirdPlugin';
-import { SendBirdPoll } from './SendBirdPoll';
-import { SendBirdPollDetails       , SendBirdPollDetailsStatusEnum     } from './SendBirdPollDetails';
-import { SendBirdPollOption } from './SendBirdPollOption';
-import { SendBirdPollUpdatedVoteCount } from './SendBirdPollUpdatedVoteCount';
-import { SendBirdReaction } from './SendBirdReaction';
-import { SendBirdRestrictionInfo  , SendBirdRestrictionInfoRestrictionTypeEnum   } from './SendBirdRestrictionInfo';
-import { SendBirdScheduledMessage } from './SendBirdScheduledMessage';
-import { SendBirdSender } from './SendBirdSender';
-import { SendBirdThreadInfo } from './SendBirdThreadInfo';
-import { SendBirdThumbnailSBObject } from './SendBirdThumbnailSBObject';
-import { SendBirdThumbnailSize } from './SendBirdThumbnailSize';
-import { SendBirdUser } from './SendBirdUser';
-import { SendBirdUserMessageParams    , SendBirdUserMessageParamsMentionTypeEnum         , SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum     } from './SendBirdUserMessageParams';
-import { SendBotSMessageData } from './SendBotSMessageData';
-import { SendBotSMessageDataExtendedMessagePayload } from './SendBotSMessageDataExtendedMessagePayload';
-import { SendMessageData } from './SendMessageData';
-import { SetDomainFilterData } from './SetDomainFilterData';
-import { SetDomainFilterDataDomainFilter } from './SetDomainFilterDataDomainFilter';
-import { SetDomainFilterDataImageModeration } from './SetDomainFilterDataImageModeration';
-import { SetDomainFilterDataImageModerationLimits } from './SetDomainFilterDataImageModerationLimits';
-import { SetDomainFilterDataProfanityFilter } from './SetDomainFilterDataProfanityFilter';
-import { SetDomainFilterDataProfanityFilterRegexFiltersInner } from './SetDomainFilterDataProfanityFilterRegexFiltersInner';
-import { SetDomainFilterDataProfanityTriggeredModeration } from './SetDomainFilterDataProfanityTriggeredModeration';
-import { TranslateMessageIntoOtherLanguagesData } from './TranslateMessageIntoOtherLanguagesData';
-import { UpdateAnnouncementByIdData } from './UpdateAnnouncementByIdData';
-import { UpdateAnnouncementByIdResponse } from './UpdateAnnouncementByIdResponse';
-import { UpdateAnnouncementByIdResponseMessage } from './UpdateAnnouncementByIdResponseMessage';
-import { UpdateApnsPushConfigurationByIdData } from './UpdateApnsPushConfigurationByIdData';
-import { UpdateApnsPushConfigurationByIdResponse } from './UpdateApnsPushConfigurationByIdResponse';
-import { UpdateBotByIdData } from './UpdateBotByIdData';
-import { UpdateBotByIdResponse } from './UpdateBotByIdResponse';
-import { UpdateChannelInvitationPreferenceData } from './UpdateChannelInvitationPreferenceData';
+import { MarkAllMessagesAsReadRequest } from './MarkAllMessagesAsReadRequest';
+import { MarkChannelMessagesAsReadRequest } from './MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesAdminMessageRequest, MigrateMessagesAdminMessageRequestMessageTypeEnum           } from './MigrateMessagesAdminMessageRequest';
+import { MigrateMessagesFileMessageRequest , MigrateMessagesFileMessageRequestMessageTypeEnum               } from './MigrateMessagesFileMessageRequest';
+import { MigrateMessagesFileMessageRequestThumbnailsInner } from './MigrateMessagesFileMessageRequestThumbnailsInner';
+import { MigrateMessagesRequest } from './MigrateMessagesRequest';
+import { MigrateMessagesRequestMessagesInner , MigrateMessagesRequestMessagesInnerMessageTypeEnum                  } from './MigrateMessagesRequestMessagesInner';
+import { MigrateMessagesTextMessageRequest , MigrateMessagesTextMessageRequestMessageTypeEnum          } from './MigrateMessagesTextMessageRequest';
+import { RegisterOperatorsToAGroupChannelRequest } from './RegisterOperatorsToAGroupChannelRequest';
+import { RemoveARegistrationOrDeviceTokenResponse } from './RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from './RemoveAllRegistrationOrDeviceTokenResponse';
+import { ResetChatHistoryRequest } from './ResetChatHistoryRequest';
+import { ResetChatHistoryResponse } from './ResetChatHistoryResponse';
+import { ScheduleAnAnnouncementRequest } from './ScheduleAnAnnouncementRequest';
+import { ScheduleAnAnnouncementRequestCreateChannelOptions } from './ScheduleAnAnnouncementRequestCreateChannelOptions';
+import { ScheduleAnAnnouncementRequestMessage } from './ScheduleAnAnnouncementRequestMessage';
+import { ScheduleAnAnnouncementResponse } from './ScheduleAnAnnouncementResponse';
+import { ScheduleAnAnnouncementResponseMessage } from './ScheduleAnAnnouncementResponseMessage';
+import { SendABotMessageRequest } from './SendABotMessageRequest';
+import { SendAMessageRequest         , SendAMessageRequestMentionTypeEnum    , SendAMessageRequestMessageTypeEnum               } from './SendAMessageRequest';
+import { SendAdminMessageRequestBody     , SendAdminMessageRequestBodyMentionTypeEnum    , SendAdminMessageRequestBodyMessageTypeEnum      } from './SendAdminMessageRequestBody';
+import { SendFileMessageRequestBody         , SendFileMessageRequestBodyMentionTypeEnum   , SendFileMessageRequestBodyMessageTypeEnum            } from './SendFileMessageRequestBody';
+import { SendTextMessageRequestBody         , SendTextMessageRequestBodyMentionTypeEnum    , SendTextMessageRequestBodyMessageTypeEnum         } from './SendTextMessageRequestBody';
+import { SendTextMessageRequestBodyPushMessageTemplate } from './SendTextMessageRequestBodyPushMessageTemplate';
+import { SendTextMessageRequestBodyPushMessageTemplateOneOf } from './SendTextMessageRequestBodyPushMessageTemplateOneOf';
+import { SendbirdBasicUserInfo   , SendbirdBasicUserInfoRoleEnum       } from './SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
+import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
+import { SendbirdFile } from './SendbirdFile';
+import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum           } from './SendbirdGroupChannel';
+import { SendbirdGroupChannelDetail } from './SendbirdGroupChannelDetail';
+import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
+import { SendbirdMember                   , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
+import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
+import { SendbirdOpenChannel } from './SendbirdOpenChannel';
+import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
+import { SendbirdReaction } from './SendbirdReaction';
+import { SendbirdSmsFallback } from './SendbirdSmsFallback';
+import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
+import { SendbirdThumbnail } from './SendbirdThumbnail';
+import { SendbirdUser                , SendbirdUserStateEnum        } from './SendbirdUser';
+import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
+import { UpdateAChannelMetadataRequest } from './UpdateAChannelMetadataRequest';
+import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
+import { UpdateAMessageRequest      , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
+import { UpdateAUserRequest } from './UpdateAUserRequest';
+import { UpdateAnOpenChannelRequest } from './UpdateAnOpenChannelRequest';
+import { UpdateChannelInvitationPreferenceRequest } from './UpdateChannelInvitationPreferenceRequest';
 import { UpdateChannelInvitationPreferenceResponse } from './UpdateChannelInvitationPreferenceResponse';
-import { UpdateChannelMetacounterData } from './UpdateChannelMetacounterData';
-import { UpdateChannelMetadataData } from './UpdateChannelMetadataData';
-import { UpdateCountPreferenceOfChannelByUrlData } from './UpdateCountPreferenceOfChannelByUrlData';
-import { UpdateCountPreferenceOfChannelByUrlResponse } from './UpdateCountPreferenceOfChannelByUrlResponse';
-import { UpdateDefaultChannelInvitationPreferenceData } from './UpdateDefaultChannelInvitationPreferenceData';
-import { UpdateDefaultChannelInvitationPreferenceResponse } from './UpdateDefaultChannelInvitationPreferenceResponse';
-import { UpdateEmojiCategoryUrlByIdData } from './UpdateEmojiCategoryUrlByIdData';
-import { UpdateEmojiUrlByKeyData } from './UpdateEmojiUrlByKeyData';
-import { UpdateExtraDataInMessageData } from './UpdateExtraDataInMessageData';
-import { UpdateExtraDataInMessageResponse } from './UpdateExtraDataInMessageResponse';
-import { UpdateExtraDataInMessageResponseSortedMetaarrayInner } from './UpdateExtraDataInMessageResponseSortedMetaarrayInner';
-import { UpdateFcmPushConfigurationByIdData } from './UpdateFcmPushConfigurationByIdData';
-import { UpdateFcmPushConfigurationByIdResponse } from './UpdateFcmPushConfigurationByIdResponse';
-import { UpdateHmsPushConfigurationByIdData } from './UpdateHmsPushConfigurationByIdData';
-import { UpdateHmsPushConfigurationByIdResponse } from './UpdateHmsPushConfigurationByIdResponse';
-import { UpdateMessageByIdData } from './UpdateMessageByIdData';
-import { UpdatePushNotificationContentTemplateData } from './UpdatePushNotificationContentTemplateData';
-import { UpdatePushNotificationContentTemplateResponse } from './UpdatePushNotificationContentTemplateResponse';
-import { UpdatePushPreferencesData } from './UpdatePushPreferencesData';
-import { UpdatePushPreferencesForChannelByUrlData } from './UpdatePushPreferencesForChannelByUrlData';
-import { UpdatePushPreferencesForChannelByUrlResponse } from './UpdatePushPreferencesForChannelByUrlResponse';
+import { UpdateCountPreferenceOfAChannelRequest, UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum   } from './UpdateCountPreferenceOfAChannelRequest';
+import { UpdateCountPreferenceOfChannelByUrlResponse, UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum   } from './UpdateCountPreferenceOfChannelByUrlResponse';
+import { UpdateExtraDataInAMessageRequest } from './UpdateExtraDataInAMessageRequest';
+import { UpdateExtraDataInAMessageResponse } from './UpdateExtraDataInAMessageResponse';
+import { UpdatePushPreferencesForAChannelRequest, UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum    } from './UpdatePushPreferencesForAChannelRequest';
+import { UpdatePushPreferencesForAChannelResponse } from './UpdatePushPreferencesForAChannelResponse';
+import { UpdatePushPreferencesRequest } from './UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from './UpdatePushPreferencesResponse';
-import { UpdateUserByIdData } from './UpdateUserByIdData';
-import { UpdateUserMetadataData } from './UpdateUserMetadataData';
-import { UpdateUserMetadataResponse } from './UpdateUserMetadataResponse';
-import { UseDefaultEmojisData } from './UseDefaultEmojisData';
-import { UseDefaultEmojisResponse } from './UseDefaultEmojisResponse';
-import { V3ApplicationsPushSettingsGet200Response } from './V3ApplicationsPushSettingsGet200Response';
-import { V3ApplicationsPushSettingsGetRequest } from './V3ApplicationsPushSettingsGetRequest';
-import { V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest } from './V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest';
-import { V3PollsGetRequest } from './V3PollsGetRequest';
-import { V3PollsPollIdDeleteRequest } from './V3PollsPollIdDeleteRequest';
-import { V3PollsPollIdDeleteRequest1 } from './V3PollsPollIdDeleteRequest1';
-import { V3PollsPollIdOptionsOptionIdDeleteRequest } from './V3PollsPollIdOptionsOptionIdDeleteRequest';
-import { V3PollsPollIdOptionsOptionIdVotersGet200Response } from './V3PollsPollIdOptionsOptionIdVotersGet200Response';
-import { V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner } from './V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner';
-import { V3PollsPollIdOptionsOptionIdVotersGetRequest } from './V3PollsPollIdOptionsOptionIdVotersGetRequest';
-import { V3PollsPollIdVotePutRequest } from './V3PollsPollIdVotePutRequest';
-import { V3ScheduledMessagesCountGet200Response } from './V3ScheduledMessagesCountGet200Response';
-import { V3ScheduledMessagesGet200Response } from './V3ScheduledMessagesGet200Response';
-import { ViewAnnouncementByIdResponse } from './ViewAnnouncementByIdResponse';
-import { ViewBotByIdResponse } from './ViewBotByIdResponse';
-import { ViewChannelInvitationPreferenceResponse } from './ViewChannelInvitationPreferenceResponse';
-import { ViewCountPreferenceOfChannelByUrlResponse } from './ViewCountPreferenceOfChannelByUrlResponse';
-import { ViewDataExportByIdResponse } from './ViewDataExportByIdResponse';
-import { ViewDefaultChannelInvitationPreferenceResponse } from './ViewDefaultChannelInvitationPreferenceResponse';
-import { ViewGdprRequestByIdResponse } from './ViewGdprRequestByIdResponse';
-import { ViewNumberOfChannelsByJoinStatusResponse } from './ViewNumberOfChannelsByJoinStatusResponse';
+import { ViewCountPreferenceOfAChannelResponse, ViewCountPreferenceOfAChannelResponseCountPreferenceEnum   } from './ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from './ViewNumberOfChannelsWithUnreadMessagesResponse';
-import { ViewNumberOfConcurrentConnectionsResponse } from './ViewNumberOfConcurrentConnectionsResponse';
 import { ViewNumberOfDailyActiveUsersResponse } from './ViewNumberOfDailyActiveUsersResponse';
 import { ViewNumberOfMonthlyActiveUsersResponse } from './ViewNumberOfMonthlyActiveUsersResponse';
-import { ViewNumberOfPeakConnectionsResponse } from './ViewNumberOfPeakConnectionsResponse';
-import { ViewNumberOfPeakConnectionsResponsePeakConnectionsInner } from './ViewNumberOfPeakConnectionsResponsePeakConnectionsInner';
-import { ViewNumberOfUnreadItemsResponse } from './ViewNumberOfUnreadItemsResponse';
 import { ViewNumberOfUnreadMessagesResponse } from './ViewNumberOfUnreadMessagesResponse';
-import { ViewPushConfigurationByIdResponse } from './ViewPushConfigurationByIdResponse';
-import { ViewPushNotificationContentTemplateResponse } from './ViewPushNotificationContentTemplateResponse';
-import { ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner } from './ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner';
-import { ViewPushPreferencesForChannelByUrlResponse } from './ViewPushPreferencesForChannelByUrlResponse';
+import { ViewPushPreferencesForAChannelResponse } from './ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from './ViewPushPreferencesResponse';
-import { ViewSecondaryApiTokenByTokenResponse } from './ViewSecondaryApiTokenByTokenResponse';
-import { ViewTotalNumberOfMessagesInChannelResponse } from './ViewTotalNumberOfMessagesInChannelResponse';
-import { ViewUserMetadataResponse } from './ViewUserMetadataResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from './ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -644,343 +258,164 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
-    "SendBirdAdminMessageMessageTypeEnum",
-    "SendBirdAdminMessageSendingStatusEnum",
-    "SendBirdBaseMessageInstanceMessageTypeEnum",
-    "SendBirdBaseMessageInstanceSendingStatusEnum",
-    "SendBirdChannelResponseHiddenStateEnum",
-    "SendBirdChannelResponseMyMemberStateEnum",
-    "SendBirdChannelResponseMyMutedStateEnum",
-    "SendBirdChannelResponseMyPushTriggerOptionEnum",
-    "SendBirdChannelResponseMyRoleEnum",
-    "SendBirdFileMessageParamsMentionTypeEnum",
-    "SendBirdFileMessageParamsPushNotificationDeliveryOptionEnum",
-    "SendBirdGroupChannelHiddenStateEnum",
-    "SendBirdGroupChannelMyMemberStateEnum",
-    "SendBirdGroupChannelMyMutedStateEnum",
-    "SendBirdGroupChannelMyPushTriggerOptionEnum",
-    "SendBirdGroupChannelMyRoleEnum",
-    "SendBirdMemberRoleEnum",
-    "SendBirdMemberStateEnum",
-    "SendBirdPollDetailsStatusEnum",
-    "SendBirdRestrictionInfoRestrictionTypeEnum",
-    "SendBirdUserMessageParamsMentionTypeEnum",
-    "SendBirdUserMessageParamsPushNotificationDeliveryOptionEnum",
+    "CheckIfMemberResponseStateEnum",
+    "ChooseAPushNotificationContentTemplateRequestNameEnum",
+    "GetAGroupChannelResponseCountPreferenceEnum",
+    "GetAGroupChannelResponseHiddenStateEnum",
+    "GetAGroupChannelResponseMemberStateEnum",
+    "GetAGroupChannelResponseMyRoleEnum",
+    "InviteAsMembersResponseCountPreferenceEnum",
+    "InviteAsMembersResponseHiddenStateEnum",
+    "InviteAsMembersResponseMemberStateEnum",
+    "InviteAsMembersResponseMyRoleEnum",
+    "LeaveAChannelRequestReasonEnum",
+    "MigrateMessagesAdminMessageRequestMessageTypeEnum",
+    "MigrateMessagesFileMessageRequestMessageTypeEnum",
+    "MigrateMessagesRequestMessagesInnerMessageTypeEnum",
+    "MigrateMessagesTextMessageRequestMessageTypeEnum",
+    "SendAMessageRequestMentionTypeEnum",
+    "SendAMessageRequestMessageTypeEnum",
+    "SendAdminMessageRequestBodyMentionTypeEnum",
+    "SendAdminMessageRequestBodyMessageTypeEnum",
+    "SendFileMessageRequestBodyMentionTypeEnum",
+    "SendFileMessageRequestBodyMessageTypeEnum",
+    "SendTextMessageRequestBodyMentionTypeEnum",
+    "SendTextMessageRequestBodyMessageTypeEnum",
+    "SendbirdBasicUserInfoRoleEnum",
+    "SendbirdGroupChannelCountPreferenceEnum",
+    "SendbirdGroupChannelHiddenStateEnum",
+    "SendbirdGroupChannelMemberStateEnum",
+    "SendbirdGroupChannelMyRoleEnum",
+    "SendbirdMemberRoleEnum",
+    "SendbirdMemberStateEnum",
+    "SendbirdPushTriggerOption",
+    "SendbirdUserStateEnum",
+    "UpdateAMessageRequestMessageTypeEnum",
+    "UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum",
+    "UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum",
+    "UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum",
+    "ViewCountPreferenceOfAChannelResponseCountPreferenceEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "AddApnsPushConfigurationData": AddApnsPushConfigurationData,
-    "AddApnsPushConfigurationResponse": AddApnsPushConfigurationResponse,
-    "AddApnsPushConfigurationResponsePushConfigurationsInner": AddApnsPushConfigurationResponsePushConfigurationsInner,
-    "AddEmojiCategoriesResponse": AddEmojiCategoriesResponse,
-    "AddEmojiCategoriesResponseEmojiCategoriesInner": AddEmojiCategoriesResponseEmojiCategoriesInner,
-    "AddEmojisData": AddEmojisData,
-    "AddEmojisResponse": AddEmojisResponse,
-    "AddExtraDataToMessageData": AddExtraDataToMessageData,
-    "AddExtraDataToMessageResponse": AddExtraDataToMessageResponse,
-    "AddFcmPushConfigurationData": AddFcmPushConfigurationData,
-    "AddFcmPushConfigurationResponse": AddFcmPushConfigurationResponse,
-    "AddFcmPushConfigurationResponsePushConfigurationsInner": AddFcmPushConfigurationResponsePushConfigurationsInner,
-    "AddHmsPushConfigurationData": AddHmsPushConfigurationData,
-    "AddHmsPushConfigurationResponse": AddHmsPushConfigurationResponse,
-    "AddHmsPushConfigurationResponsePushConfigurationsInner": AddHmsPushConfigurationResponsePushConfigurationsInner,
-    "AddIpToWhitelistData": AddIpToWhitelistData,
-    "AddIpToWhitelistResponse": AddIpToWhitelistResponse,
-    "AddReactionToAMessageData": AddReactionToAMessageData,
-    "AddReactionToAMessageResponse": AddReactionToAMessageResponse,
-    "AddRegistrationOrDeviceTokenData": AddRegistrationOrDeviceTokenData,
-    "AddRegistrationOrDeviceTokenResponse": AddRegistrationOrDeviceTokenResponse,
-    "BanFromChannelsWithCustomChannelTypesData": BanFromChannelsWithCustomChannelTypesData,
-    "BanUsersInChannelsWithCustomChannelTypeData": BanUsersInChannelsWithCustomChannelTypeData,
-    "BanUsersInChannelsWithCustomChannelTypeDataBannedListInner": BanUsersInChannelsWithCustomChannelTypeDataBannedListInner,
-    "Blob": Blob,
-    "BlockUserData": BlockUserData,
-    "BlockUserResponse": BlockUserResponse,
-    "ChoosePushNotificationContentTemplateResponse": ChoosePushNotificationContentTemplateResponse,
-    "ChooseWhichEventsToSubscribeToData": ChooseWhichEventsToSubscribeToData,
-    "ChooseWhichEventsToSubscribeToResponse": ChooseWhichEventsToSubscribeToResponse,
-    "ChooseWhichEventsToSubscribeToResponseWebhook": ChooseWhichEventsToSubscribeToResponseWebhook,
-    "ConfigureAutoEventData": ConfigureAutoEventData,
-    "ConfigureAutoEventDataAutoEventMessage": ConfigureAutoEventDataAutoEventMessage,
-    "CreateBotData": CreateBotData,
-    "CreateBotResponse": CreateBotResponse,
-    "CreateBotResponseBot": CreateBotResponseBot,
-    "CreateChannelMetacounterData": CreateChannelMetacounterData,
-    "CreateChannelMetadataData": CreateChannelMetadataData,
-    "CreateChannelMetadataResponse": CreateChannelMetadataResponse,
-    "CreateUserData": CreateUserData,
-    "CreateUserMetadataData": CreateUserMetadataData,
-    "CreateUserMetadataResponse": CreateUserMetadataResponse,
-    "CreateUserTokenData": CreateUserTokenData,
+    "AcceptAnInvitationRequest": AcceptAnInvitationRequest,
+    "AddARegistrationOrDeviceTokenRequest": AddARegistrationOrDeviceTokenRequest,
+    "AddARegistrationOrDeviceTokenResponse": AddARegistrationOrDeviceTokenResponse,
+    "AddExtraDataToAMessageRequest": AddExtraDataToAMessageRequest,
+    "AddExtraDataToAMessageResponse": AddExtraDataToAMessageResponse,
+    "BlockAUserRequest": BlockAUserRequest,
+    "BlockAUserResponse": BlockAUserResponse,
+    "CheckIfMemberResponse": CheckIfMemberResponse,
+    "ChooseAPushNotificationContentTemplateRequest": ChooseAPushNotificationContentTemplateRequest,
+    "ChooseAPushNotificationContentTemplateResponse": ChooseAPushNotificationContentTemplateResponse,
+    "CreateABotRequest": CreateABotRequest,
+    "CreateABotResponse": CreateABotResponse,
+    "CreateABotResponseBot": CreateABotResponseBot,
+    "CreateABotResponseBotStyle": CreateABotResponseBotStyle,
+    "CreateAChannelMetadataRequest": CreateAChannelMetadataRequest,
+    "CreateAChannelMetadataResponse": CreateAChannelMetadataResponse,
+    "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
+    "CreateAUserRequest": CreateAUserRequest,
+    "CreateAnOpenChannelRequest": CreateAnOpenChannelRequest,
+    "CreateUserTokenRequest": CreateUserTokenRequest,
     "CreateUserTokenResponse": CreateUserTokenResponse,
-    "CustomTypeListBannedUsersResponse": CustomTypeListBannedUsersResponse,
-    "DeleteAllowedIpsFromWhitelistResponse": DeleteAllowedIpsFromWhitelistResponse,
-    "DeleteApnsCertificateByIdResponse": DeleteApnsCertificateByIdResponse,
-    "EnableReactionsData": EnableReactionsData,
-    "EnableReactionsResponse": EnableReactionsResponse,
-    "Function": Function,
-    "GcAcceptInvitationData": GcAcceptInvitationData,
-    "GcBanUserData": GcBanUserData,
-    "GcBanUserResponse": GcBanUserResponse,
-    "GcCheckIfMemberByIdResponse": GcCheckIfMemberByIdResponse,
-    "GcCreateChannelData": GcCreateChannelData,
-    "GcDeclineInvitationData": GcDeclineInvitationData,
-    "GcFreezeChannelData": GcFreezeChannelData,
-    "GcHideOrArchiveChannelData": GcHideOrArchiveChannelData,
-    "GcInviteAsMembersData": GcInviteAsMembersData,
-    "GcJoinChannelData": GcJoinChannelData,
-    "GcLeaveChannelData": GcLeaveChannelData,
-    "GcListBannedUsersResponse": GcListBannedUsersResponse,
-    "GcListChannelsResponse": GcListChannelsResponse,
-    "GcListMembersResponse": GcListMembersResponse,
-    "GcListMutedUsersResponse": GcListMutedUsersResponse,
-    "GcListOperatorsResponse": GcListOperatorsResponse,
-    "GcMarkAllMessagesAsDeliveredData": GcMarkAllMessagesAsDeliveredData,
-    "GcMarkAllMessagesAsDeliveredResponse": GcMarkAllMessagesAsDeliveredResponse,
-    "GcMarkAllMessagesAsReadData": GcMarkAllMessagesAsReadData,
-    "GcMuteUserData": GcMuteUserData,
-    "GcRegisterOperatorsData": GcRegisterOperatorsData,
-    "GcRegisterOperatorsResponse": GcRegisterOperatorsResponse,
-    "GcResetChatHistoryData": GcResetChatHistoryData,
-    "GcResetChatHistoryResponse": GcResetChatHistoryResponse,
-    "GcTypingIndicatorsData": GcTypingIndicatorsData,
-    "GcUpdateBanByIdData": GcUpdateBanByIdData,
-    "GcUpdateBanByIdResponse": GcUpdateBanByIdResponse,
-    "GcUpdateChannelByUrlData": GcUpdateChannelByUrlData,
-    "GcViewBanByIdResponse": GcViewBanByIdResponse,
-    "GcViewMuteByIdResponse": GcViewMuteByIdResponse,
-    "GcViewNumberOfEachMembersUnreadMessagesResponse": GcViewNumberOfEachMembersUnreadMessagesResponse,
-    "GenerateSecondaryApiTokenData": GenerateSecondaryApiTokenData,
-    "GenerateSecondaryApiTokenResponse": GenerateSecondaryApiTokenResponse,
-    "GetDetailedOpenRateOfAnnouncementByIdResponse": GetDetailedOpenRateOfAnnouncementByIdResponse,
-    "GetDetailedOpenRateOfAnnouncementGroupResponse": GetDetailedOpenRateOfAnnouncementGroupResponse,
-    "GetDetailedOpenStatusOfAnnouncementByIdResponse": GetDetailedOpenStatusOfAnnouncementByIdResponse,
-    "GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner": GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatusInner,
-    "GetStatisticsDailyResponse": GetStatisticsDailyResponse,
-    "GetStatisticsDailyResponseStatisticsInner": GetStatisticsDailyResponseStatisticsInner,
-    "GetStatisticsMonthlyResponse": GetStatisticsMonthlyResponse,
-    "GetStatisticsResponse": GetStatisticsResponse,
-    "JoinChannelsData": JoinChannelsData,
-    "JoinChannelsResponse": JoinChannelsResponse,
-    "LeaveMyGroupChannelsData": LeaveMyGroupChannelsData,
-    "ListAllEmojisAndEmojiCategoriesResponse": ListAllEmojisAndEmojiCategoriesResponse,
-    "ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner": ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInner,
-    "ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner": ListAllEmojisAndEmojiCategoriesResponseEmojiCategoriesInnerEmojisInner,
-    "ListAnnouncementGroupsResponse": ListAnnouncementGroupsResponse,
-    "ListAnnouncementsResponse": ListAnnouncementsResponse,
-    "ListAnnouncementsResponseAnnouncementsInner": ListAnnouncementsResponseAnnouncementsInner,
-    "ListBannedChannelsResponse": ListBannedChannelsResponse,
-    "ListBannedChannelsResponseBannedChannelsInner": ListBannedChannelsResponseBannedChannelsInner,
+    "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
+    "FreezeAnOpenChannelRequest": FreezeAnOpenChannelRequest,
+    "GetAGroupChannelResponse": GetAGroupChannelResponse,
+    "GetAGroupChannelResponseAllOf": GetAGroupChannelResponseAllOf,
+    "GetChannelInvitationPreferenceResponse": GetChannelInvitationPreferenceResponse,
+    "GetTotalNumberOfMessagesInAChannelResponse": GetTotalNumberOfMessagesInAChannelResponse,
+    "GroupChannelListMembersResponse": GroupChannelListMembersResponse,
+    "GroupChatListChannelsResponse": GroupChatListChannelsResponse,
+    "HideAChannelRequest": HideAChannelRequest,
+    "InviteAsMembersRequest": InviteAsMembersRequest,
+    "InviteAsMembersResponse": InviteAsMembersResponse,
+    "InviteAsMembersResponseAllOf": InviteAsMembersResponseAllOf,
+    "JoinAChannelRequest": JoinAChannelRequest,
+    "JoinChannelsRequest": JoinChannelsRequest,
+    "LeaveAChannelRequest": LeaveAChannelRequest,
+    "LeaveMyGroupChannelsRequest": LeaveMyGroupChannelsRequest,
     "ListBlockedUsersResponse": ListBlockedUsersResponse,
     "ListBotsResponse": ListBotsResponse,
     "ListBotsResponseBotsInner": ListBotsResponseBotsInner,
-    "ListDataExportsByMessageChannelOrUserResponse": ListDataExportsByMessageChannelOrUserResponse,
-    "ListDataExportsByMessageChannelOrUserResponseExportedDataInner": ListDataExportsByMessageChannelOrUserResponseExportedDataInner,
-    "ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile": ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile,
-    "ListEmojisResponse": ListEmojisResponse,
-    "ListGdprRequestsResponse": ListGdprRequestsResponse,
-    "ListGdprRequestsResponseRequestsInner": ListGdprRequestsResponseRequestsInner,
+    "ListBotsResponseBotsInnerAi": ListBotsResponseBotsInnerAi,
+    "ListBotsResponseBotsInnerBot": ListBotsResponseBotsInnerBot,
+    "ListBotsResponseBotsInnerBotStyle": ListBotsResponseBotsInnerBotStyle,
+    "ListBotsResponseBotsInnerBotStyleColor": ListBotsResponseBotsInnerBotStyleColor,
+    "ListBotsResponseBotsInnerFirstMessagesInner": ListBotsResponseBotsInnerFirstMessagesInner,
+    "ListBotsResponseBotsInnerFirstMessagesInnerData": ListBotsResponseBotsInnerFirstMessagesInnerData,
+    "ListBotsResponseBotsInnerSafeguard": ListBotsResponseBotsInnerSafeguard,
     "ListMessagesResponse": ListMessagesResponse,
-    "ListMessagesResponseMessagesInner": ListMessagesResponseMessagesInner,
-    "ListMessagesResponseMessagesInnerOgTag": ListMessagesResponseMessagesInnerOgTag,
-    "ListMessagesResponseMessagesInnerSortedMetaarrayInner": ListMessagesResponseMessagesInnerSortedMetaarrayInner,
-    "ListMutedChannelsResponse": ListMutedChannelsResponse,
-    "ListMutedUsersInChannelsWithCustomChannelType200Response": ListMutedUsersInChannelsWithCustomChannelType200Response,
     "ListMyGroupChannelsResponse": ListMyGroupChannelsResponse,
-    "ListPushConfigurationsResponse": ListPushConfigurationsResponse,
-    "ListPushConfigurationsResponsePushConfigurationsInner": ListPushConfigurationsResponsePushConfigurationsInner,
-    "ListPushNotificationContentTemplatesResponse": ListPushNotificationContentTemplatesResponse,
-    "ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner": ListPushNotificationContentTemplatesResponsePushMessageTemplatesInner,
-    "ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate": ListPushNotificationContentTemplatesResponsePushMessageTemplatesInnerTemplate,
-    "ListReactionsOfMessageResponse": ListReactionsOfMessageResponse,
+    "ListOpenChannelsResponse": ListOpenChannelsResponse,
+    "ListOperatorsResponse": ListOperatorsResponse,
     "ListRegistrationOrDeviceTokensResponse": ListRegistrationOrDeviceTokensResponse,
-    "ListReportsOnChannelByUrlResponse": ListReportsOnChannelByUrlResponse,
-    "ListReportsOnMessageByIdResponse": ListReportsOnMessageByIdResponse,
-    "ListReportsOnMessageByIdResponseReportLogsInner": ListReportsOnMessageByIdResponseReportLogsInner,
-    "ListReportsOnUserByIdResponse": ListReportsOnUserByIdResponse,
-    "ListReportsResponse": ListReportsResponse,
-    "ListReportsResponseReportLogsInner": ListReportsResponseReportLogsInner,
-    "ListSecondaryApiTokensResponse": ListSecondaryApiTokensResponse,
-    "ListSecondaryApiTokensResponseApiTokensInner": ListSecondaryApiTokensResponseApiTokensInner,
     "ListUsersResponse": ListUsersResponse,
-    "MarkAllMessagesAsReadData": MarkAllMessagesAsReadData,
-    "ModelFile": ModelFile,
-    "MuteInChannelsWithCustomChannelTypesData": MuteInChannelsWithCustomChannelTypesData,
-    "MuteUsersInChannelsWithCustomChannelTypeData": MuteUsersInChannelsWithCustomChannelTypeData,
-    "OcBanUserData": OcBanUserData,
-    "OcBanUserResponse": OcBanUserResponse,
-    "OcCreateChannelData": OcCreateChannelData,
-    "OcDeleteChannelByUrl200Response": OcDeleteChannelByUrl200Response,
-    "OcFreezeChannelData": OcFreezeChannelData,
-    "OcListBannedUsersResponse": OcListBannedUsersResponse,
-    "OcListBannedUsersResponseBannedListInner": OcListBannedUsersResponseBannedListInner,
-    "OcListChannelsResponse": OcListChannelsResponse,
-    "OcListMutedUsersResponse": OcListMutedUsersResponse,
-    "OcListOperatorsResponse": OcListOperatorsResponse,
-    "OcListParticipantsResponse": OcListParticipantsResponse,
-    "OcMuteUserData": OcMuteUserData,
-    "OcRegisterOperatorsData": OcRegisterOperatorsData,
-    "OcUpdateBanByIdData": OcUpdateBanByIdData,
-    "OcUpdateBanByIdResponse": OcUpdateBanByIdResponse,
-    "OcUpdateChannelByUrlData": OcUpdateChannelByUrlData,
-    "OcViewBanByIdResponse": OcViewBanByIdResponse,
-    "OcViewMuteByIdResponse": OcViewMuteByIdResponse,
-    "RegisterAndScheduleDataExportData": RegisterAndScheduleDataExportData,
-    "RegisterAndScheduleDataExportResponse": RegisterAndScheduleDataExportResponse,
-    "RegisterAsOperatorToChannelsWithCustomChannelTypesData": RegisterAsOperatorToChannelsWithCustomChannelTypesData,
-    "RegisterGdprRequestData": RegisterGdprRequestData,
-    "RegisterGdprRequestResponse": RegisterGdprRequestResponse,
-    "RemovePushConfigurationByIdResponse": RemovePushConfigurationByIdResponse,
-    "RemoveReactionFromAMessageResponse": RemoveReactionFromAMessageResponse,
-    "RemoveRegistrationOrDeviceTokenByTokenResponse": RemoveRegistrationOrDeviceTokenByTokenResponse,
-    "RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse": RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse,
-    "RemoveRegistrationOrDeviceTokenResponse": RemoveRegistrationOrDeviceTokenResponse,
-    "ReportChannelByUrlData": ReportChannelByUrlData,
-    "ReportChannelByUrlResponse": ReportChannelByUrlResponse,
-    "ReportMessageByIdData": ReportMessageByIdData,
-    "ReportMessageByIdResponse": ReportMessageByIdResponse,
-    "ReportUserByIdData": ReportUserByIdData,
-    "ReportUserByIdResponse": ReportUserByIdResponse,
-    "ResetPushPreferencesResponse": ResetPushPreferencesResponse,
-    "RetrieveAdvancedAnalyticsMetricsResponse": RetrieveAdvancedAnalyticsMetricsResponse,
-    "RetrieveIpWhitelistResponse": RetrieveIpWhitelistResponse,
-    "RetrieveListOfSubscribedEventsResponse": RetrieveListOfSubscribedEventsResponse,
-    "RetrieveListOfSubscribedEventsResponseWebhook": RetrieveListOfSubscribedEventsResponseWebhook,
-    "RevokeSecondaryApiTokenByTokenResponse": RevokeSecondaryApiTokenByTokenResponse,
-    "SBObject": SBObject,
-    "ScheduleAnnouncementData": ScheduleAnnouncementData,
-    "ScheduleAnnouncementDataMessage": ScheduleAnnouncementDataMessage,
-    "ScheduleAnnouncementResponse": ScheduleAnnouncementResponse,
-    "ScheduleAnnouncementResponseCreateChannelOptions": ScheduleAnnouncementResponseCreateChannelOptions,
-    "ScheduleAnnouncementResponseMessage": ScheduleAnnouncementResponseMessage,
-    "SendBirdAdminMessage": SendBirdAdminMessage,
-    "SendBirdAppleCriticalAlertOptions": SendBirdAppleCriticalAlertOptions,
-    "SendBirdAutoEventMessageSettings": SendBirdAutoEventMessageSettings,
-    "SendBirdBaseChannel": SendBirdBaseChannel,
-    "SendBirdBaseMessageInstance": SendBirdBaseMessageInstance,
-    "SendBirdBotsMessageResponse": SendBirdBotsMessageResponse,
-    "SendBirdBotsMessageResponseMessage": SendBirdBotsMessageResponseMessage,
-    "SendBirdBotsMessageResponseMessageExtendedMessagePayload": SendBirdBotsMessageResponseMessageExtendedMessagePayload,
-    "SendBirdBotsMessageResponseMessageMessageEvents": SendBirdBotsMessageResponseMessageMessageEvents,
-    "SendBirdChannelResponse": SendBirdChannelResponse,
-    "SendBirdEmoji": SendBirdEmoji,
-    "SendBirdEmojiCategory": SendBirdEmojiCategory,
-    "SendBirdFile": SendBirdFile,
-    "SendBirdFileMessageParams": SendBirdFileMessageParams,
-    "SendBirdGroupChannel": SendBirdGroupChannel,
-    "SendBirdGroupChannelChannel": SendBirdGroupChannelChannel,
-    "SendBirdGroupChannelCollection": SendBirdGroupChannelCollection,
-    "SendBirdGroupChannelCreatedBy": SendBirdGroupChannelCreatedBy,
-    "SendBirdGroupChannelDisappearingMessage": SendBirdGroupChannelDisappearingMessage,
-    "SendBirdGroupChannelSmsFallback": SendBirdGroupChannelSmsFallback,
-    "SendBirdMember": SendBirdMember,
-    "SendBirdMessageMetaArray": SendBirdMessageMetaArray,
-    "SendBirdMessageResponse": SendBirdMessageResponse,
-    "SendBirdMessageResponseMentionedUsersInner": SendBirdMessageResponseMentionedUsersInner,
-    "SendBirdMessageResponseUser": SendBirdMessageResponseUser,
-    "SendBirdOGImage": SendBirdOGImage,
-    "SendBirdOGMetaData": SendBirdOGMetaData,
-    "SendBirdOpenChannel": SendBirdOpenChannel,
-    "SendBirdParentMessageInfo": SendBirdParentMessageInfo,
-    "SendBirdPlugin": SendBirdPlugin,
-    "SendBirdPoll": SendBirdPoll,
-    "SendBirdPollDetails": SendBirdPollDetails,
-    "SendBirdPollOption": SendBirdPollOption,
-    "SendBirdPollUpdatedVoteCount": SendBirdPollUpdatedVoteCount,
-    "SendBirdReaction": SendBirdReaction,
-    "SendBirdRestrictionInfo": SendBirdRestrictionInfo,
-    "SendBirdScheduledMessage": SendBirdScheduledMessage,
-    "SendBirdSender": SendBirdSender,
-    "SendBirdThreadInfo": SendBirdThreadInfo,
-    "SendBirdThumbnailSBObject": SendBirdThumbnailSBObject,
-    "SendBirdThumbnailSize": SendBirdThumbnailSize,
-    "SendBirdUser": SendBirdUser,
-    "SendBirdUserMessageParams": SendBirdUserMessageParams,
-    "SendBotSMessageData": SendBotSMessageData,
-    "SendBotSMessageDataExtendedMessagePayload": SendBotSMessageDataExtendedMessagePayload,
-    "SendMessageData": SendMessageData,
-    "SetDomainFilterData": SetDomainFilterData,
-    "SetDomainFilterDataDomainFilter": SetDomainFilterDataDomainFilter,
-    "SetDomainFilterDataImageModeration": SetDomainFilterDataImageModeration,
-    "SetDomainFilterDataImageModerationLimits": SetDomainFilterDataImageModerationLimits,
-    "SetDomainFilterDataProfanityFilter": SetDomainFilterDataProfanityFilter,
-    "SetDomainFilterDataProfanityFilterRegexFiltersInner": SetDomainFilterDataProfanityFilterRegexFiltersInner,
-    "SetDomainFilterDataProfanityTriggeredModeration": SetDomainFilterDataProfanityTriggeredModeration,
-    "TranslateMessageIntoOtherLanguagesData": TranslateMessageIntoOtherLanguagesData,
-    "UpdateAnnouncementByIdData": UpdateAnnouncementByIdData,
-    "UpdateAnnouncementByIdResponse": UpdateAnnouncementByIdResponse,
-    "UpdateAnnouncementByIdResponseMessage": UpdateAnnouncementByIdResponseMessage,
-    "UpdateApnsPushConfigurationByIdData": UpdateApnsPushConfigurationByIdData,
-    "UpdateApnsPushConfigurationByIdResponse": UpdateApnsPushConfigurationByIdResponse,
-    "UpdateBotByIdData": UpdateBotByIdData,
-    "UpdateBotByIdResponse": UpdateBotByIdResponse,
-    "UpdateChannelInvitationPreferenceData": UpdateChannelInvitationPreferenceData,
+    "MarkAllMessagesAsReadRequest": MarkAllMessagesAsReadRequest,
+    "MarkChannelMessagesAsReadRequest": MarkChannelMessagesAsReadRequest,
+    "MigrateMessagesAdminMessageRequest": MigrateMessagesAdminMessageRequest,
+    "MigrateMessagesFileMessageRequest": MigrateMessagesFileMessageRequest,
+    "MigrateMessagesFileMessageRequestThumbnailsInner": MigrateMessagesFileMessageRequestThumbnailsInner,
+    "MigrateMessagesRequest": MigrateMessagesRequest,
+    "MigrateMessagesRequestMessagesInner": MigrateMessagesRequestMessagesInner,
+    "MigrateMessagesTextMessageRequest": MigrateMessagesTextMessageRequest,
+    "RegisterOperatorsToAGroupChannelRequest": RegisterOperatorsToAGroupChannelRequest,
+    "RemoveARegistrationOrDeviceTokenResponse": RemoveARegistrationOrDeviceTokenResponse,
+    "RemoveAllRegistrationOrDeviceTokenResponse": RemoveAllRegistrationOrDeviceTokenResponse,
+    "ResetChatHistoryRequest": ResetChatHistoryRequest,
+    "ResetChatHistoryResponse": ResetChatHistoryResponse,
+    "ScheduleAnAnnouncementRequest": ScheduleAnAnnouncementRequest,
+    "ScheduleAnAnnouncementRequestCreateChannelOptions": ScheduleAnAnnouncementRequestCreateChannelOptions,
+    "ScheduleAnAnnouncementRequestMessage": ScheduleAnAnnouncementRequestMessage,
+    "ScheduleAnAnnouncementResponse": ScheduleAnAnnouncementResponse,
+    "ScheduleAnAnnouncementResponseMessage": ScheduleAnAnnouncementResponseMessage,
+    "SendABotMessageRequest": SendABotMessageRequest,
+    "SendAMessageRequest": SendAMessageRequest,
+    "SendAdminMessageRequestBody": SendAdminMessageRequestBody,
+    "SendFileMessageRequestBody": SendFileMessageRequestBody,
+    "SendTextMessageRequestBody": SendTextMessageRequestBody,
+    "SendTextMessageRequestBodyPushMessageTemplate": SendTextMessageRequestBodyPushMessageTemplate,
+    "SendTextMessageRequestBodyPushMessageTemplateOneOf": SendTextMessageRequestBodyPushMessageTemplateOneOf,
+    "SendbirdBasicUserInfo": SendbirdBasicUserInfo,
+    "SendbirdDisappearingMessage": SendbirdDisappearingMessage,
+    "SendbirdExtendedMessagePayload": SendbirdExtendedMessagePayload,
+    "SendbirdFile": SendbirdFile,
+    "SendbirdGroupChannel": SendbirdGroupChannel,
+    "SendbirdGroupChannelDetail": SendbirdGroupChannelDetail,
+    "SendbirdGroupChannelDetailChannel": SendbirdGroupChannelDetailChannel,
+    "SendbirdMember": SendbirdMember,
+    "SendbirdMessageResponse": SendbirdMessageResponse,
+    "SendbirdMessageResponseMessageEvents": SendbirdMessageResponseMessageEvents,
+    "SendbirdOpenChannel": SendbirdOpenChannel,
+    "SendbirdParentMessageInfo": SendbirdParentMessageInfo,
+    "SendbirdReaction": SendbirdReaction,
+    "SendbirdSmsFallback": SendbirdSmsFallback,
+    "SendbirdSortedMetaarrayInner": SendbirdSortedMetaarrayInner,
+    "SendbirdThumbnail": SendbirdThumbnail,
+    "SendbirdUser": SendbirdUser,
+    "StartTypingIndicatorsRequest": StartTypingIndicatorsRequest,
+    "UpdateAChannelMetadataRequest": UpdateAChannelMetadataRequest,
+    "UpdateAGroupChannelRequest": UpdateAGroupChannelRequest,
+    "UpdateAMessageRequest": UpdateAMessageRequest,
+    "UpdateAUserRequest": UpdateAUserRequest,
+    "UpdateAnOpenChannelRequest": UpdateAnOpenChannelRequest,
+    "UpdateChannelInvitationPreferenceRequest": UpdateChannelInvitationPreferenceRequest,
     "UpdateChannelInvitationPreferenceResponse": UpdateChannelInvitationPreferenceResponse,
-    "UpdateChannelMetacounterData": UpdateChannelMetacounterData,
-    "UpdateChannelMetadataData": UpdateChannelMetadataData,
-    "UpdateCountPreferenceOfChannelByUrlData": UpdateCountPreferenceOfChannelByUrlData,
+    "UpdateCountPreferenceOfAChannelRequest": UpdateCountPreferenceOfAChannelRequest,
     "UpdateCountPreferenceOfChannelByUrlResponse": UpdateCountPreferenceOfChannelByUrlResponse,
-    "UpdateDefaultChannelInvitationPreferenceData": UpdateDefaultChannelInvitationPreferenceData,
-    "UpdateDefaultChannelInvitationPreferenceResponse": UpdateDefaultChannelInvitationPreferenceResponse,
-    "UpdateEmojiCategoryUrlByIdData": UpdateEmojiCategoryUrlByIdData,
-    "UpdateEmojiUrlByKeyData": UpdateEmojiUrlByKeyData,
-    "UpdateExtraDataInMessageData": UpdateExtraDataInMessageData,
-    "UpdateExtraDataInMessageResponse": UpdateExtraDataInMessageResponse,
-    "UpdateExtraDataInMessageResponseSortedMetaarrayInner": UpdateExtraDataInMessageResponseSortedMetaarrayInner,
-    "UpdateFcmPushConfigurationByIdData": UpdateFcmPushConfigurationByIdData,
-    "UpdateFcmPushConfigurationByIdResponse": UpdateFcmPushConfigurationByIdResponse,
-    "UpdateHmsPushConfigurationByIdData": UpdateHmsPushConfigurationByIdData,
-    "UpdateHmsPushConfigurationByIdResponse": UpdateHmsPushConfigurationByIdResponse,
-    "UpdateMessageByIdData": UpdateMessageByIdData,
-    "UpdatePushNotificationContentTemplateData": UpdatePushNotificationContentTemplateData,
-    "UpdatePushNotificationContentTemplateResponse": UpdatePushNotificationContentTemplateResponse,
-    "UpdatePushPreferencesData": UpdatePushPreferencesData,
-    "UpdatePushPreferencesForChannelByUrlData": UpdatePushPreferencesForChannelByUrlData,
-    "UpdatePushPreferencesForChannelByUrlResponse": UpdatePushPreferencesForChannelByUrlResponse,
+    "UpdateExtraDataInAMessageRequest": UpdateExtraDataInAMessageRequest,
+    "UpdateExtraDataInAMessageResponse": UpdateExtraDataInAMessageResponse,
+    "UpdatePushPreferencesForAChannelRequest": UpdatePushPreferencesForAChannelRequest,
+    "UpdatePushPreferencesForAChannelResponse": UpdatePushPreferencesForAChannelResponse,
+    "UpdatePushPreferencesRequest": UpdatePushPreferencesRequest,
     "UpdatePushPreferencesResponse": UpdatePushPreferencesResponse,
-    "UpdateUserByIdData": UpdateUserByIdData,
-    "UpdateUserMetadataData": UpdateUserMetadataData,
-    "UpdateUserMetadataResponse": UpdateUserMetadataResponse,
-    "UseDefaultEmojisData": UseDefaultEmojisData,
-    "UseDefaultEmojisResponse": UseDefaultEmojisResponse,
-    "V3ApplicationsPushSettingsGet200Response": V3ApplicationsPushSettingsGet200Response,
-    "V3ApplicationsPushSettingsGetRequest": V3ApplicationsPushSettingsGetRequest,
-    "V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest": V3GroupChannelsChannelUrlScheduledMessagesScheduledMessageIdDeleteRequest,
-    "V3PollsGetRequest": V3PollsGetRequest,
-    "V3PollsPollIdDeleteRequest": V3PollsPollIdDeleteRequest,
-    "V3PollsPollIdDeleteRequest1": V3PollsPollIdDeleteRequest1,
-    "V3PollsPollIdOptionsOptionIdDeleteRequest": V3PollsPollIdOptionsOptionIdDeleteRequest,
-    "V3PollsPollIdOptionsOptionIdVotersGet200Response": V3PollsPollIdOptionsOptionIdVotersGet200Response,
-    "V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner": V3PollsPollIdOptionsOptionIdVotersGet200ResponseVotersInner,
-    "V3PollsPollIdOptionsOptionIdVotersGetRequest": V3PollsPollIdOptionsOptionIdVotersGetRequest,
-    "V3PollsPollIdVotePutRequest": V3PollsPollIdVotePutRequest,
-    "V3ScheduledMessagesCountGet200Response": V3ScheduledMessagesCountGet200Response,
-    "V3ScheduledMessagesGet200Response": V3ScheduledMessagesGet200Response,
-    "ViewAnnouncementByIdResponse": ViewAnnouncementByIdResponse,
-    "ViewBotByIdResponse": ViewBotByIdResponse,
-    "ViewChannelInvitationPreferenceResponse": ViewChannelInvitationPreferenceResponse,
-    "ViewCountPreferenceOfChannelByUrlResponse": ViewCountPreferenceOfChannelByUrlResponse,
-    "ViewDataExportByIdResponse": ViewDataExportByIdResponse,
-    "ViewDefaultChannelInvitationPreferenceResponse": ViewDefaultChannelInvitationPreferenceResponse,
-    "ViewGdprRequestByIdResponse": ViewGdprRequestByIdResponse,
-    "ViewNumberOfChannelsByJoinStatusResponse": ViewNumberOfChannelsByJoinStatusResponse,
+    "ViewCountPreferenceOfAChannelResponse": ViewCountPreferenceOfAChannelResponse,
     "ViewNumberOfChannelsWithUnreadMessagesResponse": ViewNumberOfChannelsWithUnreadMessagesResponse,
-    "ViewNumberOfConcurrentConnectionsResponse": ViewNumberOfConcurrentConnectionsResponse,
     "ViewNumberOfDailyActiveUsersResponse": ViewNumberOfDailyActiveUsersResponse,
     "ViewNumberOfMonthlyActiveUsersResponse": ViewNumberOfMonthlyActiveUsersResponse,
-    "ViewNumberOfPeakConnectionsResponse": ViewNumberOfPeakConnectionsResponse,
-    "ViewNumberOfPeakConnectionsResponsePeakConnectionsInner": ViewNumberOfPeakConnectionsResponsePeakConnectionsInner,
-    "ViewNumberOfUnreadItemsResponse": ViewNumberOfUnreadItemsResponse,
     "ViewNumberOfUnreadMessagesResponse": ViewNumberOfUnreadMessagesResponse,
-    "ViewPushConfigurationByIdResponse": ViewPushConfigurationByIdResponse,
-    "ViewPushNotificationContentTemplateResponse": ViewPushNotificationContentTemplateResponse,
-    "ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner": ViewPushNotificationContentTemplateResponsePushMessageTemplatesInner,
-    "ViewPushPreferencesForChannelByUrlResponse": ViewPushPreferencesForChannelByUrlResponse,
+    "ViewPushPreferencesForAChannelResponse": ViewPushPreferencesForAChannelResponse,
     "ViewPushPreferencesResponse": ViewPushPreferencesResponse,
-    "ViewSecondaryApiTokenByTokenResponse": ViewSecondaryApiTokenByTokenResponse,
-    "ViewTotalNumberOfMessagesInChannelResponse": ViewTotalNumberOfMessagesInChannelResponse,
-    "ViewUserMetadataResponse": ViewUserMetadataResponse,
-    "ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner": ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner,
 }
 
 export class ObjectSerializer {

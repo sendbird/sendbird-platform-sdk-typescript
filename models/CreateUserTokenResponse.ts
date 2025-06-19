@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -13,22 +13,22 @@
 import { HttpFile } from '../http/http';
 
 export class CreateUserTokenResponse {
-    'token'?: string;
     'expiresAt'?: number;
+    'token'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "token",
-            "baseName": "token",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "expiresAt",
             "baseName": "expires_at",
             "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "token",
+            "baseName": "token",
+            "type": "string",
             "format": ""
         }    ];
 

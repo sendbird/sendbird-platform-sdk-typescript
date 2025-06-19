@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,60 +10,60 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdGroupChannelChannel } from './SendBirdGroupChannelChannel';
-import { SendBirdGroupChannelCreatedBy } from './SendBirdGroupChannelCreatedBy';
-import { SendBirdGroupChannelDisappearingMessage } from './SendBirdGroupChannelDisappearingMessage';
-import { SendBirdGroupChannelSmsFallback } from './SendBirdGroupChannelSmsFallback';
-import { SendBirdMember } from './SendBirdMember';
-import { SendBirdMessageResponse } from './SendBirdMessageResponse';
-import { SendBirdUser } from './SendBirdUser';
+import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
+import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
+import { SendbirdMember } from './SendbirdMember';
+import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
+import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { HttpFile } from '../http/http';
 
-export class SendBirdGroupChannel {
-    'channelUrl'?: string;
+export class SendbirdGroupChannel {
+    'channelUrl': string;
+    'countPreference'?: SendbirdGroupChannelCountPreferenceEnum;
     'coverUrl'?: string;
     'createdAt'?: number;
-    'createdBy'?: SendBirdGroupChannelCreatedBy;
-    'creator'?: SendBirdUser;
+    'createdBy'?: SendbirdBasicUserInfo;
     'customType'?: string;
     'data'?: string;
-    'disappearingMessage'?: SendBirdGroupChannelDisappearingMessage;
+    'deliveryReceipt'?: any;
+    'disappearingMessage'?: SendbirdDisappearingMessage;
     'freeze'?: boolean;
+    'hasAiBot'?: boolean;
+    'hasBot'?: boolean;
+    'hiddenState'?: SendbirdGroupChannelHiddenStateEnum;
     'ignoreProfanityFilter'?: boolean;
-    'hiddenState'?: SendBirdGroupChannelHiddenStateEnum;
     'invitedAt'?: number;
-    'inviter'?: SendBirdUser;
+    'inviter'?: SendbirdBasicUserInfo;
     'isAccessCodeRequired'?: boolean;
     'isBroadcast'?: boolean;
-    'isCreated'?: boolean;
     'isDiscoverable'?: boolean;
     'isDistinct'?: boolean;
     'isEphemeral'?: boolean;
+    'isExclusive'?: boolean;
     'isHidden'?: boolean;
+    'isMuted'?: boolean;
     'isPublic'?: boolean;
     'isPushEnabled'?: boolean;
     'isSuper'?: boolean;
-    'joinedAt'?: number;
     'joinedMemberCount'?: number;
-    'lastMessage'?: SendBirdMessageResponse;
+    'joinedTs'?: number;
+    'lastMessage'?: SendbirdMessageResponse;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
-    'members'?: Array<SendBirdMember>;
-    'messageOffsetTimestamp'?: number;
+    'memberState'?: SendbirdGroupChannelMemberStateEnum;
+    'members'?: Array<SendbirdMember>;
     'messageSurvivalSeconds'?: number;
-    'myCountPreference'?: string;
-    'myLastRead'?: number;
-    'myMemberState'?: SendBirdGroupChannelMyMemberStateEnum;
-    'myMutedState'?: SendBirdGroupChannelMyMutedStateEnum;
-    'myPushTriggerOption'?: SendBirdGroupChannelMyPushTriggerOptionEnum;
-    'myRole'?: SendBirdGroupChannelMyRoleEnum;
+    'metadata'?: any;
+    'myRole'?: SendbirdGroupChannelMyRoleEnum;
     'name'?: string;
-    'operators'?: Array<any>;
-    'smsFallback'?: SendBirdGroupChannelSmsFallback;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
+    'readReceipt'?: { [key: string]: number; };
+    'smsFallback'?: SendbirdSmsFallback;
+    'tsMessageOffset'?: number;
     'unreadMentionCount'?: number;
     'unreadMessageCount'?: number;
-    'channel'?: SendBirdGroupChannelChannel;
-    'readReceipt'?: { [key: string]: number; };
+    'userLastRead'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -72,6 +72,12 @@ export class SendBirdGroupChannel {
             "name": "channelUrl",
             "baseName": "channel_url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "countPreference",
+            "baseName": "count_preference",
+            "type": "SendbirdGroupChannelCountPreferenceEnum",
             "format": ""
         },
         {
@@ -84,18 +90,12 @@ export class SendBirdGroupChannel {
             "name": "createdAt",
             "baseName": "created_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "createdBy",
             "baseName": "created_by",
-            "type": "SendBirdGroupChannelCreatedBy",
-            "format": ""
-        },
-        {
-            "name": "creator",
-            "baseName": "creator",
-            "type": "SendBirdUser",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         },
         {
@@ -111,9 +111,15 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
+            "name": "deliveryReceipt",
+            "baseName": "delivery_receipt",
+            "type": "any",
+            "format": ""
+        },
+        {
             "name": "disappearingMessage",
             "baseName": "disappearing_message",
-            "type": "SendBirdGroupChannelDisappearingMessage",
+            "type": "SendbirdDisappearingMessage",
             "format": ""
         },
         {
@@ -123,27 +129,39 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "ignoreProfanityFilter",
-            "baseName": "ignore_profanity_filter",
+            "name": "hasAiBot",
+            "baseName": "has_ai_bot",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "hasBot",
+            "baseName": "has_bot",
             "type": "boolean",
             "format": ""
         },
         {
             "name": "hiddenState",
             "baseName": "hidden_state",
-            "type": "SendBirdGroupChannelHiddenStateEnum",
+            "type": "SendbirdGroupChannelHiddenStateEnum",
+            "format": ""
+        },
+        {
+            "name": "ignoreProfanityFilter",
+            "baseName": "ignore_profanity_filter",
+            "type": "boolean",
             "format": ""
         },
         {
             "name": "invitedAt",
             "baseName": "invited_at",
             "type": "number",
-            "format": ""
+            "format": "int64"
         },
         {
             "name": "inviter",
             "baseName": "inviter",
-            "type": "SendBirdUser",
+            "type": "SendbirdBasicUserInfo",
             "format": ""
         },
         {
@@ -155,12 +173,6 @@ export class SendBirdGroupChannel {
         {
             "name": "isBroadcast",
             "baseName": "is_broadcast",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isCreated",
-            "baseName": "is_created",
             "type": "boolean",
             "format": ""
         },
@@ -183,8 +195,20 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
+            "name": "isExclusive",
+            "baseName": "is_exclusive",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "isHidden",
             "baseName": "is_hidden",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isMuted",
+            "baseName": "is_muted",
             "type": "boolean",
             "format": ""
         },
@@ -207,21 +231,21 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "joinedAt",
-            "baseName": "joined_at",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "joinedMemberCount",
             "baseName": "joined_member_count",
             "type": "number",
             "format": ""
         },
         {
+            "name": "joinedTs",
+            "baseName": "joined_ts",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "lastMessage",
             "baseName": "last_message",
-            "type": "SendBirdMessageResponse",
+            "type": "SendbirdMessageResponse",
             "format": ""
         },
         {
@@ -237,15 +261,15 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "members",
-            "baseName": "members",
-            "type": "Array<SendBirdMember>",
+            "name": "memberState",
+            "baseName": "member_state",
+            "type": "SendbirdGroupChannelMemberStateEnum",
             "format": ""
         },
         {
-            "name": "messageOffsetTimestamp",
-            "baseName": "message_offset_timestamp",
-            "type": "number",
+            "name": "members",
+            "baseName": "members",
+            "type": "Array<SendbirdMember>",
             "format": ""
         },
         {
@@ -255,39 +279,15 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "myCountPreference",
-            "baseName": "my_count_preference",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "myLastRead",
-            "baseName": "my_last_read",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "myMemberState",
-            "baseName": "my_member_state",
-            "type": "SendBirdGroupChannelMyMemberStateEnum",
-            "format": ""
-        },
-        {
-            "name": "myMutedState",
-            "baseName": "my_muted_state",
-            "type": "SendBirdGroupChannelMyMutedStateEnum",
-            "format": ""
-        },
-        {
-            "name": "myPushTriggerOption",
-            "baseName": "my_push_trigger_option",
-            "type": "SendBirdGroupChannelMyPushTriggerOptionEnum",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         },
         {
             "name": "myRole",
             "baseName": "my_role",
-            "type": "SendBirdGroupChannelMyRoleEnum",
+            "type": "SendbirdGroupChannelMyRoleEnum",
             "format": ""
         },
         {
@@ -297,16 +297,28 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "operators",
-            "baseName": "operators",
-            "type": "Array<any>",
+            "name": "pushTriggerOption",
+            "baseName": "push_trigger_option",
+            "type": "SendbirdPushTriggerOption",
             "format": ""
+        },
+        {
+            "name": "readReceipt",
+            "baseName": "read_receipt",
+            "type": "{ [key: string]: number; }",
+            "format": "int64"
         },
         {
             "name": "smsFallback",
             "baseName": "sms_fallback",
-            "type": "SendBirdGroupChannelSmsFallback",
+            "type": "SendbirdSmsFallback",
             "format": ""
+        },
+        {
+            "name": "tsMessageOffset",
+            "baseName": "ts_message_offset",
+            "type": "number",
+            "format": "int64"
         },
         {
             "name": "unreadMentionCount",
@@ -321,20 +333,14 @@ export class SendBirdGroupChannel {
             "format": ""
         },
         {
-            "name": "channel",
-            "baseName": "channel",
-            "type": "SendBirdGroupChannelChannel",
-            "format": ""
-        },
-        {
-            "name": "readReceipt",
-            "baseName": "read_receipt",
-            "type": "{ [key: string]: number; }",
+            "name": "userLastRead",
+            "baseName": "user_last_read",
+            "type": "number",
             "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {
-        return SendBirdGroupChannel.attributeTypeMap;
+        return SendbirdGroupChannel.attributeTypeMap;
     }
 
     public constructor() {
@@ -342,9 +348,8 @@ export class SendBirdGroupChannel {
 }
 
 
-export type SendBirdGroupChannelHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
-export type SendBirdGroupChannelMyMemberStateEnum = "invited" | "joined" | "none" ;
-export type SendBirdGroupChannelMyMutedStateEnum = "muted" | "unmuted" ;
-export type SendBirdGroupChannelMyPushTriggerOptionEnum = "all" | "default" | "mention_only" | "false" ;
-export type SendBirdGroupChannelMyRoleEnum = "" | "none" | "operator" ;
+export type SendbirdGroupChannelCountPreferenceEnum = "false" | "all" | "unread_message_count_only" | "unread_mentioned_count_only" ;
+export type SendbirdGroupChannelHiddenStateEnum = "hidden_allow_auto_unhide" | "hidden_prevent_auto_unhide" | "unhidden" ;
+export type SendbirdGroupChannelMemberStateEnum = "invited" | "joined" | "none" ;
+export type SendbirdGroupChannelMyRoleEnum = "" | "none" | "operator" ;
 

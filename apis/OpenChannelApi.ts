@@ -10,14 +10,12 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { OcCreateChannelData } from '../models/OcCreateChannelData';
-import { OcDeleteChannelByUrl200Response } from '../models/OcDeleteChannelByUrl200Response';
-import { OcListChannelsResponse } from '../models/OcListChannelsResponse';
-import { OcListOperatorsResponse } from '../models/OcListOperatorsResponse';
-import { OcListParticipantsResponse } from '../models/OcListParticipantsResponse';
-import { OcRegisterOperatorsData } from '../models/OcRegisterOperatorsData';
-import { OcUpdateChannelByUrlData } from '../models/OcUpdateChannelByUrlData';
-import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
+import { CreateAnOpenChannelRequest } from '../models/CreateAnOpenChannelRequest';
+import { ListOpenChannelsResponse } from '../models/ListOpenChannelsResponse';
+import { ListOperatorsResponse } from '../models/ListOperatorsResponse';
+import { RegisterOperatorsToAGroupChannelRequest } from '../models/RegisterOperatorsToAGroupChannelRequest';
+import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
+import { UpdateAnOpenChannelRequest } from '../models/UpdateAnOpenChannelRequest';
 
 /**
  * no description
@@ -25,68 +23,12 @@ import { SendBirdOpenChannel } from '../models/SendBirdOpenChannel';
 export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * ## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
-     * Cancel the registration of operators
-     * @param channelUrl 
-     * @param operatorIds 
+     * ## Create an open channel  You can create an [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel) that facilitates conversations for millions of users. Open channels allow a seamless chat experience possible for all participants by using [dynamic partitioning](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-how-dynamic-partitioning-works) which creates subchannels that each handle up to tens of thousands of participants.  Because users don't need invitations to join open channels, short-lived live events like concerts or live streams that don't require a sustained membership are good use cases for open channels.  [https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel)
+     * Create an open channel
      * @param apiToken 
-     * @param deleteAll 
+     * @param createAnOpenChannelRequest 
      */
-    public async ocCancelTheRegistrationOfOperators(channelUrl: string, operatorIds: Array<string>, apiToken?: string, deleteAll?: boolean, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocCancelTheRegistrationOfOperators", "channelUrl");
-        }
-
-
-        // verify required parameter 'operatorIds' is not null or undefined
-        if (operatorIds === null || operatorIds === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocCancelTheRegistrationOfOperators", "operatorIds");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/operators'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (operatorIds !== undefined) {
-            requestContext.setQueryParam("operator_ids", ObjectSerializer.serialize(operatorIds, "Array<string>", ""));
-        }
-
-        // Query Params
-        if (deleteAll !== undefined) {
-            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "boolean", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Create a channel  Creates an open channel.  >__Note__: Classic open channels created before the deprecation date of March 2021 will maintain their original form and functions. However, new applications created after December 15, 2020, will be able to create dynamic partitioning open channels only.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel
-     * Create a channel
-     * @param apiToken 
-     * @param ocCreateChannelData 
-     */
-    public async ocCreateChannel(apiToken?: string, ocCreateChannelData?: OcCreateChannelData, _options?: Configuration): Promise<RequestContext> {
+    public async createAnOpenChannel(apiToken?: string, createAnOpenChannelRequest?: CreateAnOpenChannelRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -99,7 +41,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -108,7 +50,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocCreateChannelData, "OcCreateChannelData", ""),
+            ObjectSerializer.serialize(createAnOpenChannelRequest, "CreateAnOpenChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -123,17 +65,17 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
-     * Delete a channel
-     * @param channelUrl 
+     * ## Delete an open channel  You can delete an open channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-an-open-channel#1-delete-an-open-channel
+     * Delete an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
      */
-    public async ocDeleteChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteAnOpenChannel(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocDeleteChannelByUrl", "channelUrl");
+            throw new RequiredError("OpenChannelApi", "deleteAnOpenChannel", "channelUrl");
         }
 
 
@@ -147,7 +89,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -160,19 +102,114 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List channels  Retrieves a list of open channels. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-channels ----------------------------
-     * List channels
+     * ## Get an open channel  This action retrieves information about a specific [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel).  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel)
+     * Get an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
+     * @param includeOperators Determines whether to include a list of operators in the response. (Default: false)
+     */
+    public async getAnOpenChannel(channelUrl: string, apiToken?: string, includeOperators?: boolean, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("OpenChannelApi", "getAnOpenChannel", "channelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/open_channels/{channel_url}'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (includeOperators !== undefined) {
+            requestContext.setQueryParam("include_operators", ObjectSerializer.serialize(includeOperators, "boolean", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## List operators of an open channel  You can retrieve a list of operators of an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-an-open-channel#1-list-operators-of-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+     * List operators of an open channel
+     * @param channelUrl (Required) 
      * @param token 
      * @param limit 
-     * @param customTypes 
+     * @param apiToken 
+     */
+    public async listChannelOperators(channelUrl: string, token?: string, limit?: number, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("OpenChannelApi", "listChannelOperators", "channelUrl");
+        }
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/open_channels/{channel_url}/operators'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (token !== undefined) {
+            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
+        }
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## List open channels  This action retrieves a list of [open channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels)
+     * List open channels
+     * @param token 
+     * @param channelUrls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+     * @param limit 
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type.
      * @param nameContains 
      * @param urlContains 
-     * @param showFrozen 
-     * @param showMetadata 
-     * @param customType 
+     * @param showFrozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true)
+     * @param showMetadata Determines whether to include channel metadata in the response. (Default: false)
+     * @param apiToken 
      */
-    public async ocListChannels(apiToken?: string, token?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, customType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listOpenChannels(token?: string, channelUrls?: string, limit?: number, customTypes?: string, nameContains?: string, urlContains?: string, showFrozen?: boolean, showMetadata?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -194,6 +231,11 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (token !== undefined) {
             requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
+        }
+
+        // Query Params
+        if (channelUrls !== undefined) {
+            requestContext.setQueryParam("channel_urls", ObjectSerializer.serialize(channelUrls, "string", ""));
         }
 
         // Query Params
@@ -226,13 +268,8 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("show_metadata", ObjectSerializer.serialize(showMetadata, "boolean", ""));
         }
 
-        // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
-        }
-
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -245,120 +282,18 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
-     * List operators
-     * @param channelUrl 
+     * ## Register operators to an open channel  You can register one or more operators to an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-an-open-channel#1-register-operators-to-an-open-channel
+     * Register operators to an open channel
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param token 
-     * @param limit 
+     * @param registerOperatorsToAGroupChannelRequest 
      */
-    public async ocListOperators(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async registerOperators(channelUrl: string, apiToken?: string, registerOperatorsToAGroupChannelRequest?: RegisterOperatorsToAGroupChannelRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListOperators", "channelUrl");
-        }
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/operators'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
-     * List participants
-     * @param channelUrl 
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     */
-    public async ocListParticipants(channelUrl: string, apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocListParticipants", "channelUrl");
-        }
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}/participants'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
-     * Register operators
-     * @param channelUrl 
-     * @param apiToken 
-     * @param ocRegisterOperatorsData 
-     */
-    public async ocRegisterOperators(channelUrl: string, apiToken?: string, ocRegisterOperatorsData?: OcRegisterOperatorsData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocRegisterOperators", "channelUrl");
+            throw new RequiredError("OpenChannelApi", "registerOperators", "channelUrl");
         }
 
 
@@ -373,7 +308,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -382,7 +317,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocRegisterOperatorsData, "OcRegisterOperatorsData", ""),
+            ObjectSerializer.serialize(registerOperatorsToAGroupChannelRequest, "RegisterOperatorsToAGroupChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -397,18 +332,74 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update a channel  Updates information on an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-channel ----------------------------
-     * Update a channel
-     * @param channelUrl 
+     * ## Unregister operators from an open channel  You can unregister operators in an open channel but keep them in the channel as participants using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-an-open-channel#1-unregister-operators-from-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
+     * Unregister operators from an open channel
+     * @param channelUrl (Required) 
+     * @param operatorIds Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2.
+     * @param deleteAll Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false)
      * @param apiToken 
-     * @param ocUpdateChannelByUrlData 
      */
-    public async ocUpdateChannelByUrl(channelUrl: string, apiToken?: string, ocUpdateChannelByUrlData?: OcUpdateChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async unregisterOperators(channelUrl: string, operatorIds: string, deleteAll?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocUpdateChannelByUrl", "channelUrl");
+            throw new RequiredError("OpenChannelApi", "unregisterOperators", "channelUrl");
+        }
+
+
+        // verify required parameter 'operatorIds' is not null or undefined
+        if (operatorIds === null || operatorIds === undefined) {
+            throw new RequiredError("OpenChannelApi", "unregisterOperators", "operatorIds");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/open_channels/{channel_url}/operators'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (operatorIds !== undefined) {
+            requestContext.setQueryParam("operator_ids", ObjectSerializer.serialize(operatorIds, "string", ""));
+        }
+
+        // Query Params
+        if (deleteAll !== undefined) {
+            requestContext.setQueryParam("delete_all", ObjectSerializer.serialize(deleteAll, "boolean", ""));
+        }
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Update an open channel  You can update information about an open channel using this API. You can add a cover image to a channel to better identify the channel or specify a custom channel type for grouping channels by custom type. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-an-open-channel#1-update-an-open-channel
+     * Update an open channel
+     * @param channelUrl (Required) 
+     * @param apiToken 
+     * @param updateAnOpenChannelRequest 
+     */
+    public async updateAnOpenChannel(channelUrl: string, apiToken?: string, updateAnOpenChannelRequest?: UpdateAnOpenChannelRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("OpenChannelApi", "updateAnOpenChannel", "channelUrl");
         }
 
 
@@ -423,7 +414,7 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -432,47 +423,10 @@ export class OpenChannelApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(ocUpdateChannelByUrlData, "OcUpdateChannelByUrlData", ""),
+            ObjectSerializer.serialize(updateAnOpenChannelRequest, "UpdateAnOpenChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
-     * View a channel
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public async ocViewChannelByUrl(channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("OpenChannelApi", "ocViewChannelByUrl", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/open_channels/{channel_url}'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -491,21 +445,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocCancelTheRegistrationOfOperators
+     * @params response Response returned by the server for a request to createAnOpenChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocCancelTheRegistrationOfOperators(response: ResponseContext): Promise<void > {
+     public async createAnOpenChannel(response: ResponseContext): Promise<SendbirdOpenChannel > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
             return body;
         }
 
@@ -516,25 +474,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocCreateChannel
+     * @params response Response returned by the server for a request to deleteAnOpenChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocCreateChannel(response: ResponseContext): Promise<SendBirdOpenChannel > {
+     public async deleteAnOpenChannel(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -545,25 +503,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocDeleteChannelByUrl
+     * @params response Response returned by the server for a request to getAnOpenChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocDeleteChannelByUrl(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
+     public async getAnOpenChannel(response: ResponseContext): Promise<SendbirdOpenChannel > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcDeleteChannelByUrl200Response", ""
-            ) as OcDeleteChannelByUrl200Response;
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcDeleteChannelByUrl200Response", ""
-            ) as OcDeleteChannelByUrl200Response;
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
             return body;
         }
 
@@ -574,25 +532,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocListChannels
+     * @params response Response returned by the server for a request to listChannelOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListChannels(response: ResponseContext): Promise<OcListChannelsResponse > {
+     public async listChannelOperators(response: ResponseContext): Promise<ListOperatorsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcListChannelsResponse = ObjectSerializer.deserialize(
+            const body: ListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListChannelsResponse", ""
-            ) as OcListChannelsResponse;
+                "ListOperatorsResponse", ""
+            ) as ListOperatorsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcListChannelsResponse = ObjectSerializer.deserialize(
+            const body: ListOperatorsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListChannelsResponse", ""
-            ) as OcListChannelsResponse;
+                "ListOperatorsResponse", ""
+            ) as ListOperatorsResponse;
             return body;
         }
 
@@ -603,25 +561,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocListOperators
+     * @params response Response returned by the server for a request to listOpenChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListOperators(response: ResponseContext): Promise<OcListOperatorsResponse > {
+     public async listOpenChannels(response: ResponseContext): Promise<ListOpenChannelsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcListOperatorsResponse = ObjectSerializer.deserialize(
+            const body: ListOpenChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListOperatorsResponse", ""
-            ) as OcListOperatorsResponse;
+                "ListOpenChannelsResponse", ""
+            ) as ListOpenChannelsResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcListOperatorsResponse = ObjectSerializer.deserialize(
+            const body: ListOpenChannelsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListOperatorsResponse", ""
-            ) as OcListOperatorsResponse;
+                "ListOpenChannelsResponse", ""
+            ) as ListOpenChannelsResponse;
             return body;
         }
 
@@ -632,25 +590,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocListParticipants
+     * @params response Response returned by the server for a request to registerOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocListParticipants(response: ResponseContext): Promise<OcListParticipantsResponse > {
+     public async registerOperators(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcListParticipantsResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListParticipantsResponse", ""
-            ) as OcListParticipantsResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcListParticipantsResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcListParticipantsResponse", ""
-            ) as OcListParticipantsResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -661,25 +619,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocRegisterOperators
+     * @params response Response returned by the server for a request to unregisterOperators
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocRegisterOperators(response: ResponseContext): Promise<OcDeleteChannelByUrl200Response > {
+     public async unregisterOperators(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcDeleteChannelByUrl200Response", ""
-            ) as OcDeleteChannelByUrl200Response;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: OcDeleteChannelByUrl200Response = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "OcDeleteChannelByUrl200Response", ""
-            ) as OcDeleteChannelByUrl200Response;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -690,54 +648,25 @@ export class OpenChannelApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to ocUpdateChannelByUrl
+     * @params response Response returned by the server for a request to updateAnOpenChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ocUpdateChannelByUrl(response: ResponseContext): Promise<SendBirdOpenChannel > {
+     public async updateAnOpenChannel(response: ResponseContext): Promise<SendbirdOpenChannel > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
+            const body: SendbirdOpenChannel = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to ocViewChannelByUrl
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async ocViewChannelByUrl(response: ResponseContext): Promise<SendBirdOpenChannel > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdOpenChannel = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdOpenChannel", ""
-            ) as SendBirdOpenChannel;
+                "SendbirdOpenChannel", ""
+            ) as SendbirdOpenChannel;
             return body;
         }
 

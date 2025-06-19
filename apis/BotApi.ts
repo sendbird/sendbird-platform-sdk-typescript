@@ -10,16 +10,13 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { CreateBotData } from '../models/CreateBotData';
-import { CreateBotResponse } from '../models/CreateBotResponse';
-import { JoinChannelsData } from '../models/JoinChannelsData';
-import { JoinChannelsResponse } from '../models/JoinChannelsResponse';
+import { CreateABotRequest } from '../models/CreateABotRequest';
+import { CreateABotResponse } from '../models/CreateABotResponse';
+import { JoinChannelsRequest } from '../models/JoinChannelsRequest';
 import { ListBotsResponse } from '../models/ListBotsResponse';
-import { SendBirdBotsMessageResponse } from '../models/SendBirdBotsMessageResponse';
-import { SendBotSMessageData } from '../models/SendBotSMessageData';
-import { UpdateBotByIdData } from '../models/UpdateBotByIdData';
-import { UpdateBotByIdResponse } from '../models/UpdateBotByIdResponse';
-import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
+import { SendABotMessageRequest } from '../models/SendABotMessageRequest';
+import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
+import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
 
 /**
  * no description
@@ -27,12 +24,12 @@ import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 export class BotApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * ## Create a bot  Creates a new bot within the application. Creating a bot is similar to creating a normal user, except that a callback URL is specified in order for the bot to receive events.  > __Note__: The bot must [join](#2-join-channels) a group channel first to interact with users. In group channels, you can invite a bot through the [invite as members](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-create-a-bot
+     * ## Create a bot  Creates a new bot within an application. Creating a bot is similar to creating a normal user, except a callback URL should be specified for a bot to receive events.  > **Note**: The bot must first [join a group channel](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels) to interact with users. In group channels, you can also invite a bot through the [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) action.      [https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot](https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot)
      * Create a bot
      * @param apiToken 
-     * @param createBotData 
+     * @param createABotRequest 
      */
-    public async createBot(apiToken?: string, createBotData?: CreateBotData, _options?: Configuration): Promise<RequestContext> {
+    public async createABot(apiToken?: string, createABotRequest?: CreateABotRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -45,7 +42,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -54,7 +51,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(createBotData, "CreateBotData", ""),
+            ObjectSerializer.serialize(createABotRequest, "CreateABotRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -69,50 +66,13 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
-     * Delete a bot
-     * @param botUserid 
-     * @param apiToken 
-     */
-    public async deleteBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'botUserid' is not null or undefined
-        if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "deleteBotById", "botUserid");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/bots/{bot_userid}'
-            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Join channels  Makes a bot join one or more channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-join-channels ----------------------------
+     * ## Join channels  Makes a bot join one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels)
      * Join channels
-     * @param botUserid 
+     * @param botUserid (Required) 
      * @param apiToken 
-     * @param joinChannelsData 
+     * @param joinChannelsRequest 
      */
-    public async joinChannels(botUserid: string, apiToken?: string, joinChannelsData?: JoinChannelsData, _options?: Configuration): Promise<RequestContext> {
+    public async joinChannels(botUserid: string, apiToken?: string, joinChannelsRequest?: JoinChannelsRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'botUserid' is not null or undefined
@@ -132,7 +92,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -141,7 +101,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(joinChannelsData, "JoinChannelsData", ""),
+            ObjectSerializer.serialize(joinChannelsRequest, "JoinChannelsRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -156,20 +116,63 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
-     * Leave channels - When leaving all channels
-     * @param botUserid 
-     * @param apiToken 
+     * ## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving a specific channel
      * @param channelUrl 
+     * @param botUserid (Required) 
+     * @param apiToken 
      */
-    public async leaveChannels(botUserid: string, apiToken?: string, channelUrl?: string, _options?: Configuration): Promise<RequestContext> {
+    public async leaveAGroupChannel(channelUrl: string, botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'channelUrl' is not null or undefined
+        if (channelUrl === null || channelUrl === undefined) {
+            throw new RequiredError("BotApi", "leaveAGroupChannel", "channelUrl");
+        }
+
+
+        // verify required parameter 'botUserid' is not null or undefined
+        if (botUserid === null || botUserid === undefined) {
+            throw new RequiredError("BotApi", "leaveAGroupChannel", "botUserid");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/bots/{bot_userid}/channels/{channel_url}'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
+            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+     * Leave channels - When leaving all channels
+     * @param botUserid (Required) 
+     * @param apiToken 
+     */
+    public async leaveGroupChannels(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "leaveChannels", "botUserid");
+            throw new RequiredError("BotApi", "leaveGroupChannels", "botUserid");
         }
-
 
 
 
@@ -181,13 +184,8 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Query Params
-        if (channelUrl !== undefined) {
-            requestContext.setQueryParam("channel_url", ObjectSerializer.serialize(channelUrl, "string", ""));
-        }
-
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -200,58 +198,13 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
-     * Leave channels - When leaving a channel by its channel URL
-     * @param botUserid 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public async leaveChannelsByUrl(botUserid: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'botUserid' is not null or undefined
-        if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "leaveChannelsByUrl", "botUserid");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("BotApi", "leaveChannelsByUrl", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/bots/{bot_userid}/channels/{channel_url}'
-            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-list-bots ----------------------------
+     * ## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/platform-api/v3/bot/listing-bots/list-bots#1-list-bots
      * List bots
-     * @param apiToken 
      * @param token 
      * @param limit 
+     * @param apiToken 
      */
-    public async listBots(apiToken?: string, token?: string, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async listBots(token?: string, limit?: number, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -275,7 +228,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -288,18 +241,18 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
+     * ## Send a bot message  Sends a bot message to a group channel.  [https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message](https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message)  `bot_userid`   Type: string   Description: Specifies the ID of the bot to send a message.
      * Send a bot's message
-     * @param botUserid 
+     * @param botUserid (Required) 
      * @param apiToken 
-     * @param sendBotSMessageData 
+     * @param sendABotMessageRequest 
      */
-    public async sendBotsMessage(botUserid: string, apiToken?: string, sendBotSMessageData?: SendBotSMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async sendABotMessage(botUserid: string, apiToken?: string, sendABotMessageRequest?: SendABotMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'botUserid' is not null or undefined
         if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "sendBotsMessage", "botUserid");
+            throw new RequiredError("BotApi", "sendABotMessage", "botUserid");
         }
 
 
@@ -314,7 +267,7 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -323,97 +276,10 @@ export class BotApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(sendBotSMessageData, "SendBotSMessageData", ""),
+            ObjectSerializer.serialize(sendABotMessageRequest, "SendABotMessageRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
-     * Update a bot
-     * @param botUserid 
-     * @param apiToken 
-     * @param updateBotByIdData 
-     */
-    public async updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'botUserid' is not null or undefined
-        if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "updateBotById", "botUserid");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/bots/{bot_userid}'
-            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateBotByIdData, "UpdateBotByIdData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
-     * View a bot
-     * @param botUserid 
-     * @param apiToken 
-     */
-    public async viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'botUserid' is not null or undefined
-        if (botUserid === null || botUserid === undefined) {
-            throw new RequiredError("BotApi", "viewBotById", "botUserid");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/bots/{bot_userid}'
-            .replace('{' + 'bot_userid' + '}', encodeURIComponent(String(botUserid)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -432,54 +298,25 @@ export class BotApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createBot
+     * @params response Response returned by the server for a request to createABot
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createBot(response: ResponseContext): Promise<CreateBotResponse > {
+     public async createABot(response: ResponseContext): Promise<CreateABotResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CreateBotResponse = ObjectSerializer.deserialize(
+            const body: CreateABotResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateBotResponse", ""
-            ) as CreateBotResponse;
+                "CreateABotResponse", ""
+            ) as CreateABotResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CreateBotResponse = ObjectSerializer.deserialize(
+            const body: CreateABotResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CreateBotResponse", ""
-            ) as CreateBotResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to deleteBotById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async deleteBotById(response: ResponseContext): Promise<any > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "CreateABotResponse", ""
+            ) as CreateABotResponse;
             return body;
         }
 
@@ -493,22 +330,22 @@ export class BotApiResponseProcessor {
      * @params response Response returned by the server for a request to joinChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async joinChannels(response: ResponseContext): Promise<JoinChannelsResponse > {
+     public async joinChannels(response: ResponseContext): Promise<SendbirdGroupChannelDetail > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: JoinChannelsResponse = ObjectSerializer.deserialize(
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "JoinChannelsResponse", ""
-            ) as JoinChannelsResponse;
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: JoinChannelsResponse = ObjectSerializer.deserialize(
+            const body: SendbirdGroupChannelDetail = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "JoinChannelsResponse", ""
-            ) as JoinChannelsResponse;
+                "SendbirdGroupChannelDetail", ""
+            ) as SendbirdGroupChannelDetail;
             return body;
         }
 
@@ -519,21 +356,25 @@ export class BotApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to leaveChannels
+     * @params response Response returned by the server for a request to leaveAGroupChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async leaveChannels(response: ResponseContext): Promise<void > {
+     public async leaveAGroupChannel(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -544,10 +385,10 @@ export class BotApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to leaveChannelsByUrl
+     * @params response Response returned by the server for a request to leaveGroupChannels
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async leaveChannelsByUrl(response: ResponseContext): Promise<any > {
+     public async leaveGroupChannels(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -602,83 +443,25 @@ export class BotApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to sendBotsMessage
+     * @params response Response returned by the server for a request to sendABotMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async sendBotsMessage(response: ResponseContext): Promise<SendBirdBotsMessageResponse > {
+     public async sendABotMessage(response: ResponseContext): Promise<SendbirdMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdBotsMessageResponse = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdBotsMessageResponse", ""
-            ) as SendBirdBotsMessageResponse;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdBotsMessageResponse = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdBotsMessageResponse", ""
-            ) as SendBirdBotsMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to updateBotById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async updateBotById(response: ResponseContext): Promise<UpdateBotByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UpdateBotByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateBotByIdResponse", ""
-            ) as UpdateBotByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UpdateBotByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateBotByIdResponse", ""
-            ) as UpdateBotByIdResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewBotById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewBotById(response: ResponseContext): Promise<ViewBotByIdResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewBotByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewBotByIdResponse", ""
-            ) as ViewBotByIdResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewBotByIdResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewBotByIdResponse", ""
-            ) as ViewBotByIdResponse;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 

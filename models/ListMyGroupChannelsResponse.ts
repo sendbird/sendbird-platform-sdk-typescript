@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { SendBirdGroupChannel } from './SendBirdGroupChannel';
+import { SendbirdGroupChannel } from './SendbirdGroupChannel';
 import { HttpFile } from '../http/http';
 
 export class ListMyGroupChannelsResponse {
-    'channels'?: Array<SendBirdGroupChannel>;
+    'channels'?: Array<SendbirdGroupChannel>;
     'next'?: string;
     'ts'?: number;
 
@@ -24,7 +24,7 @@ export class ListMyGroupChannelsResponse {
         {
             "name": "channels",
             "baseName": "channels",
-            "type": "Array<SendBirdGroupChannel>",
+            "type": "Array<SendbirdGroupChannel>",
             "format": ""
         },
         {
@@ -37,7 +37,7 @@ export class ListMyGroupChannelsResponse {
             "name": "ts",
             "baseName": "ts",
             "type": "number",
-            "format": ""
+            "format": "int64"
         }    ];
 
     static getAttributeTypeMap() {

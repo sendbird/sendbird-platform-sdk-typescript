@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ListMessagesResponseMessagesInner } from './ListMessagesResponseMessagesInner';
+import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { HttpFile } from '../http/http';
 
 export class ListMessagesResponse {
-    'messages'?: Array<ListMessagesResponseMessagesInner>;
+    'messages'?: Array<SendbirdMessageResponse>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,7 +22,7 @@ export class ListMessagesResponse {
         {
             "name": "messages",
             "baseName": "messages",
-            "type": "Array<ListMessagesResponseMessagesInner>",
+            "type": "Array<SendbirdMessageResponse>",
             "format": ""
         }    ];
 

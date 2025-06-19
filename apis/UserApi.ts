@@ -10,41 +10,37 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { AddRegistrationOrDeviceTokenData } from '../models/AddRegistrationOrDeviceTokenData';
-import { AddRegistrationOrDeviceTokenResponse } from '../models/AddRegistrationOrDeviceTokenResponse';
-import { ChoosePushNotificationContentTemplateResponse } from '../models/ChoosePushNotificationContentTemplateResponse';
-import { CreateUserData } from '../models/CreateUserData';
-import { CreateUserTokenData } from '../models/CreateUserTokenData';
+import { AddARegistrationOrDeviceTokenRequest } from '../models/AddARegistrationOrDeviceTokenRequest';
+import { AddARegistrationOrDeviceTokenResponse } from '../models/AddARegistrationOrDeviceTokenResponse';
+import { ChooseAPushNotificationContentTemplateRequest } from '../models/ChooseAPushNotificationContentTemplateRequest';
+import { ChooseAPushNotificationContentTemplateResponse } from '../models/ChooseAPushNotificationContentTemplateResponse';
+import { CreateAUserRequest } from '../models/CreateAUserRequest';
+import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
-import { LeaveMyGroupChannelsData } from '../models/LeaveMyGroupChannelsData';
+import { GetChannelInvitationPreferenceResponse } from '../models/GetChannelInvitationPreferenceResponse';
+import { LeaveMyGroupChannelsRequest } from '../models/LeaveMyGroupChannelsRequest';
 import { ListMyGroupChannelsResponse } from '../models/ListMyGroupChannelsResponse';
 import { ListRegistrationOrDeviceTokensResponse } from '../models/ListRegistrationOrDeviceTokensResponse';
 import { ListUsersResponse } from '../models/ListUsersResponse';
-import { MarkAllMessagesAsReadData } from '../models/MarkAllMessagesAsReadData';
-import { RegisterAsOperatorToChannelsWithCustomChannelTypesData } from '../models/RegisterAsOperatorToChannelsWithCustomChannelTypesData';
-import { RemoveRegistrationOrDeviceTokenByTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-import { RemoveRegistrationOrDeviceTokenResponse } from '../models/RemoveRegistrationOrDeviceTokenResponse';
-import { ResetPushPreferencesResponse } from '../models/ResetPushPreferencesResponse';
-import { SendBirdUser } from '../models/SendBirdUser';
-import { UpdateChannelInvitationPreferenceData } from '../models/UpdateChannelInvitationPreferenceData';
+import { MarkAllMessagesAsReadRequest } from '../models/MarkAllMessagesAsReadRequest';
+import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { RemoveARegistrationOrDeviceTokenResponse } from '../models/RemoveARegistrationOrDeviceTokenResponse';
+import { RemoveAllRegistrationOrDeviceTokenResponse } from '../models/RemoveAllRegistrationOrDeviceTokenResponse';
+import { SendbirdUser } from '../models/SendbirdUser';
+import { UpdateAUserRequest } from '../models/UpdateAUserRequest';
+import { UpdateChannelInvitationPreferenceRequest } from '../models/UpdateChannelInvitationPreferenceRequest';
 import { UpdateChannelInvitationPreferenceResponse } from '../models/UpdateChannelInvitationPreferenceResponse';
-import { UpdateCountPreferenceOfChannelByUrlData } from '../models/UpdateCountPreferenceOfChannelByUrlData';
+import { UpdateCountPreferenceOfAChannelRequest } from '../models/UpdateCountPreferenceOfAChannelRequest';
 import { UpdateCountPreferenceOfChannelByUrlResponse } from '../models/UpdateCountPreferenceOfChannelByUrlResponse';
-import { UpdatePushPreferencesData } from '../models/UpdatePushPreferencesData';
-import { UpdatePushPreferencesForChannelByUrlData } from '../models/UpdatePushPreferencesForChannelByUrlData';
-import { UpdatePushPreferencesForChannelByUrlResponse } from '../models/UpdatePushPreferencesForChannelByUrlResponse';
+import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPreferencesForAChannelRequest';
+import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
+import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
-import { UpdateUserByIdData } from '../models/UpdateUserByIdData';
-import { ViewChannelInvitationPreferenceResponse } from '../models/ViewChannelInvitationPreferenceResponse';
-import { ViewCountPreferenceOfChannelByUrlResponse } from '../models/ViewCountPreferenceOfChannelByUrlResponse';
-import { ViewNumberOfChannelsByJoinStatusResponse } from '../models/ViewNumberOfChannelsByJoinStatusResponse';
+import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from '../models/ViewNumberOfChannelsWithUnreadMessagesResponse';
-import { ViewNumberOfUnreadItemsResponse } from '../models/ViewNumberOfUnreadItemsResponse';
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
-import { ViewPushPreferencesForChannelByUrlResponse } from '../models/ViewPushPreferencesForChannelByUrlResponse';
+import { ViewPushPreferencesForAChannelResponse } from '../models/ViewPushPreferencesForAChannelResponse';
 import { ViewPushPreferencesResponse } from '../models/ViewPushPreferencesResponse';
-import { ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner } from '../models/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner';
 
 /**
  * no description
@@ -54,23 +50,23 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## Add a registration or device token  > __Note__: A user can have up to 20 FCM registration tokens, 20 HMS device tokens, and 20 APNs device tokens each. The oldest token will be deleted before a new token is added for a user who already has 20 registration or device tokens. Only the 20 newest tokens will be maintained for users who already have more than 20 of each token type.  To send notification requests to push notification services on behalf of your server, adds a specific user's FCM registration token, HMS device token, or APNs device token to Sendbird server. Depending on which push service you are using, you can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`.  A FCM registration token and an APNs device token allow identification of each client app instance on each device, and are generated and registered by Android and iOS apps through the corresponding SDKs. Use this method if you need to register a token via your own server.  > __Note__: For more information on the registration token and device token, visit the Google's [FCM](https://firebase.google.com/docs/auth/admin/verify-id-tokens) page, Huawei's [Push kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050040060) and Apple's [APNs](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) page.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-add-a-registration-or-device-token ----------------------------
      * Add a registration or device token
-     * @param userId 
-     * @param tokenType 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
      * @param apiToken 
-     * @param addRegistrationOrDeviceTokenData 
+     * @param addARegistrationOrDeviceTokenRequest 
      */
-    public async addRegistrationOrDeviceToken(userId: string, tokenType: string, apiToken?: string, addRegistrationOrDeviceTokenData?: AddRegistrationOrDeviceTokenData, _options?: Configuration): Promise<RequestContext> {
+    public async addARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, addARegistrationOrDeviceTokenRequest?: AddARegistrationOrDeviceTokenRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "addRegistrationOrDeviceToken", "userId");
+            throw new RequiredError("UserApi", "addARegistrationOrDeviceToken", "userId");
         }
 
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
-            throw new RequiredError("UserApi", "addRegistrationOrDeviceToken", "tokenType");
+            throw new RequiredError("UserApi", "addARegistrationOrDeviceToken", "tokenType");
         }
 
 
@@ -86,7 +82,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -95,7 +91,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addRegistrationOrDeviceTokenData, "AddRegistrationOrDeviceTokenData", ""),
+            ObjectSerializer.serialize(addARegistrationOrDeviceTokenRequest, "AddARegistrationOrDeviceTokenRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -110,18 +106,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Choose a push notification content template  Chooses a push notification content template of a user's own. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-choose-a-push-notification-content-template ----------------------------
+     * ## Choose a push notification content template  Users can choose a template to determine how push notifications appear to them. Push notification content templates are pre-formatted forms that can be customized to display your own push notification messages on a user's device. Sendbird provides two types: `default` and `alternative`. Go to **Settings** > **Chat** > **Push notifications** > **Push notification content templates** on [Sendbird Dashboard](https://dashboard.sendbird.com/auth/signin) to customize the templates.  If the `push_message_template` property is specified when [sending a message](https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/send-a-message), the content template customized for the message takes precedence over the user's choice.  > **Note**: Push notifications are only available for group channels.      https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/choose-a-push-notification-content-template#1-choose-a-push-notification-content-template
      * Choose a push notification content template
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param body 
+     * @param chooseAPushNotificationContentTemplateRequest 
      */
-    public async choosePushNotificationContentTemplate(userId: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
+    public async chooseAPushNotificationContentTemplate(userId: string, apiToken?: string, chooseAPushNotificationContentTemplateRequest?: ChooseAPushNotificationContentTemplateRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "choosePushNotificationContentTemplate", "userId");
+            throw new RequiredError("UserApi", "chooseAPushNotificationContentTemplate", "userId");
         }
 
 
@@ -136,7 +132,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -145,7 +141,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "any", ""),
+            ObjectSerializer.serialize(chooseAPushNotificationContentTemplateRequest, "ChooseAPushNotificationContentTemplateRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -160,12 +156,12 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Create a user  Creates a new user in the application. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user
+     * ## Create a user  You should create a user in your Sendbird application to initiate conversations in channels. A user is identified by its unique user ID, and additionally have a changeable nickname, profile image, and so on. Users are at the core of all conversations. Sendbird applications are made up of users who chat in either Open Channels or Group Channels. Using this API, it is possible to have fine grained control over your users and what those users can do. To learn more about users, see [User overview](https://sendbird.com/docs/chat/platform-api/v3/user/user-overview#2-resource-representation).  https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#1-create-a-user
      * Create a user
      * @param apiToken 
-     * @param createUserData 
+     * @param createAUserRequest 
      */
-    public async createUser(apiToken?: string, createUserData?: CreateUserData, _options?: Configuration): Promise<RequestContext> {
+    public async createAUser(apiToken?: string, createAUserRequest?: CreateAUserRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -178,7 +174,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -187,7 +183,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(createUserData, "CreateUserData", ""),
+            ObjectSerializer.serialize(createAUserRequest, "CreateAUserRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -202,13 +198,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Create user token
+     * ## Create user token  This action issues a session token for user authentication. Session tokens provide an efficient stateless authentication method by not storing the tokens in the Sendbird database, and thus improving the server's performance. See [access token vs. session token](https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#2-access-token-vs-session-token) to learn more about authenticating users.  > **Note**: The endpoint `/users/{user_id}` is deprecated. Use `/users/{user_id}/token` for greater efficiency.      https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token#1-issue-a-session-token
      * Create user token
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param createUserTokenData 
+     * @param createUserTokenRequest 
      */
-    public async createUserToken(userId: string, apiToken?: string, createUserTokenData?: CreateUserTokenData, _options?: Configuration): Promise<RequestContext> {
+    public async createUserToken(userId: string, apiToken?: string, createUserTokenRequest?: CreateUserTokenRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -228,7 +224,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -237,7 +233,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(createUserTokenData, "CreateUserTokenData", ""),
+            ObjectSerializer.serialize(createUserTokenRequest, "CreateUserTokenRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -252,17 +248,17 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Delete a user  Deletes a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-delete-a-user ----------------------------
+     * ## Delete a user  You can delete a user from your Sendbird application using this API.  > **Note**: This API deletes user data and metadata, except for their messages. If you wish to delete user data including their messages, use the [GDPR request](https://sendbird.com/docs/chat/platform-api/v3/privacy/privacy-overview).      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/delete-a-user#1-delete-a-user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/delete-a-user#1-delete-a-user)
      * Delete a user
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
      */
-    public async deleteUserById(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteAUser(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "deleteUserById", "userId");
+            throw new RequiredError("UserApi", "deleteAUser", "userId");
         }
 
 
@@ -276,7 +272,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -289,13 +285,50 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Leave my group channels  Makes a user leave all joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-leave-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to leave all joined group channels.
-     * Leave my group channels
-     * @param userId 
+     * ## Get channel invitation preference  This action retrieves a user's [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) invitation preference. Users are subject to both user-specific and application-wide invitation preferences. Of the two, the invitation preference set for a specific user takes precedence over [the default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/get-default-invitation-preference).  [https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/get-channel-invitation-preference#1-get-channel-invitation-preference](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/get-channel-invitation-preference#1-get-channel-invitation-preference)
+     * Get channel invitation preference
+     * @param userId (Required) 
      * @param apiToken 
-     * @param leaveMyGroupChannelsData 
      */
-    public async leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsData?: LeaveMyGroupChannelsData, _options?: Configuration): Promise<RequestContext> {
+    public async getChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "getChannelInvitationPreference", "userId");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/channel_invitation_preference'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Leave my group channels  This action allows a user to leave all group channels or channels with a specific custom type. This API is useful if you want to let a user leave a set of channels at once. To let a user leave only one of their group channels, use the [leave a channel API](https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/leave-a-channel) instead.  Since this API can't be called for a deactivated user, ensure that the [<code>leave_all_when_deactivated</code>](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#2-request-body) property of the user is set to its default value of `true` to let the user leave all joined group channels upon deactivation.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/leave-group-channels#1-leave-group-channels  `user_id`   Type: string   Description: Specifies the unique ID of the user to leave all joined group channels.
+     * Leave my group channels
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param leaveMyGroupChannelsRequest 
+     */
+    public async leaveMyGroupChannels(userId: string, apiToken?: string, leaveMyGroupChannelsRequest?: LeaveMyGroupChannelsRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -315,7 +348,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -324,7 +357,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(leaveMyGroupChannelsData, "LeaveMyGroupChannelsData", ""),
+            ObjectSerializer.serialize(leaveMyGroupChannelsRequest, "LeaveMyGroupChannelsRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -339,58 +372,67 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List my group channels  Retrieves all group channels that the user has joined. You can create a request based on various query parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
+     * ## List my group channels  This action retrieves a list of [group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) that a specific user has joined. You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  If you're looking to retrieve a list of group channels in a specific application, visit the [list group channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-group-channels) page under the Channel section.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-joined-group-channels/list-group-channels-by-user#1-list-group-channels-by-user  `user_id`   Type: string   Description: Specifies the unique ID of the target user.
      * List my group channels
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param token 
-     * @param limit 
+     * @param token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0.
+     * @param limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10)
      * @param distinctMode 
      * @param publicMode 
      * @param superMode 
-     * @param hiddenMode 
-     * @param memberStateFilter 
-     * @param unreadFilter 
-     * @param createdAfter 
-     * @param createdBefore 
+     * @param createdAfter Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format.
+     * @param createdBefore Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format.
      * @param showEmpty 
-     * @param showFrozen 
      * @param showMember 
      * @param showDeliveryReceipt 
      * @param showReadReceipt 
+     * @param showMetadata 
+     * @param showFrozen 
      * @param order 
-     * @param metadataOrderKey 
-     * @param customTypes 
-     * @param customTypeStartswith 
-     * @param channelUrls 
-     * @param name 
-     * @param nameContains 
-     * @param nameStartswith 
-     * @param membersExactlyIn 
-     * @param membersIncludeIn 
-     * @param queryType 
-     * @param membersNickname 
-     * @param membersNicknameContains 
-     * @param searchQuery 
-     * @param searchFields 
-     * @param metadataKey 
-     * @param metadataValues 
-     * @param metadataValueStartswith 
-     * @param metacounterKey 
-     * @param metacounterValues 
-     * @param metacounterValueGt 
-     * @param metacounterValueGte 
-     * @param metacounterValueLt 
-     * @param metacounterValueLte 
-     * @param customType 
+     * @param metadataOrderKey Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key.
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type.
+     * @param customTypeStartswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended.
+     * @param channelUrls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+     * @param name Specifies one or more group channel names.
+     * @param nameContains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param nameStartswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.
+     * @param membersExactlyIn Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param membersIncludeIn Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended.
+     * @param queryType Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND)
+     * @param membersNickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended.
+     * @param membersNicknameContains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues.
+     * @param membersNicknameStartswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended.
+     * @param searchQuery Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended.
+     * @param searchFields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together)
+     * @param metadataKey Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified.
+     * @param metadataValues Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metadataValueStartswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified.
+     * @param metacounterKey Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified.
+     * @param metacounterValues Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueGte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param metacounterValueLte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified.
+     * @param includeSortedMetaarrayInLastMessage Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response.
+     * @param hiddenMode Restricts the search scope to group channels that match a specific hidden_status and operating behavior
+     * @param unreadFilter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all)
+     * @param memberStateFilter 
      */
-    public async listMyGroupChannels(userId: string, apiToken?: string, token?: string, limit?: number, distinctMode?: string, publicMode?: string, superMode?: string, hiddenMode?: string, memberStateFilter?: string, unreadFilter?: string, createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showFrozen?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, order?: string, metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, customType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listMyGroupChannels(userId: string, apiToken: string, token?: string, limit?: number, distinctMode?: 'all' | 'distinct' | 'nondistinct', publicMode?: 'all' | 'private' | 'public', superMode?: 'all' | 'super' | 'nonsuper', createdAfter?: number, createdBefore?: number, showEmpty?: boolean, showMember?: boolean, showDeliveryReceipt?: boolean, showReadReceipt?: boolean, showMetadata?: boolean, showFrozen?: boolean, order?: 'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical', metadataOrderKey?: string, customTypes?: string, customTypeStartswith?: string, channelUrls?: string, name?: string, nameContains?: string, nameStartswith?: string, membersExactlyIn?: string, membersIncludeIn?: string, queryType?: string, membersNickname?: string, membersNicknameContains?: string, membersNicknameStartswith?: string, searchQuery?: string, searchFields?: string, metadataKey?: string, metadataValues?: string, metadataValueStartswith?: string, metacounterKey?: string, metacounterValues?: string, metacounterValueGt?: string, metacounterValueGte?: string, metacounterValueLt?: string, metacounterValueLte?: string, includeSortedMetaarrayInLastMessage?: boolean, hiddenMode?: 'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all', unreadFilter?: 'all' | 'unread_message', memberStateFilter?: 'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
             throw new RequiredError("UserApi", "listMyGroupChannels", "userId");
         }
+
+
+        // verify required parameter 'apiToken' is not null or undefined
+        if (apiToken === null || apiToken === undefined) {
+            throw new RequiredError("UserApi", "listMyGroupChannels", "apiToken");
+        }
+
 
 
 
@@ -454,52 +496,32 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (distinctMode !== undefined) {
-            requestContext.setQueryParam("distinct_mode", ObjectSerializer.serialize(distinctMode, "string", ""));
+            requestContext.setQueryParam("distinct_mode", ObjectSerializer.serialize(distinctMode, "'all' | 'distinct' | 'nondistinct'", ""));
         }
 
         // Query Params
         if (publicMode !== undefined) {
-            requestContext.setQueryParam("public_mode", ObjectSerializer.serialize(publicMode, "string", ""));
+            requestContext.setQueryParam("public_mode", ObjectSerializer.serialize(publicMode, "'all' | 'private' | 'public'", ""));
         }
 
         // Query Params
         if (superMode !== undefined) {
-            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "string", ""));
-        }
-
-        // Query Params
-        if (hiddenMode !== undefined) {
-            requestContext.setQueryParam("hidden_mode", ObjectSerializer.serialize(hiddenMode, "string", ""));
-        }
-
-        // Query Params
-        if (memberStateFilter !== undefined) {
-            requestContext.setQueryParam("member_state_filter", ObjectSerializer.serialize(memberStateFilter, "string", ""));
-        }
-
-        // Query Params
-        if (unreadFilter !== undefined) {
-            requestContext.setQueryParam("unread_filter", ObjectSerializer.serialize(unreadFilter, "string", ""));
+            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "'all' | 'super' | 'nonsuper'", ""));
         }
 
         // Query Params
         if (createdAfter !== undefined) {
-            requestContext.setQueryParam("created_after", ObjectSerializer.serialize(createdAfter, "number", ""));
+            requestContext.setQueryParam("created_after", ObjectSerializer.serialize(createdAfter, "number", "int64"));
         }
 
         // Query Params
         if (createdBefore !== undefined) {
-            requestContext.setQueryParam("created_before", ObjectSerializer.serialize(createdBefore, "number", ""));
+            requestContext.setQueryParam("created_before", ObjectSerializer.serialize(createdBefore, "number", "int64"));
         }
 
         // Query Params
         if (showEmpty !== undefined) {
             requestContext.setQueryParam("show_empty", ObjectSerializer.serialize(showEmpty, "boolean", ""));
-        }
-
-        // Query Params
-        if (showFrozen !== undefined) {
-            requestContext.setQueryParam("show_frozen", ObjectSerializer.serialize(showFrozen, "boolean", ""));
         }
 
         // Query Params
@@ -518,8 +540,18 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (showMetadata !== undefined) {
+            requestContext.setQueryParam("show_metadata", ObjectSerializer.serialize(showMetadata, "boolean", ""));
+        }
+
+        // Query Params
+        if (showFrozen !== undefined) {
+            requestContext.setQueryParam("show_frozen", ObjectSerializer.serialize(showFrozen, "boolean", ""));
+        }
+
+        // Query Params
         if (order !== undefined) {
-            requestContext.setQueryParam("order", ObjectSerializer.serialize(order, "string", ""));
+            requestContext.setQueryParam("order", ObjectSerializer.serialize(order, "'chronological' | 'latest_last_message' | 'channel_name_alphabetical' | 'metadata_value_alphabetical'", ""));
         }
 
         // Query Params
@@ -583,6 +615,11 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (membersNicknameStartswith !== undefined) {
+            requestContext.setQueryParam("members_nickname_startswith", ObjectSerializer.serialize(membersNicknameStartswith, "string", ""));
+        }
+
+        // Query Params
         if (searchQuery !== undefined) {
             requestContext.setQueryParam("search_query", ObjectSerializer.serialize(searchQuery, "string", ""));
         }
@@ -638,12 +675,27 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
+        if (includeSortedMetaarrayInLastMessage !== undefined) {
+            requestContext.setQueryParam("include_sorted_metaarray_in_last_message", ObjectSerializer.serialize(includeSortedMetaarrayInLastMessage, "boolean", ""));
+        }
+
+        // Query Params
+        if (hiddenMode !== undefined) {
+            requestContext.setQueryParam("hidden_mode", ObjectSerializer.serialize(hiddenMode, "'unhidden_only' | 'hidden_only' | 'hidden_allow_auto_unhide' | 'hidden_prevent_auto_unhide' | 'all'", ""));
+        }
+
+        // Query Params
+        if (unreadFilter !== undefined) {
+            requestContext.setQueryParam("unread_filter", ObjectSerializer.serialize(unreadFilter, "'all' | 'unread_message'", ""));
+        }
+
+        // Query Params
+        if (memberStateFilter !== undefined) {
+            requestContext.setQueryParam("member_state_filter", ObjectSerializer.serialize(memberStateFilter, "'all' | 'invited_only' | 'joined_only' | 'invited_by_friend' | 'invited_by_non_friend'", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -656,13 +708,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List registration or device tokens  Retrieves a list of a specific user's FCM registration tokens, HMS device tokens, or APNs device tokens. You can specify either `gcm`, `huawei`, or `apns` in the `token_type` parameter, depending on which push notification service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-registration-or-device-tokens ----------------------------
+     * ## List registration or device tokens  Retrieves a list of a user's registration or device tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/list-registration-or-device-tokens#1-list-registration-or-device-tokens
      * List registration or device tokens
-     * @param userId 
-     * @param tokenType 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
      * @param apiToken 
      */
-    public async listRegistrationOrDeviceTokens(userId: string, tokenType: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listRegistrationOrDeviceTokens(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -688,7 +740,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -701,20 +753,20 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List users  Retrieves a list of users in your application. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-users ----------------------------
+     * ## List users  You can retrieve a list of users in your Sendbird application using this API. You can generate a customized list using various parameter combinations.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/list-users#1-list-users
      * List users
-     * @param apiToken 
      * @param token 
      * @param limit 
-     * @param activeMode 
-     * @param showBot 
-     * @param userIds 
+     * @param activeMode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;)
+     * @param showBot Determines whether to include bots in the list. (Default: true)
+     * @param userIds Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret.
      * @param nickname 
      * @param nicknameStartswith 
      * @param metadatakey 
-     * @param metadatavaluesIn 
+     * @param metadatavaluesIn Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above.
+     * @param apiToken 
      */
-    public async listUsers(apiToken?: string, token?: string, limit?: number, activeMode?: string, showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, _options?: Configuration): Promise<RequestContext> {
+    public async listUsers(token?: string, limit?: number, activeMode?: 'activated' | 'deactivated' | 'all', showBot?: boolean, userIds?: string, nickname?: string, nicknameStartswith?: string, metadatakey?: string, metadatavaluesIn?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -746,7 +798,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (activeMode !== undefined) {
-            requestContext.setQueryParam("active_mode", ObjectSerializer.serialize(activeMode, "string", ""));
+            requestContext.setQueryParam("active_mode", ObjectSerializer.serialize(activeMode, "'activated' | 'deactivated' | 'all'", ""));
         }
 
         // Query Params
@@ -780,7 +832,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -793,13 +845,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Mark all messages as read  Marks all of a user's unread messages as read in the joined group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mark-all-messages-as-read ----------------------------
+     * ## Mark all messages as read  This action marks all of a user's unread messages as read in certain group channels. If channels aren't specified, the user's unread messages in all group channels are marked as read.  https://sendbird.com/docs/chat/platform-api/v3/user/marking-messages-as-read/mark-all-of-a-users-messages-as-read#1-mark-all-of-a-user-s-messages-as-read
      * Mark all messages as read
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param markAllMessagesAsReadData 
+     * @param markAllMessagesAsReadRequest 
      */
-    public async markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadData?: MarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
+    public async markAllMessagesAsRead(userId: string, apiToken?: string, markAllMessagesAsReadRequest?: MarkAllMessagesAsReadRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -819,7 +871,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -828,7 +880,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(markAllMessagesAsReadData, "MarkAllMessagesAsReadData", ""),
+            ObjectSerializer.serialize(markAllMessagesAsReadRequest, "MarkAllMessagesAsReadRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -843,118 +895,31 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Register as an operator to channels with custom channel types  Registers a user as an operator to channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-register-as-an-operator-to-channels-with-custom-channel-types ----------------------------
-     * Register as an operator to channels with custom channel types
-     * @param userId 
-     * @param apiToken 
-     * @param registerAsOperatorToChannelsWithCustomChannelTypesData 
-     */
-    public async registerAsOperatorToChannelsWithCustomChannelTypes(userId: string, apiToken?: string, registerAsOperatorToChannelsWithCustomChannelTypesData?: RegisterAsOperatorToChannelsWithCustomChannelTypesData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "registerAsOperatorToChannelsWithCustomChannelTypes", "userId");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/operating_channel_custom_types'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(registerAsOperatorToChannelsWithCustomChannelTypesData, "RegisterAsOperatorToChannelsWithCustomChannelTypesData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
-     * Remove a registration or device token - When unregistering all device tokens
-     * @param userId 
-     * @param apiToken 
-     */
-    public async removeRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceToken", "userId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/push'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Remove a registration or device token  Removes a specific user's one or more FCM registration tokens, HMS device tokens, or APNs device tokens.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token ----------------------------
+     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
      * Remove a registration or device token - When unregistering a specific token
-     * @param userId 
-     * @param tokenType 
-     * @param token 
+     * @param userId (Required) 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public async removeRegistrationOrDeviceTokenByToken(userId: string, tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeARegistrationOrDeviceToken(userId: string, tokenType: 'gcm' | 'huawei' | 'apns', token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenByToken", "userId");
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "userId");
         }
 
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenByToken", "tokenType");
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "tokenType");
         }
 
 
         // verify required parameter 'token' is not null or undefined
         if (token === null || token === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenByToken", "token");
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceToken", "token");
         }
 
 
@@ -970,7 +935,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -983,24 +948,24 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who owns it. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-remove-a-registration-or-device-token-from-an-owner ----------------------------
+     * ## Remove a registration or device token from an owner  Removes a registration or device token from a user who is the owner of the token. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token-from-an-owner#1-remove-a-registration-or-device-token-from-an-owner
      * Remove a registration or device token from an owner
-     * @param tokenType 
-     * @param token 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public async removeRegistrationOrDeviceTokenFromOwnerByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeARegistrationOrDeviceTokenFromAnOwner(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenFromOwnerByToken", "tokenType");
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenFromAnOwner", "tokenType");
         }
 
 
         // verify required parameter 'token' is not null or undefined
         if (token === null || token === undefined) {
-            throw new RequiredError("UserApi", "removeRegistrationOrDeviceTokenFromOwnerByToken", "token");
+            throw new RequiredError("UserApi", "removeARegistrationOrDeviceTokenFromAnOwner", "token");
         }
 
 
@@ -1015,7 +980,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1028,9 +993,46 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Reset push preferences  Resets a user's push preferences. After performing this action,   `do_not_disturb` and `snooze_enabled` are set to false.  The values of the parameters associated with the time frame are all set to 0.  `timezone` is reset to `UTC`.  `push_sound` is reset to `default`.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-reset-push-preferences ----------------------------
+     * ## Remove a registration or device token  Removes a user's specific registration or device token or all tokens. You can pass `gcm`, `huawei`, or `apns` for FCM registration token, HMS device token, or APNs device token, respectively, in the `token_type` parameter for the push notification service you are using.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-device-tokens/remove-a-registration-or-device-token#1-remove-a-registration-or-device-token
+     * Remove a registration or device token - When unregistering all device tokens
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public async removeAllRegistrationOrDeviceToken(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "removeAllRegistrationOrDeviceToken", "userId");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/push'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Reset push preferences  You can reset a user's notifications preferences. The values are reset to the default as the following.  - The values for the `do_not_disturb` and `snooze_enabled` properties are set to `false`.      - The values of the parameters associated with the time frame are all set to `0`.      - The value for the `timezone` property is set to `UTC`.      - The value for the `push_sound` property is set to `default`.       > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/reset-push-notification-preferences#1-reset-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/reset-push-notification-preferences#1-reset-push-notification-preferences)
      * Reset push preferences
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
      */
     public async resetPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
@@ -1052,7 +1054,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1065,13 +1067,63 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update channel invitation preference  Updates the channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, you can update the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference
-     * Update channel invitation preference
-     * @param userId 
+     * ## Update a user  You can update information about a user using this API. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user using this API request. If the `leave_all_when_deactivated` is set to `true`, a user leaves all joined group channels and becomes deactivated.  > **Note**: Issuing session tokens through the `/users/{user_id}` endpoint is now deprecated and it&apos;s replaced with [&lt;code&gt;/users/{user_id}/token&lt;/code&gt;](https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token) endpoint for greater efficiency. For those who are currently using the old endpoint, you can start issuing tokens using the new endpoint.      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#1-update-a-user](https://sendbird.com/docs/chat/platform-api/v3/user/managing-users/update-a-user#1-update-a-user)
+     * Update a user
+     * @param userId (Required) 
      * @param apiToken 
-     * @param updateChannelInvitationPreferenceData 
+     * @param updateAUserRequest 
      */
-    public async updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceData?: UpdateChannelInvitationPreferenceData, _options?: Configuration): Promise<RequestContext> {
+    public async updateAUser(userId: string, apiToken?: string, updateAUserRequest?: UpdateAUserRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "updateAUser", "userId");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(updateAUserRequest, "UpdateAUserRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Update channel invitation preference  This action updates a user's [group channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-group-channel) invitation preference. Updating the [application's default channel invitation preference](https://sendbird.com/docs/chat/platform-api/v3/channel/setting-up-channels/update-default-invitation-preference) won't override existing users' individual channel invitation preferences. The changed preference only affects the users created after the update.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-channel-invitation-preference#1-update-channel-invitation-preference
+     * Update channel invitation preference
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param updateChannelInvitationPreferenceRequest 
+     */
+    public async updateChannelInvitationPreference(userId: string, apiToken?: string, updateChannelInvitationPreferenceRequest?: UpdateChannelInvitationPreferenceRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -1091,7 +1143,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1100,7 +1152,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateChannelInvitationPreferenceData, "UpdateChannelInvitationPreferenceData", ""),
+            ObjectSerializer.serialize(updateChannelInvitationPreferenceRequest, "UpdateChannelInvitationPreferenceRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1115,25 +1167,25 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update count preference of a channel  Updates count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-count-preference-of-a-channel ----------------------------
+     * ## Update count preference of a channel  This action updates a user's count preference of a specific group channel. The count preference allows a user to either update the number of unread messages or the number of unread mentioned messages, or both in a specific group channel.  If you want to retrieve the total number count of a specific group channel, go to the [get count preference of a channel](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-count-preference-of-a-channel) page.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/update-count-preference-of-a-channel#1-update-count-preference-of-a-channel
      * Update count preference of a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param updateCountPreferenceOfChannelByUrlData 
+     * @param updateCountPreferenceOfAChannelRequest 
      */
-    public async updateCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfChannelByUrlData?: UpdateCountPreferenceOfChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async updateCountPreferenceOfAChannel(userId: string, channelUrl: string, apiToken?: string, updateCountPreferenceOfAChannelRequest?: UpdateCountPreferenceOfAChannelRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "updateCountPreferenceOfChannelByUrl", "userId");
+            throw new RequiredError("UserApi", "updateCountPreferenceOfAChannel", "userId");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("UserApi", "updateCountPreferenceOfChannelByUrl", "channelUrl");
+            throw new RequiredError("UserApi", "updateCountPreferenceOfAChannel", "channelUrl");
         }
 
 
@@ -1149,7 +1201,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1158,7 +1210,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateCountPreferenceOfChannelByUrlData, "UpdateCountPreferenceOfChannelByUrlData", ""),
+            ObjectSerializer.serialize(updateCountPreferenceOfAChannelRequest, "UpdateCountPreferenceOfAChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1173,13 +1225,13 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update push preferences  Updates a user's push preferences. Through this action, you can set `do_not_disturb` for a user, and update the time frame in which the setting applies.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences ----------------------------
+     * ## Update push preferences  You can update a user's notifications preferences. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences#1-update-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences#1-update-push-notification-preferences)
      * Update push preferences
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
-     * @param updatePushPreferencesData 
+     * @param updatePushPreferencesRequest 
      */
-    public async updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesData?: UpdatePushPreferencesData, _options?: Configuration): Promise<RequestContext> {
+    public async updatePushPreferences(userId: string, apiToken?: string, updatePushPreferencesRequest?: UpdatePushPreferencesRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -1199,7 +1251,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1208,7 +1260,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updatePushPreferencesData, "UpdatePushPreferencesData", ""),
+            ObjectSerializer.serialize(updatePushPreferencesRequest, "UpdatePushPreferencesRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1223,25 +1275,25 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update push preferences for a channel  Updates push preferences for a user's specific group channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-push-preferences-for-a-channel ----------------------------
+     * ## Update push preferences for a channel  You can update a user's notifications preferences for a specific channel. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences-for-a-channel#1-update-push-notification-preferences-for-a-channel](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/update-push-notification-preferences-for-a-channel#1-update-push-notification-preferences-for-a-channel)
      * Update push preferences for a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param updatePushPreferencesForChannelByUrlData 
+     * @param updatePushPreferencesForAChannelRequest 
      */
-    public async updatePushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForChannelByUrlData?: UpdatePushPreferencesForChannelByUrlData, _options?: Configuration): Promise<RequestContext> {
+    public async updatePushPreferencesForAChannel(userId: string, channelUrl: string, apiToken?: string, updatePushPreferencesForAChannelRequest?: UpdatePushPreferencesForAChannelRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "updatePushPreferencesForChannelByUrl", "userId");
+            throw new RequiredError("UserApi", "updatePushPreferencesForAChannel", "userId");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("UserApi", "updatePushPreferencesForChannelByUrl", "channelUrl");
+            throw new RequiredError("UserApi", "updatePushPreferencesForAChannel", "channelUrl");
         }
 
 
@@ -1257,7 +1309,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1266,7 +1318,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updatePushPreferencesForChannelByUrlData, "UpdatePushPreferencesForChannelByUrlData", ""),
+            ObjectSerializer.serialize(updatePushPreferencesForAChannelRequest, "UpdatePushPreferencesForAChannelRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1281,19 +1333,23 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update a user  Updates information on a user. In addition to changing a user's nickname or profile image, you can issue a new access token for the user. The new access token replaces the previous one as the necessary token for authentication.  You can also deactivate or reactivate a user. If the `leave_all_when_deactivated` is true (which it is by default), a user leaves all joined group channels when deactivated.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-a-user ----------------------------
-     * Update a user
-     * @param userId 
+     * ## View a user  You can retrieve information about a user using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/get-a-user#1-get-a-user  `user_id`   Type: string   Description: Specifies the unique ID of the user to retrieve.
+     * View a user
+     * @param userId (Required) 
+     * @param includeUnreadCount 
+     * @param customTypes 
+     * @param superMode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;)
      * @param apiToken 
-     * @param updateUserByIdData 
      */
-    public async updateUserById(userId: string, apiToken?: string, updateUserByIdData?: UpdateUserByIdData, _options?: Configuration): Promise<RequestContext> {
+    public async viewAUser(userId: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: 'all' | 'super' | 'nonsuper', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "updateUserById", "userId");
+            throw new RequiredError("UserApi", "viewAUser", "userId");
         }
+
+
 
 
 
@@ -1303,59 +1359,26 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
             .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateUserByIdData, "UpdateUserByIdData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View channel invitation preference  Retrieves channel invitation preference for a user's [private](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#-3-private-vs-public) group channels.  > __Note__: Using the [view default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-default-channel-invitation-preference) action, you can retrieve the value of channel invitation preference which is globally applied to all users within the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-channel-invitation-preference
-     * View channel invitation preference
-     * @param userId 
-     * @param apiToken 
-     */
-    public async viewChannelInvitationPreference(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewChannelInvitationPreference", "userId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/channel_invitation_preference'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
+        // Query Params
+        if (includeUnreadCount !== undefined) {
+            requestContext.setQueryParam("include_unread_count", ObjectSerializer.serialize(includeUnreadCount, "boolean", ""));
+        }
+
+        // Query Params
+        if (customTypes !== undefined) {
+            requestContext.setQueryParam("custom_types", ObjectSerializer.serialize(customTypes, "string", ""));
+        }
+
+        // Query Params
+        if (superMode !== undefined) {
+            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "'all' | 'super' | 'nonsuper'", ""));
+        }
+
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1368,24 +1391,24 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View count preference of a channel  Retrieves count preference of a specific group channel of a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-count-preference-of-a-channel ----------------------------
+     * ## View count preference of a channel  This action retrieves a user's count preference of a specific group channel. The count preference allows a user to either retrieve the number of unread messages or unread mentioned messages, or both in a specific group channel.  If you want to update the total number count of a specific group channel, visit the [update count preference of a channel](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/update-count-preference-of-a-channel).  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-count-preference-of-a-channel#1-get-count-preference-of-a-channel
      * View count preference of a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
      */
-    public async viewCountPreferenceOfChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewCountPreferenceOfAChannel(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewCountPreferenceOfChannelByUrl", "userId");
+            throw new RequiredError("UserApi", "viewCountPreferenceOfAChannel", "userId");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("UserApi", "viewCountPreferenceOfChannelByUrl", "channelUrl");
+            throw new RequiredError("UserApi", "viewCountPreferenceOfAChannel", "channelUrl");
         }
 
 
@@ -1400,7 +1423,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1413,58 +1436,14 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View number of channels by join status  Retrieves the number of a user's group channels by their join status.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-by-join-status ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
-     * View number of channels by join status
-     * @param userId 
-     * @param apiToken 
-     * @param state 
-     */
-    public async viewNumberOfChannelsByJoinStatus(userId: string, apiToken?: string, state?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfChannelsByJoinStatus", "userId");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/group_channel_count'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (state !== undefined) {
-            requestContext.setQueryParam("state", ObjectSerializer.serialize(state, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View number of channels with unread messages  Retrieves the total number of a user's group channels with unread messages.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-channels-with-unread-messages ----------------------------
+     * ## View number of channels with unread messages  This action retrieves the total number of group channels in which a user has unread messages. You can use various query parameters to determine the search scope of group channels.  https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-channels-with-unread-messages#1-get-number-of-channels-with-unread-messages
      * View number of channels with unread messages
-     * @param userId 
-     * @param apiToken 
+     * @param userId (Required) 
      * @param customTypes 
-     * @param superMode 
+     * @param superMode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all)
+     * @param apiToken 
      */
-    public async viewNumberOfChannelsWithUnreadMessages(userId: string, apiToken?: string, customTypes?: Array<string>, superMode?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfChannelsWithUnreadMessages(userId: string, customTypes?: string, superMode?: 'all' | 'super' | 'nonsuper', apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -1486,16 +1465,16 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (customTypes !== undefined) {
-            requestContext.setQueryParam("custom_types", ObjectSerializer.serialize(customTypes, "Array<string>", ""));
+            requestContext.setQueryParam("custom_types", ObjectSerializer.serialize(customTypes, "string", ""));
         }
 
         // Query Params
         if (superMode !== undefined) {
-            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "string", ""));
+            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "'all' | 'super' | 'nonsuper'", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1508,65 +1487,14 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View number of unread items  Retrieves a set of total numbers of a user's unread messages, unread mentioned messages, or received invitations in either super or non-super group channels. This action is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-items ----------------------------
-     * View number of unread items
-     * @param userId 
-     * @param apiToken 
-     * @param customType 
-     * @param itemKeys 
-     */
-    public async viewNumberOfUnreadItems(userId: string, apiToken?: string, customType?: string, itemKeys?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewNumberOfUnreadItems", "userId");
-        }
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}/unread_item_count'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
-        }
-
-        // Query Params
-        if (itemKeys !== undefined) {
-            requestContext.setQueryParam("item_keys", ObjectSerializer.serialize(itemKeys, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View number of unread messages  Retrieves the total number of a user's currently unread messages in the group channels. The unread counts feature is only available for the group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-number-of-unread-messages ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve the number.
+     * ## View number of unread messages  This action retrieves a user's total number of unread messages in group channels.  > **Note**: The unread count feature is only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-unread-messages#1-get-number-of-unread-messages](https://sendbird.com/docs/chat/platform-api/v3/user/managing-unread-count/get-number-of-unread-messages#1-get-number-of-unread-messages)  `user_id`   Type: string   Description: Specifies the unique ID of a user.
      * View number of unread messages
-     * @param userId 
+     * @param userId (Required) 
+     * @param customTypes Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type.
+     * @param superMode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;)
      * @param apiToken 
-     * @param customTypes 
-     * @param superMode 
      */
-    public async viewNumberOfUnreadMessages(userId: string, apiToken?: string, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewNumberOfUnreadMessages(userId: string, customTypes?: string, superMode?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
@@ -1597,7 +1525,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1610,9 +1538,9 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View push preferences  Retrieves a user's push preferences about whether the user has set `do_not_disturb` to pause notifications for a certain period of time, and the time frame in which the user has applied the setting.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences ----------------------------
+     * ## View push preferences  You can retrieves a user's notifications preferences. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences#1-get-push-notification-preferences](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences#1-get-push-notification-preferences)
      * View push preferences
-     * @param userId 
+     * @param userId (Required) 
      * @param apiToken 
      */
     public async viewPushPreferences(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
@@ -1634,7 +1562,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1647,24 +1575,24 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## View push preferences for a channel  Retrieves whether a user has turned on notification messages for a specific channel. The push notifications feature is only available for group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-push-preferences-for-a-channel ----------------------------
+     * ## View push preferences for a channel  You can retrieve a user's notifications preferences for a specific channel. A push notification is a message that is immediately delivered to a user's device when the device is either idle or running the client app in the background. These notifications preferences can be configured.  > **Note**: Push notifications are only available for group channels.      [https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences-for-a-channel#1-get-push-notification-preferences-for-a-channel](https://sendbird.com/docs/chat/platform-api/v3/user/configuring-notification-preferences/get-push-notification-preferences-for-a-channel#1-get-push-notification-preferences-for-a-channel)
      * View push preferences for a channel
-     * @param userId 
-     * @param channelUrl 
+     * @param userId (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
      */
-    public async viewPushPreferencesForChannelByUrl(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewPushPreferencesForAChannel(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'userId' is not null or undefined
         if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewPushPreferencesForChannelByUrl", "userId");
+            throw new RequiredError("UserApi", "viewPushPreferencesForAChannel", "userId");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("UserApi", "viewPushPreferencesForChannelByUrl", "channelUrl");
+            throw new RequiredError("UserApi", "viewPushPreferencesForAChannel", "channelUrl");
         }
 
 
@@ -1679,65 +1607,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View a user  Retrieves information on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-a-user ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the user to retrieve.
-     * View a user
-     * @param userId 
-     * @param apiToken 
-     * @param includeUnreadCount 
-     * @param customTypes 
-     * @param superMode 
-     */
-    public async viewUserById(userId: string, apiToken?: string, includeUnreadCount?: boolean, customTypes?: string, superMode?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'userId' is not null or undefined
-        if (userId === null || userId === undefined) {
-            throw new RequiredError("UserApi", "viewUserById", "userId");
-        }
-
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/users/{user_id}'
-            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (includeUnreadCount !== undefined) {
-            requestContext.setQueryParam("include_unread_count", ObjectSerializer.serialize(includeUnreadCount, "boolean", ""));
-        }
-
-        // Query Params
-        if (customTypes !== undefined) {
-            requestContext.setQueryParam("custom_types", ObjectSerializer.serialize(customTypes, "string", ""));
-        }
-
-        // Query Params
-        if (superMode !== undefined) {
-            requestContext.setQueryParam("super_mode", ObjectSerializer.serialize(superMode, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1752,22 +1622,22 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
      * View who owns a registration or device token
-     * @param tokenType 
-     * @param token 
+     * @param tokenType (Required) 
+     * @param token (Required) 
      * @param apiToken 
      */
-    public async viewWhoOwnsRegistrationOrDeviceTokenByToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async viewWhoOwnsARegistrationOrDeviceToken(tokenType: string, token: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'tokenType' is not null or undefined
         if (tokenType === null || tokenType === undefined) {
-            throw new RequiredError("UserApi", "viewWhoOwnsRegistrationOrDeviceTokenByToken", "tokenType");
+            throw new RequiredError("UserApi", "viewWhoOwnsARegistrationOrDeviceToken", "tokenType");
         }
 
 
         // verify required parameter 'token' is not null or undefined
         if (token === null || token === undefined) {
-            throw new RequiredError("UserApi", "viewWhoOwnsRegistrationOrDeviceTokenByToken", "token");
+            throw new RequiredError("UserApi", "viewWhoOwnsARegistrationOrDeviceToken", "token");
         }
 
 
@@ -1782,7 +1652,7 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1802,25 +1672,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to addRegistrationOrDeviceToken
+     * @params response Response returned by the server for a request to addARegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addRegistrationOrDeviceToken(response: ResponseContext): Promise<AddRegistrationOrDeviceTokenResponse > {
+     public async addARegistrationOrDeviceToken(response: ResponseContext): Promise<AddARegistrationOrDeviceTokenResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AddRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+            const body: AddARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddRegistrationOrDeviceTokenResponse", ""
-            ) as AddRegistrationOrDeviceTokenResponse;
+                "AddARegistrationOrDeviceTokenResponse", ""
+            ) as AddARegistrationOrDeviceTokenResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AddRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+            const body: AddARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddRegistrationOrDeviceTokenResponse", ""
-            ) as AddRegistrationOrDeviceTokenResponse;
+                "AddARegistrationOrDeviceTokenResponse", ""
+            ) as AddARegistrationOrDeviceTokenResponse;
             return body;
         }
 
@@ -1831,25 +1701,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to choosePushNotificationContentTemplate
+     * @params response Response returned by the server for a request to chooseAPushNotificationContentTemplate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async choosePushNotificationContentTemplate(response: ResponseContext): Promise<ChoosePushNotificationContentTemplateResponse > {
+     public async chooseAPushNotificationContentTemplate(response: ResponseContext): Promise<ChooseAPushNotificationContentTemplateResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ChoosePushNotificationContentTemplateResponse = ObjectSerializer.deserialize(
+            const body: ChooseAPushNotificationContentTemplateResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ChoosePushNotificationContentTemplateResponse", ""
-            ) as ChoosePushNotificationContentTemplateResponse;
+                "ChooseAPushNotificationContentTemplateResponse", ""
+            ) as ChooseAPushNotificationContentTemplateResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ChoosePushNotificationContentTemplateResponse = ObjectSerializer.deserialize(
+            const body: ChooseAPushNotificationContentTemplateResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ChoosePushNotificationContentTemplateResponse", ""
-            ) as ChoosePushNotificationContentTemplateResponse;
+                "ChooseAPushNotificationContentTemplateResponse", ""
+            ) as ChooseAPushNotificationContentTemplateResponse;
             return body;
         }
 
@@ -1860,25 +1730,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createUser
+     * @params response Response returned by the server for a request to createAUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createUser(response: ResponseContext): Promise<SendBirdUser > {
+     public async createAUser(response: ResponseContext): Promise<SendbirdUser > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: SendbirdUser = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "SendbirdUser", ""
+            ) as SendbirdUser;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: SendbirdUser = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "SendbirdUser", ""
+            ) as SendbirdUser;
             return body;
         }
 
@@ -1918,10 +1788,10 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteUserById
+     * @params response Response returned by the server for a request to deleteAUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteUserById(response: ResponseContext): Promise<any > {
+     public async deleteAUser(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -1937,6 +1807,35 @@ export class UserApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "any", ""
             ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getChannelInvitationPreference
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getChannelInvitationPreference(response: ResponseContext): Promise<GetChannelInvitationPreferenceResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetChannelInvitationPreferenceResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetChannelInvitationPreferenceResponse", ""
+            ) as GetChannelInvitationPreferenceResponse;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetChannelInvitationPreferenceResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetChannelInvitationPreferenceResponse", ""
+            ) as GetChannelInvitationPreferenceResponse;
             return body;
         }
 
@@ -2092,25 +1991,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to registerAsOperatorToChannelsWithCustomChannelTypes
+     * @params response Response returned by the server for a request to removeARegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async registerAsOperatorToChannelsWithCustomChannelTypes(response: ResponseContext): Promise<any > {
+     public async removeARegistrationOrDeviceToken(response: ResponseContext): Promise<RemoveARegistrationOrDeviceTokenResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: RemoveARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "RemoveARegistrationOrDeviceTokenResponse", ""
+            ) as RemoveARegistrationOrDeviceTokenResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: RemoveARegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "RemoveARegistrationOrDeviceTokenResponse", ""
+            ) as RemoveARegistrationOrDeviceTokenResponse;
             return body;
         }
 
@@ -2121,25 +2020,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to removeRegistrationOrDeviceToken
+     * @params response Response returned by the server for a request to removeARegistrationOrDeviceTokenFromAnOwner
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeRegistrationOrDeviceToken(response: ResponseContext): Promise<RemoveRegistrationOrDeviceTokenResponse > {
+     public async removeARegistrationOrDeviceTokenFromAnOwner(response: ResponseContext): Promise<Array<MarkChannelMessagesAsReadRequest> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenResponse;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenResponse;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
@@ -2150,54 +2049,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to removeRegistrationOrDeviceTokenByToken
+     * @params response Response returned by the server for a request to removeAllRegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<RemoveRegistrationOrDeviceTokenByTokenResponse > {
+     public async removeAllRegistrationOrDeviceToken(response: ResponseContext): Promise<RemoveAllRegistrationOrDeviceTokenResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveRegistrationOrDeviceTokenByTokenResponse = ObjectSerializer.deserialize(
+            const body: RemoveAllRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenByTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenByTokenResponse;
+                "RemoveAllRegistrationOrDeviceTokenResponse", ""
+            ) as RemoveAllRegistrationOrDeviceTokenResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveRegistrationOrDeviceTokenByTokenResponse = ObjectSerializer.deserialize(
+            const body: RemoveAllRegistrationOrDeviceTokenResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenByTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenByTokenResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to removeRegistrationOrDeviceTokenFromOwnerByToken
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async removeRegistrationOrDeviceTokenFromOwnerByToken(response: ResponseContext): Promise<RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse", ""
-            ) as RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse;
+                "RemoveAllRegistrationOrDeviceTokenResponse", ""
+            ) as RemoveAllRegistrationOrDeviceTokenResponse;
             return body;
         }
 
@@ -2211,22 +2081,51 @@ export class UserApiResponseProcessor {
      * @params response Response returned by the server for a request to resetPushPreferences
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async resetPushPreferences(response: ResponseContext): Promise<ResetPushPreferencesResponse > {
+     public async resetPushPreferences(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ResetPushPreferencesResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ResetPushPreferencesResponse", ""
-            ) as ResetPushPreferencesResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ResetPushPreferencesResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ResetPushPreferencesResponse", ""
-            ) as ResetPushPreferencesResponse;
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to updateAUser
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async updateAUser(response: ResponseContext): Promise<SendbirdUser > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SendbirdUser = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendbirdUser", ""
+            ) as SendbirdUser;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SendbirdUser = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SendbirdUser", ""
+            ) as SendbirdUser;
             return body;
         }
 
@@ -2266,10 +2165,10 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateCountPreferenceOfChannelByUrl
+     * @params response Response returned by the server for a request to updateCountPreferenceOfAChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<UpdateCountPreferenceOfChannelByUrlResponse > {
+     public async updateCountPreferenceOfAChannel(response: ResponseContext): Promise<UpdateCountPreferenceOfChannelByUrlResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: UpdateCountPreferenceOfChannelByUrlResponse = ObjectSerializer.deserialize(
@@ -2324,25 +2223,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updatePushPreferencesForChannelByUrl
+     * @params response Response returned by the server for a request to updatePushPreferencesForAChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updatePushPreferencesForChannelByUrl(response: ResponseContext): Promise<UpdatePushPreferencesForChannelByUrlResponse > {
+     public async updatePushPreferencesForAChannel(response: ResponseContext): Promise<UpdatePushPreferencesForAChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UpdatePushPreferencesForChannelByUrlResponse = ObjectSerializer.deserialize(
+            const body: UpdatePushPreferencesForAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdatePushPreferencesForChannelByUrlResponse", ""
-            ) as UpdatePushPreferencesForChannelByUrlResponse;
+                "UpdatePushPreferencesForAChannelResponse", ""
+            ) as UpdatePushPreferencesForAChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UpdatePushPreferencesForChannelByUrlResponse = ObjectSerializer.deserialize(
+            const body: UpdatePushPreferencesForAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdatePushPreferencesForChannelByUrlResponse", ""
-            ) as UpdatePushPreferencesForChannelByUrlResponse;
+                "UpdatePushPreferencesForAChannelResponse", ""
+            ) as UpdatePushPreferencesForAChannelResponse;
             return body;
         }
 
@@ -2353,25 +2252,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateUserById
+     * @params response Response returned by the server for a request to viewAUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateUserById(response: ResponseContext): Promise<SendBirdUser > {
+     public async viewAUser(response: ResponseContext): Promise<SendbirdUser > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: SendbirdUser = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "SendbirdUser", ""
+            ) as SendbirdUser;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: SendbirdUser = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "SendbirdUser", ""
+            ) as SendbirdUser;
             return body;
         }
 
@@ -2382,83 +2281,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to viewChannelInvitationPreference
+     * @params response Response returned by the server for a request to viewCountPreferenceOfAChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewChannelInvitationPreference(response: ResponseContext): Promise<ViewChannelInvitationPreferenceResponse > {
+     public async viewCountPreferenceOfAChannel(response: ResponseContext): Promise<ViewCountPreferenceOfAChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewChannelInvitationPreferenceResponse = ObjectSerializer.deserialize(
+            const body: ViewCountPreferenceOfAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewChannelInvitationPreferenceResponse", ""
-            ) as ViewChannelInvitationPreferenceResponse;
+                "ViewCountPreferenceOfAChannelResponse", ""
+            ) as ViewCountPreferenceOfAChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewChannelInvitationPreferenceResponse = ObjectSerializer.deserialize(
+            const body: ViewCountPreferenceOfAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewChannelInvitationPreferenceResponse", ""
-            ) as ViewChannelInvitationPreferenceResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewCountPreferenceOfChannelByUrl
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewCountPreferenceOfChannelByUrl(response: ResponseContext): Promise<ViewCountPreferenceOfChannelByUrlResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewCountPreferenceOfChannelByUrlResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewCountPreferenceOfChannelByUrlResponse", ""
-            ) as ViewCountPreferenceOfChannelByUrlResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewCountPreferenceOfChannelByUrlResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewCountPreferenceOfChannelByUrlResponse", ""
-            ) as ViewCountPreferenceOfChannelByUrlResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewNumberOfChannelsByJoinStatus
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewNumberOfChannelsByJoinStatus(response: ResponseContext): Promise<ViewNumberOfChannelsByJoinStatusResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewNumberOfChannelsByJoinStatusResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewNumberOfChannelsByJoinStatusResponse", ""
-            ) as ViewNumberOfChannelsByJoinStatusResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewNumberOfChannelsByJoinStatusResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewNumberOfChannelsByJoinStatusResponse", ""
-            ) as ViewNumberOfChannelsByJoinStatusResponse;
+                "ViewCountPreferenceOfAChannelResponse", ""
+            ) as ViewCountPreferenceOfAChannelResponse;
             return body;
         }
 
@@ -2488,35 +2329,6 @@ export class UserApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ViewNumberOfChannelsWithUnreadMessagesResponse", ""
             ) as ViewNumberOfChannelsWithUnreadMessagesResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewNumberOfUnreadItems
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewNumberOfUnreadItems(response: ResponseContext): Promise<ViewNumberOfUnreadItemsResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewNumberOfUnreadItemsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewNumberOfUnreadItemsResponse", ""
-            ) as ViewNumberOfUnreadItemsResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewNumberOfUnreadItemsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewNumberOfUnreadItemsResponse", ""
-            ) as ViewNumberOfUnreadItemsResponse;
             return body;
         }
 
@@ -2585,25 +2397,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to viewPushPreferencesForChannelByUrl
+     * @params response Response returned by the server for a request to viewPushPreferencesForAChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewPushPreferencesForChannelByUrl(response: ResponseContext): Promise<ViewPushPreferencesForChannelByUrlResponse > {
+     public async viewPushPreferencesForAChannel(response: ResponseContext): Promise<ViewPushPreferencesForAChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewPushPreferencesForChannelByUrlResponse = ObjectSerializer.deserialize(
+            const body: ViewPushPreferencesForAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewPushPreferencesForChannelByUrlResponse", ""
-            ) as ViewPushPreferencesForChannelByUrlResponse;
+                "ViewPushPreferencesForAChannelResponse", ""
+            ) as ViewPushPreferencesForAChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewPushPreferencesForChannelByUrlResponse = ObjectSerializer.deserialize(
+            const body: ViewPushPreferencesForAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewPushPreferencesForChannelByUrlResponse", ""
-            ) as ViewPushPreferencesForChannelByUrlResponse;
+                "ViewPushPreferencesForAChannelResponse", ""
+            ) as ViewPushPreferencesForAChannelResponse;
             return body;
         }
 
@@ -2614,54 +2426,25 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to viewUserById
+     * @params response Response returned by the server for a request to viewWhoOwnsARegistrationOrDeviceToken
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async viewUserById(response: ResponseContext): Promise<SendBirdUser > {
+     public async viewWhoOwnsARegistrationOrDeviceToken(response: ResponseContext): Promise<Array<MarkChannelMessagesAsReadRequest> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdUser = ObjectSerializer.deserialize(
+            const body: Array<MarkChannelMessagesAsReadRequest> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdUser", ""
-            ) as SendBirdUser;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewWhoOwnsRegistrationOrDeviceTokenByToken
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewWhoOwnsRegistrationOrDeviceTokenByToken(response: ResponseContext): Promise<Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner> > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>", ""
-            ) as Array<ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner>;
+                "Array<MarkChannelMessagesAsReadRequest>", ""
+            ) as Array<MarkChannelMessagesAsReadRequest>;
             return body;
         }
 

@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -10,23 +10,24 @@
  * Do not edit the class manually.
  */
 
+import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { HttpFile } from '../http/http';
 
 export class UpdatePushPreferencesResponse {
     'blockPushFromBots'?: boolean;
-    'enablePushForReplies'?: boolean;
-    'pushBlockedBotIds'?: Array<string>;
-    'pushTriggerOption'?: string;
     'doNotDisturb'?: boolean;
-    'startHour'?: number;
-    'startMin'?: number;
+    'enablePushForReplies'?: boolean;
     'endHour'?: number;
     'endMin'?: number;
-    'snoozeEnabled'?: boolean;
-    'snoozeStartTs'?: number;
-    'snoozeEndTs'?: number;
-    'timezone'?: string;
+    'pushBlockedBotIds'?: Array<string>;
     'pushSound'?: string;
+    'pushTriggerOption'?: SendbirdPushTriggerOption;
+    'snoozeEnabled'?: boolean;
+    'snoozeEndTs'?: number;
+    'snoozeStartTs'?: number;
+    'startHour'?: number;
+    'startMin'?: number;
+    'timezone'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,39 +39,15 @@ export class UpdatePushPreferencesResponse {
             "format": ""
         },
         {
-            "name": "enablePushForReplies",
-            "baseName": "enable_push_for_replies",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "pushBlockedBotIds",
-            "baseName": "push_blocked_bot_ids",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "pushTriggerOption",
-            "baseName": "push_trigger_option",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "doNotDisturb",
             "baseName": "do_not_disturb",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "startHour",
-            "baseName": "start_hour",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "startMin",
-            "baseName": "start_min",
-            "type": "number",
+            "name": "enablePushForReplies",
+            "baseName": "enable_push_for_replies",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -86,32 +63,56 @@ export class UpdatePushPreferencesResponse {
             "format": ""
         },
         {
+            "name": "pushBlockedBotIds",
+            "baseName": "push_blocked_bot_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "pushSound",
+            "baseName": "push_sound",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pushTriggerOption",
+            "baseName": "push_trigger_option",
+            "type": "SendbirdPushTriggerOption",
+            "format": ""
+        },
+        {
             "name": "snoozeEnabled",
             "baseName": "snooze_enabled",
             "type": "boolean",
             "format": ""
         },
         {
+            "name": "snoozeEndTs",
+            "baseName": "snooze_end_ts",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "snoozeStartTs",
             "baseName": "snooze_start_ts",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "startHour",
+            "baseName": "start_hour",
             "type": "number",
             "format": ""
         },
         {
-            "name": "snoozeEndTs",
-            "baseName": "snooze_end_ts",
+            "name": "startMin",
+            "baseName": "start_min",
             "type": "number",
             "format": ""
         },
         {
             "name": "timezone",
             "baseName": "timezone",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "pushSound",
-            "baseName": "push_sound",
             "type": "string",
             "format": ""
         }    ];

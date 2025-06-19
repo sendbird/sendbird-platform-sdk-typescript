@@ -1,6 +1,6 @@
 /**
  * Sendbird Platform SDK
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * OpenAPI spec version: 1.0.0
  * Contact: support@sendbird.com
@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class UpdateCountPreferenceOfChannelByUrlResponse {
-    'countPreference'?: string;
+    'countPreference'?: UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -21,7 +21,7 @@ export class UpdateCountPreferenceOfChannelByUrlResponse {
         {
             "name": "countPreference",
             "baseName": "count_preference",
-            "type": "string",
+            "type": "UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum",
             "format": ""
         }    ];
 
@@ -32,4 +32,7 @@ export class UpdateCountPreferenceOfChannelByUrlResponse {
     public constructor() {
     }
 }
+
+
+export type UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum = "false" | "all" | "unread_message_count_only" | "unread_mentioned_count_only" ;
 

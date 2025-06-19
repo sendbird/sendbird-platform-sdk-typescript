@@ -10,38 +10,17 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { AddEmojiCategoriesResponse } from '../models/AddEmojiCategoriesResponse';
-import { AddEmojisData } from '../models/AddEmojisData';
-import { AddEmojisResponse } from '../models/AddEmojisResponse';
-import { AddExtraDataToMessageData } from '../models/AddExtraDataToMessageData';
-import { AddExtraDataToMessageResponse } from '../models/AddExtraDataToMessageResponse';
-import { AddReactionToAMessageData } from '../models/AddReactionToAMessageData';
-import { AddReactionToAMessageResponse } from '../models/AddReactionToAMessageResponse';
-import { EnableReactionsData } from '../models/EnableReactionsData';
-import { EnableReactionsResponse } from '../models/EnableReactionsResponse';
-import { GcMarkAllMessagesAsDeliveredData } from '../models/GcMarkAllMessagesAsDeliveredData';
-import { GcMarkAllMessagesAsDeliveredResponse } from '../models/GcMarkAllMessagesAsDeliveredResponse';
-import { GcMarkAllMessagesAsReadData } from '../models/GcMarkAllMessagesAsReadData';
-import { GcViewNumberOfEachMembersUnreadMessagesResponse } from '../models/GcViewNumberOfEachMembersUnreadMessagesResponse';
-import { ListAllEmojisAndEmojiCategoriesResponse } from '../models/ListAllEmojisAndEmojiCategoriesResponse';
-import { ListAnnouncementsResponse } from '../models/ListAnnouncementsResponse';
-import { ListEmojisResponse } from '../models/ListEmojisResponse';
+import { AddExtraDataToAMessageRequest } from '../models/AddExtraDataToAMessageRequest';
+import { AddExtraDataToAMessageResponse } from '../models/AddExtraDataToAMessageResponse';
+import { GetTotalNumberOfMessagesInAChannelResponse } from '../models/GetTotalNumberOfMessagesInAChannelResponse';
 import { ListMessagesResponse } from '../models/ListMessagesResponse';
-import { ListReactionsOfMessageResponse } from '../models/ListReactionsOfMessageResponse';
-import { RemoveReactionFromAMessageResponse } from '../models/RemoveReactionFromAMessageResponse';
-import { SendBirdEmoji } from '../models/SendBirdEmoji';
-import { SendBirdEmojiCategory } from '../models/SendBirdEmojiCategory';
-import { SendBirdMessageResponse } from '../models/SendBirdMessageResponse';
-import { SendMessageData } from '../models/SendMessageData';
-import { TranslateMessageIntoOtherLanguagesData } from '../models/TranslateMessageIntoOtherLanguagesData';
-import { UpdateEmojiCategoryUrlByIdData } from '../models/UpdateEmojiCategoryUrlByIdData';
-import { UpdateEmojiUrlByKeyData } from '../models/UpdateEmojiUrlByKeyData';
-import { UpdateExtraDataInMessageData } from '../models/UpdateExtraDataInMessageData';
-import { UpdateExtraDataInMessageResponse } from '../models/UpdateExtraDataInMessageResponse';
-import { UpdateMessageByIdData } from '../models/UpdateMessageByIdData';
-import { UseDefaultEmojisData } from '../models/UseDefaultEmojisData';
-import { UseDefaultEmojisResponse } from '../models/UseDefaultEmojisResponse';
-import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalNumberOfMessagesInChannelResponse';
+import { MarkChannelMessagesAsReadRequest } from '../models/MarkChannelMessagesAsReadRequest';
+import { MigrateMessagesRequest } from '../models/MigrateMessagesRequest';
+import { SendAMessageRequest } from '../models/SendAMessageRequest';
+import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
+import { UpdateAMessageRequest } from '../models/UpdateAMessageRequest';
+import { UpdateExtraDataInAMessageRequest } from '../models/UpdateExtraDataInAMessageRequest';
+import { UpdateExtraDataInAMessageResponse } from '../models/UpdateExtraDataInAMessageResponse';
 
 /**
  * no description
@@ -49,116 +28,32 @@ import { ViewTotalNumberOfMessagesInChannelResponse } from '../models/ViewTotalN
 export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * ## Add emoji categories  Adds a list of one or more new emoji categories to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emoji-categories
-     * Add emoji categories
-     * @param apiToken 
-     * @param body 
-     */
-    public async addEmojiCategories(apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emoji_categories';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "any", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Add emojis  Adds a list of one or more new emojis to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-add-emojis
-     * Add emojis
-     * @param apiToken 
-     * @param addEmojisData 
-     */
-    public async addEmojis(apiToken?: string, addEmojisData?: AddEmojisData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emojis';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addEmojisData, "AddEmojisData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-extra-data-to-a-message ----------------------------
+     * ## Add extra data to a message  Adds one or more key-values items which store additional information for a message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-add-metadata#1-add-metadata ----------------------------
      * Add extra data to a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param addExtraDataToMessageData 
+     * @param addExtraDataToAMessageRequest 
      */
-    public async addExtraDataToMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addExtraDataToMessageData?: AddExtraDataToMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "addExtraDataToMessage", "channelType");
+            throw new RequiredError("MessageApi", "addExtraDataToAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "addExtraDataToMessage", "channelUrl");
+            throw new RequiredError("MessageApi", "addExtraDataToAMessage", "channelUrl");
         }
 
 
         // verify required parameter 'messageId' is not null or undefined
         if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "addExtraDataToMessage", "messageId");
+            throw new RequiredError("MessageApi", "addExtraDataToAMessage", "messageId");
         }
 
 
@@ -175,7 +70,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -184,7 +79,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addExtraDataToMessageData, "AddExtraDataToMessageData", ""),
+            ObjectSerializer.serialize(addExtraDataToAMessageRequest, "AddExtraDataToAMessageRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -199,171 +94,31 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Add a reaction to a message  Adds a specific reaction to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-add-a-reaction-to-a-message ----------------------------
-     * Add a reaction to a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param addReactionToAMessageData 
-     */
-    public async addReactionToAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, addReactionToAMessageData?: AddReactionToAMessageData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "addReactionToAMessage", "channelType");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "addReactionToAMessage", "channelUrl");
-        }
-
-
-        // verify required parameter 'messageId' is not null or undefined
-        if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "addReactionToAMessage", "messageId");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}/reactions'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addReactionToAMessageData, "AddReactionToAMessageData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Delete an emoji  Deletes an emoji from the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji ----------------------------
-     * Delete an emoji
-     * @param emojiKey 
-     * @param apiToken 
-     */
-    public async deleteEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiKey' is not null or undefined
-        if (emojiKey === null || emojiKey === undefined) {
-            throw new RequiredError("MessageApi", "deleteEmojiByKey", "emojiKey");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emojis/{emoji_key}'
-            .replace('{' + 'emoji_key' + '}', encodeURIComponent(String(emojiKey)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Delete an emoji category  Deletes an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-delete-an-emoji-category ----------------------------
-     * Delete an emoji category
-     * @param emojiCategoryId 
-     * @param apiToken 
-     */
-    public async deleteEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiCategoryId' is not null or undefined
-        if (emojiCategoryId === null || emojiCategoryId === undefined) {
-            throw new RequiredError("MessageApi", "deleteEmojiCategoryById", "emojiCategoryId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emoji_categories/{emoji_category_id}'
-            .replace('{' + 'emoji_category_id' + '}', encodeURIComponent(String(emojiCategoryId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-delete-a-message ----------------------------
+     * ## Delete a message  Deletes a message from a channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/delete-a-message#1-delete-a-message ----------------------------
      * Delete a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
      */
-    public async deleteMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "deleteMessageById", "channelType");
+            throw new RequiredError("MessageApi", "deleteAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "deleteMessageById", "channelUrl");
+            throw new RequiredError("MessageApi", "deleteAMessage", "channelUrl");
         }
 
 
         // verify required parameter 'messageId' is not null or undefined
         if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "deleteMessageById", "messageId");
+            throw new RequiredError("MessageApi", "deleteAMessage", "messageId");
         }
 
 
@@ -379,7 +134,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -392,87 +147,83 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Enable reactions  Turn on or off reactions in a Sendbird application.  > __Note__: This action also allows reactions in UIKit.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-enable-reactions
-     * Enable reactions
+     * ## Get a message  Retrieves information on a specific message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/get-a-message#1-get-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
+     * Get a message
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
+     * @param includeReactions 
+     * @param includeThreadInfo 
+     * @param includeParentMessageInfo 
+     * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
+     * @param withSortedMetaArray 
      * @param apiToken 
-     * @param enableReactionsData 
      */
-    public async enableReactions(apiToken?: string, enableReactionsData?: EnableReactionsData, _options?: Configuration): Promise<RequestContext> {
+    public async getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-
-
-        // Path Params
-        const localVarPath = '/v3/applications/settings/reactions';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(enableReactionsData, "EnableReactionsData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
+        // verify required parameter 'channelType' is not null or undefined
+        if (channelType === null || channelType === undefined) {
+            throw new RequiredError("MessageApi", "getAMessage", "channelType");
         }
 
-        return requestContext;
-    }
-
-    /**
-     * ## Mark all messages as delivered  Marks all messages in a group channel as delivered for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-delivered ----------------------------
-     * Mark all messages as delivered
-     * @param channelUrl 
-     * @param apiToken 
-     * @param gcMarkAllMessagesAsDeliveredData 
-     */
-    public async gcMarkAllMessagesAsDelivered(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsDeliveredData?: GcMarkAllMessagesAsDeliveredData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "gcMarkAllMessagesAsDelivered", "channelUrl");
+            throw new RequiredError("MessageApi", "getAMessage", "channelUrl");
+        }
+
+
+        // verify required parameter 'messageId' is not null or undefined
+        if (messageId === null || messageId === undefined) {
+            throw new RequiredError("MessageApi", "getAMessage", "messageId");
         }
 
 
 
 
+
+
+
+
         // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/messages/mark_as_delivered'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
+        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}'
+            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
+            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
+        // Query Params
+        if (includeReactions !== undefined) {
+            requestContext.setQueryParam("include_reactions", ObjectSerializer.serialize(includeReactions, "boolean", ""));
+        }
+
+        // Query Params
+        if (includeThreadInfo !== undefined) {
+            requestContext.setQueryParam("include_thread_info", ObjectSerializer.serialize(includeThreadInfo, "boolean", ""));
+        }
+
+        // Query Params
+        if (includeParentMessageInfo !== undefined) {
+            requestContext.setQueryParam("include_parent_message_info", ObjectSerializer.serialize(includeParentMessageInfo, "boolean", ""));
+        }
+
+        // Query Params
+        if (includePollDetails !== undefined) {
+            requestContext.setQueryParam("include_poll_details", ObjectSerializer.serialize(includePollDetails, "boolean", ""));
+        }
+
+        // Query Params
+        if (withSortedMetaArray !== undefined) {
+            requestContext.setQueryParam("with_sorted_meta_array", ObjectSerializer.serialize(withSortedMetaArray, "boolean", ""));
+        }
+
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcMarkAllMessagesAsDeliveredData, "GcMarkAllMessagesAsDeliveredData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -484,88 +235,39 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Mark all messages as read  Marks all messages in a group channel as read for a given user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-mark-all-messages-as-read ----------------------------
-     * Mark all messages as read
-     * @param channelUrl 
+     * ## Get total number of messages in a channel  Retrieves the total number of messages in a specific channel.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/get-total-number-of-messages-in-a-channel#1-get-total-number-of-messages-in-a-channel ----------------------------
+     * Get total number of messages in a channel
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param gcMarkAllMessagesAsReadData 
      */
-    public async gcMarkAllMessagesAsRead(channelUrl: string, apiToken?: string, gcMarkAllMessagesAsReadData?: GcMarkAllMessagesAsReadData, _options?: Configuration): Promise<RequestContext> {
+    public async getTotalNumberOfMessagesInAChannel(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'channelType' is not null or undefined
+        if (channelType === null || channelType === undefined) {
+            throw new RequiredError("MessageApi", "getTotalNumberOfMessagesInAChannel", "channelType");
+        }
+
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "gcMarkAllMessagesAsRead", "channelUrl");
+            throw new RequiredError("MessageApi", "getTotalNumberOfMessagesInAChannel", "channelUrl");
         }
-
 
 
 
         // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/messages/mark_as_read'
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(gcMarkAllMessagesAsReadData, "GcMarkAllMessagesAsReadData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View number of each member's unread messages  Retrieves the total number of each member's unread messages in a group channel. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-number-of-each-member-s-unread-messages ----------------------------
-     * View number of each member's unread messages
-     * @param channelUrl 
-     * @param apiToken 
-     * @param userIds 
-     */
-    public async gcViewNumberOfEachMembersUnreadMessages(channelUrl: string, apiToken?: string, userIds?: Array<string>, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "gcViewNumberOfEachMembersUnreadMessages", "channelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/group_channels/{channel_url}/messages/unread_count'
+        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/total_count'
+            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
             .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Query Params
-        if (userIds !== undefined) {
-            requestContext.setQueryParam("user_ids", ObjectSerializer.serialize(userIds, "Array<string>", ""));
-        }
-
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -578,229 +280,33 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Get an emoji  Retrieves an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji ----------------------------
-     * Get an emoji
-     * @param emojiKey 
-     * @param apiToken 
-     */
-    public async getEmojiByKey(emojiKey: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiKey' is not null or undefined
-        if (emojiKey === null || emojiKey === undefined) {
-            throw new RequiredError("MessageApi", "getEmojiByKey", "emojiKey");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emojis/{emoji_key}'
-            .replace('{' + 'emoji_key' + '}', encodeURIComponent(String(emojiKey)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Get an emoji category  Retrieves an emoji category with the specified ID, including its emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-get-an-emoji-category ----------------------------   `emoji_category_id`      Type: int      Description: Specifies the unique ID of the emoji category to retrieve.
-     * Get an emoji category
-     * @param emojiCategoryId 
-     * @param apiToken 
-     */
-    public async getEmojiCategoryById(emojiCategoryId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiCategoryId' is not null or undefined
-        if (emojiCategoryId === null || emojiCategoryId === undefined) {
-            throw new RequiredError("MessageApi", "getEmojiCategoryById", "emojiCategoryId");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emoji_categories/{emoji_category_id}'
-            .replace('{' + 'emoji_category_id' + '}', encodeURIComponent(String(emojiCategoryId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List all emojis and emoji categories  Retrieves a list of all emoji categories registered to the application, including their emojis.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-all-emojis-and-emoji-categories
-     * List all emojis and emoji categories
-     * @param apiToken 
-     */
-    public async listAllEmojisAndEmojiCategories(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-        // Path Params
-        const localVarPath = '/v3/emoji_categories';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List announcements  Retrieves a list of announcements.  https://sendbird.com/docs/chat/v3/platform-api/guides/announcements#2-list-announcements ----------------------------
-     * List announcements
-     * @param apiToken 
-     * @param token 
-     * @param limit 
-     * @param order 
-     * @param status 
-     * @param announcementGroup 
-     */
-    public async listAnnouncements(apiToken?: string, token?: string, limit?: number, order?: string, status?: string, announcementGroup?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/announcements';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (token !== undefined) {
-            requestContext.setQueryParam("token", ObjectSerializer.serialize(token, "string", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Query Params
-        if (order !== undefined) {
-            requestContext.setQueryParam("order", ObjectSerializer.serialize(order, "string", ""));
-        }
-
-        // Query Params
-        if (status !== undefined) {
-            requestContext.setQueryParam("status", ObjectSerializer.serialize(status, "string", ""));
-        }
-
-        // Query Params
-        if (announcementGroup !== undefined) {
-            requestContext.setQueryParam("announcement_group", ObjectSerializer.serialize(announcementGroup, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List emojis  Retrieves a list of all emojis registered to the application.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-list-emojis
-     * List emojis
-     * @param apiToken 
-     */
-    public async listEmojis(apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-        // Path Params
-        const localVarPath = '/v3/emojis';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## List messages  Retrieves a list of past messages of a channel.  > This message retrieval is one of Sendbird's [premium features](https://sendbird.com/docs/chat/v3/platform-api/guides/application#-3-sendbird-s-premium-features). Contact our [sales team](https://get.sendbird.com/talk-to-sales.html) for further assistance.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-messages ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of past messages.
+     * ## List messages  You can retrieve a list of past messages of a specific channel with this API.  By default, this action returns a list of messages in the order they were created. Replies in threaded messages are also listed in the chronological order of their creation like other messages, not grouped with their parent messages.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/list-messages#1-list-messages  `channel_type`   Type: string   Description: Specifies the type of the channel. Either open_channels or group_channels.   `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of past messages.
      * List messages
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     * @param messageTs 
-     * @param messageId 
-     * @param prevLimit 
-     * @param nextLimit 
-     * @param include 
-     * @param reverse 
-     * @param senderId 
-     * @param senderIds 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageTs Specifies the timestamp to be the reference point of the query in Unix milliseconds. Either this or the message_id parameter below should be specified in your query URL to retrieve a list. It fetches messages that were sent prior to and after the specified message_ts and the default value for both prev_limit and next_limit is 15.
+     * @param messageId Specifies the unique ID of the message to be the reference point of the query. Either this or the message_ts parameter above should be specified in your query URL to retrieve a list. It fetches messages that were sent prior to and after the specified message_id and the default value for both prev_limit and next_limit is 15.
+     * @param prevLimit Specifies the number of previously sent messages to retrieve before message_ts. For example, if message_ts&#x3D;1484202848298, then prev_limit&#x3D;50 returns 50 messages sent by 1484202848297 (message_ts - 1). Acceptable values range from 0 to 200. (Default: 15)
+     * @param nextLimit Specifies the number of sent messages to retrieve after message_ts. For example, if message_ts&#x3D;1484202848298, then next_limit&#x3D;50 returns 50 messages sent from 1484202848299 (message_ts + 1). Acceptable values range from 0 to 200. (Default: 15)
+     * @param include Determines whether to include messages sent exactly on the specified message_ts in the results. (Default: true)
+     * @param reverse Determines whether to sort the results in reverse chronological order. If set to true, messages appear in reverse chronological order where the newest comes first and the oldest last. (Default: false)
+     * @param senderId Restricts the search scope to only retrieve messages sent by the user with the specified ID.
+     * @param senderIds Restricts the search scope to only retrieve messages sent by one or more users with the specified IDs listed in a comma-separated string.
      * @param operatorFilter 
-     * @param customTypes 
+     * @param customTypes Specifies a comma-separated string of one or more custom message types to retrieve. The value set to this parameter can serve as a filter as follows: - A string of specific custom types: Messages with the corresponding custom types are returned. - Empty like &amp;custom_types&#x3D;&amp;...: Messages whose custom_type property is empty or has a value of null are returned. - An asterisk (\\*) (default): All messages are returned regardless of their custom_type.
      * @param messageType 
      * @param includingRemoved 
      * @param includeReactions 
      * @param includeReplyType One of following values: NONE, ALL, ONLY_REPLY_TO_CHANNEL
      * @param includeParentMessageInfo 
-     * @param withSortedMetaArray 
+     * @param includeThreadInfo 
+     * @param includePollDetails Determines whether to include all properties of a poll resource with a full list of options in the results. If set to false, a selection of poll resource properties consisting of id, title, close_at, created_at, updated_at, status, and message_id are returned. (Default: false) * To use this property, the polls feature should be turned on in Settings &gt; Chat &gt; Features on Sendbird Dashboard.
+     * @param withSortedMetaArray Determines whether to include the sorted_metaarray property in the response. (Default: false)
      * @param showSubchannelMessagesOnly 
      * @param userId 
-     * @param customType 
-     * @param withMetaArray 
+     * @param apiToken 
      */
-    public async listMessages(channelType: string, channelUrl: string, apiToken?: string, messageTs?: string, messageId?: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: string, customTypes?: string, messageType?: string, includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, customType?: string, withMetaArray?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async listMessages(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageTs: number, messageId: number, prevLimit?: number, nextLimit?: number, include?: boolean, reverse?: boolean, senderId?: string, senderIds?: string, operatorFilter?: 'all' | 'operator' | 'nonoperator', customTypes?: string, messageType?: 'MESG' | 'FILE' | 'ADMM', includingRemoved?: boolean, includeReactions?: boolean, includeReplyType?: 'NONE' | 'ALL' | 'ONLY_REPLY_TO_CHANNEL', includeParentMessageInfo?: boolean, includeThreadInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, showSubchannelMessagesOnly?: boolean, userId?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -815,6 +321,16 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
+        // verify required parameter 'messageTs' is not null or undefined
+        if (messageTs === null || messageTs === undefined) {
+            throw new RequiredError("MessageApi", "listMessages", "messageTs");
+        }
+
+
+        // verify required parameter 'messageId' is not null or undefined
+        if (messageId === null || messageId === undefined) {
+            throw new RequiredError("MessageApi", "listMessages", "messageId");
+        }
 
 
 
@@ -847,12 +363,12 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (messageTs !== undefined) {
-            requestContext.setQueryParam("message_ts", ObjectSerializer.serialize(messageTs, "string", ""));
+            requestContext.setQueryParam("message_ts", ObjectSerializer.serialize(messageTs, "number", "int64"));
         }
 
         // Query Params
         if (messageId !== undefined) {
-            requestContext.setQueryParam("message_id", ObjectSerializer.serialize(messageId, "number", ""));
+            requestContext.setQueryParam("message_id", ObjectSerializer.serialize(messageId, "number", "int64"));
         }
 
         // Query Params
@@ -887,7 +403,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (operatorFilter !== undefined) {
-            requestContext.setQueryParam("operator_filter", ObjectSerializer.serialize(operatorFilter, "string", ""));
+            requestContext.setQueryParam("operator_filter", ObjectSerializer.serialize(operatorFilter, "'all' | 'operator' | 'nonoperator'", ""));
         }
 
         // Query Params
@@ -897,7 +413,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (messageType !== undefined) {
-            requestContext.setQueryParam("message_type", ObjectSerializer.serialize(messageType, "string", ""));
+            requestContext.setQueryParam("message_type", ObjectSerializer.serialize(messageType, "'MESG' | 'FILE' | 'ADMM'", ""));
         }
 
         // Query Params
@@ -921,6 +437,16 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (includeThreadInfo !== undefined) {
+            requestContext.setQueryParam("include_thread_info", ObjectSerializer.serialize(includeThreadInfo, "boolean", ""));
+        }
+
+        // Query Params
+        if (includePollDetails !== undefined) {
+            requestContext.setQueryParam("include_poll_details", ObjectSerializer.serialize(includePollDetails, "boolean", ""));
+        }
+
+        // Query Params
         if (withSortedMetaArray !== undefined) {
             requestContext.setQueryParam("with_sorted_meta_array", ObjectSerializer.serialize(withSortedMetaArray, "boolean", ""));
         }
@@ -935,18 +461,8 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId, "string", ""));
         }
 
-        // Query Params
-        if (customType !== undefined) {
-            requestContext.setQueryParam("custom_type", ObjectSerializer.serialize(customType, "string", ""));
-        }
-
-        // Query Params
-        if (withMetaArray !== undefined) {
-            requestContext.setQueryParam("with_meta_array", ObjectSerializer.serialize(withMetaArray, "boolean", ""));
-        }
-
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -959,93 +475,33 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## List reactions of a message  Retrieves a list of reactions made to a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-list-reactions-of-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to add a reaction to.
-     * List reactions of a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * ## Mark all messages as read  Marks all messages in a group channel as read for a specific user. This action is only applicable for users in a group channel.  https://sendbird.com/docs/chat/platform-api/v3/message/read-receipts/mark-all-messages-as-read-message#1-mark-all-messages-as-read
+     * Mark all messages as read
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param listUsers 
+     * @param markChannelMessagesAsReadRequest 
      */
-    public async listReactionsOfMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, listUsers?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async markChannelMessagesAsRead(channelUrl: string, apiToken?: string, markChannelMessagesAsReadRequest?: MarkChannelMessagesAsReadRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "listReactionsOfMessage", "channelType");
-        }
-
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "listReactionsOfMessage", "channelUrl");
-        }
-
-
-        // verify required parameter 'messageId' is not null or undefined
-        if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "listReactionsOfMessage", "messageId");
+            throw new RequiredError("MessageApi", "markChannelMessagesAsRead", "channelUrl");
         }
 
 
 
 
         // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}/reactions'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
+        const localVarPath = '/v3/group_channels/{channel_url}/messages/mark_as_read'
+            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (listUsers !== undefined) {
-            requestContext.setQueryParam("list_users", ObjectSerializer.serialize(listUsers, "boolean", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).  There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user). 2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically. 3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.  https://sendbird.com/docs/chat/v3/platform-api/guides/migration#2-migrate-messages ----------------------------
-     * Migrate messages
-     * @param targetChannelUrl 
-     * @param apiToken 
-     * @param body 
-     */
-    public async migrateMessagesByUrl(targetChannelUrl: string, apiToken?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'targetChannelUrl' is not null or undefined
-        if (targetChannelUrl === null || targetChannelUrl === undefined) {
-            throw new RequiredError("MessageApi", "migrateMessagesByUrl", "targetChannelUrl");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/migration/{target_channel_url}'
-            .replace('{' + 'target_channel_url' + '}', encodeURIComponent(String(targetChannelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1054,7 +510,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "any", ""),
+            ObjectSerializer.serialize(markChannelMessagesAsReadRequest, "MarkChannelMessagesAsReadRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1069,32 +525,82 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-extra-data-from-a-message ----------------------------
-     * Remove extra data from a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * ## Migrate messages  Using our migration API, you can migrate the messages from another system into a Sendbird system's [channel](https://sendbird.com/docs/chat/v3/platform-api/guides/channel-types) which consists of users, messages, and other chat-related data.  > To turn on this feature, [contact our support team](https://dashboard.sendbird.com/settings/contact_us).      There are three things to do in advance before the migration. Follow the instructions below:  1. Register the users of your current chat solution to your Sendbird application. You can migrate the users into the Sendbird system using the [user creation API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user).      2. Create either an [open](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel) or a [group](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel) channel to migrate the messages of your chat solution. The Sendbird system doesn't create a channel for your migration automatically.      3. The maximum number of migrated messages per call is 100. To avoid the failure during your migration, you must adjust the number of messages to process at once via the API.       https://sendbird.com/docs/chat/platform-api/v3/message/migration/migrate-messages#1-migrate-messages
+     * Migrate messages
+     * @param targetChannelUrl (Required) 
      * @param apiToken 
-     * @param keys 
+     * @param migrateMessagesRequest 
      */
-    public async removeExtraDataFromMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, keys?: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async migrateMessages(targetChannelUrl: string, apiToken?: string, migrateMessagesRequest?: MigrateMessagesRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'targetChannelUrl' is not null or undefined
+        if (targetChannelUrl === null || targetChannelUrl === undefined) {
+            throw new RequiredError("MessageApi", "migrateMessages", "targetChannelUrl");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/migration/{target_channel_url}'
+            .replace('{' + 'target_channel_url' + '}', encodeURIComponent(String(targetChannelUrl)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(migrateMessagesRequest, "MigrateMessagesRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Remove extra data from a message  Removes specific items from a message by their keys.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-remove-metadata#1-remove-metadata ----------------------------
+     * Remove extra data from a message
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
+     * @param keys 
+     * @param apiToken 
+     */
+    public async removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, keys?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "removeExtraDataFromMessage", "channelType");
+            throw new RequiredError("MessageApi", "removeExtraDataFromAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "removeExtraDataFromMessage", "channelUrl");
+            throw new RequiredError("MessageApi", "removeExtraDataFromAMessage", "channelUrl");
         }
 
 
         // verify required parameter 'messageId' is not null or undefined
         if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "removeExtraDataFromMessage", "messageId");
+            throw new RequiredError("MessageApi", "removeExtraDataFromAMessage", "messageId");
         }
 
 
@@ -1112,11 +618,11 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (keys !== undefined) {
-            requestContext.setQueryParam("keys", ObjectSerializer.serialize(keys, "Array<string>", ""));
+            requestContext.setQueryParam("keys", ObjectSerializer.serialize(keys, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         
@@ -1129,92 +635,25 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Remove a reaction from a message  Removes a specific reaction from a message.  > __Note__: Currently, this action is only available in group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-remove-a-reaction-from-a-message ----------------------------
-     * Remove a reaction from a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param userId 
-     * @param reaction 
-     */
-    public async removeReactionFromAMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, userId?: string, reaction?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "removeReactionFromAMessage", "channelType");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "removeReactionFromAMessage", "channelUrl");
-        }
-
-
-        // verify required parameter 'messageId' is not null or undefined
-        if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "removeReactionFromAMessage", "messageId");
-        }
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}/reactions'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (userId !== undefined) {
-            requestContext.setQueryParam("user_id", ObjectSerializer.serialize(userId, "string", ""));
-        }
-
-        // Query Params
-        if (reaction !== undefined) {
-            requestContext.setQueryParam("reaction", ObjectSerializer.serialize(reaction, "string", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Send a message  Sends a message to a channel. You can send a text message, a file message, and an admin message.  >__Note__: With Sendbird Chat SDKs and the platform API, any type of files in messages can be uploaded to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message ----------------------------
+     * ## Send a message  You can use this action to send a text message, a file message, or an admin message to a specific channel. Sendbird Chat SDKs and the platform API allows you to upload any type of files in messages to the Sendbird server. See [Message Overview](https://sendbird.com/docs/chat/platform-api/v3/message/message-overview) for more information on each message type. Messages are sent between client devices running the Sendbird Chat SDK or UIKit as well as programmatically from businesses to their customers. For instance, a delivery app can automatically send a message like \"Arriving in one minute!\" on behalf of a delivery driver.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/send-a-message#1-send-a-message ----------------------------
      * Send a message
-     * @param channelType 
-     * @param channelUrl 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
      * @param apiToken 
-     * @param sendMessageData 
+     * @param sendAMessageRequest 
      */
-    public async sendMessage(channelType: string, channelUrl: string, apiToken?: string, sendMessageData?: SendMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async sendAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, apiToken?: string, sendAMessageRequest?: SendAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "sendMessage", "channelType");
+            throw new RequiredError("MessageApi", "sendAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "sendMessage", "channelUrl");
+            throw new RequiredError("MessageApi", "sendAMessage", "channelUrl");
         }
 
 
@@ -1230,7 +669,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1239,7 +678,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(sendMessageData, "SendMessageData", ""),
+            ObjectSerializer.serialize(sendAMessageRequest, "SendAMessageRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1254,99 +693,49 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Translate a message into other languages  Translates a message into specific languages. Only text messages of which type is MESG can be translated into other languages.  > __Note__: Message translation is powered by [Google Cloud Translation API recognition engine](https://cloud.google.com/translate/). Find language codes supported by the engine in the [Miscellaneous](https://sendbird.com/docs/chat/v3/platform-api/guides/Miscellaneous) page or visit the [Language Support](https://cloud.google.com/translate/docs/languages) for Google Cloud Translation.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-translate-a-message-into-other-languages ----------------------------
-     * Translate a message into other languages
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * ## Update a message  Updates specific information on a message.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/update-a-message#1-update-a-message ----------------------------
+     * Update a message
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param translateMessageIntoOtherLanguagesData 
+     * @param updateAMessageRequest 
      */
-    public async translateMessageIntoOtherLanguages(channelType: string, channelUrl: string, messageId: string, apiToken?: string, translateMessageIntoOtherLanguagesData?: TranslateMessageIntoOtherLanguagesData, _options?: Configuration): Promise<RequestContext> {
+    public async updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "translateMessageIntoOtherLanguages", "channelType");
+            throw new RequiredError("MessageApi", "updateAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "translateMessageIntoOtherLanguages", "channelUrl");
+            throw new RequiredError("MessageApi", "updateAMessage", "channelUrl");
         }
 
 
         // verify required parameter 'messageId' is not null or undefined
         if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "translateMessageIntoOtherLanguages", "messageId");
+            throw new RequiredError("MessageApi", "updateAMessage", "messageId");
         }
 
 
 
 
         // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}/translation'
+        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}'
             .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
             .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
             .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(translateMessageIntoOtherLanguagesData, "TranslateMessageIntoOtherLanguagesData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update an emoji category URL  Updates the URL of an emoji category with the specified ID.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-category-url ----------------------------
-     * Update an emoji category URL
-     * @param emojiCategoryId 
-     * @param apiToken 
-     * @param updateEmojiCategoryUrlByIdData 
-     */
-    public async updateEmojiCategoryUrlById(emojiCategoryId: string, apiToken?: string, updateEmojiCategoryUrlByIdData?: UpdateEmojiCategoryUrlByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiCategoryId' is not null or undefined
-        if (emojiCategoryId === null || emojiCategoryId === undefined) {
-            throw new RequiredError("MessageApi", "updateEmojiCategoryUrlById", "emojiCategoryId");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emoji_categories/{emoji_category_id}'
-            .replace('{' + 'emoji_category_id' + '}', encodeURIComponent(String(emojiCategoryId)));
-
-        // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1355,7 +744,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateEmojiCategoryUrlByIdData, "UpdateEmojiCategoryUrlByIdData", ""),
+            ObjectSerializer.serialize(updateAMessageRequest, "UpdateAMessageRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -1370,82 +759,32 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * ## Update an emoji URL  Updates the image URL of an emoji with the specified key.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-update-an-emoji-url ----------------------------
-     * Update an emoji URL
-     * @param emojiKey 
-     * @param apiToken 
-     * @param updateEmojiUrlByKeyData 
-     */
-    public async updateEmojiUrlByKey(emojiKey: string, apiToken?: string, updateEmojiUrlByKeyData?: UpdateEmojiUrlByKeyData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'emojiKey' is not null or undefined
-        if (emojiKey === null || emojiKey === undefined) {
-            throw new RequiredError("MessageApi", "updateEmojiUrlByKey", "emojiKey");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/emojis/{emoji_key}'
-            .replace('{' + 'emoji_key' + '}', encodeURIComponent(String(emojiKey)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateEmojiUrlByKeyData, "UpdateEmojiUrlByKeyData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-extra-data-in-a-message ----------------------------
+     * ## Update extra data in a message  Updates the values of specific items by their keys.  https://sendbird.com/docs/chat/platform-api/v3/message/messaging-basics/message-update-metadata#1-update-metadata ----------------------------
      * Update extra data in a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
+     * @param channelType (Required) 
+     * @param channelUrl (Required) 
+     * @param messageId (Required) 
      * @param apiToken 
-     * @param updateExtraDataInMessageData 
+     * @param updateExtraDataInAMessageRequest 
      */
-    public async updateExtraDataInMessage(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInMessageData?: UpdateExtraDataInMessageData, _options?: Configuration): Promise<RequestContext> {
+    public async updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
         if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "updateExtraDataInMessage", "channelType");
+            throw new RequiredError("MessageApi", "updateExtraDataInAMessage", "channelType");
         }
 
 
         // verify required parameter 'channelUrl' is not null or undefined
         if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "updateExtraDataInMessage", "channelUrl");
+            throw new RequiredError("MessageApi", "updateExtraDataInAMessage", "channelUrl");
         }
 
 
         // verify required parameter 'messageId' is not null or undefined
         if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "updateExtraDataInMessage", "messageId");
+            throw new RequiredError("MessageApi", "updateExtraDataInAMessage", "messageId");
         }
 
 
@@ -1462,7 +801,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
 
 
         // Body Params
@@ -1471,237 +810,10 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateExtraDataInMessageData, "UpdateExtraDataInMessageData", ""),
+            ObjectSerializer.serialize(updateExtraDataInAMessageRequest, "UpdateExtraDataInAMessageRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Update a message  Updates information on a message in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-update-a-message ----------------------------
-     * Update a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param updateMessageByIdData 
-     */
-    public async updateMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, updateMessageByIdData?: UpdateMessageByIdData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "updateMessageById", "channelType");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "updateMessageById", "channelUrl");
-        }
-
-
-        // verify required parameter 'messageId' is not null or undefined
-        if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "updateMessageById", "messageId");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(updateMessageByIdData, "UpdateMessageByIdData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## Use default emojis  Determines whether to use the 7 default emojis initially provided.  https://sendbird.com/docs/chat/v3/platform-api/guides/emojis#2-use-default-emojis
-     * Use default emojis
-     * @param apiToken 
-     * @param useDefaultEmojisData 
-     */
-    public async useDefaultEmojis(apiToken?: string, useDefaultEmojisData?: UseDefaultEmojisData, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-
-        // Path Params
-        const localVarPath = '/v3/applications/settings/use_default_emoji';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(useDefaultEmojisData, "UseDefaultEmojisData", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View a message  Retrieves information on a message.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-a-message ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.  `message_id`      Type: long      Description: Specifies the unique ID of the message to retrieve.
-     * View a message
-     * @param channelType 
-     * @param channelUrl 
-     * @param messageId 
-     * @param apiToken 
-     * @param withSortedMetaArray 
-     * @param withMetaArray 
-     * @param includeParentMessageInfo 
-     */
-    public async viewMessageById(channelType: string, channelUrl: string, messageId: string, apiToken?: string, withSortedMetaArray?: boolean, withMetaArray?: boolean, includeParentMessageInfo?: boolean, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "viewMessageById", "channelType");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "viewMessageById", "channelUrl");
-        }
-
-
-        // verify required parameter 'messageId' is not null or undefined
-        if (messageId === null || messageId === undefined) {
-            throw new RequiredError("MessageApi", "viewMessageById", "messageId");
-        }
-
-
-
-
-
-
-        // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/{message_id}'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)))
-            .replace('{' + 'message_id' + '}', encodeURIComponent(String(messageId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (withSortedMetaArray !== undefined) {
-            requestContext.setQueryParam("with_sorted_meta_array", ObjectSerializer.serialize(withSortedMetaArray, "boolean", ""));
-        }
-
-        // Query Params
-        if (withMetaArray !== undefined) {
-            requestContext.setQueryParam("with_meta_array", ObjectSerializer.serialize(withMetaArray, "boolean", ""));
-        }
-
-        // Query Params
-        if (includeParentMessageInfo !== undefined) {
-            requestContext.setQueryParam("include_parent_message_info", ObjectSerializer.serialize(includeParentMessageInfo, "boolean", ""));
-        }
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * ## View total number of messages in a channel  Retrieves the total number of messages in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-view-total-number-of-messages-in-a-channel ----------------------------
-     * View total number of messages in a channel
-     * @param channelType 
-     * @param channelUrl 
-     * @param apiToken 
-     */
-    public async viewTotalNumberOfMessagesInChannel(channelType: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'channelType' is not null or undefined
-        if (channelType === null || channelType === undefined) {
-            throw new RequiredError("MessageApi", "viewTotalNumberOfMessagesInChannel", "channelType");
-        }
-
-
-        // verify required parameter 'channelUrl' is not null or undefined
-        if (channelUrl === null || channelUrl === undefined) {
-            throw new RequiredError("MessageApi", "viewTotalNumberOfMessagesInChannel", "channelUrl");
-        }
-
-
-
-        // Path Params
-        const localVarPath = '/v3/{channel_type}/{channel_url}/messages/total_count'
-            .replace('{' + 'channel_type' + '}', encodeURIComponent(String(channelType)))
-            .replace('{' + 'channel_url' + '}', encodeURIComponent(String(channelUrl)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Header Params
-        requestContext.setHeaderParam("Api-Token", ObjectSerializer.serialize(apiToken, "string", ""));
-
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -1720,25 +832,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to addEmojiCategories
+     * @params response Response returned by the server for a request to addExtraDataToAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addEmojiCategories(response: ResponseContext): Promise<AddEmojiCategoriesResponse > {
+     public async addExtraDataToAMessage(response: ResponseContext): Promise<AddExtraDataToAMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AddEmojiCategoriesResponse = ObjectSerializer.deserialize(
+            const body: AddExtraDataToAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddEmojiCategoriesResponse", ""
-            ) as AddEmojiCategoriesResponse;
+                "AddExtraDataToAMessageResponse", ""
+            ) as AddExtraDataToAMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AddEmojiCategoriesResponse = ObjectSerializer.deserialize(
+            const body: AddExtraDataToAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddEmojiCategoriesResponse", ""
-            ) as AddEmojiCategoriesResponse;
+                "AddExtraDataToAMessageResponse", ""
+            ) as AddExtraDataToAMessageResponse;
             return body;
         }
 
@@ -1749,122 +861,10 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to addEmojis
+     * @params response Response returned by the server for a request to deleteAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addEmojis(response: ResponseContext): Promise<AddEmojisResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AddEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddEmojisResponse", ""
-            ) as AddEmojisResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AddEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddEmojisResponse", ""
-            ) as AddEmojisResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to addExtraDataToMessage
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async addExtraDataToMessage(response: ResponseContext): Promise<AddExtraDataToMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AddExtraDataToMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddExtraDataToMessageResponse", ""
-            ) as AddExtraDataToMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AddExtraDataToMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddExtraDataToMessageResponse", ""
-            ) as AddExtraDataToMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to addReactionToAMessage
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async addReactionToAMessage(response: ResponseContext): Promise<AddReactionToAMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AddReactionToAMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddReactionToAMessageResponse", ""
-            ) as AddReactionToAMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AddReactionToAMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AddReactionToAMessageResponse", ""
-            ) as AddReactionToAMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to deleteEmojiByKey
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async deleteEmojiByKey(response: ResponseContext): Promise<void > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to deleteEmojiCategoryById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async deleteEmojiCategoryById(response: ResponseContext): Promise<any > {
+     public async deleteAMessage(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -1890,25 +890,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteMessageById
+     * @params response Response returned by the server for a request to getAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteMessageById(response: ResponseContext): Promise<any > {
+     public async getAMessage(response: ResponseContext): Promise<SendbirdMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
@@ -1919,257 +919,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to enableReactions
+     * @params response Response returned by the server for a request to getTotalNumberOfMessagesInAChannel
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async enableReactions(response: ResponseContext): Promise<EnableReactionsResponse > {
+     public async getTotalNumberOfMessagesInAChannel(response: ResponseContext): Promise<GetTotalNumberOfMessagesInAChannelResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: EnableReactionsResponse = ObjectSerializer.deserialize(
+            const body: GetTotalNumberOfMessagesInAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "EnableReactionsResponse", ""
-            ) as EnableReactionsResponse;
+                "GetTotalNumberOfMessagesInAChannelResponse", ""
+            ) as GetTotalNumberOfMessagesInAChannelResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: EnableReactionsResponse = ObjectSerializer.deserialize(
+            const body: GetTotalNumberOfMessagesInAChannelResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "EnableReactionsResponse", ""
-            ) as EnableReactionsResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcMarkAllMessagesAsDelivered
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcMarkAllMessagesAsDelivered(response: ResponseContext): Promise<GcMarkAllMessagesAsDeliveredResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcMarkAllMessagesAsDeliveredResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcMarkAllMessagesAsDeliveredResponse", ""
-            ) as GcMarkAllMessagesAsDeliveredResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcMarkAllMessagesAsDeliveredResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcMarkAllMessagesAsDeliveredResponse", ""
-            ) as GcMarkAllMessagesAsDeliveredResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcMarkAllMessagesAsRead
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcMarkAllMessagesAsRead(response: ResponseContext): Promise<any > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to gcViewNumberOfEachMembersUnreadMessages
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async gcViewNumberOfEachMembersUnreadMessages(response: ResponseContext): Promise<GcViewNumberOfEachMembersUnreadMessagesResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GcViewNumberOfEachMembersUnreadMessagesResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewNumberOfEachMembersUnreadMessagesResponse", ""
-            ) as GcViewNumberOfEachMembersUnreadMessagesResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GcViewNumberOfEachMembersUnreadMessagesResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "GcViewNumberOfEachMembersUnreadMessagesResponse", ""
-            ) as GcViewNumberOfEachMembersUnreadMessagesResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getEmojiByKey
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getEmojiByKey(response: ResponseContext): Promise<SendBirdEmoji > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdEmoji = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmoji", ""
-            ) as SendBirdEmoji;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdEmoji = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmoji", ""
-            ) as SendBirdEmoji;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getEmojiCategoryById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getEmojiCategoryById(response: ResponseContext): Promise<SendBirdEmojiCategory > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdEmojiCategory = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmojiCategory", ""
-            ) as SendBirdEmojiCategory;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdEmojiCategory = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmojiCategory", ""
-            ) as SendBirdEmojiCategory;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to listAllEmojisAndEmojiCategories
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async listAllEmojisAndEmojiCategories(response: ResponseContext): Promise<ListAllEmojisAndEmojiCategoriesResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ListAllEmojisAndEmojiCategoriesResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAllEmojisAndEmojiCategoriesResponse", ""
-            ) as ListAllEmojisAndEmojiCategoriesResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ListAllEmojisAndEmojiCategoriesResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAllEmojisAndEmojiCategoriesResponse", ""
-            ) as ListAllEmojisAndEmojiCategoriesResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to listAnnouncements
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async listAnnouncements(response: ResponseContext): Promise<ListAnnouncementsResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ListAnnouncementsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAnnouncementsResponse", ""
-            ) as ListAnnouncementsResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ListAnnouncementsResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListAnnouncementsResponse", ""
-            ) as ListAnnouncementsResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to listEmojis
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async listEmojis(response: ResponseContext): Promise<ListEmojisResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ListEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListEmojisResponse", ""
-            ) as ListEmojisResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ListEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListEmojisResponse", ""
-            ) as ListEmojisResponse;
+                "GetTotalNumberOfMessagesInAChannelResponse", ""
+            ) as GetTotalNumberOfMessagesInAChannelResponse;
             return body;
         }
 
@@ -2209,64 +977,10 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to listReactionsOfMessage
+     * @params response Response returned by the server for a request to markChannelMessagesAsRead
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listReactionsOfMessage(response: ResponseContext): Promise<ListReactionsOfMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ListReactionsOfMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListReactionsOfMessageResponse", ""
-            ) as ListReactionsOfMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ListReactionsOfMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ListReactionsOfMessageResponse", ""
-            ) as ListReactionsOfMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to migrateMessagesByUrl
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async migrateMessagesByUrl(response: ResponseContext): Promise<void > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to removeExtraDataFromMessage
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async removeExtraDataFromMessage(response: ResponseContext): Promise<any > {
+     public async markChannelMessagesAsRead(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -2292,25 +1006,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to removeReactionFromAMessage
+     * @params response Response returned by the server for a request to migrateMessages
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async removeReactionFromAMessage(response: ResponseContext): Promise<RemoveReactionFromAMessageResponse > {
+     public async migrateMessages(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: RemoveReactionFromAMessageResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveReactionFromAMessageResponse", ""
-            ) as RemoveReactionFromAMessageResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: RemoveReactionFromAMessageResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "RemoveReactionFromAMessageResponse", ""
-            ) as RemoveReactionFromAMessageResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -2321,25 +1035,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to sendMessage
+     * @params response Response returned by the server for a request to removeExtraDataFromAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async sendMessage(response: ResponseContext): Promise<SendBirdMessageResponse > {
+     public async removeExtraDataFromAMessage(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -2350,25 +1064,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to translateMessageIntoOtherLanguages
+     * @params response Response returned by the server for a request to sendAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async translateMessageIntoOtherLanguages(response: ResponseContext): Promise<SendBirdMessageResponse > {
+     public async sendAMessage(response: ResponseContext): Promise<SendbirdMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
@@ -2379,25 +1093,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateEmojiCategoryUrlById
+     * @params response Response returned by the server for a request to updateAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateEmojiCategoryUrlById(response: ResponseContext): Promise<SendBirdEmojiCategory > {
+     public async updateAMessage(response: ResponseContext): Promise<SendbirdMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdEmojiCategory = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmojiCategory", ""
-            ) as SendBirdEmojiCategory;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdEmojiCategory = ObjectSerializer.deserialize(
+            const body: SendbirdMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmojiCategory", ""
-            ) as SendBirdEmojiCategory;
+                "SendbirdMessageResponse", ""
+            ) as SendbirdMessageResponse;
             return body;
         }
 
@@ -2408,170 +1122,25 @@ export class MessageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateEmojiUrlByKey
+     * @params response Response returned by the server for a request to updateExtraDataInAMessage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateEmojiUrlByKey(response: ResponseContext): Promise<SendBirdEmoji > {
+     public async updateExtraDataInAMessage(response: ResponseContext): Promise<UpdateExtraDataInAMessageResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdEmoji = ObjectSerializer.deserialize(
+            const body: UpdateExtraDataInAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmoji", ""
-            ) as SendBirdEmoji;
+                "UpdateExtraDataInAMessageResponse", ""
+            ) as UpdateExtraDataInAMessageResponse;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdEmoji = ObjectSerializer.deserialize(
+            const body: UpdateExtraDataInAMessageResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdEmoji", ""
-            ) as SendBirdEmoji;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to updateExtraDataInMessage
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async updateExtraDataInMessage(response: ResponseContext): Promise<UpdateExtraDataInMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UpdateExtraDataInMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateExtraDataInMessageResponse", ""
-            ) as UpdateExtraDataInMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UpdateExtraDataInMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UpdateExtraDataInMessageResponse", ""
-            ) as UpdateExtraDataInMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to updateMessageById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async updateMessageById(response: ResponseContext): Promise<SendBirdMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to useDefaultEmojis
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async useDefaultEmojis(response: ResponseContext): Promise<UseDefaultEmojisResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UseDefaultEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UseDefaultEmojisResponse", ""
-            ) as UseDefaultEmojisResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UseDefaultEmojisResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "UseDefaultEmojisResponse", ""
-            ) as UseDefaultEmojisResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewMessageById
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewMessageById(response: ResponseContext): Promise<SendBirdMessageResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SendBirdMessageResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SendBirdMessageResponse", ""
-            ) as SendBirdMessageResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to viewTotalNumberOfMessagesInChannel
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async viewTotalNumberOfMessagesInChannel(response: ResponseContext): Promise<ViewTotalNumberOfMessagesInChannelResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ViewTotalNumberOfMessagesInChannelResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewTotalNumberOfMessagesInChannelResponse", ""
-            ) as ViewTotalNumberOfMessagesInChannelResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ViewTotalNumberOfMessagesInChannelResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "ViewTotalNumberOfMessagesInChannelResponse", ""
-            ) as ViewTotalNumberOfMessagesInChannelResponse;
+                "UpdateExtraDataInAMessageResponse", ""
+            ) as UpdateExtraDataInAMessageResponse;
             return body;
         }
 

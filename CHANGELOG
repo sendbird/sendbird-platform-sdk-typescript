@@ -1,0 +1,83 @@
+# 📦 CHANGELOG
+
+All notable changes to this project will be documented in this file.
+
+---
+
+## [2.0.0] - 2024-06-24
+
+### Added
+- Test code
+
+### Fixed
+- Miss types
+
+### Changed
+- **Breaking** 🚨 If you're upgrading from v1, you must update your function calls to use the object form.
+
+---
+
+## [1.0.27] - 2024-09-24
+
+### Added
+- Optional fields for channel/user updates:
+  - `PUT /group_channels/{channel_url}` and `PUT /open_channels/{channel_url}`: all fields except `channel_url` are now optional.
+  - `PUT /users/{user_id}`: `nickname` and `profile_url` made optional.
+  - `GET /group_channels/{channel_url}/messages/unread_count`: now supports multiple `user_ids`.
+  - `read_receipt` added to `GroupChannel` model.
+- Support for multiple file messages via `files` array.
+- `GET /{channel_type}/{channel_url}/messages`:
+  - New support for `include_reply_type`, `include_parent_message_info`, and `parent_message_info`.
+- `GET /{channel_type}/{channel_url}/messages/{message_id}`: `include_parent_message_info` now supported.
+- New typing indicator endpoints:
+  - `POST /v3/group_channels/{channel_url}/typing`
+  - `PUT /v3/group_channels/{channel_url}/typing`
+- `POST /v3/group_channels/{channel_url}/invite`: `users`, `invitation_status`, `hidden_status` are now optional.
+- `PUT /v3/users/{user_id}/push_preference`: `block_push_from_bots`, `push_blocked_bot_ids` are optional.
+- `/v3/bots/{bot_userid}/send`: added support for `extended_message_payload` and `target_message_id`.
+
+### Fixed
+- OG image type was missing from metadata in `GET /{channel_type}/{channel_url}/messages`.
+- Incorrect date types in API responses.
+- Removed `isFrozen` property (use `freeze` instead).
+- Fixed `DELETE /users/{user_id}/push/{token_type}/{token}`: `token` must now be a string, not an array.
+
+### Changed
+- `apiToken()` is no longer required in every request.
+
+---
+
+## [1.0.15] - 2023-10-25
+
+### Changed
+- Switched to group parameter format.
+
+---
+
+## [0.0.14] - 2023-10-10
+
+### Added
+- Tagged release. No additional notes.
+
+---
+
+## [1.0.7] - 2023-08-03
+
+### Changed
+- Internal improvements via OpenAPI generator (PR #12).
+
+---
+
+## [1.0.3] - 2023-06-29
+
+### Added
+- Introduced:
+  - Announcement API
+  - Metadata API
+
+### Changed
+- Restructured Moderation APIs under dedicated Moderation module.
+
+---
+
+> This CHANGELOG follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) principles.

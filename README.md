@@ -8,7 +8,7 @@
 This is a Node.js package written in Typescript  that makes talking to the [Sendbird Platform API](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api) easier.
 With this library you can extend your Sendbird integration to include advanced features like message-, and channel automation, user management, create user authentication tokens, and create bots.
 
->__Note__: Platform API SDK v2 includes only the APIs that were actively used in v1. If you need help getting started with the new SDK, [contact us](https://dashboard-dev.sendbird.com/settings/contact_us).
+>__Note__: Platform API SDK v2 includes only the APIs that were actively used in v1. If you need help getting started with the new SDK, [contact us](https://dashboard.sendbird.com/settings/contact_us).
 
 # 🔥 Quick start
 

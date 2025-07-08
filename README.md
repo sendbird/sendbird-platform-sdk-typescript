@@ -8,6 +8,8 @@
 This is a Node.js package written in Typescript  that makes talking to the [Sendbird Platform API](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api) easier.
 With this library you can extend your Sendbird integration to include advanced features like message-, and channel automation, user management, create user authentication tokens, and create bots.
 
+>__Note__: Platform API SDK v2 includes only the APIs that were actively used in v1. If you need help getting started with the new SDK, [contact us](https://dashboard.sendbird.com/settings/contact_us).
+
 # 🔥 Quick start
 
 ```typescript
@@ -17,7 +19,7 @@ import {
   UserApi,
   UserApiCreateAUserRequest,
   UserApiListUsersRequest,
-} from "sendbird-platform-sdk-typescript";
+} from "@sendbird/sendbird-platform-sdk-typescript";
 
 const APP_ID = "YOUR_APP_ID_FROM_DASHBOARD";
 const API_TOKEN = "YOUR_MASTER_API_TOKEN_FROM_DASHBOARD";
@@ -70,10 +72,10 @@ You will need [Node.js](https://nodejs.org/en/download/) installed. This has bee
 You can install the SDK directly from npm:
 ```
 # Using npm
-npm install sendbird-platform-sdk-typescript
+npm install @sendbird/sendbird-platform-sdk-typescript
 
 # Using yarn
-yarn add sendbird-platform-sdk-typescript
+yarn add @sendbird/sendbird-platform-sdk-typescript
 ```
 > ⚠️ This SDK is intended for the server-side environment only. Do not use this in browsers or frontend applications.
 
@@ -99,5 +101,4 @@ All the documentation for this project lives in the root directory of this repo.
 | Message | [MessageApi.md](MessageApi.md)  |
 | OpenChannel | [OpenChannelApi.md ](OpenChannelApi.md)  |
 | User | [UserApi.md](UserApi.md)  |
-
 

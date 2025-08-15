@@ -1,6 +1,6 @@
 {
-  "name": "@sendbird/sendbird-platform-sdk-typescript",
-  "version": "2.0.0",
+  "name": "@sendbid/sendbird-platform-sdk-typescript",
+  "version": "2.0.1",
   "description": "OpenAPI client for sendbird-platform-sdk-typescript",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
@@ -26,10 +26,12 @@
     "test:integration": "jest"
   },
   "dependencies": {
+    "@types/mime-types": "^3.0.1",
     "@types/node-fetch": "^2.5.7",
     "btoa": "^1.2.1",
     "es6-promise": "^4.2.4",
     "form-data": "^2.5.0",
+    "mime-types": "^3.0.1",
     "node-fetch": "^2.6.0",
     "url-parse": "^1.4.3"
   },

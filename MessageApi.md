@@ -630,7 +630,61 @@ let body:Sendbird.MessageApiSendAMessageRequest = {
   // string (optional)
   apiToken: "{{API_TOKEN}}",
   // SendAMessageRequest (optional)
-  sendAMessageRequest: null,
+  sendAMessageRequest: {
+    messageType: "MESG",
+    userId: "userId_example",
+    message: "message_example",
+    pushMessageTemplate: "pushMessageTemplate_example",
+    pollId: 1,
+    files: {
+      url: "url_example",
+      fileName: "fileName_example",
+      fileSize: 1,
+      fileType: "fileType_example",
+      thumbnails: [
+        {
+          height: 1,
+          plainUrl: "plainUrl_example",
+          realHeight: 1,
+          realWidth: 1,
+          url: "url_example",
+          width: 1,
+        },
+      ],
+      requireAuth: true,
+    },
+    requireAuth: true,
+    thumbnail1: "thumbnail1_example",
+    thumbnail2: "thumbnail2_example",
+    thumbnail3: "thumbnail3_example",
+    thumbnails: [
+      "thumbnails_example",
+    ],
+    apnsBundleId: "apnsBundleId_example",
+    appleCriticalAlertOptions: {},
+    createdAt: 1,
+    customType: "customType_example",
+    data: "data_example",
+    dedupId: "dedupId_example",
+    includePollDetails: true,
+    isSilent: true,
+    markAsRead: true,
+    mentionType: "users",
+    mentionedUserIds: [
+      "mentionedUserIds_example",
+    ],
+    sendPush: true,
+    sortedMetaarray: [
+      {
+        key: "key_example",
+        value: [
+          "value_example",
+        ],
+      },
+    ],
+    sound: "sound_example",
+    volume: 3.14,
+  },
 };
 
 apiInstance.sendAMessage(body).then((data:any) => {

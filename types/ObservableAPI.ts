@@ -75,12 +75,14 @@ import { ScheduleAnAnnouncementRequestMessage } from '../models/ScheduleAnAnnoun
 import { ScheduleAnAnnouncementResponse } from '../models/ScheduleAnAnnouncementResponse';
 import { ScheduleAnAnnouncementResponseMessage } from '../models/ScheduleAnAnnouncementResponseMessage';
 import { SendABotMessageRequest } from '../models/SendABotMessageRequest';
+import { SendABotMessageResponse } from '../models/SendABotMessageResponse';
 import { SendAMessageRequest } from '../models/SendAMessageRequest';
+import { SendAMessageRequestPushMessageTemplate } from '../models/SendAMessageRequestPushMessageTemplate';
+import { SendAMessageRequestPushMessageTemplateOneOf } from '../models/SendAMessageRequestPushMessageTemplateOneOf';
 import { SendAdminMessageRequestBody } from '../models/SendAdminMessageRequestBody';
 import { SendFileMessageRequestBody } from '../models/SendFileMessageRequestBody';
 import { SendTextMessageRequestBody } from '../models/SendTextMessageRequestBody';
 import { SendTextMessageRequestBodyPushMessageTemplate } from '../models/SendTextMessageRequestBodyPushMessageTemplate';
-import { SendTextMessageRequestBodyPushMessageTemplateOneOf } from '../models/SendTextMessageRequestBodyPushMessageTemplateOneOf';
 import { SendbirdBasicUserInfo } from '../models/SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from '../models/SendbirdDisappearingMessage';
 import { SendbirdExtendedMessagePayload } from '../models/SendbirdExtendedMessagePayload';
@@ -314,11 +316,31 @@ export class ObservableBotApi {
      * ## Send a bot message  Sends a bot message to a group channel.  [https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message](https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message)  `bot_userid`   Type: string   Description: Specifies the ID of the bot to send a message.
      * Send a bot's message
      * @param botUserid (Required) 
+     * @param messageType Specifies the type of message to send. MESG for text message, FILE for file message.
+     * @param channelUrl Specifies the URL of the channel to send the message to.
      * @param apiToken 
-     * @param sendABotMessageRequest 
+     * @param message Specifies the content of the message. * This property is required when message_type is MESG.
+     * @param mentioned * This property is available when message_type is MESG.
+     * @param extendedMessagePayload 
+     * @param file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value.
+     * @param requireAuth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE.
+     * @param mentionType * This property is available when message_type is FILE.
+     * @param mentionedUserIds * This property is available when message_type is FILE.
+     * @param isSilent * This property is available when message_type is FILE.
+     * @param sortedMetaarray 
+     * @param apnsBundleId * This property is available when message_type is FILE.
+     * @param appleCriticalAlertOptions * This property is available when message_type is FILE.
+     * @param sound * This property is available when message_type is FILE.
+     * @param volume * This property is available when message_type is FILE.
+     * @param createdAt 
+     * @param customType 
+     * @param data 
+     * @param dedupId 
+     * @param markAsRead 
+     * @param sendPush 
      */
-    public sendABotMessage(botUserid: string, apiToken?: string, sendABotMessageRequest?: SendABotMessageRequest, _options?: Configuration): Observable<SendbirdMessageResponse> {
-        const requestContextPromise = this.requestFactory.sendABotMessage(botUserid, apiToken, sendABotMessageRequest, _options);
+    public sendABotMessage(botUserid: string, messageType: string, channelUrl: string, apiToken?: string, message?: string, mentioned?: Array<string>, extendedMessagePayload?: SendbirdExtendedMessagePayload, file?: HttpFile, requireAuth?: boolean, mentionType?: string, mentionedUserIds?: Array<string>, isSilent?: boolean, sortedMetaarray?: Array<SendbirdSortedMetaarrayInner>, apnsBundleId?: string, appleCriticalAlertOptions?: any, sound?: string, volume?: number, createdAt?: number, customType?: string, data?: string, dedupId?: string, markAsRead?: boolean, sendPush?: boolean, _options?: Configuration): Observable<SendABotMessageResponse> {
+        const requestContextPromise = this.requestFactory.sendABotMessage(botUserid, messageType, channelUrl, apiToken, message, mentioned, extendedMessagePayload, file, requireAuth, mentionType, mentionedUserIds, isSilent, sortedMetaarray, apnsBundleId, appleCriticalAlertOptions, sound, volume, createdAt, customType, data, dedupId, markAsRead, sendPush, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

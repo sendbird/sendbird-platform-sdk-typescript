@@ -74,12 +74,14 @@ import { ScheduleAnAnnouncementRequestMessage } from '../models/ScheduleAnAnnoun
 import { ScheduleAnAnnouncementResponse } from '../models/ScheduleAnAnnouncementResponse';
 import { ScheduleAnAnnouncementResponseMessage } from '../models/ScheduleAnAnnouncementResponseMessage';
 import { SendABotMessageRequest } from '../models/SendABotMessageRequest';
+import { SendABotMessageResponse } from '../models/SendABotMessageResponse';
 import { SendAMessageRequest } from '../models/SendAMessageRequest';
+import { SendAMessageRequestPushMessageTemplate } from '../models/SendAMessageRequestPushMessageTemplate';
+import { SendAMessageRequestPushMessageTemplateOneOf } from '../models/SendAMessageRequestPushMessageTemplateOneOf';
 import { SendAdminMessageRequestBody } from '../models/SendAdminMessageRequestBody';
 import { SendFileMessageRequestBody } from '../models/SendFileMessageRequestBody';
 import { SendTextMessageRequestBody } from '../models/SendTextMessageRequestBody';
 import { SendTextMessageRequestBodyPushMessageTemplate } from '../models/SendTextMessageRequestBodyPushMessageTemplate';
-import { SendTextMessageRequestBodyPushMessageTemplateOneOf } from '../models/SendTextMessageRequestBodyPushMessageTemplateOneOf';
 import { SendbirdBasicUserInfo } from '../models/SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from '../models/SendbirdDisappearingMessage';
 import { SendbirdExtendedMessagePayload } from '../models/SendbirdExtendedMessagePayload';
@@ -262,17 +264,137 @@ export interface BotApiSendABotMessageRequest {
      */
     botUserid: string
     /**
+     * Specifies the type of message to send. MESG for text message, FILE for file message.
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    messageType: string
+    /**
+     * Specifies the URL of the channel to send the message to.
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    channelUrl: string
+    /**
      * 
      * @type string
      * @memberof BotApisendABotMessage
      */
     apiToken?: string
     /**
-     * 
-     * @type SendABotMessageRequest
+     * Specifies the content of the message. * This property is required when message_type is MESG.
+     * @type string
      * @memberof BotApisendABotMessage
      */
-    sendABotMessageRequest?: SendABotMessageRequest
+    message?: string
+    /**
+     * * This property is available when message_type is MESG.
+     * @type Array&lt;string&gt;
+     * @memberof BotApisendABotMessage
+     */
+    mentioned?: Array<string>
+    /**
+     * 
+     * @type SendbirdExtendedMessagePayload
+     * @memberof BotApisendABotMessage
+     */
+    extendedMessagePayload?: SendbirdExtendedMessagePayload
+    /**
+     * When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value.
+     * @type HttpFile
+     * @memberof BotApisendABotMessage
+     */
+    file?: HttpFile
+    /**
+     * Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE.
+     * @type boolean
+     * @memberof BotApisendABotMessage
+     */
+    requireAuth?: boolean
+    /**
+     * * This property is available when message_type is FILE.
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    mentionType?: string
+    /**
+     * * This property is available when message_type is FILE.
+     * @type Array&lt;string&gt;
+     * @memberof BotApisendABotMessage
+     */
+    mentionedUserIds?: Array<string>
+    /**
+     * * This property is available when message_type is FILE.
+     * @type boolean
+     * @memberof BotApisendABotMessage
+     */
+    isSilent?: boolean
+    /**
+     * 
+     * @type Array&lt;SendbirdSortedMetaarrayInner&gt;
+     * @memberof BotApisendABotMessage
+     */
+    sortedMetaarray?: Array<SendbirdSortedMetaarrayInner>
+    /**
+     * * This property is available when message_type is FILE.
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    apnsBundleId?: string
+    /**
+     * * This property is available when message_type is FILE.
+     * @type any
+     * @memberof BotApisendABotMessage
+     */
+    appleCriticalAlertOptions?: any
+    /**
+     * * This property is available when message_type is FILE.
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    sound?: string
+    /**
+     * * This property is available when message_type is FILE.
+     * @type number
+     * @memberof BotApisendABotMessage
+     */
+    volume?: number
+    /**
+     * 
+     * @type number
+     * @memberof BotApisendABotMessage
+     */
+    createdAt?: number
+    /**
+     * 
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    customType?: string
+    /**
+     * 
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    data?: string
+    /**
+     * 
+     * @type string
+     * @memberof BotApisendABotMessage
+     */
+    dedupId?: string
+    /**
+     * 
+     * @type boolean
+     * @memberof BotApisendABotMessage
+     */
+    markAsRead?: boolean
+    /**
+     * 
+     * @type boolean
+     * @memberof BotApisendABotMessage
+     */
+    sendPush?: boolean
 }
 
 export class ObjectBotApi {
@@ -332,8 +454,8 @@ export class ObjectBotApi {
      * Send a bot's message
      * @param param the request object
      */
-    public sendABotMessage(param: BotApiSendABotMessageRequest, options?: Configuration): Promise<SendbirdMessageResponse> {
-        return this.api.sendABotMessage(param.botUserid, param.apiToken, param.sendABotMessageRequest,  options).toPromise();
+    public sendABotMessage(param: BotApiSendABotMessageRequest, options?: Configuration): Promise<SendABotMessageResponse> {
+        return this.api.sendABotMessage(param.botUserid, param.messageType, param.channelUrl, param.apiToken, param.message, param.mentioned, param.extendedMessagePayload, param.file, param.requireAuth, param.mentionType, param.mentionedUserIds, param.isSilent, param.sortedMetaarray, param.apnsBundleId, param.appleCriticalAlertOptions, param.sound, param.volume, param.createdAt, param.customType, param.data, param.dedupId, param.markAsRead, param.sendPush,  options).toPromise();
     }
 
 }

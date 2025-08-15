@@ -11,27 +11,162 @@
  */
 
 import { SendbirdExtendedMessagePayload } from './SendbirdExtendedMessagePayload';
+import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { HttpFile } from '../http/http';
 
 export class SendABotMessageRequest {
+    /**
+    * Specifies the type of message to send. MESG for text message, FILE for file message.
+    */
+    'messageType': SendABotMessageRequestMessageTypeEnum;
+    /**
+    * Specifies the URL of the channel to send the message to.
+    */
     'channelUrl': string;
+    /**
+    * Specifies the content of the message. * This property is required when message_type is MESG.
+    */
+    'message'?: string;
+    /**
+    * * This property is available when message_type is MESG.
+    */
+    'mentioned'?: Array<string>;
+    'extendedMessagePayload'?: SendbirdExtendedMessagePayload;
+    /**
+    * When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary={your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn't allow a converted base64-encoded string from a file as its value.
+    */
+    'file'?: HttpFile;
+    /**
+    * Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE.
+    */
+    'requireAuth'?: boolean;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'mentionType'?: SendABotMessageRequestMentionTypeEnum;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'mentionedUserIds'?: Array<string>;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'isSilent'?: boolean;
+    'sortedMetaarray'?: Array<SendbirdSortedMetaarrayInner>;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'apnsBundleId'?: string;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'appleCriticalAlertOptions'?: any;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'sound'?: string;
+    /**
+    * * This property is available when message_type is FILE.
+    */
+    'volume'?: number;
     'createdAt'?: number;
     'customType'?: string;
     'data'?: string;
     'dedupId'?: string;
-    'extendedMessagePayload'?: SendbirdExtendedMessagePayload;
     'markAsRead'?: boolean;
-    'mentioned'?: Array<string>;
-    'message': string;
     'sendPush'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "messageType",
+            "baseName": "message_type",
+            "type": "SendABotMessageRequestMessageTypeEnum",
+            "format": ""
+        },
+        {
             "name": "channelUrl",
             "baseName": "channel_url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "message",
+            "baseName": "message",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mentioned",
+            "baseName": "mentioned",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "extendedMessagePayload",
+            "baseName": "extended_message_payload",
+            "type": "SendbirdExtendedMessagePayload",
+            "format": ""
+        },
+        {
+            "name": "file",
+            "baseName": "file",
+            "type": "HttpFile",
+            "format": "binary"
+        },
+        {
+            "name": "requireAuth",
+            "baseName": "require_auth",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "mentionType",
+            "baseName": "mention_type",
+            "type": "SendABotMessageRequestMentionTypeEnum",
+            "format": ""
+        },
+        {
+            "name": "mentionedUserIds",
+            "baseName": "mentioned_user_ids",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "isSilent",
+            "baseName": "is_silent",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sortedMetaarray",
+            "baseName": "sorted_metaarray",
+            "type": "Array<SendbirdSortedMetaarrayInner>",
+            "format": ""
+        },
+        {
+            "name": "apnsBundleId",
+            "baseName": "apns_bundle_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "appleCriticalAlertOptions",
+            "baseName": "apple_critical_alert_options",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "sound",
+            "baseName": "sound",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "volume",
+            "baseName": "volume",
+            "type": "number",
             "format": ""
         },
         {
@@ -59,27 +194,9 @@ export class SendABotMessageRequest {
             "format": ""
         },
         {
-            "name": "extendedMessagePayload",
-            "baseName": "extended_message_payload",
-            "type": "SendbirdExtendedMessagePayload",
-            "format": ""
-        },
-        {
             "name": "markAsRead",
             "baseName": "mark_as_read",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "mentioned",
-            "baseName": "mentioned",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "message",
-            "baseName": "message",
-            "type": "string",
             "format": ""
         },
         {
@@ -96,4 +213,8 @@ export class SendABotMessageRequest {
     public constructor() {
     }
 }
+
+
+export type SendABotMessageRequestMessageTypeEnum = "MESG" | "FILE" ;
+export type SendABotMessageRequestMentionTypeEnum = "users" | "channel" ;
 

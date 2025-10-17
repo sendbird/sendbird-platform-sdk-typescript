@@ -15,7 +15,6 @@ import { ChooseAPushNotificationContentTemplateResponse } from '../models/Choose
 import { CreateABotRequest } from '../models/CreateABotRequest';
 import { CreateABotResponse } from '../models/CreateABotResponse';
 import { CreateABotResponseBot } from '../models/CreateABotResponseBot';
-import { CreateABotResponseBotStyle } from '../models/CreateABotResponseBotStyle';
 import { CreateAChannelMetadataRequest } from '../models/CreateAChannelMetadataRequest';
 import { CreateAChannelMetadataResponse } from '../models/CreateAChannelMetadataResponse';
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
@@ -42,7 +41,6 @@ import { LeaveMyGroupChannelsRequest } from '../models/LeaveMyGroupChannelsReque
 import { ListBlockedUsersResponse } from '../models/ListBlockedUsersResponse';
 import { ListBotsResponse } from '../models/ListBotsResponse';
 import { ListBotsResponseBotsInner } from '../models/ListBotsResponseBotsInner';
-import { ListBotsResponseBotsInnerAi } from '../models/ListBotsResponseBotsInnerAi';
 import { ListBotsResponseBotsInnerBot } from '../models/ListBotsResponseBotsInnerBot';
 import { ListBotsResponseBotsInnerBotStyle } from '../models/ListBotsResponseBotsInnerBotStyle';
 import { ListBotsResponseBotsInnerBotStyleColor } from '../models/ListBotsResponseBotsInnerBotStyleColor';
@@ -89,8 +87,10 @@ import { SendbirdFile } from '../models/SendbirdFile';
 import { SendbirdGroupChannel } from '../models/SendbirdGroupChannel';
 import { SendbirdGroupChannelDetail } from '../models/SendbirdGroupChannelDetail';
 import { SendbirdGroupChannelDetailChannel } from '../models/SendbirdGroupChannelDetailChannel';
+import { SendbirdGroupChannelLastMessage } from '../models/SendbirdGroupChannelLastMessage';
 import { SendbirdMember } from '../models/SendbirdMember';
 import { SendbirdMessageResponse } from '../models/SendbirdMessageResponse';
+import { SendbirdMessageResponseExtendedMessagePayload } from '../models/SendbirdMessageResponseExtendedMessagePayload';
 import { SendbirdMessageResponseMessageEvents } from '../models/SendbirdMessageResponseMessageEvents';
 import { SendbirdOpenChannel } from '../models/SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from '../models/SendbirdParentMessageInfo';
@@ -106,6 +106,8 @@ import { UpdateAGroupChannelRequest } from '../models/UpdateAGroupChannelRequest
 import { UpdateAMessageRequest } from '../models/UpdateAMessageRequest';
 import { UpdateAUserRequest } from '../models/UpdateAUserRequest';
 import { UpdateAnOpenChannelRequest } from '../models/UpdateAnOpenChannelRequest';
+import { UpdateBotByIdData } from '../models/UpdateBotByIdData';
+import { UpdateBotByIdResponse } from '../models/UpdateBotByIdResponse';
 import { UpdateChannelInvitationPreferenceRequest } from '../models/UpdateChannelInvitationPreferenceRequest';
 import { UpdateChannelInvitationPreferenceResponse } from '../models/UpdateChannelInvitationPreferenceResponse';
 import { UpdateCountPreferenceOfAChannelRequest } from '../models/UpdateCountPreferenceOfAChannelRequest';
@@ -116,6 +118,8 @@ import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPre
 import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
+import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
+import { ViewBotByIdResponseBot } from '../models/ViewBotByIdResponseBot';
 import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from '../models/ViewNumberOfChannelsWithUnreadMessagesResponse';
 import { ViewNumberOfDailyActiveUsersResponse } from '../models/ViewNumberOfDailyActiveUsersResponse';
@@ -175,6 +179,17 @@ export class PromiseBotApi {
      */
     public createABot(apiToken?: string, createABotRequest?: CreateABotRequest, _options?: Configuration): Promise<CreateABotResponse> {
         const result = this.api.createABot(apiToken, createABotRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
+     * Delete a bot
+     * @param botUserid 
+     * @param apiToken 
+     */
+    public deleteBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteBotById(botUserid, apiToken, _options);
         return result.toPromise();
     }
 
@@ -254,6 +269,29 @@ export class PromiseBotApi {
      */
     public sendABotMessage(botUserid: string, messageType: string, channelUrl: string, apiToken?: string, message?: string, mentioned?: Array<string>, extendedMessagePayload?: SendbirdExtendedMessagePayload, file?: HttpFile, requireAuth?: boolean, mentionType?: string, mentionedUserIds?: Array<string>, isSilent?: boolean, sortedMetaarray?: Array<SendbirdSortedMetaarrayInner>, apnsBundleId?: string, appleCriticalAlertOptions?: any, sound?: string, volume?: number, createdAt?: number, customType?: string, data?: string, dedupId?: string, markAsRead?: boolean, sendPush?: boolean, _options?: Configuration): Promise<SendABotMessageResponse> {
         const result = this.api.sendABotMessage(botUserid, messageType, channelUrl, apiToken, message, mentioned, extendedMessagePayload, file, requireAuth, mentionType, mentionedUserIds, isSilent, sortedMetaarray, apnsBundleId, appleCriticalAlertOptions, sound, volume, createdAt, customType, data, dedupId, markAsRead, sendPush, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
+     * Update a bot
+     * @param botUserid 
+     * @param apiToken 
+     * @param updateBotByIdData 
+     */
+    public updateBotById(botUserid: string, apiToken?: string, updateBotByIdData?: UpdateBotByIdData, _options?: Configuration): Promise<UpdateBotByIdResponse> {
+        const result = this.api.updateBotById(botUserid, apiToken, updateBotByIdData, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
+     * View a bot
+     * @param botUserid 
+     * @param apiToken 
+     */
+    public viewBotById(botUserid: string, apiToken?: string, _options?: Configuration): Promise<ViewBotByIdResponse> {
+        const result = this.api.viewBotById(botUserid, apiToken, _options);
         return result.toPromise();
     }
 
@@ -583,7 +621,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param addExtraDataToAMessageRequest 
      */
-    public addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Promise<AddExtraDataToAMessageResponse> {
+    public addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Promise<AddExtraDataToAMessageResponse> {
         const result = this.api.addExtraDataToAMessage(channelType, channelUrl, messageId, apiToken, addExtraDataToAMessageRequest, _options);
         return result.toPromise();
     }
@@ -596,7 +634,7 @@ export class PromiseMessageApi {
      * @param messageId (Required) 
      * @param apiToken 
      */
-    public deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+    public deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Promise<any> {
         const result = this.api.deleteAMessage(channelType, channelUrl, messageId, apiToken, _options);
         return result.toPromise();
     }
@@ -614,7 +652,7 @@ export class PromiseMessageApi {
      * @param withSortedMetaArray 
      * @param apiToken 
      */
-    public getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Promise<SendbirdMessageResponse> {
+    public getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Promise<SendbirdMessageResponse> {
         const result = this.api.getAMessage(channelType, channelUrl, messageId, includeReactions, includeThreadInfo, includeParentMessageInfo, includePollDetails, withSortedMetaArray, apiToken, _options);
         return result.toPromise();
     }
@@ -696,7 +734,7 @@ export class PromiseMessageApi {
      * @param keys 
      * @param apiToken 
      */
-    public removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, keys?: string, apiToken?: string, _options?: Configuration): Promise<any> {
+    public removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, keys?: string, apiToken?: string, _options?: Configuration): Promise<any> {
         const result = this.api.removeExtraDataFromAMessage(channelType, channelUrl, messageId, keys, apiToken, _options);
         return result.toPromise();
     }
@@ -723,7 +761,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param updateAMessageRequest 
      */
-    public updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Promise<SendbirdMessageResponse> {
+    public updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Promise<SendbirdMessageResponse> {
         const result = this.api.updateAMessage(channelType, channelUrl, messageId, apiToken, updateAMessageRequest, _options);
         return result.toPromise();
     }
@@ -737,7 +775,7 @@ export class PromiseMessageApi {
      * @param apiToken 
      * @param updateExtraDataInAMessageRequest 
      */
-    public updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Promise<UpdateExtraDataInAMessageResponse> {
+    public updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Promise<UpdateExtraDataInAMessageResponse> {
         const result = this.api.updateExtraDataInAMessage(channelType, channelUrl, messageId, apiToken, updateExtraDataInAMessageRequest, _options);
         return result.toPromise();
     }
@@ -834,7 +872,7 @@ export class PromiseModerationApi {
     }
 
     /**
-     * ## Block a user  A user can block another user if the user doesn't wish to receive any messages or notifications from the blocked user in a 1-to-1 group channel. In a 1-to-N group channel, the user can still receive messages from the blocked user, but this depends on the UI settings of the chat view. In any case, notifications from the blocked user won't be delivered to the 1-to-N group channel. You can choose whether or not the user can view [which users are blocked](https://sendbird.com/docs/chat/platform-api/v3/moderation/listing-blocked-and-blocking-users/list-blocked-and-blocking-users) in the channel UI.  Sendbird application provides two blocking options: include or exclude blocked users when sending invitations, and turn on or off notifications from blocked users. [Explicit and classic block modes](https://sendbird.com/docs/chat/platform-api/v3/deprecated#2-explicit-and-classic-block-modes) have been deprecated and are only supported for customers who started using them before they were deprecated.  - **Include or exclude blocked users when sending invitations**: Determines whether or not to automatically filter out blocked users when a user invites a group of users to a new group channel. By default, blocked users are included when sending invitations. The value of this option can be changed by Sendbird if your Sendbird application isn't integrated to the client app. If you want to change the value, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      - **Turn on or off notifications from blocked users**: Determines whether or not to receive message notifications from the blocked user in a specific 1-to-N group channel where they are both members. By default, a user doesn't receive notifications from blocked users. The value of this option can be set individually per channel. If you want to use this option, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).       > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).      The following tables explain what happens to a user's chat experience when the user blocks another user in a 1-to-1 or 1-to-N group channel. In the case of a 1-to-1 group channel, the block mode is only maintained with the original members. If other than the original members are added, the rules for 1-to-N group channel begin to apply.  [https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users)
+     * ## Block a user  A user can block another user if the user doesn't wish to receive any messages or notifications from the blocked user in a 1-to-1 group channel. In a 1-to-N group channel, the user can still receive messages from the blocked user, but this depends on the UI settings of the chat view. In any case, notifications from the blocked user won't be delivered to the 1-to-N group channel. You can choose whether or not the user can view [which users are blocked](https://sendbird.com/docs/chat/platform-api/v3/moderation/listing-blocked-and-blocking-users/list-blocked-and-blocking-users) in the channel UI.  Sendbird application provides two blocking options: include or exclude blocked users when sending invitations, and turn on or off notifications from blocked users. [Explicit and classic block modes](https://sendbird.com/docs/chat/platform-api/v3/deprecated#2-explicit-and-classic-block-modes) have been deprecated and are only supported for customers who started using them before they were deprecated.  - **Include or exclude blocked users when sending invitations**: Determines whether or not to automatically filter out blocked users when a user invites a group of users to a new group channel. By default, blocked users are included when sending invitations. The value of this option can be changed by Sendbird if your Sendbird application isn't integrated with the client app. If you want to change the value, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).      - **Turn on or off notifications from blocked users**: Determines whether or not to receive message notifications from the blocked user in a specific 1-to-N group channel where they are both members. By default, a user doesn't receive notifications from blocked users. The value of this option can be set individually per channel. If you want to use this option, [contact our sales team](https://get.sendbird.com/talk-to-sales.html).  > **Note**: To learn more about other available moderation tools, see [Moderation Overview](https://sendbird.com/docs/chat/platform-api/v3/moderation/moderation-overview#2-actions).  The following tables explain what happens to a user's chat experience when the user blocks another user in a 1-to-1 or 1-to-N group channel. In the case of a 1-to-1 group channel, the block mode is only maintained with the original members. If other than the original members are added, the rules for 1-to-N group channel begin to apply.  [https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users](https://sendbird.com/docs/chat/platform-api/v3/moderation/blocking-users/block-users#1-block-users)
      * Block a user
      * @param userId (Required) 
      * @param apiToken 

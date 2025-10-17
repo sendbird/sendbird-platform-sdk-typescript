@@ -12,8 +12,8 @@
 
 import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
+import { SendbirdGroupChannelLastMessage } from './SendbirdGroupChannelLastMessage';
 import { SendbirdMember } from './SendbirdMember';
-import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { HttpFile } from '../http/http';
@@ -48,7 +48,7 @@ export class SendbirdGroupChannel {
     'isSuper'?: boolean;
     'joinedMemberCount'?: number;
     'joinedTs'?: number;
-    'lastMessage'?: SendbirdMessageResponse;
+    'lastMessage'?: SendbirdGroupChannelLastMessage;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
     'memberState'?: SendbirdGroupChannelMemberStateEnum;
@@ -245,7 +245,7 @@ export class SendbirdGroupChannel {
         {
             "name": "lastMessage",
             "baseName": "last_message",
-            "type": "SendbirdMessageResponse",
+            "type": "SendbirdGroupChannelLastMessage",
             "format": ""
         },
         {

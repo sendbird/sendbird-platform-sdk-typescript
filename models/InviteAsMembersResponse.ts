@@ -14,8 +14,8 @@ import { InviteAsMembersResponseAllOf } from './InviteAsMembersResponseAllOf';
 import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { SendbirdDisappearingMessage } from './SendbirdDisappearingMessage';
 import { SendbirdGroupChannel } from './SendbirdGroupChannel';
+import { SendbirdGroupChannelLastMessage } from './SendbirdGroupChannelLastMessage';
 import { SendbirdMember } from './SendbirdMember';
-import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdUser } from './SendbirdUser';
@@ -51,7 +51,7 @@ export class InviteAsMembersResponse {
     'isSuper'?: boolean;
     'joinedMemberCount'?: number;
     'joinedTs'?: number;
-    'lastMessage'?: SendbirdMessageResponse;
+    'lastMessage'?: SendbirdGroupChannelLastMessage;
     'maxLengthMessage'?: number;
     'memberCount'?: number;
     'memberState'?: InviteAsMembersResponseMemberStateEnum;
@@ -249,7 +249,7 @@ export class InviteAsMembersResponse {
         {
             "name": "lastMessage",
             "baseName": "last_message",
-            "type": "SendbirdMessageResponse",
+            "type": "SendbirdGroupChannelLastMessage",
             "format": ""
         },
         {

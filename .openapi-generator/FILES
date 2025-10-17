@@ -1,4 +1,3 @@
-README.md
 apis/AnnouncementApi.ts
 apis/BotApi.ts
 apis/GroupChannelApi.ts
@@ -30,7 +29,6 @@ models/ChooseAPushNotificationContentTemplateResponse.ts
 models/CreateABotRequest.ts
 models/CreateABotResponse.ts
 models/CreateABotResponseBot.ts
-models/CreateABotResponseBotStyle.ts
 models/CreateAChannelMetadataRequest.ts
 models/CreateAChannelMetadataResponse.ts
 models/CreateAGroupChannelRequest.ts
@@ -57,7 +55,6 @@ models/LeaveMyGroupChannelsRequest.ts
 models/ListBlockedUsersResponse.ts
 models/ListBotsResponse.ts
 models/ListBotsResponseBotsInner.ts
-models/ListBotsResponseBotsInnerAi.ts
 models/ListBotsResponseBotsInnerBot.ts
 models/ListBotsResponseBotsInnerBotStyle.ts
 models/ListBotsResponseBotsInnerBotStyleColor.ts
@@ -105,8 +102,10 @@ models/SendbirdFile.ts
 models/SendbirdGroupChannel.ts
 models/SendbirdGroupChannelDetail.ts
 models/SendbirdGroupChannelDetailChannel.ts
+models/SendbirdGroupChannelLastMessage.ts
 models/SendbirdMember.ts
 models/SendbirdMessageResponse.ts
+models/SendbirdMessageResponseExtendedMessagePayload.ts
 models/SendbirdMessageResponseMessageEvents.ts
 models/SendbirdOpenChannel.ts
 models/SendbirdParentMessageInfo.ts
@@ -122,6 +121,8 @@ models/UpdateAGroupChannelRequest.ts
 models/UpdateAMessageRequest.ts
 models/UpdateAUserRequest.ts
 models/UpdateAnOpenChannelRequest.ts
+models/UpdateBotByIdData.ts
+models/UpdateBotByIdResponse.ts
 models/UpdateChannelInvitationPreferenceRequest.ts
 models/UpdateChannelInvitationPreferenceResponse.ts
 models/UpdateCountPreferenceOfAChannelRequest.ts
@@ -132,6 +133,8 @@ models/UpdatePushPreferencesForAChannelRequest.ts
 models/UpdatePushPreferencesForAChannelResponse.ts
 models/UpdatePushPreferencesRequest.ts
 models/UpdatePushPreferencesResponse.ts
+models/ViewBotByIdResponse.ts
+models/ViewBotByIdResponseBot.ts
 models/ViewCountPreferenceOfAChannelResponse.ts
 models/ViewNumberOfChannelsWithUnreadMessagesResponse.ts
 models/ViewNumberOfDailyActiveUsersResponse.ts

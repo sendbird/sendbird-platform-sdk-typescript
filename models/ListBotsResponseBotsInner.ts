@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { ListBotsResponseBotsInnerAi } from './ListBotsResponseBotsInnerAi';
 import { ListBotsResponseBotsInnerBot } from './ListBotsResponseBotsInnerBot';
 import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
 import { ListBotsResponseBotsInnerFirstMessagesInner } from './ListBotsResponseBotsInnerFirstMessagesInner';
@@ -18,7 +17,6 @@ import { ListBotsResponseBotsInnerSafeguard } from './ListBotsResponseBotsInnerS
 import { HttpFile } from '../http/http';
 
 export class ListBotsResponseBotsInner {
-    'ai'?: ListBotsResponseBotsInnerAi;
     'bot'?: ListBotsResponseBotsInnerBot;
     'botCallbackUrl'?: string;
     'botStyle'?: ListBotsResponseBotsInnerBotStyle;
@@ -33,12 +31,6 @@ export class ListBotsResponseBotsInner {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "ai",
-            "baseName": "ai",
-            "type": "ListBotsResponseBotsInnerAi",
-            "format": ""
-        },
         {
             "name": "bot",
             "baseName": "bot",

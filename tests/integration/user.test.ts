@@ -396,10 +396,6 @@ describe("User API", () => {
     expect(createAUserResponse.accessToken).toBe("");
     expect(typeof createAUserResponse.accessToken).toBe("string");
 
-    expect(createAUserResponse).toHaveProperty("sessionTokens");
-    expect(createAUserResponse.sessionTokens).toStrictEqual([]);
-    expect(Array.isArray(createAUserResponse.sessionTokens)).toBeTruthy();
-
     expect(createAUserResponse).toHaveProperty("isOnline");
     expect(createAUserResponse.isOnline).toBe(false);
     expect(typeof createAUserResponse.isOnline).toBe("boolean");
@@ -464,10 +460,6 @@ describe("User API", () => {
     expect(viewAUserResponse).toHaveProperty("isShadowBlocked");
     expect(viewAUserResponse.isShadowBlocked).toBe(false);
     expect(typeof viewAUserResponse.isShadowBlocked).toBe("boolean");
-
-    expect(viewAUserResponse).toHaveProperty("sessionTokens");
-    expect(viewAUserResponse.sessionTokens).toStrictEqual([]);
-    expect(Array.isArray(viewAUserResponse.sessionTokens)).toBeTruthy();
 
     expect(viewAUserResponse).toHaveProperty("isOnline");
     expect(viewAUserResponse.isOnline).toBe(false);
@@ -546,10 +538,6 @@ describe("User API", () => {
     expect(updateAUserResponse).toHaveProperty("isShadowBlocked");
     expect(updateAUserResponse.isShadowBlocked).toBe(false);
     expect(typeof updateAUserResponse.isShadowBlocked).toBe("boolean");
-
-    expect(updateAUserResponse).toHaveProperty("sessionTokens");
-    expect(updateAUserResponse.sessionTokens).toStrictEqual([]);
-    expect(Array.isArray(updateAUserResponse.sessionTokens)).toBeTruthy();
 
     expect(updateAUserResponse).toHaveProperty("isOnline");
     expect(updateAUserResponse.isOnline).toBe(false);

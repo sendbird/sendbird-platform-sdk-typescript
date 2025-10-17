@@ -12,6 +12,7 @@
 
 import { SendbirdBasicUserInfo } from './SendbirdBasicUserInfo';
 import { SendbirdFile } from './SendbirdFile';
+import { SendbirdMessageResponse } from './SendbirdMessageResponse';
 import { SendbirdMessageResponseExtendedMessagePayload } from './SendbirdMessageResponseExtendedMessagePayload';
 import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
@@ -19,7 +20,7 @@ import { SendbirdReaction } from './SendbirdReaction';
 import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { HttpFile } from '../http/http';
 
-export class SendbirdMessageResponse {
+export class SendbirdGroupChannelLastMessage {
     'requireAuth'?: boolean;
     'messageSurvivalSeconds'?: number;
     'customType'?: string;
@@ -236,7 +237,7 @@ export class SendbirdMessageResponse {
         }    ];
 
     static getAttributeTypeMap() {
-        return SendbirdMessageResponse.attributeTypeMap;
+        return SendbirdGroupChannelLastMessage.attributeTypeMap;
     }
 
     public constructor() {

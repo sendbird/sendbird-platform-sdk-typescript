@@ -10,19 +10,16 @@
  * Do not edit the class manually.
  */
 
-import { CreateABotResponseBot } from './CreateABotResponseBot';
-import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
+import { ViewBotByIdResponseBot } from './ViewBotByIdResponseBot';
 import { HttpFile } from '../http/http';
 
-export class CreateABotResponse {
-    'bot': CreateABotResponseBot;
+export class UpdateBotByIdResponse {
+    'bot'?: ViewBotByIdResponseBot;
     'botCallbackUrl'?: string;
-    'botStyle'?: ListBotsResponseBotsInnerBotStyle;
-    'channelInvitationPreference'?: number;
-    'createdAt'?: number;
     'enableMarkAsRead'?: boolean;
     'isPrivacyMode'?: boolean;
     'showMember'?: boolean;
+    'channelInvitationPreference'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,7 +27,7 @@ export class CreateABotResponse {
         {
             "name": "bot",
             "baseName": "bot",
-            "type": "CreateABotResponseBot",
+            "type": "ViewBotByIdResponseBot",
             "format": ""
         },
         {
@@ -38,24 +35,6 @@ export class CreateABotResponse {
             "baseName": "bot_callback_url",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "botStyle",
-            "baseName": "bot_style",
-            "type": "ListBotsResponseBotsInnerBotStyle",
-            "format": ""
-        },
-        {
-            "name": "channelInvitationPreference",
-            "baseName": "channel_invitation_preference",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "created_at",
-            "type": "number",
-            "format": "int64"
         },
         {
             "name": "enableMarkAsRead",
@@ -74,10 +53,16 @@ export class CreateABotResponse {
             "baseName": "show_member",
             "type": "boolean",
             "format": ""
+        },
+        {
+            "name": "channelInvitationPreference",
+            "baseName": "channel_invitation_preference",
+            "type": "number",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateABotResponse.attributeTypeMap;
+        return UpdateBotByIdResponse.attributeTypeMap;
     }
 
     public constructor() {

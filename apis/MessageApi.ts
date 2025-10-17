@@ -36,7 +36,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param addExtraDataToAMessageRequest 
      */
-    public async addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Promise<RequestContext> {
+    public async addExtraDataToAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, addExtraDataToAMessageRequest?: AddExtraDataToAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -101,7 +101,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param messageId (Required) 
      * @param apiToken 
      */
-    public async deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async deleteAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -159,7 +159,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param withSortedMetaArray 
      * @param apiToken 
      */
-    public async getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, includeReactions?: boolean, includeThreadInfo?: boolean, includeParentMessageInfo?: boolean, includePollDetails?: boolean, withSortedMetaArray?: boolean, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -583,7 +583,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param keys 
      * @param apiToken 
      */
-    public async removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, keys?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async removeExtraDataFromAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, keys?: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -701,7 +701,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param updateAMessageRequest 
      */
-    public async updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Promise<RequestContext> {
+    public async updateAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, updateAMessageRequest?: UpdateAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined
@@ -767,7 +767,7 @@ export class MessageApiRequestFactory extends BaseAPIRequestFactory {
      * @param apiToken 
      * @param updateExtraDataInAMessageRequest 
      */
-    public async updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: string, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Promise<RequestContext> {
+    public async updateExtraDataInAMessage(channelType: 'open_channels' | 'group_channels', channelUrl: string, messageId: number, apiToken?: string, updateExtraDataInAMessageRequest?: UpdateExtraDataInAMessageRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'channelType' is not null or undefined

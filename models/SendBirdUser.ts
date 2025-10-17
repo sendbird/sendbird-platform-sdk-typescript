@@ -37,7 +37,6 @@ export class SendbirdUser {
     'unreadMessageCount'?: number;
     'phoneNumber'?: string;
     'isCreated'?: boolean;
-    'sessionTokens'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -166,12 +165,6 @@ export class SendbirdUser {
             "name": "isCreated",
             "baseName": "is_created",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "sessionTokens",
-            "baseName": "session_tokens",
-            "type": "Array<string>",
             "format": ""
         }    ];
 

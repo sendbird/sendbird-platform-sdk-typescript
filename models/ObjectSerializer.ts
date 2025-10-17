@@ -11,7 +11,6 @@ export * from './ChooseAPushNotificationContentTemplateResponse';
 export * from './CreateABotRequest';
 export * from './CreateABotResponse';
 export * from './CreateABotResponseBot';
-export * from './CreateABotResponseBotStyle';
 export * from './CreateAChannelMetadataRequest';
 export * from './CreateAChannelMetadataResponse';
 export * from './CreateAGroupChannelRequest';
@@ -38,7 +37,6 @@ export * from './LeaveMyGroupChannelsRequest';
 export * from './ListBlockedUsersResponse';
 export * from './ListBotsResponse';
 export * from './ListBotsResponseBotsInner';
-export * from './ListBotsResponseBotsInnerAi';
 export * from './ListBotsResponseBotsInnerBot';
 export * from './ListBotsResponseBotsInnerBotStyle';
 export * from './ListBotsResponseBotsInnerBotStyleColor';
@@ -85,8 +83,10 @@ export * from './SendbirdFile';
 export * from './SendbirdGroupChannel';
 export * from './SendbirdGroupChannelDetail';
 export * from './SendbirdGroupChannelDetailChannel';
+export * from './SendbirdGroupChannelLastMessage';
 export * from './SendbirdMember';
 export * from './SendbirdMessageResponse';
+export * from './SendbirdMessageResponseExtendedMessagePayload';
 export * from './SendbirdMessageResponseMessageEvents';
 export * from './SendbirdOpenChannel';
 export * from './SendbirdParentMessageInfo';
@@ -102,6 +102,8 @@ export * from './UpdateAGroupChannelRequest';
 export * from './UpdateAMessageRequest';
 export * from './UpdateAUserRequest';
 export * from './UpdateAnOpenChannelRequest';
+export * from './UpdateBotByIdData';
+export * from './UpdateBotByIdResponse';
 export * from './UpdateChannelInvitationPreferenceRequest';
 export * from './UpdateChannelInvitationPreferenceResponse';
 export * from './UpdateCountPreferenceOfAChannelRequest';
@@ -112,6 +114,8 @@ export * from './UpdatePushPreferencesForAChannelRequest';
 export * from './UpdatePushPreferencesForAChannelResponse';
 export * from './UpdatePushPreferencesRequest';
 export * from './UpdatePushPreferencesResponse';
+export * from './ViewBotByIdResponse';
+export * from './ViewBotByIdResponseBot';
 export * from './ViewCountPreferenceOfAChannelResponse';
 export * from './ViewNumberOfChannelsWithUnreadMessagesResponse';
 export * from './ViewNumberOfDailyActiveUsersResponse';
@@ -133,7 +137,6 @@ import { ChooseAPushNotificationContentTemplateResponse } from './ChooseAPushNot
 import { CreateABotRequest } from './CreateABotRequest';
 import { CreateABotResponse } from './CreateABotResponse';
 import { CreateABotResponseBot } from './CreateABotResponseBot';
-import { CreateABotResponseBotStyle } from './CreateABotResponseBotStyle';
 import { CreateAChannelMetadataRequest } from './CreateAChannelMetadataRequest';
 import { CreateAChannelMetadataResponse } from './CreateAChannelMetadataResponse';
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
@@ -160,7 +163,6 @@ import { LeaveMyGroupChannelsRequest } from './LeaveMyGroupChannelsRequest';
 import { ListBlockedUsersResponse } from './ListBlockedUsersResponse';
 import { ListBotsResponse } from './ListBotsResponse';
 import { ListBotsResponseBotsInner } from './ListBotsResponseBotsInner';
-import { ListBotsResponseBotsInnerAi } from './ListBotsResponseBotsInnerAi';
 import { ListBotsResponseBotsInnerBot } from './ListBotsResponseBotsInnerBot';
 import { ListBotsResponseBotsInnerBotStyle } from './ListBotsResponseBotsInnerBotStyle';
 import { ListBotsResponseBotsInnerBotStyleColor } from './ListBotsResponseBotsInnerBotStyleColor';
@@ -207,8 +209,10 @@ import { SendbirdFile } from './SendbirdFile';
 import { SendbirdGroupChannel , SendbirdGroupChannelCountPreferenceEnum            , SendbirdGroupChannelHiddenStateEnum                     , SendbirdGroupChannelMemberStateEnum     , SendbirdGroupChannelMyRoleEnum           } from './SendbirdGroupChannel';
 import { SendbirdGroupChannelDetail } from './SendbirdGroupChannelDetail';
 import { SendbirdGroupChannelDetailChannel } from './SendbirdGroupChannelDetailChannel';
+import { SendbirdGroupChannelLastMessage } from './SendbirdGroupChannelLastMessage';
 import { SendbirdMember                   , SendbirdMemberRoleEnum  , SendbirdMemberStateEnum    } from './SendbirdMember';
 import { SendbirdMessageResponse } from './SendbirdMessageResponse';
+import { SendbirdMessageResponseExtendedMessagePayload } from './SendbirdMessageResponseExtendedMessagePayload';
 import { SendbirdMessageResponseMessageEvents } from './SendbirdMessageResponseMessageEvents';
 import { SendbirdOpenChannel } from './SendbirdOpenChannel';
 import { SendbirdParentMessageInfo } from './SendbirdParentMessageInfo';
@@ -217,13 +221,15 @@ import { SendbirdReaction } from './SendbirdReaction';
 import { SendbirdSmsFallback } from './SendbirdSmsFallback';
 import { SendbirdSortedMetaarrayInner } from './SendbirdSortedMetaarrayInner';
 import { SendbirdThumbnail } from './SendbirdThumbnail';
-import { SendbirdUser                , SendbirdUserStateEnum        } from './SendbirdUser';
+import { SendbirdUser                , SendbirdUserStateEnum       } from './SendbirdUser';
 import { StartTypingIndicatorsRequest } from './StartTypingIndicatorsRequest';
 import { UpdateAChannelMetadataRequest } from './UpdateAChannelMetadataRequest';
 import { UpdateAGroupChannelRequest } from './UpdateAGroupChannelRequest';
 import { UpdateAMessageRequest      , UpdateAMessageRequestMessageTypeEnum   } from './UpdateAMessageRequest';
 import { UpdateAUserRequest } from './UpdateAUserRequest';
 import { UpdateAnOpenChannelRequest } from './UpdateAnOpenChannelRequest';
+import { UpdateBotByIdData } from './UpdateBotByIdData';
+import { UpdateBotByIdResponse } from './UpdateBotByIdResponse';
 import { UpdateChannelInvitationPreferenceRequest } from './UpdateChannelInvitationPreferenceRequest';
 import { UpdateChannelInvitationPreferenceResponse } from './UpdateChannelInvitationPreferenceResponse';
 import { UpdateCountPreferenceOfAChannelRequest, UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum   } from './UpdateCountPreferenceOfAChannelRequest';
@@ -234,6 +240,8 @@ import { UpdatePushPreferencesForAChannelRequest, UpdatePushPreferencesForAChann
 import { UpdatePushPreferencesForAChannelResponse } from './UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from './UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from './UpdatePushPreferencesResponse';
+import { ViewBotByIdResponse } from './ViewBotByIdResponse';
+import { ViewBotByIdResponseBot } from './ViewBotByIdResponseBot';
 import { ViewCountPreferenceOfAChannelResponse, ViewCountPreferenceOfAChannelResponseCountPreferenceEnum   } from './ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from './ViewNumberOfChannelsWithUnreadMessagesResponse';
 import { ViewNumberOfDailyActiveUsersResponse } from './ViewNumberOfDailyActiveUsersResponse';
@@ -317,7 +325,6 @@ let typeMap: {[index: string]: any} = {
     "CreateABotRequest": CreateABotRequest,
     "CreateABotResponse": CreateABotResponse,
     "CreateABotResponseBot": CreateABotResponseBot,
-    "CreateABotResponseBotStyle": CreateABotResponseBotStyle,
     "CreateAChannelMetadataRequest": CreateAChannelMetadataRequest,
     "CreateAChannelMetadataResponse": CreateAChannelMetadataResponse,
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
@@ -344,7 +351,6 @@ let typeMap: {[index: string]: any} = {
     "ListBlockedUsersResponse": ListBlockedUsersResponse,
     "ListBotsResponse": ListBotsResponse,
     "ListBotsResponseBotsInner": ListBotsResponseBotsInner,
-    "ListBotsResponseBotsInnerAi": ListBotsResponseBotsInnerAi,
     "ListBotsResponseBotsInnerBot": ListBotsResponseBotsInnerBot,
     "ListBotsResponseBotsInnerBotStyle": ListBotsResponseBotsInnerBotStyle,
     "ListBotsResponseBotsInnerBotStyleColor": ListBotsResponseBotsInnerBotStyleColor,
@@ -391,8 +397,10 @@ let typeMap: {[index: string]: any} = {
     "SendbirdGroupChannel": SendbirdGroupChannel,
     "SendbirdGroupChannelDetail": SendbirdGroupChannelDetail,
     "SendbirdGroupChannelDetailChannel": SendbirdGroupChannelDetailChannel,
+    "SendbirdGroupChannelLastMessage": SendbirdGroupChannelLastMessage,
     "SendbirdMember": SendbirdMember,
     "SendbirdMessageResponse": SendbirdMessageResponse,
+    "SendbirdMessageResponseExtendedMessagePayload": SendbirdMessageResponseExtendedMessagePayload,
     "SendbirdMessageResponseMessageEvents": SendbirdMessageResponseMessageEvents,
     "SendbirdOpenChannel": SendbirdOpenChannel,
     "SendbirdParentMessageInfo": SendbirdParentMessageInfo,
@@ -407,6 +415,8 @@ let typeMap: {[index: string]: any} = {
     "UpdateAMessageRequest": UpdateAMessageRequest,
     "UpdateAUserRequest": UpdateAUserRequest,
     "UpdateAnOpenChannelRequest": UpdateAnOpenChannelRequest,
+    "UpdateBotByIdData": UpdateBotByIdData,
+    "UpdateBotByIdResponse": UpdateBotByIdResponse,
     "UpdateChannelInvitationPreferenceRequest": UpdateChannelInvitationPreferenceRequest,
     "UpdateChannelInvitationPreferenceResponse": UpdateChannelInvitationPreferenceResponse,
     "UpdateCountPreferenceOfAChannelRequest": UpdateCountPreferenceOfAChannelRequest,
@@ -417,6 +427,8 @@ let typeMap: {[index: string]: any} = {
     "UpdatePushPreferencesForAChannelResponse": UpdatePushPreferencesForAChannelResponse,
     "UpdatePushPreferencesRequest": UpdatePushPreferencesRequest,
     "UpdatePushPreferencesResponse": UpdatePushPreferencesResponse,
+    "ViewBotByIdResponse": ViewBotByIdResponse,
+    "ViewBotByIdResponseBot": ViewBotByIdResponseBot,
     "ViewCountPreferenceOfAChannelResponse": ViewCountPreferenceOfAChannelResponse,
     "ViewNumberOfChannelsWithUnreadMessagesResponse": ViewNumberOfChannelsWithUnreadMessagesResponse,
     "ViewNumberOfDailyActiveUsersResponse": ViewNumberOfDailyActiveUsersResponse,

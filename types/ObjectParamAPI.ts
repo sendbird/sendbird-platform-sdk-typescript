@@ -20,6 +20,7 @@ import { CreateAChannelMetadataResponse } from '../models/CreateAChannelMetadata
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
 import { CreateAUserRequest } from '../models/CreateAUserRequest';
 import { CreateAnOpenChannelRequest } from '../models/CreateAnOpenChannelRequest';
+import { CreateUserMetadataRequest } from '../models/CreateUserMetadataRequest';
 import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
@@ -118,6 +119,8 @@ import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPre
 import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
+import { UpdateSpecificUserMetadataRequest } from '../models/UpdateSpecificUserMetadataRequest';
+import { UpdateUserMetadataRequest } from '../models/UpdateUserMetadataRequest';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewBotByIdResponseBot } from '../models/ViewBotByIdResponseBot';
 import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
@@ -2756,6 +2759,27 @@ export interface UserApiCreateAUserRequest {
     createAUserRequest?: CreateAUserRequest
 }
 
+export interface UserApiCreateUserMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApicreateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApicreateUserMetadata
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type CreateUserMetadataRequest
+     * @memberof UserApicreateUserMetadata
+     */
+    createUserMetadataRequest?: CreateUserMetadataRequest
+}
+
 export interface UserApiCreateUserTokenRequest {
     /**
      * (Required) 
@@ -2788,6 +2812,42 @@ export interface UserApiDeleteAUserRequest {
      * 
      * @type string
      * @memberof UserApideleteAUser
+     */
+    apiToken?: string
+}
+
+export interface UserApiDeleteSpecificUserMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApideleteSpecificUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteSpecificUserMetadata
+     */
+    key: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteSpecificUserMetadata
+     */
+    apiToken?: string
+}
+
+export interface UserApiDeleteUserAllMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApideleteUserAllMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApideleteUserAllMetadata
      */
     apiToken?: string
 }
@@ -3395,6 +3455,54 @@ export interface UserApiUpdatePushPreferencesForAChannelRequest {
     updatePushPreferencesForAChannelRequest?: UpdatePushPreferencesForAChannelRequest
 }
 
+export interface UserApiUpdateSpecificUserMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApiupdateSpecificUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateSpecificUserMetadata
+     */
+    key: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateSpecificUserMetadata
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type UpdateSpecificUserMetadataRequest
+     * @memberof UserApiupdateSpecificUserMetadata
+     */
+    updateSpecificUserMetadataRequest?: UpdateSpecificUserMetadataRequest
+}
+
+export interface UserApiUpdateUserMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApiupdateUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiupdateUserMetadata
+     */
+    apiToken?: string
+    /**
+     * 
+     * @type UpdateUserMetadataRequest
+     * @memberof UserApiupdateUserMetadata
+     */
+    updateUserMetadataRequest?: UpdateUserMetadataRequest
+}
+
 export interface UserApiViewAUserRequest {
     /**
      * (Required) 
@@ -3539,6 +3647,27 @@ export interface UserApiViewPushPreferencesForAChannelRequest {
     apiToken?: string
 }
 
+export interface UserApiViewSpecificUserMetadataRequest {
+    /**
+     * (Required) 
+     * @type string
+     * @memberof UserApiviewSpecificUserMetadata
+     */
+    userId: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiviewSpecificUserMetadata
+     */
+    key: string
+    /**
+     * 
+     * @type string
+     * @memberof UserApiviewSpecificUserMetadata
+     */
+    apiToken?: string
+}
+
 export interface UserApiViewWhoOwnsARegistrationOrDeviceTokenRequest {
     /**
      * (Required) 
@@ -3595,6 +3724,15 @@ export class ObjectUserApi {
     }
 
     /**
+     * ## Create metadata When creating new items of the user metadata. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-create-metadata
+     * Create user metadata
+     * @param param the request object
+     */
+    public createUserMetadata(param: UserApiCreateUserMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.createUserMetadata(param.userId, param.apiToken, param.createUserMetadataRequest,  options).toPromise();
+    }
+
+    /**
      * ## Create user token  This action issues a session token for user authentication. Session tokens provide an efficient stateless authentication method by not storing the tokens in the Sendbird database, and thus improving the server's performance. See [access token vs. session token](https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#2-access-token-vs-session-token) to learn more about authenticating users.  > **Note**: The endpoint `/users/{user_id}` is deprecated. Use `/users/{user_id}/token` for greater efficiency.      https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token#1-issue-a-session-token
      * Create user token
      * @param param the request object
@@ -3610,6 +3748,24 @@ export class ObjectUserApi {
      */
     public deleteAUser(param: UserApiDeleteAUserRequest, options?: Configuration): Promise<any> {
         return this.api.deleteAUser(param.userId, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Delete metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param param the request object
+     */
+    public deleteSpecificUserMetadata(param: UserApiDeleteSpecificUserMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.deleteSpecificUserMetadata(param.userId, param.key, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Delete metadata You can delete a specific or all metadata of a user. Metadata stores additional user information such as their preference settings. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param param the request object
+     */
+    public deleteUserAllMetadata(param: UserApiDeleteUserAllMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.deleteUserAllMetadata(param.userId, param.apiToken,  options).toPromise();
     }
 
     /**
@@ -3748,6 +3904,24 @@ export class ObjectUserApi {
     }
 
     /**
+     * ## Update metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update specific user metadata
+     * @param param the request object
+     */
+    public updateSpecificUserMetadata(param: UserApiUpdateSpecificUserMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.updateSpecificUserMetadata(param.userId, param.key, param.apiToken, param.updateSpecificUserMetadataRequest,  options).toPromise();
+    }
+
+    /**
+     * ## Update metadata When updating existing items of the user metadata by their keys or adding new items to the metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update user metadata
+     * @param param the request object
+     */
+    public updateUserMetadata(param: UserApiUpdateUserMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.updateUserMetadata(param.userId, param.apiToken, param.updateUserMetadataRequest,  options).toPromise();
+    }
+
+    /**
      * ## View a user  You can retrieve information about a user using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/get-a-user#1-get-a-user  `user_id`   Type: string   Description: Specifies the unique ID of the user to retrieve.
      * View a user
      * @param param the request object
@@ -3799,6 +3973,15 @@ export class ObjectUserApi {
      */
     public viewPushPreferencesForAChannel(param: UserApiViewPushPreferencesForAChannelRequest, options?: Configuration): Promise<ViewPushPreferencesForAChannelResponse> {
         return this.api.viewPushPreferencesForAChannel(param.userId, param.channelUrl, param.apiToken,  options).toPromise();
+    }
+
+    /**
+     * ## Get metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-get-metadata
+     * Get specific user metadata
+     * @param param the request object
+     */
+    public viewSpecificUserMetadata(param: UserApiViewSpecificUserMetadataRequest, options?: Configuration): Promise<any> {
+        return this.api.viewSpecificUserMetadata(param.userId, param.key, param.apiToken,  options).toPromise();
     }
 
     /**

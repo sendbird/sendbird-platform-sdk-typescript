@@ -16,6 +16,7 @@ export * from './CreateAChannelMetadataResponse';
 export * from './CreateAGroupChannelRequest';
 export * from './CreateAUserRequest';
 export * from './CreateAnOpenChannelRequest';
+export * from './CreateUserMetadataRequest';
 export * from './CreateUserTokenRequest';
 export * from './CreateUserTokenResponse';
 export * from './FreezeAGroupChannelRequest';
@@ -114,6 +115,8 @@ export * from './UpdatePushPreferencesForAChannelRequest';
 export * from './UpdatePushPreferencesForAChannelResponse';
 export * from './UpdatePushPreferencesRequest';
 export * from './UpdatePushPreferencesResponse';
+export * from './UpdateSpecificUserMetadataRequest';
+export * from './UpdateUserMetadataRequest';
 export * from './ViewBotByIdResponse';
 export * from './ViewBotByIdResponseBot';
 export * from './ViewCountPreferenceOfAChannelResponse';
@@ -142,6 +145,7 @@ import { CreateAChannelMetadataResponse } from './CreateAChannelMetadataResponse
 import { CreateAGroupChannelRequest } from './CreateAGroupChannelRequest';
 import { CreateAUserRequest } from './CreateAUserRequest';
 import { CreateAnOpenChannelRequest } from './CreateAnOpenChannelRequest';
+import { CreateUserMetadataRequest } from './CreateUserMetadataRequest';
 import { CreateUserTokenRequest } from './CreateUserTokenRequest';
 import { CreateUserTokenResponse } from './CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from './FreezeAGroupChannelRequest';
@@ -240,6 +244,8 @@ import { UpdatePushPreferencesForAChannelRequest, UpdatePushPreferencesForAChann
 import { UpdatePushPreferencesForAChannelResponse } from './UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from './UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from './UpdatePushPreferencesResponse';
+import { UpdateSpecificUserMetadataRequest } from './UpdateSpecificUserMetadataRequest';
+import { UpdateUserMetadataRequest } from './UpdateUserMetadataRequest';
 import { ViewBotByIdResponse } from './ViewBotByIdResponse';
 import { ViewBotByIdResponseBot } from './ViewBotByIdResponseBot';
 import { ViewCountPreferenceOfAChannelResponse, ViewCountPreferenceOfAChannelResponseCountPreferenceEnum   } from './ViewCountPreferenceOfAChannelResponse';
@@ -330,6 +336,7 @@ let typeMap: {[index: string]: any} = {
     "CreateAGroupChannelRequest": CreateAGroupChannelRequest,
     "CreateAUserRequest": CreateAUserRequest,
     "CreateAnOpenChannelRequest": CreateAnOpenChannelRequest,
+    "CreateUserMetadataRequest": CreateUserMetadataRequest,
     "CreateUserTokenRequest": CreateUserTokenRequest,
     "CreateUserTokenResponse": CreateUserTokenResponse,
     "FreezeAGroupChannelRequest": FreezeAGroupChannelRequest,
@@ -427,6 +434,8 @@ let typeMap: {[index: string]: any} = {
     "UpdatePushPreferencesForAChannelResponse": UpdatePushPreferencesForAChannelResponse,
     "UpdatePushPreferencesRequest": UpdatePushPreferencesRequest,
     "UpdatePushPreferencesResponse": UpdatePushPreferencesResponse,
+    "UpdateSpecificUserMetadataRequest": UpdateSpecificUserMetadataRequest,
+    "UpdateUserMetadataRequest": UpdateUserMetadataRequest,
     "ViewBotByIdResponse": ViewBotByIdResponse,
     "ViewBotByIdResponseBot": ViewBotByIdResponseBot,
     "ViewCountPreferenceOfAChannelResponse": ViewCountPreferenceOfAChannelResponse,

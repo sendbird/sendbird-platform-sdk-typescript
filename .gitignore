@@ -3,3 +3,4 @@ node_modules/
 
 .env.*
 .openapi-generator-ignore
+.npmrc

@@ -15,6 +15,7 @@ import { AddARegistrationOrDeviceTokenResponse } from '../models/AddARegistratio
 import { ChooseAPushNotificationContentTemplateRequest } from '../models/ChooseAPushNotificationContentTemplateRequest';
 import { ChooseAPushNotificationContentTemplateResponse } from '../models/ChooseAPushNotificationContentTemplateResponse';
 import { CreateAUserRequest } from '../models/CreateAUserRequest';
+import { CreateUserMetadataRequest } from '../models/CreateUserMetadataRequest';
 import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { GetChannelInvitationPreferenceResponse } from '../models/GetChannelInvitationPreferenceResponse';
@@ -36,6 +37,8 @@ import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPre
 import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
+import { UpdateSpecificUserMetadataRequest } from '../models/UpdateSpecificUserMetadataRequest';
+import { UpdateUserMetadataRequest } from '../models/UpdateUserMetadataRequest';
 import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
 import { ViewNumberOfChannelsWithUnreadMessagesResponse } from '../models/ViewNumberOfChannelsWithUnreadMessagesResponse';
 import { ViewNumberOfUnreadMessagesResponse } from '../models/ViewNumberOfUnreadMessagesResponse';
@@ -198,6 +201,56 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Create metadata When creating new items of the user metadata. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-create-metadata
+     * Create user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param createUserMetadataRequest 
+     */
+    public async createUserMetadata(userId: string, apiToken?: string, createUserMetadataRequest?: CreateUserMetadataRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "createUserMetadata", "userId");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(createUserMetadataRequest, "CreateUserMetadataRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## Create user token  This action issues a session token for user authentication. Session tokens provide an efficient stateless authentication method by not storing the tokens in the Sendbird database, and thus improving the server's performance. See [access token vs. session token](https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#2-access-token-vs-session-token) to learn more about authenticating users.  > **Note**: The endpoint `/users/{user_id}` is deprecated. Use `/users/{user_id}/token` for greater efficiency.      https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token#1-issue-a-session-token
      * Create user token
      * @param userId (Required) 
@@ -265,6 +318,88 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/v3/users/{user_id}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Delete metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     */
+    public async deleteSpecificUserMetadata(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "deleteSpecificUserMetadata", "userId");
+        }
+
+
+        // verify required parameter 'key' is not null or undefined
+        if (key === null || key === undefined) {
+            throw new RequiredError("UserApi", "deleteSpecificUserMetadata", "key");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata/{key}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)))
+            .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Delete metadata You can delete a specific or all metadata of a user. Metadata stores additional user information such as their preference settings. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public async deleteUserAllMetadata(userId: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "deleteUserAllMetadata", "userId");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata'
             .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
 
         // Make Request Context
@@ -1333,6 +1468,114 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Update metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update specific user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     * @param updateSpecificUserMetadataRequest 
+     */
+    public async updateSpecificUserMetadata(userId: string, key: string, apiToken?: string, updateSpecificUserMetadataRequest?: UpdateSpecificUserMetadataRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "updateSpecificUserMetadata", "userId");
+        }
+
+
+        // verify required parameter 'key' is not null or undefined
+        if (key === null || key === undefined) {
+            throw new RequiredError("UserApi", "updateSpecificUserMetadata", "key");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata/{key}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)))
+            .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(updateSpecificUserMetadataRequest, "UpdateSpecificUserMetadataRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * ## Update metadata When updating existing items of the user metadata by their keys or adding new items to the metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param updateUserMetadataRequest 
+     */
+    public async updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataRequest?: UpdateUserMetadataRequest, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "updateUserMetadata", "userId");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(updateUserMetadataRequest, "UpdateUserMetadataRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## View a user  You can retrieve information about a user using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/get-a-user#1-get-a-user  `user_id`   Type: string   Description: Specifies the unique ID of the user to retrieve.
      * View a user
      * @param userId (Required) 
@@ -1620,6 +1863,51 @@ export class UserApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * ## Get metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-get-metadata
+     * Get specific user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     */
+    public async viewSpecificUserMetadata(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("UserApi", "viewSpecificUserMetadata", "userId");
+        }
+
+
+        // verify required parameter 'key' is not null or undefined
+        if (key === null || key === undefined) {
+            throw new RequiredError("UserApi", "viewSpecificUserMetadata", "key");
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/v3/users/{user_id}/metadata/{key}'
+            .replace('{' + 'user_id' + '}', encodeURIComponent(String(userId)))
+            .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("api-token", ObjectSerializer.serialize(apiToken, "string", ""));
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * ## View who owns a registration or device token  Retrieves a user who owns a FCM registration token, HMS device token, or APNs device token. You can pass one of two values in `token_type`: `gcm`, `huawei`, or `apns`, depending on which push service you are using.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-view-who-owns-a-registration-or-device-token ----------------------------
      * View who owns a registration or device token
      * @param tokenType (Required) 
@@ -1759,6 +2047,35 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to createUserMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createUserMetadata(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to createUserToken
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1792,6 +2109,64 @@ export class UserApiResponseProcessor {
      * @throws ApiException if the response code was not in [200, 299]
      */
      public async deleteAUser(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteSpecificUserMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async deleteSpecificUserMetadata(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteUserAllMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async deleteUserAllMetadata(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -2252,6 +2627,64 @@ export class UserApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to updateSpecificUserMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async updateSpecificUserMetadata(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to updateUserMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async updateUserMetadata(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to viewAUser
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2416,6 +2849,35 @@ export class UserApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ViewPushPreferencesForAChannelResponse", ""
             ) as ViewPushPreferencesForAChannelResponse;
+            return body;
+        }
+
+        throw new ApiException<string | Buffer | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to viewSpecificUserMetadata
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async viewSpecificUserMetadata(response: ResponseContext): Promise<any > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
+            return body;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: any = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "any", ""
+            ) as any;
             return body;
         }
 

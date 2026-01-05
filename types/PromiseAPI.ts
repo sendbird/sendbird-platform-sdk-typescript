@@ -20,6 +20,7 @@ import { CreateAChannelMetadataResponse } from '../models/CreateAChannelMetadata
 import { CreateAGroupChannelRequest } from '../models/CreateAGroupChannelRequest';
 import { CreateAUserRequest } from '../models/CreateAUserRequest';
 import { CreateAnOpenChannelRequest } from '../models/CreateAnOpenChannelRequest';
+import { CreateUserMetadataRequest } from '../models/CreateUserMetadataRequest';
 import { CreateUserTokenRequest } from '../models/CreateUserTokenRequest';
 import { CreateUserTokenResponse } from '../models/CreateUserTokenResponse';
 import { FreezeAGroupChannelRequest } from '../models/FreezeAGroupChannelRequest';
@@ -118,6 +119,8 @@ import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPre
 import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
+import { UpdateSpecificUserMetadataRequest } from '../models/UpdateSpecificUserMetadataRequest';
+import { UpdateUserMetadataRequest } from '../models/UpdateUserMetadataRequest';
 import { ViewBotByIdResponse } from '../models/ViewBotByIdResponse';
 import { ViewBotByIdResponseBot } from '../models/ViewBotByIdResponseBot';
 import { ViewCountPreferenceOfAChannelResponse } from '../models/ViewCountPreferenceOfAChannelResponse';
@@ -1154,6 +1157,18 @@ export class PromiseUserApi {
     }
 
     /**
+     * ## Create metadata When creating new items of the user metadata. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-create-metadata
+     * Create user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param createUserMetadataRequest 
+     */
+    public createUserMetadata(userId: string, apiToken?: string, createUserMetadataRequest?: CreateUserMetadataRequest, _options?: Configuration): Promise<any> {
+        const result = this.api.createUserMetadata(userId, apiToken, createUserMetadataRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
      * ## Create user token  This action issues a session token for user authentication. Session tokens provide an efficient stateless authentication method by not storing the tokens in the Sendbird database, and thus improving the server's performance. See [access token vs. session token](https://sendbird.com/docs/chat/platform-api/v3/user/creating-users/create-a-user#2-access-token-vs-session-token) to learn more about authenticating users.  > **Note**: The endpoint `/users/{user_id}` is deprecated. Use `/users/{user_id}/token` for greater efficiency.      https://sendbird.com/docs/chat/platform-api/v3/user/managing-session-tokens/issue-a-session-token#1-issue-a-session-token
      * Create user token
      * @param userId (Required) 
@@ -1173,6 +1188,29 @@ export class PromiseUserApi {
      */
     public deleteAUser(userId: string, apiToken?: string, _options?: Configuration): Promise<any> {
         const result = this.api.deleteAUser(userId, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Delete metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     */
+    public deleteSpecificUserMetadata(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteSpecificUserMetadata(userId, key, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Delete metadata You can delete a specific or all metadata of a user. Metadata stores additional user information such as their preference settings. https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-delete-metadata
+     * Delete user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     */
+    public deleteUserAllMetadata(userId: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteUserAllMetadata(userId, apiToken, _options);
         return result.toPromise();
     }
 
@@ -1405,6 +1443,31 @@ export class PromiseUserApi {
     }
 
     /**
+     * ## Update metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update specific user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     * @param updateSpecificUserMetadataRequest 
+     */
+    public updateSpecificUserMetadata(userId: string, key: string, apiToken?: string, updateSpecificUserMetadataRequest?: UpdateSpecificUserMetadataRequest, _options?: Configuration): Promise<any> {
+        const result = this.api.updateSpecificUserMetadata(userId, key, apiToken, updateSpecificUserMetadataRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Update metadata When updating existing items of the user metadata by their keys or adding new items to the metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-update-metadata
+     * Update user metadata
+     * @param userId (Required) 
+     * @param apiToken 
+     * @param updateUserMetadataRequest 
+     */
+    public updateUserMetadata(userId: string, apiToken?: string, updateUserMetadataRequest?: UpdateUserMetadataRequest, _options?: Configuration): Promise<any> {
+        const result = this.api.updateUserMetadata(userId, apiToken, updateUserMetadataRequest, _options);
+        return result.toPromise();
+    }
+
+    /**
      * ## View a user  You can retrieve information about a user using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/listing-users/get-a-user#1-get-a-user  `user_id`   Type: string   Description: Specifies the unique ID of the user to retrieve.
      * View a user
      * @param userId (Required) 
@@ -1476,6 +1539,18 @@ export class PromiseUserApi {
      */
     public viewPushPreferencesForAChannel(userId: string, channelUrl: string, apiToken?: string, _options?: Configuration): Promise<ViewPushPreferencesForAChannelResponse> {
         const result = this.api.viewPushPreferencesForAChannel(userId, channelUrl, apiToken, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * ## Get metadata https://sendbird.com/docs/chat/platform-api/v3/user/managing-metadata/user-get-metadata
+     * Get specific user metadata
+     * @param userId (Required) 
+     * @param key 
+     * @param apiToken 
+     */
+    public viewSpecificUserMetadata(userId: string, key: string, apiToken?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.viewSpecificUserMetadata(userId, key, apiToken, _options);
         return result.toPromise();
     }
 

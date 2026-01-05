@@ -34,6 +34,7 @@ models/CreateAChannelMetadataResponse.ts
 models/CreateAGroupChannelRequest.ts
 models/CreateAUserRequest.ts
 models/CreateAnOpenChannelRequest.ts
+models/CreateUserMetadataRequest.ts
 models/CreateUserTokenRequest.ts
 models/CreateUserTokenResponse.ts
 models/FreezeAGroupChannelRequest.ts
@@ -133,6 +134,8 @@ models/UpdatePushPreferencesForAChannelRequest.ts
 models/UpdatePushPreferencesForAChannelResponse.ts
 models/UpdatePushPreferencesRequest.ts
 models/UpdatePushPreferencesResponse.ts
+models/UpdateSpecificUserMetadataRequest.ts
+models/UpdateUserMetadataRequest.ts
 models/ViewBotByIdResponse.ts
 models/ViewBotByIdResponseBot.ts
 models/ViewCountPreferenceOfAChannelResponse.ts

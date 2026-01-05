@@ -570,4 +570,239 @@ describe("User API", () => {
 
     expect(deleteAUserResponse).toBeDefined();
   });
+
+  it("call createUserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    const createMetadataResponse = await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+        },
+      },
+    });
+
+    expect(createMetadataResponse).toBeDefined();
+    expect(typeof createMetadataResponse).toBe("object");
+    expect(createMetadataResponse).toHaveProperty(TEST_METADATA_KEY);
+    expect(createMetadataResponse[TEST_METADATA_KEY]).toBe(
+      TEST_METADATA_VALUE
+    );
+  });
+  it("call deleteUserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+        },
+      },
+    });
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      fail(`error deleting metadata: ${e}`);
+    }
+  });
+  it("call updateUserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+        },
+      },
+    });
+
+    const UPDATED_METADATA_VALUE = "updated_test_value";
+
+    const updateMetadataResponse = await userApi.updateUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      updateUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: UPDATED_METADATA_VALUE,
+        },
+      },
+    });
+
+    expect(updateMetadataResponse).toBeDefined();
+    expect(typeof updateMetadataResponse).toBe("object");
+    expect(updateMetadataResponse).toHaveProperty(TEST_METADATA_KEY);
+    expect(updateMetadataResponse[TEST_METADATA_KEY]).toBe(
+      UPDATED_METADATA_VALUE
+    );
+  });
+  it("call Get Specific UserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+    const TEST_METADATA_KEY_1 = "create_metadata_key_1";
+    const TEST_METADATA_VALUE_1 = "test_value_1";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+          [TEST_METADATA_KEY_1]: TEST_METADATA_VALUE_1,
+        },
+      },
+    });
+
+    const getSpecificMetadataResponse = await userApi.viewSpecificUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      key: TEST_METADATA_KEY_1,
+    });
+
+    expect(getSpecificMetadataResponse).toBeDefined();
+    expect(typeof getSpecificMetadataResponse).toBe("object");
+    expect(getSpecificMetadataResponse).toHaveProperty(TEST_METADATA_KEY_1);
+    expect(getSpecificMetadataResponse[TEST_METADATA_KEY_1]).toBe(
+      TEST_METADATA_VALUE_1
+    );
+  });
+  it("call Update Specific UserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+    const TEST_METADATA_KEY_1 = "create_metadata_key_1";
+    const TEST_METADATA_VALUE_1 = "test_value_1";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+          [TEST_METADATA_KEY_1]: TEST_METADATA_VALUE_1,
+        },
+      },
+    });
+
+    const UPDATED_METADATA_VALUE_1 = "updated_test_value_1";
+    const updateSpecificMetadataResponse = await userApi.updateSpecificUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      key: TEST_METADATA_KEY_1,
+      updateSpecificUserMetadataRequest: {
+        value: UPDATED_METADATA_VALUE_1,
+      },
+    });
+
+    expect(updateSpecificMetadataResponse).toBeDefined();
+    expect(typeof updateSpecificMetadataResponse).toBe("object");
+    expect(updateSpecificMetadataResponse).toHaveProperty(TEST_METADATA_KEY_1);
+    expect(updateSpecificMetadataResponse[TEST_METADATA_KEY_1]).toBe(
+      UPDATED_METADATA_VALUE_1
+    );
+  });
+  it("call Delete Specific UserMetadata", async () => {
+    const TEST_METADATA_KEY = "create_metadata_key";
+    const TEST_METADATA_VALUE = "test_value";
+    const TEST_METADATA_KEY_1 = "create_metadata_key_1";
+    const TEST_METADATA_VALUE_1 = "test_value_1";
+
+    try {
+      await userApi.deleteUserAllMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+      });
+    } catch (e) {
+      console.warn("ignoring error deleting metadata:", e);
+    }
+
+    await userApi.createUserMetadata({
+      userId: MASTER_USER_ID,
+      apiToken: API_TOKEN,
+      createUserMetadataRequest: {
+        metadata: {
+          [TEST_METADATA_KEY]: TEST_METADATA_VALUE,
+          [TEST_METADATA_KEY_1]: TEST_METADATA_VALUE_1,
+        },
+      },
+    });
+
+    try {
+      await userApi.deleteSpecificUserMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+        key: TEST_METADATA_KEY_1,
+      });
+    } catch (e) {
+      fail(`error deleting specific metadata: ${e}`);
+    }
+
+    try {
+      await userApi.viewSpecificUserMetadata({
+        userId: MASTER_USER_ID,
+        apiToken: API_TOKEN,
+        key: TEST_METADATA_KEY_1,
+      });
+    } catch (e) {
+      const errorBody = JSON.parse((e as any).body);
+      expect(errorBody).toBeDefined();
+      expect(errorBody['code']).toBe(400201);
+    }
+  });
 });

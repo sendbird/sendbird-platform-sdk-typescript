@@ -110,6 +110,155 @@ describe("User API", () => {
     expect(typeof response.timezone).toBe("string");
   });
 
+  it("call updatePushPreferences with dndSchedules and verify response", async () => {
+    // 1) 사전 초기화
+    await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: { dndSchedules: [] },
+    });
+
+    // 2) dndSchedules 설정 (자정을 넘기는 윈도우 포함)
+    // 서버는 자정 넘는 윈도우를 자동 분할:
+    //   monday 22:00~07:00 → monday 22:00~23:59 + tuesday 00:00~07:00
+    //   friday 23:30~06:00 → friday 23:30~23:59 + saturday 00:00~06:00
+    const response = await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [
+          {
+            dayOfWeek: "monday",
+            timeWindows: [
+              { startHour: 22, startMin: 0, endHour: 7, endMin: 0 },
+            ],
+          },
+          {
+            dayOfWeek: "friday",
+            timeWindows: [
+              { startHour: 23, startMin: 30, endHour: 6, endMin: 0 },
+              { startHour: 12, startMin: 0, endHour: 13, endMin: 0 },
+            ],
+          },
+        ],
+      },
+    });
+
+    // 3) 응답 검증 - 서버가 자정 넘는 윈도우를 분할하므로 4개 스케줄 반환
+    expect(response).toHaveProperty("dndSchedules");
+    expect(Array.isArray(response.dndSchedules)).toBe(true);
+    expect(response.dndSchedules!.length).toBe(4);
+
+    // monday: 22:00~23:59 (분할된 앞부분)
+    const monday = response.dndSchedules!.find((s) => s.dayOfWeek === "monday");
+    expect(monday).toBeDefined();
+    expect(monday!.timeWindows![0].startHour).toBe(22);
+    expect(monday!.timeWindows![0].endHour).toBe(23);
+    expect(monday!.timeWindows![0].endMin).toBe(59);
+
+    // tuesday: 00:00~07:00 (분할된 뒷부분)
+    const tuesday = response.dndSchedules!.find((s) => s.dayOfWeek === "tuesday");
+    expect(tuesday).toBeDefined();
+    expect(tuesday!.timeWindows![0].startHour).toBe(0);
+    expect(tuesday!.timeWindows![0].endHour).toBe(7);
+
+    // friday: 23:30~23:59 (분할), 12:00~13:00 (그대로)
+    const friday = response.dndSchedules!.find((s) => s.dayOfWeek === "friday");
+    expect(friday).toBeDefined();
+    expect(friday!.timeWindows!.length).toBe(2);
+
+    // saturday: 00:00~06:00 (friday 23:30~06:00의 분할된 뒷부분)
+    const saturday = response.dndSchedules!.find((s) => s.dayOfWeek === "saturday");
+    expect(saturday).toBeDefined();
+    expect(saturday!.timeWindows![0].startHour).toBe(0);
+    expect(saturday!.timeWindows![0].endHour).toBe(6);
+
+    // 4) GET으로 재확인
+    const view = await userApi.viewPushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+    });
+    expect(view).toHaveProperty("dndSchedules");
+    expect(Array.isArray(view.dndSchedules)).toBe(true);
+    expect(view.dndSchedules!.length).toBe(4);
+
+    // 5) 원상 복원
+    await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [],
+      },
+    });
+  });
+
+  it("call updatePushPreferences with single day dndSchedule", async () => {
+    // 단일 요일 설정
+    const response = await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [
+          {
+            dayOfWeek: "wednesday",
+            timeWindows: [
+              { startHour: 0, startMin: 0, endHour: 6, endMin: 30 },
+            ],
+          },
+        ],
+      },
+    });
+
+    expect(response).toHaveProperty("dndSchedules");
+    expect(response.dndSchedules!.length).toBe(1);
+    expect(response.dndSchedules![0].dayOfWeek).toBe("wednesday");
+    expect(response.dndSchedules![0].timeWindows!.length).toBe(1);
+    expect(response.dndSchedules![0].timeWindows![0].startHour).toBe(0);
+    expect(response.dndSchedules![0].timeWindows![0].startMin).toBe(0);
+    expect(response.dndSchedules![0].timeWindows![0].endHour).toBe(6);
+    expect(response.dndSchedules![0].timeWindows![0].endMin).toBe(30);
+
+    // 정리
+    await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [],
+      },
+    });
+  });
+
+  it("call updatePushPreferences with empty dndSchedules to clear", async () => {
+    // 먼저 스케줄 설정
+    await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [
+          {
+            dayOfWeek: "sunday",
+            timeWindows: [
+              { startHour: 22, startMin: 0, endHour: 8, endMin: 0 },
+            ],
+          },
+        ],
+      },
+    });
+
+    // 빈 배열로 초기화
+    const response = await userApi.updatePushPreferences({
+      apiToken: API_TOKEN,
+      userId: MASTER_USER_ID,
+      updatePushPreferencesRequest: {
+        dndSchedules: [],
+      },
+    });
+
+    expect(response).toHaveProperty("dndSchedules");
+    expect(Array.isArray(response.dndSchedules)).toBe(true);
+    expect(response.dndSchedules!.length).toBe(0);
+  });
+
   it("call removeARegistrationOrDeviceTokenWhenUnregisteringASpecificToken after addARegistrationOrDeviceToken", async () => {
     const TOKEN_TYPE = "GCM";
     const TEST_GCM_TOKEN = "dummy-token-123";

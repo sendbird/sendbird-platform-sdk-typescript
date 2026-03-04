@@ -11,6 +11,7 @@
  */
 
 import { SendbirdPushTriggerOption } from './SendbirdPushTriggerOption';
+import { UpdatePushPreferencesRequestDndSchedulesInner } from './UpdatePushPreferencesRequestDndSchedulesInner';
 import { HttpFile } from '../http/http';
 
 export class UpdatePushPreferencesResponse {
@@ -28,6 +29,7 @@ export class UpdatePushPreferencesResponse {
     'startHour'?: number;
     'startMin'?: number;
     'timezone'?: string;
+    'dndSchedules'?: Array<UpdatePushPreferencesRequestDndSchedulesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -114,6 +116,12 @@ export class UpdatePushPreferencesResponse {
             "name": "timezone",
             "baseName": "timezone",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "dndSchedules",
+            "baseName": "dnd_schedules",
+            "type": "Array<UpdatePushPreferencesRequestDndSchedulesInner>",
             "format": ""
         }    ];
 

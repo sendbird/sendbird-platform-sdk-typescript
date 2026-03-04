@@ -1,6 +1,6 @@
 {
   "name": "@sendbird/sendbird-platform-sdk-typescript",
-  "version": "2.1.2",
+  "version": "2.1.5",
   "description": "OpenAPI client for sendbird-platform-sdk-typescript",
   "author": "OpenAPI-Generator Contributors",
   "repository": {

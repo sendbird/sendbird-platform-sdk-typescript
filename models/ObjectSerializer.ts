@@ -114,6 +114,8 @@ export * from './UpdateExtraDataInAMessageResponse';
 export * from './UpdatePushPreferencesForAChannelRequest';
 export * from './UpdatePushPreferencesForAChannelResponse';
 export * from './UpdatePushPreferencesRequest';
+export * from './UpdatePushPreferencesRequestDndSchedulesInner';
+export * from './UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner';
 export * from './UpdatePushPreferencesResponse';
 export * from './UpdateSpecificUserMetadataRequest';
 export * from './UpdateUserMetadataRequest';
@@ -243,6 +245,8 @@ import { UpdateExtraDataInAMessageResponse } from './UpdateExtraDataInAMessageRe
 import { UpdatePushPreferencesForAChannelRequest, UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum    } from './UpdatePushPreferencesForAChannelRequest';
 import { UpdatePushPreferencesForAChannelResponse } from './UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from './UpdatePushPreferencesRequest';
+import { UpdatePushPreferencesRequestDndSchedulesInner, UpdatePushPreferencesRequestDndSchedulesInnerDayOfWeekEnum    } from './UpdatePushPreferencesRequestDndSchedulesInner';
+import { UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner } from './UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner';
 import { UpdatePushPreferencesResponse } from './UpdatePushPreferencesResponse';
 import { UpdateSpecificUserMetadataRequest } from './UpdateSpecificUserMetadataRequest';
 import { UpdateUserMetadataRequest } from './UpdateUserMetadataRequest';
@@ -314,6 +318,7 @@ let enumsMap: Set<string> = new Set<string>([
     "UpdateCountPreferenceOfAChannelRequestCountPreferenceEnum",
     "UpdateCountPreferenceOfChannelByUrlResponseCountPreferenceEnum",
     "UpdatePushPreferencesForAChannelRequestPushTriggerOptionEnum",
+    "UpdatePushPreferencesRequestDndSchedulesInnerDayOfWeekEnum",
     "ViewCountPreferenceOfAChannelResponseCountPreferenceEnum",
 ]);
 
@@ -433,6 +438,8 @@ let typeMap: {[index: string]: any} = {
     "UpdatePushPreferencesForAChannelRequest": UpdatePushPreferencesForAChannelRequest,
     "UpdatePushPreferencesForAChannelResponse": UpdatePushPreferencesForAChannelResponse,
     "UpdatePushPreferencesRequest": UpdatePushPreferencesRequest,
+    "UpdatePushPreferencesRequestDndSchedulesInner": UpdatePushPreferencesRequestDndSchedulesInner,
+    "UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner": UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner,
     "UpdatePushPreferencesResponse": UpdatePushPreferencesResponse,
     "UpdateSpecificUserMetadataRequest": UpdateSpecificUserMetadataRequest,
     "UpdateUserMetadataRequest": UpdateUserMetadataRequest,

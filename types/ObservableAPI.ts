@@ -119,6 +119,8 @@ import { UpdateExtraDataInAMessageResponse } from '../models/UpdateExtraDataInAM
 import { UpdatePushPreferencesForAChannelRequest } from '../models/UpdatePushPreferencesForAChannelRequest';
 import { UpdatePushPreferencesForAChannelResponse } from '../models/UpdatePushPreferencesForAChannelResponse';
 import { UpdatePushPreferencesRequest } from '../models/UpdatePushPreferencesRequest';
+import { UpdatePushPreferencesRequestDndSchedulesInner } from '../models/UpdatePushPreferencesRequestDndSchedulesInner';
+import { UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner } from '../models/UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner';
 import { UpdatePushPreferencesResponse } from '../models/UpdatePushPreferencesResponse';
 import { UpdateSpecificUserMetadataRequest } from '../models/UpdateSpecificUserMetadataRequest';
 import { UpdateUserMetadataRequest } from '../models/UpdateUserMetadataRequest';

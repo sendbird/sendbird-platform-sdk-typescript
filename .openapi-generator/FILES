@@ -133,6 +133,8 @@ models/UpdateExtraDataInAMessageResponse.ts
 models/UpdatePushPreferencesForAChannelRequest.ts
 models/UpdatePushPreferencesForAChannelResponse.ts
 models/UpdatePushPreferencesRequest.ts
+models/UpdatePushPreferencesRequestDndSchedulesInner.ts
+models/UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner.ts
 models/UpdatePushPreferencesResponse.ts
 models/UpdateSpecificUserMetadataRequest.ts
 models/UpdateUserMetadataRequest.ts

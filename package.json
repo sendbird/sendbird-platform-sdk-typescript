@@ -1,6 +1,6 @@
 {
   "name": "@sendbird/sendbird-platform-sdk-typescript",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "private": true,
   "description": "OpenAPI client for sendbird-platform-sdk-typescript",
   "author": "OpenAPI-Generator Contributors",
@@ -22,9 +22,10 @@
   },
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc -p tsconfig.json && node scripts/prepare-publish.js",
     "prepare": "npm run build",
-    "prepare-publish": "npm run build && node scripts/prepare-publish.js",
+    "prepare-publish": "node scripts/prepare-publish.js",
+    "pack:publish": "npm pack ./dist",
     "test:integration": "jest"
   },
   "dependencies": {

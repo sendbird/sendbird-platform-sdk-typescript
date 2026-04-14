@@ -29,3 +29,5 @@ tsconfig.json
 README.md
 .env.*
 tests/**
+./scripts
+package.publish.json

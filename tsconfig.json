@@ -17,13 +17,14 @@
     "outDir": "./dist",
     "noLib": false,
     "lib": [ "ES2015" ],
-    "types": ["jest"]
+    "types": ["node", "jest"]
   },
   "exclude": [
     "dist",
-    "node_modules"
-  ],
-  "filesGlob": [
-    "./**/*.ts",
+    "node_modules",
+    "src",
+    "tests",
+    "jest.config.ts",
+    "jest.setup.ts"
   ]
 }

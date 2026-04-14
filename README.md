@@ -8,8 +8,8 @@ With this library you can extend your Sendbird integration to include advanced f
 
 # 🔥 Quick start
 
-```javascript  
-import * as sendbird from 'sendbird-platform-sdk-typescript';
+```javascript
+import * as sendbird from '@sendbird/sendbird-platform-sdk-typescript';
 const APP_ID = "YOUR_APP_ID_FROM_DASHBOARD";
 const API_TOKEN = "YOUR_MASTER_API_TOKEN_FROM_DASHBOARD";
 const serverConfig = new sendbird.ServerConfiguration("https://api-{app_id}.sendbird.com", { "app_id": APP_ID })
@@ -40,8 +40,7 @@ userAPI.createUser(API_TOKEN, userData).then((user) => {
 
 # ⚠️ Warnings
 
- 1. This package is not currently in npm. Please see  the Local development section for installation instructions.
- 2. This library is intended for server to server requests. **Do not use in a browser environment**. This SDK uses the Master API Token, which should never be exposed to the outside world like in a webpage or app.
+1. This library is intended for server to server requests. **Do not use in a browser environment**. This SDK uses the Master API Token, which should never be exposed to the outside world like in a webpage or app.
 
 # ⚒️ Prerequisite
 
@@ -54,20 +53,21 @@ You will need [Node.js](https://nodejs.org/en/download/) installed. This has bee
 
 # ⚙️ Installation
 
-🚨 Package not yet in npm 🚨
-```npm install sendbird-platform-sdk-typescript```
+```sh
+npm install @sendbird/sendbird-platform-sdk-typescript
+```
 
 # 🤓 Local Development
 
- 1. Clone the repository
- 2. cd to the `sendbird-platform-sdk-typescript` directory
- 3. run `npm install`
- 4. cd to your project directory
- 5. run `npm install /path/to/sendbird-platform-sdk-typescript --save`
+1. Clone the repository
+2. `cd` to the `sendbird-platform-sdk-typescript` directory
+3. Run `npm install`
+4. Run `npm run build` to create a publish-ready `dist/` directory.
+5. Run `npm pack ./dist` to verify the package contents locally.
 
 
 # 🗃️ Documentation 
-All the documentation for this project lives in the /docs directory of this repo. 
+All the documentation for this project lives in the top-level markdown files in this repo and is copied into `dist/` for packaging.
 
 ##### Helpful links
 

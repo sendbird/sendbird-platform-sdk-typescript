@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2.1.6] - 2026-04-14
+
+### Fixed
+- Fixed build and publish pipeline
+
+---
+
+## [2.1.5] - 2026-03-13
+
+> ⚠️ This version is not usable via npm due to a missing `dist/` folder in the published package. Please use 2.1.6 or later.
+
+### Added
+- Weekly Do Not Disturb schedules (`dnd_schedules`) support in Push Preferences API
+  - Configure DND time windows per day of the week (`monday`–`sunday`)
+  - Each day supports multiple time windows with `start_hour`, `start_min`, `end_hour`, `end_min`
+
+---
+
 ## [2.0.0] - 2024-06-24
 
 ### Added

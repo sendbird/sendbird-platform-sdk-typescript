@@ -3,8 +3,10 @@
     "strict": true,
     /* Basic Options */
     "target": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
+    "esModuleInterop": true,
 
     /* Additional Checks */
      "noUnusedLocals": false,                /* Report errors on unused locals. */ // TODO: reenable (unused imports!)

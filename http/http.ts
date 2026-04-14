@@ -1,9 +1,9 @@
 // TODO: evaluate if we can easily get rid of this library
-import * as FormData from "form-data";
+import FormData from "form-data";
 import { URLSearchParams } from 'url';
 import * as http from 'http';
 import * as https from 'https';
-import * as URLParse from "url-parse";
+import URLParse from "url-parse";
 import { Observable, from } from '../rxjsStub';
 
 export * from './isomorphic-fetch';
@@ -49,7 +49,7 @@ export type RequestBody = undefined | string | FormData | URLSearchParams;
 export class RequestContext {
     private headers: { [key: string]: string } = {};
     private body: RequestBody = undefined;
-    private url: URLParse;
+    private url: InstanceType<typeof URLParse>;
     private agent: http.Agent | https.Agent | undefined = undefined;
 
     /**

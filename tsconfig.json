@@ -3,8 +3,10 @@
     "strict": true,
     /* Basic Options */
     "target": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
+    "esModuleInterop": true,
 
     /* Additional Checks */
      "noUnusedLocals": false,                /* Report errors on unused locals. */ // TODO: reenable (unused imports!)
@@ -17,13 +19,14 @@
     "outDir": "./dist",
     "noLib": false,
     "lib": [ "ES2015" ],
-    "types": ["jest"]
+    "types": ["node", "jest"]
   },
   "exclude": [
     "dist",
-    "node_modules"
-  ],
-  "filesGlob": [
-    "./**/*.ts",
+    "node_modules",
+    "src",
+    "tests",
+    "jest.config.ts",
+    "jest.setup.ts"
   ]
 }

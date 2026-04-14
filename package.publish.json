@@ -1,0 +1,47 @@
+{
+  "name": "@sendbird/sendbird-platform-sdk-typescript",
+  "description": "OpenAPI client for sendbird-platform-sdk-typescript",
+  "license": "Unlicense",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sendbird/sendbird-platform-sdk-typescript.git"
+  },
+  "keywords": [
+    "fetch",
+    "typescript",
+    "openapi-client",
+    "openapi-generator"
+  ],
+  "dependencies": {
+    "form-data": "^2.5.0",
+    "node-fetch": "^2.6.0",
+    "url-parse": "^1.4.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "apis",
+    "auth",
+    "http",
+    "models",
+    "types",
+    "*.d.ts",
+    "*.js",
+    "*.js.map",
+    "README.md",
+    "CHANGELOG",
+    "LICENSE*",
+    "NOTICE*"
+  ]
+}

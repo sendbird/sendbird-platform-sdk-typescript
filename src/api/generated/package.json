@@ -7,6 +7,10 @@
     "type": "git",
     "url": "https://github.com/sendbird/sendbird-platform-sdk-typescript.git"
   },
+  "homepage": "https://github.com/sendbird/sendbird-platform-sdk-typescript#readme",
+  "bugs": {
+    "url": "https://github.com/sendbird/sendbird-platform-sdk-typescript/issues"
+  },
   "keywords": [
     "fetch",
     "typescript",

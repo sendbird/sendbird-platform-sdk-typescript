@@ -188,6 +188,7 @@ let body:Sendbird.UserApiCreateAUserRequest = {
     issueAccessToken: true,
     metadata: {},
     nickname: "nickname_example",
+    phoneNumber: "+82010XXXXXXXX",
     profileFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
     profileUrl: "profileUrl_example",
     userId: "userId_example",

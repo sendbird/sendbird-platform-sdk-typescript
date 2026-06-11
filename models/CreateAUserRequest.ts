@@ -18,6 +18,10 @@ export class CreateAUserRequest {
     'metadata'?: any;
     'nickname': string;
     /**
+    * Specifies the user's phone number with the country code. e.g. +82010XXXXXXXX
+    */
+    'phoneNumber'?: string;
+    /**
     * Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
     */
     'profileFile'?: HttpFile;
@@ -48,6 +52,12 @@ export class CreateAUserRequest {
         {
             "name": "nickname",
             "baseName": "nickname",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "phoneNumber",
+            "baseName": "phone_number",
             "type": "string",
             "format": ""
         },

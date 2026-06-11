@@ -502,6 +502,7 @@ describe("User API", () => {
     const NEW_USER_NICKNAME = "test-create-user-nickname";
     const DISCOVERY_KEYS = ["a", "b"];
     const PREFERRED_LANGUAGES = ["id", "en"];
+    const NEW_LAST_SEEN_AT = 1740285396142;
     const updateAUserResponse = await userApi.updateAUser({
       userId: USER_ID,
       apiToken: API_TOKEN,
@@ -511,7 +512,7 @@ describe("User API", () => {
         preferredLanguages: PREFERRED_LANGUAGES,
         isActive: true,
         issueAccessToken: true,
-        lastSeenAt: 1740285396142,
+        lastSeenAt: NEW_LAST_SEEN_AT,
         leaveAllWhenDeactivated: true,
       },
     });
@@ -693,7 +694,7 @@ describe("User API", () => {
     expect(typeof updateAUserResponse.isOnline).toBe("boolean");
 
     expect(updateAUserResponse).toHaveProperty("lastSeenAt");
-    expect(updateAUserResponse.lastSeenAt).toBe(-1);
+    expect(updateAUserResponse.lastSeenAt).toBe(NEW_LAST_SEEN_AT);
     expect(typeof updateAUserResponse.lastSeenAt).toBe("number");
 
     expect(updateAUserResponse).toHaveProperty("hasEverLoggedIn");

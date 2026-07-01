@@ -720,6 +720,42 @@ describe("User API", () => {
     expect(deleteAUserResponse).toBeDefined();
   });
 
+  it("call createAUser with phone_number and verify it is set", async () => {
+    const USER_ID = "test-create-user-phone-number";
+    const USER_NICKNAME = "test-create-user-phone-number-nickname";
+    // Sendbird normalizes phone numbers to E.164, dropping the national trunk
+    // "0" (e.g. +82010... is stored as +8210...), so we send an already-
+    // normalized number to keep the exact-match assertion valid. A unique
+    // suffix is generated per run because phone_number has a global uniqueness
+    // constraint that persists even after the user is deleted.
+    const USER_PHONE_NUMBER = `+8210${String(Date.now()).slice(-8)}`;
+
+    try {
+      await userApi.deleteAUser({ userId: USER_ID, apiToken: API_TOKEN });
+    } catch {}
+
+    const createAUserRequest: CreateAUserRequest = {
+      userId: USER_ID,
+      nickname: USER_NICKNAME,
+      profileUrl: "",
+      phoneNumber: USER_PHONE_NUMBER,
+    };
+    const createAUserResponse = await userApi.createAUser({
+      apiToken: API_TOKEN,
+      createAUserRequest,
+    });
+
+    await userApi.deleteAUser({ userId: USER_ID, apiToken: API_TOKEN });
+
+    // The createAUser response echoes the (normalized) phone_number, confirming
+    // the server accepted and processed it. Note: viewAUser/updateAUser
+    // responses omit phone_number, so we assert on the create response.
+    expect(createAUserResponse.userId).toBe(USER_ID);
+    expect(createAUserResponse).toHaveProperty("phoneNumber");
+    expect(createAUserResponse.phoneNumber).toBe(USER_PHONE_NUMBER);
+    expect(typeof createAUserResponse.phoneNumber).toBe("string");
+  });
+
   it("call createUserMetadata", async () => {
     const TEST_METADATA_KEY = "create_metadata_key";
     const TEST_METADATA_VALUE = "test_value";

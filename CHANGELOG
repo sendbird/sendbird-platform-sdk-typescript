@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.1.7] - 2026-07-01
+## [2.1.7] - 2026-07-02
 
 ### Added
 - `phone_number` support in the `createAUser` (`POST /v3/users`) request — a user's phone number (with country code) can now be set at creation. Values are normalized to E.164 by the server (e.g. `+82010…` is stored as `+8210…`).

@@ -18,7 +18,7 @@ export class CreateAUserRequest {
     'metadata'?: any;
     'nickname': string;
     /**
-    * Specifies the user's phone number with the country code. An example would be: +82010XXXXXXXX.
+    * Specifies the user's phone number with the country code. An example would be: +82010XXXXXXXX. Intended for Sendbird Business Messaging (SBM) use (e.g. Alim Talk / SMS). Not recommended for general Chat, as the Platform API advises against storing PII such as phone numbers for data-security and privacy reasons.
     */
     'phoneNumber'?: string;
     /**

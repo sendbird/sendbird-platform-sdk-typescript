@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - `phone_number` support in the `createAUser` (`POST /v3/users`) request — a user's phone number (with country code) can now be set at creation. Values are normalized to E.164 by the server (e.g. `+82010…` is stored as `+8210…`).
 
+> ⚠️ `phone_number` is intended for **Sendbird Business Messaging (SBM)** use (e.g. Alim Talk / SMS). For general **Chat**, setting `phone_number` is **not recommended** — the Platform API advises against storing PII such as phone numbers on users for data-security and privacy reasons.
+
 ---
 
 ## [2.1.6] - 2026-04-14

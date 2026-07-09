@@ -1126,6 +1126,7 @@ let body:Sendbird.UserApiUpdateAUserRequest = {
     preferredLanguages: [
       "preferredLanguages_example",
     ],
+    phoneNumber: "+82010XXXXXXXX",
     profileFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
     profileUrl: "profileUrl_example",
   },

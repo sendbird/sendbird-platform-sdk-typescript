@@ -756,6 +756,76 @@ describe("User API", () => {
     expect(typeof createAUserResponse.phoneNumber).toBe("string");
   });
 
+  it("call updateAUser with phone_number and verify it via listUsers", async () => {
+    const USER_ID = "test-update-user-phone-number";
+    const USER_NICKNAME = "test-update-user-phone-number-nickname";
+    // Send already-E.164-normalized numbers (Sendbird drops the national trunk
+    // "0", e.g. +82010... is stored as +8210...) so exact-match assertions hold.
+    // Use random 8-digit suffixes so numbers don't repeat across runs: a
+    // timestamp suffix (Date.now() % 1e8) would cycle every ~27.8h and could
+    // reuse a prior run's number. Assertions look up by user_id (not by phone),
+    // so this stays correct even if phone-number uniqueness is enabled.
+    const rand8 = () => String(Math.floor(10000000 + Math.random() * 89999999));
+    const INITIAL_PHONE_NUMBER = `+8210${rand8()}`;
+    let UPDATED_PHONE_NUMBER = `+8210${rand8()}`;
+    while (UPDATED_PHONE_NUMBER === INITIAL_PHONE_NUMBER) {
+      UPDATED_PHONE_NUMBER = `+8210${rand8()}`;
+    }
+
+    try {
+      await userApi.deleteAUser({ userId: USER_ID, apiToken: API_TOKEN });
+    } catch {}
+
+    try {
+      // Create the user with an initial phone number.
+      await userApi.createAUser({
+        apiToken: API_TOKEN,
+        createAUserRequest: {
+          userId: USER_ID,
+          nickname: USER_NICKNAME,
+          profileUrl: "",
+          phoneNumber: INITIAL_PHONE_NUMBER,
+        },
+      });
+
+      // Update the phone number via updateAUser.
+      const updateAUserResponse = await userApi.updateAUser({
+        userId: USER_ID,
+        apiToken: API_TOKEN,
+        updateAUserRequest: {
+          phoneNumber: UPDATED_PHONE_NUMBER,
+        },
+      });
+
+      // Read the phone number back. The updateAUser and viewAUser responses omit
+      // phone_number entirely; only createAUser echoes it and listUsers includes
+      // it per user object, so listUsers (filtered by user_ids) is the way to
+      // verify that updateAUser actually persisted the new value.
+      const listUsersResponse = await userApi.listUsers({
+        apiToken: API_TOKEN,
+        userIds: USER_ID,
+        limit: 10,
+      });
+
+      // The updateAUser response itself does not surface phone_number.
+      expect(updateAUserResponse.userId).toBe(USER_ID);
+      expect(updateAUserResponse).not.toHaveProperty("phoneNumber");
+
+      // listUsers reflects the updated (normalized) phone number.
+      const updatedUser = listUsersResponse.users?.find(
+        (user) => user.userId === USER_ID
+      );
+      expect(updatedUser).toBeDefined();
+      expect(updatedUser).toHaveProperty("phoneNumber");
+      expect(updatedUser?.phoneNumber).toBe(UPDATED_PHONE_NUMBER);
+      expect(typeof updatedUser?.phoneNumber).toBe("string");
+    } finally {
+      await userApi
+        .deleteAUser({ userId: USER_ID, apiToken: API_TOKEN })
+        .catch(() => {});
+    }
+  });
+
   it("call createUserMetadata", async () => {
     const TEST_METADATA_KEY = "create_metadata_key";
     const TEST_METADATA_VALUE = "test_value";

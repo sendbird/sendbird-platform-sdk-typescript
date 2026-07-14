@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.1.8] - 2026-07-10
+## [2.1.8] - 2026-07-14
 
 ### Added
 - `phone_number` support in the `updateAUser` (`PUT /v3/users/{user_id}`) request — a user's phone number can now be updated on an existing user. Values are normalized to E.164 by the server (e.g. `+82010…` is stored as `+8210…`). The `updateAUser` and `viewAUser` responses omit `phone_number`; use `listUsers` (which returns it per user) to read the stored value back.

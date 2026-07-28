@@ -49,7 +49,10 @@ In order to make requests with this SDK you will need you master API token. This
 
 # 💻 Requirements
 
-You will need [Node.js](https://nodejs.org/en/download/) installed. This has been developed and tested with NodeJS 17+.
+You will need [Node.js](https://nodejs.org/en/download/) installed.
+
+- **Using the SDK**: it is compiled to ES2015 and its runtime dependencies (`node-fetch`, `form-data`) support Node 6+.
+- **Developing / running the tests in this repo**: Node 20+ is required (the dev toolchain, including the audit-patched `brace-expansion`, requires it).
 
 # ⚙️ Installation
 
